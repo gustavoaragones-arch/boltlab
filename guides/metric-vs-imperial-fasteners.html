@@ -4,8 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Metric vs Imperial Fasteners Guide | BoltLab</title>
-  <meta name="description" content="Practical guide to metric vs imperial fasteners, when to use each system, and how to avoid thread mismatch mistakes.">
+  <meta name="description" content="Metric vs imperial fasteners explained: when to use each system, conversion reference, and how to avoid thread mismatch. Bolt and screw sizing for mechanics and engineers.">
   <link rel="stylesheet" href="/css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "What is the difference between metric and imperial fasteners?", "acceptedAnswer": {"@type": "Answer", "text": "Metric fasteners use millimeters for diameter and thread pitch (e.g. M8 x 1.25). Imperial fasteners use inch-based diameters and threads per inch (e.g. 5/16-18 UNC)."}},
+      {"@type": "Question", "name": "When should I use metric vs imperial bolts?", "acceptedAnswer": {"@type": "Answer", "text": "Use metric for most modern vehicles and ISO-standard machinery. Use imperial for legacy North American equipment and when drawings specify UNC/UNF."}},
+      {"@type": "Question", "name": "Can I substitute a metric bolt for an imperial one?", "acceptedAnswer": {"@type": "Answer", "text": "Do not substitute without checking diameter and pitch. Near-match sizes can strip threads or fail. Use a conversion chart or tool to find correct equivalents."}}
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -15,6 +26,7 @@
         <ul class="nav-list">
           <li><a href="/tools/metric-to-imperial-screw-converter.html">Tools</a></li>
           <li><a href="/charts/screw-size-chart.html">Charts</a></li>
+          <li><a href="/guides/">Guides</a></li>
         </ul>
       </nav>
     </div>
@@ -22,12 +34,36 @@
 
   <main class="container">
     <article>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">BoltLab</a> → <a href="/guides/">Guides</a> → Metric vs Imperial Fasteners
+      </nav>
       <h1>Metric vs Imperial Fasteners</h1>
-      <p class="muted">A field-focused guide for mechanics, engineers, machinists, and DIY builders.</p>
+      <p class="muted">A practical guide to metric and imperial bolt and screw systems for mechanics, engineers, machinists, and DIY builders. <a href="/charts/universal-screw-bolt-size-chart.html">See the complete screw size chart</a>.</p>
 
       <section class="card">
         <h2>What is the difference?</h2>
-        <p>Metric fasteners use millimeters for diameter and thread pitch (for example, M8 x 1.25). Imperial fasteners use inch-based diameters and threads per inch (for example, 5/16-18).</p>
+        <p>Metric fasteners use millimeters for diameter and thread pitch (for example, M8 x 1.25). Imperial fasteners use inch-based diameters and threads per inch (for example, 5/16-18 UNC). Mixing systems without conversion leads to cross-threading and joint failure.</p>
+      </section>
+
+      <section class="card">
+        <h2>Metric vs Imperial comparison chart</h2>
+        <p>Common size equivalents for quick reference. Use a <a href="/tools/metric-to-imperial-screw-converter.html">screw converter tool</a> for exact pitch matching.</p>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Metric</th>
+              <th scope="col">Imperial (closest)</th>
+              <th scope="col">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>M5</td><td>#10-24</td><td>Fine thread common</td></tr>
+            <tr><td>M6</td><td>1/4-20</td><td>Very common</td></tr>
+            <tr><td>M8</td><td>5/16-18</td><td>UNC typical</td></tr>
+            <tr><td>M10</td><td>3/8-16</td><td>UNC typical</td></tr>
+            <tr><td>M12</td><td>1/2-13</td><td>UNC typical</td></tr>
+          </tbody>
+        </table>
       </section>
 
       <section class="card">
@@ -53,8 +89,29 @@
         <ul class="meta-list">
           <li>Always verify diameter and pitch before assembly</li>
           <li>Never force a near-match thread into place</li>
-          <li>Use a tap drill chart before cutting internal threads</li>
-          <li>Keep conversion references available on mobile at the bench</li>
+          <li>Use a <a href="/charts/tap-drill-chart.html">tap drill chart</a> before cutting internal threads</li>
+          <li>Keep conversion references available; use our <a href="/tools/thread-pitch-to-tpi-converter.html">pitch to TPI converter</a> when needed</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>FAQ</h2>
+        <h3>What is the difference between metric and imperial fasteners?</h3>
+        <p>Metric uses millimeter diameter and pitch (e.g. M8 x 1.25). Imperial uses inch diameter and threads per inch (e.g. 5/16-18 UNC).</p>
+        <h3>When should I use metric vs imperial bolts?</h3>
+        <p>Use metric for modern vehicles and ISO machinery. Use imperial for legacy North American equipment and when specs call for UNC/UNF.</p>
+        <h3>Can I substitute a metric bolt for an imperial one?</h3>
+        <p>Do not substitute without verifying diameter and pitch. Use a conversion chart or tool to find correct equivalents and avoid thread damage.</p>
+      </section>
+
+      <section class="card guide-links">
+        <h3>Related tools &amp; references</h3>
+        <ul>
+          <li><a href="/tools/metric-to-imperial-screw-converter.html">Metric to Imperial Screw Converter</a></li>
+          <li><a href="/tools/thread-pitch-to-tpi-converter.html">Thread Pitch to TPI Converter</a></li>
+          <li><a href="/charts/screw-size-chart.html">Screw Size Chart</a></li>
+          <li><a href="/charts/tap-drill-chart.html">Tap Drill Chart</a></li>
+          <li><a href="/guides/thread-pitch-explained.html">Thread Pitch Explained</a></li>
         </ul>
       </section>
     </article>
@@ -73,28 +130,10 @@
     </div>
   </footer>
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Albor Digital LLC",
-      "url": "https://albor.digital",
-      "email": "contact@albor.digital",
-      "sameAs": [
-        "https://boltlab.io"
-      ]
-    }
+    {"@context":"https://schema.org","@type":"Organization","name":"Albor Digital LLC","url":"https://albor.digital","email":"contact@albor.digital","sameAs":["https://boltlab.io"]}
   </script>
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "BoltLab",
-      "url": "https://boltlab.io",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Albor Digital LLC"
-      }
-    }
+    {"@context":"https://schema.org","@type":"WebSite","name":"BoltLab","url":"https://boltlab.io","publisher":{"@type":"Organization","name":"Albor Digital LLC"}}
   </script>
 </body>
 </html>
