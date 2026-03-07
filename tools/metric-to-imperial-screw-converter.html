@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Metric to Imperial Screw Converter | BoltLab</title>
+  <meta name="description" content="Convert common metric screw sizes (M2-M12) to closest imperial thread sizes instantly. Mobile-friendly and fast.">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">BoltLab</a>
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="/tools/thread-pitch-to-tpi-converter.html">Thread pitch tool</a></li>
+          <li><a href="/tools/tap-drill-calculator.html">Tap drill tool</a></li>
+          <li><a href="/charts/screw-size-chart.html">Charts</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article>
+      <h1>Metric to Imperial Screw Converter</h1>
+      <p class="muted">Choose a direction and screw size to see the closest common equivalent instantly.</p>
+
+      <section class="card">
+        <h2>Converter</h2>
+        <form class="form-grid two-col" aria-label="Metric and imperial screw conversion form">
+          <div class="field">
+            <label for="conversion-direction">Direction</label>
+            <select id="conversion-direction" name="conversion-direction">
+              <option value="metric-to-imperial">Metric to imperial</option>
+              <option value="imperial-to-metric">Imperial to metric</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="screw-size">Screw size</label>
+            <select id="screw-size" name="screw-size"></select>
+          </div>
+        </form>
+        <div id="metric-imperial-result" class="result" aria-live="polite"></div>
+      </section>
+
+      <section>
+        <h2>Why use this tool?</h2>
+        <ul class="meta-list">
+          <li>Fast lookup for common workshop conversions</li>
+          <li>Useful for mixed metric and imperial projects</li>
+          <li>Touch-friendly design for mobile and shop use</li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="muted">© 2026 BoltLab · A product of Albor Digital LLC</p>
+      <nav aria-label="Footer">
+        <ul class="nav-list">
+          <li><a href="/about">About Albor Digital</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="/js/data.js" defer></script>
+  <script src="/js/converters.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How accurate are metric to imperial screw conversions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This tool maps common metric screw sizes to their closest commonly used imperial thread equivalents for practical workshop use."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this converter support live updates?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Results update instantly when you change direction or select a different screw size."
+          }
+        }
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Albor Digital LLC",
+      "url": "https://albor.digital",
+      "email": "contact@albor.digital",
+      "sameAs": [
+        "https://boltlab.io"
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "BoltLab",
+      "url": "https://boltlab.io",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Albor Digital LLC"
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tap Drill Calculator | BoltLab</title>
+  <meta name="description" content="Calculate metric tap drill sizes instantly from thread diameter and pitch. Includes common M3 to M10 values.">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">BoltLab</a>
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="/tools/metric-to-imperial-screw-converter.html">Screw converter</a></li>
+          <li><a href="/tools/thread-pitch-to-tpi-converter.html">Pitch tool</a></li>
+          <li><a href="/charts/tap-drill-chart.html">Tap chart</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article>
+      <h1>Tap Drill Calculator</h1>
+      <p class="muted">Pick a metric thread size and optionally adjust pitch. Recommended tap drill size updates instantly.</p>
+
+      <section class="card">
+        <h2>Calculator</h2>
+        <form class="form-grid two-col" aria-label="Tap drill calculator form">
+          <div class="field">
+            <label for="tap-size">Thread size</label>
+            <select id="tap-size" name="tap-size">
+              <option value="M3">M3</option>
+              <option value="M4">M4</option>
+              <option value="M5">M5</option>
+              <option value="M6">M6</option>
+              <option value="M8">M8</option>
+              <option value="M10">M10</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="tap-pitch">Pitch (mm, optional)</label>
+            <input id="tap-pitch" name="tap-pitch" type="number" min="0.2" step="0.05" placeholder="Leave blank for coarse pitch">
+          </div>
+        </form>
+        <div id="tap-result" class="result" aria-live="polite"></div>
+      </section>
+
+      <section>
+        <h2>Calculation method</h2>
+        <p>For metric taps, a common workshop formula is major diameter minus pitch. This tool also shows coarse reference values from a lookup table.</p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="muted">© 2026 BoltLab · A product of Albor Digital LLC</p>
+      <nav aria-label="Footer">
+        <ul class="nav-list">
+          <li><a href="/about">About Albor Digital</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="/js/data.js" defer></script>
+  <script src="/js/converters.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do you calculate tap drill size?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A common metric approximation is major diameter minus thread pitch. For example, M6 x 1.0 gives about 5.0 mm tap drill."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this tool include common metric thread sizes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. It includes M3, M4, M5, M6, M8, and M10 with coarse reference values."
+          }
+        }
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Albor Digital LLC",
+      "url": "https://albor.digital",
+      "email": "contact@albor.digital",
+      "sameAs": [
+        "https://boltlab.io"
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "BoltLab",
+      "url": "https://boltlab.io",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Albor Digital LLC"
+      }
+    }
+  </script>
+</body>
+</html>

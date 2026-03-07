@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thread Identifier Tool | BoltLab</title>
+  <meta name="description" content="Identify metric or imperial bolt thread standards by entering measured diameter and pitch values.">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">BoltLab</a>
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="/tools/metric-to-imperial-screw-converter.html">Screw converter</a></li>
+          <li><a href="/tools/thread-pitch-to-tpi-converter.html">Pitch tool</a></li>
+          <li><a href="/tools/tap-drill-calculator.html">Tap drill tool</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article>
+      <h1>Thread Identifier Tool</h1>
+      <p class="muted">Identify metric or imperial threads by entering diameter and pitch.</p>
+
+      <section class="card">
+        <h2>Identify thread standard</h2>
+        <form class="form-grid two-col" aria-label="Thread identifier form">
+          <div class="field">
+            <label for="thread-diameter">Diameter</label>
+            <input id="thread-diameter" name="thread-diameter" type="number" min="0.01" step="0.001" placeholder="e.g. 6 or 0.25">
+          </div>
+          <div class="field">
+            <label for="thread-diameter-unit">Diameter unit</label>
+            <select id="thread-diameter-unit" name="thread-diameter-unit">
+              <option value="mm">mm</option>
+              <option value="inches">inches</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="thread-pitch">Pitch</label>
+            <input id="thread-pitch" name="thread-pitch" type="number" min="0.01" step="0.01" placeholder="e.g. 1.0 or 20">
+          </div>
+          <div class="field">
+            <label for="thread-pitch-unit">Pitch unit</label>
+            <select id="thread-pitch-unit" name="thread-pitch-unit">
+              <option value="pitch-mm">pitch (mm)</option>
+              <option value="tpi">TPI</option>
+            </select>
+          </div>
+        </form>
+
+        <div id="thread-identifier-result" class="result" aria-live="polite"></div>
+      </section>
+
+      <section>
+        <h2>How matching works</h2>
+        <p>This identifier checks your entered values against common thread standards and returns matches within <strong>diameter ±5%</strong> and <strong>pitch ±5%</strong>.</p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="muted">© 2026 BoltLab · A product of Albor Digital LLC</p>
+      <nav aria-label="Footer">
+        <ul class="nav-list">
+          <li><a href="/about">About Albor Digital</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="/js/thread-data.js" defer></script>
+  <script src="/js/converters.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does the thread identifier choose matches?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The tool compares your measured diameter and pitch to known metric and imperial thread standards and returns options that fall within plus or minus 5 percent tolerance for both values."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I enter diameter in inches and pitch in TPI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You can mix units. The tool normalizes values internally and updates likely matches instantly while you type."
+          }
+        }
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Albor Digital LLC",
+      "url": "https://albor.digital",
+      "email": "contact@albor.digital",
+      "sameAs": [
+        "https://boltlab.io"
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "BoltLab",
+      "url": "https://boltlab.io",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Albor Digital LLC"
+      }
+    }
+  </script>
+</body>
+</html>

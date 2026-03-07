@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drill Bit Size Converter | BoltLab</title>
+  <meta name="description" content="Convert drill bit sizes between number, letter, inch, and millimeter systems instantly.">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">BoltLab</a>
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="/tools/thread-identifier.html">Thread identifier</a></li>
+          <li><a href="/tools/tap-drill-calculator.html">Tap drill tool</a></li>
+          <li><a href="/charts/tap-drill-chart.html">Tap chart</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article>
+      <h1>Drill Bit Size Converter</h1>
+      <p class="muted">Convert drill bit sizes between number, letter, inch, and millimeter systems.</p>
+
+      <section class="card">
+        <h2>Converter</h2>
+        <form class="form-grid two-col" aria-label="Drill bit converter form">
+          <div class="field">
+            <label for="drill-size-input">Drill bit size input</label>
+            <input id="drill-size-input" name="drill-size-input" type="text" placeholder="e.g. #7, F, 13/64, 5.1">
+          </div>
+          <div class="field">
+            <label for="drill-size-type">Input type</label>
+            <select id="drill-size-type" name="drill-size-type">
+              <option value="number">Number</option>
+              <option value="letter">Letter</option>
+              <option value="fractional-inch">Fractional inch</option>
+              <option value="millimeter">Millimeter</option>
+            </select>
+          </div>
+        </form>
+
+        <div id="drill-result" class="result" aria-live="polite"></div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="muted">© 2026 BoltLab · A product of Albor Digital LLC</p>
+      <nav aria-label="Footer">
+        <ul class="nav-list">
+          <li><a href="/about">About Albor Digital</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="/js/drill-data.js" defer></script>
+  <script src="/js/converters.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Albor Digital LLC",
+      "url": "https://albor.digital",
+      "email": "contact@albor.digital",
+      "sameAs": [
+        "https://boltlab.io"
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "BoltLab",
+      "url": "https://boltlab.io",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Albor Digital LLC"
+      }
+    }
+  </script>
+</body>
+</html>

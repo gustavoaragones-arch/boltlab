@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thread Pitch to TPI Converter | BoltLab</title>
+  <meta name="description" content="Convert thread pitch in mm to TPI and TPI to thread pitch instantly with a fast, mobile-first calculator.">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">BoltLab</a>
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="/tools/metric-to-imperial-screw-converter.html">Screw converter</a></li>
+          <li><a href="/tools/tap-drill-calculator.html">Tap drill tool</a></li>
+          <li><a href="/charts/tap-drill-chart.html">Tap chart</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article>
+      <h1>Thread Pitch to TPI Converter</h1>
+      <p class="muted">Switch mode and type your value. Result updates immediately with no submit button.</p>
+
+      <section class="card">
+        <h2>Converter</h2>
+        <form class="form-grid two-col" aria-label="Thread pitch and TPI converter form">
+          <div class="field">
+            <label for="pitch-mode">Mode</label>
+            <select id="pitch-mode" name="pitch-mode">
+              <option value="pitch-to-tpi">Pitch (mm) to TPI</option>
+              <option value="tpi-to-pitch">TPI to Pitch (mm)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="pitch-value">Value</label>
+            <input id="pitch-value" name="pitch-value" type="number" min="0.01" step="0.01" placeholder="e.g. 1.25">
+          </div>
+        </form>
+        <div id="pitch-result" class="result" aria-live="polite"></div>
+      </section>
+
+      <section>
+        <h2>Formula used</h2>
+        <p><strong>TPI = 25.4 / pitch(mm)</strong> and <strong>pitch(mm) = 25.4 / TPI</strong>.</p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="muted">© 2026 BoltLab · A product of Albor Digital LLC</p>
+      <nav aria-label="Footer">
+        <ul class="nav-list">
+          <li><a href="/about">About Albor Digital</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="/js/data.js" defer></script>
+  <script src="/js/converters.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do you convert thread pitch to TPI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Divide 25.4 by the metric pitch value in millimeters. Example: 25.4 / 1.25 = 20.32 TPI."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I convert TPI back to metric pitch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Enter a TPI value and the calculator computes pitch in millimeters instantly using pitch = 25.4 / TPI."
+          }
+        }
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Albor Digital LLC",
+      "url": "https://albor.digital",
+      "email": "contact@albor.digital",
+      "sameAs": [
+        "https://boltlab.io"
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "BoltLab",
+      "url": "https://boltlab.io",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Albor Digital LLC"
+      }
+    }
+  </script>
+</body>
+</html>

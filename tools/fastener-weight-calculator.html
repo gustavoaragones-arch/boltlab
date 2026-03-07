@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fastener Weight Calculator | BoltLab</title>
+  <meta name="description" content="Estimate fastener weight by bolt size, length, quantity, and material with instant kg and lbs output.">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">BoltLab</a>
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="/tools/bolt-torque-calculator.html">Torque tool</a></li>
+          <li><a href="/tools/thread-identifier.html">Thread identifier</a></li>
+          <li><a href="/charts/screw-size-chart.html">Charts</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article>
+      <h1>Fastener Weight Calculator</h1>
+      <p class="muted">Estimate the weight of a quantity of bolts or screws.</p>
+
+      <section class="card">
+        <h2>Calculator</h2>
+        <form class="form-grid two-col" aria-label="Fastener weight calculator form">
+          <div class="field">
+            <label for="weight-size">Bolt size</label>
+            <select id="weight-size" name="weight-size">
+              <option value="M4">M4</option>
+              <option value="M5">M5</option>
+              <option value="M6">M6</option>
+              <option value="M8">M8</option>
+              <option value="M10">M10</option>
+              <option value="M12">M12</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="weight-material">Material</label>
+            <select id="weight-material" name="weight-material">
+              <option value="steel">Steel</option>
+              <option value="stainless">Stainless steel</option>
+              <option value="aluminum">Aluminum</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="weight-length">Bolt length (mm)</label>
+            <input id="weight-length" name="weight-length" type="number" min="1" step="1" placeholder="e.g. 20">
+          </div>
+          <div class="field">
+            <label for="weight-quantity">Quantity</label>
+            <input id="weight-quantity" name="weight-quantity" type="number" min="1" step="1" placeholder="e.g. 100">
+          </div>
+        </form>
+        <div id="weight-result" class="result" aria-live="polite"></div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="muted">© 2026 BoltLab · A product of Albor Digital LLC</p>
+      <nav aria-label="Footer">
+        <ul class="nav-list">
+          <li><a href="/about">About Albor Digital</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="/js/weight-data.js" defer></script>
+  <script src="/js/converters.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Albor Digital LLC",
+      "url": "https://albor.digital",
+      "email": "contact@albor.digital",
+      "sameAs": [
+        "https://boltlab.io"
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "BoltLab",
+      "url": "https://boltlab.io",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Albor Digital LLC"
+      }
+    }
+  </script>
+</body>
+</html>
