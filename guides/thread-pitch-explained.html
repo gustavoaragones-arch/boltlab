@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Thread Pitch Explained: Metric &amp; TPI | BoltLab</title>
-  <meta name="description" content="What is thread pitch? Metric thread pitch explained, TPI vs pitch, and how to measure. Use our pitch to TPI converter and thread identifier for fast results.">
+  <title>Thread Pitch Explained: Metric and Imperial | BoltLab</title>
+  <meta name="description" content="What is thread pitch? Metric pitch in mm vs TPI (threads per inch). Coarse vs fine threads and when to use each.">
   <link rel="stylesheet" href="/css/styles.css">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"What is thread pitch?","acceptedAnswer":{"@type":"Answer","text":"Thread pitch is the distance from one thread crest to the next. In metric it's in millimeters (e.g. 1.25 mm). In imperial it's often expressed as threads per inch (TPI)."}},
-    {"@type":"Question","name":"What is the difference between TPI and pitch?","acceptedAnswer":{"@type":"Answer","text":"TPI is threads per inch (imperial). Pitch is the distance between threads—metric in mm, or 1/TPI in inches. So 20 TPI = 0.05 inch pitch."}},
-    {"@type":"Question","name":"How do I find metric thread pitch?","acceptedAnswer":{"@type":"Answer","text":"Metric pitch is usually given with the size (e.g. M8 x 1.25). Measure with a pitch gauge or use our thread identifier tool with diameter and pitch."}}
+    {"@type":"Question","name":"What is thread pitch?","acceptedAnswer":{"@type":"Answer","text":"Thread pitch is the distance from one thread crest to the next, measured along the axis. Metric uses mm; imperial often uses threads per inch (TPI)."}},
+    {"@type":"Question","name":"What is the difference between coarse and fine thread?","acceptedAnswer":{"@type":"Answer","text":"Coarse threads have larger pitch (fewer threads per length), better for soft materials and quick assembly. Fine threads have smaller pitch, better for thin walls and precision adjustment."}},
+    {"@type":"Question","name":"How do I convert thread pitch to TPI?","acceptedAnswer":{"@type":"Answer","text":"TPI = 25.4 divided by pitch in mm. Use our Thread Pitch to TPI Converter for instant conversion."}}
   ]}
   </script>
 </head>
@@ -21,71 +21,60 @@
       <nav aria-label="Primary">
         <ul class="nav-list">
           <li><a href="/tools/metric-to-imperial-screw-converter.html">Tools</a></li>
-          <li><a href="/charts/screw-size-chart.html">Charts</a></li>
+          <li><a href="/charts/">Charts</a></li>
           <li><a href="/guides/">Guides</a></li>
         </ul>
       </nav>
     </div>
   </header>
-
   <main class="container">
     <article>
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">BoltLab</a> → <a href="/guides/">Guides</a> → Thread Pitch Explained</nav>
       <h1>Thread Pitch Explained</h1>
-      <p class="muted">What is thread pitch, metric thread pitch meaning, and TPI vs pitch. Quick reference for mechanics and machinists.</p>
+      <p class="muted">Thread pitch is the distance between adjacent thread crests. Metric threads use pitch in millimeters; imperial threads are often specified in threads per inch (TPI).</p>
 
       <section class="card">
         <h2>What is thread pitch?</h2>
-        <p>Thread pitch is the distance from one thread crest to the next, measured along the axis. In metric threads it's given in millimeters (e.g. M8 x 1.25 means 1.25 mm pitch). In imperial systems it's often expressed as <strong>threads per inch (TPI)</strong>—higher TPI means finer threads. Use our <a href="/tools/thread-pitch-to-tpi-converter.html">thread pitch to TPI converter</a> to switch between units.</p>
+        <p>Pitch is the axial distance from one thread crest to the next. For metric fasteners it is given in mm (e.g. M8 x 1.25 means 1.25 mm pitch). For imperial, TPI is common: 20 TPI means 20 threads per inch, so pitch = 1/20 inch.</p>
       </section>
 
       <section class="card">
-        <h2>Metric thread pitch vs imperial TPI</h2>
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Metric (pitch mm)</th>
-              <th scope="col">Imperial (TPI)</th>
-              <th scope="col">Notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>1.0</td><td>25.4</td><td>Coarse metric</td></tr>
-            <tr><td>1.25</td><td>20.3</td><td>Common M8</td></tr>
-            <tr><td>1.5</td><td>16.9</td><td>Coarse M10</td></tr>
-            <tr><td>1.75</td><td>14.5</td><td>Coarse M12</td></tr>
-          </tbody>
-        </table>
+        <h2>Metric vs imperial pitch</h2>
+        <div class="chart-table-wrapper">
+          <table>
+            <thead><tr><th scope="col">System</th><th scope="col">How pitch is given</th><th scope="col">Example</th></tr></thead>
+            <tbody>
+              <tr><td>Metric</td><td>Pitch in mm</td><td>M8 × 1.25</td></tr>
+              <tr><td>Imperial</td><td>TPI (threads per inch)</td><td>1/4-20 (20 TPI)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted">Convert between them with our <a href="/tools/thread-pitch-to-tpi-converter.html">Thread Pitch to TPI Converter</a>.</p>
       </section>
 
       <section class="card">
-        <h2>Why pitch matters</h2>
-        <p>Wrong pitch causes cross-threading, stripped threads, or joint failure. Always verify pitch when replacing fasteners or tapping holes. The <a href="/tools/thread-identifier.html">thread identifier tool</a> matches diameter and pitch to common standards.</p>
+        <h2>Coarse vs fine threads</h2>
+        <p>Coarse threads have larger pitch and are common for general use and soft materials. Fine threads have smaller pitch, more threads per length, and are used where strength in thin sections or fine adjustment is needed.</p>
       </section>
 
       <section class="card">
         <h2>FAQ</h2>
         <h3>What is thread pitch?</h3>
-        <p>The distance from one thread crest to the next. Metric in mm (e.g. 1.25 mm); imperial often as TPI.</p>
-        <h3>What is the difference between TPI and pitch?</h3>
-        <p>TPI = threads per inch. Pitch = 1/TPI in inches, or directly in mm for metric. So 20 TPI = 0.05 in pitch.</p>
-        <h3>How do I find metric thread pitch?</h3>
-        <p>It's in the designation (e.g. M8 x 1.25). Or measure with a pitch gauge and use our thread identifier.</p>
+        <p>Thread pitch is the distance from one thread crest to the next, measured along the axis. Metric uses mm; imperial often uses threads per inch (TPI).</p>
+        <h3>What is the difference between coarse and fine thread?</h3>
+        <p>Coarse threads have larger pitch (fewer threads per length), better for soft materials and quick assembly. Fine threads have smaller pitch, better for thin walls and precision adjustment.</p>
+        <h3>How do I convert thread pitch to TPI?</h3>
+        <p>TPI = 25.4 divided by pitch in mm. Use our <a href="/tools/thread-pitch-to-tpi-converter.html">Thread Pitch to TPI Converter</a> for instant conversion.</p>
       </section>
 
       <section class="card guide-links">
-        <h3>Related tools &amp; references</h3>
-        <ul>
-          <li><a href="/tools/thread-pitch-to-tpi-converter.html">Thread Pitch to TPI Converter</a></li>
-          <li><a href="/tools/thread-identifier.html">Thread Identifier Tool</a></li>
-          <li><a href="/charts/screw-size-chart.html">Screw Size Chart</a></li>
-          <li><a href="/charts/tap-drill-chart.html">Tap Drill Chart</a></li>
-          <li><a href="/guides/what-is-tpi.html">What Is TPI</a></li>
-        </ul>
+        <h3>Related</h3>
+        <p><strong>Tools:</strong> <a href="/tools/thread-pitch-to-tpi-converter.html">Thread Pitch to TPI Converter</a>, <a href="/tools/thread-identifier.html">Thread Identifier</a></p>
+        <p><strong>Charts:</strong> <a href="/charts/universal-screw-bolt-size-chart.html">Universal Screw &amp; Bolt Size Chart</a>, <a href="/charts/tap-drill-chart.html">Tap Drill Chart</a></p>
+        <p><strong>Guide:</strong> <a href="/guides/what-is-tpi.html">What Is TPI</a></p>
       </section>
     </article>
   </main>
-
   <footer class="site-footer">
     <div class="container footer-inner">
       <p class="muted">© 2026 BoltLab · A product of Albor Digital LLC</p>
@@ -98,11 +87,7 @@
       </nav>
     </div>
   </footer>
-  <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Organization","name":"Albor Digital LLC","url":"https://albor.digital","email":"contact@albor.digital","sameAs":["https://boltlab.io"]}
-  </script>
-  <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebSite","name":"BoltLab","url":"https://boltlab.io","publisher":{"@type":"Organization","name":"Albor Digital LLC"}}
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Albor Digital LLC","url":"https://albor.digital","email":"contact@albor.digital","sameAs":["https://boltlab.io"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"BoltLab","url":"https://boltlab.io","publisher":{"@type":"Organization","name":"Albor Digital LLC"}}</script>
 </body>
 </html>

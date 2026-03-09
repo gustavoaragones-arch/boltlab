@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Metric Thread Tolerances: Classes &amp; Fit | BoltLab</title>
-  <meta name="description" content="Metric thread tolerances explained: 6g, 6H, tolerance classes, and fit for bolts and nuts. When to use which for clearance and strength.">
+  <title>Metric Thread Tolerances: Classes and Fit | BoltLab</title>
+  <meta name="description" content="Metric thread tolerance classes (6H, 6g, etc.) and fit for internal and external threads. When to use fine vs coarse tolerance.">
   <link rel="stylesheet" href="/css/styles.css">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"What do metric thread tolerance classes mean?","acceptedAnswer":{"@type":"Answer","text":"Numbers (e.g. 6) indicate tolerance grade; letters (e.g. g, H) indicate position. 6g is common for bolts (external), 6H for nuts (internal). Tighter fit = smaller number or different letter."}},
-    {"@type":"Question","name":"What is 6g vs 6H thread?","acceptedAnswer":{"@type":"Answer","text":"6g is typically for external threads (bolts)—allowance for clearance. 6H is for internal threads (nuts)—no allowance. Together they give a medium fit."}},
-    {"@type":"Question","name":"When do I need tighter thread tolerance?","acceptedAnswer":{"@type":"Answer","text":"Tighter (e.g. 4g/5H) for precision, positioning, or when backlash must be minimal. Standard 6g/6H is fine for most fasteners. Use our thread identifier for standard sizes."}}
+    {"@type":"Question","name":"What does 6H mean on a metric thread?","acceptedAnswer":{"@type":"Answer","text":"6H is a tolerance class for internal (nut) threads. The number is the grade (tolerance level); the letter H is for internal. 6H is a common general-purpose class."}},
+    {"@type":"Question","name":"What is the difference between 6g and 6H?","acceptedAnswer":{"@type":"Answer","text":"6g is for external (bolt) threads; 6H is for internal (nut) threads. Together they give a medium fit. g is above the zero line (smaller OD); H is above zero (larger ID)."}},
+    {"@type":"Question","name":"Do I need to specify tolerance for normal bolts?","acceptedAnswer":{"@type":"Answer","text":"For most general fasteners, standard commercial tolerance (e.g. 6g/6H) is assumed. Specify tighter tolerance only when fit or interchangeability is critical."}}
   ]}
   </script>
 </head>
@@ -21,71 +21,61 @@
       <nav aria-label="Primary">
         <ul class="nav-list">
           <li><a href="/tools/metric-to-imperial-screw-converter.html">Tools</a></li>
-          <li><a href="/charts/screw-size-chart.html">Charts</a></li>
+          <li><a href="/charts/">Charts</a></li>
           <li><a href="/guides/">Guides</a></li>
         </ul>
       </nav>
     </div>
   </header>
-
   <main class="container">
     <article>
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">BoltLab</a> → <a href="/guides/">Guides</a> → Metric Thread Tolerances</nav>
       <h1>Metric Thread Tolerances</h1>
-      <p class="muted">Metric thread tolerance classes (6g, 6H) and fit for bolts and nuts—when to use which.</p>
+      <p class="muted">ISO metric threads use tolerance classes to control fit between bolt and nut. Common classes are 6g (external) and 6H (internal) for general use.</p>
 
       <section class="card">
-        <h2>Tolerance class basics</h2>
-        <p>ISO metric threads use a <strong>tolerance grade</strong> (number) and <strong>position</strong> (letter). External threads (bolts) often use <strong>6g</strong>; internal threads (nuts) use <strong>6H</strong>. The number is the tolerance grade (lower = tighter); the letter sets the limit position. For most fasteners, 6g/6H gives a good balance of fit and cost. Use our <a href="/tools/thread-identifier.html">thread identifier</a> and <a href="/tools/tap-drill-calculator.html">tap drill calculator</a> for standard sizes.</p>
+        <h2>Tolerance class format</h2>
+        <p>A tolerance class has a number (grade) and a letter. The number indicates the tolerance grade; the letter indicates position relative to the basic profile. For external threads (bolts) common letters are g (clearance) or e (looser). For internal threads (nuts) H is common.</p>
       </section>
 
       <section class="card">
-        <h2>Common tolerance classes</h2>
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Class</th>
-              <th scope="col">Application</th>
-              <th scope="col">Fit</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>6g (external)</td><td>General bolts</td><td>Medium clearance</td></tr>
-            <tr><td>6H (internal)</td><td>General nuts</td><td>Medium</td></tr>
-            <tr><td>6e</td><td>External, more clearance</td><td>Looser</td></tr>
-            <tr><td>5g / 5H</td><td>Precision</td><td>Tighter</td></tr>
-          </tbody>
-        </table>
+        <h2>Common classes</h2>
+        <div class="chart-table-wrapper">
+          <table>
+            <thead><tr><th scope="col">Class</th><th scope="col">Application</th><th scope="col">Typical use</th></tr></thead>
+            <tbody>
+              <tr><td>6g</td><td>External (bolt)</td><td>General purpose</td></tr>
+              <tr><td>6H</td><td>Internal (nut)</td><td>General purpose</td></tr>
+              <tr><td>6e</td><td>External</td><td>Looser fit</td></tr>
+              <tr><td>5g6g</td><td>External</td><td>Tighter (pitch + major)</td></tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section class="card">
-        <h2>Why it matters</h2>
-        <p>Tighter tolerances reduce play and improve alignment; looser tolerances ease assembly and allow for coating or debris. For tap drill size, use the same <a href="/charts/tap-drill-chart.html">tap drill chart</a> and <a href="/tools/tap-drill-calculator.html">tap drill calculator</a>—tolerance mainly affects the tap and gauge, not the hole size for standard threads.</p>
+        <h2>Fit and interchangeability</h2>
+        <p>6g/6H gives a medium fit: bolts and nuts from different sources usually assemble without issue. Tighter classes (e.g. 4h6h) are used where precision or fatigue life matters. Our <a href="/tools/thread-identifier.html">Thread Identifier</a> and <a href="/charts/universal-screw-bolt-size-chart.html">size chart</a> help you match diameter and pitch; tolerance is rarely needed for everyday identification.</p>
       </section>
 
       <section class="card">
         <h2>FAQ</h2>
-        <h3>What do metric thread tolerance classes mean?</h3>
-        <p>The number is tolerance grade (e.g. 6); the letter is position (g, H). 6g = bolts, 6H = nuts; together they give a medium fit.</p>
-        <h3>What is 6g vs 6H thread?</h3>
-        <p>6g is for external threads (bolts) with allowance; 6H is for internal (nuts) with no allowance. Standard pairing for general use.</p>
-        <h3>When do I need tighter thread tolerance?</h3>
-        <p>For precision, positioning, or minimal backlash. Standard 6g/6H is fine for most fasteners.</p>
+        <h3>What does 6H mean on a metric thread?</h3>
+        <p>6H is a tolerance class for internal (nut) threads. The number is the grade (tolerance level); the letter H is for internal. 6H is a common general-purpose class.</p>
+        <h3>What is the difference between 6g and 6H?</h3>
+        <p>6g is for external (bolt) threads; 6H is for internal (nut) threads. Together they give a medium fit. g is above the zero line (smaller OD); H is above zero (larger ID).</p>
+        <h3>Do I need to specify tolerance for normal bolts?</h3>
+        <p>For most general fasteners, standard commercial tolerance (e.g. 6g/6H) is assumed. Specify tighter tolerance only when fit or interchangeability is critical.</p>
       </section>
 
       <section class="card guide-links">
-        <h3>Related tools &amp; references</h3>
-        <ul>
-          <li><a href="/tools/thread-identifier.html">Thread Identifier Tool</a></li>
-          <li><a href="/tools/tap-drill-calculator.html">Tap Drill Calculator</a></li>
-          <li><a href="/charts/screw-size-chart.html">Screw Size Chart</a></li>
-          <li><a href="/charts/tap-drill-chart.html">Tap Drill Chart</a></li>
-          <li><a href="/guides/thread-types-explained.html">Thread Types Explained</a></li>
-        </ul>
+        <h3>Related</h3>
+        <p><strong>Tools:</strong> <a href="/tools/thread-identifier.html">Thread Identifier</a>, <a href="/tools/tap-drill-calculator.html">Tap Drill Calculator</a></p>
+        <p><strong>Charts:</strong> <a href="/charts/universal-screw-bolt-size-chart.html">Universal Screw &amp; Bolt Size Chart</a>, <a href="/charts/tap-drill-chart.html">Tap Drill Chart</a></p>
+        <p><strong>Guide:</strong> <a href="/guides/tap-drill-basics.html">Tap Drill Basics</a></p>
       </section>
     </article>
   </main>
-
   <footer class="site-footer">
     <div class="container footer-inner">
       <p class="muted">© 2026 BoltLab · A product of Albor Digital LLC</p>
@@ -98,11 +88,7 @@
       </nav>
     </div>
   </footer>
-  <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Organization","name":"Albor Digital LLC","url":"https://albor.digital","email":"contact@albor.digital","sameAs":["https://boltlab.io"]}
-  </script>
-  <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebSite","name":"BoltLab","url":"https://boltlab.io","publisher":{"@type":"Organization","name":"Albor Digital LLC"}}
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Albor Digital LLC","url":"https://albor.digital","email":"contact@albor.digital","sameAs":["https://boltlab.io"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"BoltLab","url":"https://boltlab.io","publisher":{"@type":"Organization","name":"Albor Digital LLC"}}</script>
 </body>
 </html>

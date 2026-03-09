@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Thread Types Explained: UNC, UNF, Metric, BSW | BoltLab</title>
-  <meta name="description" content="Thread types explained: UNC vs UNF, metric coarse and fine, BSW. Thread type chart and when to use each for bolts and screws.">
+  <title>Thread Types Explained: UNC, UNF, Metric Coarse and Fine | BoltLab</title>
+  <meta name="description" content="UNC, UNF, metric coarse and fine threads explained. When to use each thread type and how to identify them.">
   <link rel="stylesheet" href="/css/styles.css">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"What is UNC vs UNF thread?","acceptedAnswer":{"@type":"Answer","text":"UNC is Unified National Coarse—fewer threads per inch, stronger in soft materials. UNF is Unified National Fine—more threads per inch, often used in automotive and precision applications."}},
-    {"@type":"Question","name":"What thread type does metric use?","acceptedAnswer":{"@type":"Answer","text":"Metric uses ISO threads with diameter and pitch in mm (e.g. M8 x 1.25). Coarse is default; fine pitch is specified when needed."}},
-    {"@type":"Question","name":"When do I use coarse vs fine thread?","acceptedAnswer":{"@type":"Answer","text":"Coarse for most general use and soft materials; fine for higher strength in thin sections, precision fit, or when fine adjustment is needed."}}
+    {"@type":"Question","name":"What is UNC vs UNF?","acceptedAnswer":{"@type":"Answer","text":"UNC is Unified National Coarse (fewer threads per inch, larger pitch). UNF is Unified National Fine (more threads per inch, smaller pitch). Same diameter, different pitch."}},
+    {"@type":"Question","name":"What is metric coarse vs fine?","acceptedAnswer":{"@type":"Answer","text":"Metric coarse is the default pitch (e.g. M8 x 1.25). Metric fine has a smaller pitch (e.g. M8 x 1.0). Fine is used where strength in thin material or fine adjustment is needed."}},
+    {"@type":"Question","name":"How do I know which thread type I have?","acceptedAnswer":{"@type":"Answer","text":"Measure diameter and pitch or TPI. Use a pitch gauge or our Thread Identifier tool with caliper measurements to get the likely standard."}}
   ]}
   </script>
 </head>
@@ -21,72 +21,70 @@
       <nav aria-label="Primary">
         <ul class="nav-list">
           <li><a href="/tools/metric-to-imperial-screw-converter.html">Tools</a></li>
-          <li><a href="/charts/screw-size-chart.html">Charts</a></li>
+          <li><a href="/charts/">Charts</a></li>
           <li><a href="/guides/">Guides</a></li>
         </ul>
       </nav>
     </div>
   </header>
-
   <main class="container">
     <article>
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">BoltLab</a> → <a href="/guides/">Guides</a> → Thread Types Explained</nav>
       <h1>Thread Types Explained</h1>
-      <p class="muted">UNC, UNF, metric coarse and fine, and BSW thread types—when to use each and how to identify them.</p>
+      <p class="muted">UNC, UNF, and metric coarse and fine threads: what they are and when to use each for fasteners.</p>
 
       <section class="card">
-        <h2>Common thread types</h2>
-        <p>Thread standards define diameter, pitch, and profile. <strong>UNC</strong> (Unified National Coarse) and <strong>UNF</strong> (Unified National Fine) are imperial. <strong>Metric</strong> uses ISO designations (e.g. M8 x 1.25). <strong>BSW</strong> (British Standard Whitworth) is another imperial system. Use our <a href="/tools/thread-identifier.html">thread identifier</a> and <a href="/tools/thread-pitch-to-tpi-converter.html">pitch to TPI converter</a> to match measured values to these standards.</p>
+        <h2>Imperial: UNC and UNF</h2>
+        <p>UNC (Unified National Coarse) is the default coarse pitch for imperial threads. UNF (Unified National Fine) has more threads per inch for the same diameter. Coarse is common for general use; fine is used where finer adjustment or strength in thin sections is needed.</p>
+        <div class="chart-table-wrapper">
+          <table>
+            <thead><tr><th scope="col">Type</th><th scope="col">Use</th><th scope="col">Example</th></tr></thead>
+            <tbody>
+              <tr><td>UNC</td><td>General, coarse</td><td>1/4-20</td></tr>
+              <tr><td>UNF</td><td>Fine pitch</td><td>1/4-28</td></tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section class="card">
-        <h2>Thread type comparison chart</h2>
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Type</th>
-              <th scope="col">System</th>
-              <th scope="col">Typical use</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>UNC</td><td>Imperial (US)</td><td>General purpose, coarse</td></tr>
-            <tr><td>UNF</td><td>Imperial (US)</td><td>Automotive, fine thread</td></tr>
-            <tr><td>Metric (coarse)</td><td>ISO</td><td>Default metric, most applications</td></tr>
-            <tr><td>Metric (fine)</td><td>ISO</td><td>Thin sections, precision</td></tr>
-            <tr><td>BSW</td><td>British</td><td>Legacy UK equipment</td></tr>
-          </tbody>
-        </table>
+        <h2>Metric: coarse and fine</h2>
+        <p>Metric coarse is the standard pitch (e.g. M8 x 1.25). Metric fine has a smaller pitch for the same diameter. Fine threads provide more engagement in thin material and allow finer adjustment.</p>
+        <div class="chart-table-wrapper">
+          <table>
+            <thead><tr><th scope="col">Size</th><th scope="col">Coarse pitch</th><th scope="col">Fine pitch example</th></tr></thead>
+            <tbody>
+              <tr><td>M6</td><td>1.0 mm</td><td>0.75 mm</td></tr>
+              <tr><td>M8</td><td>1.25 mm</td><td>1.0 mm</td></tr>
+              <tr><td>M10</td><td>1.5 mm</td><td>1.25 mm</td></tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section class="card">
-        <h2>Coarse vs fine thread</h2>
-        <p>Coarse threads have larger pitch (fewer threads per inch or larger mm pitch). They're stronger in soft materials and quicker to assemble. Fine threads give more threads per inch (or smaller mm pitch), better in thin sections and where precision or fine adjustment matters. Check <a href="/charts/screw-size-chart.html">screw size chart</a> and <a href="/charts/tap-drill-chart.html">tap drill chart</a> for correct hole sizes.</p>
+        <h2>Identifying thread type</h2>
+        <p>Measure diameter and pitch (or TPI) with calipers and a pitch gauge. Enter the values in our <a href="/tools/thread-identifier.html">Thread Identifier</a> to get likely thread designations. Use the <a href="/tools/thread-pitch-to-tpi-converter.html">Thread Pitch to TPI Converter</a> to switch between metric and imperial pitch.</p>
       </section>
 
       <section class="card">
         <h2>FAQ</h2>
-        <h3>What is UNC vs UNF thread?</h3>
-        <p>UNC is coarse (fewer TPI); UNF is fine (more TPI). UNF is common in automotive and precision applications.</p>
-        <h3>What thread type does metric use?</h3>
-        <p>Metric uses ISO threads: diameter and pitch in mm (e.g. M8 x 1.25). Coarse is default; fine is specified when needed.</p>
-        <h3>When do I use coarse vs fine thread?</h3>
-        <p>Coarse for general use and soft materials; fine for thin sections, higher strength in shear, or fine adjustment.</p>
+        <h3>What is UNC vs UNF?</h3>
+        <p>UNC is Unified National Coarse (fewer threads per inch, larger pitch). UNF is Unified National Fine (more threads per inch, smaller pitch). Same diameter, different pitch.</p>
+        <h3>What is metric coarse vs fine?</h3>
+        <p>Metric coarse is the default pitch (e.g. M8 x 1.25). Metric fine has a smaller pitch (e.g. M8 x 1.0). Fine is used where strength in thin material or fine adjustment is needed.</p>
+        <h3>How do I know which thread type I have?</h3>
+        <p>Measure diameter and pitch or TPI. Use a pitch gauge or our <a href="/tools/thread-identifier.html">Thread Identifier</a> tool with caliper measurements to get the likely standard.</p>
       </section>
 
       <section class="card guide-links">
-        <h3>Related tools &amp; references</h3>
-        <ul>
-          <li><a href="/tools/thread-identifier.html">Thread Identifier Tool</a></li>
-          <li><a href="/tools/thread-pitch-to-tpi-converter.html">Thread Pitch to TPI Converter</a></li>
-          <li><a href="/charts/screw-size-chart.html">Screw Size Chart</a></li>
-          <li><a href="/charts/tap-drill-chart.html">Tap Drill Chart</a></li>
-          <li><a href="/guides/how-to-measure-thread-pitch.html">How to Measure Thread Pitch</a></li>
-        </ul>
+        <h3>Related</h3>
+        <p><strong>Tools:</strong> <a href="/tools/thread-identifier.html">Thread Identifier</a>, <a href="/tools/thread-pitch-to-tpi-converter.html">Thread Pitch to TPI Converter</a></p>
+        <p><strong>Charts:</strong> <a href="/charts/universal-screw-bolt-size-chart.html">Universal Screw &amp; Bolt Size Chart</a>, <a href="/charts/tap-drill-chart.html">Tap Drill Chart</a></p>
+        <p><strong>Guide:</strong> <a href="/guides/thread-pitch-explained.html">Thread Pitch Explained</a></p>
       </section>
     </article>
   </main>
-
   <footer class="site-footer">
     <div class="container footer-inner">
       <p class="muted">© 2026 BoltLab · A product of Albor Digital LLC</p>
@@ -99,11 +97,7 @@
       </nav>
     </div>
   </footer>
-  <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Organization","name":"Albor Digital LLC","url":"https://albor.digital","email":"contact@albor.digital","sameAs":["https://boltlab.io"]}
-  </script>
-  <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebSite","name":"BoltLab","url":"https://boltlab.io","publisher":{"@type":"Organization","name":"Albor Digital LLC"}}
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Albor Digital LLC","url":"https://albor.digital","email":"contact@albor.digital","sameAs":["https://boltlab.io"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"BoltLab","url":"https://boltlab.io","publisher":{"@type":"Organization","name":"Albor Digital LLC"}}</script>
 </body>
 </html>

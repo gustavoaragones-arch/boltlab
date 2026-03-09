@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>What Is TPI (Threads Per Inch)? | BoltLab</title>
-  <meta name="description" content="What is TPI? Threads per inch explained for bolts and screws. Convert TPI to pitch and use our thread pitch to TPI converter and thread identifier.">
+  <title>What Is TPI (Threads Per Inch)? Imperial Thread Pitch | BoltLab</title>
+  <meta name="description" content="TPI means threads per inch: how imperial thread pitch is specified. Convert TPI to metric pitch and use with our tools.">
   <link rel="stylesheet" href="/css/styles.css">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"What does TPI mean?","acceptedAnswer":{"@type":"Answer","text":"TPI means threads per inch—the number of thread crests in one inch of length. It's used for imperial (US) thread designation (e.g. 1/4-20 = 1/4 inch diameter, 20 TPI)."}},
-    {"@type":"Question","name":"How do you convert TPI to pitch?","acceptedAnswer":{"@type":"Answer","text":"Pitch in inches = 1 ÷ TPI. So 20 TPI = 0.05 inch pitch. For metric, use 25.4 ÷ TPI for approximate mm pitch, or use our thread pitch to TPI converter."}},
-    {"@type":"Question","name":"Is higher TPI finer or coarser?","acceptedAnswer":{"@type":"Answer","text":"Higher TPI means finer threads (smaller pitch). Lower TPI means coarser threads (larger pitch)."}}
+    {"@type":"Question","name":"What does TPI mean?","acceptedAnswer":{"@type":"Answer","text":"TPI is threads per inch: the number of thread crests in one inch measured along the axis. Higher TPI means finer pitch; lower TPI means coarser."}},
+    {"@type":"Question","name":"How do you convert TPI to metric pitch?","acceptedAnswer":{"@type":"Answer","text":"Pitch in mm = 25.4 ÷ TPI. For example, 20 TPI = 25.4/20 = 1.27 mm. Use our Thread Pitch to TPI Converter for instant conversion."}},
+    {"@type":"Question","name":"Is higher TPI finer or coarser?","acceptedAnswer":{"@type":"Answer","text":"Higher TPI means finer thread (smaller distance between threads). Lower TPI means coarser thread (larger pitch)."}}
   ]}
   </script>
 </head>
@@ -21,73 +21,62 @@
       <nav aria-label="Primary">
         <ul class="nav-list">
           <li><a href="/tools/metric-to-imperial-screw-converter.html">Tools</a></li>
-          <li><a href="/charts/screw-size-chart.html">Charts</a></li>
+          <li><a href="/charts/">Charts</a></li>
           <li><a href="/guides/">Guides</a></li>
         </ul>
       </nav>
     </div>
   </header>
-
   <main class="container">
     <article>
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">BoltLab</a> → <a href="/guides/">Guides</a> → What Is TPI</nav>
-      <h1>What Is TPI?</h1>
-      <p class="muted">Threads per inch (TPI) explained for imperial bolts and screws—and how to convert to metric pitch.</p>
+      <h1>What Is TPI (Threads Per Inch)?</h1>
+      <p class="muted">TPI is the imperial way to specify thread pitch: the number of thread crests in one inch. It is the inverse of pitch in inches.</p>
 
       <section class="card">
-        <h2>TPI definition</h2>
-        <p><strong>TPI</strong> means <strong>threads per inch</strong>: the number of complete thread crests in one inch of length. It's used for US (imperial) thread specs—for example, <strong>1/4-20</strong> is 1/4 inch diameter with 20 TPI. Higher TPI = finer thread; lower TPI = coarser. Use our <a href="/tools/thread-pitch-to-tpi-converter.html">thread pitch to TPI converter</a> to switch between TPI and mm pitch.</p>
+        <h2>Definition</h2>
+        <p>TPI = threads per inch. Count how many thread peaks fall within 1 inch measured along the bolt axis. For 1/4-20, there are 20 threads per inch, so pitch = 1/20 inch = 0.05 in. Metric threads use pitch in mm instead (e.g. M6 x 1.0 has 1.0 mm pitch).</p>
       </section>
 
       <section class="card">
-        <h2>TPI to pitch conversion</h2>
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">TPI</th>
-              <th scope="col">Pitch (inches)</th>
-              <th scope="col">Approx. pitch (mm)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>13</td><td>0.0769</td><td>1.95</td></tr>
-            <tr><td>18</td><td>0.0556</td><td>1.41</td></tr>
-            <tr><td>20</td><td>0.050</td><td>1.27</td></tr>
-            <tr><td>24</td><td>0.0417</td><td>1.06</td></tr>
-            <tr><td>28</td><td>0.0357</td><td>0.91</td></tr>
-          </tbody>
-        </table>
-        <p>Formula: pitch (in) = 1 ÷ TPI. For mm: pitch (mm) ≈ 25.4 ÷ TPI.</p>
+        <h2>TPI and pitch</h2>
+        <div class="chart-table-wrapper">
+          <table>
+            <thead><tr><th scope="col">TPI</th><th scope="col">Pitch (inches)</th><th scope="col">Pitch (mm)</th></tr></thead>
+            <tbody>
+              <tr><td>20</td><td>0.05</td><td>1.27</td></tr>
+              <tr><td>24</td><td>0.0417</td><td>1.06</td></tr>
+              <tr><td>28</td><td>0.0357</td><td>0.91</td></tr>
+              <tr><td>32</td><td>0.03125</td><td>0.79</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted">Formula: pitch (mm) = 25.4 ÷ TPI. Use our <a href="/tools/thread-pitch-to-tpi-converter.html">Thread Pitch to TPI Converter</a>.</p>
       </section>
 
       <section class="card">
-        <h2>Common TPI values</h2>
-        <p>UNC coarse threads often use 20, 18, 16, 13 TPI for 1/4", 5/16", 3/8", 1/2". UNF fine threads use higher TPI (e.g. 28, 24). Match your measurement to standards with the <a href="/tools/thread-identifier.html">thread identifier</a> and confirm with our <a href="/charts/screw-size-chart.html">screw size chart</a> or <a href="/charts/tap-drill-chart.html">tap drill chart</a>.</p>
+        <h2>Common imperial sizes</h2>
+        <p>1/4-20 (coarse) and 1/4-28 (fine), 5/16-18, 3/8-16 are common. The number after the hyphen is TPI. Our <a href="/charts/universal-screw-bolt-size-chart.html">Universal Screw &amp; Bolt Size Chart</a> lists pitch and TPI for many sizes.</p>
       </section>
 
       <section class="card">
         <h2>FAQ</h2>
         <h3>What does TPI mean?</h3>
-        <p>TPI = threads per inch—the number of thread crests in one inch. Used for imperial thread designation (e.g. 1/4-20).</p>
-        <h3>How do you convert TPI to pitch?</h3>
-        <p>Pitch in inches = 1 ÷ TPI. So 20 TPI = 0.05 in. Use our converter for TPI ↔ mm pitch.</p>
+        <p>TPI is threads per inch: the number of thread crests in one inch measured along the axis. Higher TPI means finer pitch; lower TPI means coarser.</p>
+        <h3>How do you convert TPI to metric pitch?</h3>
+        <p>Pitch in mm = 25.4 ÷ TPI. For example, 20 TPI = 25.4/20 = 1.27 mm. Use our <a href="/tools/thread-pitch-to-tpi-converter.html">Thread Pitch to TPI Converter</a> for instant conversion.</p>
         <h3>Is higher TPI finer or coarser?</h3>
-        <p>Higher TPI = finer threads (smaller pitch). Lower TPI = coarser threads.</p>
+        <p>Higher TPI means finer thread (smaller distance between threads). Lower TPI means coarser thread (larger pitch).</p>
       </section>
 
       <section class="card guide-links">
-        <h3>Related tools &amp; references</h3>
-        <ul>
-          <li><a href="/tools/thread-pitch-to-tpi-converter.html">Thread Pitch to TPI Converter</a></li>
-          <li><a href="/tools/thread-identifier.html">Thread Identifier Tool</a></li>
-          <li><a href="/charts/screw-size-chart.html">Screw Size Chart</a></li>
-          <li><a href="/charts/tap-drill-chart.html">Tap Drill Chart</a></li>
-          <li><a href="/guides/thread-pitch-explained.html">Thread Pitch Explained</a></li>
-        </ul>
+        <h3>Related</h3>
+        <p><strong>Tools:</strong> <a href="/tools/thread-pitch-to-tpi-converter.html">Thread Pitch to TPI Converter</a>, <a href="/tools/thread-identifier.html">Thread Identifier</a></p>
+        <p><strong>Charts:</strong> <a href="/charts/universal-screw-bolt-size-chart.html">Universal Screw &amp; Bolt Size Chart</a>, <a href="/charts/tap-drill-chart.html">Tap Drill Chart</a></p>
+        <p><strong>Guide:</strong> <a href="/guides/thread-pitch-explained.html">Thread Pitch Explained</a></p>
       </section>
     </article>
   </main>
-
   <footer class="site-footer">
     <div class="container footer-inner">
       <p class="muted">© 2026 BoltLab · A product of Albor Digital LLC</p>
@@ -100,11 +89,7 @@
       </nav>
     </div>
   </footer>
-  <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Organization","name":"Albor Digital LLC","url":"https://albor.digital","email":"contact@albor.digital","sameAs":["https://boltlab.io"]}
-  </script>
-  <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebSite","name":"BoltLab","url":"https://boltlab.io","publisher":{"@type":"Organization","name":"Albor Digital LLC"}}
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Albor Digital LLC","url":"https://albor.digital","email":"contact@albor.digital","sameAs":["https://boltlab.io"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"BoltLab","url":"https://boltlab.io","publisher":{"@type":"Organization","name":"Albor Digital LLC"}}</script>
 </body>
 </html>

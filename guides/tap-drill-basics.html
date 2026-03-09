@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tap Drill Basics: Size Chart &amp; How to Choose | BoltLab</title>
-  <meta name="description" content="Tap drill basics: how to choose tap drill size for metric and imperial threads. Use our tap drill calculator and tap drill chart for correct hole diameter.">
+  <title>Tap Drill Basics: Sizing Holes for Tapping | BoltLab</title>
+  <meta name="description" content="Tap drill size basics: how to choose drill diameter for internal threads. Metric and imperial, 75% thread depth, and when to use our calculator.">
   <link rel="stylesheet" href="/css/styles.css">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"How do I choose tap drill size?","acceptedAnswer":{"@type":"Answer","text":"Tap drill size is chosen so the hole leaves about 75% thread depth for strength. Formula: major diameter minus pitch (metric) or use standard tap drill charts. Use our tap drill calculator for exact values."}},
-    {"@type":"Question","name":"What is the tap drill for M8 x 1.25?","acceptedAnswer":{"@type":"Answer","text":"Standard tap drill for M8 x 1.25 is 6.8 mm (or 17/64\" approx). Use our tap drill calculator for other sizes and materials."}},
-    {"@type":"Question","name":"Can I use a drill size between chart values?","acceptedAnswer":{"@type":"Answer","text":"For strongest threads use the recommended size. Slightly larger gives weaker threads; slightly smaller risks tap breakage or difficult tapping. When in doubt use our tap drill calculator."}}
+    {"@type":"Question","name":"What is tap drill size?","acceptedAnswer":{"@type":"Answer","text":"Tap drill size is the diameter of the hole you drill before tapping. It is smaller than the bolt major diameter so that the tap can form threads; typically chosen for about 75% thread depth."}},
+    {"@type":"Question","name":"How do you calculate tap drill size for metric?","acceptedAnswer":{"@type":"Answer","text":"A common rule is: tap drill diameter = major diameter minus pitch. For M6 x 1.0, drill = 6 - 1 = 5 mm. Use our Tap Drill Calculator for exact values."}},
+    {"@type":"Question","name":"What if I drill the hole too large?","acceptedAnswer":{"@type":"Answer","text":"Oversized holes give shallow threads and weak engagement. Use the recommended tap drill size from a chart or our calculator for reliable threads."}}
   ]}
   </script>
 </head>
@@ -21,71 +21,65 @@
       <nav aria-label="Primary">
         <ul class="nav-list">
           <li><a href="/tools/metric-to-imperial-screw-converter.html">Tools</a></li>
-          <li><a href="/charts/screw-size-chart.html">Charts</a></li>
+          <li><a href="/charts/">Charts</a></li>
           <li><a href="/guides/">Guides</a></li>
         </ul>
       </nav>
     </div>
   </header>
-
   <main class="container">
     <article>
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">BoltLab</a> → <a href="/guides/">Guides</a> → Tap Drill Basics</nav>
       <h1>Tap Drill Basics</h1>
-      <p class="muted">How to choose tap drill size for metric and imperial threads. Use our tap drill calculator and chart for correct hole diameter.</p>
+      <p class="muted">Choosing the right drill size before tapping ensures strong threads and avoids broken taps or stripped holes. Use our chart and calculator for quick reference.</p>
 
       <section class="card">
-        <h2>What is a tap drill?</h2>
-        <p>The <strong>tap drill</strong> is the drill size used before tapping internal threads. The hole must be smaller than the bolt's major diameter so the tap can form threads. Standard practice aims for about <strong>75% thread depth</strong> for a balance of strength and tap life. Use our <a href="/tools/tap-drill-calculator.html">tap drill calculator</a> for metric threads and the <a href="/charts/tap-drill-chart.html">tap drill chart</a> for quick reference.</p>
+        <h2>Why tap drill size matters</h2>
+        <p>The hole must be smaller than the bolt’s major diameter so the tap can cut material and form threads. Too small and you risk breaking the tap or excessive torque; too large and thread engagement is weak. Standard practice targets about 75% thread depth for a balance of strength and tap life.</p>
       </section>
 
       <section class="card">
-        <h2>Tap drill size comparison (metric)</h2>
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Thread</th>
-              <th scope="col">Tap drill (mm)</th>
-              <th scope="col">Thread</th>
-              <th scope="col">Tap drill (mm)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>M5 x 0.8</td><td>4.2</td><td>M8 x 1.25</td><td>6.8</td></tr>
-            <tr><td>M6 x 1.0</td><td>5.0</td><td>M10 x 1.5</td><td>8.5</td></tr>
-            <tr><td>M6 x 1.25</td><td>4.8</td><td>M12 x 1.75</td><td>10.2</td></tr>
-          </tbody>
-        </table>
+        <h2>Metric tap drill (rule of thumb)</h2>
+        <p>Tap drill diameter ≈ major diameter − pitch. Example: M6 x 1.0 → 6 − 1 = 5.0 mm. Coarse and fine pitches give different drill sizes for the same nominal diameter.</p>
+        <div class="chart-table-wrapper">
+          <table>
+            <thead><tr><th scope="col">Thread</th><th scope="col">Pitch</th><th scope="col">Tap drill (mm)</th></tr></thead>
+            <tbody>
+              <tr><td>M3</td><td>0.5</td><td>2.5</td></tr>
+              <tr><td>M4</td><td>0.7</td><td>3.3</td></tr>
+              <tr><td>M5</td><td>0.8</td><td>4.2</td></tr>
+              <tr><td>M6</td><td>1.0</td><td>5.0</td></tr>
+              <tr><td>M8</td><td>1.25</td><td>6.8</td></tr>
+              <tr><td>M10</td><td>1.5</td><td>8.5</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><a href="/tools/tap-drill-calculator.html">Tap Drill Calculator</a> · <a href="/charts/tap-drill-chart.html">Tap Drill Chart</a></p>
       </section>
 
       <section class="card">
-        <h2>Imperial tap drill</h2>
-        <p>For UNC/UNF threads, tap drill sizes are often given in fraction or letter/number drill sizes. Check our <a href="/charts/tap-drill-chart.html">tap drill chart</a> and use the <a href="/tools/drill-bit-converter.html">drill bit converter</a> if you need to switch between mm, inch, and wire sizes.</p>
+        <h2>Drill and tap sequence</h2>
+        <p>Drill the hole to the tap drill size, then tap with the correct tap (hand or machine). Use cutting fluid for metals. For through holes, a through tap is fine; for blind holes use a plug or bottoming tap as needed.</p>
       </section>
 
       <section class="card">
         <h2>FAQ</h2>
-        <h3>How do I choose tap drill size?</h3>
-        <p>Use a tap drill that gives about 75% thread depth. Metric: hole ≈ major diameter − pitch. Use our tap drill calculator or chart.</p>
-        <h3>What is the tap drill for M8 x 1.25?</h3>
-        <p>Standard tap drill is 6.8 mm. Confirm with our tap drill calculator for your material and thread type.</p>
-        <h3>Can I use a drill size between chart values?</h3>
-        <p>Stick to recommended sizes when possible. Larger = weaker threads; smaller = risk of tap breakage. Use our calculator when in doubt.</p>
+        <h3>What is tap drill size?</h3>
+        <p>Tap drill size is the diameter of the hole you drill before tapping. It is smaller than the bolt major diameter so that the tap can form threads; typically chosen for about 75% thread depth.</p>
+        <h3>How do you calculate tap drill size for metric?</h3>
+        <p>A common rule is: tap drill diameter = major diameter minus pitch. For M6 x 1.0, drill = 6 − 1 = 5 mm. Use our <a href="/tools/tap-drill-calculator.html">Tap Drill Calculator</a> for exact values.</p>
+        <h3>What if I drill the hole too large?</h3>
+        <p>Oversized holes give shallow threads and weak engagement. Use the recommended tap drill size from a chart or our calculator for reliable threads.</p>
       </section>
 
       <section class="card guide-links">
-        <h3>Related tools &amp; references</h3>
-        <ul>
-          <li><a href="/tools/tap-drill-calculator.html">Tap Drill Calculator</a></li>
-          <li><a href="/tools/drill-bit-converter.html">Drill Bit Size Converter</a></li>
-          <li><a href="/charts/tap-drill-chart.html">Tap Drill Chart</a></li>
-          <li><a href="/charts/screw-size-chart.html">Screw Size Chart</a></li>
-          <li><a href="/guides/thread-pitch-explained.html">Thread Pitch Explained</a></li>
-        </ul>
+        <h3>Related</h3>
+        <p><strong>Tools:</strong> <a href="/tools/tap-drill-calculator.html">Tap Drill Calculator</a>, <a href="/tools/drill-bit-converter.html">Drill Bit Size Converter</a></p>
+        <p><strong>Charts:</strong> <a href="/charts/tap-drill-chart.html">Tap Drill Chart</a>, <a href="/charts/universal-screw-bolt-size-chart.html">Universal Screw &amp; Bolt Size Chart</a></p>
+        <p><strong>Guide:</strong> <a href="/guides/metric-thread-tolerances.html">Metric Thread Tolerances</a></p>
       </section>
     </article>
   </main>
-
   <footer class="site-footer">
     <div class="container footer-inner">
       <p class="muted">© 2026 BoltLab · A product of Albor Digital LLC</p>
@@ -98,11 +92,7 @@
       </nav>
     </div>
   </footer>
-  <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Organization","name":"Albor Digital LLC","url":"https://albor.digital","email":"contact@albor.digital","sameAs":["https://boltlab.io"]}
-  </script>
-  <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebSite","name":"BoltLab","url":"https://boltlab.io","publisher":{"@type":"Organization","name":"Albor Digital LLC"}}
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Albor Digital LLC","url":"https://albor.digital","email":"contact@albor.digital","sameAs":["https://boltlab.io"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"BoltLab","url":"https://boltlab.io","publisher":{"@type":"Organization","name":"Albor Digital LLC"}}</script>
 </body>
 </html>
