@@ -11,12 +11,18 @@
   };
 
   var DRIVE = {
-    phillips: { label: "Phillips", img: "/images/screw-drive-types/phillips-drive.svg", alt: "Phillips cross drive" },
-    pozidriv: { label: "Pozidriv", img: "/images/screw-drive-types/pozidriv-drive.svg", alt: "Pozidriv drive" },
-    torx: { label: "Torx", img: "/images/screw-drive-types/torx-drive.svg", alt: "Torx six-lobe drive" },
-    hex: { label: "Hex (Allen)", img: "/images/screw-drive-types/hex-drive.svg", alt: "Internal hex socket drive" },
-    slotted: { label: "Slotted", img: "/images/screw-drive-types/slotted-drive.svg", alt: "Slotted drive" },
-    robertson: { label: "Robertson", img: "/images/screw-drive-types/robertson-drive.svg", alt: "Square Robertson drive" },
+    phillips: { label: "Phillips", img: "/images/screw-drive-types/philips.png", alt: "Phillips cross drive" },
+    pozidriv: { label: "Pozidriv", img: "/images/screw-drive-types/pozidriv.png", alt: "Pozidriv drive" },
+    torx: { label: "Torx", img: "/images/screw-drive-types/torx.png", alt: "Torx six-lobe drive" },
+    hex: { label: "Hex (Allen)", img: "/images/screw-drive-types/hex.png", alt: "Internal hex socket drive" },
+    slotted: { label: "Slotted", img: "/images/screw-drive-types/slotted.png", alt: "Slotted drive" },
+    robertson: { label: "Robertson", img: "/images/screw-drive-types/robertson.png", alt: "Square Robertson drive" },
+    "triple-square": { label: "Triple-square (XZN)", img: "/images/screw-drive-types/triple-square.png", alt: "Triple-square XZN drive" },
+    "double-hex": { label: "12-point (double hex)", img: "/images/screw-drive-types/double-hex.png", alt: "12-point double hex drive" },
+    bristol: { label: "Bristol spline", img: "/images/screw-drive-types/bristol.png", alt: "Bristol spline drive" },
+    polydrive: { label: "Polydrive", img: "/images/screw-drive-types/polydrive.png", alt: "Polydrive recess" },
+    spline: { label: "Spline drive", img: "/images/screw-drive-types/spline-drive.png", alt: "Spline multi-tooth drive" },
+    triangle: { label: "Triangle", img: "/images/screw-drive-types/triangle.png", alt: "Triangle security drive" },
   };
 
   /**

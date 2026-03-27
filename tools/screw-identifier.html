@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Interactive Screw Identifier | BoltLab</title>
-  <meta name="description" content="Interactive screw identifier: pick head shape, drive type, and thread system. See confidence level, likely matches, and open Thread Identifier or charts. Shareable URLs (?head=&amp;drive=&amp;thread=).">
+  <meta name="description" content="Interactive screw identifier: pick head shape, one of 12 drive types (Phillips through triangle), and thread system. See confidence level, likely matches, and open Thread Identifier or charts. Shareable URLs (?head=&amp;drive=&amp;thread=).">
   <link rel="canonical" href="https://boltlab.io/tools/screw-identifier.html">
   <link rel="stylesheet" href="/css/styles.css">
   <script type="application/ld+json">
@@ -93,28 +93,52 @@
         <p class="si-step-hint muted">What pattern does your bit engage?</p>
         <div class="si-grid si-grid-drives" id="si-group-drive" role="group" aria-label="Drive type">
           <button type="button" class="si-choice" data-category="drive" data-value="phillips" aria-pressed="false">
-            <span class="si-choice-visual"><img src="/images/screw-drive-types/phillips-drive.svg" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/philips.png" width="100" height="100" alt="" loading="lazy"></span>
             <span class="si-choice-label">Phillips</span>
           </button>
           <button type="button" class="si-choice" data-category="drive" data-value="pozidriv" aria-pressed="false">
-            <span class="si-choice-visual"><img src="/images/screw-drive-types/pozidriv-drive.svg" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/pozidriv.png" width="100" height="100" alt="" loading="lazy"></span>
             <span class="si-choice-label">Pozidriv</span>
           </button>
           <button type="button" class="si-choice" data-category="drive" data-value="torx" aria-pressed="false">
-            <span class="si-choice-visual"><img src="/images/screw-drive-types/torx-drive.svg" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/torx.png" width="100" height="100" alt="" loading="lazy"></span>
             <span class="si-choice-label">Torx</span>
           </button>
           <button type="button" class="si-choice" data-category="drive" data-value="hex" aria-pressed="false">
-            <span class="si-choice-visual"><img src="/images/screw-drive-types/hex-drive.svg" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/hex.png" width="100" height="100" alt="" loading="lazy"></span>
             <span class="si-choice-label">Hex (Allen)</span>
           </button>
           <button type="button" class="si-choice" data-category="drive" data-value="slotted" aria-pressed="false">
-            <span class="si-choice-visual"><img src="/images/screw-drive-types/slotted-drive.svg" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/slotted.png" width="100" height="100" alt="" loading="lazy"></span>
             <span class="si-choice-label">Slotted</span>
           </button>
           <button type="button" class="si-choice" data-category="drive" data-value="robertson" aria-pressed="false">
-            <span class="si-choice-visual"><img src="/images/screw-drive-types/robertson-drive.svg" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/robertson.png" width="100" height="100" alt="" loading="lazy"></span>
             <span class="si-choice-label">Robertson</span>
+          </button>
+          <button type="button" class="si-choice" data-category="drive" data-value="triple-square" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/triple-square.png" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Triple-square (XZN)</span>
+          </button>
+          <button type="button" class="si-choice" data-category="drive" data-value="double-hex" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/double-hex.png" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">12-point (double hex)</span>
+          </button>
+          <button type="button" class="si-choice" data-category="drive" data-value="bristol" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/bristol.png" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Bristol spline</span>
+          </button>
+          <button type="button" class="si-choice" data-category="drive" data-value="polydrive" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/polydrive.png" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Polydrive</span>
+          </button>
+          <button type="button" class="si-choice" data-category="drive" data-value="spline" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/spline-drive.png" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Spline drive</span>
+          </button>
+          <button type="button" class="si-choice" data-category="drive" data-value="triangle" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/triangle.png" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Triangle</span>
           </button>
         </div>
       </section>

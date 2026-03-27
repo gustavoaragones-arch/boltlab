@@ -765,11 +765,27 @@ th {
   text-align: center;
 }
 
-.ref-anatomy-diagram svg {
-  max-width: 100%;
+.ref-anatomy-figure {
+  margin: 0;
+}
+
+/* ~50% content width; full width on small screens */
+.ref-anatomy-figure--labeled {
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ref-anatomy-callout-svg {
+  width: 100%;
   height: auto;
   display: block;
-  margin: 0 auto;
+}
+
+@media (max-width: 720px) {
+  .ref-anatomy-figure--labeled {
+    max-width: 100%;
+  }
 }
 
 /* Interactive screw identifier (diagnostic UI) */
