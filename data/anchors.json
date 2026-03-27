@@ -1,0 +1,32 @@
+{
+  "version": "1",
+  "anchors": {
+    "thread pitch": "/guides/thread-pitch-explained.html",
+    "tap drill size": "/guides/tap-drill-basics.html",
+    "tap drill": "/guides/tap-drill-basics.html",
+    "thread type": "/guides/thread-types-explained.html",
+    "thread types": "/guides/thread-types-explained.html",
+    "bolt grade": "/charts/bolt-grade-chart.html",
+    "screw size chart": "/charts/universal-screw-bolt-size-chart.html",
+    "torx screw": "/reference/screw-drive-types.html",
+    "torx": "/reference/screw-drive-types.html",
+    "phillips": "/reference/screw-drive-types.html",
+    "pozidriv": "/reference/screw-drive-types.html",
+    "hex drive": "/reference/screw-drive-types.html",
+    "robertson": "/reference/screw-drive-types.html",
+    "slotted": "/reference/screw-drive-types.html",
+    "M3": "/sizes/m3-bolt-size.html",
+    "M4": "/sizes/m4-bolt-size.html",
+    "M5": "/sizes/m5-bolt-size.html",
+    "M6": "/sizes/m6-bolt-size.html",
+    "M8": "/sizes/m8-bolt-size.html",
+    "M10": "/sizes/m10-bolt-size.html",
+    "M12": "/sizes/m12-bolt-size.html",
+    "1/4-20": "/sizes/1-4-20-bolt-size.html",
+    "5/16-18": "/sizes/5-16-18-bolt-size.html",
+    "3/8-16": "/sizes/3-8-16-bolt-size.html",
+    "TPI": "/guides/what-is-tpi.html",
+    "metric thread": "/guides/metric-thread-tolerances.html",
+    "self-tapping": "/reference/self-tapping-vs-self-drilling.html"
+  }
+}

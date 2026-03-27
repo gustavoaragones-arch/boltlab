@@ -1,0 +1,288 @@
+{
+  "version": 1,
+  "categories": {
+    "default": {
+      "tools": [
+        { "href": "/tools/screw-identifier.html", "label": "Interactive Screw Identifier" },
+        { "href": "/tools/thread-identifier.html", "label": "Thread Identifier" },
+        { "href": "/tools/metric-to-imperial-screw-converter.html", "label": "Metric ↔ Imperial Converter" },
+        { "href": "/tools/tap-drill-calculator.html", "label": "Tap Drill Calculator" }
+      ],
+      "guides": [
+        { "href": "/guides/thread-types-explained.html", "label": "Thread types explained" },
+        { "href": "/guides/how-to-measure-thread-pitch.html", "label": "How to measure thread pitch" },
+        { "href": "/guides/bolt-vs-screw-difference.html", "label": "Bolt vs screw" }
+      ],
+      "charts": [
+        { "href": "/charts/universal-screw-bolt-size-chart.html", "label": "Universal screw & bolt size chart" },
+        { "href": "/charts/tap-drill-chart.html", "label": "Tap drill chart" },
+        { "href": "/charts/screw-size-chart.html", "label": "Screw size chart" }
+      ],
+      "sizes": [
+        { "href": "/sizes/", "label": "Bolt & screw sizes (hub)" },
+        { "href": "/sizes/m6-bolt-size.html", "label": "M6 bolt size" },
+        { "href": "/sizes/1-4-20-bolt-size.html", "label": "¼-20 bolt size" }
+      ]
+    },
+    "home": {
+      "tools": [
+        { "href": "/tools/screw-identifier.html", "label": "Interactive Screw Identifier" },
+        { "href": "/tools/thread-identifier.html", "label": "Thread Identifier" },
+        { "href": "/tools/metric-to-imperial-screw-converter.html", "label": "Metric ↔ Imperial Converter" }
+      ],
+      "guides": [
+        { "href": "/guides/thread-types-explained.html", "label": "Thread types explained" },
+        { "href": "/reference/screw-anatomy.html", "label": "Screw anatomy (reference)" }
+      ],
+      "charts": [
+        { "href": "/charts/universal-screw-bolt-size-chart.html", "label": "Universal size chart" },
+        { "href": "/charts/bolt-grade-chart.html", "label": "Bolt grade chart" }
+      ],
+      "sizes": [
+        { "href": "/sizes/", "label": "All programmatic size pages" }
+      ]
+    },
+    "thread": {
+      "tools": [
+        { "href": "/tools/thread-identifier.html", "label": "Thread Identifier" },
+        { "href": "/tools/thread-pitch-to-tpi-converter.html", "label": "Thread pitch ↔ TPI" },
+        { "href": "/tools/screw-identifier.html", "label": "Interactive Screw Identifier" },
+        { "href": "/tools/metric-to-imperial-screw-converter.html", "label": "Metric ↔ Imperial Converter" }
+      ],
+      "guides": [
+        { "href": "/guides/thread-pitch-explained.html", "label": "Thread pitch explained" },
+        { "href": "/guides/how-to-measure-thread-pitch.html", "label": "How to measure thread pitch" },
+        { "href": "/guides/what-is-tpi.html", "label": "What is TPI?" },
+        { "href": "/guides/thread-types-explained.html", "label": "Thread types explained" }
+      ],
+      "charts": [
+        { "href": "/charts/universal-screw-bolt-size-chart.html", "label": "Universal screw & bolt size chart" },
+        { "href": "/charts/tap-drill-chart.html", "label": "Tap drill chart" }
+      ],
+      "sizes": [
+        { "href": "/sizes/", "label": "Size reference pages" }
+      ]
+    },
+    "metric": {
+      "tools": [
+        { "href": "/tools/metric-to-imperial-screw-converter.html", "label": "Metric ↔ Imperial Converter" },
+        { "href": "/tools/thread-identifier.html", "label": "Thread Identifier" },
+        { "href": "/tools/thread-pitch-to-tpi-converter.html", "label": "Thread pitch ↔ TPI" }
+      ],
+      "guides": [
+        { "href": "/guides/metric-vs-imperial-fasteners.html", "label": "Metric vs imperial fasteners" },
+        { "href": "/guides/metric-thread-tolerances.html", "label": "Metric thread tolerances" },
+        { "href": "/guides/thread-types-explained.html", "label": "Thread types explained" }
+      ],
+      "charts": [
+        { "href": "/charts/universal-screw-bolt-size-chart.html", "label": "Universal size chart" },
+        { "href": "/charts/tap-drill-chart.html", "label": "Tap drill chart" }
+      ],
+      "sizes": [
+        { "href": "/sizes/m6-bolt-size.html", "label": "M6 size" },
+        { "href": "/sizes/m8-bolt-size.html", "label": "M8 size" }
+      ]
+    },
+    "tap": {
+      "tools": [
+        { "href": "/tools/tap-drill-calculator.html", "label": "Tap Drill Calculator" },
+        { "href": "/tools/thread-identifier.html", "label": "Thread Identifier" },
+        { "href": "/tools/thread-pitch-to-tpi-converter.html", "label": "Thread pitch ↔ TPI" }
+      ],
+      "guides": [
+        { "href": "/guides/tap-drill-basics.html", "label": "Tap drill basics" },
+        { "href": "/guides/how-to-measure-thread-pitch.html", "label": "How to measure thread pitch" }
+      ],
+      "charts": [
+        { "href": "/charts/tap-drill-chart.html", "label": "Tap drill chart" },
+        { "href": "/charts/universal-screw-bolt-size-chart.html", "label": "Universal size chart" }
+      ],
+      "sizes": [
+        { "href": "/sizes/", "label": "Sizes hub" }
+      ]
+    },
+    "bolt": {
+      "tools": [
+        { "href": "/tools/bolt-torque-calculator.html", "label": "Bolt Torque Calculator" },
+        { "href": "/tools/thread-identifier.html", "label": "Thread Identifier" },
+        { "href": "/tools/fastener-weight-calculator.html", "label": "Fastener Weight Calculator" }
+      ],
+      "guides": [
+        { "href": "/guides/bolt-strength-grades.html", "label": "Bolt strength grades" },
+        { "href": "/guides/bolt-head-markings.html", "label": "Bolt head markings" },
+        { "href": "/guides/bolt-vs-screw-difference.html", "label": "Bolt vs screw" }
+      ],
+      "charts": [
+        { "href": "/charts/bolt-grade-chart.html", "label": "Bolt grade chart" },
+        { "href": "/charts/universal-screw-bolt-size-chart.html", "label": "Universal size chart" }
+      ],
+      "sizes": [
+        { "href": "/sizes/", "label": "Sizes hub" }
+      ]
+    },
+    "material": {
+      "guides": [
+        { "href": "/guides/fastener-materials-guide.html", "label": "Fastener materials guide" },
+        { "href": "/guides/why-stainless-bolts-gall.html", "label": "Why stainless bolts gall" }
+      ],
+      "tools": [
+        { "href": "/tools/bolt-torque-calculator.html", "label": "Bolt Torque Calculator" },
+        { "href": "/tools/thread-identifier.html", "label": "Thread Identifier" }
+      ],
+      "charts": [
+        { "href": "/charts/bolt-grade-chart.html", "label": "Bolt grade chart" }
+      ],
+      "sizes": []
+    },
+    "drill": {
+      "tools": [
+        { "href": "/tools/drill-bit-converter.html", "label": "Drill Bit Converter" },
+        { "href": "/tools/tap-drill-calculator.html", "label": "Tap Drill Calculator" }
+      ],
+      "guides": [
+        { "href": "/guides/tap-drill-basics.html", "label": "Tap drill basics" }
+      ],
+      "charts": [
+        { "href": "/charts/tap-drill-chart.html", "label": "Tap drill chart" }
+      ],
+      "sizes": []
+    },
+    "weight": {
+      "tools": [
+        { "href": "/tools/fastener-weight-calculator.html", "label": "Fastener Weight Calculator" },
+        { "href": "/tools/bolt-torque-calculator.html", "label": "Bolt Torque Calculator" }
+      ],
+      "guides": [
+        { "href": "/guides/fastener-materials-guide.html", "label": "Materials guide" }
+      ],
+      "charts": [
+        { "href": "/charts/bolt-grade-chart.html", "label": "Bolt grade chart" }
+      ],
+      "sizes": []
+    },
+    "reference": {
+      "tools": [
+        { "href": "/tools/screw-identifier.html", "label": "Interactive Screw Identifier" },
+        { "href": "/tools/thread-identifier.html", "label": "Thread Identifier" }
+      ],
+      "guides": [
+        { "href": "/guides/thread-types-explained.html", "label": "Thread types explained" },
+        { "href": "/guides/how-to-measure-thread-pitch.html", "label": "How to measure pitch" }
+      ],
+      "charts": [
+        { "href": "/charts/universal-screw-bolt-size-chart.html", "label": "Universal size chart" }
+      ],
+      "sizes": [
+        { "href": "/sizes/", "label": "Sizes hub" }
+      ]
+    },
+    "charts_hub": {
+      "tools": [
+        { "href": "/tools/metric-to-imperial-screw-converter.html", "label": "Metric ↔ Imperial Converter" },
+        { "href": "/tools/thread-identifier.html", "label": "Thread Identifier" }
+      ],
+      "guides": [
+        { "href": "/guides/thread-types-explained.html", "label": "Thread types explained" }
+      ],
+      "charts": [
+        { "href": "/charts/universal-screw-bolt-size-chart.html", "label": "Universal size chart" },
+        { "href": "/charts/tap-drill-chart.html", "label": "Tap drill chart" },
+        { "href": "/charts/bolt-grade-chart.html", "label": "Bolt grade chart" },
+        { "href": "/charts/screw-size-chart.html", "label": "Screw size chart" }
+      ],
+      "sizes": [
+        { "href": "/sizes/", "label": "Programmatic size pages" }
+      ]
+    },
+    "guides_hub": {
+      "tools": [
+        { "href": "/tools/screw-identifier.html", "label": "Interactive Screw Identifier" },
+        { "href": "/tools/thread-identifier.html", "label": "Thread Identifier" }
+      ],
+      "guides": [
+        { "href": "/guides/thread-types-explained.html", "label": "Thread types explained" },
+        { "href": "/guides/tap-drill-basics.html", "label": "Tap drill basics" },
+        { "href": "/guides/bolt-strength-grades.html", "label": "Bolt strength grades" }
+      ],
+      "charts": [
+        { "href": "/charts/universal-screw-bolt-size-chart.html", "label": "Universal chart" }
+      ],
+      "sizes": [
+        { "href": "/sizes/", "label": "Sizes hub" }
+      ]
+    },
+    "sizes_hub": {
+      "tools": [
+        { "href": "/tools/thread-identifier.html", "label": "Thread Identifier" },
+        { "href": "/tools/tap-drill-calculator.html", "label": "Tap Drill Calculator" },
+        { "href": "/tools/metric-to-imperial-screw-converter.html", "label": "Metric ↔ Imperial Converter" },
+        { "href": "/tools/screw-identifier.html", "label": "Interactive Screw Identifier" }
+      ],
+      "guides": [
+        { "href": "/guides/thread-types-explained.html", "label": "Thread types explained" },
+        { "href": "/guides/how-to-measure-thread-pitch.html", "label": "How to measure pitch" }
+      ],
+      "charts": [
+        { "href": "/charts/universal-screw-bolt-size-chart.html", "label": "Universal size chart" },
+        { "href": "/charts/tap-drill-chart.html", "label": "Tap drill chart" }
+      ],
+      "sizes": [
+        { "href": "/sizes/m6-bolt-size.html", "label": "M6" },
+        { "href": "/sizes/m8-bolt-size.html", "label": "M8" },
+        { "href": "/sizes/1-4-20-bolt-size.html", "label": "¼-20" }
+      ]
+    },
+    "size_metric": {
+      "tools": [
+        { "href": "/tools/thread-identifier.html", "label": "Thread Identifier" },
+        { "href": "/tools/tap-drill-calculator.html", "label": "Tap Drill Calculator" },
+        { "href": "/tools/metric-to-imperial-screw-converter.html", "label": "Metric ↔ Imperial Converter" },
+        { "href": "/tools/thread-pitch-to-tpi-converter.html", "label": "Thread pitch ↔ TPI" }
+      ],
+      "guides": [
+        { "href": "/guides/metric-vs-imperial-fasteners.html", "label": "Metric vs imperial" },
+        { "href": "/guides/metric-thread-tolerances.html", "label": "Metric thread tolerances" }
+      ],
+      "charts": [
+        { "href": "/charts/universal-screw-bolt-size-chart.html", "label": "Universal size chart" },
+        { "href": "/charts/tap-drill-chart.html", "label": "Tap drill chart" }
+      ],
+      "sizes": [
+        { "href": "/sizes/", "label": "All sizes" }
+      ]
+    },
+    "size_imperial": {
+      "tools": [
+        { "href": "/tools/thread-identifier.html", "label": "Thread Identifier" },
+        { "href": "/tools/thread-pitch-to-tpi-converter.html", "label": "Thread pitch ↔ TPI" },
+        { "href": "/tools/metric-to-imperial-screw-converter.html", "label": "Metric ↔ Imperial Converter" }
+      ],
+      "guides": [
+        { "href": "/guides/what-is-tpi.html", "label": "What is TPI?" },
+        { "href": "/guides/thread-types-explained.html", "label": "Thread types (UNC/UNF)" }
+      ],
+      "charts": [
+        { "href": "/charts/universal-screw-bolt-size-chart.html", "label": "Universal size chart" },
+        { "href": "/charts/screw-size-chart.html", "label": "Screw size chart" }
+      ],
+      "sizes": [
+        { "href": "/sizes/", "label": "Sizes hub" }
+      ]
+    },
+    "about": {
+      "tools": [
+        { "href": "/tools/screw-identifier.html", "label": "Interactive Screw Identifier" },
+        { "href": "/tools/thread-identifier.html", "label": "Thread Identifier" }
+      ],
+      "guides": [
+        { "href": "/guides/thread-types-explained.html", "label": "Thread types explained" }
+      ],
+      "charts": [
+        { "href": "/charts/universal-screw-bolt-size-chart.html", "label": "Universal chart" }
+      ],
+      "sizes": [
+        { "href": "/sizes/", "label": "Sizes" }
+      ]
+    }
+  }
+}

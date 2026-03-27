@@ -46,6 +46,118 @@
     }, null);
   }
 
+  function findHeroMetricKey(raw, metricToImperial) {
+    if (!raw || !String(raw).trim()) return null;
+    var s = String(raw).trim().replace(/\s+/g, "");
+    var m = s.match(/^m(\d+)(?:x[\d.]*)?$/i);
+    if (m) {
+      var k = "M" + m[1];
+      if (metricToImperial[k]) return k;
+    }
+    var up = s.toUpperCase();
+    if (/^M\d+$/.test(up) && metricToImperial[up]) return up;
+    return null;
+  }
+
+  function findHeroImperialKey(raw, imperialToMetric) {
+    if (!raw || !String(raw).trim()) return null;
+    var s = String(raw).trim();
+    var keys = Object.keys(imperialToMetric || {});
+    var compact = s.replace(/\s*-\s*/g, "-").replace(/\s+/g, "");
+    var i;
+    for (i = 0; i < keys.length; i++) {
+      if (keys[i].toLowerCase() === s.toLowerCase()) return keys[i];
+      if (keys[i].replace(/\s/g, "").toLowerCase() === compact.toLowerCase()) return keys[i];
+    }
+    if (!compact.startsWith("#") && /^\d+-\d+$/.test(compact)) {
+      var withHash = "#" + compact;
+      if (imperialToMetric[withHash]) return withHash;
+    }
+    return null;
+  }
+
+  function setupHeroMetricImperialConverter() {
+    var inputEl = byId("hero-size-input");
+    var modeEl = byId("hero-conversion-mode");
+    var resultEl = byId("hero-metric-imperial-result");
+    if (!inputEl || !modeEl || !resultEl) return;
+
+    var metricToImperial = data.metricToImperial || {};
+    var imperialToMetric = data.imperialToMetric || {};
+    var tapDrill = data.tapDrill || {};
+
+    function renderEmpty() {
+      resultEl.innerHTML =
+        "<div class=\"hero-result-inner hero-result-placeholder\"><p>Enter a size to see the closest match.</p></div>";
+    }
+
+    function updateResult() {
+      var mode = modeEl.value;
+      var raw = inputEl.value;
+      resultEl.classList.remove("hero-result-visible");
+      if (!raw || !String(raw).trim()) {
+        renderEmpty();
+        void resultEl.offsetWidth;
+        resultEl.classList.add("hero-result-visible");
+        return;
+      }
+
+      var html = "";
+      if (mode === "metric-to-imperial") {
+        var mk = findHeroMetricKey(raw, metricToImperial);
+        if (!mk) {
+          html =
+            "<div class=\"hero-result-inner\"><p class=\"hero-result-warning\">No match — try <strong>M6</strong>, <strong>M8</strong>, or <strong>M10</strong>.</p></div>";
+        } else {
+          var imperial = metricToImperial[mk] || "—";
+          var td = tapDrill[mk];
+          var pitchLine = td
+            ? "<p class=\"hero-result-line\"><span class=\"hero-result-label\">Coarse pitch</span> <strong>" +
+              td.coarsePitchMm +
+              " mm</strong></p><p class=\"hero-result-line\"><span class=\"hero-result-label\">Tap drill</span> <strong>" +
+              td.tapDrillMm +
+              " mm</strong> <span class=\"muted\">(coarse)</span></p>"
+            : "";
+          html =
+            "<div class=\"hero-result-inner\">" +
+            "<p class=\"hero-result-line hero-result-primary\"><span class=\"hero-result-label\">Equivalent</span> <strong>" +
+            imperial +
+            "</strong></p>" +
+            pitchLine +
+            "</div>";
+        }
+      } else {
+        var ik = findHeroImperialKey(raw, imperialToMetric);
+        if (!ik) {
+          html =
+            "<div class=\"hero-result-inner\"><p class=\"hero-result-warning\">No match — try <strong>1/4-20</strong>, <strong>5/16-18</strong>, or <strong>#8-32</strong>.</p></div>";
+        } else {
+          var metric = imperialToMetric[ik] || "—";
+          var tpiMatch = ik.match(/-(\d+)$/);
+          var tpiLine = tpiMatch
+            ? "<p class=\"hero-result-line\"><span class=\"hero-result-label\">Threads per inch</span> <strong>" +
+              tpiMatch[1] +
+              "</strong></p>"
+            : "";
+          html =
+            "<div class=\"hero-result-inner\">" +
+            "<p class=\"hero-result-line hero-result-primary\"><span class=\"hero-result-label\">Equivalent</span> <strong>" +
+            metric +
+            "</strong></p>" +
+            tpiLine +
+            "</div>";
+        }
+      }
+      resultEl.innerHTML = html;
+      void resultEl.offsetWidth;
+      resultEl.classList.add("hero-result-visible");
+    }
+
+    inputEl.addEventListener("input", updateResult);
+    modeEl.addEventListener("change", updateResult);
+    updateResult();
+  }
+
   function setupMetricImperialConverter() {
     var directionEl = byId("conversion-direction");
     var sizeEl = byId("screw-size");
@@ -394,6 +506,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    setupHeroMetricImperialConverter();
     setupMetricImperialConverter();
     setupPitchTpiConverter();
     setupTapDrillCalculator();

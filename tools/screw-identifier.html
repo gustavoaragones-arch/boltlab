@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interactive Screw Identifier | BoltLab</title>
+  <meta name="description" content="Interactive screw identifier: pick head shape, drive type, and thread system. See confidence level, likely matches, and open Thread Identifier or charts. Shareable URLs (?head=&amp;drive=&amp;thread=).">
+  <link rel="canonical" href="https://boltlab.io/tools/screw-identifier.html">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Interactive Screw Identifier","applicationCategory":"ToolApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Visual diagnostic tool to narrow down fastener type from head shape, drive type, and thread system.","url":"https://boltlab.io/tools/screw-identifier.html","provider":{"@type":"Organization","name":"Albor Digital LLC"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What is a screw identifier?","acceptedAnswer":{"@type":"Answer","text":"A screw identifier helps you narrow down what kind of fastener you have by matching visible features—head shape, drive recess, and optionally whether you expect metric or imperial threads—before you measure diameter and pitch."}},
+    {"@type":"Question","name":"How do I identify a screw?","acceptedAnswer":{"@type":"Answer","text":"First identify the head style and drive pattern visually, then measure major thread diameter and pitch or TPI. Use BoltLab’s Interactive Screw Identifier for the visual step, then the Thread Identifier tool with your measurements."}},
+    {"@type":"Question","name":"What is the difference between Phillips and Pozidriv?","acceptedAnswer":{"@type":"Answer","text":"Both are cross-shaped recesses. Pozidriv has extra shallow radial ticks between the main blades and requires a Pozidriv bit; it usually resists cam-out better than Phillips when paired correctly."}},
+    {"@type":"Question","name":"Can I identify thread size visually?","acceptedAnswer":{"@type":"Answer","text":"You cannot reliably tell thread diameter or pitch from appearance alone. Visual ID narrows the fastener family; you still need calipers and a pitch gauge or thread identifier for the thread specification."}}
+  ]}
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">BoltLab</a>
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="/tools/metric-to-imperial-screw-converter.html">Tools</a></li>
+          <li><a href="/charts/">Charts</a></li>
+          <li><a href="/reference/">Reference</a></li>
+          <li><a href="/sizes/">Sizes</a></li>
+          <li><a href="/guides/">Guides</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="container">
+    <article id="screw-identifier-app">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">BoltLab</a> → <a href="/tools/metric-to-imperial-screw-converter.html">Tools</a> → Screw identifier</nav>
+      <h1>Interactive Screw Identifier</h1>
+      <p class="muted">Identify screw and bolt types by <strong>head shape</strong>, <strong>drive recess</strong>, and <strong>thread system</strong>. Built like a diagnostic—not a quiz. Select what you see, then jump to measurement tools to confirm.</p>
+
+      <div class="aeo-direct-answer" role="region" aria-label="What is a screw identifier">
+        <p><strong>What is a screw identifier?</strong> A screw identifier helps determine the likely type of fastener based on its <strong>head shape</strong>, <strong>drive type</strong>, and <strong>thread system</strong> (metric, imperial, or unknown). It narrows candidates before you measure thread diameter and pitch for a definitive match.</p>
+      </div>
+
+      <div class="si-tool-shell">
+      <div class="si-toolbar">
+        <p class="si-toolbar-title">Diagnostic selector</p>
+        <button type="button" id="si-reset" class="button button-secondary si-reset-btn">Reset</button>
+      </div>
+
+      <section class="card si-diagnostic" aria-labelledby="si-step1-title">
+        <div class="si-step-head">
+          <span class="si-step-badge" aria-hidden="true">1</span>
+          <h2 id="si-step1-title" class="si-step-title">Head type</h2>
+        </div>
+        <p class="si-step-hint muted">What does the head look like from the side or top?</p>
+        <div class="si-grid" id="si-group-head" role="group" aria-label="Head type">
+          <button type="button" class="si-choice" data-category="head" data-value="hex" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-head-types/hex-head.svg" width="120" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Hex</span>
+          </button>
+          <button type="button" class="si-choice" data-category="head" data-value="pan" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-head-types/pan-head.svg" width="120" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Pan</span>
+          </button>
+          <button type="button" class="si-choice" data-category="head" data-value="truss" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-head-types/truss-head.svg" width="120" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Truss</span>
+          </button>
+          <button type="button" class="si-choice" data-category="head" data-value="countersunk" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-head-types/countersunk-head.svg" width="120" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Countersunk</span>
+          </button>
+          <button type="button" class="si-choice" data-category="head" data-value="oval" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-head-types/oval-head.svg" width="120" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Oval</span>
+          </button>
+          <button type="button" class="si-choice" data-category="head" data-value="round" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-head-types/round-head.svg" width="120" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Round</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="card si-diagnostic" aria-labelledby="si-step2-title">
+        <div class="si-step-head">
+          <span class="si-step-badge" aria-hidden="true">2</span>
+          <h2 id="si-step2-title" class="si-step-title">Drive type</h2>
+        </div>
+        <p class="si-step-hint muted">What pattern does your bit engage?</p>
+        <div class="si-grid si-grid-drives" id="si-group-drive" role="group" aria-label="Drive type">
+          <button type="button" class="si-choice" data-category="drive" data-value="phillips" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/phillips-drive.svg" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Phillips</span>
+          </button>
+          <button type="button" class="si-choice" data-category="drive" data-value="pozidriv" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/pozidriv-drive.svg" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Pozidriv</span>
+          </button>
+          <button type="button" class="si-choice" data-category="drive" data-value="torx" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/torx-drive.svg" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Torx</span>
+          </button>
+          <button type="button" class="si-choice" data-category="drive" data-value="hex" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/hex-drive.svg" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Hex (Allen)</span>
+          </button>
+          <button type="button" class="si-choice" data-category="drive" data-value="slotted" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/slotted-drive.svg" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Slotted</span>
+          </button>
+          <button type="button" class="si-choice" data-category="drive" data-value="robertson" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/robertson-drive.svg" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Robertson</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="card si-diagnostic" aria-labelledby="si-step3-title">
+        <div class="si-step-head">
+          <span class="si-step-badge" aria-hidden="true">3</span>
+          <h2 id="si-step3-title" class="si-step-title">Thread system</h2>
+        </div>
+        <p class="si-step-hint muted">Optional—narrows example callouts. Choose <strong>Unknown</strong> if you have not measured yet.</p>
+        <div class="si-thread-row" id="si-group-thread" role="group" aria-label="Thread system">
+          <button type="button" class="button button-secondary si-thread-btn" data-value="metric" aria-pressed="false">Metric</button>
+          <button type="button" class="button button-secondary si-thread-btn" data-value="imperial" aria-pressed="false">Imperial</button>
+          <button type="button" class="button button-secondary si-thread-btn" data-value="unknown" aria-pressed="false">Unknown</button>
+        </div>
+      </section>
+
+      <section class="card si-result-panel" aria-labelledby="si-result-title" aria-live="polite">
+        <h2 id="si-result-title" class="si-result-title">Results</h2>
+        <div class="si-result-inner"></div>
+        <div class="si-tool-strip">
+          <p class="label-caps">Next steps</p>
+          <div class="si-tool-links">
+            <a class="button" href="/tools/thread-identifier.html">Thread Identifier</a>
+            <a class="button button-secondary" href="/tools/metric-to-imperial-screw-converter.html">Convert size</a>
+            <a class="button button-secondary" href="/tools/tap-drill-calculator.html">Tap drill calculator</a>
+            <a class="button button-secondary" href="/charts/universal-screw-bolt-size-chart.html">Full chart</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="card si-refine-hint" aria-label="Refine with measurement">
+        <p class="si-refine-text">Not sure? <strong>Measure your screw</strong> to confirm diameter and pitch.</p>
+        <a class="button button-secondary" href="/tools/thread-identifier.html">Open Thread Identifier</a>
+      </section>
+      </div>
+
+      <section class="card si-faq" aria-labelledby="si-faq-title">
+        <h2 id="si-faq-title">Common questions</h2>
+        <h3>How do I identify a screw?</h3>
+        <p>Start with what you can see—head profile and drive recess—using this tool. Then measure <strong>major diameter</strong> and <strong>pitch</strong> (or TPI) and enter them in the <a href="/tools/thread-identifier.html">Thread Identifier</a>.</p>
+        <h3>What is the difference between Phillips and Pozidriv?</h3>
+        <p>Pozidriv has extra shallow radial ticks between the main blades and needs a Pozidriv bit; it usually grips better than Phillips when matched. See <a href="/reference/screw-drive-types.html">drive types reference</a>.</p>
+        <h3>Can I identify thread size visually?</h3>
+        <p>No—thread diameter and pitch are not visible reliably. Visual ID narrows the <em>family</em>; measurement confirms the <em>standard</em>.</p>
+        <h3>What is a screw identifier?</h3>
+        <p>A structured way to narrow fastener type from head, drive, and thread system before you use calipers and gauges.</p>
+      </section>
+
+      <section class="card guide-links">
+        <h3>Visual reference</h3>
+        <ul class="meta-list">
+          <li><a href="/reference/screw-head-types.html">Screw head types</a> (diagrams)</li>
+          <li><a href="/reference/screw-drive-types.html">Screw drive types</a> (torque &amp; cam-out)</li>
+          <li><a href="/reference/thread-types.html">Thread types</a> (metric vs unified)</li>
+        </ul>
+      </section>
+    </article>
+  <div id="related-links" class="related-links" aria-label="Related links"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <a class="footer-logo" href="/">BoltLab</a>
+        <p class="footer-tagline">Precision fastener tools for real-world use.</p>
+      </div>
+      <nav class="footer-nav footer-nav-center" aria-label="Product">
+        <a href="/tools/metric-to-imperial-screw-converter.html">Tools</a>
+        <a href="/charts/">Charts</a>
+        <a href="/sizes/">Sizes</a>
+        <a href="/guides/">Guides</a>
+      </nav>
+      <nav class="footer-nav footer-nav-right" aria-label="Company">
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p class="footer-copyright">© BoltLab — A product of Albor Digital LLC</p>
+        <p class="footer-domains"><span class="footer-domains-label">Supporting domains:</span> screwsizechart.com · boltgradechart.com</p>
+      </div>
+    </div>
+  </footer>
+  <script src="/js/screw-identifier.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Albor Digital LLC","url":"https://albor.digital","email":"contact@albor.digital","sameAs":["https://boltlab.io","https://screwsizechart.com","https://boltgradechart.com"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"BoltLab","url":"https://boltlab.io","publisher":{"@type":"Organization","name":"Albor Digital LLC"}}</script>
+  <script src="/js/link-engine.js" defer></script>
+  <script src="/js/context-anchor-engine.js" defer></script>
+  <script src="/js/anchor-engine.js" defer></script>
+
+</body>
+</html>

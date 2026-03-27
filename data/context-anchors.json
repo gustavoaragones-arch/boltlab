@@ -1,0 +1,90 @@
+{
+  "version": "1",
+  "patterns": [
+    {
+      "match": ["m6", "thread pitch"],
+      "url": "/sizes/m6-bolt-size.html",
+      "anchor": "M6 bolt thread pitch"
+    },
+    {
+      "match": ["m8", "tap drill"],
+      "url": "/guides/tap-drill-basics.html",
+      "anchor": "M8 tap drill size"
+    },
+    {
+      "match": ["tap drill", "m6"],
+      "url": "/guides/tap-drill-basics.html",
+      "anchor": "tap drill size for M6"
+    },
+    {
+      "match": ["thread pitch", "tpi"],
+      "url": "/tools/thread-pitch-to-tpi-converter.html",
+      "anchor": "convert thread pitch to TPI"
+    },
+    {
+      "match": ["torx", "phillips"],
+      "url": "/reference/screw-drive-types.html",
+      "anchor": "Torx vs Phillips screw drives"
+    },
+    {
+      "match": ["bolt grade", "strength"],
+      "url": "/charts/bolt-grade-chart.html",
+      "anchor": "bolt grade strength chart"
+    },
+    {
+      "match": ["metric", "imperial"],
+      "url": "/guides/metric-vs-imperial-fasteners.html",
+      "anchor": "metric vs imperial fasteners"
+    },
+    {
+      "match": ["coarse", "fine", "thread"],
+      "url": "/guides/thread-types-explained.html",
+      "anchor": "coarse vs fine thread types"
+    },
+    {
+      "match": ["1/4-20", "conversion"],
+      "url": "/tools/metric-to-imperial-screw-converter.html",
+      "anchor": "¼-20 imperial conversion"
+    },
+    {
+      "match": ["identify", "thread"],
+      "url": "/tools/thread-identifier.html",
+      "anchor": "identify bolt thread type"
+    },
+    {
+      "match": ["calculate", "tap drill"],
+      "url": "/tools/tap-drill-calculator.html",
+      "anchor": "calculate tap drill size"
+    },
+    {
+      "match": ["m6", "bolt", "size"],
+      "url": "/sizes/m6-bolt-size.html",
+      "anchor": "M6 bolt size reference"
+    },
+    {
+      "match": ["self-tapping", "self-drilling"],
+      "url": "/reference/self-tapping-vs-self-drilling.html",
+      "anchor": "self-tapping vs self-drilling screws"
+    },
+    {
+      "match": ["screw", "identifier"],
+      "url": "/tools/screw-identifier.html",
+      "anchor": "interactive screw identifier"
+    },
+    {
+      "match": ["hex", "allen"],
+      "url": "/reference/screw-drive-types.html",
+      "anchor": "hex socket Allen drive"
+    },
+    {
+      "match": ["bolt", "torque"],
+      "url": "/tools/bolt-torque-calculator.html",
+      "anchor": "bolt torque calculator"
+    },
+    {
+      "match": ["universal", "size chart"],
+      "url": "/charts/universal-screw-bolt-size-chart.html",
+      "anchor": "universal screw and bolt size chart"
+    }
+  ]
+}

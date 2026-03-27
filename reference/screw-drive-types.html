@@ -31,10 +31,13 @@
       </nav>
     </div>
   </header>
-  <main class="container">
+  <main id="content" class="container">
     <article>
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">BoltLab</a> → <a href="/reference/">Reference</a> → Screw drive types</nav>
       <h1>Screw drive types</h1>
+      <div class="aeo-direct-answer" role="region" aria-label="Direct answer">
+        <p><strong>What is a screw drive?</strong> A screw drive is the recess or external shape at the tool interface of the head—designed to transfer torque from a bit or wrench. It does not define thread size, pitch, or head style.</p>
+      </div>
       <p class="muted">The <strong>drive</strong> is the recess or shape your tool engages—separate from <a href="/reference/screw-head-types.html">head type</a> (pan, hex, countersunk, etc.). Use the diagrams below to match the pattern, then confirm thread size with the <a href="/tools/thread-identifier.html">Thread Identifier</a>.</p>
 
       <section class="card">
@@ -112,14 +115,30 @@
         </article>
       </section>
 
-      <section class="card" style="margin-top:var(--space-4)">
-        <h2>Related tools &amp; charts</h2>
-        <ul class="meta-list">
-          <li><a href="/tools/thread-identifier.html">Thread Identifier Tool</a></li>
-          <li><a href="/tools/metric-to-imperial-screw-converter.html">Metric to Imperial Screw Converter</a></li>
-          <li><a href="/tools/tap-drill-calculator.html">Tap Drill Calculator</a></li>
-          <li><a href="/charts/universal-screw-bolt-size-chart.html">Universal Screw &amp; Bolt Size Chart</a></li>
-        </ul>
+      <section class="card ref-crosslinks" style="margin-top:var(--space-4)" aria-label="BoltLab tools and charts">
+        <h2>Use with BoltLab</h2>
+        <div class="ref-crosslinks-grid">
+          <div>
+            <p class="label-caps">Tools</p>
+            <ul class="meta-list">
+              <li><a href="/tools/thread-identifier.html">Thread Identifier</a></li>
+              <li><a href="/tools/metric-to-imperial-screw-converter.html">Metric to Imperial Screw Converter</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="label-caps">Charts</p>
+            <ul class="meta-list">
+              <li><a href="/charts/universal-screw-bolt-size-chart.html">Universal Screw &amp; Bolt Size Chart</a></li>
+              <li><a href="/charts/tap-drill-chart.html">Tap Drill Chart</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="label-caps">Guide</p>
+            <ul class="meta-list">
+              <li><a href="/guides/thread-types-explained.html">Thread Types Explained</a></li>
+            </ul>
+          </div>
+        </div>
       </section>
 
       <section class="card">
@@ -138,25 +157,42 @@
 
       <section class="card guide-links">
         <h3>Also read</h3>
-        <p><strong>Reference:</strong> <a href="/reference/screw-head-types.html">Screw head types</a>, <a href="/reference/screw-head-shapes.html">Head shape profiles</a></p>
-        <p><strong>Guides:</strong> <a href="/guides/thread-types-explained.html">Thread Types Explained</a>, <a href="/guides/how-to-measure-thread-pitch.html">How to Measure Thread Pitch</a></p>
+        <p><strong>Reference:</strong> <a href="/reference/screw-anatomy.html">Screw anatomy</a>, <a href="/reference/thread-types.html">Thread types</a>, <a href="/reference/screw-head-types.html">Screw head types</a>, <a href="/reference/screw-head-shapes.html">Head shape profiles</a></p>
+        <p><strong>Guides:</strong> <a href="/guides/how-to-measure-thread-pitch.html">How to Measure Thread Pitch</a></p>
       </section>
     </article>
+  <div id="related-links" class="related-links" aria-label="Related links"></div>
   </main>
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p class="muted">© BoltLab — A product of Albor Digital LLC</p>
-      <p class="muted" style="margin-top:0.25rem;font-size:0.9em">Supporting domains: screwsizechart.com, boltgradechart.com</p>
-      <nav aria-label="Footer">
-        <ul class="nav-list">
-          <li><a href="/about">About Albor Digital</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <li><a href="/privacy">Privacy</a></li>
-        </ul>
+      <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <a class="footer-logo" href="/">BoltLab</a>
+        <p class="footer-tagline">Precision fastener tools for real-world use.</p>
+      </div>
+      <nav class="footer-nav footer-nav-center" aria-label="Product">
+        <a href="/tools/metric-to-imperial-screw-converter.html">Tools</a>
+        <a href="/charts/">Charts</a>
+        <a href="/sizes/">Sizes</a>
+        <a href="/guides/">Guides</a>
       </nav>
+      <nav class="footer-nav footer-nav-right" aria-label="Company">
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p class="footer-copyright">© BoltLab — A product of Albor Digital LLC</p>
+        <p class="footer-domains"><span class="footer-domains-label">Supporting domains:</span> screwsizechart.com · boltgradechart.com</p>
+      </div>
     </div>
   </footer>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Albor Digital LLC","url":"https://albor.digital","email":"contact@albor.digital","sameAs":["https://boltlab.io","https://screwsizechart.com","https://boltgradechart.com"]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"BoltLab","url":"https://boltlab.io","publisher":{"@type":"Organization","name":"Albor Digital LLC"}}</script>
+  <script src="/js/link-engine.js" defer></script>
+  <script src="/js/context-anchor-engine.js" defer></script>
+  <script src="/js/anchor-engine.js" defer></script>
+
 </body>
 </html>

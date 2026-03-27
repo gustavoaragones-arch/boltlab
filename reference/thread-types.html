@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thread Types: Metric, UNC, UNF &amp; Identification | BoltLab Reference</title>
+  <meta name="description" content="Structured reference for fastener thread types: ISO metric, unified coarse/fine, and how to identify pitch and series from measurements.">
+  <link rel="canonical" href="https://boltlab.io/reference/thread-types.html">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What is a thread type?","acceptedAnswer":{"@type":"Answer","text":"Thread type names the thread family and series—such as ISO metric coarse, metric fine, UNC, or UNF—defined by diameter, pitch or threads per inch, and flank angle. It is separate from head style or drive."}},
+    {"@type":"Question","name":"What is the difference between UNC and UNF?","acceptedAnswer":{"@type":"Answer","text":"Both are unified inch threads. UNC is coarse pitch (fewer threads per inch); UNF is fine pitch (more threads per inch) for the same nominal diameter, offering different strength and engagement characteristics."}},
+    {"@type":"Question","name":"When should I use metric coarse vs fine?","acceptedAnswer":{"@type":"Answer","text":"Coarse (e.g. M6 × 1) is the default for general assembly. Fine pitches reduce vibration loosening and allow finer adjustment where specified—always match the mating part or standard."}},
+    {"@type":"Question","name":"How do I identify my thread type?","acceptedAnswer":{"@type":"Answer","text":"Measure major diameter and pitch in millimeters or TPI, note 60° flank angle for common metric and unified threads, then compare to a chart or use BoltLab’s Thread Identifier."}},
+    {"@type":"Question","name":"What is the difference between thread type and screw drive?","acceptedAnswer":{"@type":"Answer","text":"Thread type defines helical engagement along the shank. Drive type (Phillips, Torx, etc.) only defines how torque is applied at the head."}}
+  ]}
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">BoltLab</a>
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="/tools/metric-to-imperial-screw-converter.html">Tools</a></li>
+          <li><a href="/charts/">Charts</a></li>
+          <li><a href="/reference/">Reference</a></li>
+          <li><a href="/sizes/">Sizes</a></li>
+          <li><a href="/guides/">Guides</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="content" class="container">
+    <article>
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">BoltLab</a> → <a href="/reference/">Reference</a> → Thread types</nav>
+      <h1>Thread types</h1>
+
+      <div class="aeo-direct-answer" role="region" aria-label="Direct answer">
+        <p><strong>What is a thread type?</strong> A <strong>thread type</strong> is the specification family for the helical ridge—ISO metric, unified (UNC/UNF/UN8), pipe threads, or specialty forms. It is defined by <strong>diameter</strong>, <strong>pitch</strong> (or TPI), and <strong>form</strong>, not by head shape or drive.</p>
+      </div>
+
+      <section class="reference-grid cols-3" aria-label="Common thread families">
+        <article class="ref-card">
+          <figure class="ref-card-figure" aria-hidden="true">
+            <svg viewBox="0 0 100 48" xmlns="http://www.w3.org/2000/svg"><path d="M4 28 Q12 20 20 28 T36 28 T52 28 T68 28 T84 28 T96 28" fill="none" stroke="#f59e0b" stroke-width="2"/><text x="50" y="42" text-anchor="middle" fill="#bcbcbc" font-size="10" font-family="system-ui,sans-serif">M — ISO metric</text></svg>
+          </figure>
+          <h3>ISO metric (M)</h3>
+          <p>60° flank angle; diameter in millimeters with pitch stated (e.g. M8 × 1.25).</p>
+          <p class="muted"><strong>Default:</strong> coarse tables per diameter; fine for special fits.</p>
+        </article>
+        <article class="ref-card">
+          <figure class="ref-card-figure" aria-hidden="true">
+            <svg viewBox="0 0 100 48" xmlns="http://www.w3.org/2000/svg"><path d="M4 26 L96 26" stroke="#888" stroke-width="1"/><path d="M8 22v8M24 20v12M40 22v8M56 20v12M72 22v8M88 20v12" stroke="#bcbcbc"/><text x="50" y="42" text-anchor="middle" fill="#bcbcbc" font-size="9" font-family="system-ui,sans-serif">Unified UNC</text></svg>
+          </figure>
+          <h3>Unified coarse (UNC)</h3>
+          <p>Inch series with fewer TPI per size; common on imperial hardware and consumer products.</p>
+          <p class="muted">Callout example: ¼-20.</p>
+        </article>
+        <article class="ref-card">
+          <figure class="ref-card-figure" aria-hidden="true">
+            <svg viewBox="0 0 100 48" xmlns="http://www.w3.org/2000/svg"><path d="M4 26 L96 26" stroke="#888" stroke-width="1"/><path d="M6 18v16M14 18v16M22 18v16M30 18v16M38 18v16M46 18v16M54 18v16M62 18v16M70 18v16M78 18v16M86 18v16M94 18v16" stroke="#bcbcbc"/><text x="50" y="42" text-anchor="middle" fill="#bcbcbc" font-size="9" font-family="system-ui,sans-serif">Unified UNF</text></svg>
+          </figure>
+          <h3>Unified fine (UNF)</h3>
+          <p>More TPI than UNC for the same nominal diameter; used where vibration or thinner walls matter.</p>
+          <p class="muted">Always verify with pitch gauge or count.</p>
+        </article>
+        <article class="ref-card">
+          <figure class="ref-card-figure" aria-hidden="true">
+            <svg viewBox="0 0 100 48" xmlns="http://www.w3.org/2000/svg"><path d="M4 28 Q14 18 24 28 T44 28 T64 28 T84 28 T96 28" fill="none" stroke="#7a7a7a" stroke-width="1.5"/><text x="50" y="42" text-anchor="middle" fill="#bcbcbc" font-size="9" font-family="system-ui,sans-serif">Metric fine</text></svg>
+          </figure>
+          <h3>Metric fine</h3>
+          <p>Smaller pitch than coarse for the same M size—used in thin walls, adjustment screws, and some automotive.</p>
+          <p class="muted">Requires pitch measurement; do not assume coarse.</p>
+        </article>
+        <article class="ref-card">
+          <figure class="ref-card-figure" aria-hidden="true">
+            <svg viewBox="0 0 100 48" xmlns="http://www.w3.org/2000/svg"><path d="M20 40 L80 8" stroke="#666" stroke-width="3"/><text x="50" y="44" text-anchor="middle" fill="#bcbcbc" font-size="9" font-family="system-ui,sans-serif">Pipe (NPT)</text></svg>
+          </figure>
+          <h3>Pipe threads (e.g. NPT)</h3>
+          <p>Sealing taper threads for pressure-tight joints—not interchangeable with straight machine threads.</p>
+          <p class="muted">Identify by taper gauge and application, not by diameter alone.</p>
+        </article>
+      </section>
+
+      <section class="card">
+        <h2>Comparison</h2>
+        <p class="muted">Approximate grouping for shop identification. Always confirm against the mating part or standard.</p>
+        <div class="chart-table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Type</th>
+                <th scope="col">Pitch style</th>
+                <th scope="col">Typical use</th>
+                <th scope="col">Identify by</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>ISO metric coarse</td><td>Pitch in mm per ISO tables</td><td>General machinery, global hardware</td><td>M callout + pitch (e.g. M6 × 1)</td></tr>
+              <tr><td>ISO metric fine</td><td>Finer pitch than coarse</td><td>Thin material, adjustment</td><td>Pitch gauge vs. coarse table</td></tr>
+              <tr><td>UNC</td><td>Coarse TPI series</td><td>Imperial general assembly</td><td>TPI count + major Ø</td></tr>
+              <tr><td>UNF</td><td>Fine TPI series</td><td>Vibration-critical inch joints</td><td>Higher TPI than UNC same size</td></tr>
+              <tr><td>NPT (pipe)</td><td>Tapered sealing form</td><td>Fluid connections</td><td>Taper, thread sealant practice</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Differences and selection</h2>
+        <p><strong>Coarse vs fine</strong> trades speed of engagement, stripping resistance, and vibration locking. <strong>Metric vs unified</strong> is largely regional and tooling inventory—interchange is not assumed across systems.</p>
+      </section>
+
+      <section class="card">
+        <h2>Applications</h2>
+        <p>Pick thread type from the <strong>application standard</strong> (automotive service manual, drawing, or replacement part). When unknown, measure major diameter and pitch, then map to a standard row in the <a href="/charts/universal-screw-bolt-size-chart.html">size chart</a>.</p>
+      </section>
+
+      <section class="card ref-crosslinks" aria-label="BoltLab tools and charts">
+        <h2>Identify yours</h2>
+        <p class="muted">Measure first, then map to a standard.</p>
+        <div class="ref-crosslinks-grid">
+          <div>
+            <p class="label-caps">Tools</p>
+            <ul class="meta-list">
+              <li><a href="/tools/thread-identifier.html">Thread Identifier</a></li>
+              <li><a href="/tools/thread-pitch-to-tpi-converter.html">Thread Pitch ↔ TPI Converter</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="label-caps">Charts</p>
+            <ul class="meta-list">
+              <li><a href="/charts/universal-screw-bolt-size-chart.html">Universal Screw &amp; Bolt Size Chart</a></li>
+              <li><a href="/charts/tap-drill-chart.html">Tap Drill Chart</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="label-caps">Guide</p>
+            <ul class="meta-list">
+              <li><a href="/guides/thread-types-explained.html">Thread Types Explained</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>FAQ</h2>
+        <h3>What is the difference between UNC and UNF?</h3>
+        <p>Same inch diameter series; UNF has more threads per inch (finer) than UNC.</p>
+        <h3>When should I use metric coarse vs fine?</h3>
+        <p>Use coarse unless the drawing or mating part specifies fine pitch.</p>
+        <h3>How do I identify my thread type?</h3>
+        <p>Measure major Ø and pitch/TPI, then use the <a href="/tools/thread-identifier.html">Thread Identifier</a> or charts.</p>
+        <h3>What is the difference between thread type and screw drive?</h3>
+        <p>Thread type is the helical engagement along the shank; drive type is only the head interface.</p>
+        <h3>What is a thread type in one sentence?</h3>
+        <p>The named standard family (metric, unified, pipe, etc.) that defines diameter, pitch/TPI, and form for the helical thread.</p>
+      </section>
+
+      <section class="card guide-links">
+        <h3>Related reference</h3>
+        <p><a href="/reference/screw-anatomy.html">Screw anatomy</a> · <a href="/guides/how-to-measure-thread-pitch.html">Measure pitch</a> · <a href="/guides/what-is-tpi.html">What is TPI?</a></p>
+      </section>
+    </article>
+  <div id="related-links" class="related-links" aria-label="Related links"></div>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <a class="footer-logo" href="/">BoltLab</a>
+        <p class="footer-tagline">Precision fastener tools for real-world use.</p>
+      </div>
+      <nav class="footer-nav footer-nav-center" aria-label="Product">
+        <a href="/tools/metric-to-imperial-screw-converter.html">Tools</a>
+        <a href="/charts/">Charts</a>
+        <a href="/sizes/">Sizes</a>
+        <a href="/guides/">Guides</a>
+      </nav>
+      <nav class="footer-nav footer-nav-right" aria-label="Company">
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p class="footer-copyright">© BoltLab — A product of Albor Digital LLC</p>
+        <p class="footer-domains"><span class="footer-domains-label">Supporting domains:</span> screwsizechart.com · boltgradechart.com</p>
+      </div>
+    </div>
+  </footer>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Albor Digital LLC","url":"https://albor.digital","email":"contact@albor.digital","sameAs":["https://boltlab.io","https://screwsizechart.com","https://boltgradechart.com"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"BoltLab","url":"https://boltlab.io","publisher":{"@type":"Organization","name":"Albor Digital LLC"}}</script>
+  <script src="/js/link-engine.js" defer></script>
+  <script src="/js/context-anchor-engine.js" defer></script>
+  <script src="/js/anchor-engine.js" defer></script>
+
+</body>
+</html>

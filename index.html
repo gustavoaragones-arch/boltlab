@@ -24,96 +24,199 @@
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <h1>Universal Screw &amp; Bolt Converter</h1>
-      <p>Convert metric and imperial fasteners, thread pitch, and tap drill sizes instantly.</p>
-      <p><a href="/charts/universal-screw-bolt-size-chart.html">See the complete screw size chart</a>. <a href="/sizes/">Bolt &amp; screw size reference pages</a> (M6, 1/4-20, #8, and more).</p>
+  <main id="content" class="container">
+    <section class="hero hero-tool" aria-labelledby="hero-heading">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1 id="hero-heading">Universal Screw &amp; Bolt Converter</h1>
+          <p class="hero-sub">Convert metric and imperial fasteners, thread pitch, and tap drill sizes instantly.</p>
+          <p class="hero-support">Fast, accurate, and designed for real workshop use.</p>
+          <p class="hero-meta"><a href="/charts/universal-screw-bolt-size-chart.html">Full size chart</a> · <a href="/sizes/">Size reference pages</a></p>
+        </div>
+        <div class="hero-panel-wrap">
+          <div class="device-panel" id="hero-converter">
+            <p class="device-panel-label">Live converter</p>
+            <div class="field field-hero">
+              <label class="label-caps" for="hero-conversion-mode">Direction</label>
+              <select id="hero-conversion-mode" aria-label="Conversion direction">
+                <option value="metric-to-imperial">Metric → Imperial</option>
+                <option value="imperial-to-metric">Imperial → Metric</option>
+              </select>
+            </div>
+            <div class="field field-hero">
+              <label class="label-caps" for="hero-size-input">Size</label>
+              <input id="hero-size-input" type="text" inputmode="text" autocomplete="off" placeholder="e.g. M6, M8, 1/4-20, #8-32" aria-label="Enter screw or bolt size">
+            </div>
+            <div id="hero-metric-imperial-result" class="hero-result" aria-live="polite" aria-atomic="true"></div>
+            <p class="device-panel-foot"><a class="text-link" href="/tools/metric-to-imperial-screw-converter.html">Open full converter</a></p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <h2 class="section-title">Core Tools</h2>
+    <h2 class="section-title">More tools</h2>
     <section class="grid tool-grid" aria-label="Tool cards">
-      <article class="card">
+      <article class="card card-tool">
+        <div class="card-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6"/><path d="M11 5v2M11 15v2M5 11h2M15 11h2"/><path d="M8 8l1.5 1.5M14.5 14.5L16 16M8 16l1.5-1.5M14.5 9.5L16 8"/></svg></div>
+        <h3>Interactive Screw Identifier</h3>
+        <p>Pick head, drive, and thread system—get likely fastener matches and jump to tools.</p>
+        <a class="button" href="/tools/screw-identifier.html">Open tool</a>
+      </article>
+      <article class="card card-tool">
+        <div class="card-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h12M4 12h8M4 17h4"/><path d="M16 5l3 3-6 6H13v-3l6-6z"/></svg></div>
         <h3>Metric to Imperial Screw Converter</h3>
-        <p>Match common metric screw sizes to nearest imperial/UNC equivalents in one tap.</p>
+        <p>Full converter with direction control and all common sizes.</p>
         <a class="button" href="/tools/metric-to-imperial-screw-converter.html">Open tool</a>
       </article>
-      <article class="card">
+      <article class="card card-tool">
+        <div class="card-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M12 4v16"/><circle cx="12" cy="12" r="2"/></svg></div>
         <h3>Thread Pitch to TPI Converter</h3>
-        <p>Convert between mm pitch and threads per inch with instant calculation while typing.</p>
+        <p>Convert mm pitch to TPI and back instantly while you type.</p>
         <a class="button" href="/tools/thread-pitch-to-tpi-converter.html">Open tool</a>
       </article>
-      <article class="card">
+      <article class="card card-tool">
+        <div class="card-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div>
         <h3>Tap Drill Calculator</h3>
-        <p>Calculate recommended tap drill diameter from metric thread size and pitch.</p>
+        <p>Tap drill diameter from thread size and pitch.</p>
         <a class="button" href="/tools/tap-drill-calculator.html">Open tool</a>
       </article>
-      <article class="card">
+      <article class="card card-tool">
+        <div class="card-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
         <h3>Thread Identifier Tool</h3>
-        <p>Identify likely metric or imperial thread standards from measured diameter and pitch.</p>
+        <p>Match measured diameter and pitch to a thread standard.</p>
         <a class="button" href="/tools/thread-identifier.html">Open tool</a>
       </article>
-      <article class="card">
+      <article class="card card-tool">
+        <div class="card-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 3l7 7-3 3-7-7"/><path d="M10 14l-4 4L3 21l3-3 4-4"/></svg></div>
         <h3>Bolt Torque Calculator</h3>
-        <p>Calculate recommended tightening torque for metric and imperial bolts.</p>
+        <p>Recommended tightening torque by size and grade.</p>
         <a class="button" href="/tools/bolt-torque-calculator.html">Open tool</a>
       </article>
-      <article class="card">
+      <article class="card card-tool">
+        <div class="card-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v18M3 12h18"/><path d="M8 8l8 8M16 8l-8 8" opacity=".5"/></svg></div>
         <h3>Fastener Weight Calculator</h3>
-        <p>Estimate per-bolt and total weight by size, length, quantity, and material.</p>
+        <p>Estimate weight by size, length, quantity, and material.</p>
         <a class="button" href="/tools/fastener-weight-calculator.html">Open tool</a>
       </article>
-      <article class="card">
+      <article class="card card-tool">
+        <div class="card-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4M12 18v4M4 12h4M16 12h4"/><circle cx="12" cy="12" r="6"/></svg></div>
         <h3>Drill Bit Size Converter</h3>
-        <p>Convert number, letter, inch, and millimeter drill sizes instantly.</p>
+        <p>Number, letter, fractional inch, and millimeter drills.</p>
         <a class="button" href="/tools/drill-bit-converter.html">Open tool</a>
       </article>
     </section>
 
-    <h2 class="section-title">Guides &amp; References</h2>
-    <section class="card">
-      <p class="muted">Practical fastener and thread guides for mechanics, engineers, machinists, and DIY builders.</p>
-      <ul class="meta-list">
-        <li><a href="/guides/metric-vs-imperial-fasteners.html">Metric vs Imperial Fasteners</a></li>
-        <li><a href="/guides/bolt-head-markings.html">Bolt Head Markings</a></li>
-        <li><a href="/guides/thread-pitch-explained.html">Thread Pitch Explained</a></li>
-        <li><a href="/guides/why-stainless-bolts-gall.html">Why Stainless Bolts Gall</a></li>
-        <li><a href="/guides/bolt-vs-screw-difference.html">Bolt vs Screw Difference</a></li>
-        <li><a href="/guides/thread-types-explained.html">Thread Types Explained</a></li>
-        <li><a href="/guides/how-to-measure-thread-pitch.html">How to Measure Thread Pitch</a></li>
-        <li><a href="/guides/what-is-tpi.html">What Is TPI</a></li>
-        <li><a href="/guides/tap-drill-basics.html">Tap Drill Basics</a></li>
-        <li><a href="/guides/fastener-materials-guide.html">Fastener Materials Guide</a></li>
-        <li><a href="/guides/metric-thread-tolerances.html">Metric Thread Tolerances</a></li>
-        <li><a href="/guides/bolt-strength-grades.html">Bolt Strength Grades</a></li>
-      </ul>
+    <h2 class="section-title">Guides &amp; references</h2>
+    <p class="muted section-intro">Practical fastener and thread guides for mechanics, engineers, machinists, and DIY builders.</p>
+    <section class="guide-card-grid" aria-label="Guide articles">
+      <a class="guide-card" href="/guides/metric-vs-imperial-fasteners.html">
+        <h3>Metric vs imperial fasteners</h3>
+        <p>When to use each system and how to convert between common sizes.</p>
+      </a>
+      <a class="guide-card" href="/guides/bolt-head-markings.html">
+        <h3>Bolt head markings</h3>
+        <p>Read strength grades from stamps and symbols on bolt heads.</p>
+      </a>
+      <a class="guide-card" href="/guides/thread-pitch-explained.html">
+        <h3>Thread pitch explained</h3>
+        <p>Metric pitch in mm vs imperial TPI and coarse vs fine threads.</p>
+      </a>
+      <a class="guide-card" href="/guides/why-stainless-bolts-gall.html">
+        <h3>Why stainless bolts gall</h3>
+        <p>What galling is and how to avoid seized stainless pairs.</p>
+      </a>
+      <a class="guide-card" href="/guides/bolt-vs-screw-difference.html">
+        <h3>Bolt vs screw difference</h3>
+        <p>Nuts vs tapped holes, load paths, and everyday terminology.</p>
+      </a>
+      <a class="guide-card" href="/guides/thread-types-explained.html">
+        <h3>Thread types explained</h3>
+        <p>UNC, UNF, metric coarse/fine, and how to tell them apart.</p>
+      </a>
+      <a class="guide-card" href="/guides/how-to-measure-thread-pitch.html">
+        <h3>How to measure thread pitch</h3>
+        <p>Calipers, thread gauges, and repeatable shop techniques.</p>
+      </a>
+      <a class="guide-card" href="/guides/what-is-tpi.html">
+        <h3>What is TPI?</h3>
+        <p>Threads per inch and how they relate to metric pitch.</p>
+      </a>
+      <a class="guide-card" href="/guides/tap-drill-basics.html">
+        <h3>Tap drill basics</h3>
+        <p>Choosing drill diameter for strong tapped holes.</p>
+      </a>
+      <a class="guide-card" href="/guides/fastener-materials-guide.html">
+        <h3>Fastener materials guide</h3>
+        <p>Steel, stainless, aluminum, and common coatings compared.</p>
+      </a>
+      <a class="guide-card" href="/guides/metric-thread-tolerances.html">
+        <h3>Metric thread tolerances</h3>
+        <p>Classes like 6H and 6g and what they mean for fit.</p>
+      </a>
+      <a class="guide-card" href="/guides/bolt-strength-grades.html">
+        <h3>Bolt strength grades</h3>
+        <p>Metric 8.8–12.9 and SAE Grades 2, 5, and 8 in plain language.</p>
+      </a>
     </section>
 
-    <h2 class="section-title">Visual identification</h2>
-    <section class="card">
-      <p class="muted">Diagrams for recognizing screw heads, drive recesses, and head profiles—pair with tools when you need thread and size data.</p>
-      <ul class="meta-list">
-        <li><a href="/reference/">Reference hub</a></li>
-        <li><a href="/reference/screw-head-types.html">Screw head types</a></li>
-        <li><a href="/reference/screw-drive-types.html">Screw drive types</a></li>
-        <li><a href="/reference/screw-head-shapes.html">Screw head shapes (profiles)</a></li>
-      </ul>
+    <h2 class="section-title">Fastener reference system</h2>
+    <p class="muted section-intro">Structured diagrams and tables—pair with tools when you need thread and size data.</p>
+    <section class="guide-card-grid" aria-label="Reference system">
+      <a class="guide-card" href="/reference/">
+        <h3>Reference hub</h3>
+        <p>Anatomy, thread types, drives, heads, and self-tapping vs self-drilling.</p>
+      </a>
+      <a class="guide-card" href="/reference/screw-anatomy.html">
+        <h3>Screw anatomy</h3>
+        <p>Head, shank, thread, and point—labeled diagram and what to measure.</p>
+      </a>
+      <a class="guide-card" href="/reference/thread-types.html">
+        <h3>Thread types</h3>
+        <p>Metric, UNC, UNF, pipe—comparison and identification flow.</p>
+      </a>
+      <a class="guide-card" href="/reference/screw-head-types.html">
+        <h3>Screw head types</h3>
+        <p>Hex, pan, truss, countersunk, oval, round, and more.</p>
+      </a>
+      <a class="guide-card" href="/reference/screw-drive-types.html">
+        <h3>Screw drive types</h3>
+        <p>Phillips, Torx, hex socket, slotted, Robertson, and torque notes.</p>
+      </a>
+      <a class="guide-card" href="/reference/screw-head-shapes.html">
+        <h3>Head shape profiles</h3>
+        <p>Side-view diagrams: how heads sit on or below the surface.</p>
+      </a>
     </section>
+  <div id="related-links" class="related-links" aria-label="Related links"></div>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p class="muted">© BoltLab — A product of Albor Digital LLC</p>
-      <p class="muted" style="margin-top:0.25rem;font-size:0.9em">Supporting domains: screwsizechart.com, boltgradechart.com</p>
-      <nav aria-label="Footer">
-        <ul class="nav-list">
-          <li><a href="/about">About Albor Digital</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <li><a href="/privacy">Privacy</a></li>
-        </ul>
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <a class="footer-logo" href="/">BoltLab</a>
+        <p class="footer-tagline">Precision fastener tools for real-world use.</p>
+      </div>
+      <nav class="footer-nav footer-nav-center" aria-label="Product">
+        <a href="/tools/metric-to-imperial-screw-converter.html">Tools</a>
+        <a href="/charts/">Charts</a>
+        <a href="/sizes/">Sizes</a>
+        <a href="/guides/">Guides</a>
+      </nav>
+      <nav class="footer-nav footer-nav-right" aria-label="Company">
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy</a>
       </nav>
     </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p class="footer-copyright">© BoltLab — A product of Albor Digital LLC</p>
+        <p class="footer-domains"><span class="footer-domains-label">Supporting domains:</span> screwsizechart.com · boltgradechart.com</p>
+      </div>
+    </div>
   </footer>
+  <script src="/js/data.js" defer></script>
+  <script src="/js/converters.js" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -140,5 +243,9 @@
       }
     }
   </script>
+  <script src="/js/link-engine.js" defer></script>
+  <script src="/js/context-anchor-engine.js" defer></script>
+  <script src="/js/anchor-engine.js" defer></script>
+
 </body>
 </html>
