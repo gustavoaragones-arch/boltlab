@@ -2,12 +2,12 @@
   "use strict";
 
   var HEAD = {
-    hex: { label: "Hex", img: "/images/screw-head-types/hex-head.svg", alt: "External hex bolt head" },
-    pan: { label: "Pan", img: "/images/screw-head-types/pan-head.svg", alt: "Pan head screw" },
-    truss: { label: "Truss", img: "/images/screw-head-types/truss-head.svg", alt: "Truss head screw" },
-    countersunk: { label: "Countersunk", img: "/images/screw-head-types/countersunk-head.svg", alt: "Countersunk flat head" },
-    oval: { label: "Oval", img: "/images/screw-head-types/oval-head.svg", alt: "Oval head screw" },
-    round: { label: "Round", img: "/images/screw-head-types/round-head.svg", alt: "Round dome head screw" },
+    hex: { label: "Hex", img: "/images/heads/hex.png", alt: "Hex screw head" },
+    pan: { label: "Pan", img: "/images/heads/pan.png", alt: "Pan screw head" },
+    truss: { label: "Truss", img: "/images/heads/truss.png", alt: "Truss screw head" },
+    countersunk: { label: "Countersunk", img: "/images/heads/flat.png", alt: "Flat screw head" },
+    oval: { label: "Oval", img: "/images/heads/oval.png", alt: "Oval screw head" },
+    round: { label: "Round", img: "/images/heads/round.png", alt: "Round screw head" },
   };
 
   var DRIVE = {
