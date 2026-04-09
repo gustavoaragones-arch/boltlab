@@ -1,11 +1,18 @@
 (function () {
   "use strict";
 
+  /** Set true to log anchor matches in the console (development only). */
+  var DEBUG_ANCHORS = false;
+
   /** Bump with /data/anchors.json when phrases change (cache bust). */
-  var ANCHOR_DATA_VERSION = "1";
-  var ANCHORS_URL = "/data/anchors.json?v=" + encodeURIComponent(ANCHOR_DATA_VERSION);
-  /** Context engine adds up to 5; keep combined total ≤ ~8. */
+  var ANCHOR_DATA_VERSION = "4";
+  var ANCHORS_URL =
+    typeof window !== "undefined" && window.location.pathname.indexOf("/es/") === 0
+      ? "/data/anchors-es.json?v=" + encodeURIComponent(ANCHOR_DATA_VERSION)
+      : "/data/anchors.json?v=" + encodeURIComponent(ANCHOR_DATA_VERSION);
+  /** Context engine runs first; keep combined total modest. */
   var MAX_INJECTED = 3;
+  var SHORT_BLOCK_MAX = 120;
 
   function normalizePath(pathname) {
     if (!pathname || pathname === "/") return "/";
@@ -24,46 +31,76 @@
     return String(s).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   }
 
-  function findMatchIndex(text, key) {
-    if (!text || !key) return -1;
-    var t = text;
-    var k = key;
+  /** Word-boundary phrase match for anchor keys (reduces substring false positives). */
+  function keyPhraseRegex(key) {
+    if (!key) return null;
+    var k = String(key);
     if (/^M\d+$/i.test(k)) {
-      var re = new RegExp("\\b" + escapeRegex(k) + "\\b", "i");
-      var m = re.exec(t);
-      return m ? m.index : -1;
+      return new RegExp("\\b" + escapeRegex(k) + "\\b", "i");
     }
     if (/^TPI$/i.test(k)) {
-      var reTpi = /\bTPI\b/i;
-      var mt = reTpi.exec(t);
-      return mt ? mt.index : -1;
+      return /\bTPI\b/i;
     }
-    var lower = t.toLowerCase();
-    var kk = k.toLowerCase();
-    return lower.indexOf(kk);
+    var parts = k.trim().split(/\s+/);
+    if (parts.length === 1) {
+      return new RegExp("\\b" + escapeRegex(parts[0]) + "\\b", "i");
+    }
+    return new RegExp("\\b" + parts.map(escapeRegex).join("\\s+") + "\\b", "i");
+  }
+
+  function findMatchIndex(text, key) {
+    if (!text || !key) return -1;
+    var re = keyPhraseRegex(key);
+    if (!re) return -1;
+    var m = re.exec(text);
+    return m ? m.index : -1;
   }
 
   function matchedLength(text, key, idx) {
     if (idx < 0) return 0;
-    if (/^M\d+$/i.test(key)) {
-      var re = new RegExp("\\b" + escapeRegex(key) + "\\b", "i");
-      var m = text.slice(idx).match(re);
-      return m ? m[0].length : key.length;
+    var re = keyPhraseRegex(key);
+    if (!re) return 0;
+    var slice = text.slice(idx);
+    var m = slice.match(re);
+    return m ? m[0].length : 0;
+  }
+
+  function isInsideAeoBlock(tn) {
+    var p = tn.parentNode;
+    while (p && p.nodeType === 1) {
+      if (p.classList && p.classList.contains("aeo-answer-block")) return true;
+      p = p.parentNode;
     }
-    if (/^TPI$/i.test(key)) {
-      var m2 = text.slice(idx).match(/\bTPI\b/i);
-      return m2 ? m2[0].length : 3;
+    return false;
+  }
+
+  function isInShortBlock(tn) {
+    var p = tn.parentNode;
+    while (p && p.nodeType === 1) {
+      var tag = p.tagName;
+      if (tag === "P" || tag === "LI") {
+        var len = (p.textContent || "").trim().length;
+        if (len > 0 && len < SHORT_BLOCK_MAX) return true;
+        return false;
+      }
+      if (tag === "MAIN" || tag === "ARTICLE" || tag === "BODY") break;
+      p = p.parentNode;
     }
-    return key.length;
+    return false;
   }
 
   function textNodeLinkable(tn) {
+    if (isInsideAeoBlock(tn)) return false;
+    if (isInShortBlock(tn)) return false;
+
     var p = tn.parentNode;
     while (p && p.nodeType === 1) {
       var tag = p.tagName;
       if (tag === "A" || tag === "CODE" || tag === "PRE" || tag === "SCRIPT" || tag === "STYLE" || tag === "KBD" || tag === "SAMP") {
         return false;
       }
+      if (tag === "BUTTON") return false;
+      if (p.getAttribute && p.getAttribute("role") === "button") return false;
       if (/^H[1-6]$/.test(tag)) {
         return false;
       }
@@ -117,6 +154,12 @@
     a.className = "anchor-injected";
     a.setAttribute("data-anchor-injected", "true");
     a.textContent = matchedText;
+
+    if (DEBUG_ANCHORS) {
+      try {
+        console.log("[anchor-engine] match:", key, "→", href);
+      } catch (e) {}
+    }
 
     if (before) parent.insertBefore(document.createTextNode(before), tn);
     parent.insertBefore(a, tn);
@@ -178,6 +221,7 @@
   }
 
   function init() {
+    /** Context anchors run first; basic anchors fill gaps after (priority: context > basic). */
     var wait = window.__boltLabContextAnchorDone;
     if (wait && typeof wait.then === "function") {
       wait.then(loadAndRun);

@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Identificador interactivo de tornillos | BoltLab</title>
+  <meta name="description" content="Identificador visual: elija forma de cabeza, uno de 12 accionamientos (Phillips a triángulo) y sistema de rosca. Nivel de confianza, coincidencias y acceso al identificador de roscas o tablas. URLs compartibles (?head=&amp;drive=&amp;thread=).">
+  <link rel="canonical" href="https://boltlab.io/es/tools/identificador-tornillos.html">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="alternate" hreflang="en" href="https://boltlab.io/tools/screw-identifier.html" />
+  <link rel="alternate" hreflang="es" href="https://boltlab.io/es/tools/identificador-tornillos.html" />
+  <link rel="alternate" hreflang="x-default" href="https://boltlab.io/" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Identificador interactivo de tornillos","applicationCategory":"ToolApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Herramienta de diagnóstico visual para acotar el tipo de sujetador según cabeza, accionamiento y sistema de rosca.","url":"https://boltlab.io/es/tools/identificador-tornillos.html","provider":{"@type":"Organization","name":"Albor Digital LLC"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"¿Qué es un identificador de tornillos?","acceptedAnswer":{"@type":"Answer","text":"Ayuda a acotar qué tipo de sujetador tiene comparando lo visible—forma de cabeza, hueco de accionamiento y, si aplica, si espera rosca métrica o imperial—antes de medir diámetro y paso."}},
+    {"@type":"Question","name":"¿Cómo identifico un tornillo?","acceptedAnswer":{"@type":"Answer","text":"Primero la cabeza y el accionamiento a simple vista; luego mida diámetro mayor y paso o TPI. Use el identificador interactivo para el paso visual y el identificador de roscas con sus medidas."}},
+    {"@type":"Question","name":"¿En qué se diferencian Phillips y Pozidriv?","acceptedAnswer":{"@type":"Answer","text":"Ambos son huecos en cruz. Pozidriv tiene marcas radiales superficiales entre las aspas y requiere punta Pozidriv; suele resistir mejor el deslizamiento que Phillips cuando la pareja es correcta."}},
+    {"@type":"Question","name":"¿Puedo saber la talla de rosca solo mirando?","acceptedAnswer":{"@type":"Answer","text":"No de forma fiable. La identificación visual acota la familia; aún necesita calibre y medidor de paso o el identificador de roscas para la especificación."}}
+  ]}
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/es/">BoltLab</a>
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="/es/">Herramientas</a></li>
+          <li><a href="/charts/">Gráficos</a></li>
+          <li><a href="/reference/">Referencia</a></li>
+          <li><a href="/sizes/">Tamaños</a></li>
+          <li><a href="/guides/">Guías</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" role="navigation" aria-label="Idioma">
+        <a href="/tools/screw-identifier.html" class="lang-switch-link" hreflang="en">EN</a>
+        <span class="lang-switch-sep" aria-hidden="true">|</span>
+        <a href="/es/tools/identificador-tornillos.html" class="lang-switch-link lang-switch-link--active" hreflang="es" aria-current="page">ES</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="content" class="container">
+    <article id="screw-identifier-app">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/es/">BoltLab</a> → <a href="/es/">Herramientas</a> → Identificador de tornillos</nav>
+      <h1>Identificador interactivo de tornillos</h1>
+      <div class="aeo-answer-block" role="region" aria-label="Qué es un identificador de tornillos">
+        <h2>¿Qué es un identificador de tornillos?</h2>
+        <p>Ayuda a estimar el tipo de sujetador según cabeza, accionamiento y sistema de rosca (métrico, imperial o desconocido). Reduce candidatos antes de medir diámetro y paso para una coincidencia definitiva.</p>
+      </div>
+      <p class="muted">Identifique tornillos y pernos por <strong>forma de cabeza</strong>, <strong>hueco de accionamiento</strong> y <strong>sistema de rosca</strong>. Funciona como un diagnóstico, no un test. Elija lo que ve y pase a las herramientas de medición para confirmar.</p>
+
+      <div class="si-tool-shell">
+      <div class="si-toolbar">
+        <p class="si-toolbar-title">Selector de diagnóstico</p>
+        <button type="button" id="si-reset" class="button button-secondary si-reset-btn">Restablecer</button>
+      </div>
+
+      <section class="card si-diagnostic" aria-labelledby="si-step1-title">
+        <div class="si-step-head">
+          <span class="si-step-badge" aria-hidden="true">1</span>
+          <h2 id="si-step1-title" class="si-step-title">Tipo de cabeza</h2>
+        </div>
+        <p class="si-step-hint muted">¿Cómo se ve la cabeza de perfil o desde arriba?</p>
+        <div class="si-grid" id="si-group-head" role="group" aria-label="Tipo de cabeza">
+          <button type="button" class="si-choice" data-category="head" data-value="hex" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/heads/hex.png" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Hex</span>
+          </button>
+          <button type="button" class="si-choice" data-category="head" data-value="pan" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/heads/pan.png" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Pan</span>
+          </button>
+          <button type="button" class="si-choice" data-category="head" data-value="truss" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/heads/truss.png" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Truss</span>
+          </button>
+          <button type="button" class="si-choice" data-category="head" data-value="countersunk" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/heads/flat.png" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Countersunk</span>
+          </button>
+          <button type="button" class="si-choice" data-category="head" data-value="oval" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/heads/oval.png" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Oval</span>
+          </button>
+          <button type="button" class="si-choice" data-category="head" data-value="round" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/heads/round.png" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Round</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="card si-diagnostic" aria-labelledby="si-step2-title">
+        <div class="si-step-head">
+          <span class="si-step-badge" aria-hidden="true">2</span>
+          <h2 id="si-step2-title" class="si-step-title">Tipo de accionamiento</h2>
+        </div>
+        <p class="si-step-hint muted">¿Qué patrón acopla su punta?</p>
+        <div class="si-grid si-grid-drives" id="si-group-drive" role="group" aria-label="Tipo de accionamiento">
+          <button type="button" class="si-choice" data-category="drive" data-value="phillips" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/philips.png" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Phillips</span>
+          </button>
+          <button type="button" class="si-choice" data-category="drive" data-value="pozidriv" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/pozidriv.png" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Pozidriv</span>
+          </button>
+          <button type="button" class="si-choice" data-category="drive" data-value="torx" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/torx.png" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Torx</span>
+          </button>
+          <button type="button" class="si-choice" data-category="drive" data-value="hex" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/hex.png" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Hex (Allen)</span>
+          </button>
+          <button type="button" class="si-choice" data-category="drive" data-value="slotted" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/slotted.png" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Slotted</span>
+          </button>
+          <button type="button" class="si-choice" data-category="drive" data-value="robertson" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/robertson.png" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Robertson</span>
+          </button>
+          <button type="button" class="si-choice" data-category="drive" data-value="triple-square" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/triple-square.png" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Triple-square (XZN)</span>
+          </button>
+          <button type="button" class="si-choice" data-category="drive" data-value="double-hex" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/double-hex.png" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">12-point (double hex)</span>
+          </button>
+          <button type="button" class="si-choice" data-category="drive" data-value="bristol" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/bristol.png" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Bristol spline</span>
+          </button>
+          <button type="button" class="si-choice" data-category="drive" data-value="polydrive" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/polydrive.png" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Polydrive</span>
+          </button>
+          <button type="button" class="si-choice" data-category="drive" data-value="spline" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/spline-drive.png" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Spline drive</span>
+          </button>
+          <button type="button" class="si-choice" data-category="drive" data-value="triangle" aria-pressed="false">
+            <span class="si-choice-visual"><img src="/images/screw-drive-types/triangle.png" width="100" height="100" alt="" loading="lazy"></span>
+            <span class="si-choice-label">Triangle</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="card si-diagnostic" aria-labelledby="si-step3-title">
+        <div class="si-step-head">
+          <span class="si-step-badge" aria-hidden="true">3</span>
+          <h2 id="si-step3-title" class="si-step-title">Sistema de rosca</h2>
+        </div>
+        <p class="si-step-hint muted">Opcional: acota ejemplos. Elija <strong>Desconocido</strong> si aún no ha medido.</p>
+        <div class="si-thread-row" id="si-group-thread" role="group" aria-label="Sistema de rosca">
+          <button type="button" class="button button-secondary si-thread-btn" data-value="metric" aria-pressed="false">Métrico</button>
+          <button type="button" class="button button-secondary si-thread-btn" data-value="imperial" aria-pressed="false">Imperial</button>
+          <button type="button" class="button button-secondary si-thread-btn" data-value="unknown" aria-pressed="false">Desconocido</button>
+        </div>
+      </section>
+
+      <section class="card si-result-panel" aria-labelledby="si-result-title" aria-live="polite">
+        <h2 id="si-result-title" class="si-result-title">Resultados</h2>
+        <div class="si-result-inner"></div>
+        <div class="si-tool-strip">
+          <p class="label-caps">Siguientes pasos</p>
+          <div class="si-tool-links">
+            <a class="button" href="/es/tools/identificador-roscas.html">Identificador de roscas</a>
+            <a class="button button-secondary" href="/es/tools/metrico-a-pulgadas.html">Convertir talla</a>
+            <a class="button button-secondary" href="/es/tools/calculadora-broca-roscar.html">Calculadora de broca</a>
+            <a class="button button-secondary" href="/charts/universal-screw-bolt-size-chart.html">Tabla completa</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="card si-refine-hint" aria-label="Afinar con medición">
+        <p class="si-refine-text">¿Duda? <strong>Mida el tornillo</strong> para confirmar diámetro y paso.</p>
+        <a class="button button-secondary" href="/es/tools/identificador-roscas.html">Abrir identificador de roscas</a>
+      </section>
+      </div>
+
+      <section class="card si-faq" aria-labelledby="si-faq-title">
+        <h2 id="si-faq-title">Preguntas frecuentes</h2>
+        <h3>¿Cómo identifico un tornillo?</h3>
+        <p>Empiece por lo visible—perfil de cabeza y accionamiento—con esta herramienta. Luego mida <strong>diámetro mayor</strong> y <strong>paso</strong> (o TPI) e introdúzcalos en el <a href="/es/tools/identificador-roscas.html">identificador de roscas</a>.</p>
+        <h3>¿En qué se diferencian Phillips y Pozidriv?</h3>
+        <p>Pozidriv tiene marcas radiales entre las aspas y requiere punta adecuada; suele agarrar mejor que Phillips cuando la pareja es correcta. Vea la <a href="/reference/screw-drive-types.html">referencia de accionamientos</a>.</p>
+        <h3>¿Puedo ver la talla de rosca a simple vista?</h3>
+        <p>No: diámetro y paso no se infieren con fiabilidad. La vista acota la <em>familia</em>; la medición confirma la <em>norma</em>.</p>
+        <h3>¿Qué es un identificador de tornillos?</h3>
+        <p>Una forma ordenada de acotar el tipo de sujetador por cabeza, accionamiento y sistema de rosca antes de usar calibre y medidor.</p>
+      </section>
+
+      <div class="ad-container">
+        <div class="ad-label">Patrocinado</div>
+        <aside class="ad-slot ad-slot--inline" aria-label="Publicidad" data-ad-placeholder="true"></aside>
+      </div>
+      <section class="card guide-links">
+        <h3>Referencia visual</h3>
+        <ul class="meta-list">
+          <li><a href="/reference/screw-head-types.html">Screw head types</a> (diagramas)</li>
+          <li><a href="/reference/screw-drive-types.html">Screw drive types</a> (par y deslizamiento)</li>
+          <li><a href="/reference/thread-types.html">Thread types</a> (métrico vs unified)</li>
+        </ul>
+      </section>
+    </article>
+  <div id="related-links" class="related-links" aria-label="Related links"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <a class="footer-logo" href="/es/">BoltLab</a>
+        <p class="footer-tagline">Herramientas de sujeción de precisión para el uso real.</p>
+      </div>
+      <nav class="footer-nav footer-nav-center" aria-label="Product">
+        <a href="/es/">Herramientas</a>
+        <a href="/charts/">Gráficos</a>
+        <a href="/sizes/">Tamaños</a>
+        <a href="/guides/">Guías</a>
+      </nav>
+      <nav class="footer-nav footer-nav-right" aria-label="Company">
+        <a href="/about">Acerca de</a>
+        <a href="/contact">Contacto</a>
+        <a href="/privacy">Privacidad</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p class="footer-copyright">© BoltLab — A product of Albor Digital LLC</p>
+        <p class="footer-domains"><span class="footer-domains-label">Supporting domains:</span> screwsizechart.com · boltgradechart.com</p>
+      </div>
+    </div>
+  </footer>
+  <script src="/js/screw-identifier.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Albor Digital LLC","url":"https://albor.digital","email":"contact@albor.digital","sameAs":["https://boltlab.io","https://screwsizechart.com","https://boltgradechart.com"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"BoltLab","url":"https://boltlab.io","publisher":{"@type":"Organization","name":"Albor Digital LLC"}}</script>
+  <script src="/js/link-engine.js" defer></script>
+  <script src="/js/context-anchor-engine.js" defer></script>
+  <script src="/js/anchor-engine.js" defer></script>
+
+  <script src="/js/ads-layout.js" defer></script>
+</body>
+</html>

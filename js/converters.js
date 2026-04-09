@@ -11,6 +11,11 @@
     return document.getElementById(id);
   }
 
+  /** Spanish UI for /es/ pages (Phase 1 i18n). */
+  function tr(en, es) {
+    return document.documentElement.lang === "es" ? es : en;
+  }
+
   function round(value, decimals) {
     var factor = Math.pow(10, decimals);
     return Math.round(value * factor) / factor;
@@ -88,7 +93,9 @@
 
     function renderEmpty() {
       resultEl.innerHTML =
-        "<div class=\"hero-result-inner hero-result-placeholder\"><p>Enter a size to see the closest match.</p></div>";
+        "<div class=\"hero-result-inner hero-result-placeholder\"><p>" +
+        tr("Enter a size to see the closest match.", "Introduce un tamaño para ver el equivalente más cercano.") +
+        "</p></div>";
     }
 
     function updateResult() {
@@ -107,20 +114,33 @@
         var mk = findHeroMetricKey(raw, metricToImperial);
         if (!mk) {
           html =
-            "<div class=\"hero-result-inner\"><p class=\"hero-result-warning\">No match — try <strong>M6</strong>, <strong>M8</strong>, or <strong>M10</strong>.</p></div>";
+            "<div class=\"hero-result-inner\"><p class=\"hero-result-warning\">" +
+            tr(
+              "No match — try <strong>M6</strong>, <strong>M8</strong>, or <strong>M10</strong>.",
+              "Sin coincidencia — prueba <strong>M6</strong>, <strong>M8</strong> o <strong>M10</strong>."
+            ) +
+            "</p></div>";
         } else {
           var imperial = metricToImperial[mk] || "—";
           var td = tapDrill[mk];
           var pitchLine = td
-            ? "<p class=\"hero-result-line\"><span class=\"hero-result-label\">Coarse pitch</span> <strong>" +
+            ? "<p class=\"hero-result-line\"><span class=\"hero-result-label\">" +
+              tr("Coarse pitch", "Paso grueso") +
+              "</span> <strong>" +
               td.coarsePitchMm +
-              " mm</strong></p><p class=\"hero-result-line\"><span class=\"hero-result-label\">Tap drill</span> <strong>" +
+              " mm</strong></p><p class=\"hero-result-line\"><span class=\"hero-result-label\">" +
+              tr("Tap drill", "Broca para roscar") +
+              "</span> <strong>" +
               td.tapDrillMm +
-              " mm</strong> <span class=\"muted\">(coarse)</span></p>"
+              " mm</strong> <span class=\"muted\">(" +
+              tr("coarse", "grueso") +
+              ")</span></p>"
             : "";
           html =
             "<div class=\"hero-result-inner\">" +
-            "<p class=\"hero-result-line hero-result-primary\"><span class=\"hero-result-label\">Equivalent</span> <strong>" +
+            "<p class=\"hero-result-line hero-result-primary\"><span class=\"hero-result-label\">" +
+            tr("Equivalent", "Equivalente") +
+            "</span> <strong>" +
             imperial +
             "</strong></p>" +
             pitchLine +
@@ -130,18 +150,27 @@
         var ik = findHeroImperialKey(raw, imperialToMetric);
         if (!ik) {
           html =
-            "<div class=\"hero-result-inner\"><p class=\"hero-result-warning\">No match — try <strong>1/4-20</strong>, <strong>5/16-18</strong>, or <strong>#8-32</strong>.</p></div>";
+            "<div class=\"hero-result-inner\"><p class=\"hero-result-warning\">" +
+            tr(
+              "No match — try <strong>1/4-20</strong>, <strong>5/16-18</strong>, or <strong>#8-32</strong>.",
+              "Sin coincidencia — prueba <strong>1/4-20</strong>, <strong>5/16-18</strong> o <strong>#8-32</strong>."
+            ) +
+            "</p></div>";
         } else {
           var metric = imperialToMetric[ik] || "—";
           var tpiMatch = ik.match(/-(\d+)$/);
           var tpiLine = tpiMatch
-            ? "<p class=\"hero-result-line\"><span class=\"hero-result-label\">Threads per inch</span> <strong>" +
+            ? "<p class=\"hero-result-line\"><span class=\"hero-result-label\">" +
+              tr("Threads per inch", "Hilos por pulgada (TPI)") +
+              "</span> <strong>" +
               tpiMatch[1] +
               "</strong></p>"
             : "";
           html =
             "<div class=\"hero-result-inner\">" +
-            "<p class=\"hero-result-line hero-result-primary\"><span class=\"hero-result-label\">Equivalent</span> <strong>" +
+            "<p class=\"hero-result-line hero-result-primary\"><span class=\"hero-result-label\">" +
+            tr("Equivalent", "Equivalente") +
+            "</span> <strong>" +
             metric +
             "</strong></p>" +
             tpiLine +
@@ -185,18 +214,30 @@
       var direction = directionEl.value;
       var input = sizeEl.value;
       if (!input) {
-        resultEl.innerHTML = "<p>Select a screw size to begin.</p>";
+        resultEl.innerHTML = "<p>" + tr("Select a screw size to begin.", "Selecciona un tamaño de tornillo para empezar.") + "</p>";
         return;
       }
 
       if (direction === "metric-to-imperial") {
         var imperial = (data.metricToImperial || {})[input] || "N/A";
         resultEl.innerHTML =
-          "<p><strong>" + input + "</strong> is closest to <strong>" + imperial + "</strong>.</p>";
+          "<p><strong>" +
+          input +
+          "</strong> " +
+          tr("is closest to", "equivale aproximadamente a") +
+          " <strong>" +
+          imperial +
+          "</strong>.</p>";
       } else {
         var metric = (data.imperialToMetric || {})[input] || "N/A";
         resultEl.innerHTML =
-          "<p><strong>" + input + "</strong> is closest to <strong>" + metric + "</strong>.</p>";
+          "<p><strong>" +
+          input +
+          "</strong> " +
+          tr("is closest to", "equivale aproximadamente a") +
+          " <strong>" +
+          metric +
+          "</strong>.</p>";
       }
     }
 
@@ -220,22 +261,28 @@
       var mode = modeEl.value;
       var value = parseFloat(inputEl.value);
       if (!inputEl.value || Number.isNaN(value) || value <= 0) {
-        resultEl.innerHTML = "<p>Enter a positive value to convert.</p>";
+        resultEl.innerHTML = "<p>" + tr("Enter a positive value to convert.", "Introduce un valor positivo para convertir.") + "</p>";
         return;
       }
 
       if (mode === "pitch-to-tpi") {
         var tpi = round(25.4 / value, 2);
         resultEl.innerHTML =
-          "<p><strong>" +
-          value +
-          " mm pitch</strong> is <strong>" +
-          tpi +
-          " TPI</strong>.</p>";
+          "<p>" +
+          tr(
+            "<strong>" + value + " mm pitch</strong> is <strong>" + tpi + " TPI</strong>.",
+            "<strong>" + value + " mm de paso</strong> equivalen a <strong>" + tpi + " TPI</strong>."
+          ) +
+          "</p>";
       } else {
         var pitch = round(25.4 / value, 3);
         resultEl.innerHTML =
-          "<p><strong>" + value + " TPI</strong> is <strong>" + pitch + " mm pitch</strong>.</p>";
+          "<p>" +
+          tr(
+            "<strong>" + value + " TPI</strong> is <strong>" + pitch + " mm pitch</strong>.",
+            "<strong>" + value + " TPI</strong> equivalen a <strong>" + pitch + " mm de paso</strong>."
+          ) +
+          "</p>";
       }
     }
 
@@ -257,23 +304,25 @@
       var customPitch = parseFloat(pitchEl.value);
       var base = entries[size];
       if (!base) {
-        resultEl.innerHTML = "<p>Select a thread size.</p>";
+        resultEl.innerHTML = "<p>" + tr("Select a thread size.", "Selecciona un tamaño de rosca.") + "</p>";
         return;
       }
 
       var pitch = Number.isFinite(customPitch) && customPitch > 0 ? customPitch : base.coarsePitchMm;
       var drill = round(parseFloat(size.replace("M", "")) - pitch, 2);
       resultEl.innerHTML =
-        "<p>Recommended tap drill for <strong>" +
-        size +
-        " x " +
-        pitch +
-        "</strong> is <strong>" +
-        drill +
-        " mm</strong>.</p>" +
-        "<p class='muted'>Formula: major diameter - pitch. Coarse reference: " +
-        base.tapDrillMm +
-        " mm.</p>";
+        "<p>" +
+        tr(
+          "Recommended tap drill for <strong>" + size + " × " + pitch + "</strong> is <strong>" + drill + " mm</strong>.",
+          "Broca recomendada para <strong>" + size + " × " + pitch + "</strong>: <strong>" + drill + " mm</strong>."
+        ) +
+        "</p>" +
+        "<p class='muted'>" +
+        tr(
+          "Formula: major diameter - pitch. Coarse reference: " + base.tapDrillMm + " mm.",
+          "Fórmula: diámetro mayor − paso. Referencia gruesa: " + base.tapDrillMm + " mm."
+        ) +
+        "</p>";
     }
 
     sizeEl.addEventListener("change", updateResult);
@@ -298,9 +347,23 @@
 
       return (
         "<article class='card'>" +
-        "<h3>" + match.name + "</h3>" +
-        "<p><strong>Diameter:</strong> " + diameterMm + " mm (" + diameterIn + " in)</p>" +
-        "<p><strong>Pitch:</strong> " + pitchMm + " mm (" + tpi + " TPI)</p>" +
+        "<h3>" +
+        match.name +
+        "</h3>" +
+        "<p><strong>" +
+        tr("Diameter:", "Diámetro:") +
+        "</strong> " +
+        diameterMm +
+        " mm (" +
+        diameterIn +
+        " in)</p>" +
+        "<p><strong>" +
+        tr("Pitch:", "Paso:") +
+        "</strong> " +
+        pitchMm +
+        " mm (" +
+        tpi +
+        " TPI)</p>" +
         "</article>"
       );
     }
@@ -309,7 +372,13 @@
       var diameter = parseFloat(diameterEl.value);
       var pitch = parseFloat(pitchEl.value);
       if (!diameterEl.value || !pitchEl.value || Number.isNaN(diameter) || Number.isNaN(pitch) || diameter <= 0 || pitch <= 0) {
-        resultEl.innerHTML = "<p>Enter diameter and pitch values to identify likely thread standards.</p>";
+        resultEl.innerHTML =
+          "<p>" +
+          tr(
+            "Enter diameter and pitch values to identify likely thread standards.",
+            "Introduce diámetro y paso para identificar roscas probables."
+          ) +
+          "</p>";
         return;
       }
 
@@ -326,15 +395,28 @@
 
       if (matches.length === 0) {
         resultEl.innerHTML =
-          "<p><strong>No direct match within ±5% tolerance.</strong></p>" +
-          "<p class='muted'>Try re-checking caliper measurement, pitch gauge reading, or switching pitch unit between mm and TPI.</p>";
+          "<p><strong>" +
+          tr("No direct match within ±5% tolerance.", "Sin coincidencia directa dentro de ±5 % de tolerancia.") +
+          "</strong></p>" +
+          "<p class='muted'>" +
+          tr(
+            "Try re-checking caliper measurement, pitch gauge reading, or switching pitch unit between mm and TPI.",
+            "Vuelve a comprobar el calibre, el paso o cambia entre mm y TPI."
+          ) +
+          "</p>";
         return;
       }
 
       var items = matches.map(buildMatchMarkup).join("");
       resultEl.innerHTML =
-        "<p><strong>Possible thread matches (" + matches.length + "):</strong></p>" +
-        "<div class='grid'>" + items + "</div>";
+        "<p><strong>" +
+        tr("Possible thread matches", "Posibles coincidencias de rosca") +
+        " (" +
+        matches.length +
+        "):</strong></p>" +
+        "<div class='grid'>" +
+        items +
+        "</div>";
     }
 
     diameterEl.addEventListener("input", updateResult);

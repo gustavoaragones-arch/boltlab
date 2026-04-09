@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Convertidor de paso de rosca a TPI | BoltLab</title>
+  <meta name="description" content="Convierta el paso en mm a TPI y TPI a paso al instante con una calculadora rápida y adaptable al móvil.">
+  <link rel="canonical" href="https://boltlab.io/es/tools/paso-rosca-a-tpi.html">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="alternate" hreflang="en" href="https://boltlab.io/tools/thread-pitch-to-tpi-converter.html" />
+  <link rel="alternate" hreflang="es" href="https://boltlab.io/es/tools/paso-rosca-a-tpi.html" />
+  <link rel="alternate" hreflang="x-default" href="https://boltlab.io/" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/es/">BoltLab</a>
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="/es/">Herramientas</a></li>
+          <li><a href="/charts/">Gráficos</a></li>
+          <li><a href="/reference/">Referencia</a></li>
+          <li><a href="/sizes/">Tamaños</a></li>
+          <li><a href="/guides/">Guías</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" role="navigation" aria-label="Idioma">
+        <a href="/tools/thread-pitch-to-tpi-converter.html" class="lang-switch-link" hreflang="en">EN</a>
+        <span class="lang-switch-sep" aria-hidden="true">|</span>
+        <a href="/es/tools/paso-rosca-a-tpi.html" class="lang-switch-link lang-switch-link--active" hreflang="es" aria-current="page">ES</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="content" class="container">
+    <article>
+      <h1>Convertidor de paso de rosca a TPI</h1>
+      <div class="aeo-answer-block" aria-label="Respuesta directa">
+        <h2>¿Qué es el paso de rosca frente a TPI?</h2>
+        <p>El paso métrico es la distancia entre crestas en mm; TPI son roscas por pulgada en sistemas imperiales. Se relacionan con TPI = 25,4 / paso (mm).</p>
+      </div>
+      <p class="muted">Elija el modo e introduzca el valor. El resultado se actualiza al instante sin enviar el formulario.</p>
+
+      <section class="card">
+        <h2>Convertidor</h2>
+        <form class="form-grid two-col" aria-label="Formulario de conversión entre paso y TPI">
+          <div class="field">
+            <label for="pitch-mode">Modo</label>
+            <select id="pitch-mode" name="pitch-mode">
+              <option value="pitch-to-tpi">Paso (mm) → TPI</option>
+              <option value="tpi-to-pitch">TPI → Paso (mm)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="pitch-value">Valor</label>
+            <input id="pitch-value" name="pitch-value" type="number" min="0.01" step="0.01" placeholder="p. ej. 1.25">
+          </div>
+        </form>
+        <div id="pitch-result" class="result" aria-live="polite"></div>
+      </section>
+
+      <section>
+        <h2>Fórmula utilizada</h2>
+        <p><strong>TPI = 25.4 / pitch(mm)</strong> y <strong>pitch(mm) = 25.4 / TPI</strong>.</p>
+      </section>
+      <div class="ad-container">
+        <div class="ad-label">Patrocinado</div>
+        <aside class="ad-slot ad-slot--inline" aria-label="Publicidad" data-ad-placeholder="true"></aside>
+      </div>
+      <section class="card guide-links">
+        <h3>Guías relacionadas</h3>
+        <ul class="meta-list">
+          <li><a href="/es/guides/paso-de-rosca.html">Paso de rosca explicado</a></li>
+          <li><a href="/guides/what-is-tpi.html">What Is TPI</a></li>
+        </ul>
+      </section>
+    </article>
+  <div id="related-links" class="related-links" aria-label="Related links"></div>
+  </main>
+
+      <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <a class="footer-logo" href="/es/">BoltLab</a>
+        <p class="footer-tagline">Herramientas de sujeción de precisión para el uso real.</p>
+      </div>
+      <nav class="footer-nav footer-nav-center" aria-label="Product">
+        <a href="/es/">Herramientas</a>
+        <a href="/charts/">Gráficos</a>
+        <a href="/sizes/">Tamaños</a>
+        <a href="/guides/">Guías</a>
+      </nav>
+      <nav class="footer-nav footer-nav-right" aria-label="Company">
+        <a href="/about">Acerca de</a>
+        <a href="/contact">Contacto</a>
+        <a href="/privacy">Privacidad</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p class="footer-copyright">© BoltLab — A product of Albor Digital LLC</p>
+        <p class="footer-domains"><span class="footer-domains-label">Supporting domains:</span> screwsizechart.com · boltgradechart.com</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/data.js" defer></script>
+  <script src="/js/converters.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cómo se convierte el paso de rosca a TPI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Divida 25,4 entre el paso métrico en milímetros. Ejemplo: 25,4 / 1,25 = 20,32 TPI."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo pasar de TPI a paso métrico?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Introduzca un valor TPI y la calculadora obtiene el paso en mm al instante con pitch = 25,4 / TPI."
+          }
+        }
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Albor Digital LLC",
+      "url": "https://albor.digital",
+      "email": "contact@albor.digital",
+      "sameAs": [
+        "https://boltlab.io",
+        "https://screwsizechart.com",
+        "https://boltgradechart.com"
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "BoltLab",
+      "url": "https://boltlab.io",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Albor Digital LLC"
+      }
+    }
+  </script>
+  <script src="/js/link-engine.js" defer></script>
+  <script src="/js/context-anchor-engine.js" defer></script>
+  <script src="/js/anchor-engine.js" defer></script>
+
+  <script src="/js/ads-layout.js" defer></script>
+</body>
+</html>

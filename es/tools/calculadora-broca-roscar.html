@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora de broca para roscar | BoltLab</title>
+  <meta name="description" content="Calcule al instante el diámetro de broca para machos métricos según diámetro y paso de rosca. Incluye valores habituales de M3 a M10.">
+  <link rel="canonical" href="https://boltlab.io/es/tools/calculadora-broca-roscar.html">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="alternate" hreflang="en" href="https://boltlab.io/tools/tap-drill-calculator.html" />
+  <link rel="alternate" hreflang="es" href="https://boltlab.io/es/tools/calculadora-broca-roscar.html" />
+  <link rel="alternate" hreflang="x-default" href="https://boltlab.io/" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/es/">BoltLab</a>
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="/es/">Herramientas</a></li>
+          <li><a href="/charts/">Gráficos</a></li>
+          <li><a href="/reference/">Referencia</a></li>
+          <li><a href="/sizes/">Tamaños</a></li>
+          <li><a href="/guides/">Guías</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch" role="navigation" aria-label="Idioma">
+        <a href="/tools/tap-drill-calculator.html" class="lang-switch-link" hreflang="en">EN</a>
+        <span class="lang-switch-sep" aria-hidden="true">|</span>
+        <a href="/es/tools/calculadora-broca-roscar.html" class="lang-switch-link lang-switch-link--active" hreflang="es" aria-current="page">ES</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="content" class="container">
+    <article>
+      <h1>Calculadora de broca para roscar</h1>
+      <div class="aeo-answer-block" aria-label="Respuesta directa">
+        <h2>¿Qué es el diámetro de broca para roscar?</h2>
+        <p>Es el tamaño de taladro previo al machueleado: algo menor que el diámetro mayor del tornillo para que el macho forme la rosca con profundidad adecuada.</p>
+      </div>
+      <p class="muted">Elija una rosca métrica y, si lo desea, ajuste el paso. El diámetro de broca recomendado se actualiza al instante.</p>
+
+      <section class="card">
+        <h2>Calculadora</h2>
+        <form class="form-grid two-col" aria-label="Formulario de calculadora de broca para roscar">
+          <div class="field">
+            <label for="tap-size">Talla de rosca</label>
+            <select id="tap-size" name="tap-size">
+              <option value="M3">M3</option>
+              <option value="M4">M4</option>
+              <option value="M5">M5</option>
+              <option value="M6">M6</option>
+              <option value="M8">M8</option>
+              <option value="M10">M10</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="tap-pitch">Paso (mm, opcional)</label>
+            <input id="tap-pitch" name="tap-pitch" type="number" min="0.2" step="0.05" placeholder="Vacío = paso grueso">
+          </div>
+        </form>
+        <div id="tap-result" class="result" aria-live="polite"></div>
+        <div class="soft-cta" role="note">
+          <div class="soft-cta-title">Herramienta recomendada para esta talla</div>
+          <a class="soft-cta-link" href="https://www.amazon.com/s?k=tap+and+drill+set" rel="nofollow sponsored noopener" target="_blank">Ver juego de brocas</a>
+        </div>
+      </section>
+
+      <section>
+        <h2>Método de cálculo</h2>
+        <p>Para machos métricos, una fórmula habitual en taller es diámetro mayor menos paso. La herramienta también muestra valores de referencia de paso grueso desde una tabla.</p>
+      <p class="muted"><a href="/es/sizes/perno-m6.html">Especificaciones completas del perno M6</a> · <a href="/sizes/">Todas las páginas de tallas</a>.</p>
+      </section>
+      <div class="ad-container">
+        <div class="ad-label">Patrocinado</div>
+        <aside class="ad-slot ad-slot--inline" aria-label="Publicidad" data-ad-placeholder="true"></aside>
+      </div>
+      <section class="card guide-links">
+        <h3>Guías relacionadas</h3>
+        <ul class="meta-list">
+          <li><a href="/es/guides/broca-para-roscar.html">Brocas para roscar: conceptos básicos</a></li>
+          <li><a href="/guides/metric-thread-tolerances.html">Metric Thread Tolerances</a></li>
+        </ul>
+      </section>
+    </article>
+  <div id="related-links" class="related-links" aria-label="Related links"></div>
+  </main>
+
+      <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <a class="footer-logo" href="/es/">BoltLab</a>
+        <p class="footer-tagline">Herramientas de sujeción de precisión para el uso real.</p>
+      </div>
+      <nav class="footer-nav footer-nav-center" aria-label="Product">
+        <a href="/es/">Herramientas</a>
+        <a href="/charts/">Gráficos</a>
+        <a href="/sizes/">Tamaños</a>
+        <a href="/guides/">Guías</a>
+      </nav>
+      <nav class="footer-nav footer-nav-right" aria-label="Company">
+        <a href="/about">Acerca de</a>
+        <a href="/contact">Contacto</a>
+        <a href="/privacy">Privacidad</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p class="footer-copyright">© BoltLab — A product of Albor Digital LLC</p>
+        <p class="footer-domains"><span class="footer-domains-label">Supporting domains:</span> screwsizechart.com · boltgradechart.com</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/data.js" defer></script>
+  <script src="/js/converters.js" defer></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cómo se calcula el diámetro de broca para roscar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Una aproximación métrica habitual es diámetro mayor menos paso. Por ejemplo, M6 x 1,0 da unos 5,0 mm de broca."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Incluye tallas métricas habituales?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Incluye M3, M4, M5, M6, M8 y M10 con valores de referencia de paso grueso."
+          }
+        }
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Albor Digital LLC",
+      "url": "https://albor.digital",
+      "email": "contact@albor.digital",
+      "sameAs": [
+        "https://boltlab.io",
+        "https://screwsizechart.com",
+        "https://boltgradechart.com"
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "BoltLab",
+      "url": "https://boltlab.io",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Albor Digital LLC"
+      }
+    }
+  </script>
+  <script src="/js/link-engine.js" defer></script>
+  <script src="/js/context-anchor-engine.js" defer></script>
+  <script src="/js/anchor-engine.js" defer></script>
+
+  <script src="/js/ads-layout.js" defer></script>
+</body>
+</html>

@@ -7,6 +7,10 @@
   <meta name="description" content="Calculate metric tap drill sizes instantly from thread diameter and pitch. Includes common M3 to M10 values.">
   <link rel="canonical" href="https://boltlab.io/tools/tap-drill-calculator.html">
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="alternate" hreflang="en" href="https://boltlab.io/tools/tap-drill-calculator.html" />
+  <link rel="alternate" hreflang="es" href="https://boltlab.io/es/tools/calculadora-broca-roscar.html" />
+  <link rel="alternate" hreflang="x-default" href="https://boltlab.io/" />
+
 </head>
 <body>
   <header class="site-header">
@@ -21,12 +25,21 @@
           <li><a href="/guides/">Guides</a></li>
         </ul>
       </nav>
+      <div class="lang-switch" role="navigation" aria-label="Language">
+        <a href="/tools/tap-drill-calculator.html" class="lang-switch-link lang-switch-link--active" hreflang="en" aria-current="page">EN</a>
+        <span class="lang-switch-sep" aria-hidden="true">|</span>
+        <a href="/es/tools/calculadora-broca-roscar.html" class="lang-switch-link" hreflang="es">ES</a>
+      </div>
     </div>
   </header>
 
   <main id="content" class="container">
     <article>
       <h1>Tap Drill Calculator</h1>
+      <div class="aeo-answer-block" aria-label="Direct answer">
+        <h2>What is tap drill size?</h2>
+        <p>Tap drill size is the pilot hole diameter you drill before cutting threads with a tap. It is smaller than the bolt’s major diameter so the tap forms usable thread depth.</p>
+      </div>
       <p class="muted">Pick a metric thread size and optionally adjust pitch. Recommended tap drill size updates instantly.</p>
 
       <section class="card">
@@ -49,13 +62,21 @@
           </div>
         </form>
         <div id="tap-result" class="result" aria-live="polite"></div>
+        <div class="soft-cta" role="note">
+          <div class="soft-cta-title">Recommended tool for this size</div>
+          <a class="soft-cta-link" href="https://www.amazon.com/s?k=tap+and+drill+set" rel="nofollow sponsored noopener" target="_blank">View drill set</a>
+        </div>
       </section>
 
       <section>
         <h2>Calculation method</h2>
         <p>For metric taps, a common workshop formula is major diameter minus pitch. This tool also shows coarse reference values from a lookup table.</p>
-      <p class="muted"><a href="/sizes/m6-bolt-size.html">See full M6 bolt specifications</a> · <a href="/sizes/">All size reference pages</a>.</p>
+      <p class="muted"><a href="/sizes/m6-bolt-size.html">See full M6 bolt specifications</a> · <a href="/es/sizes/perno-m6.html">Spanish: perno M6</a> · <a href="/sizes/">All size reference pages</a>.</p>
       </section>
+      <div class="ad-container">
+        <div class="ad-label">Sponsored</div>
+        <aside class="ad-slot ad-slot--inline" aria-label="Advertisement" data-ad-placeholder="true"></aside>
+      </div>
       <section class="card guide-links">
         <h3>Related guides</h3>
         <ul class="meta-list">
@@ -149,5 +170,6 @@
   <script src="/js/context-anchor-engine.js" defer></script>
   <script src="/js/anchor-engine.js" defer></script>
 
+  <script src="/js/ads-layout.js" defer></script>
 </body>
 </html>

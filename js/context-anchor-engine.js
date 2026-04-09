@@ -1,12 +1,19 @@
 (function () {
   "use strict";
 
+  /** Set true to log context-anchor matches in the console (development only). */
+  var DEBUG_ANCHORS = false;
+
   /** Bump with /data/context-anchors.json when patterns change. */
-  var CONTEXT_ANCHOR_VERSION = "1";
-  var DATA_URL = "/data/context-anchors.json?v=" + encodeURIComponent(CONTEXT_ANCHOR_VERSION);
+  var CONTEXT_ANCHOR_VERSION = "3";
+  var DATA_URL =
+    typeof window !== "undefined" && window.location.pathname.indexOf("/es/") === 0
+      ? "/data/context-anchors-es.json?v=" + encodeURIComponent(CONTEXT_ANCHOR_VERSION)
+      : "/data/context-anchors.json?v=" + encodeURIComponent(CONTEXT_ANCHOR_VERSION);
   var MAX_REPLACEMENTS = 5;
   var MIN_ANCHOR_CHARS = 11;
   var MAX_COVER_CHARS = 220;
+  var SHORT_BLOCK_MAX = 120;
 
   function normalizePath(pathname) {
     if (!pathname || pathname === "/") return "/";
@@ -25,6 +32,7 @@
     return String(s).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   }
 
+  /** Word-boundary token match (aligned with anchor-engine key matching). */
   function findTokenSpan(sentence, token) {
     var t = token.trim();
     if (!t) return null;
@@ -38,11 +46,15 @@
       var mt = reT.exec(sentence);
       return mt ? { start: mt.index, end: mt.index + mt[0].length } : null;
     }
-    var lowerS = sentence.toLowerCase();
-    var lowerT = t.toLowerCase();
-    var idx = lowerS.indexOf(lowerT);
-    if (idx === -1) return null;
-    return { start: idx, end: idx + t.length };
+    var parts = t.split(/\s+/);
+    var rePhrase;
+    if (parts.length === 1) {
+      rePhrase = new RegExp("\\b" + escapeRegex(parts[0]) + "\\b", "i");
+    } else {
+      rePhrase = new RegExp("\\b" + parts.map(escapeRegex).join("\\s+") + "\\b", "i");
+    }
+    var mf = rePhrase.exec(sentence);
+    return mf ? { start: mf.index, end: mf.index + mf[0].length } : null;
   }
 
   function sentenceHasAllTokens(sentence, tokens) {
@@ -82,14 +94,43 @@
     return out;
   }
 
+  function isInsideAeoBlock(tn) {
+    var p = tn.parentNode;
+    while (p && p.nodeType === 1) {
+      if (p.classList && p.classList.contains("aeo-answer-block")) return true;
+      p = p.parentNode;
+    }
+    return false;
+  }
+
+  function isInShortBlock(tn) {
+    var p = tn.parentNode;
+    while (p && p.nodeType === 1) {
+      var tag = p.tagName;
+      if (tag === "P" || tag === "LI") {
+        var len = (p.textContent || "").trim().length;
+        if (len > 0 && len < SHORT_BLOCK_MAX) return true;
+        return false;
+      }
+      if (tag === "MAIN" || tag === "ARTICLE" || tag === "BODY") break;
+      p = p.parentNode;
+    }
+    return false;
+  }
+
   function textNodeAllowed(tn) {
+    if (isInsideAeoBlock(tn)) return false;
+    if (isInShortBlock(tn)) return false;
+
     var p = tn.parentNode;
     while (p && p.nodeType === 1) {
       var tag = p.tagName;
       if (tag === "A" || tag === "CODE" || tag === "PRE" || tag === "SCRIPT" || tag === "STYLE" || tag === "KBD" || tag === "SAMP") {
         return false;
       }
-      if (tag === "H1" || tag === "H2" || tag === "H3") return false;
+      if (tag === "BUTTON") return false;
+      if (p.getAttribute && p.getAttribute("role") === "button") return false;
+      if (/^H[1-6]$/.test(tag)) return false;
       p = p.parentNode;
     }
     return true;
@@ -129,6 +170,12 @@
       a.className = "anchor-context-injected";
       a.setAttribute("data-context-anchor", "true");
       a.textContent = anchorText;
+
+      if (DEBUG_ANCHORS) {
+        try {
+          console.log("[context-anchor-engine] match:", pattern.match, "→", pattern.url);
+        } catch (e) {}
+      }
 
       if (before) parent.insertBefore(document.createTextNode(before), tn);
       parent.insertBefore(a, tn);

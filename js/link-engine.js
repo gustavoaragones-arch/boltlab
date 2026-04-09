@@ -82,7 +82,16 @@
     if (p === "/" || p === "/index.html") add("home");
     if (p.indexOf("/about") !== -1 && (p === "/about" || p.indexOf("/about/") !== -1)) add("about");
 
-    if (/\/tools\/thread-identifier/.test(p) || /\/tools\/screw-identifier/.test(p) || /\/tools\/thread-pitch-to-tpi/.test(p)) add("thread");
+    if (
+      /\/tools\/thread-identifier/.test(p) ||
+      /\/tools\/screw-identifier/.test(p) ||
+      /\/tools\/thread-pitch-to-tpi/.test(p) ||
+      /\/es\/tools\/identificador-roscas/.test(p) ||
+      /\/es\/tools\/identificador-tornillos/.test(p) ||
+      /\/es\/tools\/paso-rosca-a-tpi/.test(p)
+    ) {
+      add("thread");
+    }
     if (/\/tools\/metric-to-imperial/.test(p)) add("metric");
     if (/\/tools\/tap-drill-calculator/.test(p)) add("tap");
     if (/\/tools\/bolt-torque/.test(p)) add("bolt");

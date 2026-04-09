@@ -1,0 +1,145 @@
+{
+  "version": "3",
+  "patterns": [
+    {
+      "match": ["m6", "thread pitch"],
+      "url": "/es/sizes/perno-m6.html",
+      "anchor": "Rosca y paso M6"
+    },
+    {
+      "match": ["m8", "tap drill"],
+      "url": "/es/guides/broca-para-roscar.html",
+      "anchor": "Broca para roscar M8"
+    },
+    {
+      "match": ["tap drill", "m6"],
+      "url": "/es/guides/broca-para-roscar.html",
+      "anchor": "Diámetro de broca para M6"
+    },
+    {
+      "match": ["thread pitch", "tpi"],
+      "url": "/es/tools/paso-rosca-a-tpi.html",
+      "anchor": "convertir paso de rosca a TPI"
+    },
+    {
+      "match": ["paso", "rosca", "tpi"],
+      "url": "/es/tools/paso-rosca-a-tpi.html",
+      "anchor": "convertidor paso–TPI"
+    },
+    {
+      "match": ["paso", "de", "rosca"],
+      "url": "/es/guides/paso-de-rosca.html",
+      "anchor": "guía paso de rosca"
+    },
+    {
+      "match": ["broca", "para", "roscar"],
+      "url": "/es/guides/broca-para-roscar.html",
+      "anchor": "básicos de broca para roscar"
+    },
+    {
+      "match": ["torx", "phillips"],
+      "url": "/reference/screw-drive-types.html",
+      "anchor": "Torx vs Phillips"
+    },
+    {
+      "match": ["tornillo", "torx"],
+      "url": "/reference/screw-drive-types.html",
+      "anchor": "tornillo Torx y accionamiento"
+    },
+    {
+      "match": ["bolt grade", "strength"],
+      "url": "/charts/bolt-grade-chart.html",
+      "anchor": "tabla de grados de pernos"
+    },
+    {
+      "match": ["metric", "imperial"],
+      "url": "/es/guides/metrico-vs-imperial.html",
+      "anchor": "métrico vs imperial"
+    },
+    {
+      "match": ["metrico", "imperial"],
+      "url": "/es/guides/metrico-vs-imperial.html",
+      "anchor": "sujetadores métricos vs imperiales"
+    },
+    {
+      "match": ["coarse", "fine", "thread"],
+      "url": "/guides/thread-types-explained.html",
+      "anchor": "rosca gruesa vs fina"
+    },
+    {
+      "match": ["1/4-20", "conversion"],
+      "url": "/es/tools/metrico-a-pulgadas.html",
+      "anchor": "conversión ¼-20"
+    },
+    {
+      "match": ["identify", "thread"],
+      "url": "/es/tools/identificador-roscas.html",
+      "anchor": "identificar tipo de rosca"
+    },
+    {
+      "match": ["identificar", "rosca"],
+      "url": "/es/tools/identificador-roscas.html",
+      "anchor": "herramienta identificador de roscas"
+    },
+    {
+      "match": ["calculate", "tap drill"],
+      "url": "/es/tools/calculadora-broca-roscar.html",
+      "anchor": "calcular broca para roscar"
+    },
+    {
+      "match": ["calcular", "broca"],
+      "url": "/es/tools/calculadora-broca-roscar.html",
+      "anchor": "calculadora de broca para roscar"
+    },
+    {
+      "match": ["m6", "bolt", "size"],
+      "url": "/es/sizes/perno-m6.html",
+      "anchor": "referencia tamaño M6"
+    },
+    {
+      "match": ["perno", "m6"],
+      "url": "/es/sizes/perno-m6.html",
+      "anchor": "especificaciones perno M6"
+    },
+    {
+      "match": ["perno", "m8"],
+      "url": "/es/sizes/perno-m8.html",
+      "anchor": "especificaciones perno M8"
+    },
+    {
+      "match": ["self-tapping", "self-drilling"],
+      "url": "/reference/self-tapping-vs-self-drilling.html",
+      "anchor": "autorroscante vs autoperforante"
+    },
+    {
+      "match": ["screw", "identifier"],
+      "url": "/es/tools/identificador-tornillos.html",
+      "anchor": "identificador interactivo de tornillos"
+    },
+    {
+      "match": ["identificador", "tornillos"],
+      "url": "/es/tools/identificador-tornillos.html",
+      "anchor": "identificador visual de tornillos"
+    },
+    {
+      "match": ["hex", "allen"],
+      "url": "/reference/screw-drive-types.html",
+      "anchor": "hexágono interior Allen"
+    },
+    {
+      "match": ["bolt", "torque"],
+      "url": "/tools/bolt-torque-calculator.html",
+      "anchor": "calculadora de par de apriete"
+    },
+    {
+      "match": ["universal", "size chart"],
+      "url": "/charts/universal-screw-bolt-size-chart.html",
+      "anchor": "tabla universal de tornillos"
+    },
+    {
+      "match": ["convertir", "metrico"],
+      "url": "/es/tools/metrico-a-pulgadas.html",
+      "anchor": "convertidor métrico a pulgadas"
+    }
+  ]
+}

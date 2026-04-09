@@ -109,6 +109,38 @@ a:focus-visible {
   justify-content: space-between;
   gap: var(--space-3);
   padding: var(--space-3) 0;
+  flex-wrap: wrap;
+}
+
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.lang-switch-link {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 2px 4px;
+  border-radius: 6px;
+}
+
+.lang-switch-link:hover {
+  color: var(--accent-warm);
+  text-decoration: none;
+}
+
+.lang-switch-link--active {
+  color: var(--text);
+  cursor: default;
+}
+
+.lang-switch-sep {
+  color: var(--border);
+  user-select: none;
 }
 
 .brand {
@@ -498,6 +530,34 @@ a.guide-card:focus-visible {
   outline-offset: 2px;
 }
 
+/* Pending hub cards: no silent cross-locale jump; optional explicit EN link */
+.guide-card-grid .guide-card.guide-card--pending {
+  display: block;
+  background: linear-gradient(145deg, #1c1c1f 0%, #141416 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: var(--space-4);
+  color: inherit;
+  cursor: default;
+}
+
+.guide-card-foot {
+  margin-top: var(--space-3);
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.guide-card-foot a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.guide-card-foot a:hover {
+  color: var(--text);
+}
+
 .guide-card h3 {
   margin: 0 0 var(--space-2);
   font-size: 1.05rem;
@@ -751,6 +811,7 @@ th {
   color: rgba(242, 242, 242, 0.22);
 }
 
+.aeo-answer-block,
 .aeo-direct-answer {
   margin: var(--space-4) 0 var(--space-5);
   padding: var(--space-4);
@@ -761,11 +822,243 @@ th {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
+.aeo-answer-block h2 {
+  margin: 0 0 var(--space-2);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.aeo-answer-block p,
 .aeo-direct-answer p {
   margin: 0;
   font-size: 1.0625rem;
   line-height: 1.55;
   color: var(--text);
+}
+
+/* Inline ad zone: after main content, before related links — intentional, not spammy */
+.ad-container {
+  margin: 30px 0;
+  padding: 16px;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  background: #0f0f0f;
+}
+
+.ad-label {
+  font-size: 11px;
+  opacity: 0.6;
+  margin-bottom: 6px;
+}
+
+/* Reserve space early — reduces CLS (Core Web Vitals) */
+.ad-slot {
+  min-height: 90px;
+  box-sizing: border-box;
+}
+
+.ad-slot.ad-slot--inline {
+  min-height: 120px;
+  margin: 0;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-card);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.ad-slot.ad-slot--sidebar {
+  min-height: 250px;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-card);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* Desktop: guides / sizes / reference — main + right rail */
+.layout.layout--with-sidebar {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 30px;
+  align-items: start;
+}
+
+.sidebar-ad {
+  position: sticky;
+  top: 100px;
+}
+
+@media (max-width: 1024px) {
+  .layout.layout--with-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar-ad {
+    display: none;
+  }
+}
+
+/* Mobile-only sticky bottom (high-intent pages; injected by ads-layout.js) */
+.ad-sticky-mobile {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 50px;
+  padding: 10px 36px 10px 12px;
+  box-sizing: border-box;
+  background: #111;
+  border-top: 1px solid #2a2a2a;
+  z-index: 999;
+  cursor: pointer;
+}
+
+body.has-ad-sticky-mobile {
+  padding-bottom: 72px;
+}
+
+body.has-ad-sticky-mobile-collapsed {
+  padding-bottom: 36px;
+}
+
+@media (min-width: 768px) {
+  body.has-ad-sticky-mobile {
+    padding-bottom: 0;
+  }
+
+  body.has-ad-sticky-mobile-collapsed {
+    padding-bottom: 0;
+  }
+}
+
+.ad-sticky-mobile--collapsed {
+  height: 24px;
+  min-height: 24px;
+  overflow: hidden;
+  opacity: 0.7;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.ad-sticky-mobile .ad-slot {
+  min-height: 90px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.ad-sticky-mobile--collapsed .ad-slot {
+  min-height: 0;
+  height: 0;
+  overflow: hidden;
+  border: none;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+}
+
+.ad-close {
+  position: absolute;
+  right: 8px;
+  top: 4px;
+  z-index: 2;
+  margin: 0;
+  padding: 4px 10px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.ad-close:hover,
+.ad-close:focus-visible {
+  color: var(--text);
+}
+
+@media (min-width: 768px) {
+  .ad-sticky-mobile {
+    display: none;
+  }
+}
+
+/* Soft affiliate CTAs (under tool results) — reads as help, not an ad */
+.soft-cta {
+  margin-top: 16px;
+  padding: 12px;
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  background: #0f0f0f;
+  font-size: 0.9375rem;
+}
+
+.soft-cta-title {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+
+.soft-cta-link {
+  display: inline-block;
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.soft-cta-link:hover,
+.soft-cta-link:focus-visible {
+  text-decoration: underline;
+}
+
+/* Size hub: dense link grid + homepage crawl sections */
+.sizes-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr));
+  gap: var(--space-2);
+}
+
+.hub-subheading-spaced {
+  margin-top: var(--space-4);
+}
+
+.recent-updates-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-3) 0 0;
+}
+
+.recent-updates-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-4);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.recent-updates-list li:last-child {
+  border-bottom: none;
+}
+
+.recent-updates-list time {
+  font-size: 0.875rem;
+  opacity: 0.72;
+  white-space: nowrap;
+}
+
+.popular-sizes-grid {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+}
+
+.popular-size-pair {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.home-crawl-section .muted.hub-link-row {
+  margin-top: var(--space-3);
 }
 
 .ref-crosslinks-grid {

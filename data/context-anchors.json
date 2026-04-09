@@ -1,5 +1,5 @@
 {
-  "version": "1",
+  "version": "3",
   "patterns": [
     {
       "match": ["m6", "thread pitch"],

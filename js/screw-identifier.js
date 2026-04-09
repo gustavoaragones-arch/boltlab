@@ -1,6 +1,142 @@
 (function () {
   "use strict";
 
+  /** Language from URL: Spanish hub uses /es/ prefix (more reliable than html lang alone). */
+  function lang() {
+    try {
+      return /^\/es\//.test(window.location.pathname || "") ? "es" : "en";
+    } catch (e) {
+      return "en";
+    }
+  }
+
+  /**
+   * UI copy: EN + ES. Logic stays identical; only presentation changes.
+   */
+  var TEXT = {
+    en: {
+      heads: {
+        hex: "Hex",
+        pan: "Pan",
+        truss: "Truss",
+        countersunk: "Countersunk",
+        oval: "Oval",
+        round: "Round",
+      },
+      drives: {
+        phillips: "Phillips",
+        pozidriv: "Pozidriv",
+        torx: "Torx",
+        hex: "Hex (Allen)",
+        slotted: "Slotted",
+        robertson: "Robertson",
+        "triple-square": "Triple-square (XZN)",
+        "double-hex": "12-point (double hex)",
+        bristol: "Bristol spline",
+        polydrive: "Polydrive",
+        spline: "Spline drive",
+        triangle: "Triangle",
+      },
+      ui: {
+        selection: "Selection",
+        head: "head",
+        drive: "drive",
+        threadAny: "Thread system: any / unknown",
+        metric: "Metric",
+        imperial: "Imperial",
+        confidence: "Confidence",
+        confHigh: "High",
+        confMed: "Medium",
+        confLow: "Low",
+        likelyTitle: "Most likely match",
+        typicalSpec: "Typical specifications",
+        typicalUses: "Typical uses",
+        threadPitch: "Thread / pitch",
+        placeholderBoth: "Select a <strong>head type</strong> and <strong>drive type</strong> to generate likely matches.",
+        placeholderHead: "Choose a <strong>head type</strong> (step 1).",
+        placeholderDrive: "Choose a <strong>drive type</strong> (step 2).",
+        errBuild: "Unable to build a result.",
+      },
+      generic: {
+        likely2: "Less common catalog pairing—confirm with measurements",
+        desc:
+          "This combination is not in the short list of typical stock pairings. Treat identification as **provisional** until you measure **major thread diameter**, **pitch or TPI**, and note **material and strength grade**.",
+        uses: "General mechanical use possible—verify load rating and corrosion requirements for your application.",
+        sizesMetric: ["M3–M12 (measure to narrow)"],
+        sizesImperial: ["#4–½\" (measure to narrow)"],
+        pitch: "Use a pitch gauge or Thread Identifier after measuring.",
+      },
+    },
+    es: {
+      heads: {
+        hex: "Hexagonal",
+        pan: "Cabeza pan",
+        truss: "Truss",
+        countersunk: "Avellanado",
+        oval: "Oval",
+        round: "Redondo",
+      },
+      drives: {
+        phillips: "Phillips",
+        pozidriv: "Pozidriv",
+        torx: "Torx",
+        hex: "Hex (Allen)",
+        slotted: "Ranura",
+        robertson: "Robertson",
+        "triple-square": "Triple cuadrado (XZN)",
+        "double-hex": "12 puntos",
+        bristol: "Bristol",
+        polydrive: "Polydrive",
+        spline: "Estriada",
+        triangle: "Triángulo",
+      },
+      ui: {
+        selection: "Selección",
+        head: "cabeza",
+        drive: "accionamiento",
+        threadAny: "Sistema de rosca: cualquiera / desconocido",
+        metric: "Métrico",
+        imperial: "Imperial",
+        confidence: "Confianza",
+        confHigh: "Alta",
+        confMed: "Media",
+        confLow: "Baja",
+        likelyTitle: "Coincidencia más probable",
+        typicalSpec: "Especificaciones típicas",
+        typicalUses: "Usos típicos",
+        threadPitch: "Rosca / paso",
+        placeholderBoth:
+          "Selecciona <strong>tipo de cabeza</strong> y <strong>tipo de accionamiento</strong> para ver coincidencias probables.",
+        placeholderHead: "Elige un <strong>tipo de cabeza</strong> (paso 1).",
+        placeholderDrive: "Elige un <strong>tipo de accionamiento</strong> (paso 2).",
+        errBuild: "No se pudo generar el resultado.",
+      },
+      generic: {
+        likely2: "Poco habitual en catálogo—confirma con medidas",
+        desc:
+          "Esta combinación no está en la lista corta de emparejamientos típicos. Trata la identificación como **provisional** hasta medir **diámetro mayor de rosca**, **paso o TPI**, y anotar **material y grado**.",
+        uses: "Uso mecánico general posible—verifica carga y corrosión para tu aplicación.",
+        sizesMetric: ["M3–M12 (acota midiendo)"],
+        sizesImperial: ["#4–½\" (acota midiendo)"],
+        pitch: "Usa galga de paso o el identificador de roscas tras medir.",
+      },
+    },
+  };
+
+  function L() {
+    return TEXT[lang()] || TEXT.en;
+  }
+
+  function headLabel(key) {
+    var h = L().heads[key];
+    return h || HEAD[key].label;
+  }
+
+  function driveLabel(key) {
+    var d = L().drives[key];
+    return d || DRIVE[key].label;
+  }
+
   var HEAD = {
     hex: { label: "Hex", img: "/images/heads/hex.png", alt: "Hex screw head" },
     pan: { label: "Pan", img: "/images/heads/pan.png", alt: "Pan screw head" },
@@ -29,7 +165,7 @@
    * Curated rows: likely names, description, typical uses, size hints by thread system.
    * Missing keys fall back to buildGeneric().
    */
-  var COMBOS = {
+  var COMBOS_EN = {
     "pan|phillips": {
       likely: ["Pan head Phillips machine screw", "ISO 7045-style pan (typical)"],
       desc:
@@ -208,6 +344,193 @@
     },
   };
 
+  /**
+   * Spanish copy for COMBOS (same keys as COMBOS_EN). Built for /es/ URLs; logic unchanged.
+   */
+  var COMBOS_ES = {
+    "pan|phillips": {
+      likely: ["Tornillo de cabeza pan con Phillips", "Pan tipo ISO 7045 (habitual)"],
+      desc:
+        "Muy habitual en maquinaria, electrodomésticos y chapa. La cabeza queda sobre la superficie con zona de apoyo plana.",
+      uses: "Carcasas, escuadras, bisagras (lado no embutido), ferretería general.",
+      sizes: { metric: ["M2–M8 habituales", "M3 / M4 / M6 muy frecuentes"], imperial: ["#4–#14", "#8 y #10 en bienes de consumo"] },
+      pitch: "Suele ser métrico grueso o UNC/UNF según aplicación; mide si no lo sabes.",
+    },
+    "pan|pozidriv": {
+      likely: ["Tornillo pan con Pozidriv", "Hueco cruciforme tipo Z"],
+      desc: "Mismo perfil que pan Phillips pero con hueco Pozidriv para menos salida del punteral con la punta adecuada.",
+      uses: "Electrodomésticos UE, molduras automoción, donde se exige Pozidriv.",
+      sizes: { metric: ["M3–M8"], imperial: ["#6–#12"] },
+      pitch: "A menudo grueso métrico o serie en pulgadas; debe coincidir con el roscado.",
+    },
+    "pan|torx": {
+      likely: ["Tornillo pan Torx", "Pan de seis lóbulos (alto par)"],
+      desc: "Cabeza pan con hueco Torx para mayor par y menos cam-out que Phillips.",
+      uses: "Automoción, electrodomésticos, chasis electrónicos donde importa el acople.",
+      sizes: { metric: ["M3–M10"], imperial: ["#6–¼\""] },
+      pitch: "El tamaño Torx (p. ej. T10–T30) escala con el diámetro; revisa marcaje.",
+    },
+    "pan|slotted": {
+      likely: ["Tornillo pan con ranura", "Pan de ranura simple"],
+      desc: "Montajes sencillos o antiguos; par limitado y más riesgo de deslizamiento que huecos interiores.",
+      uses: "Soportes ligeros, equipos antiguos, si solo hay destornillador plano.",
+      sizes: { metric: ["M2–M6"], imperial: ["#4–#10"] },
+      pitch: "Cualquier familia de rosca habitual; confirma midiendo.",
+    },
+    "pan|robertson": {
+      likely: ["Tornillo pan Robertson (cuadrado)", "Hueco cuadrado en mercados madera/chapa"],
+      desc: "Cabeza pan con hueco cuadrado: buen acople; muy habitual en Canadá y madera.",
+      uses: "Muebles, terrazas, construcción donde se especifica Robertson.",
+      sizes: { metric: ["M4–M8"], imperial: ["#6–#14"] },
+      pitch: "Existen roscas madera y máquina; revisa vástago y punta.",
+    },
+    "pan|hex": {
+      likely: ["Bajo perfil con hex interior (a veces confundido con pan)", "Perfiles tipo botón / pan"],
+      desc: "Un **hex exterior pan** puro es raro; el **hex interior** suele ir en cabezas **cilíndricas**. Si ves parte redondeada con hueco Allen, mira familias de cabeza cilíndrica.",
+      uses: "Con hex interior: maquinaria, utillaje, montaje con acceso lateral para Allen.",
+      sizes: { metric: ["M3–M12"], imperial: ["#5–½\""] },
+      pitch: "Los tornillos hueco abarcan grueso y fino: mide Ø mayor y paso.",
+    },
+    "truss|phillips": {
+      likely: ["Tornillo truss Phillips", "Cabeza ancha y baja (chapa)"],
+      desc: "Gran superficie de apoyo y poca altura: reparte carga en materiales finos.",
+      uses: "HVAC, chapa, paneles, arandelas de aislamiento.",
+      sizes: { metric: ["M4–M8"], imperial: ["#8–#14"] },
+      pitch: "A menudo autorroscante o chapa en acero fino; verifica con muestra.",
+    },
+    "truss|torx": {
+      likely: ["Tornillo truss Torx", "Cabeza ancha baja + Torx"],
+      desc: "Combina superficie de apoyo grande con accionamiento de alto par.",
+      uses: "Clips, soportes, módulos en chapa de automoción y electrodomésticos.",
+      sizes: { metric: ["M4–M8"], imperial: ["#8–#12"] },
+      pitch: "Mide la rosca si no conoces la pieza original.",
+    },
+    "truss|robertson": {
+      likely: ["Tornillo truss Robertson"],
+      desc: "Cabeza ancha y hueco cuadrado: buen acople en chapa fina.",
+      uses: "Madera y compositos, muebles (según región).",
+      sizes: { metric: ["M4–M8"], imperial: ["#8–#14"] },
+      pitch: "Suele ser madera o tipo chapa—confirma en catálogo.",
+    },
+    "countersunk|phillips": {
+      likely: ["Tornillo avellanado Phillips", "ISO 7046 tipo cruz"],
+      desc: "Cabeza cónica para quedar rasante o por debajo; buen acabado visible.",
+      uses: "Herrajes, bisagras, tapas metálicas donde hace falta rasante.",
+      sizes: { metric: ["M2–M8"], imperial: ["#4–#14"] },
+      pitch: "Hay familias métricas y unificadas; mide para repuesto.",
+    },
+    "countersunk|pozidriv": {
+      likely: ["Flat head Pozidriv", "Avellanado Pozidriv"],
+      desc: "Rasante con Pozidriv: mejor acople que Phillips en uniones duras.",
+      uses: "Equipos UE, interior automoción, carcasas metálicas.",
+      sizes: { metric: ["M3–M8"], imperial: ["#6–#12"] },
+      pitch: "Empareja ángulo de avellanado (82° o 90°) con el tornillo.",
+    },
+    "countersunk|torx": {
+      likely: ["Avellanado Torx", "Seis lóbulos embutido"],
+      desc: "Alto par y bajo cam-out; acabado rasante cuando importa el aspecto.",
+      uses: "Molduras, guardas de maquinaria, kits premium.",
+      sizes: { metric: ["M3–M10"], imperial: ["#6–¼\""] },
+      pitch: "Torx seguridad con pin central: verifica tipo de punta.",
+    },
+    "countersunk|slotted": {
+      likely: ["Avellanado ranura", "Madera o máquina (ranura)"],
+      desc: "Clásico y rasante; par limitado por la ranura.",
+      uses: "Bisagras, molduras, restauración de equipos antiguos.",
+      sizes: { metric: ["M2–M6"], imperial: ["#4–#12"] },
+      pitch: "Difiere rosca madera vs máquina: revisa forma y punta.",
+    },
+    "countersunk|robertson": {
+      likely: ["Avellanado Robertson"],
+      desc: "Rasante con hueco cuadrado; muy usado en carpintería.",
+      uses: "Terrazas, escaleras, frentes de mueble (si aplica).",
+      sizes: { metric: ["M4–M10"], imperial: ["#6–#14"] },
+      pitch: "A menudo rosca madera; también hay versiones máquina.",
+    },
+    "countersunk|hex": {
+      likely: ["Avellanado con hex interior (especial)", "Socket avellanado poco frecuente"],
+      desc: "Si es **avellanado** con **hex interior**, puede ser un sujetador embutido especial: confirma ángulo y diámetro.",
+      uses: "Montaje rasante con acceso lateral para Allen.",
+      sizes: { metric: ["M3–M10"], imperial: ["#6–¼\""] },
+      pitch: "Mide Ø en roscas y paso/TPI para pedir repuesto.",
+    },
+    "oval|phillips": {
+      likely: ["Tornillo cabeza oval Phillips", "Decorativo embutido"],
+      desc: "Asiento cónico con parte superior redondeada; a veces ligeramente sobresaliente.",
+      uses: "Bisagras, placas, herrajes visibles.",
+      sizes: { metric: ["M3–M6"], imperial: ["#6–#12"] },
+      pitch: "Suele ser rosca máquina en kits de hardware.",
+    },
+    "oval|slotted": {
+      likely: ["Oval ranura", "Tornillo bisagra clásico"],
+      desc: "Perfil habitual en bisagras residenciales.",
+      uses: "Puertas, muebles, luminarias.",
+      sizes: { metric: ["M3–M5"], imperial: ["#6–#10"] },
+      pitch: "En Norteamérica suele ser serie en pulgadas.",
+    },
+    "round|slotted": {
+      likely: ["Tornillo cabeza redonda ranura", "Cúpula completa"],
+      desc: "Cabeza abovedada que sobresale; par limitado por ranura.",
+      uses: "Maquinaria antigua, restauración, tapas decorativas.",
+      sizes: { metric: ["M2–M6"], imperial: ["#4–#10"] },
+      pitch: "Muchas tallas legacy en pulgadas; mide.",
+    },
+    "round|phillips": {
+      likely: ["Cabeza redonda Phillips"],
+      desc: "Cúpula con cruz; productos de consumo antiguos.",
+      uses: "Tapas ligeras, equipos legacy, interior electrodoméstico.",
+      sizes: { metric: ["M3–M6"], imperial: ["#6–#10"] },
+      pitch: "Confirma rosca estándar vs especial.",
+    },
+    "hex|slotted": {
+      likely: ["Hex exterior con ranura", "Hex con ranura para alambre o respaldo"],
+      desc: "Hex exterior para el par principal; la ranura a veces es para alambre o giro auxiliar.",
+      uses: "Automoción antigua, maquinaria, topes ajustables.",
+      sizes: { metric: ["M5–M20"], imperial: ["¼\"–¾\""] },
+      pitch: "En estructural suele ser grueso métrico o UNC: verifica marca en cabeza.",
+    },
+    "hex|phillips": {
+      likely: ["Poco habitual: hex + Phillips", "Revisa si es brida o especial"],
+      desc: "Los pernos hex puros raramente llevan Phillips; puede ser **brida** o lectura errónea.",
+      uses: "Si se confirma, trátalo como tornillo o perno según medición de rosca.",
+      sizes: { metric: ["M4–M12"], imperial: ["#8–½\""] },
+      pitch: "Mide rosca—no adivines la carga.",
+    },
+    "hex|hex": {
+      likely: ["Aclarar: hex exterior vs hex interior (Allen)"],
+      desc: "**Hex exterior** usa llave en caras; suele **sin** hueco.**Hex interior** suele ir en cabezas **cilíndricas**. Revisa diagramas de referencia.",
+      uses: "Cilíndricos con Allen: maquinaria de precisión; pernos hex: estructural y automoción.",
+      sizes: { metric: ["M3–M24 (caps)", "M6–M20+ (pernos)"], imperial: ["#6–1\"+"] },
+      pitch: "Tras medir Ø y paso, usa el identificador de roscas.",
+    },
+    "hex|torx": {
+      likely: ["Raro en hex exterior puro", "Puede ser panel especial"],
+      desc: "Torx en cabeza hex estándar es raro; podría ser tornillo con arandela o **cabeza cilíndrica** Torx.",
+      uses: "Si es cilíndrico Torx: paneles industriales y automoción.",
+      sizes: { metric: ["M4–M12"], imperial: ["#8–½\""] },
+      pitch: "Confirma con galga de rosca.",
+    },
+    "hex|pozidriv": {
+      likely: ["Combinación rara en hex", "Verifica identificación"],
+      desc: "Trátalo como no estándar hasta comparar con catálogo.",
+      uses: "Reserva: mide y usa el identificador de roscas.",
+      sizes: { metric: ["M5–M12"], imperial: ["¼\"–½\""] },
+      pitch: "Documenta Ø, paso y cabeza para comprar.",
+    },
+    "hex|robertson": {
+      likely: ["Raro en hex estándar", "Revisa truss o brida"],
+      desc: "Hex exterior + cuadrado es poco común; confirma que no sea otro tipo de cabeza.",
+      uses: "Si es especial, sigue documentación del fabricante.",
+      sizes: { metric: ["M6–M12"], imperial: ["¼\"–⅝\""] },
+      pitch: "Mide rosca antes de pedir.",
+    },
+  };
+
+  function comboRow(key) {
+    if (lang() === "es" && COMBOS_ES[key]) return COMBOS_ES[key];
+    return COMBOS_EN[key];
+  }
+
   /** Explicit confidence per curated combo (high = common / clear; low = ambiguous or rare). */
   var CONFIDENCE_MAP = {
     "pan|phillips": "high",
@@ -241,14 +564,18 @@
     var h = HEAD[headKey];
     var d = DRIVE[driveKey];
     if (!h || !d) return null;
+    var g = L().generic;
+    var line1 =
+      lang() === "es"
+        ? headLabel(headKey) + " · " + driveLabel(driveKey)
+        : headLabel(headKey) + " head · " + driveLabel(driveKey) + " drive";
     return {
       confidence: "medium",
-      likely: [h.label + " head · " + d.label + " drive", "Less common catalog pairing—confirm with measurements"],
-      desc:
-        "This combination is not in the short list of typical stock pairings. Treat identification as **provisional** until you measure **major thread diameter**, **pitch or TPI**, and note **material and strength grade**.",
-      uses: "General mechanical use possible—verify load rating and corrosion requirements for your application.",
-      sizes: { metric: ["M3–M12 (measure to narrow)"], imperial: ["#4–½\" (measure to narrow)"] },
-      pitch: "Use a pitch gauge or Thread Identifier after measuring.",
+      likely: [line1, g.likely2],
+      desc: g.desc,
+      uses: g.uses,
+      sizes: { metric: g.sizesMetric, imperial: g.sizesImperial },
+      pitch: g.pitch,
     };
   }
 
@@ -263,12 +590,31 @@
   }
 
   function pitchLine(thread, base) {
-    if (thread === "metric") return "Typical metric coarse pitches follow ISO tables (e.g. M6 × 1). " + base;
-    if (thread === "imperial") return "Typical inch threads use UNC/UNF TPI series (e.g. ¼-20 UNC). " + base;
-    return base + " For metric, think ISO coarse/fine; for inch, UNC/UNF—measure to be sure.";
+    var es = lang() === "es";
+    if (thread === "metric") {
+      return (
+        (es
+          ? "Los pasos gruesos métricos siguen tablas ISO (p. ej. M6 × 1). "
+          : "Typical metric coarse pitches follow ISO tables (e.g. M6 × 1). ") + base
+      );
+    }
+    if (thread === "imperial") {
+      return (
+        (es
+          ? "Las roscas en pulgadas usan series UNC/UNF en TPI (p. ej. ¼-20 UNC). "
+          : "Typical inch threads use UNC/UNF TPI series (e.g. ¼-20 UNC). ") + base
+      );
+    }
+    return (
+      base +
+      (es
+        ? " En métrico, ISO grueso/fino; en pulgadas, UNC/UNF—mide para confirmar."
+        : " For metric, think ISO coarse/fine; for inch, UNC/UNF—measure to be sure.")
+    );
   }
 
   function renderResult(root, state) {
+    var ui = L().ui;
     var head = state.head;
     var drive = state.drive;
     var thread = state.thread || "unknown";
@@ -282,41 +628,73 @@
       inner.innerHTML =
         '<p class="si-result-placeholder">' +
         (!head && !drive
-          ? "Select a <strong>head type</strong> and <strong>drive type</strong> to generate likely matches."
+          ? ui.placeholderBoth
           : !head
-            ? "Choose a <strong>head type</strong> (step 1)."
-            : "Choose a <strong>drive type</strong> (step 2).") +
+            ? ui.placeholderHead
+            : ui.placeholderDrive) +
         "</p>";
       inner.classList.add("si-result-visible");
       return;
     }
 
     var key = head + "|" + drive;
-    var row = COMBOS[key] || buildGeneric(head, drive);
+    var row = comboRow(key) || buildGeneric(head, drive);
     if (!row) {
-      inner.innerHTML = "<p class=\"si-result-placeholder\">Unable to build a result.</p>";
+      inner.innerHTML = '<p class="si-result-placeholder">' + ui.errBuild + "</p>";
       inner.classList.add("si-result-visible");
       return;
     }
 
     var conf = row.confidence || CONFIDENCE_MAP[key] || "medium";
-    var confLabel = conf.charAt(0).toUpperCase() + conf.slice(1);
+    var confLabel =
+      conf === "high" ? ui.confHigh : conf === "low" ? ui.confLow : ui.confMed;
     var confClass = "si-confidence-" + conf;
 
     var likely = row.likely || [];
     var sizes = sizesForThread(thread, row);
     var pitchText = pitchLine(thread, row.pitch || "");
 
-    var headL = HEAD[head].label;
-    var driveL = DRIVE[drive].label;
+    var headL = headLabel(head);
+    var driveL = driveLabel(drive);
+    var threadWord =
+      thread === "unknown" ? ui.threadAny : thread === "metric" ? ui.metric : ui.imperial;
 
     var html = "";
-    html += '<p class="si-result-kicker">Selection</p>';
-    html += "<p class=\"si-result-selection\"><strong>" + headL + "</strong> head · <strong>" + driveL + "</strong> drive · <strong>" + (thread === "unknown" ? "Thread system: any / unknown" : thread === "metric" ? "Metric" : "Imperial") + "</strong></p>";
+    html += '<p class="si-result-kicker">' + ui.selection + "</p>";
+    if (lang() === "es") {
+      html +=
+        '<p class="si-result-selection"><strong>' +
+        headL +
+        "</strong> · <strong>" +
+        driveL +
+        '</strong> · <strong>' +
+        threadWord +
+        "</strong></p>";
+    } else {
+      html +=
+        "<p class=\"si-result-selection\"><strong>" +
+        headL +
+        "</strong> " +
+        ui.head +
+        " · <strong>" +
+        driveL +
+        "</strong> " +
+        ui.drive +
+        ' · <strong>' +
+        threadWord +
+        "</strong></p>";
+    }
 
-    html += '<p class="si-confidence-wrap"><span class="si-confidence-label">Confidence</span> <span class="si-confidence ' + confClass + '">' + confLabel + "</span></p>";
+    html +=
+      '<p class="si-confidence-wrap"><span class="si-confidence-label">' +
+      ui.confidence +
+      '</span> <span class="si-confidence ' +
+      confClass +
+      '">' +
+      confLabel +
+      "</span></p>";
 
-    html += '<p class="si-result-kicker">Most likely match</p>';
+    html += '<p class="si-result-kicker">' + ui.likelyTitle + "</p>";
     html += '<ul class="si-result-matches">';
     for (var i = 0; i < likely.length; i++) {
       html += "<li>" + likely[i] + "</li>";
@@ -325,17 +703,17 @@
 
     html += '<p class="si-result-desc">' + emStrong(row.desc) + "</p>";
 
-    html += '<h3 class="si-result-sub">Typical specifications</h3>';
+    html += '<h3 class="si-result-sub">' + ui.typicalSpec + "</h3>";
     html += '<ul class="si-result-sizes">';
     for (var j = 0; j < sizes.length; j++) {
       html += "<li>" + sizes[j] + "</li>";
     }
     html += "</ul>";
 
-    html += '<h3 class="si-result-sub">Typical uses</h3>';
+    html += '<h3 class="si-result-sub">' + ui.typicalUses + "</h3>";
     html += '<p class="si-result-uses">' + emStrong(row.uses) + "</p>";
 
-    html += '<h3 class="si-result-sub">Thread / pitch</h3>';
+    html += '<h3 class="si-result-sub">' + ui.threadPitch + "</h3>";
     html += '<p class="si-result-pitch">' + emStrong(pitchText) + "</p>";
 
     inner.innerHTML = html;
