@@ -64,6 +64,9 @@
       if (tag === "A" || tag === "CODE" || tag === "PRE" || tag === "SCRIPT" || tag === "STYLE" || tag === "KBD" || tag === "SAMP") {
         return false;
       }
+      if (/^H[1-6]$/.test(tag)) {
+        return false;
+      }
       p = p.parentNode;
     }
     return true;

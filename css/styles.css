@@ -454,6 +454,20 @@ main > * + .section-title {
   line-height: 1.5;
 }
 
+/* Vertical stack spacing: .card blocks in article pages (reference, guides, tools, etc.) */
+#content article *:not(.card) ~ .card {
+  margin-top: var(--space-4);
+}
+
+#content article .card ~ .card {
+  margin-top: var(--space-4);
+}
+
+/* Hub cards: titles are plain text; keep heading color on par with body text hierarchy */
+.card-tool h2 {
+  color: var(--text);
+}
+
 .guide-card-grid {
   display: grid;
   gap: var(--space-3);
