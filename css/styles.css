@@ -445,6 +445,41 @@ main > * + .section-title {
   gap: var(--space-4);
 }
 
+/* Equal-height hub tiles; stretch row; CTAs align to bottom without stretching buttons full-width */
+.grid.tool-grid {
+  align-items: stretch;
+  justify-items: stretch;
+  align-content: start;
+  /* Keeps space before the next heading/section (margin collapse won’t eat this) */
+  padding-block-end: var(--space-5);
+}
+
+.grid.tool-grid > .card,
+.grid.tool-grid > article.card {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  align-self: stretch;
+  box-sizing: border-box;
+  /* Default column flex stretches children horizontally — buttons looked oversized */
+  align-items: flex-start;
+}
+
+.grid.tool-grid > .card > p:last-of-type,
+.grid.tool-grid > article.card > p:last-of-type {
+  flex: 1 1 auto;
+  min-height: 0;
+  align-self: stretch;
+}
+
+.grid.tool-grid > .card > a.button:last-of-type,
+.grid.tool-grid > .card > button.button:last-of-type,
+.grid.tool-grid > article.card > a.button:last-of-type,
+.grid.tool-grid > article.card > button.button:last-of-type {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
 .card {
   background: linear-gradient(145deg, #1c1c1f 0%, #141416 100%);
   border: 1px solid var(--border);
