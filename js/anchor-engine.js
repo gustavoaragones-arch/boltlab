@@ -1,6 +1,12 @@
 (function () {
   "use strict";
 
+  /**
+   * Phrase→link rewriting disabled (see context-anchor-engine.js). Keeps
+   * headings, breadcrumbs, and UI copy from being split by injected anchors.
+   */
+  var DISABLE_AUTO_ANCHORS = true;
+
   /** Set true to log anchor matches in the console (development only). */
   var DEBUG_ANCHORS = false;
 
@@ -221,6 +227,7 @@
   }
 
   function init() {
+    if (DISABLE_AUTO_ANCHORS) return;
     /** Context anchors run first; basic anchors fill gaps after (priority: context > basic). */
     var wait = window.__boltLabContextAnchorDone;
     if (wait && typeof wait.then === "function") {

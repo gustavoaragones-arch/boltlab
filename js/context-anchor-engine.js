@@ -1,6 +1,17 @@
 (function () {
   "use strict";
 
+  /**
+   * Automatic phrase→link rewriting is off: it was matching titles, breadcrumbs,
+   * card headers, and intro blurbs (partial orange underlines). Re-enable only
+   * with a deliberate opt-in strategy (container class or copy audit).
+   */
+  var DISABLE_AUTO_ANCHORS = true;
+  if (DISABLE_AUTO_ANCHORS) {
+    window.__boltLabContextAnchorDone = Promise.resolve();
+    return;
+  }
+
   /** Set true to log context-anchor matches in the console (development only). */
   var DEBUG_ANCHORS = false;
 

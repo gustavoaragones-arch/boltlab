@@ -44,25 +44,31 @@
 
       <section class="ref-anatomy-diagram" aria-label="Labeled screw diagram">
         <figure class="ref-anatomy-figure ref-anatomy-figure--labeled">
-          <svg class="ref-anatomy-callout-svg" viewBox="0 0 1354 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="anatomy-callout-title">
+          <svg class="ref-anatomy-callout-svg" viewBox="-36 0 496 302" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="anatomy-callout-title">
             <title id="anatomy-callout-title">Screw side view with callouts for head, shank, thread, and point</title>
-            <image href="/images/screw-anatomy.png" x="0" y="0" width="1354" height="361" preserveAspectRatio="xMidYMid meet" />
-            <!-- Leader lines: anchor y near screw center; labels sit in lower band -->
-            <g class="ref-anatomy-callout-lines" fill="none" stroke="rgba(245, 158, 11, 0.75)" stroke-width="1.75" stroke-linecap="round">
-              <line x1="140" y1="200" x2="140" y2="392" />
-              <line x1="218" y1="200" x2="218" y2="392" />
-              <line x1="700" y1="200" x2="700" y2="392" />
-              <line x1="1188" y1="200" x2="1188" y2="392" />
+            <image href="/images/screw-anatomy.svg" x="0" y="0" width="441.08" height="197.15" preserveAspectRatio="xMidYMid meet" />
+            <!-- Leaders aligned to regions in screw-anatomy.svg (head left, shank, long thread, point tip) -->
+            <g class="ref-anatomy-callout-lines" fill="none" stroke="rgba(245, 158, 11, 0.9)" stroke-width="2.25" stroke-linecap="round">
+              <line x1="47" y1="99" x2="47" y2="208" />
+              <line x1="92" y1="99" x2="92" y2="208" />
+              <line x1="265" y1="99" x2="265" y2="208" />
+              <line x1="418" y1="99" x2="418" y2="208" />
             </g>
             <g fill="#f2f2f2" font-family="system-ui, -apple-system, Segoe UI, sans-serif" text-anchor="middle">
-              <text x="140" y="418" font-size="16" font-weight="600">Head</text>
-              <text x="140" y="438" font-size="12" fill="#9ca3af">Bearing surface &amp; drive</text>
-              <text x="218" y="418" font-size="16" font-weight="600">Shank</text>
-              <text x="218" y="438" font-size="12" fill="#9ca3af">Unthreaded body (if present)</text>
-              <text x="700" y="418" font-size="16" font-weight="600">Thread</text>
-              <text x="700" y="438" font-size="12" fill="#9ca3af">Helical engagement</text>
-              <text x="1188" y="418" font-size="16" font-weight="600">Point</text>
-              <text x="1188" y="438" font-size="12" fill="#9ca3af">Starts &amp; centers the screw</text>
+              <text x="47" y="228" font-size="20" font-weight="600">Head</text>
+              <text x="47" y="252" font-size="15" fill="#b8b8c4">Bearing surface &amp; drive</text>
+              <text x="92" y="228" font-size="20" font-weight="600">Shank</text>
+              <text x="92" y="252" font-size="15" fill="#b8b8c4" text-anchor="middle">
+                <tspan x="92" dy="0">Unthreaded body</tspan>
+                <tspan x="92" dy="18">(if present)</tspan>
+              </text>
+              <text x="265" y="228" font-size="20" font-weight="600">Thread</text>
+              <text x="265" y="252" font-size="15" fill="#b8b8c4">Helical engagement</text>
+              <text x="418" y="228" font-size="20" font-weight="600">Point</text>
+              <text x="418" y="252" font-size="15" fill="#b8b8c4" text-anchor="middle">
+                <tspan x="418" dy="0">Starts &amp; centers</tspan>
+                <tspan x="418" dy="18">the screw</tspan>
+              </text>
             </g>
           </svg>
         </figure>
