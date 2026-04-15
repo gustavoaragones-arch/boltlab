@@ -887,6 +887,19 @@ th {
   background: rgba(0, 0, 0, 0.15);
 }
 
+/* No ad fill yet: hide dashed shells and the empty sidebar column (was a 300px “ghost rail”) */
+.ad-container:has(.ad-slot[data-ad-placeholder="true"]) {
+  display: none;
+}
+
+.layout.layout--with-sidebar:has(.sidebar-ad .ad-slot[data-ad-placeholder="true"]) {
+  grid-template-columns: 1fr;
+}
+
+.sidebar-ad:has(.ad-slot[data-ad-placeholder="true"]) {
+  display: none;
+}
+
 /* Desktop: guides / sizes / reference — main + right rail */
 .layout.layout--with-sidebar {
   display: grid;
@@ -1104,9 +1117,9 @@ body.has-ad-sticky-mobile-collapsed {
   margin: 0;
 }
 
-/* ~50% content width; full width on small screens */
+/* Full content width so labels are not squeezed into overlapping columns */
 .ref-anatomy-figure--labeled {
-  max-width: 50%;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1599,6 +1612,67 @@ body.has-ad-sticky-mobile-collapsed {
   height: auto;
   max-height: 120px;
   object-fit: contain;
+}
+
+/* Thread line art exports use near-black strokes; invert so art reads on dark figure panels */
+.ref-card-figure img[src*="/images/threads/"] {
+  filter: invert(1) brightness(1.08) contrast(1.05);
+}
+
+/* Illustrator-heavy SVGs (mask / blend) render more reliably as <object> than <img> */
+.ref-card-figure object.ref-card-diagram-object {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 120px;
+  display: block;
+  margin: 0 auto;
+  border: 0;
+  pointer-events: none;
+}
+
+.ref-anatomy-diagram-img {
+  width: 100%;
+  max-width: min(100%, 720px);
+  height: auto;
+  display: block;
+  margin: 0 auto var(--space-4);
+}
+
+.ref-anatomy-legend {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-4) var(--space-5);
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+
+.ref-anatomy-legend-title {
+  margin: 0 0 var(--space-1);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.ref-anatomy-legend-desc {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 720px) {
+  .ref-anatomy-legend {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 420px) {
+  .ref-anatomy-legend {
+    grid-template-columns: 1fr;
+  }
 }
 
 .ref-card .muted {
