@@ -1,0 +1,10 @@
+# Normalize mistaken document URLs ending in .html/ (duplicate 200 variant).
+# Directory indexes (/sizes/, /es/, etc.) are not matched.
+/sizes/:name.html/ /sizes/:name 301
+/tools/:name.html/ /tools/:name 301
+/guides/:name.html/ /guides/:name 301
+/charts/:name.html/ /charts/:name 301
+/reference/:name.html/ /reference/:name 301
+/es/sizes/:name.html/ /es/sizes/:name 301
+/es/tools/:name.html/ /es/tools/:name 301
+/es/guides/:name.html/ /es/guides/:name 301

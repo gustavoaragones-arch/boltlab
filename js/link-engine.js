@@ -2,7 +2,7 @@
   "use strict";
 
   /** Bump when /data/link-map.json changes (cache bust). Should match link-map.json "version" where practical. */
-  var LINK_MAP_VERSION = "1";
+  var LINK_MAP_VERSION = "2";
   var MAP_URL = "/data/link-map.json?v=" + encodeURIComponent(LINK_MAP_VERSION);
   var MAX_PER_SECTION = 6;
 
@@ -27,7 +27,7 @@
   }
 
   function neighborMetricSizes(pathname) {
-    var m = pathname.match(/\/sizes\/m(\d+)-bolt-size\.html$/i);
+    var m = pathname.match(/\/sizes\/m(\d+)-bolt-size(?:\.html)?$/i);
     if (!m) return [];
     var n = parseInt(m[1], 10);
     var order = [3, 4, 5, 6, 8, 10, 12];
@@ -36,14 +36,14 @@
     if (idx > 0) {
       var prev = order[idx - 1];
       out.push({
-        href: "/sizes/m" + prev + "-bolt-size.html",
+        href: "/sizes/m" + prev + "-bolt-size",
         label: "M" + prev + " bolt size",
       });
     }
     if (idx >= 0 && idx < order.length - 1) {
       var next = order[idx + 1];
       out.push({
-        href: "/sizes/m" + next + "-bolt-size.html",
+        href: "/sizes/m" + next + "-bolt-size",
         label: "M" + next + " bolt size",
       });
     }
@@ -52,12 +52,12 @@
 
   function neighborImperialSizes(pathname) {
     var map = [
-      { re: /\/sizes\/1-4-20-bolt-size\.html$/i, prev: null, next: "/sizes/5-16-18-bolt-size.html", nextLabel: "5/16-18 bolt size" },
-      { re: /\/sizes\/5-16-18-bolt-size\.html$/i, prev: "/sizes/1-4-20-bolt-size.html", prevLabel: "¼-20 bolt size", next: "/sizes/3-8-16-bolt-size.html", nextLabel: "⅜-16 bolt size" },
-      { re: /\/sizes\/3-8-16-bolt-size\.html$/i, prev: "/sizes/5-16-18-bolt-size.html", prevLabel: "5/16-18 bolt size", next: null },
-      { re: /\/sizes\/6-screw-size\.html$/i, prev: null, next: "/sizes/8-screw-size.html", nextLabel: "#8 screw size" },
-      { re: /\/sizes\/8-screw-size\.html$/i, prev: "/sizes/6-screw-size.html", prevLabel: "#6 screw size", next: "/sizes/10-screw-size.html", nextLabel: "#10 screw size" },
-      { re: /\/sizes\/10-screw-size\.html$/i, prev: "/sizes/8-screw-size.html", prevLabel: "#8 screw size", next: null },
+      { re: /\/sizes\/1-4-20-bolt-size(?:\.html)?$/i, prev: null, next: "/sizes/5-16-18-bolt-size", nextLabel: "5/16-18 bolt size" },
+      { re: /\/sizes\/5-16-18-bolt-size(?:\.html)?$/i, prev: "/sizes/1-4-20-bolt-size", prevLabel: "¼-20 bolt size", next: "/sizes/3-8-16-bolt-size", nextLabel: "⅜-16 bolt size" },
+      { re: /\/sizes\/3-8-16-bolt-size(?:\.html)?$/i, prev: "/sizes/5-16-18-bolt-size", prevLabel: "5/16-18 bolt size", next: null },
+      { re: /\/sizes\/6-screw-size(?:\.html)?$/i, prev: null, next: "/sizes/8-screw-size", nextLabel: "#8 screw size" },
+      { re: /\/sizes\/8-screw-size(?:\.html)?$/i, prev: "/sizes/6-screw-size", prevLabel: "#6 screw size", next: "/sizes/10-screw-size", nextLabel: "#10 screw size" },
+      { re: /\/sizes\/10-screw-size(?:\.html)?$/i, prev: "/sizes/8-screw-size", prevLabel: "#8 screw size", next: null },
     ];
     var out = [];
     for (var i = 0; i < map.length; i++) {
@@ -103,8 +103,8 @@
 
     if (p.indexOf("/reference/") !== -1) add("reference");
 
-    if (/\/sizes\/m\d+-bolt-size\.html/.test(p)) add("size_metric");
-    if (/\/sizes\/(1-4-20|5-16-18|3-8-16)-bolt-size\.html/.test(p) || /\/sizes\/(6|8|10)-screw-size\.html/.test(p)) add("size_imperial");
+    if (/\/sizes\/m\d+-bolt-size(?:\.html)?/.test(p)) add("size_metric");
+    if (/\/sizes\/(1-4-20|5-16-18|3-8-16)-bolt-size(?:\.html)?/.test(p) || /\/sizes\/(6|8|10)-screw-size(?:\.html)?/.test(p)) add("size_imperial");
 
     if (/\/sizes\/?$/.test(p) || /\/sizes\/index\.html?$/.test(p)) add("sizes_hub");
 

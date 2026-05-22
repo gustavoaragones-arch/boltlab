@@ -48,7 +48,7 @@ def next_size(n: int) -> int | None:
 
 
 def es_href(n: int) -> str:
-    return f"https://boltlab.io/es/sizes/perno-m{n}.html"
+    return f"https://boltlab.io/es/sizes/perno-m{n}"
 
 
 def clamp_meta(s: str) -> str:
@@ -71,7 +71,7 @@ HEADER = """  <header class="site-header">
       <a class="brand" href="/">BoltLab</a>
       <nav aria-label="Primary">
         <ul class="nav-list">
-          <li><a href="/tools/metric-to-imperial-screw-converter.html">Tools</a></li>
+          <li><a href="/tools/metric-to-imperial-screw-converter">Tools</a></li>
           <li><a href="/charts/">Charts</a></li>
           <li><a href="/reference/">Reference</a></li>
           <li><a href="/sizes/">Sizes</a></li>
@@ -93,7 +93,7 @@ FOOTER = """      <footer class="site-footer">
         <p class="footer-tagline">Precision fastener tools for real-world use.</p>
       </div>
       <nav class="footer-nav footer-nav-center" aria-label="Product">
-        <a href="/tools/metric-to-imperial-screw-converter.html">Tools</a>
+        <a href="/tools/metric-to-imperial-screw-converter">Tools</a>
         <a href="/charts/">Charts</a>
         <a href="/sizes/">Sizes</a>
         <a href="/guides/">Guides</a>
@@ -128,19 +128,19 @@ def internal_block(n: int, en_path: str) -> str:
         '      <section class="card">',
         f"        <h2>M{n} links and tools</h2>",
         f'        <p>Open the <a href="{hub}">bolt size chart (M{n})</a> for hex, pitch, and tap drill in one hub table.</p>',
-        '        <p>Use <a href="/tools/tap-drill-calculator.html">tap drill size</a> when pitch differs from coarse or you need a quick recalculation.</p>',
-        '        <p>Run the <a href="/tools/thread-identifier.html">thread identifier</a> after you measure major diameter and pitch on a sample thread.</p>',
-        '        <p>Compare stocked inch hardware with <a href="/tools/metric-to-imperial-screw-converter.html">screw size conversion</a> when you cross-shop bins.</p>',
-        '        <p>Convert pitch units with the <a href="/tools/thread-pitch-to-tpi-converter.html">thread pitch chart</a> tool when drawings mix mm and TPI.</p>',
-        '        <p>Review <a href="/reference/thread-types.html">metric vs unc thread</a> naming before you mix UNC taps with metric holes.</p>',
+        '        <p>Use <a href="/tools/tap-drill-calculator">tap drill size</a> when pitch differs from coarse or you need a quick recalculation.</p>',
+        '        <p>Run the <a href="/tools/thread-identifier">thread identifier</a> after you measure major diameter and pitch on a sample thread.</p>',
+        '        <p>Compare stocked inch hardware with <a href="/tools/metric-to-imperial-screw-converter">screw size conversion</a> when you cross-shop bins.</p>',
+        '        <p>Convert pitch units with the <a href="/tools/thread-pitch-to-tpi-converter">thread pitch chart</a> tool when drawings mix mm and TPI.</p>',
+        '        <p>Review <a href="/reference/thread-types">metric vs unc thread</a> naming before you mix UNC taps with metric holes.</p>',
     ]
     if prev_n:
         lines.append(
-            f'        <p>Neighbor metric hub: <a href="/sizes/m{prev_n}-bolt-size.html">bolt size chart (M{prev_n})</a> for the next smaller shank.</p>'
+            f'        <p>Neighbor metric hub: <a href="/sizes/m{prev_n}-bolt-size">bolt size chart (M{prev_n})</a> for the next smaller shank.</p>'
         )
     if next_n:
         lines.append(
-            f'        <p>Neighbor metric hub: <a href="/sizes/m{next_n}-bolt-size.html">bolt size chart (M{next_n})</a> for the next larger shank.</p>'
+            f'        <p>Neighbor metric hub: <a href="/sizes/m{next_n}-bolt-size">bolt size chart (M{next_n})</a> for the next larger shank.</p>'
         )
     lines.append("      </section>")
     return "\n".join(lines)
@@ -211,7 +211,7 @@ def page_shell(
       </div>
       <section class="card guide-links">
         <h3>Related on BoltLab</h3>
-        <p><a href="/reference/thread-types.html">metric vs unc thread</a> · <a href="/tools/thread-pitch-to-tpi-converter.html">thread pitch chart</a></p>
+        <p><a href="/reference/thread-types">metric vs unc thread</a> · <a href="/tools/thread-pitch-to-tpi-converter">thread pitch chart</a></p>
       </section>
     </article>
     <aside class="sidebar-ad" aria-label="Advertisement">
@@ -272,7 +272,7 @@ def gen_tap_drill(n: int) -> str:
     return page_shell(
         title,
         desc,
-        f"https://boltlab.io/sizes/m{n}-tap-drill.html",
+        f"https://boltlab.io/sizes/m{n}-tap-drill",
         f"/sizes/m{n}-tap-drill.html",
         h1,
         bc,
@@ -320,7 +320,7 @@ def gen_clearance(n: int) -> str:
     return page_shell(
         title,
         desc,
-        f"https://boltlab.io/sizes/m{n}-clearance-hole.html",
+        f"https://boltlab.io/sizes/m{n}-clearance-hole",
         f"/sizes/m{n}-clearance-hole.html",
         h1,
         f"M{n} clearance",
@@ -369,7 +369,7 @@ def gen_pitch(n: int) -> str:
     return page_shell(
         title,
         desc,
-        f"https://boltlab.io/sizes/m{n}-thread-pitch.html",
+        f"https://boltlab.io/sizes/m{n}-thread-pitch",
         f"/sizes/m{n}-thread-pitch.html",
         h1,
         f"M{n} pitch",
@@ -469,7 +469,7 @@ def gen_to_inch(n: int) -> str:
     return page_shell(
         title,
         desc,
-        f"https://boltlab.io/sizes/m{n}-to-inch.html",
+        f"https://boltlab.io/sizes/m{n}-to-inch",
         f"/sizes/m{n}-to-inch.html",
         h1,
         f"M{n} to inch",
@@ -558,7 +558,7 @@ def page_shell2(
       </div>
       <section class="card guide-links">
         <h3>Related on BoltLab</h3>
-        <p><a href="/reference/thread-types.html">metric vs unc thread</a> · <a href="/tools/thread-pitch-to-tpi-converter.html">thread pitch chart</a></p>
+        <p><a href="/reference/thread-types">metric vs unc thread</a> · <a href="/tools/thread-pitch-to-tpi-converter">thread pitch chart</a></p>
       </section>
     </article>
     <aside class="sidebar-ad" aria-label="Advertisement">
@@ -610,7 +610,7 @@ def write_all() -> None:
                 clamp_meta(
                     f"M{n} tap drill is {t}mm for ISO coarse pitch {c}mm. Use the calculator and hub chart to adjust for fine {fine_txt} pitch."
                 ),
-                f"https://boltlab.io/sizes/m{n}-tap-drill.html",
+                f"https://boltlab.io/sizes/m{n}-tap-drill",
                 f"/sizes/m{n}-tap-drill.html",
                 f"M{n} tap drill size (ISO coarse)",
                 f"M{n} tap drill",
@@ -653,7 +653,7 @@ def write_all() -> None:
                 clamp_meta(
                     f"M{n} clearance hole about {cl}mm suits medium-fit through holes for shank clearance. Compare with the hub chart before you burnish plates."
                 ),
-                f"https://boltlab.io/sizes/m{n}-clearance-hole.html",
+                f"https://boltlab.io/sizes/m{n}-clearance-hole",
                 f"/sizes/m{n}-clearance-hole.html",
                 f"M{n} clearance hole size (medium fit)",
                 f"M{n} clearance",
@@ -696,7 +696,7 @@ def write_all() -> None:
                 clamp_meta(
                     f"M{n} coarse pitch is {c}mm; fine is often {fv}. Use the pitch converter and hub chart before you retap an existing hole."
                 ),
-                f"https://boltlab.io/sizes/m{n}-thread-pitch.html",
+                f"https://boltlab.io/sizes/m{n}-thread-pitch",
                 f"/sizes/m{n}-thread-pitch.html",
                 f"M{n} thread pitch (coarse vs fine)",
                 f"M{n} pitch",
@@ -784,7 +784,7 @@ def write_all() -> None:
                 clamp_meta(
                     f"M{n} maps closest to {inch} in many North American racks. Use screw size conversion, then verify pitch with the thread identifier."
                 ),
-                f"https://boltlab.io/sizes/m{n}-to-inch.html",
+                f"https://boltlab.io/sizes/m{n}-to-inch",
                 f"/sizes/m{n}-to-inch.html",
                 f"M{n} to inch bolt conversion",
                 f"M{n} to inch",
@@ -803,11 +803,11 @@ HUB_NEEDLE = '      <section class="card">\n        <h2>How to choose the right 
 HUB_BLOCK_TMPL = """      <section class="card">
         <h2>M{n} specifications and tools</h2>
         <ul class="meta-list">
-          <li><a href="/sizes/m{n}-tap-drill.html">M{n} tap drill size</a></li>
-          <li><a href="/sizes/m{n}-clearance-hole.html">M{n} clearance hole</a></li>
-          <li><a href="/sizes/m{n}-thread-pitch.html">M{n} thread pitch</a></li>
-          <li><a href="/sizes/m{n}-vs-m{vs}.html">M{n} vs M{vs} comparison</a></li>
-          <li><a href="/sizes/m{n}-to-inch.html">M{n} to inch conversion</a></li>
+          <li><a href="/sizes/m{n}-tap-drill">M{n} tap drill size</a></li>
+          <li><a href="/sizes/m{n}-clearance-hole">M{n} clearance hole</a></li>
+          <li><a href="/sizes/m{n}-thread-pitch">M{n} thread pitch</a></li>
+          <li><a href="/sizes/m{n}-vs-m{vs}">M{n} vs M{vs} comparison</a></li>
+          <li><a href="/sizes/m{n}-to-inch">M{n} to inch conversion</a></li>
         </ul>
       </section>
 
