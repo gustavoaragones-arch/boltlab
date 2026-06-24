@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 200 200">
+  <!-- Generator: Adobe Illustrator 29.8.7, SVG Export Plug-In . SVG Version: 2.1.1 Build 1)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: url(#linear-gradient1);
+      }
+
+      .st1 {
+        fill: url(#linear-gradient);
+      }
+
+      .st2 {
+        fill: none;
+        opacity: .5;
+        stroke: #474647;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.55px;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="28.76" y1="74.83" x2="171.24" y2="74.83" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".1" stop-color="#fbfbfb"/>
+      <stop offset=".19" stop-color="#f1f1f1"/>
+      <stop offset=".27" stop-color="#e1e1e0"/>
+      <stop offset=".35" stop-color="#c9c9c7"/>
+      <stop offset=".42" stop-color="#ababa8"/>
+      <stop offset=".49" stop-color="#878682"/>
+      <stop offset=".53" stop-color="#706f6a"/>
+      <stop offset="1" stop-color="#d1c6c6"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient1" x1="67.77" y1="140.07" x2="132.37" y2="140.07" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".02" stop-color="#f2f2f2"/>
+      <stop offset=".1" stop-color="#cacac8"/>
+      <stop offset=".18" stop-color="#aaa9a6"/>
+      <stop offset=".27" stop-color="#908f8b"/>
+      <stop offset=".35" stop-color="#7e7d79"/>
+      <stop offset=".44" stop-color="#73726d"/>
+      <stop offset=".53" stop-color="#706f6a"/>
+      <stop offset=".64" stop-color="#73726d"/>
+      <stop offset=".73" stop-color="#7e7c77"/>
+      <stop offset=".82" stop-color="#918c89"/>
+      <stop offset=".9" stop-color="#aaa3a1"/>
+      <stop offset=".99" stop-color="#ccc1c1"/>
+      <stop offset="1" stop-color="#d1c6c6"/>
+    </linearGradient>
+  </defs>
+  <polygon class="st1" points="28.76 41.88 67.77 107.77 132.23 107.77 171.24 41.88 28.76 41.88"/>
+  <rect class="st0" x="67.77" y="107.77" width="64.6" height="64.6"/>
+  <polyline class="st2" points="62.86 41.88 71.24 49.39 77.02 71.94 100 89.57 123.84 72.8 128.76 49.68 136.56 41.88"/>
+  <line class="st2" x1="71.24" y1="49.39" x2="128.76" y2="49.68"/>
+  <path class="st2" d="M75.63,66.49s22.93,15.85,49.72-.77"/>
+</svg>

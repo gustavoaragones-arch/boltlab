@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 200 200">
+  <!-- Generator: Adobe Illustrator 29.8.7, SVG Export Plug-In . SVG Version: 2.1.1 Build 1)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: url(#linear-gradient1);
+      }
+
+      .st1 {
+        fill: url(#linear-gradient);
+      }
+
+      .st2 {
+        fill: #f0ecec;
+      }
+
+      .st3 {
+        fill: #b4b1b1;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="10.08" y1="81.34" x2="189.92" y2="81.34" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".51" stop-color="#706f6a"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient1" x1="59.33" y1="126.49" x2="140.67" y2="126.49" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".06" stop-color="#efefee"/>
+      <stop offset=".18" stop-color="#d1d1cd"/>
+      <stop offset=".3" stop-color="#bbbbb6"/>
+      <stop offset=".41" stop-color="#aeaea7"/>
+      <stop offset=".51" stop-color="#aaaaa3"/>
+      <stop offset=".6" stop-color="#aeaea8"/>
+      <stop offset=".71" stop-color="#bdbdb7"/>
+      <stop offset=".83" stop-color="#d4d4d0"/>
+      <stop offset=".96" stop-color="#f4f4f3"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+  </defs>
+  <polygon class="st1" points="10.08 55.23 60.08 107.46 141.41 107.46 189.92 55.23 112.31 55.23 112.31 81.34 87.69 81.34 87.69 55.23 10.08 55.23"/>
+  <polygon class="st3" points="59.33 126.12 140.67 134.33 132.46 144.77 69.03 139.55 59.33 126.12"/>
+  <polygon class="st3" points="60.08 107.46 142.53 115.67 133.58 124.62 67.54 118.66 60.08 107.46"/>
+  <polygon class="st0" points="140.67 134.33 133.58 124.62 67.54 118.66 59.33 126.12 140.67 134.33"/>
+  <polygon class="st2" points="142.53 115.67 141.41 107.46 60.08 107.46 142.53 115.67"/>
+</svg>
