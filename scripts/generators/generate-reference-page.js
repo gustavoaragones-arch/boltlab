@@ -1,19 +1,161 @@
-<!doctype html>
+#!/usr/bin/env node
+const fs = require("node:fs");
+const path = require("node:path");
+const { projectRoot, readJson } = require("../utilities/path-utils");
+
+const KNOWN_ENTITY_IDS = new Set([
+  "pitch_diameter",
+  "major_diameter",
+  "minor_diameter",
+  "tolerance_zone",
+  "thread_pitch"
+]);
+
+const KNOWN_STANDARD_IDS = new Set(["iso_724", "iso_965_1"]);
+const KNOWN_DATASET_IDS = new Set(["metric_threads", "unc_threads"]);
+
+function simpleValidateAgainstSchema(schema, record) {
+  const errors = [];
+  for (const field of schema.required || []) {
+    if (!(field in record)) {
+      errors.push(`Missing required field: ${field}`);
+    }
+  }
+  for (const [key, rules] of Object.entries(schema.properties || {})) {
+    if (!(key in record)) {
+      continue;
+    }
+    const value = record[key];
+    if (rules.const !== undefined && value !== rules.const) {
+      errors.push(`Field ${key} must equal ${rules.const}`);
+    }
+    if (rules.enum && !rules.enum.includes(value)) {
+      errors.push(`Field ${key} has invalid enum value: ${value}`);
+    }
+    if (rules.pattern && typeof value === "string" && !new RegExp(rules.pattern).test(value)) {
+      errors.push(`Field ${key} does not match pattern ${rules.pattern}`);
+    }
+    if (typeof rules.minLength === "number" && typeof value === "string" && value.length < rules.minLength) {
+      errors.push(`Field ${key} is shorter than minLength ${rules.minLength}`);
+    }
+    if (typeof rules.maxLength === "number" && typeof value === "string" && value.length > rules.maxLength) {
+      errors.push(`Field ${key} is longer than maxLength ${rules.maxLength}`);
+    }
+  }
+  return errors;
+}
+
+function routeExists(root, routePath) {
+  const absoluteBase = path.join(root, routePath);
+  const candidates = [absoluteBase, `${absoluteBase}.html`, path.join(absoluteBase, "index.html")];
+  return candidates.some((candidate) => fs.existsSync(candidate));
+}
+
+function escapeHtml(text) {
+  return String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function renderFaqSection(faq) {
+  return faq
+    .map(
+      (item) =>
+        `        <h3>${escapeHtml(item.question)}</h3>\n` +
+        `        <p>${item.answer_html || escapeHtml(item.answer_text)}</p>`
+    )
+    .join("\n");
+}
+
+function renderFaqJsonLd(canonicalUrl, faq) {
+  return JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer_text
+      }
+    })),
+    url: canonicalUrl
+  });
+}
+
+function validateProjection(root, schema, projection) {
+  const errors = simpleValidateAgainstSchema(schema, projection);
+  if (projection.entity_id !== "pitch_diameter") {
+    errors.push("This generator only supports projection entity_id pitch_diameter.");
+  }
+  if (!projection.title || projection.title.length > 60) {
+    errors.push("Projection title must be present and <= 60 characters.");
+  }
+  if (!projection.meta_description || projection.meta_description.length < 140 || projection.meta_description.length > 155) {
+    errors.push("Projection meta_description must be between 140 and 155 characters.");
+  }
+  const expectedCanonical = `https://boltlab.io${projection.route_hint}`;
+  if (projection.canonical_url !== expectedCanonical) {
+    errors.push(`Canonical URL mismatch: expected ${expectedCanonical}.`);
+  }
+  if (!Array.isArray(projection.faq) || projection.faq.length < 3) {
+    errors.push("Projection faq must include at least 3 questions.");
+  }
+  for (const item of projection.faq || []) {
+    if (!KNOWN_ENTITY_IDS.has(item.answer_source?.entity_id)) {
+      errors.push(`FAQ ${item.id} references unknown entity id ${item.answer_source?.entity_id}`);
+    }
+  }
+  for (const id of projection.related_entities || []) {
+    if (!KNOWN_ENTITY_IDS.has(id)) {
+      errors.push(`Unknown related entity id: ${id}`);
+    }
+  }
+  for (const id of projection.related_standards || []) {
+    if (!KNOWN_STANDARD_IDS.has(id)) {
+      errors.push(`Unknown related standard id: ${id}`);
+    }
+  }
+  for (const id of projection.related_datasets || []) {
+    if (!KNOWN_DATASET_IDS.has(id)) {
+      errors.push(`Unknown related dataset id: ${id}`);
+    }
+  }
+  for (const link of [
+    ...(projection.related_tools || []),
+    ...(projection.related_charts || []),
+    ...(projection.related_guides || [])
+  ]) {
+    if (!routeExists(root, link)) {
+      errors.push(`Related link does not resolve: ${link}`);
+    }
+  }
+  return errors;
+}
+
+function renderHtml(projection) {
+  const pageTitle = `${projection.title} | Thread Engineering`;
+  const faqJsonLd = renderFaqJsonLd(projection.canonical_url, projection.faq);
+  const faqSection = renderFaqSection(projection.faq);
+  return `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="index,follow">
-  <title>Pitch Diameter Explained | Thread Engineering</title>
-  <meta name="description" content="Pitch diameter explained with thread-fit context, measurement implications, and links to tolerance classes and deviation concepts. Verified standards value">
-  <link rel="canonical" href="https://boltlab.io/reference/pitch-diameter-explained">
-  <link rel="alternate" hreflang="en" href="https://boltlab.io/reference/pitch-diameter-explained" />
+  <title>${escapeHtml(pageTitle)}</title>
+  <meta name="description" content="${escapeHtml(projection.meta_description)}">
+  <link rel="canonical" href="${escapeHtml(projection.canonical_url)}">
+  <link rel="alternate" hreflang="en" href="${escapeHtml(projection.canonical_url)}" />
   <link rel="alternate" hreflang="x-default" href="https://boltlab.io/" />
   <link rel="stylesheet" href="/css/styles.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Pitch Diameter Explained | Thread Engineering","description":"Pitch diameter explained with thread-fit context, measurement implications, and links to tolerance classes and deviation concepts. Verified standards value","url":"https://boltlab.io/reference/pitch-diameter-explained","author":{"@type":"Organization","name":"BoltLab"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BoltLab","item":"https://boltlab.io/"},{"@type":"ListItem","position":2,"name":"Reference","item":"https://boltlab.io/reference/"},{"@type":"ListItem","position":3,"name":"Thread Engineering","item":"https://boltlab.io/reference/thread-engineering/"},{"@type":"ListItem","position":4,"name":"Pitch Diameter Explained","item":"https://boltlab.io/reference/pitch-diameter-explained"}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does this page help me decide?","acceptedAnswer":{"@type":"Answer","text":"It supports thread specification, fit interpretation, and inspection planning for engineering workflows."}},{"@type":"Question","name":"Can I publish production limits from this page directly?","acceptedAnswer":{"@type":"Answer","text":"No. Use approved standards and internal quality documents for release values."}},{"@type":"Question","name":"How is this different from a basic thread guide?","acceptedAnswer":{"@type":"Answer","text":"This reference focuses on fit behavior, tolerance interpretation, and manufacturing control decisions."}},{"@type":"Question","name":"Which linked concept should I read next?","acceptedAnswer":{"@type":"Answer","text":"Start with pitch diameter, then continue to fundamental deviation and tolerance zones."}},{"@type":"Question","name":"How do I move from concept to practical verification?","acceptedAnswer":{"@type":"Answer","text":"Use Thread Identifier, compare charts, and apply a documented inspection plan before production release."}}],"url":"https://boltlab.io/reference/pitch-diameter-explained"}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Pitch Diameter Explained | Thread Engineering","url":"https://boltlab.io/reference/pitch-diameter-explained","description":"Pitch diameter explained with thread-fit context, measurement implications, and links to tolerance classes and deviation concepts. Verified standards value"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"${escapeHtml(pageTitle)}","description":"${escapeHtml(projection.meta_description)}","url":"${escapeHtml(projection.canonical_url)}","author":{"@type":"Organization","name":"BoltLab"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BoltLab","item":"https://boltlab.io/"},{"@type":"ListItem","position":2,"name":"Reference","item":"https://boltlab.io/reference/"},{"@type":"ListItem","position":3,"name":"Thread Engineering","item":"https://boltlab.io/reference/thread-engineering/"},{"@type":"ListItem","position":4,"name":"${escapeHtml(projection.title)}","item":"${escapeHtml(projection.canonical_url)}"}]}</script>
+  <script type="application/ld+json">${faqJsonLd}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"${escapeHtml(pageTitle)}","url":"${escapeHtml(projection.canonical_url)}","description":"${escapeHtml(projection.meta_description)}"}</script>
 </head>
 <body>
   <header class="site-header">
@@ -33,8 +175,8 @@
   <main id="content" class="container">
   <div class="layout layout--with-sidebar">
     <article>
-      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">BoltLab</a> → <a href="/reference/">Reference</a> → <a href="/reference/thread-engineering/">Thread Engineering</a> → Pitch Diameter Explained</nav>
-      <h1>Pitch Diameter Explained</h1>
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">BoltLab</a> → <a href="/reference/">Reference</a> → <a href="/reference/thread-engineering/">Thread Engineering</a> → ${escapeHtml(projection.title)}</nav>
+      <h1>${escapeHtml(projection.title)}</h1>
       <p class="muted">Pitch diameter is the controlling functional diameter for fit and load transfer in most threaded joints.</p>
       <section class="card">
         <h2>Quick Reference</h2>
@@ -153,16 +295,7 @@
       </section>
       <section class="card">
         <h2>FAQ</h2>
-        <h3>What does this page help me decide?</h3>
-        <p>It supports thread specification, fit interpretation, and inspection planning for engineering workflows.</p>
-        <h3>Can I publish production limits from this page directly?</h3>
-        <p>No. Use approved standards and internal quality documents for release values.</p>
-        <h3>How is this different from a basic thread guide?</h3>
-        <p>This reference focuses on fit behavior, tolerance interpretation, and manufacturing control decisions.</p>
-        <h3>Which linked concept should I read next?</h3>
-        <p>Start with <a href="/reference/pitch-diameter-explained">pitch diameter</a>, then continue to <a href="/reference/fundamental-deviation">fundamental deviation</a> and <a href="/reference/tolerance-zones-explained">tolerance zones</a>.</p>
-        <h3>How do I move from concept to practical verification?</h3>
-        <p>Use <a href="/tools/thread-identifier">Thread Identifier</a>, compare charts, and apply a documented inspection plan before production release.</p>
+${faqSection}
       </section>
       <section class="card guide-links">
         <h3>Guide connection</h3>
@@ -212,3 +345,36 @@
   <script src="/js/ads-layout.js" defer></script>
 </body>
 </html>
+`;
+}
+
+function main() {
+  const root = projectRoot();
+  const projectionPath = path.join(
+    root,
+    "data",
+    "projections",
+    "reference",
+    "pitch_diameter.reference.json"
+  );
+  const schemaPath = path.join(root, "data", "projections", "reference-page.schema.json");
+  const outputPath = path.join(root, "reference", "pitch-diameter-explained.html");
+
+  const projection = readJson(projectionPath);
+  const schema = readJson(schemaPath);
+  const errors = validateProjection(root, schema, projection);
+
+  if (errors.length) {
+    console.error("Reference projection validation failed:");
+    for (const error of errors) {
+      console.error(`- ${error}`);
+    }
+    process.exit(1);
+  }
+
+  const html = renderHtml(projection);
+  fs.writeFileSync(outputPath, html);
+  console.log(`Generated ${path.relative(root, outputPath)} from projection ${path.relative(root, projectionPath)}`);
+}
+
+main();

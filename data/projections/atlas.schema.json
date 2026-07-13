@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://boltlab.io/schemas/projections/atlas.schema.json",
+  "title": "BoltLab Atlas Projection",
+  "type": "object",
+  "required": [
+    "id",
+    "projection_type",
+    "route_hint",
+    "canonical_url",
+    "title",
+    "meta_description",
+    "dataset",
+    "filters",
+    "rows",
+    "related_standards",
+    "related_tools",
+    "version",
+    "created",
+    "updated"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+    "projection_type": { "type": "string", "const": "atlas_page" },
+    "route_hint": { "type": "string", "pattern": "^/" },
+    "canonical_url": { "type": "string", "pattern": "^https://boltlab\\.io/" },
+    "title": { "type": "string", "minLength": 3 },
+    "meta_description": { "type": "string", "minLength": 120, "maxLength": 170 },
+    "summary": { "type": "string" },
+    "dataset": {
+      "type": "object",
+      "required": [
+        "dataset_id",
+        "version",
+        "verified",
+        "verification_method",
+        "primary_sources",
+        "last_reviewed",
+        "license_notes"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "dataset_id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+        "version": { "type": "string" },
+        "verified": { "type": "boolean" },
+        "verification_method": { "type": "string" },
+        "primary_sources": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "last_reviewed": { "type": "string", "format": "date" },
+        "license_notes": { "type": "string" }
+      }
+    },
+    "filters": {
+      "type": "object",
+      "required": [
+        "diameters_mm",
+        "series",
+        "pitches_mm",
+        "iso_families"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "diameters_mm": { "type": "array", "items": { "type": "number" } },
+        "series": { "type": "array", "items": { "type": "string" } },
+        "pitches_mm": { "type": "array", "items": { "type": "number" } },
+        "iso_families": { "type": "array", "items": { "type": "string" } },
+        "thread_systems": { "type": "array", "items": { "type": "string" } },
+        "diameters_display": { "type": "array", "items": { "type": "string" } },
+        "pitch_display": { "type": "array", "items": { "type": "string" },
+          "description": "Unified filter values across mm and TPI representations."
+        },
+        "coarse_fine": { "type": "array", "items": { "type": "string" } },
+        "standards_families": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "designation",
+          "diameter_mm",
+          "coarse_pitch_mm",
+          "fine_pitches_mm",
+          "hex_head_mm",
+          "tap_drill_mm",
+          "clearance_holes_mm",
+          "iso_family"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "designation": { "type": "string" },
+          "diameter_mm": { "type": "number" },
+          "coarse_pitch_mm": { "type": "number" },
+          "fine_pitches_mm": { "type": "array", "items": { "type": "number" } },
+          "hex_head_mm": { "type": "number" },
+          "tap_drill_mm": { "type": "number" },
+          "thread_system": { "type": "string" },
+          "diameter_display": { "type": "string" },
+          "pitch_display": { "type": "string" },
+          "coarse_fine": { "type": "string" },
+          "tap_drill_display": { "type": "string" },
+          "clearance_hole_display": { "type": "string" },
+          "hex_size_display": { "type": "string" },
+          "standards_family": { "type": "string" },
+          "related_standards": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+          },
+          "related_tools": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^/" }
+          },
+          "detail_reference": { "type": "string", "pattern": "^/" },
+          "equivalent_metric": { "type": "string" },
+          "clearance_holes_mm": {
+            "type": "object",
+            "required": ["close", "normal", "loose"],
+            "additionalProperties": false,
+            "properties": {
+              "close": { "type": "number" },
+              "normal": { "type": "number" },
+              "loose": { "type": "number" }
+            }
+          },
+          "iso_family": { "type": "string" }
+        }
+      }
+    },
+    "related_standards": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+    },
+    "related_tools": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^/" }
+    },
+    "version": { "type": "string", "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "created": { "type": "string", "format": "date" },
+    "updated": { "type": "string", "format": "date" }
+  }
+}

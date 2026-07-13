@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://boltlab.io/schemas/projections/api.schema.json",
+  "title": "BoltLab API Projection",
+  "type": "object",
+  "required": [
+    "id",
+    "projection_type",
+    "entity_ids",
+    "dataset_ids",
+    "standard_ids",
+    "endpoint_hint",
+    "response_shape",
+    "version",
+    "created",
+    "updated"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+    "projection_type": { "type": "string", "const": "api" },
+    "entity_ids": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+    },
+    "dataset_ids": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+    },
+    "standard_ids": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+    },
+    "endpoint_hint": { "type": "string", "pattern": "^/" },
+    "response_shape": { "type": "object" },
+    "version": { "type": "string", "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "created": { "type": "string", "format": "date" },
+    "updated": { "type": "string", "format": "date" }
+  }
+}

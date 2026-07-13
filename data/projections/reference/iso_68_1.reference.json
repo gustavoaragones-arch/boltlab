@@ -1,0 +1,163 @@
+{
+  "id": "reference_iso_68_1",
+  "projection_type": "reference_page",
+  "entity_id": "iso_965",
+  "standard_id": "iso_68_1",
+  "route_hint": "/reference/iso-68-thread-profile",
+  "canonical_url": "https://boltlab.io/reference/iso-68-thread-profile",
+  "title": "ISO 68-1 Thread Profile Explained",
+  "hero_subtitle": "Basic profile geometry for ISO metric screw threads.",
+  "meta_description": "ISO 68-1 explained for engineers: what the basic thread profile defines, how it supports dimensioning standards, and where BoltLab tools fit in workflow.",
+  "quick_reference": {
+    "primary_entity_id": "iso_965",
+    "related_entity_ids": [
+      "major_diameter",
+      "minor_diameter"
+    ],
+    "standard_ids": [
+      "iso_68_1",
+      "iso_261",
+      "iso_724",
+      "iso_965_1"
+    ],
+    "dataset_ids": [
+      "metric_threads"
+    ]
+  },
+  "engineering_summary": {
+    "source_entity_id": "iso_965",
+    "strategy": "entity.engineering_summary"
+  },
+  "overview": "Used as profile geometry context for metric thread concepts and calculations.",
+  "coverage_points": [
+    "Defines the reference thread profile geometry for ISO metric threads.",
+    "Provides baseline shape assumptions used by downstream dimension and tolerance standards.",
+    "Supports consistent interpretation of crest, root, and flank geometry."
+  ],
+  "use_cases": [
+    "Interpreting thread form terminology during design reviews.",
+    "Aligning profile assumptions before applying dimensional limits.",
+    "Explaining profile fundamentals across design and quality teams."
+  ],
+  "table": {
+    "title": "ISO 68-1 profile interpretation map",
+    "columns": [
+      "Profile element",
+      "Engineering interpretation",
+      "Why it matters"
+    ],
+    "rows": [
+      [
+        "Flank geometry",
+        "Defines thread form reference",
+        "Sets profile baseline for dimensions and fit"
+      ],
+      [
+        "Crest/root context",
+        "Clarifies profile terms",
+        "Improves cross-team specification language"
+      ],
+      [
+        "System role",
+        "Upstream profile standard",
+        "Feeds ISO 724 dimensions and ISO 965 tolerances"
+      ]
+    ]
+  },
+  "faq": [
+    {
+      "id": "iso_68_1_faq_scope",
+      "question": "What does ISO 68-1 Thread Profile Explained primarily define?",
+      "answer_text": "ISO 68-1 Thread Profile Explained provides engineering guidance for one part of thread specification workflow and is used alongside related ISO standards rather than in isolation.",
+      "answer_html": "ISO 68-1 Thread Profile Explained provides engineering guidance for one part of thread specification workflow and is used alongside related ISO standards rather than in isolation.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "thread_pitch"
+      }
+    },
+    {
+      "id": "iso_68_1_faq_usage",
+      "question": "When do engineers typically use this standard?",
+      "answer_text": "Engineers use it when selecting, validating, or reviewing thread specifications and coordinating drawings, metrology, and production decisions.",
+      "answer_html": "Engineers use it when selecting, validating, or reviewing thread specifications and coordinating drawings, metrology, and production decisions.",
+      "answer_source": {
+        "type": "entity_summary",
+        "entity_id": "thread_pitch"
+      }
+    },
+    {
+      "id": "iso_68_1_faq_tools",
+      "question": "How does BoltLab help interpret this standard?",
+      "answer_text": "BoltLab tools and charts accelerate identification, comparison, and tolerance-context checks while final release values still come from approved standards documents.",
+      "answer_html": "BoltLab tools and charts accelerate identification, comparison, and tolerance-context checks while final release values still come from approved standards documents.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "pitch_diameter"
+      }
+    },
+    {
+      "id": "iso_68_1_faq_copyright",
+      "question": "Does this page reproduce copyrighted standards tables?",
+      "answer_text": "No. BoltLab provides public-summary explanations, engineering context, and workflow guidance without reproducing protected standards text.",
+      "answer_html": "No. BoltLab provides public-summary explanations, engineering context, and workflow guidance without reproducing protected standards text.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "iso_965"
+      }
+    },
+    {
+      "id": "iso_68_1_faq_next",
+      "question": "Which related standard should I review next?",
+      "answer_text": "Use the Related Standards section to move through profile, designation, dimensions, and tolerance standards in a coherent sequence.",
+      "answer_html": "Use the Related Standards section to move through profile, designation, dimensions, and tolerance standards in a coherent sequence.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "iso_965"
+      }
+    }
+  ],
+  "related_entities": [
+    "major_diameter",
+    "minor_diameter"
+  ],
+  "related_standards": [
+    "iso_68_1",
+    "iso_261",
+    "iso_724",
+    "iso_965_1"
+  ],
+  "related_standard_ids": [
+    "iso_261",
+    "iso_724",
+    "iso_965_1"
+  ],
+  "related_datasets": [
+    "metric_threads"
+  ],
+  "related_tools": [
+    "/tools/thread-identifier",
+    "/tools/thread-pitch-to-tpi-converter",
+    "/tools/tap-drill-calculator"
+  ],
+  "related_charts": [
+    "/charts/metric-thread-chart",
+    "/charts/metric-vs-imperial-chart"
+  ],
+  "related_guides": [
+    "/guides/metric-thread-tolerances",
+    "/guides/thread-types-explained"
+  ],
+  "schema": {
+    "source_entity_id": "iso_965",
+    "types": [
+      "Article",
+      "FAQPage",
+      "BreadcrumbList",
+      "WebPage"
+    ]
+  },
+  "status": "active",
+  "version": "v0.1.0",
+  "created": "2026-07-12",
+  "updated": "2026-07-12"
+}

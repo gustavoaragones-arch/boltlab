@@ -1,0 +1,847 @@
+{
+  "id": "thread_atlas",
+  "projection_type": "atlas_page",
+  "route_hint": "/reference/thread-atlas",
+  "canonical_url": "https://boltlab.io/reference/thread-atlas",
+  "title": "Unified Thread Atlas",
+  "meta_description": "Unified thread atlas covering Metric, UNC, and UNF with instant search, filters, tap drill and clearance guidance, standards links, and workflow-ready r...",
+  "summary": "Flagship engineering explorer for thread designations across Metric, UNC, and UNF systems.",
+  "dataset": {
+    "dataset_id": "thread_atlas_unified",
+    "version": "v0.1.0",
+    "verified": true,
+    "verification_method": "Composed from verified metric, UNC, and UNF datasets through deterministic projection build.",
+    "primary_sources": [
+      "ASME B1.1 public summary metadata",
+      "BoltLab internal engineering review",
+      "ISO 261 public summary metadata",
+      "ISO 262 public summary metadata",
+      "ISO 724 public summary metadata",
+      "ISO 965-1 public summary metadata"
+    ],
+    "last_reviewed": "2026-07-12",
+    "license_notes": "Projection uses interpreted engineering dataset values and does not reproduce copyrighted standards tables.",
+    "coverage": {
+      "systems": [
+        "Metric",
+        "UNC",
+        "UNF"
+      ],
+      "total_rows": 20,
+      "metric_rows": 14,
+      "unc_rows": 3,
+      "unf_rows": 3
+    },
+    "generator_build_version": "thread-atlas-generator@v0.1.0"
+  },
+  "filters": {
+    "diameters_mm": [
+      3,
+      4,
+      5,
+      6,
+      6.35,
+      7.95,
+      8,
+      9.52,
+      10,
+      12,
+      16,
+      20
+    ],
+    "series": [
+      "coarse",
+      "fine"
+    ],
+    "pitches_mm": [
+      0.5,
+      0.7,
+      0.8,
+      0.907,
+      1,
+      1.058,
+      1.25,
+      1.27,
+      1.411,
+      1.5,
+      1.588,
+      1.75,
+      2,
+      2.5
+    ],
+    "iso_families": [
+      "ISO 261",
+      "ISO 262",
+      "ISO 724",
+      "ISO 965-1",
+      "ASME B1.1"
+    ],
+    "thread_systems": [
+      "Metric",
+      "UNC",
+      "UNF"
+    ],
+    "diameters_display": [
+      "0.25 in",
+      "0.313 in",
+      "0.375 in",
+      "10 mm",
+      "12 mm",
+      "16 mm",
+      "20 mm",
+      "3 mm",
+      "4 mm",
+      "5 mm",
+      "6 mm",
+      "8 mm"
+    ],
+    "pitch_display": [
+      "0.5 mm",
+      "0.7 mm",
+      "0.8 mm",
+      "1 mm",
+      "1.25 mm",
+      "1.5 mm",
+      "1.75 mm",
+      "16 TPI",
+      "18 TPI",
+      "2 mm",
+      "2.5 mm",
+      "20 TPI",
+      "24 TPI",
+      "28 TPI"
+    ],
+    "coarse_fine": [
+      "coarse",
+      "fine"
+    ],
+    "standards_families": [
+      "ISO",
+      "ASME"
+    ]
+  },
+  "rows": [
+    {
+      "designation": "1/4-20 UNC",
+      "thread_system": "UNC",
+      "diameter_mm": 6.35,
+      "diameter_display": "0.25 in",
+      "coarse_pitch_mm": 1.27,
+      "fine_pitches_mm": [],
+      "pitch_display": "20 TPI",
+      "coarse_fine": "coarse",
+      "hex_head_mm": 11.13,
+      "hex_size_display": "0.438 in",
+      "tap_drill_mm": 5.11,
+      "tap_drill_display": "0.201 in",
+      "clearance_holes_mm": {
+        "close": 6.53,
+        "normal": 6.76,
+        "loose": 7.14
+      },
+      "clearance_hole_display": "0.257/0.266/0.281 in",
+      "iso_family": "ASME B1.1",
+      "standards_family": "ASME",
+      "related_standards": [
+        "asme_b1_1",
+        "iso_261",
+        "iso_262"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier",
+        "/tools/thread-pitch-to-tpi-converter",
+        "/tools/tap-drill-calculator"
+      ],
+      "detail_reference": "/charts/unc-thread-chart",
+      "equivalent_metric": "M6x1"
+    },
+    {
+      "designation": "1/4-28 UNF",
+      "thread_system": "UNF",
+      "diameter_mm": 6.35,
+      "diameter_display": "0.25 in",
+      "coarse_pitch_mm": 0.907,
+      "fine_pitches_mm": [],
+      "pitch_display": "28 TPI",
+      "coarse_fine": "fine",
+      "hex_head_mm": 11.13,
+      "hex_size_display": "0.438 in",
+      "tap_drill_mm": 5.41,
+      "tap_drill_display": "0.213 in",
+      "clearance_holes_mm": {
+        "close": 6.53,
+        "normal": 6.76,
+        "loose": 7.14
+      },
+      "clearance_hole_display": "0.257/0.266/0.281 in",
+      "iso_family": "ASME B1.1",
+      "standards_family": "ASME",
+      "related_standards": [
+        "asme_b1_1",
+        "iso_261",
+        "iso_262"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier",
+        "/tools/thread-pitch-to-tpi-converter",
+        "/tools/tap-drill-calculator"
+      ],
+      "detail_reference": "/charts/unf-thread-chart",
+      "equivalent_metric": "M6x1"
+    },
+    {
+      "designation": "3/8-16 UNC",
+      "thread_system": "UNC",
+      "diameter_mm": 9.52,
+      "diameter_display": "0.375 in",
+      "coarse_pitch_mm": 1.588,
+      "fine_pitches_mm": [],
+      "pitch_display": "16 TPI",
+      "coarse_fine": "coarse",
+      "hex_head_mm": 14.3,
+      "hex_size_display": "0.563 in",
+      "tap_drill_mm": 7.94,
+      "tap_drill_display": "0.3125 in",
+      "clearance_holes_mm": {
+        "close": 9.8,
+        "normal": 10.08,
+        "loose": 10.49
+      },
+      "clearance_hole_display": "0.386/0.397/0.413 in",
+      "iso_family": "ASME B1.1",
+      "standards_family": "ASME",
+      "related_standards": [
+        "asme_b1_1",
+        "iso_261",
+        "iso_262"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier",
+        "/tools/thread-pitch-to-tpi-converter",
+        "/tools/tap-drill-calculator"
+      ],
+      "detail_reference": "/charts/unc-thread-chart",
+      "equivalent_metric": "M10x1.5"
+    },
+    {
+      "designation": "3/8-24 UNF",
+      "thread_system": "UNF",
+      "diameter_mm": 9.52,
+      "diameter_display": "0.375 in",
+      "coarse_pitch_mm": 1.058,
+      "fine_pitches_mm": [],
+      "pitch_display": "24 TPI",
+      "coarse_fine": "fine",
+      "hex_head_mm": 14.3,
+      "hex_size_display": "0.563 in",
+      "tap_drill_mm": 8.43,
+      "tap_drill_display": "0.332 in",
+      "clearance_holes_mm": {
+        "close": 9.8,
+        "normal": 10.08,
+        "loose": 10.49
+      },
+      "clearance_hole_display": "0.386/0.397/0.413 in",
+      "iso_family": "ASME B1.1",
+      "standards_family": "ASME",
+      "related_standards": [
+        "asme_b1_1",
+        "iso_261",
+        "iso_262"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier",
+        "/tools/thread-pitch-to-tpi-converter",
+        "/tools/tap-drill-calculator"
+      ],
+      "detail_reference": "/charts/unf-thread-chart",
+      "equivalent_metric": "M10x1.5"
+    },
+    {
+      "designation": "5/16-18 UNC",
+      "thread_system": "UNC",
+      "diameter_mm": 7.95,
+      "diameter_display": "0.313 in",
+      "coarse_pitch_mm": 1.411,
+      "fine_pitches_mm": [],
+      "pitch_display": "18 TPI",
+      "coarse_fine": "coarse",
+      "hex_head_mm": 12.7,
+      "hex_size_display": "0.5 in",
+      "tap_drill_mm": 6.53,
+      "tap_drill_display": "0.257 in",
+      "clearance_holes_mm": {
+        "close": 8.2,
+        "normal": 8.43,
+        "loose": 8.84
+      },
+      "clearance_hole_display": "0.323/0.332/0.348 in",
+      "iso_family": "ASME B1.1",
+      "standards_family": "ASME",
+      "related_standards": [
+        "asme_b1_1",
+        "iso_261",
+        "iso_262"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier",
+        "/tools/thread-pitch-to-tpi-converter",
+        "/tools/tap-drill-calculator"
+      ],
+      "detail_reference": "/charts/unc-thread-chart",
+      "equivalent_metric": "M8x1.25"
+    },
+    {
+      "designation": "5/16-24 UNF",
+      "thread_system": "UNF",
+      "diameter_mm": 7.95,
+      "diameter_display": "0.313 in",
+      "coarse_pitch_mm": 1.058,
+      "fine_pitches_mm": [],
+      "pitch_display": "24 TPI",
+      "coarse_fine": "fine",
+      "hex_head_mm": 12.7,
+      "hex_size_display": "0.5 in",
+      "tap_drill_mm": 6.91,
+      "tap_drill_display": "0.272 in",
+      "clearance_holes_mm": {
+        "close": 8.2,
+        "normal": 8.43,
+        "loose": 8.84
+      },
+      "clearance_hole_display": "0.323/0.332/0.348 in",
+      "iso_family": "ASME B1.1",
+      "standards_family": "ASME",
+      "related_standards": [
+        "asme_b1_1",
+        "iso_261",
+        "iso_262"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier",
+        "/tools/thread-pitch-to-tpi-converter",
+        "/tools/tap-drill-calculator"
+      ],
+      "detail_reference": "/charts/unf-thread-chart",
+      "equivalent_metric": "M8x1.25"
+    },
+    {
+      "designation": "M10",
+      "thread_system": "Metric",
+      "diameter_mm": 10,
+      "diameter_display": "10 mm",
+      "coarse_pitch_mm": 1.5,
+      "fine_pitches_mm": [],
+      "pitch_display": "1.5 mm",
+      "coarse_fine": "coarse",
+      "hex_head_mm": 17,
+      "hex_size_display": "17 mm",
+      "tap_drill_mm": 8.5,
+      "tap_drill_display": "8.5 mm",
+      "clearance_holes_mm": {
+        "close": 10.5,
+        "normal": 11,
+        "loose": 12
+      },
+      "clearance_hole_display": "10.5/11/12 mm",
+      "iso_family": "ISO 261",
+      "standards_family": "ISO",
+      "related_standards": [
+        "iso_261",
+        "iso_262",
+        "iso_724",
+        "iso_965_1"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier",
+        "/tools/thread-pitch-to-tpi-converter",
+        "/tools/tap-drill-calculator"
+      ],
+      "detail_reference": "/sizes/m10-bolt-size",
+      "equivalent_metric": "M10"
+    },
+    {
+      "designation": "M10",
+      "thread_system": "Metric",
+      "diameter_mm": 10,
+      "diameter_display": "10 mm",
+      "coarse_pitch_mm": 1.25,
+      "fine_pitches_mm": [
+        1.25
+      ],
+      "pitch_display": "1.25 mm",
+      "coarse_fine": "fine",
+      "hex_head_mm": 17,
+      "hex_size_display": "17 mm",
+      "tap_drill_mm": 8.8,
+      "tap_drill_display": "8.8 mm",
+      "clearance_holes_mm": {
+        "close": 10.5,
+        "normal": 11,
+        "loose": 12
+      },
+      "clearance_hole_display": "10.5/11/12 mm",
+      "iso_family": "ISO 262",
+      "standards_family": "ISO",
+      "related_standards": [
+        "iso_261",
+        "iso_262",
+        "iso_724",
+        "iso_965_1"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier",
+        "/tools/thread-pitch-to-tpi-converter",
+        "/tools/tap-drill-calculator"
+      ],
+      "detail_reference": "/sizes/m10-bolt-size",
+      "equivalent_metric": "M10"
+    },
+    {
+      "designation": "M12",
+      "thread_system": "Metric",
+      "diameter_mm": 12,
+      "diameter_display": "12 mm",
+      "coarse_pitch_mm": 1.75,
+      "fine_pitches_mm": [],
+      "pitch_display": "1.75 mm",
+      "coarse_fine": "coarse",
+      "hex_head_mm": 19,
+      "hex_size_display": "19 mm",
+      "tap_drill_mm": 10.2,
+      "tap_drill_display": "10.2 mm",
+      "clearance_holes_mm": {
+        "close": 13,
+        "normal": 13.5,
+        "loose": 14.5
+      },
+      "clearance_hole_display": "13/13.5/14.5 mm",
+      "iso_family": "ISO 261",
+      "standards_family": "ISO",
+      "related_standards": [
+        "iso_261",
+        "iso_262",
+        "iso_724",
+        "iso_965_1"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier",
+        "/tools/thread-pitch-to-tpi-converter",
+        "/tools/tap-drill-calculator"
+      ],
+      "detail_reference": "/sizes/m12-bolt-size",
+      "equivalent_metric": "M12"
+    },
+    {
+      "designation": "M12",
+      "thread_system": "Metric",
+      "diameter_mm": 12,
+      "diameter_display": "12 mm",
+      "coarse_pitch_mm": 1.25,
+      "fine_pitches_mm": [
+        1.25
+      ],
+      "pitch_display": "1.25 mm",
+      "coarse_fine": "fine",
+      "hex_head_mm": 19,
+      "hex_size_display": "19 mm",
+      "tap_drill_mm": 10.8,
+      "tap_drill_display": "10.8 mm",
+      "clearance_holes_mm": {
+        "close": 13,
+        "normal": 13.5,
+        "loose": 14.5
+      },
+      "clearance_hole_display": "13/13.5/14.5 mm",
+      "iso_family": "ISO 262",
+      "standards_family": "ISO",
+      "related_standards": [
+        "iso_261",
+        "iso_262",
+        "iso_724",
+        "iso_965_1"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier",
+        "/tools/thread-pitch-to-tpi-converter",
+        "/tools/tap-drill-calculator"
+      ],
+      "detail_reference": "/sizes/m12-bolt-size",
+      "equivalent_metric": "M12"
+    },
+    {
+      "designation": "M16",
+      "thread_system": "Metric",
+      "diameter_mm": 16,
+      "diameter_display": "16 mm",
+      "coarse_pitch_mm": 2,
+      "fine_pitches_mm": [],
+      "pitch_display": "2 mm",
+      "coarse_fine": "coarse",
+      "hex_head_mm": 24,
+      "hex_size_display": "24 mm",
+      "tap_drill_mm": 14,
+      "tap_drill_display": "14 mm",
+      "clearance_holes_mm": {
+        "close": 17,
+        "normal": 18,
+        "loose": 20
+      },
+      "clearance_hole_display": "17/18/20 mm",
+      "iso_family": "ISO 261",
+      "standards_family": "ISO",
+      "related_standards": [
+        "iso_261",
+        "iso_262",
+        "iso_724",
+        "iso_965_1"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier",
+        "/tools/thread-pitch-to-tpi-converter",
+        "/tools/tap-drill-calculator"
+      ],
+      "detail_reference": "/sizes/m16-bolt-size",
+      "equivalent_metric": "M16"
+    },
+    {
+      "designation": "M16",
+      "thread_system": "Metric",
+      "diameter_mm": 16,
+      "diameter_display": "16 mm",
+      "coarse_pitch_mm": 1.5,
+      "fine_pitches_mm": [
+        1.5
+      ],
+      "pitch_display": "1.5 mm",
+      "coarse_fine": "fine",
+      "hex_head_mm": 24,
+      "hex_size_display": "24 mm",
+      "tap_drill_mm": 14.5,
+      "tap_drill_display": "14.5 mm",
+      "clearance_holes_mm": {
+        "close": 17,
+        "normal": 18,
+        "loose": 20
+      },
+      "clearance_hole_display": "17/18/20 mm",
+      "iso_family": "ISO 262",
+      "standards_family": "ISO",
+      "related_standards": [
+        "iso_261",
+        "iso_262",
+        "iso_724",
+        "iso_965_1"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier",
+        "/tools/thread-pitch-to-tpi-converter",
+        "/tools/tap-drill-calculator"
+      ],
+      "detail_reference": "/sizes/m16-bolt-size",
+      "equivalent_metric": "M16"
+    },
+    {
+      "designation": "M20",
+      "thread_system": "Metric",
+      "diameter_mm": 20,
+      "diameter_display": "20 mm",
+      "coarse_pitch_mm": 2.5,
+      "fine_pitches_mm": [],
+      "pitch_display": "2.5 mm",
+      "coarse_fine": "coarse",
+      "hex_head_mm": 30,
+      "hex_size_display": "30 mm",
+      "tap_drill_mm": 17.5,
+      "tap_drill_display": "17.5 mm",
+      "clearance_holes_mm": {
+        "close": 21,
+        "normal": 22,
+        "loose": 24
+      },
+      "clearance_hole_display": "21/22/24 mm",
+      "iso_family": "ISO 261",
+      "standards_family": "ISO",
+      "related_standards": [
+        "iso_261",
+        "iso_262",
+        "iso_724",
+        "iso_965_1"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier",
+        "/tools/thread-pitch-to-tpi-converter",
+        "/tools/tap-drill-calculator"
+      ],
+      "detail_reference": "/sizes/m20-bolt-size",
+      "equivalent_metric": "M20"
+    },
+    {
+      "designation": "M20",
+      "thread_system": "Metric",
+      "diameter_mm": 20,
+      "diameter_display": "20 mm",
+      "coarse_pitch_mm": 2,
+      "fine_pitches_mm": [
+        2
+      ],
+      "pitch_display": "2 mm",
+      "coarse_fine": "fine",
+      "hex_head_mm": 30,
+      "hex_size_display": "30 mm",
+      "tap_drill_mm": 18,
+      "tap_drill_display": "18 mm",
+      "clearance_holes_mm": {
+        "close": 21,
+        "normal": 22,
+        "loose": 24
+      },
+      "clearance_hole_display": "21/22/24 mm",
+      "iso_family": "ISO 262",
+      "standards_family": "ISO",
+      "related_standards": [
+        "iso_261",
+        "iso_262",
+        "iso_724",
+        "iso_965_1"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier",
+        "/tools/thread-pitch-to-tpi-converter",
+        "/tools/tap-drill-calculator"
+      ],
+      "detail_reference": "/sizes/m20-bolt-size",
+      "equivalent_metric": "M20"
+    },
+    {
+      "designation": "M3",
+      "thread_system": "Metric",
+      "diameter_mm": 3,
+      "diameter_display": "3 mm",
+      "coarse_pitch_mm": 0.5,
+      "fine_pitches_mm": [],
+      "pitch_display": "0.5 mm",
+      "coarse_fine": "coarse",
+      "hex_head_mm": 5.5,
+      "hex_size_display": "5.5 mm",
+      "tap_drill_mm": 2.5,
+      "tap_drill_display": "2.5 mm",
+      "clearance_holes_mm": {
+        "close": 3.2,
+        "normal": 3.4,
+        "loose": 3.6
+      },
+      "clearance_hole_display": "3.2/3.4/3.6 mm",
+      "iso_family": "ISO 261",
+      "standards_family": "ISO",
+      "related_standards": [
+        "iso_261",
+        "iso_262",
+        "iso_724",
+        "iso_965_1"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier",
+        "/tools/thread-pitch-to-tpi-converter",
+        "/tools/tap-drill-calculator"
+      ],
+      "detail_reference": "/sizes/m3-bolt-size",
+      "equivalent_metric": "M3"
+    },
+    {
+      "designation": "M4",
+      "thread_system": "Metric",
+      "diameter_mm": 4,
+      "diameter_display": "4 mm",
+      "coarse_pitch_mm": 0.7,
+      "fine_pitches_mm": [],
+      "pitch_display": "0.7 mm",
+      "coarse_fine": "coarse",
+      "hex_head_mm": 7,
+      "hex_size_display": "7 mm",
+      "tap_drill_mm": 3.3,
+      "tap_drill_display": "3.3 mm",
+      "clearance_holes_mm": {
+        "close": 4.3,
+        "normal": 4.5,
+        "loose": 4.8
+      },
+      "clearance_hole_display": "4.3/4.5/4.8 mm",
+      "iso_family": "ISO 261",
+      "standards_family": "ISO",
+      "related_standards": [
+        "iso_261",
+        "iso_262",
+        "iso_724",
+        "iso_965_1"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier",
+        "/tools/thread-pitch-to-tpi-converter",
+        "/tools/tap-drill-calculator"
+      ],
+      "detail_reference": "/sizes/m4-bolt-size",
+      "equivalent_metric": "M4"
+    },
+    {
+      "designation": "M5",
+      "thread_system": "Metric",
+      "diameter_mm": 5,
+      "diameter_display": "5 mm",
+      "coarse_pitch_mm": 0.8,
+      "fine_pitches_mm": [],
+      "pitch_display": "0.8 mm",
+      "coarse_fine": "coarse",
+      "hex_head_mm": 8,
+      "hex_size_display": "8 mm",
+      "tap_drill_mm": 4.2,
+      "tap_drill_display": "4.2 mm",
+      "clearance_holes_mm": {
+        "close": 5.3,
+        "normal": 5.5,
+        "loose": 5.8
+      },
+      "clearance_hole_display": "5.3/5.5/5.8 mm",
+      "iso_family": "ISO 261",
+      "standards_family": "ISO",
+      "related_standards": [
+        "iso_261",
+        "iso_262",
+        "iso_724",
+        "iso_965_1"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier",
+        "/tools/thread-pitch-to-tpi-converter",
+        "/tools/tap-drill-calculator"
+      ],
+      "detail_reference": "/sizes/m5-bolt-size",
+      "equivalent_metric": "M5"
+    },
+    {
+      "designation": "M6",
+      "thread_system": "Metric",
+      "diameter_mm": 6,
+      "diameter_display": "6 mm",
+      "coarse_pitch_mm": 1,
+      "fine_pitches_mm": [],
+      "pitch_display": "1 mm",
+      "coarse_fine": "coarse",
+      "hex_head_mm": 10,
+      "hex_size_display": "10 mm",
+      "tap_drill_mm": 5,
+      "tap_drill_display": "5 mm",
+      "clearance_holes_mm": {
+        "close": 6.4,
+        "normal": 6.6,
+        "loose": 7
+      },
+      "clearance_hole_display": "6.4/6.6/7 mm",
+      "iso_family": "ISO 261",
+      "standards_family": "ISO",
+      "related_standards": [
+        "iso_261",
+        "iso_262",
+        "iso_724",
+        "iso_965_1"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier",
+        "/tools/thread-pitch-to-tpi-converter",
+        "/tools/tap-drill-calculator"
+      ],
+      "detail_reference": "/sizes/m6-bolt-size",
+      "equivalent_metric": "M6"
+    },
+    {
+      "designation": "M8",
+      "thread_system": "Metric",
+      "diameter_mm": 8,
+      "diameter_display": "8 mm",
+      "coarse_pitch_mm": 1.25,
+      "fine_pitches_mm": [],
+      "pitch_display": "1.25 mm",
+      "coarse_fine": "coarse",
+      "hex_head_mm": 13,
+      "hex_size_display": "13 mm",
+      "tap_drill_mm": 6.8,
+      "tap_drill_display": "6.8 mm",
+      "clearance_holes_mm": {
+        "close": 8.4,
+        "normal": 9,
+        "loose": 10
+      },
+      "clearance_hole_display": "8.4/9/10 mm",
+      "iso_family": "ISO 261",
+      "standards_family": "ISO",
+      "related_standards": [
+        "iso_261",
+        "iso_262",
+        "iso_724",
+        "iso_965_1"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier",
+        "/tools/thread-pitch-to-tpi-converter",
+        "/tools/tap-drill-calculator"
+      ],
+      "detail_reference": "/sizes/m8-bolt-size",
+      "equivalent_metric": "M8"
+    },
+    {
+      "designation": "M8",
+      "thread_system": "Metric",
+      "diameter_mm": 8,
+      "diameter_display": "8 mm",
+      "coarse_pitch_mm": 1,
+      "fine_pitches_mm": [
+        1
+      ],
+      "pitch_display": "1 mm",
+      "coarse_fine": "fine",
+      "hex_head_mm": 13,
+      "hex_size_display": "13 mm",
+      "tap_drill_mm": 7,
+      "tap_drill_display": "7 mm",
+      "clearance_holes_mm": {
+        "close": 8.4,
+        "normal": 9,
+        "loose": 10
+      },
+      "clearance_hole_display": "8.4/9/10 mm",
+      "iso_family": "ISO 262",
+      "standards_family": "ISO",
+      "related_standards": [
+        "iso_261",
+        "iso_262",
+        "iso_724",
+        "iso_965_1"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier",
+        "/tools/thread-pitch-to-tpi-converter",
+        "/tools/tap-drill-calculator"
+      ],
+      "detail_reference": "/sizes/m8-bolt-size",
+      "equivalent_metric": "M8"
+    }
+  ],
+  "related_standards": [
+    "iso_261",
+    "iso_262",
+    "iso_724",
+    "iso_965_1",
+    "asme_b1_1"
+  ],
+  "related_tools": [
+    "/tools/thread-identifier",
+    "/tools/thread-pitch-to-tpi-converter",
+    "/tools/tap-drill-calculator",
+    "/charts/metric-thread-chart",
+    "/charts/unc-thread-chart",
+    "/charts/unf-thread-chart"
+  ],
+  "version": "v0.1.0",
+  "created": "2026-07-12",
+  "updated": "2026-07-12"
+}

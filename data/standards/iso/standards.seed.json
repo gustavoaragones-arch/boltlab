@@ -1,0 +1,117 @@
+{
+  "version": "v0.1.0",
+  "created": "2026-07-12",
+  "updated": "2026-07-12",
+  "records": [
+    {
+      "id": "iso_68_1",
+      "organization": "ISO",
+      "designation": "ISO 68-1",
+      "title": "ISO general purpose screw threads — Basic profile",
+      "scope": "Defines the basic profile for ISO metric screw threads.",
+      "public_summary": "Used as profile geometry context for metric thread concepts and calculations.",
+      "related_entities": [
+        "major_diameter",
+        "minor_diameter"
+      ],
+      "related_datasets": [
+        "metric_threads"
+      ],
+      "revision": "latest-reviewed-public-summary",
+      "copyright_note": "No copyrighted standards text is reproduced; only public summary and reference metadata.",
+      "last_reviewed": "2026-07-12",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "iso_261",
+      "organization": "ISO",
+      "designation": "ISO 261",
+      "title": "ISO general purpose metric screw threads — General plan",
+      "scope": "Specifies preferred combinations of diameter and pitch for metric threads.",
+      "public_summary": "Referenced for metric designation and pitch-plan context in engineering explanations.",
+      "related_entities": [
+        "thread_pitch",
+        "thread_system_unc"
+      ],
+      "related_datasets": [
+        "metric_threads"
+      ],
+      "revision": "latest-reviewed-public-summary",
+      "copyright_note": "No copyrighted standards text is reproduced; only public summary and reference metadata.",
+      "last_reviewed": "2026-07-12",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "iso_262",
+      "organization": "ISO",
+      "designation": "ISO 262",
+      "title": "ISO general purpose metric screw threads — Selected sizes for screws, bolts, and nuts",
+      "scope": "Lists selected preferred metric fine thread diameter and pitch combinations.",
+      "public_summary": "Referenced for fine-pitch metric thread selection and designation consistency in engineering workflows.",
+      "related_entities": [
+        "thread_pitch",
+        "pitch_diameter",
+        "thread_system_unc"
+      ],
+      "related_datasets": [
+        "metric_threads"
+      ],
+      "revision": "latest-reviewed-public-summary",
+      "copyright_note": "No copyrighted standards text is reproduced; only public summary and reference metadata.",
+      "last_reviewed": "2026-07-12",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "iso_724",
+      "organization": "ISO",
+      "designation": "ISO 724",
+      "title": "ISO general purpose metric screw threads — Basic dimensions",
+      "scope": "Provides basic dimension framework for metric thread geometry.",
+      "public_summary": "Referenced where pitch diameter and related geometry fields are discussed.",
+      "related_entities": [
+        "pitch_diameter",
+        "major_diameter",
+        "minor_diameter"
+      ],
+      "related_datasets": [
+        "metric_threads"
+      ],
+      "revision": "latest-reviewed-public-summary",
+      "copyright_note": "No copyrighted standards text is reproduced; only public summary and reference metadata.",
+      "last_reviewed": "2026-07-12",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "iso_965_1",
+      "organization": "ISO",
+      "designation": "ISO 965-1",
+      "title": "ISO metric screw threads — Tolerances — Principles and basic data",
+      "scope": "Defines tolerance principles, class notation, and fit interpretation context.",
+      "public_summary": "Primary tolerance-class reference for 6H, 6g, zone interpretation, and allowance explanations.",
+      "related_entities": [
+        "iso_965",
+        "fit_class_6h",
+        "fit_class_6g",
+        "tolerance_zone",
+        "allowance"
+      ],
+      "related_datasets": [
+        "metric_threads"
+      ],
+      "revision": "latest-reviewed-public-summary",
+      "copyright_note": "No copyrighted standards text is reproduced; only public summary and reference metadata.",
+      "last_reviewed": "2026-07-12",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    }
+  ]
+}

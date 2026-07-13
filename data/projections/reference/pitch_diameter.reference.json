@@ -1,0 +1,127 @@
+{
+  "id": "reference_pitch_diameter",
+  "projection_type": "reference_page",
+  "entity_id": "pitch_diameter",
+  "route_hint": "/reference/pitch-diameter-explained",
+  "canonical_url": "https://boltlab.io/reference/pitch-diameter-explained",
+  "title": "Pitch Diameter Explained",
+  "meta_description": "Pitch diameter explained with thread-fit context, measurement implications, and links to tolerance classes and deviation concepts. Verified standards value",
+  "quick_reference": {
+    "primary_entity_id": "pitch_diameter",
+    "related_entity_ids": [
+      "major_diameter",
+      "minor_diameter",
+      "tolerance_zone",
+      "thread_pitch"
+    ],
+    "standard_ids": [
+      "iso_724",
+      "iso_965_1"
+    ],
+    "dataset_ids": [
+      "metric_threads",
+      "unc_threads"
+    ]
+  },
+  "engineering_summary": {
+    "source_entity_id": "pitch_diameter",
+    "strategy": "entity.engineering_summary"
+  },
+  "faq": [
+    {
+      "id": "faq_pitch_diameter_purpose",
+      "question": "What does this page help me decide?",
+      "answer_text": "It supports thread specification, fit interpretation, and inspection planning for engineering workflows.",
+      "answer_html": "It supports thread specification, fit interpretation, and inspection planning for engineering workflows.",
+      "answer_source": {
+        "type": "entity_summary",
+        "entity_id": "pitch_diameter"
+      }
+    },
+    {
+      "id": "faq_pitch_diameter_publish_limits",
+      "question": "Can I publish production limits from this page directly?",
+      "answer_text": "No. Use approved standards and internal quality documents for release values.",
+      "answer_html": "No. Use approved standards and internal quality documents for release values.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "pitch_diameter",
+        "relationship_ids": [
+          "rel_pitch_defined_by_iso_724",
+          "rel_tolerance_defined_by_iso_965_1"
+        ]
+      }
+    },
+    {
+      "id": "faq_pitch_diameter_difference",
+      "question": "How is this different from a basic thread guide?",
+      "answer_text": "This reference focuses on fit behavior, tolerance interpretation, and manufacturing control decisions.",
+      "answer_html": "This reference focuses on fit behavior, tolerance interpretation, and manufacturing control decisions.",
+      "answer_source": {
+        "type": "entity_definition",
+        "entity_id": "pitch_diameter"
+      }
+    },
+    {
+      "id": "faq_pitch_diameter_next_concept",
+      "question": "Which linked concept should I read next?",
+      "answer_text": "Start with pitch diameter, then continue to fundamental deviation and tolerance zones.",
+      "answer_html": "Start with <a href=\"/reference/pitch-diameter-explained\">pitch diameter</a>, then continue to <a href=\"/reference/fundamental-deviation\">fundamental deviation</a> and <a href=\"/reference/tolerance-zones-explained\">tolerance zones</a>.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "pitch_diameter",
+        "relationship_ids": [
+          "rel_pitch_uses_tolerance_zone"
+        ]
+      }
+    },
+    {
+      "id": "faq_pitch_diameter_practical",
+      "question": "How do I move from concept to practical verification?",
+      "answer_text": "Use Thread Identifier, compare charts, and apply a documented inspection plan before production release.",
+      "answer_html": "Use <a href=\"/tools/thread-identifier\">Thread Identifier</a>, compare charts, and apply a documented inspection plan before production release.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "pitch_diameter",
+        "relationship_ids": [
+          "rel_thread_pitch_supported_metric_dataset"
+        ]
+      }
+    }
+  ],
+  "related_entities": [
+    "major_diameter",
+    "minor_diameter",
+    "tolerance_zone",
+    "thread_pitch"
+  ],
+  "related_standards": [
+    "iso_724",
+    "iso_965_1"
+  ],
+  "related_datasets": [
+    "metric_threads",
+    "unc_threads"
+  ],
+  "related_tools": [
+    "/tools/thread-identifier"
+  ],
+  "related_charts": [
+    "/charts/metric-thread-chart"
+  ],
+  "related_guides": [
+    "/guides/metric-thread-tolerances"
+  ],
+  "schema": {
+    "source_entity_id": "pitch_diameter",
+    "types": [
+      "Article",
+      "FAQPage",
+      "BreadcrumbList"
+    ]
+  },
+  "status": "active",
+  "version": "v0.1.0",
+  "created": "2026-07-12",
+  "updated": "2026-07-12"
+}

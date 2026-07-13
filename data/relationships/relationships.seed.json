@@ -1,0 +1,293 @@
+{
+  "version": "v0.1.0",
+  "created": "2026-07-12",
+  "updated": "2026-07-12",
+  "records": [
+    {
+      "id": "rel_pitch_uses_tolerance_zone",
+      "source": "pitch_diameter",
+      "predicate": "USES",
+      "target": "tolerance_zone",
+      "strength": 0.95,
+      "notes": "Fit assessment uses pitch diameter against tolerance interpretation.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_pitch_defined_by_iso_724",
+      "source": "pitch_diameter",
+      "predicate": "DEFINED_BY",
+      "target": "iso_724",
+      "strength": 0.92,
+      "notes": "Pitch diameter geometry references ISO dimensional framework.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_major_part_of_thread_geometry",
+      "source": "major_diameter",
+      "predicate": "PART_OF",
+      "target": "pitch_diameter",
+      "strength": 0.74,
+      "notes": "Major and pitch diameter are linked geometric dimensions.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_minor_part_of_thread_geometry",
+      "source": "minor_diameter",
+      "predicate": "PART_OF",
+      "target": "pitch_diameter",
+      "strength": 0.74,
+      "notes": "Minor and pitch diameter are linked geometric dimensions.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_allowance_relates_tolerance_zone",
+      "source": "allowance",
+      "predicate": "RELATES_TO",
+      "target": "tolerance_zone",
+      "strength": 0.9,
+      "notes": "Allowance and tolerance zone jointly define fit envelope.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_tolerance_defined_by_iso_965_1",
+      "source": "tolerance_zone",
+      "predicate": "DEFINED_BY",
+      "target": "iso_965_1",
+      "strength": 0.99,
+      "notes": "Metric tolerance zone notation follows ISO 965 principles.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_thread_pitch_defined_by_iso_261",
+      "source": "thread_pitch",
+      "predicate": "DEFINED_BY",
+      "target": "iso_261",
+      "strength": 0.9,
+      "notes": "Metric pitch plans map to ISO preferred combinations.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_thread_pitch_supported_metric_dataset",
+      "source": "thread_pitch",
+      "predicate": "SUPPORTED_BY",
+      "target": "metric_threads",
+      "strength": 0.93,
+      "notes": "Metric pitch values are served by metric thread dataset rows.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_iso_965_defined_by_iso_965_1",
+      "source": "iso_965",
+      "predicate": "DEFINED_BY",
+      "target": "iso_965_1",
+      "strength": 1,
+      "notes": "ISO 965 concept entity is sourced from ISO 965-1 record.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_fit_6h_defined_by_iso_965_1",
+      "source": "fit_class_6h",
+      "predicate": "DEFINED_BY",
+      "target": "iso_965_1",
+      "strength": 0.98,
+      "notes": "6H class notation belongs to ISO metric tolerance framework.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_fit_6g_defined_by_iso_965_1",
+      "source": "fit_class_6g",
+      "predicate": "DEFINED_BY",
+      "target": "iso_965_1",
+      "strength": 0.98,
+      "notes": "6g class notation belongs to ISO metric tolerance framework.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_6h_compared_with_6g",
+      "source": "fit_class_6h",
+      "predicate": "COMPARED_WITH",
+      "target": "fit_class_6g",
+      "strength": 0.85,
+      "notes": "Comparison pair for fit-class educational references.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_6g_relates_tolerance_zone",
+      "source": "fit_class_6g",
+      "predicate": "RELATES_TO",
+      "target": "tolerance_zone",
+      "strength": 0.88,
+      "notes": "External class interpretation depends on zone position behavior.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_unc_defined_by_asme_b1_1",
+      "source": "thread_system_unc",
+      "predicate": "DEFINED_BY",
+      "target": "asme_b1_1",
+      "strength": 0.98,
+      "notes": "UNC system classification is sourced to ASME B1.1.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_unc_supported_by_unc_dataset",
+      "source": "thread_system_unc",
+      "predicate": "SUPPORTED_BY",
+      "target": "unc_threads",
+      "strength": 0.97,
+      "notes": "UNC values are served by the UNC dataset.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_allowance_defined_by_asme_b1_1",
+      "source": "allowance",
+      "predicate": "DEFINED_BY",
+      "target": "asme_b1_1",
+      "strength": 0.7,
+      "notes": "Allowance concept appears in unified thread fit interpretation.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_allowance_defined_by_iso_965_1",
+      "source": "allowance",
+      "predicate": "DEFINED_BY",
+      "target": "iso_965_1",
+      "strength": 0.78,
+      "notes": "Allowance concept appears in metric fit interpretation.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_major_supported_by_metric_dataset",
+      "source": "major_diameter",
+      "predicate": "SUPPORTED_BY",
+      "target": "metric_threads",
+      "strength": 0.86,
+      "notes": "Nominal major diameter values trace to metric dataset rows.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_minor_supported_by_metric_dataset",
+      "source": "minor_diameter",
+      "predicate": "SUPPORTED_BY",
+      "target": "metric_threads",
+      "strength": 0.78,
+      "notes": "Minor diameter ranges are represented via metric data pipeline.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_pitch_compared_with_unc_system",
+      "source": "thread_pitch",
+      "predicate": "COMPARED_WITH",
+      "target": "thread_system_unc",
+      "strength": 0.64,
+      "notes": "Pitch in mm is often compared with TPI in UNC contexts.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_iso_68_supports_profile_geometry",
+      "source": "iso_68_1",
+      "predicate": "DEFINED_BY",
+      "target": "major_diameter",
+      "strength": 0.83,
+      "notes": "ISO 68-1 profile context supports major/minor geometry interpretation.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_iso_261_defines_pitch_plan",
+      "source": "iso_261",
+      "predicate": "DEFINED_BY",
+      "target": "thread_pitch",
+      "strength": 0.92,
+      "notes": "ISO 261 defines preferred metric diameter and pitch combinations.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_iso_262_refines_pitch_selection",
+      "source": "iso_262",
+      "predicate": "RELATES_TO",
+      "target": "thread_pitch",
+      "strength": 0.9,
+      "notes": "ISO 262 provides selected fine thread combinations in relation to pitch planning.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_iso_724_defines_pitch_diameter_context",
+      "source": "iso_724",
+      "predicate": "DEFINED_BY",
+      "target": "pitch_diameter",
+      "strength": 0.94,
+      "notes": "ISO 724 supports basic geometric context used in pitch diameter interpretation.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_iso_965_1_defines_tolerance_zone",
+      "source": "iso_965_1",
+      "predicate": "DEFINED_BY",
+      "target": "tolerance_zone",
+      "strength": 0.98,
+      "notes": "ISO 965-1 defines tolerance principles and zone interpretation for metric threads.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_iso_965_1_relates_iso_724",
+      "source": "iso_965_1",
+      "predicate": "RELATES_TO",
+      "target": "iso_724",
+      "strength": 0.9,
+      "notes": "Tolerance interpretation in ISO 965-1 relies on dimensional context from ISO 724.",
+      "version": "v0.1.0",
+      "created": "2026-07-12",
+      "updated": "2026-07-12"
+    }
+  ]
+}

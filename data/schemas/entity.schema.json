@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://boltlab.io/schemas/entity.schema.json",
+  "title": "BoltLab Engineering Entity",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "aliases",
+    "entity_type",
+    "engineering_summary",
+    "definition",
+    "related_entities",
+    "related_standards",
+    "related_datasets",
+    "related_pages",
+    "related_tools",
+    "related_charts",
+    "related_guides",
+    "keywords",
+    "search_aliases",
+    "svg_asset",
+    "status",
+    "created",
+    "updated",
+    "version"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 2
+    },
+    "aliases": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "entity_type": {
+      "type": "string",
+      "enum": [
+        "thread_geometry",
+        "fit_class",
+        "thread_system",
+        "tolerance_concept",
+        "standard_concept"
+      ]
+    },
+    "engineering_summary": { "type": "string", "minLength": 10 },
+    "definition": { "type": "string", "minLength": 10 },
+    "related_entities": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+    },
+    "related_standards": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+    },
+    "related_datasets": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+    },
+    "related_pages": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^/" }
+    },
+    "related_tools": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^/" }
+    },
+    "related_charts": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^/" }
+    },
+    "related_guides": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^/" }
+    },
+    "keywords": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "search_aliases": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "svg_asset": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^/images/.+\\.svg$"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "active",
+        "deprecated"
+      ]
+    },
+    "created": {
+      "type": "string",
+      "format": "date"
+    },
+    "updated": {
+      "type": "string",
+      "format": "date"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+    }
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://boltlab.io/schemas/projections/reference-page.schema.json",
+  "title": "BoltLab Reference Page Projection",
+  "type": "object",
+  "required": [
+    "id",
+    "projection_type",
+    "entity_id",
+    "route_hint",
+    "canonical_url",
+    "title",
+    "meta_description",
+    "quick_reference",
+    "engineering_summary",
+    "faq",
+    "related_entities",
+    "related_standards",
+    "related_datasets",
+    "related_tools",
+    "related_charts",
+    "related_guides",
+    "schema",
+    "status",
+    "version",
+    "created",
+    "updated"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "projection_type": {
+      "type": "string",
+      "const": "reference_page"
+    },
+    "entity_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "standard_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "route_hint": {
+      "type": "string",
+      "pattern": "^/"
+    },
+    "canonical_url": {
+      "type": "string",
+      "pattern": "^https://boltlab\\.io/"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3
+    },
+    "hero_subtitle": {
+      "type": "string"
+    },
+    "meta_description": {
+      "type": "string",
+      "minLength": 120,
+      "maxLength": 170
+    },
+    "overview": {
+      "type": "string"
+    },
+    "coverage_points": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "use_cases": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "table": {
+      "type": "object",
+      "required": [
+        "title",
+        "columns",
+        "rows"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "title": { "type": "string" },
+        "columns": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "quick_reference": {
+      "type": "object",
+      "required": [
+        "primary_entity_id",
+        "related_entity_ids",
+        "standard_ids",
+        "dataset_ids"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "primary_entity_id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+        "related_entity_ids": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+        },
+        "standard_ids": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+        },
+        "dataset_ids": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+        }
+      }
+    },
+    "engineering_summary": {
+      "type": "object",
+      "required": [
+        "source_entity_id",
+        "strategy"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "source_entity_id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+        "strategy": {
+          "type": "string",
+          "enum": [
+            "entity.engineering_summary",
+            "entity.definition"
+          ]
+        }
+      }
+    },
+    "faq": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "question",
+            "answer_text",
+          "answer_source"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+          "question": { "type": "string" },
+          "answer_text": { "type": "string", "minLength": 10 },
+          "answer_html": { "type": "string" },
+          "answer_source": {
+            "type": "object",
+            "required": [
+              "type",
+              "entity_id"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "entity_definition",
+                  "entity_summary",
+                  "relationship_context"
+                ]
+              },
+              "entity_id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+              "relationship_ids": {
+                "type": "array",
+                "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "related_entities": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+    },
+    "related_standards": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+    },
+    "related_standard_ids": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+    },
+    "related_datasets": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+    },
+    "related_tools": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^/" }
+    },
+    "related_charts": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^/" }
+    },
+    "related_guides": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^/" }
+    },
+    "related_reference_routes": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^/" }
+    },
+    "schema": {
+      "type": "object",
+      "required": [
+        "source_entity_id",
+        "types"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "source_entity_id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+        "types": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "active",
+        "deprecated"
+      ]
+    },
+    "version": { "type": "string", "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "created": { "type": "string", "format": "date" },
+    "updated": { "type": "string", "format": "date" }
+  }
+}

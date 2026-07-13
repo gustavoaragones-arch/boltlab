@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://boltlab.io/schemas/standard.schema.json",
+  "title": "BoltLab Engineering Standard Source",
+  "type": "object",
+  "required": [
+    "id",
+    "organization",
+    "designation",
+    "title",
+    "scope",
+    "public_summary",
+    "related_entities",
+    "related_datasets",
+    "revision",
+    "copyright_note",
+    "last_reviewed",
+    "version",
+    "created",
+    "updated"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+    "organization": { "type": "string" },
+    "designation": { "type": "string" },
+    "title": { "type": "string" },
+    "scope": { "type": "string" },
+    "public_summary": { "type": "string" },
+    "related_entities": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+    },
+    "related_datasets": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+    },
+    "revision": { "type": "string" },
+    "copyright_note": { "type": "string" },
+    "last_reviewed": { "type": "string", "format": "date" },
+    "version": { "type": "string", "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "created": { "type": "string", "format": "date" },
+    "updated": { "type": "string", "format": "date" }
+  }
+}

@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <title>Metric Thread Atlas | BoltLab</title>
+  <meta name="description" content="Comprehensive metric thread atlas with designation, coarse and fine pitches, hex sizes, tap drill guidance, clearance holes, standards links, and tool c...">
+  <link rel="canonical" href="https://boltlab.io/reference/metric-thread-atlas">
+  <link rel="alternate" hreflang="en" href="https://boltlab.io/reference/metric-thread-atlas" />
+  <link rel="alternate" hreflang="x-default" href="https://boltlab.io/" />
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"Metric Thread Atlas","description":"The Metric Thread Atlas is a searchable static engineering dataset for metric thread designations and workflow decisions.","url":"https://boltlab.io/reference/metric-thread-atlas","version":"v0.1.0","creator":{"@type":"Organization","name":"BoltLab"},"license":"https://boltlab.io/privacy","distribution":{"@type":"DataDownload","contentUrl":"https://boltlab.io/downloads/metric-thread-atlas.csv","encodingFormat":"text/csv"}}</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">BoltLab</a>
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="/tools/metric-to-imperial-screw-converter">Tools</a></li>
+          <li><a href="/charts/">Charts</a></li>
+          <li><a href="/reference/">Reference</a></li>
+          <li><a href="/sizes/">Sizes</a></li>
+          <li><a href="/guides/">Guides</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="content" class="container">
+  <div class="layout layout--with-sidebar">
+    <article>
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">BoltLab</a> → <a href="/reference/">Reference</a> → Metric Thread Atlas</nav>
+      <h1>Metric Thread Atlas</h1>
+      <p class="muted">The Metric Thread Atlas is a searchable static engineering dataset for metric thread designations and workflow decisions.</p>
+
+      <div class="aeo-answer-block" aria-label="Direct answer">
+        <p>Metric thread designations use nominal diameter and pitch notation such as M8x1.25.</p>
+        <p>This atlas consolidates coarse and fine pitch context, hex sizes, tap drill guidance, and clearance-hole references.</p>
+        <p>Use filters and search below for instant lookup, then continue with related standards and tools.</p>
+      </div>
+
+      <section class="card">
+        <h2>Data quality</h2>
+        <ul class="meta-list">
+          <li>Dataset version: v0.1.0</li>
+          <li>Verified: Yes</li>
+          <li>Last reviewed: 2026-07-12</li>
+          <li>Verification method: Public engineering reference synthesis reviewed for BoltLab atlas use.</li>
+          <li>Related standards: ISO 261, ISO 262, ISO 724, ISO 965-1</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Search and filters</h2>
+        <div class="converter-grid">
+          <label>Search designation<input id="atlas-search" class="input-field" type="search" placeholder="e.g. M10"></label>
+          <label>Diameter<select id="atlas-diameter" class="input-field"><option value="">All</option><option value="3">3 mm</option><option value="4">4 mm</option><option value="5">5 mm</option><option value="6">6 mm</option><option value="8">8 mm</option><option value="10">10 mm</option><option value="12">12 mm</option><option value="16">16 mm</option><option value="20">20 mm</option></select></label>
+          <label>Series<select id="atlas-series" class="input-field"><option value="">All</option><option value="coarse">Coarse</option><option value="fine">Fine available</option></select></label>
+          <label>Pitch<select id="atlas-pitch" class="input-field"><option value="">All</option><option value="0.5">0.5 mm</option><option value="0.7">0.7 mm</option><option value="0.8">0.8 mm</option><option value="1">1 mm</option><option value="1.25">1.25 mm</option><option value="1.5">1.5 mm</option><option value="1.75">1.75 mm</option><option value="2">2 mm</option><option value="2.5">2.5 mm</option></select></label>
+          <label>ISO family<select id="atlas-iso" class="input-field"><option value="">All</option><option value="ISO 261">ISO 261</option><option value="ISO 262">ISO 262</option><option value="ISO 724">ISO 724</option><option value="ISO 965-1">ISO 965-1</option></select></label>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Metric thread table</h2>
+        <div class="chart-table-wrapper">
+          <table>
+            <thead><tr><th>Designation</th><th>Diameter (mm)</th><th>Coarse pitch</th><th>Fine pitches</th><th>Hex (mm)</th><th>Tap drill (mm)</th><th>Clearance holes C/N/L (mm)</th><th>ISO family</th></tr></thead>
+            <tbody id="atlas-body">
+<tr data-designation="M3" data-diameter="3" data-coarse="0.5" data-fine="" data-iso="ISO 261 / ISO 262">
+  <td>M3</td>
+  <td>3</td>
+  <td>0.5</td>
+  <td>-</td>
+  <td>5.5</td>
+  <td>2.5</td>
+  <td>3.2 / 3.4 / 3.6</td>
+  <td>ISO 261 / ISO 262</td>
+</tr>
+<tr data-designation="M4" data-diameter="4" data-coarse="0.7" data-fine="" data-iso="ISO 261 / ISO 262">
+  <td>M4</td>
+  <td>4</td>
+  <td>0.7</td>
+  <td>-</td>
+  <td>7</td>
+  <td>3.3</td>
+  <td>4.3 / 4.5 / 4.8</td>
+  <td>ISO 261 / ISO 262</td>
+</tr>
+<tr data-designation="M5" data-diameter="5" data-coarse="0.8" data-fine="" data-iso="ISO 261 / ISO 262">
+  <td>M5</td>
+  <td>5</td>
+  <td>0.8</td>
+  <td>-</td>
+  <td>8</td>
+  <td>4.2</td>
+  <td>5.3 / 5.5 / 5.8</td>
+  <td>ISO 261 / ISO 262</td>
+</tr>
+<tr data-designation="M6" data-diameter="6" data-coarse="1" data-fine="" data-iso="ISO 261 / ISO 262">
+  <td>M6</td>
+  <td>6</td>
+  <td>1</td>
+  <td>-</td>
+  <td>10</td>
+  <td>5</td>
+  <td>6.4 / 6.6 / 7</td>
+  <td>ISO 261 / ISO 262</td>
+</tr>
+<tr data-designation="M8" data-diameter="8" data-coarse="1.25" data-fine="1" data-iso="ISO 261 / ISO 262">
+  <td>M8</td>
+  <td>8</td>
+  <td>1.25</td>
+  <td>1</td>
+  <td>13</td>
+  <td>6.8</td>
+  <td>8.4 / 9 / 10</td>
+  <td>ISO 261 / ISO 262</td>
+</tr>
+<tr data-designation="M10" data-diameter="10" data-coarse="1.5" data-fine="1.25" data-iso="ISO 261 / ISO 262">
+  <td>M10</td>
+  <td>10</td>
+  <td>1.5</td>
+  <td>1.25</td>
+  <td>17</td>
+  <td>8.5</td>
+  <td>10.5 / 11 / 12</td>
+  <td>ISO 261 / ISO 262</td>
+</tr>
+<tr data-designation="M12" data-diameter="12" data-coarse="1.75" data-fine="1.25" data-iso="ISO 261 / ISO 262">
+  <td>M12</td>
+  <td>12</td>
+  <td>1.75</td>
+  <td>1.25</td>
+  <td>19</td>
+  <td>10.2</td>
+  <td>13 / 13.5 / 14.5</td>
+  <td>ISO 261 / ISO 262</td>
+</tr>
+<tr data-designation="M16" data-diameter="16" data-coarse="2" data-fine="1.5" data-iso="ISO 261 / ISO 262">
+  <td>M16</td>
+  <td>16</td>
+  <td>2</td>
+  <td>1.5</td>
+  <td>24</td>
+  <td>14</td>
+  <td>17 / 18 / 20</td>
+  <td>ISO 261 / ISO 262</td>
+</tr>
+<tr data-designation="M20" data-diameter="20" data-coarse="2.5" data-fine="2" data-iso="ISO 261 / ISO 262">
+  <td>M20</td>
+  <td>20</td>
+  <td>2.5</td>
+  <td>2</td>
+  <td>30</td>
+  <td>17.5</td>
+  <td>21 / 22 / 24</td>
+  <td>ISO 261 / ISO 262</td>
+</tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Related tools</h2>
+        <ul class="meta-list">
+          <li><a href="/tools/thread-identifier">Thread Identifier</a></li>
+          <li><a href="/tools/thread-pitch-to-tpi-converter">Thread Pitch Converter</a></li>
+          <li><a href="/tools/tap-drill-calculator">Tap Drill Calculator</a></li>
+          <li><a href="/charts/metric-thread-chart">Metric Thread Chart</a></li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Related standards</h2>
+        <ul class="meta-list">
+          <li><a href="/reference/iso-261-metric-thread-series">ISO 261</a></li>
+          <li><a href="/reference/iso-262-metric-thread-fine-series">ISO 262</a></li>
+          <li><a href="/reference/iso-724-thread-dimensions">ISO 724</a></li>
+          <li><a href="/reference/iso-thread-tolerances-explained">ISO 965-1</a></li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Download</h2>
+        <p><a href="/downloads/metric-thread-atlas.csv" download>Download metric thread atlas CSV</a></p>
+      </section>
+
+      <div class="ad-container">
+        <div class="ad-label">Sponsored</div>
+        <aside class="ad-slot ad-slot--inline" aria-label="Advertisement" data-ad-placeholder="true"></aside>
+      </div>
+    </article>
+    <aside class="sidebar-ad" aria-label="Advertisement">
+      <div class="ad-slot ad-slot--sidebar" data-ad-placeholder="true"></div>
+    </aside>
+  </div>
+  <div id="related-links" class="related-links" aria-label="Related links"></div>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <a class="footer-logo" href="/">BoltLab</a>
+        <p class="footer-tagline">Precision fastener tools for real-world use.</p>
+      </div>
+      <nav class="footer-nav footer-nav-center" aria-label="Product">
+        <a href="/tools/metric-to-imperial-screw-converter">Tools</a>
+        <a href="/charts/">Charts</a>
+        <a href="/sizes/">Sizes</a>
+        <a href="/guides/">Guides</a>
+      </nav>
+      <nav class="footer-nav footer-nav-right" aria-label="Company">
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+  <script>
+  (function() {
+    const searchEl = document.getElementById("atlas-search");
+    const diameterEl = document.getElementById("atlas-diameter");
+    const seriesEl = document.getElementById("atlas-series");
+    const pitchEl = document.getElementById("atlas-pitch");
+    const isoEl = document.getElementById("atlas-iso");
+    const rows = [...document.querySelectorAll("#atlas-body tr")];
+
+    function matchRow(row) {
+      const text = row.dataset.designation.toLowerCase();
+      const search = searchEl.value.trim().toLowerCase();
+      const diameter = diameterEl.value;
+      const series = seriesEl.value;
+      const pitch = pitchEl.value;
+      const iso = isoEl.value;
+
+      if (search && !text.includes(search)) return false;
+      if (diameter && row.dataset.diameter !== diameter) return false;
+      if (iso && row.dataset.iso !== iso) return false;
+      if (pitch) {
+        const coarse = row.dataset.coarse;
+        const fine = row.dataset.fine.split("|").filter(Boolean);
+        if (coarse !== pitch && !fine.includes(pitch)) return false;
+      }
+      if (series === "coarse" && !row.dataset.coarse) return false;
+      if (series === "fine" && !row.dataset.fine) return false;
+      return true;
+    }
+
+    function apply() {
+      rows.forEach((row) => {
+        row.style.display = matchRow(row) ? "" : "none";
+      });
+    }
+
+    [searchEl, diameterEl, seriesEl, pitchEl, isoEl].forEach((el) => {
+      el.addEventListener("input", apply);
+      el.addEventListener("change", apply);
+    });
+  })();
+  </script>
+  <script src="/js/link-engine.js" defer></script>
+  <script src="/js/context-anchor-engine.js" defer></script>
+  <script src="/js/anchor-engine.js" defer></script>
+  <script src="/js/ads-layout.js" defer></script>
+</body>
+</html>

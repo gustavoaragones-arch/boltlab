@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://boltlab.io/schemas/dataset.schema.json",
+  "title": "BoltLab Engineering Dataset",
+  "type": "object",
+  "required": [
+    "dataset_id",
+    "id",
+    "title",
+    "schema_version",
+    "verified",
+    "verification_method",
+    "primary_sources",
+    "last_reviewed",
+    "license_notes",
+    "units",
+    "precision",
+    "source_standards",
+    "version",
+    "created",
+    "updated",
+    "records"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+    "dataset_id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+    "title": { "type": "string" },
+    "schema_version": { "type": "string" },
+    "verified": { "type": "boolean" },
+    "verification_method": { "type": "string" },
+    "primary_sources": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "last_reviewed": { "type": "string", "format": "date" },
+    "license_notes": { "type": "string" },
+    "units": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "precision": {
+      "type": "object",
+      "additionalProperties": {
+        "type": [
+          "number",
+          "string"
+        ]
+      }
+    },
+    "source_standards": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+    },
+    "version": { "type": "string", "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "created": { "type": "string", "format": "date" },
+    "updated": { "type": "string", "format": "date" },
+    "records": {
+      "type": "array",
+      "items": { "type": "object" }
+    }
+  }
+}

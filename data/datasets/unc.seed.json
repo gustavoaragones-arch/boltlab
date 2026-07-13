@@ -1,0 +1,72 @@
+{
+  "dataset_id": "unc_threads",
+  "id": "unc_threads",
+  "title": "UNC Thread Seed Dataset",
+  "schema_version": "v1",
+  "verified": true,
+  "verification_method": "Public engineering reference synthesis reviewed for BoltLab atlas planning.",
+  "primary_sources": [
+    "ASME B1.1 public summary metadata",
+    "BoltLab internal engineering review"
+  ],
+  "last_reviewed": "2026-07-12",
+  "license_notes": "Dataset values are interpreted engineering reference values; no copyrighted standards tables are reproduced.",
+  "units": {
+    "diameter": "inch",
+    "pitch": "tpi"
+  },
+  "precision": {
+    "diameter": 0.001,
+    "pitch": "integer"
+  },
+  "source_standards": [
+    "asme_b1_1"
+  ],
+  "version": "v0.1.0",
+  "created": "2026-07-12",
+  "updated": "2026-07-12",
+  "records": [
+    {
+      "designation": "1/4-20 UNC",
+      "nominal_diameter_in": 0.25,
+      "threads_per_inch": 20,
+      "thread_series": "UNC",
+      "hex_head_in": 0.438,
+      "tap_drill_in": 0.201,
+      "clearance_hole_close_in": 0.257,
+      "clearance_hole_normal_in": 0.266,
+      "clearance_hole_loose_in": 0.281,
+      "standards_family": "ASME B1.1",
+      "data_status": "verified-summary-only",
+      "notes": "Representative atlas row for unified thread explorer."
+    },
+    {
+      "designation": "5/16-18 UNC",
+      "nominal_diameter_in": 0.313,
+      "threads_per_inch": 18,
+      "thread_series": "UNC",
+      "hex_head_in": 0.5,
+      "tap_drill_in": 0.257,
+      "clearance_hole_close_in": 0.323,
+      "clearance_hole_normal_in": 0.332,
+      "clearance_hole_loose_in": 0.348,
+      "standards_family": "ASME B1.1",
+      "data_status": "verified-summary-only",
+      "notes": "Representative atlas row for unified thread explorer."
+    },
+    {
+      "designation": "3/8-16 UNC",
+      "nominal_diameter_in": 0.375,
+      "threads_per_inch": 16,
+      "thread_series": "UNC",
+      "hex_head_in": 0.563,
+      "tap_drill_in": 0.3125,
+      "clearance_hole_close_in": 0.386,
+      "clearance_hole_normal_in": 0.397,
+      "clearance_hole_loose_in": 0.413,
+      "standards_family": "ASME B1.1",
+      "data_status": "verified-summary-only",
+      "notes": "Representative atlas row for unified thread explorer."
+    }
+  ]
+}

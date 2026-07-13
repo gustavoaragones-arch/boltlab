@@ -1,0 +1,475 @@
+{
+  "version": "v0.1.0",
+  "created": "2026-07-12",
+  "updated": "2026-07-12",
+  "records": [
+    {
+      "id": "pitch_diameter",
+      "title": "Pitch Diameter",
+      "aliases": [
+        "effective diameter"
+      ],
+      "entity_type": "thread_geometry",
+      "engineering_summary": "Primary functional diameter controlling thread fit behavior.",
+      "definition": "Diameter where thread ridge and groove widths are equal, commonly used as the functional fit control dimension.",
+      "related_entities": [
+        "major_diameter",
+        "minor_diameter",
+        "tolerance_zone",
+        "thread_pitch"
+      ],
+      "related_standards": [
+        "iso_724",
+        "iso_965_1"
+      ],
+      "related_datasets": [
+        "metric_threads",
+        "unc_threads"
+      ],
+      "related_pages": [
+        "/reference/pitch-diameter-explained",
+        "/reference/thread-fit-classes-explained"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier"
+      ],
+      "related_charts": [
+        "/charts/metric-thread-chart"
+      ],
+      "related_guides": [
+        "/guides/metric-thread-tolerances"
+      ],
+      "keywords": [
+        "pitch diameter",
+        "functional diameter",
+        "thread fit"
+      ],
+      "search_aliases": [
+        "thread effective diameter",
+        "pd thread"
+      ],
+      "svg_asset": "/images/threads/iso_metric_m.svg",
+      "status": "active",
+      "created": "2026-07-12",
+      "updated": "2026-07-12",
+      "version": "v0.1.0"
+    },
+    {
+      "id": "major_diameter",
+      "title": "Major Diameter",
+      "aliases": [
+        "outside diameter"
+      ],
+      "entity_type": "thread_geometry",
+      "engineering_summary": "Largest diameter of a thread profile used in nominal designation.",
+      "definition": "Maximum diameter measured at thread crest for external threads or thread root envelope for internal profiles.",
+      "related_entities": [
+        "minor_diameter",
+        "pitch_diameter",
+        "thread_pitch"
+      ],
+      "related_standards": [
+        "iso_68_1",
+        "iso_724"
+      ],
+      "related_datasets": [
+        "metric_threads",
+        "unc_threads"
+      ],
+      "related_pages": [
+        "/reference/thread-tolerances"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier"
+      ],
+      "related_charts": [
+        "/charts/metric-thread-chart"
+      ],
+      "related_guides": [
+        "/guides/thread-types-explained"
+      ],
+      "keywords": [
+        "major diameter",
+        "outside diameter"
+      ],
+      "search_aliases": [
+        "thread od"
+      ],
+      "svg_asset": null,
+      "status": "active",
+      "created": "2026-07-12",
+      "updated": "2026-07-12",
+      "version": "v0.1.0"
+    },
+    {
+      "id": "minor_diameter",
+      "title": "Minor Diameter",
+      "aliases": [
+        "root diameter"
+      ],
+      "entity_type": "thread_geometry",
+      "engineering_summary": "Smallest diameter associated with thread roots.",
+      "definition": "Minimum thread diameter measured near root geometry and used for strength and engagement interpretation.",
+      "related_entities": [
+        "major_diameter",
+        "pitch_diameter"
+      ],
+      "related_standards": [
+        "iso_68_1",
+        "iso_724"
+      ],
+      "related_datasets": [
+        "metric_threads"
+      ],
+      "related_pages": [
+        "/reference/thread-tolerances"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier"
+      ],
+      "related_charts": [
+        "/charts/metric-thread-chart"
+      ],
+      "related_guides": [
+        "/guides/thread-types-explained"
+      ],
+      "keywords": [
+        "minor diameter",
+        "root diameter"
+      ],
+      "search_aliases": [
+        "thread root dia"
+      ],
+      "svg_asset": null,
+      "status": "active",
+      "created": "2026-07-12",
+      "updated": "2026-07-12",
+      "version": "v0.1.0"
+    },
+    {
+      "id": "allowance",
+      "title": "Allowance",
+      "aliases": [
+        "intentional offset"
+      ],
+      "entity_type": "tolerance_concept",
+      "engineering_summary": "Intentional dimensional difference used to establish fit baseline.",
+      "definition": "Planned offset between mating parts that sets nominal clearance or interference before manufacturing variation is applied.",
+      "related_entities": [
+        "tolerance_zone",
+        "fit_class_6g",
+        "fit_class_6h"
+      ],
+      "related_standards": [
+        "iso_965_1",
+        "asme_b1_1"
+      ],
+      "related_datasets": [
+        "metric_threads",
+        "unc_threads"
+      ],
+      "related_pages": [
+        "/reference/allowance-vs-tolerance"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier"
+      ],
+      "related_charts": [
+        "/charts/metric-vs-imperial-chart"
+      ],
+      "related_guides": [
+        "/guides/metric-thread-tolerances"
+      ],
+      "keywords": [
+        "allowance",
+        "fit strategy"
+      ],
+      "search_aliases": [
+        "thread allowance meaning"
+      ],
+      "svg_asset": null,
+      "status": "active",
+      "created": "2026-07-12",
+      "updated": "2026-07-12",
+      "version": "v0.1.0"
+    },
+    {
+      "id": "tolerance_zone",
+      "title": "Tolerance Zone",
+      "aliases": [
+        "zone position"
+      ],
+      "entity_type": "tolerance_concept",
+      "engineering_summary": "Range location and width controlling allowable variation around nominal form.",
+      "definition": "Bounded dimensional range assigned by class notation that defines permissible manufacturing variation for a thread element.",
+      "related_entities": [
+        "allowance",
+        "fit_class_6h",
+        "fit_class_6g"
+      ],
+      "related_standards": [
+        "iso_965_1"
+      ],
+      "related_datasets": [
+        "metric_threads"
+      ],
+      "related_pages": [
+        "/reference/tolerance-zones-explained"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier"
+      ],
+      "related_charts": [
+        "/charts/metric-thread-chart"
+      ],
+      "related_guides": [
+        "/guides/metric-thread-tolerances"
+      ],
+      "keywords": [
+        "tolerance zone",
+        "fit class zone"
+      ],
+      "search_aliases": [
+        "thread zone meaning"
+      ],
+      "svg_asset": null,
+      "status": "active",
+      "created": "2026-07-12",
+      "updated": "2026-07-12",
+      "version": "v0.1.0"
+    },
+    {
+      "id": "thread_pitch",
+      "title": "Thread Pitch",
+      "aliases": [
+        "pitch",
+        "tpi equivalent"
+      ],
+      "entity_type": "thread_geometry",
+      "engineering_summary": "Axial distance between adjacent thread forms.",
+      "definition": "Linear distance measured parallel to thread axis between corresponding points on adjacent thread profiles.",
+      "related_entities": [
+        "pitch_diameter",
+        "thread_system_unc",
+        "fit_class_6g"
+      ],
+      "related_standards": [
+        "iso_261",
+        "iso_262",
+        "asme_b1_1"
+      ],
+      "related_datasets": [
+        "metric_threads",
+        "unc_threads"
+      ],
+      "related_pages": [
+        "/reference/thread-tolerances"
+      ],
+      "related_tools": [
+        "/tools/thread-pitch-to-tpi-converter"
+      ],
+      "related_charts": [
+        "/charts/metric-thread-chart",
+        "/charts/unc-thread-chart"
+      ],
+      "related_guides": [
+        "/guides/how-to-measure-thread-pitch"
+      ],
+      "keywords": [
+        "thread pitch",
+        "tpi conversion"
+      ],
+      "search_aliases": [
+        "pitch to tpi"
+      ],
+      "svg_asset": "/images/threads/iso_metric_m.svg",
+      "status": "active",
+      "created": "2026-07-12",
+      "updated": "2026-07-12",
+      "version": "v0.1.0"
+    },
+    {
+      "id": "iso_965",
+      "title": "ISO 965 Tolerance System",
+      "aliases": [
+        "iso 965",
+        "metric fit classes"
+      ],
+      "entity_type": "standard_concept",
+      "engineering_summary": "ISO tolerance class framework for metric screw threads.",
+      "definition": "Concept entity linking metric thread fit class interpretation to the ISO 965 standards family.",
+      "related_entities": [
+        "fit_class_6h",
+        "fit_class_6g",
+        "tolerance_zone"
+      ],
+      "related_standards": [
+        "iso_965_1"
+      ],
+      "related_datasets": [
+        "metric_threads"
+      ],
+      "related_pages": [
+        "/reference/iso-thread-tolerances-explained"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier"
+      ],
+      "related_charts": [
+        "/charts/metric-thread-chart"
+      ],
+      "related_guides": [
+        "/guides/metric-thread-tolerances"
+      ],
+      "keywords": [
+        "iso 965",
+        "metric tolerance class"
+      ],
+      "search_aliases": [
+        "6h 6g standard"
+      ],
+      "svg_asset": null,
+      "status": "active",
+      "created": "2026-07-12",
+      "updated": "2026-07-12",
+      "version": "v0.1.0"
+    },
+    {
+      "id": "fit_class_6h",
+      "title": "Fit Class 6H",
+      "aliases": [
+        "6H internal class"
+      ],
+      "entity_type": "fit_class",
+      "engineering_summary": "Common internal metric thread class in general engineering use.",
+      "definition": "Internal metric thread class notation used in ISO system with class grade and zone designation.",
+      "related_entities": [
+        "fit_class_6g",
+        "tolerance_zone",
+        "allowance"
+      ],
+      "related_standards": [
+        "iso_965_1"
+      ],
+      "related_datasets": [
+        "metric_threads"
+      ],
+      "related_pages": [
+        "/reference/6h-vs-6g",
+        "/reference/thread-fit-classes-explained"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier"
+      ],
+      "related_charts": [
+        "/charts/metric-thread-chart"
+      ],
+      "related_guides": [
+        "/guides/metric-thread-tolerances"
+      ],
+      "keywords": [
+        "6H",
+        "internal class"
+      ],
+      "search_aliases": [
+        "metric thread 6h"
+      ],
+      "svg_asset": null,
+      "status": "active",
+      "created": "2026-07-12",
+      "updated": "2026-07-12",
+      "version": "v0.1.0"
+    },
+    {
+      "id": "fit_class_6g",
+      "title": "Fit Class 6g",
+      "aliases": [
+        "6g external class"
+      ],
+      "entity_type": "fit_class",
+      "engineering_summary": "Common external metric thread class in general engineering use.",
+      "definition": "External metric thread class notation used in ISO system with class grade and zone designation.",
+      "related_entities": [
+        "fit_class_6h",
+        "tolerance_zone",
+        "allowance"
+      ],
+      "related_standards": [
+        "iso_965_1"
+      ],
+      "related_datasets": [
+        "metric_threads"
+      ],
+      "related_pages": [
+        "/reference/6g-vs-6h",
+        "/reference/thread-fit-classes-explained"
+      ],
+      "related_tools": [
+        "/tools/thread-identifier"
+      ],
+      "related_charts": [
+        "/charts/metric-thread-chart"
+      ],
+      "related_guides": [
+        "/guides/metric-thread-tolerances"
+      ],
+      "keywords": [
+        "6g",
+        "external class"
+      ],
+      "search_aliases": [
+        "metric thread 6g"
+      ],
+      "svg_asset": null,
+      "status": "active",
+      "created": "2026-07-12",
+      "updated": "2026-07-12",
+      "version": "v0.1.0"
+    },
+    {
+      "id": "thread_system_unc",
+      "title": "UNC Thread System",
+      "aliases": [
+        "unified coarse"
+      ],
+      "entity_type": "thread_system",
+      "engineering_summary": "Unified inch coarse thread system used broadly in imperial fastener ecosystems.",
+      "definition": "Unified coarse thread series defined in inch units and organized by nominal diameter and threads per inch.",
+      "related_entities": [
+        "thread_pitch",
+        "allowance"
+      ],
+      "related_standards": [
+        "asme_b1_1"
+      ],
+      "related_datasets": [
+        "unc_threads"
+      ],
+      "related_pages": [
+        "/reference/thread-tolerances"
+      ],
+      "related_tools": [
+        "/tools/metric-to-imperial-screw-converter"
+      ],
+      "related_charts": [
+        "/charts/unc-thread-chart",
+        "/charts/metric-vs-imperial-chart"
+      ],
+      "related_guides": [
+        "/guides/metric-vs-imperial-fasteners"
+      ],
+      "keywords": [
+        "unc",
+        "unified coarse"
+      ],
+      "search_aliases": [
+        "unc thread table"
+      ],
+      "svg_asset": "/images/threads/unified_coarse_unc.svg",
+      "status": "active",
+      "created": "2026-07-12",
+      "updated": "2026-07-12",
+      "version": "v0.1.0"
+    }
+  ]
+}

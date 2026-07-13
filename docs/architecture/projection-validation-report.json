@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-07-13T03:22:42.984Z",
+  "summary": {
+    "status": "pass",
+    "errors": 0,
+    "warnings": 0,
+    "counts": {
+      "projections": 9
+    }
+  },
+  "checks": [
+    {
+      "name": "Invalid Schemas",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Duplicate Projections",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Unknown Entities and Missing References",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Orphan Projections",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}

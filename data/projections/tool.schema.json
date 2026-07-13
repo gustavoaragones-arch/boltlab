@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://boltlab.io/schemas/projections/tool.schema.json",
+  "title": "BoltLab Tool Projection",
+  "type": "object",
+  "required": [
+    "id",
+    "projection_type",
+    "entity_ids",
+    "dataset_ids",
+    "standard_ids",
+    "route_hint",
+    "title",
+    "input_contract",
+    "output_contract",
+    "version",
+    "created",
+    "updated"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+    "projection_type": { "type": "string", "const": "tool" },
+    "entity_ids": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+    },
+    "dataset_ids": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+    },
+    "standard_ids": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+    },
+    "route_hint": { "type": "string", "pattern": "^/" },
+    "title": { "type": "string" },
+    "input_contract": { "type": "object" },
+    "output_contract": { "type": "object" },
+    "version": { "type": "string", "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "created": { "type": "string", "format": "date" },
+    "updated": { "type": "string", "format": "date" }
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "id": "reference_iso_724",
+  "projection_type": "reference_page",
+  "entity_id": "iso_965",
+  "standard_id": "iso_724",
+  "route_hint": "/reference/iso-724-thread-dimensions",
+  "canonical_url": "https://boltlab.io/reference/iso-724-thread-dimensions",
+  "title": "ISO 724 Metric Thread Dimensions",
+  "hero_subtitle": "Basic dimensions framework for ISO metric thread geometry.",
+  "meta_description": "ISO 724 explained with focus on metric thread basic dimensions, geometric interpretation, and how designers connect profile definitions to tolerance cla...",
+  "quick_reference": {
+    "primary_entity_id": "iso_965",
+    "related_entity_ids": [
+      "pitch_diameter",
+      "major_diameter",
+      "minor_diameter"
+    ],
+    "standard_ids": [
+      "iso_724",
+      "iso_68_1",
+      "iso_261",
+      "iso_965_1"
+    ],
+    "dataset_ids": [
+      "metric_threads"
+    ]
+  },
+  "engineering_summary": {
+    "source_entity_id": "iso_965",
+    "strategy": "entity.engineering_summary"
+  },
+  "overview": "Referenced where pitch diameter and related geometry fields are discussed.",
+  "coverage_points": [
+    "Defines basic dimension relationships for metric thread geometry.",
+    "Connects nominal designation planning to geometric dimension references.",
+    "Provides dimensional context before class-based tolerance interpretation."
+  ],
+  "use_cases": [
+    "Checking dimensional assumptions during thread specification.",
+    "Coordinating CAD models with drawing-level thread notation.",
+    "Reviewing metrology plans against basic geometry expectations."
+  ],
+  "table": {
+    "title": "ISO 724 dimensional workflow map",
+    "columns": [
+      "Dimension context",
+      "ISO 724 contribution",
+      "Related concept"
+    ],
+    "rows": [
+      [
+        "Basic geometry",
+        "Defines metric dimension framework",
+        "Pitch diameter"
+      ],
+      [
+        "Designation alignment",
+        "Bridges nominal callout to geometry",
+        "Thread pitch"
+      ],
+      [
+        "Tolerance readiness",
+        "Supplies pre-tolerance dimension context",
+        "Tolerance zone"
+      ]
+    ]
+  },
+  "faq": [
+    {
+      "id": "iso_724_faq_scope",
+      "question": "What does ISO 724 Metric Thread Dimensions primarily define?",
+      "answer_text": "ISO 724 Metric Thread Dimensions provides engineering guidance for one part of thread specification workflow and is used alongside related ISO standards rather than in isolation.",
+      "answer_html": "ISO 724 Metric Thread Dimensions provides engineering guidance for one part of thread specification workflow and is used alongside related ISO standards rather than in isolation.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "thread_pitch"
+      }
+    },
+    {
+      "id": "iso_724_faq_usage",
+      "question": "When do engineers typically use this standard?",
+      "answer_text": "Engineers use it when selecting, validating, or reviewing thread specifications and coordinating drawings, metrology, and production decisions.",
+      "answer_html": "Engineers use it when selecting, validating, or reviewing thread specifications and coordinating drawings, metrology, and production decisions.",
+      "answer_source": {
+        "type": "entity_summary",
+        "entity_id": "thread_pitch"
+      }
+    },
+    {
+      "id": "iso_724_faq_tools",
+      "question": "How does BoltLab help interpret this standard?",
+      "answer_text": "BoltLab tools and charts accelerate identification, comparison, and tolerance-context checks while final release values still come from approved standards documents.",
+      "answer_html": "BoltLab tools and charts accelerate identification, comparison, and tolerance-context checks while final release values still come from approved standards documents.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "pitch_diameter"
+      }
+    },
+    {
+      "id": "iso_724_faq_copyright",
+      "question": "Does this page reproduce copyrighted standards tables?",
+      "answer_text": "No. BoltLab provides public-summary explanations, engineering context, and workflow guidance without reproducing protected standards text.",
+      "answer_html": "No. BoltLab provides public-summary explanations, engineering context, and workflow guidance without reproducing protected standards text.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "iso_965"
+      }
+    },
+    {
+      "id": "iso_724_faq_next",
+      "question": "Which related standard should I review next?",
+      "answer_text": "Use the Related Standards section to move through profile, designation, dimensions, and tolerance standards in a coherent sequence.",
+      "answer_html": "Use the Related Standards section to move through profile, designation, dimensions, and tolerance standards in a coherent sequence.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "iso_965"
+      }
+    }
+  ],
+  "related_entities": [
+    "pitch_diameter",
+    "major_diameter",
+    "minor_diameter"
+  ],
+  "related_standards": [
+    "iso_724",
+    "iso_68_1",
+    "iso_261",
+    "iso_965_1"
+  ],
+  "related_standard_ids": [
+    "iso_68_1",
+    "iso_261",
+    "iso_965_1"
+  ],
+  "related_datasets": [
+    "metric_threads"
+  ],
+  "related_tools": [
+    "/tools/thread-identifier",
+    "/tools/thread-pitch-to-tpi-converter",
+    "/tools/tap-drill-calculator"
+  ],
+  "related_charts": [
+    "/charts/metric-thread-chart",
+    "/charts/metric-vs-imperial-chart"
+  ],
+  "related_guides": [
+    "/guides/metric-thread-tolerances",
+    "/guides/thread-types-explained"
+  ],
+  "schema": {
+    "source_entity_id": "iso_965",
+    "types": [
+      "Article",
+      "FAQPage",
+      "BreadcrumbList",
+      "WebPage"
+    ]
+  },
+  "status": "active",
+  "version": "v0.1.0",
+  "created": "2026-07-12",
+  "updated": "2026-07-12"
+}

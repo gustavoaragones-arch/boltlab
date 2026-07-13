@@ -1,0 +1,46 @@
+{
+  "generated_at": "2026-07-13T03:22:43.110Z",
+  "summary": {
+    "status": "pass",
+    "errors": 0,
+    "warnings": 0,
+    "counts": {
+      "entities": 10,
+      "standards": 6,
+      "datasets": 3,
+      "relationships": 26
+    }
+  },
+  "checks": [
+    {
+      "name": "Schema Field Completeness",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Duplicate ID Detection",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Reference Integrity",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Graph Health",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Asset and Generator Consistency",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "id": "reference_standards_iso_family",
+  "projection_type": "reference_page",
+  "entity_id": "iso_965",
+  "route_hint": "/reference/standards/iso",
+  "canonical_url": "https://boltlab.io/reference/standards/iso",
+  "title": "ISO Standards for Threads",
+  "hero_subtitle": "ISO standards sequence from profile to tolerance interpretation.",
+  "meta_description": "ISO standards family overview connecting ISO 68-1, 261, 262, 724, and 965 with generated fine-pitch table context for engineering specification workflows.",
+  "quick_reference": {
+    "primary_entity_id": "iso_965",
+    "related_entity_ids": [
+      "thread_pitch",
+      "pitch_diameter",
+      "tolerance_zone"
+    ],
+    "standard_ids": [
+      "iso_68_1",
+      "iso_261",
+      "iso_262",
+      "iso_724",
+      "iso_965_1"
+    ],
+    "dataset_ids": [
+      "metric_threads"
+    ]
+  },
+  "engineering_summary": {
+    "source_entity_id": "iso_965",
+    "strategy": "entity.engineering_summary"
+  },
+  "overview": "ISO thread standards are most effective when used as a sequence: profile (ISO 68-1), designation (ISO 261 and ISO 262), dimensions (ISO 724), then tolerances (ISO 965-1).",
+  "coverage_points": [
+    "Profiles and terminology are anchored in ISO 68-1.",
+    "Designation planning is covered by ISO 261 and ISO 262.",
+    "Dimensional interpretation and tolerance behavior use ISO 724 and ISO 965-1."
+  ],
+  "use_cases": [
+    "Training new engineers on standards sequencing.",
+    "Aligning design-release checklists for thread callouts.",
+    "Connecting standards references to practical tool workflows."
+  ],
+  "table": {
+    "title": "Metric fine pitch table (generated from verified dataset)",
+    "columns": [
+      "Designation",
+      "Nominal diameter (mm)",
+      "Pitch (mm)"
+    ],
+    "rows": [
+      [
+        "M10x1.25",
+        "10",
+        "1.25"
+      ],
+      [
+        "M12x1.25",
+        "12",
+        "1.25"
+      ]
+    ]
+  },
+  "related_reference_routes": [
+    "/reference/iso-68-thread-profile",
+    "/reference/iso-261-metric-thread-series",
+    "/reference/iso-262-metric-thread-fine-series",
+    "/reference/iso-724-thread-dimensions",
+    "/reference/iso-thread-tolerances-explained"
+  ],
+  "faq": [
+    {
+      "id": "standards_hub_scope",
+      "question": "How is this standards hub different from a list of links?",
+      "answer_text": "It maps standards families to engineering workflow decisions and shows how standards connect to tools, charts, and concept pages.",
+      "answer_html": "It maps standards families to engineering workflow decisions and shows how standards connect to tools, charts, and concept pages.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "iso_965"
+      }
+    },
+    {
+      "id": "standards_hub_iso_question",
+      "question": "Which ISO standard defines metric thread profiles?",
+      "answer_text": "ISO 68-1 covers the basic profile while ISO 724 and ISO 965-1 provide dimensional and tolerance context.",
+      "answer_html": "ISO 68-1 covers the basic profile while ISO 724 and ISO 965-1 provide dimensional and tolerance context.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "pitch_diameter"
+      }
+    },
+    {
+      "id": "standards_hub_tolerance_question",
+      "question": "Which standard covers thread tolerances?",
+      "answer_text": "ISO 965-1 is the primary ISO tolerance framework for metric threads.",
+      "answer_html": "ISO 965-1 is the primary ISO tolerance framework for metric threads.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "tolerance_zone"
+      }
+    },
+    {
+      "id": "standards_hub_relation_question",
+      "question": "How does ISO 724 relate to ISO 965?",
+      "answer_text": "ISO 724 establishes basic dimension context that ISO 965-1 builds on for tolerance interpretation.",
+      "answer_html": "ISO 724 establishes basic dimension context that ISO 965-1 builds on for tolerance interpretation.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "pitch_diameter"
+      }
+    },
+    {
+      "id": "standards_hub_tools_question",
+      "question": "Which BoltLab tools use this standards context?",
+      "answer_text": "Thread Identifier, Thread Pitch Converter, and Tap Drill Calculator all depend on standards-grounded interpretation workflows.",
+      "answer_html": "Thread Identifier, Thread Pitch Converter, and Tap Drill Calculator all depend on standards-grounded interpretation workflows.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "thread_pitch"
+      }
+    }
+  ],
+  "related_entities": [
+    "thread_pitch",
+    "pitch_diameter",
+    "tolerance_zone"
+  ],
+  "related_standards": [
+    "iso_68_1",
+    "iso_261",
+    "iso_262",
+    "iso_724",
+    "iso_965_1"
+  ],
+  "related_standard_ids": [
+    "iso_68_1",
+    "iso_261",
+    "iso_262",
+    "iso_724",
+    "iso_965_1"
+  ],
+  "related_datasets": [
+    "metric_threads"
+  ],
+  "related_tools": [
+    "/tools/thread-identifier",
+    "/tools/thread-pitch-to-tpi-converter",
+    "/tools/tap-drill-calculator"
+  ],
+  "related_charts": [
+    "/charts/metric-thread-chart",
+    "/charts/unc-thread-chart",
+    "/charts/metric-vs-imperial-chart"
+  ],
+  "related_guides": [
+    "/guides/metric-thread-tolerances"
+  ],
+  "schema": {
+    "source_entity_id": "iso_965",
+    "types": [
+      "Article",
+      "FAQPage",
+      "BreadcrumbList",
+      "WebPage"
+    ]
+  },
+  "status": "active",
+  "version": "v0.1.0",
+  "created": "2026-07-12",
+  "updated": "2026-07-12"
+}

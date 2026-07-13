@@ -1,0 +1,165 @@
+{
+  "id": "reference_iso_262",
+  "projection_type": "reference_page",
+  "entity_id": "iso_965",
+  "standard_id": "iso_262",
+  "route_hint": "/reference/iso-262-metric-thread-fine-series",
+  "canonical_url": "https://boltlab.io/reference/iso-262-metric-thread-fine-series",
+  "title": "ISO 262 Metric Fine Thread Series",
+  "hero_subtitle": "Selected fine-pitch metric thread combinations.",
+  "meta_description": "ISO 262 explained for fine metric thread selections, when engineers choose fine pitch, and how it connects to ISO 261 planning and ISO 965 tolerance cla...",
+  "quick_reference": {
+    "primary_entity_id": "iso_965",
+    "related_entity_ids": [
+      "thread_pitch",
+      "pitch_diameter",
+      "thread_system_unc"
+    ],
+    "standard_ids": [
+      "iso_262",
+      "iso_261",
+      "iso_724",
+      "iso_965_1"
+    ],
+    "dataset_ids": [
+      "metric_threads"
+    ]
+  },
+  "engineering_summary": {
+    "source_entity_id": "iso_965",
+    "strategy": "entity.engineering_summary"
+  },
+  "overview": "Referenced for fine-pitch metric thread selection and designation consistency in engineering workflows.",
+  "coverage_points": [
+    "Defines selected metric fine thread diameter and pitch combinations.",
+    "Complements ISO 261 by focusing on fine-pitch series use cases.",
+    "Supports controlled selection where finer lead and engagement are needed."
+  ],
+  "use_cases": [
+    "Choosing fine-pitch variants for constrained assemblies.",
+    "Balancing thread engagement behavior with design constraints.",
+    "Preparing specification decisions before tolerance checks."
+  ],
+  "table": {
+    "title": "ISO 262 fine-series selection context",
+    "columns": [
+      "Fine-series use case",
+      "Why ISO 262 is consulted",
+      "Connected standard"
+    ],
+    "rows": [
+      [
+        "Compact assembly interfaces",
+        "Fine pitch option guidance",
+        "ISO 261"
+      ],
+      [
+        "Adjustment-sensitive designs",
+        "Selected fine combinations",
+        "ISO 724"
+      ],
+      [
+        "Tolerance-sensitive fit checks",
+        "Fine-series designation context",
+        "ISO 965-1"
+      ]
+    ]
+  },
+  "faq": [
+    {
+      "id": "iso_262_faq_scope",
+      "question": "What does ISO 262 Metric Fine Thread Series primarily define?",
+      "answer_text": "ISO 262 Metric Fine Thread Series provides engineering guidance for one part of thread specification workflow and is used alongside related ISO standards rather than in isolation.",
+      "answer_html": "ISO 262 Metric Fine Thread Series provides engineering guidance for one part of thread specification workflow and is used alongside related ISO standards rather than in isolation.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "thread_pitch"
+      }
+    },
+    {
+      "id": "iso_262_faq_usage",
+      "question": "When do engineers typically use this standard?",
+      "answer_text": "Engineers use it when selecting, validating, or reviewing thread specifications and coordinating drawings, metrology, and production decisions.",
+      "answer_html": "Engineers use it when selecting, validating, or reviewing thread specifications and coordinating drawings, metrology, and production decisions.",
+      "answer_source": {
+        "type": "entity_summary",
+        "entity_id": "thread_pitch"
+      }
+    },
+    {
+      "id": "iso_262_faq_tools",
+      "question": "How does BoltLab help interpret this standard?",
+      "answer_text": "BoltLab tools and charts accelerate identification, comparison, and tolerance-context checks while final release values still come from approved standards documents.",
+      "answer_html": "BoltLab tools and charts accelerate identification, comparison, and tolerance-context checks while final release values still come from approved standards documents.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "pitch_diameter"
+      }
+    },
+    {
+      "id": "iso_262_faq_copyright",
+      "question": "Does this page reproduce copyrighted standards tables?",
+      "answer_text": "No. BoltLab provides public-summary explanations, engineering context, and workflow guidance without reproducing protected standards text.",
+      "answer_html": "No. BoltLab provides public-summary explanations, engineering context, and workflow guidance without reproducing protected standards text.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "iso_965"
+      }
+    },
+    {
+      "id": "iso_262_faq_next",
+      "question": "Which related standard should I review next?",
+      "answer_text": "Use the Related Standards section to move through profile, designation, dimensions, and tolerance standards in a coherent sequence.",
+      "answer_html": "Use the Related Standards section to move through profile, designation, dimensions, and tolerance standards in a coherent sequence.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "iso_965"
+      }
+    }
+  ],
+  "related_entities": [
+    "thread_pitch",
+    "pitch_diameter",
+    "thread_system_unc"
+  ],
+  "related_standards": [
+    "iso_262",
+    "iso_261",
+    "iso_724",
+    "iso_965_1"
+  ],
+  "related_standard_ids": [
+    "iso_261",
+    "iso_724",
+    "iso_965_1"
+  ],
+  "related_datasets": [
+    "metric_threads"
+  ],
+  "related_tools": [
+    "/tools/thread-identifier",
+    "/tools/thread-pitch-to-tpi-converter",
+    "/tools/tap-drill-calculator"
+  ],
+  "related_charts": [
+    "/charts/metric-thread-chart",
+    "/charts/metric-vs-imperial-chart"
+  ],
+  "related_guides": [
+    "/guides/metric-thread-tolerances",
+    "/guides/thread-types-explained"
+  ],
+  "schema": {
+    "source_entity_id": "iso_965",
+    "types": [
+      "Article",
+      "FAQPage",
+      "BreadcrumbList",
+      "WebPage"
+    ]
+  },
+  "status": "active",
+  "version": "v0.1.0",
+  "created": "2026-07-12",
+  "updated": "2026-07-12"
+}

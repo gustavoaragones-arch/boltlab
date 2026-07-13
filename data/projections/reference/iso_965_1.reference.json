@@ -1,0 +1,169 @@
+{
+  "id": "reference_iso_965_1",
+  "projection_type": "reference_page",
+  "entity_id": "iso_965",
+  "standard_id": "iso_965_1",
+  "route_hint": "/reference/iso-thread-tolerances-explained",
+  "canonical_url": "https://boltlab.io/reference/iso-thread-tolerances-explained",
+  "title": "ISO 965 Thread Tolerances Explained",
+  "hero_subtitle": "Tolerance principles and fit-class interpretation for metric threads.",
+  "meta_description": "ISO 965 explained for thread tolerance principles, fit-class interpretation, and relationships to ISO 724 dimensions and practical BoltLab identificatio...",
+  "quick_reference": {
+    "primary_entity_id": "iso_965",
+    "related_entity_ids": [
+      "iso_965",
+      "fit_class_6h",
+      "fit_class_6g",
+      "tolerance_zone",
+      "allowance"
+    ],
+    "standard_ids": [
+      "iso_965_1",
+      "iso_724",
+      "iso_261",
+      "iso_68_1"
+    ],
+    "dataset_ids": [
+      "metric_threads"
+    ]
+  },
+  "engineering_summary": {
+    "source_entity_id": "iso_965",
+    "strategy": "entity.engineering_summary"
+  },
+  "overview": "Primary tolerance-class reference for 6H, 6g, zone interpretation, and allowance explanations.",
+  "coverage_points": [
+    "Defines tolerance principles for ISO metric screw threads.",
+    "Explains class notation logic for internal and external threads.",
+    "Supports fit interpretation and specification governance in production workflows."
+  ],
+  "use_cases": [
+    "Selecting and interpreting fit classes such as 6H and 6g.",
+    "Aligning inspection strategy with tolerance intent.",
+    "Reviewing specification risk before release to manufacturing."
+  ],
+  "table": {
+    "title": "ISO 965 tolerance workflow map",
+    "columns": [
+      "Tolerance activity",
+      "ISO 965-1 contribution",
+      "Related concept"
+    ],
+    "rows": [
+      [
+        "Fit-class interpretation",
+        "Defines class logic",
+        "6H/6g"
+      ],
+      [
+        "Zone interpretation",
+        "Defines tolerance-zone principles",
+        "Tolerance zone"
+      ],
+      [
+        "Inspection planning",
+        "Connects tolerance intent to verification",
+        "Pitch diameter"
+      ]
+    ]
+  },
+  "faq": [
+    {
+      "id": "iso_965_1_faq_scope",
+      "question": "What does ISO 965 Thread Tolerances Explained primarily define?",
+      "answer_text": "ISO 965 Thread Tolerances Explained provides engineering guidance for one part of thread specification workflow and is used alongside related ISO standards rather than in isolation.",
+      "answer_html": "ISO 965 Thread Tolerances Explained provides engineering guidance for one part of thread specification workflow and is used alongside related ISO standards rather than in isolation.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "thread_pitch"
+      }
+    },
+    {
+      "id": "iso_965_1_faq_usage",
+      "question": "When do engineers typically use this standard?",
+      "answer_text": "Engineers use it when selecting, validating, or reviewing thread specifications and coordinating drawings, metrology, and production decisions.",
+      "answer_html": "Engineers use it when selecting, validating, or reviewing thread specifications and coordinating drawings, metrology, and production decisions.",
+      "answer_source": {
+        "type": "entity_summary",
+        "entity_id": "thread_pitch"
+      }
+    },
+    {
+      "id": "iso_965_1_faq_tools",
+      "question": "How does BoltLab help interpret this standard?",
+      "answer_text": "BoltLab tools and charts accelerate identification, comparison, and tolerance-context checks while final release values still come from approved standards documents.",
+      "answer_html": "BoltLab tools and charts accelerate identification, comparison, and tolerance-context checks while final release values still come from approved standards documents.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "pitch_diameter"
+      }
+    },
+    {
+      "id": "iso_965_1_faq_copyright",
+      "question": "Does this page reproduce copyrighted standards tables?",
+      "answer_text": "No. BoltLab provides public-summary explanations, engineering context, and workflow guidance without reproducing protected standards text.",
+      "answer_html": "No. BoltLab provides public-summary explanations, engineering context, and workflow guidance without reproducing protected standards text.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "iso_965"
+      }
+    },
+    {
+      "id": "iso_965_1_faq_next",
+      "question": "Which related standard should I review next?",
+      "answer_text": "Use the Related Standards section to move through profile, designation, dimensions, and tolerance standards in a coherent sequence.",
+      "answer_html": "Use the Related Standards section to move through profile, designation, dimensions, and tolerance standards in a coherent sequence.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "iso_965"
+      }
+    }
+  ],
+  "related_entities": [
+    "iso_965",
+    "fit_class_6h",
+    "fit_class_6g",
+    "tolerance_zone",
+    "allowance"
+  ],
+  "related_standards": [
+    "iso_965_1",
+    "iso_724",
+    "iso_261",
+    "iso_68_1"
+  ],
+  "related_standard_ids": [
+    "iso_724",
+    "iso_261",
+    "iso_68_1"
+  ],
+  "related_datasets": [
+    "metric_threads"
+  ],
+  "related_tools": [
+    "/tools/thread-identifier",
+    "/tools/thread-pitch-to-tpi-converter",
+    "/tools/tap-drill-calculator"
+  ],
+  "related_charts": [
+    "/charts/metric-thread-chart",
+    "/charts/metric-vs-imperial-chart"
+  ],
+  "related_guides": [
+    "/guides/metric-thread-tolerances",
+    "/guides/thread-types-explained"
+  ],
+  "schema": {
+    "source_entity_id": "iso_965",
+    "types": [
+      "Article",
+      "FAQPage",
+      "BreadcrumbList",
+      "WebPage"
+    ]
+  },
+  "status": "active",
+  "version": "v0.1.0",
+  "created": "2026-07-12",
+  "updated": "2026-07-12"
+}

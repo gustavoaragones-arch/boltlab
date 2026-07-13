@@ -1,0 +1,211 @@
+{
+  "id": "metric_thread_atlas",
+  "projection_type": "atlas_page",
+  "route_hint": "/reference/metric-thread-atlas",
+  "canonical_url": "https://boltlab.io/reference/metric-thread-atlas",
+  "title": "Metric Thread Atlas",
+  "meta_description": "Comprehensive metric thread atlas with designation, coarse and fine pitches, hex sizes, tap drill guidance, clearance holes, standards links, and tool c...",
+  "summary": "The Metric Thread Atlas is a searchable static engineering dataset for metric thread designations and workflow decisions.",
+  "dataset": {
+    "dataset_id": "metric_threads",
+    "version": "v0.1.0",
+    "verified": true,
+    "verification_method": "Public engineering reference synthesis reviewed for BoltLab atlas use.",
+    "primary_sources": [
+      "ISO 261 public summary metadata",
+      "ISO 262 public summary metadata",
+      "ISO 724 public summary metadata",
+      "ISO 965-1 public summary metadata",
+      "BoltLab internal engineering review"
+    ],
+    "last_reviewed": "2026-07-12",
+    "license_notes": "Dataset values are interpreted engineering reference values; no copyrighted standards tables are reproduced."
+  },
+  "filters": {
+    "diameters_mm": [
+      3,
+      4,
+      5,
+      6,
+      8,
+      10,
+      12,
+      16,
+      20
+    ],
+    "series": [
+      "coarse",
+      "fine"
+    ],
+    "pitches_mm": [
+      0.5,
+      0.7,
+      0.8,
+      1,
+      1.25,
+      1.5,
+      1.75,
+      2,
+      2.5
+    ],
+    "iso_families": [
+      "ISO 261",
+      "ISO 262",
+      "ISO 724",
+      "ISO 965-1"
+    ]
+  },
+  "rows": [
+    {
+      "designation": "M3",
+      "diameter_mm": 3,
+      "coarse_pitch_mm": 0.5,
+      "fine_pitches_mm": [],
+      "hex_head_mm": 5.5,
+      "tap_drill_mm": 2.5,
+      "clearance_holes_mm": {
+        "close": 3.2,
+        "normal": 3.4,
+        "loose": 3.6
+      },
+      "iso_family": "ISO 261 / ISO 262"
+    },
+    {
+      "designation": "M4",
+      "diameter_mm": 4,
+      "coarse_pitch_mm": 0.7,
+      "fine_pitches_mm": [],
+      "hex_head_mm": 7,
+      "tap_drill_mm": 3.3,
+      "clearance_holes_mm": {
+        "close": 4.3,
+        "normal": 4.5,
+        "loose": 4.8
+      },
+      "iso_family": "ISO 261 / ISO 262"
+    },
+    {
+      "designation": "M5",
+      "diameter_mm": 5,
+      "coarse_pitch_mm": 0.8,
+      "fine_pitches_mm": [],
+      "hex_head_mm": 8,
+      "tap_drill_mm": 4.2,
+      "clearance_holes_mm": {
+        "close": 5.3,
+        "normal": 5.5,
+        "loose": 5.8
+      },
+      "iso_family": "ISO 261 / ISO 262"
+    },
+    {
+      "designation": "M6",
+      "diameter_mm": 6,
+      "coarse_pitch_mm": 1,
+      "fine_pitches_mm": [],
+      "hex_head_mm": 10,
+      "tap_drill_mm": 5,
+      "clearance_holes_mm": {
+        "close": 6.4,
+        "normal": 6.6,
+        "loose": 7
+      },
+      "iso_family": "ISO 261 / ISO 262"
+    },
+    {
+      "designation": "M8",
+      "diameter_mm": 8,
+      "coarse_pitch_mm": 1.25,
+      "fine_pitches_mm": [
+        1
+      ],
+      "hex_head_mm": 13,
+      "tap_drill_mm": 6.8,
+      "clearance_holes_mm": {
+        "close": 8.4,
+        "normal": 9,
+        "loose": 10
+      },
+      "iso_family": "ISO 261 / ISO 262"
+    },
+    {
+      "designation": "M10",
+      "diameter_mm": 10,
+      "coarse_pitch_mm": 1.5,
+      "fine_pitches_mm": [
+        1.25
+      ],
+      "hex_head_mm": 17,
+      "tap_drill_mm": 8.5,
+      "clearance_holes_mm": {
+        "close": 10.5,
+        "normal": 11,
+        "loose": 12
+      },
+      "iso_family": "ISO 261 / ISO 262"
+    },
+    {
+      "designation": "M12",
+      "diameter_mm": 12,
+      "coarse_pitch_mm": 1.75,
+      "fine_pitches_mm": [
+        1.25
+      ],
+      "hex_head_mm": 19,
+      "tap_drill_mm": 10.2,
+      "clearance_holes_mm": {
+        "close": 13,
+        "normal": 13.5,
+        "loose": 14.5
+      },
+      "iso_family": "ISO 261 / ISO 262"
+    },
+    {
+      "designation": "M16",
+      "diameter_mm": 16,
+      "coarse_pitch_mm": 2,
+      "fine_pitches_mm": [
+        1.5
+      ],
+      "hex_head_mm": 24,
+      "tap_drill_mm": 14,
+      "clearance_holes_mm": {
+        "close": 17,
+        "normal": 18,
+        "loose": 20
+      },
+      "iso_family": "ISO 261 / ISO 262"
+    },
+    {
+      "designation": "M20",
+      "diameter_mm": 20,
+      "coarse_pitch_mm": 2.5,
+      "fine_pitches_mm": [
+        2
+      ],
+      "hex_head_mm": 30,
+      "tap_drill_mm": 17.5,
+      "clearance_holes_mm": {
+        "close": 21,
+        "normal": 22,
+        "loose": 24
+      },
+      "iso_family": "ISO 261 / ISO 262"
+    }
+  ],
+  "related_standards": [
+    "iso_261",
+    "iso_262",
+    "iso_724",
+    "iso_965_1"
+  ],
+  "related_tools": [
+    "/tools/thread-identifier",
+    "/tools/thread-pitch-to-tpi-converter",
+    "/tools/tap-drill-calculator",
+    "/charts/metric-thread-chart"
+  ],
+  "version": "v0.1.0",
+  "created": "2026-07-12",
+  "updated": "2026-07-12"
+}
