@@ -1,0 +1,263 @@
+{
+  "pages": [
+    {
+      "page": "reference/thread-engineering/index.html",
+      "title": "Thread Engineering Reference | Tolerances, Fit Classes & Standards",
+      "title_length": 66,
+      "meta_description": "Thread engineering reference for tolerances, fit classes, ISO standards, geometry, inspection, and engineering tables with verified-data placeholders.",
+      "meta_description_length": 150,
+      "canonical": "https://boltlab.io/reference/thread-engineering/",
+      "h1_values": [
+        "Thread Engineering Reference"
+      ]
+    },
+    {
+      "page": "reference/thread-engineering/thread-tolerances.html",
+      "title": "Thread Tolerances | Thread Engineering",
+      "title_length": 38,
+      "meta_description": "Thread Tolerances references for thread engineering workflows, fit interpretation, and linked standards context in BoltLab. Verified standards values are m",
+      "meta_description_length": 155,
+      "canonical": "https://boltlab.io/reference/thread-engineering/thread-tolerances",
+      "h1_values": [
+        "Thread Tolerances"
+      ]
+    },
+    {
+      "page": "reference/thread-engineering/fit-classes.html",
+      "title": "Fit Classes | Thread Engineering",
+      "title_length": 32,
+      "meta_description": "Fit Classes references for thread engineering workflows, fit interpretation, and linked standards context in BoltLab. Verified standards values are marked",
+      "meta_description_length": 154,
+      "canonical": "https://boltlab.io/reference/thread-engineering/fit-classes",
+      "h1_values": [
+        "Fit Classes"
+      ]
+    },
+    {
+      "page": "reference/thread-engineering/thread-standards.html",
+      "title": "Thread Standards | Thread Engineering",
+      "title_length": 37,
+      "meta_description": "Thread Standards references for thread engineering workflows, fit interpretation, and linked standards context in BoltLab. Verified standards values are ma",
+      "meta_description_length": 155,
+      "canonical": "https://boltlab.io/reference/thread-engineering/thread-standards",
+      "h1_values": [
+        "Thread Standards"
+      ]
+    },
+    {
+      "page": "reference/thread-engineering/thread-geometry.html",
+      "title": "Thread Geometry | Thread Engineering",
+      "title_length": 36,
+      "meta_description": "Thread Geometry references for thread engineering workflows, fit interpretation, and linked standards context in BoltLab. Verified standards values are mar",
+      "meta_description_length": 155,
+      "canonical": "https://boltlab.io/reference/thread-engineering/thread-geometry",
+      "h1_values": [
+        "Thread Geometry"
+      ]
+    },
+    {
+      "page": "reference/thread-engineering/inspection.html",
+      "title": "Inspection | Thread Engineering",
+      "title_length": 31,
+      "meta_description": "Inspection references for thread engineering workflows, fit interpretation, and linked standards context in BoltLab. Verified standards values are marked a",
+      "meta_description_length": 155,
+      "canonical": "https://boltlab.io/reference/thread-engineering/inspection",
+      "h1_values": [
+        "Inspection"
+      ]
+    },
+    {
+      "page": "reference/thread-engineering/engineering-tables.html",
+      "title": "Engineering Tables | Thread Engineering",
+      "title_length": 39,
+      "meta_description": "Engineering Tables references for thread engineering workflows, fit interpretation, and linked standards context in BoltLab. Verified standards values are",
+      "meta_description_length": 154,
+      "canonical": "https://boltlab.io/reference/thread-engineering/engineering-tables",
+      "h1_values": [
+        "Engineering Tables"
+      ]
+    },
+    {
+      "page": "reference/thread-tolerances.html",
+      "title": "What Are Thread Tolerances? | Engineering Reference",
+      "title_length": 51,
+      "meta_description": "Thread tolerances define allowable variation in thread dimensions, fit, and function. Learn the engineering framework, inspection logic, and linked",
+      "meta_description_length": 147,
+      "canonical": "https://boltlab.io/reference/thread-tolerances",
+      "h1_values": [
+        "What are Thread Tolerances?"
+      ]
+    },
+    {
+      "page": "reference/metric-thread-tolerance-chart.html",
+      "title": "Metric Thread Tolerance Chart | Engineering Reference",
+      "title_length": 53,
+      "meta_description": "Metric thread tolerance chart framework for ISO fit classes, tolerance zones, and engineering interpretation. Includes placeholders for verified standards",
+      "meta_description_length": 154,
+      "canonical": "https://boltlab.io/reference/metric-thread-tolerance-chart",
+      "h1_values": [
+        "Metric Thread Tolerance Chart"
+      ]
+    },
+    {
+      "page": "reference/iso-thread-tolerances-explained.html",
+      "title": "ISO Thread Tolerances Explained | Engineering",
+      "title_length": 45,
+      "meta_description": "ISO thread tolerances explained with engineering context for limits, fit classes, and verification workflow. Structured for design and manufacturing teams.",
+      "meta_description_length": 155,
+      "canonical": "https://boltlab.io/reference/iso-thread-tolerances-explained",
+      "h1_values": [
+        "ISO Thread Tolerances Explained"
+      ]
+    },
+    {
+      "page": "reference/internal-thread-tolerances.html",
+      "title": "Internal Thread Tolerances | Engineering Reference",
+      "title_length": 50,
+      "meta_description": "Internal thread tolerances reference for nut and tapped-hole design, fit classes, and inspection flow. Includes standards placeholders where values are",
+      "meta_description_length": 151,
+      "canonical": "https://boltlab.io/reference/internal-thread-tolerances",
+      "h1_values": [
+        "Internal Thread Tolerances"
+      ]
+    },
+    {
+      "page": "reference/external-thread-tolerances.html",
+      "title": "External Thread Tolerances | Engineering Reference",
+      "title_length": 50,
+      "meta_description": "External thread tolerances for bolts and studs, including allowance strategy, fit behavior, and metrology checks in production environments.",
+      "meta_description_length": 140,
+      "canonical": "https://boltlab.io/reference/external-thread-tolerances",
+      "h1_values": [
+        "External Thread Tolerances"
+      ]
+    },
+    {
+      "page": "reference/thread-fit-classes-explained.html",
+      "title": "Thread Fit Classes Explained | Engineering",
+      "title_length": 42,
+      "meta_description": "Thread fit classes explained for engineering selection, assembly behavior, and standard interpretation across internal and external thread systems.",
+      "meta_description_length": 147,
+      "canonical": "https://boltlab.io/reference/thread-fit-classes-explained",
+      "h1_values": [
+        "Thread Fit Classes Explained"
+      ]
+    },
+    {
+      "page": "reference/6h-vs-6g.html",
+      "title": "6H vs 6G | Internal Thread Fit Comparison",
+      "title_length": 41,
+      "meta_description": "6H vs 6G internal thread classes compared with engineering interpretation for fit risk, inspection, and mating class compatibility. Verified standards valu",
+      "meta_description_length": 155,
+      "canonical": "https://boltlab.io/reference/6h-vs-6g",
+      "h1_values": [
+        "6H vs 6G"
+      ]
+    },
+    {
+      "page": "reference/6g-vs-6h.html",
+      "title": "6g vs 6h | External Thread Fit Comparison",
+      "title_length": 41,
+      "meta_description": "6g vs 6h external thread classes compared for tolerance zone position, allowance implications, and real manufacturing fit outcomes. Verified standards valu",
+      "meta_description_length": 155,
+      "canonical": "https://boltlab.io/reference/6g-vs-6h",
+      "h1_values": [
+        "6g vs 6h"
+      ]
+    },
+    {
+      "page": "reference/tolerance-zones-explained.html",
+      "title": "Tolerance Zones Explained | Thread Engineering",
+      "title_length": 46,
+      "meta_description": "Tolerance zones explained for thread engineering, including zone position, class notation, and practical fit interpretation during design and inspection.",
+      "meta_description_length": 153,
+      "canonical": "https://boltlab.io/reference/tolerance-zones-explained",
+      "h1_values": [
+        "Tolerance Zones Explained"
+      ]
+    },
+    {
+      "page": "reference/fundamental-deviation.html",
+      "title": "Fundamental Deviation | Thread Engineering",
+      "title_length": 42,
+      "meta_description": "Fundamental deviation reference for thread engineering decisions on zone placement, fit behavior, and standards-driven class interpretation.",
+      "meta_description_length": 140,
+      "canonical": "https://boltlab.io/reference/fundamental-deviation",
+      "h1_values": [
+        "Fundamental Deviation"
+      ]
+    },
+    {
+      "page": "reference/pitch-diameter-explained.html",
+      "title": "Pitch Diameter Explained | Thread Engineering",
+      "title_length": 45,
+      "meta_description": "Pitch diameter explained with thread-fit context, measurement implications, and links to tolerance classes and deviation concepts. Verified standards value",
+      "meta_description_length": 155,
+      "canonical": "https://boltlab.io/reference/pitch-diameter-explained",
+      "h1_values": [
+        "Pitch Diameter Explained"
+      ]
+    },
+    {
+      "page": "reference/allowance-vs-tolerance.html",
+      "title": "Allowance vs Tolerance | Thread Engineering",
+      "title_length": 43,
+      "meta_description": "Allowance vs tolerance in thread engineering: understand planned clearance versus permissible variation before selecting fit classes and controls.",
+      "meta_description_length": 146,
+      "canonical": "https://boltlab.io/reference/allowance-vs-tolerance",
+      "h1_values": [
+        "Allowance vs Tolerance"
+      ]
+    },
+    {
+      "page": "charts/metric-thread-chart.html",
+      "title": "Metric Thread Chart | BoltLab",
+      "title_length": 29,
+      "meta_description": "Metric Thread Chart reference page for thread engineering workflows with verified standards placeholders and linked engineering resources. Verified standar",
+      "meta_description_length": 155,
+      "canonical": "https://boltlab.io/charts/metric-thread-chart",
+      "h1_values": [
+        "Metric Thread Chart"
+      ]
+    },
+    {
+      "page": "charts/unc-thread-chart.html",
+      "title": "UNC Thread Chart | BoltLab",
+      "title_length": 26,
+      "meta_description": "UNC Thread Chart reference page for thread engineering workflows with verified standards placeholders and linked engineering resources. Verified standards",
+      "meta_description_length": 154,
+      "canonical": "https://boltlab.io/charts/unc-thread-chart",
+      "h1_values": [
+        "UNC Thread Chart"
+      ]
+    },
+    {
+      "page": "charts/unf-thread-chart.html",
+      "title": "UNF Thread Chart | BoltLab",
+      "title_length": 26,
+      "meta_description": "UNF Thread Chart reference page for thread engineering workflows with verified standards placeholders and linked engineering resources. Verified standards",
+      "meta_description_length": 154,
+      "canonical": "https://boltlab.io/charts/unf-thread-chart",
+      "h1_values": [
+        "UNF Thread Chart"
+      ]
+    },
+    {
+      "page": "charts/metric-vs-imperial-chart.html",
+      "title": "Metric vs Imperial Chart | BoltLab",
+      "title_length": 34,
+      "meta_description": "Metric vs Imperial Chart reference page for thread engineering workflows with verified standards placeholders and linked engineering resources.",
+      "meta_description_length": 143,
+      "canonical": "https://boltlab.io/charts/metric-vs-imperial-chart",
+      "h1_values": [
+        "Metric vs Imperial Chart"
+      ]
+    }
+  ],
+  "duplicates": {
+    "titles": {},
+    "meta_descriptions": {},
+    "canonicals": {},
+    "h1": {}
+  }
+}

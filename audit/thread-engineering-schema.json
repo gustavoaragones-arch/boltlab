@@ -1,0 +1,611 @@
+{
+  "pages": [
+    {
+      "page": "reference/thread-engineering/index.html",
+      "jsonld_blocks": 6,
+      "json_parse_errors": [],
+      "schema_types": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebPage",
+        "Organization",
+        "WebSite"
+      ],
+      "has_organization": true,
+      "has_website": true,
+      "has_breadcrumb": true,
+      "has_faq": true,
+      "duplicate_schema_types": [],
+      "duplicate_ids": [],
+      "invalid_urls": []
+    },
+    {
+      "page": "reference/thread-engineering/thread-tolerances.html",
+      "jsonld_blocks": 6,
+      "json_parse_errors": [],
+      "schema_types": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebPage",
+        "Organization",
+        "WebSite"
+      ],
+      "has_organization": true,
+      "has_website": true,
+      "has_breadcrumb": true,
+      "has_faq": true,
+      "duplicate_schema_types": [],
+      "duplicate_ids": [],
+      "invalid_urls": []
+    },
+    {
+      "page": "reference/thread-engineering/fit-classes.html",
+      "jsonld_blocks": 6,
+      "json_parse_errors": [],
+      "schema_types": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebPage",
+        "Organization",
+        "WebSite"
+      ],
+      "has_organization": true,
+      "has_website": true,
+      "has_breadcrumb": true,
+      "has_faq": true,
+      "duplicate_schema_types": [],
+      "duplicate_ids": [],
+      "invalid_urls": []
+    },
+    {
+      "page": "reference/thread-engineering/thread-standards.html",
+      "jsonld_blocks": 6,
+      "json_parse_errors": [],
+      "schema_types": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebPage",
+        "Organization",
+        "WebSite"
+      ],
+      "has_organization": true,
+      "has_website": true,
+      "has_breadcrumb": true,
+      "has_faq": true,
+      "duplicate_schema_types": [],
+      "duplicate_ids": [],
+      "invalid_urls": []
+    },
+    {
+      "page": "reference/thread-engineering/thread-geometry.html",
+      "jsonld_blocks": 6,
+      "json_parse_errors": [],
+      "schema_types": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebPage",
+        "Organization",
+        "WebSite"
+      ],
+      "has_organization": true,
+      "has_website": true,
+      "has_breadcrumb": true,
+      "has_faq": true,
+      "duplicate_schema_types": [],
+      "duplicate_ids": [],
+      "invalid_urls": []
+    },
+    {
+      "page": "reference/thread-engineering/inspection.html",
+      "jsonld_blocks": 6,
+      "json_parse_errors": [],
+      "schema_types": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebPage",
+        "Organization",
+        "WebSite"
+      ],
+      "has_organization": true,
+      "has_website": true,
+      "has_breadcrumb": true,
+      "has_faq": true,
+      "duplicate_schema_types": [],
+      "duplicate_ids": [],
+      "invalid_urls": []
+    },
+    {
+      "page": "reference/thread-engineering/engineering-tables.html",
+      "jsonld_blocks": 6,
+      "json_parse_errors": [],
+      "schema_types": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebPage",
+        "Organization",
+        "WebSite"
+      ],
+      "has_organization": true,
+      "has_website": true,
+      "has_breadcrumb": true,
+      "has_faq": true,
+      "duplicate_schema_types": [],
+      "duplicate_ids": [],
+      "invalid_urls": []
+    },
+    {
+      "page": "reference/thread-tolerances.html",
+      "jsonld_blocks": 6,
+      "json_parse_errors": [],
+      "schema_types": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebPage",
+        "Organization",
+        "WebSite"
+      ],
+      "has_organization": true,
+      "has_website": true,
+      "has_breadcrumb": true,
+      "has_faq": true,
+      "duplicate_schema_types": [],
+      "duplicate_ids": [],
+      "invalid_urls": []
+    },
+    {
+      "page": "reference/metric-thread-tolerance-chart.html",
+      "jsonld_blocks": 6,
+      "json_parse_errors": [],
+      "schema_types": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebPage",
+        "Organization",
+        "WebSite"
+      ],
+      "has_organization": true,
+      "has_website": true,
+      "has_breadcrumb": true,
+      "has_faq": true,
+      "duplicate_schema_types": [],
+      "duplicate_ids": [],
+      "invalid_urls": []
+    },
+    {
+      "page": "reference/iso-thread-tolerances-explained.html",
+      "jsonld_blocks": 6,
+      "json_parse_errors": [],
+      "schema_types": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebPage",
+        "Organization",
+        "WebSite"
+      ],
+      "has_organization": true,
+      "has_website": true,
+      "has_breadcrumb": true,
+      "has_faq": true,
+      "duplicate_schema_types": [],
+      "duplicate_ids": [],
+      "invalid_urls": []
+    },
+    {
+      "page": "reference/internal-thread-tolerances.html",
+      "jsonld_blocks": 6,
+      "json_parse_errors": [],
+      "schema_types": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebPage",
+        "Organization",
+        "WebSite"
+      ],
+      "has_organization": true,
+      "has_website": true,
+      "has_breadcrumb": true,
+      "has_faq": true,
+      "duplicate_schema_types": [],
+      "duplicate_ids": [],
+      "invalid_urls": []
+    },
+    {
+      "page": "reference/external-thread-tolerances.html",
+      "jsonld_blocks": 6,
+      "json_parse_errors": [],
+      "schema_types": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebPage",
+        "Organization",
+        "WebSite"
+      ],
+      "has_organization": true,
+      "has_website": true,
+      "has_breadcrumb": true,
+      "has_faq": true,
+      "duplicate_schema_types": [],
+      "duplicate_ids": [],
+      "invalid_urls": []
+    },
+    {
+      "page": "reference/thread-fit-classes-explained.html",
+      "jsonld_blocks": 6,
+      "json_parse_errors": [],
+      "schema_types": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebPage",
+        "Organization",
+        "WebSite"
+      ],
+      "has_organization": true,
+      "has_website": true,
+      "has_breadcrumb": true,
+      "has_faq": true,
+      "duplicate_schema_types": [],
+      "duplicate_ids": [],
+      "invalid_urls": []
+    },
+    {
+      "page": "reference/6h-vs-6g.html",
+      "jsonld_blocks": 6,
+      "json_parse_errors": [],
+      "schema_types": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebPage",
+        "Organization",
+        "WebSite"
+      ],
+      "has_organization": true,
+      "has_website": true,
+      "has_breadcrumb": true,
+      "has_faq": true,
+      "duplicate_schema_types": [],
+      "duplicate_ids": [],
+      "invalid_urls": []
+    },
+    {
+      "page": "reference/6g-vs-6h.html",
+      "jsonld_blocks": 6,
+      "json_parse_errors": [],
+      "schema_types": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebPage",
+        "Organization",
+        "WebSite"
+      ],
+      "has_organization": true,
+      "has_website": true,
+      "has_breadcrumb": true,
+      "has_faq": true,
+      "duplicate_schema_types": [],
+      "duplicate_ids": [],
+      "invalid_urls": []
+    },
+    {
+      "page": "reference/tolerance-zones-explained.html",
+      "jsonld_blocks": 6,
+      "json_parse_errors": [],
+      "schema_types": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebPage",
+        "Organization",
+        "WebSite"
+      ],
+      "has_organization": true,
+      "has_website": true,
+      "has_breadcrumb": true,
+      "has_faq": true,
+      "duplicate_schema_types": [],
+      "duplicate_ids": [],
+      "invalid_urls": []
+    },
+    {
+      "page": "reference/fundamental-deviation.html",
+      "jsonld_blocks": 6,
+      "json_parse_errors": [],
+      "schema_types": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebPage",
+        "Organization",
+        "WebSite"
+      ],
+      "has_organization": true,
+      "has_website": true,
+      "has_breadcrumb": true,
+      "has_faq": true,
+      "duplicate_schema_types": [],
+      "duplicate_ids": [],
+      "invalid_urls": []
+    },
+    {
+      "page": "reference/pitch-diameter-explained.html",
+      "jsonld_blocks": 6,
+      "json_parse_errors": [],
+      "schema_types": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebPage",
+        "Organization",
+        "WebSite"
+      ],
+      "has_organization": true,
+      "has_website": true,
+      "has_breadcrumb": true,
+      "has_faq": true,
+      "duplicate_schema_types": [],
+      "duplicate_ids": [],
+      "invalid_urls": []
+    },
+    {
+      "page": "reference/allowance-vs-tolerance.html",
+      "jsonld_blocks": 6,
+      "json_parse_errors": [],
+      "schema_types": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebPage",
+        "Organization",
+        "WebSite"
+      ],
+      "has_organization": true,
+      "has_website": true,
+      "has_breadcrumb": true,
+      "has_faq": true,
+      "duplicate_schema_types": [],
+      "duplicate_ids": [],
+      "invalid_urls": []
+    },
+    {
+      "page": "charts/metric-thread-chart.html",
+      "jsonld_blocks": 6,
+      "json_parse_errors": [],
+      "schema_types": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebPage",
+        "Organization",
+        "WebSite"
+      ],
+      "has_organization": true,
+      "has_website": true,
+      "has_breadcrumb": true,
+      "has_faq": true,
+      "duplicate_schema_types": [],
+      "duplicate_ids": [],
+      "invalid_urls": []
+    },
+    {
+      "page": "charts/unc-thread-chart.html",
+      "jsonld_blocks": 6,
+      "json_parse_errors": [],
+      "schema_types": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebPage",
+        "Organization",
+        "WebSite"
+      ],
+      "has_organization": true,
+      "has_website": true,
+      "has_breadcrumb": true,
+      "has_faq": true,
+      "duplicate_schema_types": [],
+      "duplicate_ids": [],
+      "invalid_urls": []
+    },
+    {
+      "page": "charts/unf-thread-chart.html",
+      "jsonld_blocks": 6,
+      "json_parse_errors": [],
+      "schema_types": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebPage",
+        "Organization",
+        "WebSite"
+      ],
+      "has_organization": true,
+      "has_website": true,
+      "has_breadcrumb": true,
+      "has_faq": true,
+      "duplicate_schema_types": [],
+      "duplicate_ids": [],
+      "invalid_urls": []
+    },
+    {
+      "page": "charts/metric-vs-imperial-chart.html",
+      "jsonld_blocks": 6,
+      "json_parse_errors": [],
+      "schema_types": [
+        "Article",
+        "BreadcrumbList",
+        "FAQPage",
+        "WebPage",
+        "Organization",
+        "WebSite"
+      ],
+      "has_organization": true,
+      "has_website": true,
+      "has_breadcrumb": true,
+      "has_faq": true,
+      "duplicate_schema_types": [],
+      "duplicate_ids": [],
+      "invalid_urls": []
+    }
+  ],
+  "svg_inline": [
+    {
+      "page": "reference/thread-engineering/index.html",
+      "has_viewBox": true,
+      "has_width_height": true,
+      "has_title": true,
+      "has_role_img": true,
+      "xml_valid": true
+    },
+    {
+      "page": "reference/thread-engineering/index.html",
+      "has_viewBox": true,
+      "has_width_height": true,
+      "has_title": true,
+      "has_role_img": true,
+      "xml_valid": true
+    },
+    {
+      "page": "reference/thread-engineering/index.html",
+      "has_viewBox": true,
+      "has_width_height": true,
+      "has_title": true,
+      "has_role_img": true,
+      "xml_valid": true
+    },
+    {
+      "page": "reference/thread-engineering/index.html",
+      "has_viewBox": true,
+      "has_width_height": true,
+      "has_title": true,
+      "has_role_img": true,
+      "xml_valid": true
+    },
+    {
+      "page": "reference/thread-engineering/index.html",
+      "has_viewBox": true,
+      "has_width_height": true,
+      "has_title": true,
+      "has_role_img": true,
+      "xml_valid": true
+    },
+    {
+      "page": "reference/thread-engineering/index.html",
+      "has_viewBox": true,
+      "has_width_height": true,
+      "has_title": true,
+      "has_role_img": true,
+      "xml_valid": true
+    },
+    {
+      "page": "reference/thread-tolerances.html",
+      "has_viewBox": true,
+      "has_width_height": true,
+      "has_title": true,
+      "has_role_img": true,
+      "xml_valid": true
+    },
+    {
+      "page": "reference/metric-thread-tolerance-chart.html",
+      "has_viewBox": true,
+      "has_width_height": true,
+      "has_title": true,
+      "has_role_img": true,
+      "xml_valid": true
+    },
+    {
+      "page": "reference/iso-thread-tolerances-explained.html",
+      "has_viewBox": true,
+      "has_width_height": true,
+      "has_title": true,
+      "has_role_img": true,
+      "xml_valid": true
+    },
+    {
+      "page": "reference/internal-thread-tolerances.html",
+      "has_viewBox": true,
+      "has_width_height": true,
+      "has_title": true,
+      "has_role_img": true,
+      "xml_valid": true
+    },
+    {
+      "page": "reference/external-thread-tolerances.html",
+      "has_viewBox": true,
+      "has_width_height": true,
+      "has_title": true,
+      "has_role_img": true,
+      "xml_valid": true
+    },
+    {
+      "page": "reference/thread-fit-classes-explained.html",
+      "has_viewBox": true,
+      "has_width_height": true,
+      "has_title": true,
+      "has_role_img": true,
+      "xml_valid": true
+    },
+    {
+      "page": "reference/6h-vs-6g.html",
+      "has_viewBox": true,
+      "has_width_height": true,
+      "has_title": true,
+      "has_role_img": true,
+      "xml_valid": true
+    },
+    {
+      "page": "reference/6g-vs-6h.html",
+      "has_viewBox": true,
+      "has_width_height": true,
+      "has_title": true,
+      "has_role_img": true,
+      "xml_valid": true
+    },
+    {
+      "page": "reference/tolerance-zones-explained.html",
+      "has_viewBox": true,
+      "has_width_height": true,
+      "has_title": true,
+      "has_role_img": true,
+      "xml_valid": true
+    },
+    {
+      "page": "reference/fundamental-deviation.html",
+      "has_viewBox": true,
+      "has_width_height": true,
+      "has_title": true,
+      "has_role_img": true,
+      "xml_valid": true
+    },
+    {
+      "page": "reference/pitch-diameter-explained.html",
+      "has_viewBox": true,
+      "has_width_height": true,
+      "has_title": true,
+      "has_role_img": true,
+      "xml_valid": true
+    },
+    {
+      "page": "reference/allowance-vs-tolerance.html",
+      "has_viewBox": true,
+      "has_width_height": true,
+      "has_title": true,
+      "has_role_img": true,
+      "xml_valid": true
+    }
+  ],
+  "svg_files": []
+}

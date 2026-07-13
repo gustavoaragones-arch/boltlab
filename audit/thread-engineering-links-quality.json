@@ -1,0 +1,546 @@
+{
+  "pages": [
+    {
+      "page": "reference/thread-engineering/index.html",
+      "self_links": [],
+      "duplicate_links": [
+        "/",
+        "/charts/",
+        "/guides/",
+        "/reference/",
+        "/reference/allowance-vs-tolerance",
+        "/reference/fundamental-deviation",
+        "/reference/iso-thread-tolerances-explained",
+        "/reference/metric-thread-tolerance-chart",
+        "/reference/pitch-diameter-explained",
+        "/reference/thread-engineering/engineering-tables",
+        "/reference/thread-engineering/fit-classes",
+        "/reference/thread-engineering/inspection",
+        "/reference/thread-engineering/thread-geometry",
+        "/reference/thread-fit-classes-explained",
+        "/reference/thread-tolerances",
+        "/reference/tolerance-zones-explained",
+        "/sizes/",
+        "/tools/metric-to-imperial-screw-converter",
+        "https://boltlab.io/reference/thread-engineering/"
+      ],
+      "repeated_anchor_texts_5_plus": [],
+      "empty_href": [],
+      "javascript_links": [],
+      "broken_relative_paths": [],
+      "double_slash_links": []
+    },
+    {
+      "page": "reference/thread-engineering/thread-tolerances.html",
+      "self_links": [],
+      "duplicate_links": [
+        "/",
+        "/charts/",
+        "/guides/",
+        "/reference/",
+        "/sizes/",
+        "/tools/metric-to-imperial-screw-converter",
+        "https://boltlab.io/reference/thread-engineering/thread-tolerances"
+      ],
+      "repeated_anchor_texts_5_plus": [],
+      "empty_href": [],
+      "javascript_links": [],
+      "broken_relative_paths": [],
+      "double_slash_links": []
+    },
+    {
+      "page": "reference/thread-engineering/fit-classes.html",
+      "self_links": [],
+      "duplicate_links": [
+        "/",
+        "/charts/",
+        "/guides/",
+        "/reference/",
+        "/sizes/",
+        "/tools/metric-to-imperial-screw-converter",
+        "https://boltlab.io/reference/thread-engineering/fit-classes"
+      ],
+      "repeated_anchor_texts_5_plus": [],
+      "empty_href": [],
+      "javascript_links": [],
+      "broken_relative_paths": [],
+      "double_slash_links": []
+    },
+    {
+      "page": "reference/thread-engineering/thread-standards.html",
+      "self_links": [],
+      "duplicate_links": [
+        "/",
+        "/charts/",
+        "/guides/",
+        "/reference/",
+        "/sizes/",
+        "/tools/metric-to-imperial-screw-converter",
+        "https://boltlab.io/reference/thread-engineering/thread-standards"
+      ],
+      "repeated_anchor_texts_5_plus": [],
+      "empty_href": [],
+      "javascript_links": [],
+      "broken_relative_paths": [],
+      "double_slash_links": []
+    },
+    {
+      "page": "reference/thread-engineering/thread-geometry.html",
+      "self_links": [],
+      "duplicate_links": [
+        "/",
+        "/charts/",
+        "/guides/",
+        "/reference/",
+        "/sizes/",
+        "/tools/metric-to-imperial-screw-converter",
+        "https://boltlab.io/reference/thread-engineering/thread-geometry"
+      ],
+      "repeated_anchor_texts_5_plus": [],
+      "empty_href": [],
+      "javascript_links": [],
+      "broken_relative_paths": [],
+      "double_slash_links": []
+    },
+    {
+      "page": "reference/thread-engineering/inspection.html",
+      "self_links": [],
+      "duplicate_links": [
+        "/",
+        "/charts/",
+        "/guides/",
+        "/reference/",
+        "/sizes/",
+        "/tools/metric-to-imperial-screw-converter",
+        "https://boltlab.io/reference/thread-engineering/inspection"
+      ],
+      "repeated_anchor_texts_5_plus": [],
+      "empty_href": [],
+      "javascript_links": [],
+      "broken_relative_paths": [],
+      "double_slash_links": []
+    },
+    {
+      "page": "reference/thread-engineering/engineering-tables.html",
+      "self_links": [],
+      "duplicate_links": [
+        "/",
+        "/charts/",
+        "/guides/",
+        "/reference/",
+        "/sizes/",
+        "/tools/metric-to-imperial-screw-converter",
+        "https://boltlab.io/reference/thread-engineering/engineering-tables"
+      ],
+      "repeated_anchor_texts_5_plus": [],
+      "empty_href": [],
+      "javascript_links": [],
+      "broken_relative_paths": [],
+      "double_slash_links": []
+    },
+    {
+      "page": "reference/thread-tolerances.html",
+      "self_links": [
+        "/reference/thread-tolerances"
+      ],
+      "duplicate_links": [
+        "/",
+        "/charts/",
+        "/charts/metric-thread-chart",
+        "/charts/unc-thread-chart",
+        "/charts/unf-thread-chart",
+        "/guides/",
+        "/reference/",
+        "/reference/pitch-diameter-explained",
+        "/reference/thread-fit-classes-explained",
+        "/reference/thread-tolerances",
+        "/reference/tolerance-zones-explained",
+        "/sizes/",
+        "/tools/metric-to-imperial-screw-converter",
+        "/tools/tap-drill-calculator",
+        "/tools/thread-identifier",
+        "https://boltlab.io/reference/thread-tolerances"
+      ],
+      "repeated_anchor_texts_5_plus": [],
+      "empty_href": [],
+      "javascript_links": [],
+      "broken_relative_paths": [],
+      "double_slash_links": []
+    },
+    {
+      "page": "reference/metric-thread-tolerance-chart.html",
+      "self_links": [],
+      "duplicate_links": [
+        "/",
+        "/charts/",
+        "/charts/metric-thread-chart",
+        "/charts/unc-thread-chart",
+        "/charts/unf-thread-chart",
+        "/guides/",
+        "/reference/",
+        "/reference/pitch-diameter-explained",
+        "/reference/thread-fit-classes-explained",
+        "/reference/thread-tolerances",
+        "/reference/tolerance-zones-explained",
+        "/sizes/",
+        "/tools/metric-to-imperial-screw-converter",
+        "/tools/tap-drill-calculator",
+        "/tools/thread-identifier",
+        "https://boltlab.io/reference/metric-thread-tolerance-chart"
+      ],
+      "repeated_anchor_texts_5_plus": [],
+      "empty_href": [],
+      "javascript_links": [],
+      "broken_relative_paths": [],
+      "double_slash_links": []
+    },
+    {
+      "page": "reference/iso-thread-tolerances-explained.html",
+      "self_links": [],
+      "duplicate_links": [
+        "/",
+        "/charts/",
+        "/charts/metric-thread-chart",
+        "/charts/unc-thread-chart",
+        "/charts/unf-thread-chart",
+        "/guides/",
+        "/reference/",
+        "/reference/pitch-diameter-explained",
+        "/reference/thread-fit-classes-explained",
+        "/reference/thread-tolerances",
+        "/reference/tolerance-zones-explained",
+        "/sizes/",
+        "/tools/metric-to-imperial-screw-converter",
+        "/tools/tap-drill-calculator",
+        "/tools/thread-identifier",
+        "https://boltlab.io/reference/iso-thread-tolerances-explained"
+      ],
+      "repeated_anchor_texts_5_plus": [],
+      "empty_href": [],
+      "javascript_links": [],
+      "broken_relative_paths": [],
+      "double_slash_links": []
+    },
+    {
+      "page": "reference/internal-thread-tolerances.html",
+      "self_links": [],
+      "duplicate_links": [
+        "/",
+        "/charts/",
+        "/charts/metric-thread-chart",
+        "/charts/unc-thread-chart",
+        "/charts/unf-thread-chart",
+        "/guides/",
+        "/reference/",
+        "/reference/pitch-diameter-explained",
+        "/reference/thread-fit-classes-explained",
+        "/reference/thread-tolerances",
+        "/reference/tolerance-zones-explained",
+        "/sizes/",
+        "/tools/metric-to-imperial-screw-converter",
+        "/tools/tap-drill-calculator",
+        "/tools/thread-identifier",
+        "https://boltlab.io/reference/internal-thread-tolerances"
+      ],
+      "repeated_anchor_texts_5_plus": [],
+      "empty_href": [],
+      "javascript_links": [],
+      "broken_relative_paths": [],
+      "double_slash_links": []
+    },
+    {
+      "page": "reference/external-thread-tolerances.html",
+      "self_links": [],
+      "duplicate_links": [
+        "/",
+        "/charts/",
+        "/charts/metric-thread-chart",
+        "/charts/unc-thread-chart",
+        "/charts/unf-thread-chart",
+        "/guides/",
+        "/reference/",
+        "/reference/pitch-diameter-explained",
+        "/reference/thread-fit-classes-explained",
+        "/reference/thread-tolerances",
+        "/reference/tolerance-zones-explained",
+        "/sizes/",
+        "/tools/metric-to-imperial-screw-converter",
+        "/tools/tap-drill-calculator",
+        "/tools/thread-identifier",
+        "https://boltlab.io/reference/external-thread-tolerances"
+      ],
+      "repeated_anchor_texts_5_plus": [],
+      "empty_href": [],
+      "javascript_links": [],
+      "broken_relative_paths": [],
+      "double_slash_links": []
+    },
+    {
+      "page": "reference/thread-fit-classes-explained.html",
+      "self_links": [
+        "/reference/thread-fit-classes-explained"
+      ],
+      "duplicate_links": [
+        "/",
+        "/charts/",
+        "/charts/metric-thread-chart",
+        "/charts/unc-thread-chart",
+        "/charts/unf-thread-chart",
+        "/guides/",
+        "/reference/",
+        "/reference/pitch-diameter-explained",
+        "/reference/thread-fit-classes-explained",
+        "/reference/thread-tolerances",
+        "/reference/tolerance-zones-explained",
+        "/sizes/",
+        "/tools/metric-to-imperial-screw-converter",
+        "/tools/tap-drill-calculator",
+        "/tools/thread-identifier",
+        "https://boltlab.io/reference/thread-fit-classes-explained"
+      ],
+      "repeated_anchor_texts_5_plus": [],
+      "empty_href": [],
+      "javascript_links": [],
+      "broken_relative_paths": [],
+      "double_slash_links": []
+    },
+    {
+      "page": "reference/6h-vs-6g.html",
+      "self_links": [],
+      "duplicate_links": [
+        "/",
+        "/charts/",
+        "/charts/metric-thread-chart",
+        "/charts/unc-thread-chart",
+        "/charts/unf-thread-chart",
+        "/guides/",
+        "/reference/",
+        "/reference/pitch-diameter-explained",
+        "/reference/thread-fit-classes-explained",
+        "/reference/thread-tolerances",
+        "/reference/tolerance-zones-explained",
+        "/sizes/",
+        "/tools/metric-to-imperial-screw-converter",
+        "/tools/tap-drill-calculator",
+        "/tools/thread-identifier",
+        "https://boltlab.io/reference/6h-vs-6g"
+      ],
+      "repeated_anchor_texts_5_plus": [],
+      "empty_href": [],
+      "javascript_links": [],
+      "broken_relative_paths": [],
+      "double_slash_links": []
+    },
+    {
+      "page": "reference/6g-vs-6h.html",
+      "self_links": [],
+      "duplicate_links": [
+        "/",
+        "/charts/",
+        "/charts/metric-thread-chart",
+        "/charts/unc-thread-chart",
+        "/charts/unf-thread-chart",
+        "/guides/",
+        "/reference/",
+        "/reference/pitch-diameter-explained",
+        "/reference/thread-fit-classes-explained",
+        "/reference/thread-tolerances",
+        "/reference/tolerance-zones-explained",
+        "/sizes/",
+        "/tools/metric-to-imperial-screw-converter",
+        "/tools/tap-drill-calculator",
+        "/tools/thread-identifier",
+        "https://boltlab.io/reference/6g-vs-6h"
+      ],
+      "repeated_anchor_texts_5_plus": [],
+      "empty_href": [],
+      "javascript_links": [],
+      "broken_relative_paths": [],
+      "double_slash_links": []
+    },
+    {
+      "page": "reference/tolerance-zones-explained.html",
+      "self_links": [
+        "/reference/tolerance-zones-explained"
+      ],
+      "duplicate_links": [
+        "/",
+        "/charts/",
+        "/charts/metric-thread-chart",
+        "/charts/unc-thread-chart",
+        "/charts/unf-thread-chart",
+        "/guides/",
+        "/reference/",
+        "/reference/pitch-diameter-explained",
+        "/reference/thread-fit-classes-explained",
+        "/reference/thread-tolerances",
+        "/reference/tolerance-zones-explained",
+        "/sizes/",
+        "/tools/metric-to-imperial-screw-converter",
+        "/tools/tap-drill-calculator",
+        "/tools/thread-identifier",
+        "https://boltlab.io/reference/tolerance-zones-explained"
+      ],
+      "repeated_anchor_texts_5_plus": [],
+      "empty_href": [],
+      "javascript_links": [],
+      "broken_relative_paths": [],
+      "double_slash_links": []
+    },
+    {
+      "page": "reference/fundamental-deviation.html",
+      "self_links": [
+        "/reference/fundamental-deviation"
+      ],
+      "duplicate_links": [
+        "/",
+        "/charts/",
+        "/charts/metric-thread-chart",
+        "/charts/unc-thread-chart",
+        "/charts/unf-thread-chart",
+        "/guides/",
+        "/reference/",
+        "/reference/pitch-diameter-explained",
+        "/reference/thread-fit-classes-explained",
+        "/reference/thread-tolerances",
+        "/reference/tolerance-zones-explained",
+        "/sizes/",
+        "/tools/metric-to-imperial-screw-converter",
+        "/tools/tap-drill-calculator",
+        "/tools/thread-identifier",
+        "https://boltlab.io/reference/fundamental-deviation"
+      ],
+      "repeated_anchor_texts_5_plus": [],
+      "empty_href": [],
+      "javascript_links": [],
+      "broken_relative_paths": [],
+      "double_slash_links": []
+    },
+    {
+      "page": "reference/pitch-diameter-explained.html",
+      "self_links": [
+        "/reference/pitch-diameter-explained"
+      ],
+      "duplicate_links": [
+        "/",
+        "/charts/",
+        "/charts/metric-thread-chart",
+        "/charts/unc-thread-chart",
+        "/charts/unf-thread-chart",
+        "/guides/",
+        "/reference/",
+        "/reference/pitch-diameter-explained",
+        "/reference/thread-fit-classes-explained",
+        "/reference/thread-tolerances",
+        "/reference/tolerance-zones-explained",
+        "/sizes/",
+        "/tools/metric-to-imperial-screw-converter",
+        "/tools/tap-drill-calculator",
+        "/tools/thread-identifier",
+        "https://boltlab.io/reference/pitch-diameter-explained"
+      ],
+      "repeated_anchor_texts_5_plus": [],
+      "empty_href": [],
+      "javascript_links": [],
+      "broken_relative_paths": [],
+      "double_slash_links": []
+    },
+    {
+      "page": "reference/allowance-vs-tolerance.html",
+      "self_links": [
+        "/reference/allowance-vs-tolerance"
+      ],
+      "duplicate_links": [
+        "/",
+        "/charts/",
+        "/charts/metric-thread-chart",
+        "/charts/unc-thread-chart",
+        "/charts/unf-thread-chart",
+        "/guides/",
+        "/reference/",
+        "/reference/pitch-diameter-explained",
+        "/reference/thread-fit-classes-explained",
+        "/reference/thread-tolerances",
+        "/reference/tolerance-zones-explained",
+        "/sizes/",
+        "/tools/metric-to-imperial-screw-converter",
+        "/tools/tap-drill-calculator",
+        "/tools/thread-identifier",
+        "https://boltlab.io/reference/allowance-vs-tolerance"
+      ],
+      "repeated_anchor_texts_5_plus": [],
+      "empty_href": [],
+      "javascript_links": [],
+      "broken_relative_paths": [],
+      "double_slash_links": []
+    },
+    {
+      "page": "charts/metric-thread-chart.html",
+      "self_links": [],
+      "duplicate_links": [
+        "/",
+        "/charts/",
+        "/guides/",
+        "/sizes/",
+        "/tools/metric-to-imperial-screw-converter",
+        "https://boltlab.io/charts/metric-thread-chart"
+      ],
+      "repeated_anchor_texts_5_plus": [],
+      "empty_href": [],
+      "javascript_links": [],
+      "broken_relative_paths": [],
+      "double_slash_links": []
+    },
+    {
+      "page": "charts/unc-thread-chart.html",
+      "self_links": [],
+      "duplicate_links": [
+        "/",
+        "/charts/",
+        "/guides/",
+        "/sizes/",
+        "/tools/metric-to-imperial-screw-converter",
+        "https://boltlab.io/charts/unc-thread-chart"
+      ],
+      "repeated_anchor_texts_5_plus": [],
+      "empty_href": [],
+      "javascript_links": [],
+      "broken_relative_paths": [],
+      "double_slash_links": []
+    },
+    {
+      "page": "charts/unf-thread-chart.html",
+      "self_links": [],
+      "duplicate_links": [
+        "/",
+        "/charts/",
+        "/guides/",
+        "/sizes/",
+        "/tools/metric-to-imperial-screw-converter",
+        "https://boltlab.io/charts/unf-thread-chart"
+      ],
+      "repeated_anchor_texts_5_plus": [],
+      "empty_href": [],
+      "javascript_links": [],
+      "broken_relative_paths": [],
+      "double_slash_links": []
+    },
+    {
+      "page": "charts/metric-vs-imperial-chart.html",
+      "self_links": [],
+      "duplicate_links": [
+        "/",
+        "/charts/",
+        "/guides/",
+        "/sizes/",
+        "/tools/metric-to-imperial-screw-converter",
+        "https://boltlab.io/charts/metric-vs-imperial-chart"
+      ],
+      "repeated_anchor_texts_5_plus": [],
+      "empty_href": [],
+      "javascript_links": [],
+      "broken_relative_paths": [],
+      "double_slash_links": []
+    }
+  ]
+}
