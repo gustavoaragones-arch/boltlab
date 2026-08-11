@@ -1,0 +1,46 @@
+{
+  "phase": "D1.2",
+  "title": "Privacy & Consent Compliance",
+  "generated_at": "2026-08-11",
+  "checks": [
+    { "id": 1, "description": "Privacy page exists", "result": "pass", "detail": "privacy/index.html rewritten with 17 required sections." },
+    { "id": 2, "description": "Cookie notice exists", "result": "pass", "detail": "cookies/index.html created with 11 required sections." },
+    { "id": 3, "description": "Terms exists", "result": "pass", "detail": "terms/index.html created." },
+    { "id": 4, "description": "Disclaimer exists", "result": "pass", "detail": "disclaimer/index.html created." },
+    { "id": 5, "description": "Contact exists", "result": "pass", "detail": "contact/index.html present, unmodified per governance." },
+    { "id": 6, "description": "Privacy linked from footer", "result": "pass", "detail": "footer-nav-right on all 188 eligible English pages." },
+    { "id": 7, "description": "Cookie Notice linked from footer", "result": "pass", "detail": "footer-nav-right on all 188 eligible English pages." },
+    { "id": 8, "description": "Terms linked from footer", "result": "pass", "detail": "footer-nav-right on all 188 eligible English pages." },
+    { "id": 9, "description": "Disclaimer linked from footer", "result": "pass", "detail": "footer-nav-right on all 188 eligible English pages." },
+    { "id": 10, "description": "Contact linked from footer", "result": "pass", "detail": "footer-nav-right on all 188 eligible English pages." },
+    { "id": 11, "description": "Google disclosure present", "result": "pass", "detail": "Exact link text 'How Google uses data when you use our partners' sites or apps' -> https://policies.google.com/technologies/partner-sites present on both Privacy and Cookie Notice." },
+    { "id": 12, "description": "Advertising disclosure present", "result": "pass", "detail": "Privacy 'Advertising and Google Services' and Cookie Notice 'Advertising' sections use the exact required conditional sentence about Google/advertising-partner cookies, web beacons, IP addresses, and identifiers." },
+    { "id": 13, "description": "Cookie disclosure present", "result": "pass", "detail": "Privacy 'Cookies and Similar Technologies' section and full Cookie Notice page." },
+    { "id": 14, "description": "Personalized advertising disclosure present", "result": "pass", "detail": "Privacy 'Personalized and Non-Personalized Advertising' section." },
+    { "id": 15, "description": "Non-personalized advertising disclosure present", "result": "pass", "detail": "Same section; explains frequency capping/aggregated reporting per Google's stated position." },
+    { "id": 16, "description": "EEA consent disclosure present", "result": "pass", "detail": "Privacy 'Consent and Privacy Choices' and Cookie Notice 'Consent and Your Choices' both name the European Economic Area explicitly." },
+    { "id": 17, "description": "UK consent disclosure present", "result": "pass", "detail": "Same sections name the United Kingdom explicitly." },
+    { "id": 18, "description": "Switzerland consent disclosure present", "result": "pass", "detail": "Same sections name Switzerland explicitly." },
+    { "id": 19, "description": "No false claim that AdSense is currently active", "result": "pass", "detail": "Both Privacy and Cookie Notice state in plain language that BoltLab does not currently display advertising served by Google or any other network, verified against the D1.2 technical preflight (no AdSense script/pub ID found in repository)." },
+    { "id": 20, "description": "No unsupported analytics claim", "result": "pass", "detail": "Both pages state no analytics service is currently installed; no vendor is named as active." },
+    { "id": 21, "description": "No fabricated CMP", "result": "pass", "detail": "No CMP vendor name appears anywhere; both pages state explicitly that no CMP is installed because advertising is not yet active." },
+    { "id": 22, "description": "No fabricated publisher credentials", "result": "pass", "detail": "Only verified facts from the About page and the Albor Digital LLC legal source document are used (Albor Digital LLC, Canada & USA, State of Wyoming registration, contact@albor.digital). No addresses, phone numbers, registration numbers, or certifications were invented." },
+    { "id": 23, "description": "Canonical valid", "result": "pass", "detail": "All four pages carry a single rel=canonical tag pointing to their own extensionless URL." },
+    { "id": 24, "description": "Sitemap valid", "result": "pass", "detail": "sitemap.xml includes /privacy/, /cookies/, /terms/, /disclaimer/, matching the existing directory-index trailing-slash convention used by /about/ and /contact/." },
+    { "id": 25, "description": "Extensionless URLs", "result": "pass", "detail": "No .html suffix in any canonical tag or internal href referencing these four pages." },
+    { "id": 26, "description": "No broken internal links", "result": "pass", "detail": "Programmatic resolution check on every internal href in the four new/rewritten pages; all resolve to existing files." },
+    { "id": 27, "description": "JSON-LD parses", "result": "pass", "detail": "Organization and WebSite JSON-LD blocks on all four pages parsed successfully with json.loads (2 blocks each, matching the About/Contact/Privacy convention)." },
+    { "id": 28, "description": "No duplicate title", "result": "pass", "detail": "Site-wide <title> scan found no collisions introduced by the four new/rewritten pages." },
+    { "id": 29, "description": "No duplicate meta description", "result": "pass", "detail": "Site-wide meta-description scan found no collisions introduced by the four new/rewritten pages." }
+  ],
+  "tooling": {
+    "validate_knowledge_engine": { "ran": true, "status": "pass", "note": "Report file regeneration (timestamp-only) reverted after run to keep change scope limited to D1.2 work." },
+    "validate_projections": { "ran": true, "status": "pass", "note": "Same revert applied; the pre-existing 9-vs-10 projection count drift noted in D1.1 remains unrelated to D1.2 and untouched." }
+  },
+  "open_issues": [
+    "ads.txt does not exist anywhere in this repository, despite the phase brief asserting a specific pub-ID configuration is already established. Not created or modified per governance (audit-only). Needs reconciliation by the operator before AdSense activation — see audit/d1-2-preflight.md.",
+    "No CMP is installed. This is correct for the current pre-activation state, but a CMP (or Google's Funding Choices / consent mode integration) will need to be implemented and verified in a future phase before Google advertising is enabled for EEA/UK/Switzerland users, per the disclosures written in this phase."
+  ],
+  "overall_status": "READY FOR REVIEW",
+  "ready_to_commit": false
+}
