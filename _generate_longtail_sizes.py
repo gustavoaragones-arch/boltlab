@@ -68,7 +68,7 @@ def clamp_meta(s: str) -> str:
 
 HEADER = """  <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="/">BoltLab</a>
+      <a class="brand" href="/"><img class="brand-logo" src="/images/boltlab-logo.svg" alt="">BoltLab</a>
       <nav aria-label="Primary">
         <ul class="nav-list">
           <li><a href="/tools/metric-to-imperial-screw-converter">Tools</a></li>

@@ -169,7 +169,7 @@ def render_metric(row):
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="/es/">BoltLab</a>
+      <a class="brand" href="/es/"><img class="brand-logo" src="/images/boltlab-logo.svg" alt="">BoltLab</a>
       <nav aria-label="Primary">
         <ul class="nav-list">
           <li><a href="/es/">Herramientas</a></li>
@@ -401,7 +401,7 @@ def render_unc(t):
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="/es/">BoltLab</a>
+      <a class="brand" href="/es/"><img class="brand-logo" src="/images/boltlab-logo.svg" alt="">BoltLab</a>
       <nav aria-label="Primary">
         <ul class="nav-list">
           <li><a href="/es/">Herramientas</a></li>
