@@ -1076,6 +1076,11 @@
     <priority>0.65</priority>
   </url>
   <url>
+    <loc>https://boltlab.io/reference/data-methodology</loc>
+    <lastmod>2026-08-10</lastmod>
+    <priority>0.65</priority>
+  </url>
+  <url>
     <loc>https://boltlab.io/charts/metric-thread-chart</loc>
     <lastmod>2026-07-12</lastmod>
     <priority>0.65</priority>

@@ -1,0 +1,41 @@
+{
+  "phase": "D1.1",
+  "title": "Publisher Trust & Editorial Identity",
+  "generated_at": "2026-08-10",
+  "checks": [
+    { "id": 1, "description": "About page exists", "result": "pass", "detail": "about/index.html present." },
+    { "id": 2, "description": "Contact page exists", "result": "pass", "detail": "contact/index.html present." },
+    { "id": 3, "description": "Methodology page exists", "result": "pass", "detail": "reference/data-methodology.html created." },
+    { "id": 4, "description": "Methodology page has canonical", "result": "pass", "detail": "<link rel=\"canonical\" href=\"https://boltlab.io/reference/data-methodology\">" },
+    { "id": 5, "description": "Methodology page is extensionless", "result": "pass", "detail": "Canonical and all internal references use /reference/data-methodology with no .html suffix." },
+    { "id": 6, "description": "Methodology page is included in sitemap", "result": "pass", "detail": "https://boltlab.io/reference/data-methodology added to sitemap.xml adjacent to other reference/ entries." },
+    { "id": 7, "description": "Methodology page is linked from Reference hub", "result": "pass", "detail": "reference/index.html has a new card in the 'Thread engineering' section titled 'Engineering Data Methodology' linking to /reference/data-methodology." },
+    { "id": 8, "description": "Methodology page is linked from footer", "result": "pass", "detail": "footer-nav-center on all 187 eligible English pages (privacy excluded, see notes) now includes 'Data Methodology' -> /reference/data-methodology." },
+    { "id": 9, "description": "Methodology page links to About", "result": "pass", "detail": "Linked in Publisher and general link sections (/about)." },
+    { "id": 10, "description": "Methodology page links to Contact", "result": "pass", "detail": "Linked in Publisher section (/contact)." },
+    { "id": 11, "description": "Methodology page links to Standards Library", "result": "pass", "detail": "Linked in Standards References, Publisher, and Related Resources sections (/reference/standards/)." },
+    { "id": 12, "description": "Methodology page links to Thread Engineering", "result": "pass", "detail": "Linked in Publisher and Related Resources sections (/reference/thread-engineering/)." },
+    { "id": 13, "description": "Methodology page links to Thread Atlas", "result": "pass", "detail": "Linked in Publisher and Related Resources sections (/reference/thread-atlas)." },
+    { "id": 14, "description": "No broken internal links introduced", "result": "pass", "detail": "All hrefs in reference/data-methodology.html, about/index.html, and reference/index.html resolve to existing files (programmatic check)." },
+    { "id": 15, "description": "No .html internal hrefs introduced", "result": "pass", "detail": "Zero .html-suffixed internal hrefs found in the new/modified files (regex scan)." },
+    { "id": 16, "description": "No duplicate title introduced", "result": "pass", "detail": "\"Engineering Data Methodology | BoltLab\" does not match any other page's <title> (site-wide scan)." },
+    { "id": 17, "description": "No duplicate meta description introduced", "result": "pass", "detail": "New meta description does not match any other page's meta description (site-wide scan)." },
+    { "id": 18, "description": "JSON-LD parses successfully", "result": "pass", "detail": "All 5 JSON-LD blocks on the new page (WebPage, BreadcrumbList, FAQPage, Organization, WebSite) parsed successfully with json.loads." },
+    { "id": 19, "description": "FAQ content matches visible FAQ content", "result": "pass", "detail": "All 4 FAQPage schema Q/A pairs matched visible <h3>/<p> FAQ text exactly (programmatic diff)." },
+    { "id": 20, "description": "No unsupported publisher credentials appear", "result": "pass", "detail": "Keyword scan for certified/certification/licensed engineer/P.E./accredited/laboratory/institutional partner returned no matches." },
+    { "id": 21, "description": "No unsupported standards-body affiliation appears", "result": "pass", "detail": "Standards References section explicitly states BoltLab is not the standards organization, publisher, or official representative of any referenced standard." },
+    { "id": 22, "description": "No invented verification claims appear", "result": "pass", "detail": "Data classification copy uses the exact approved wording; no claim that all values are certified or independently verified." },
+    { "id": 23, "description": "No placeholder language appears", "result": "pass", "detail": "Keyword scan for lorem ipsum/TBD/TODO/coming soon/under construction returned no matches." },
+    { "id": 24, "description": "Existing architecture remains unchanged", "result": "pass", "detail": "No files under data/, scripts/generators/, js/ads-layout.js, or the AEO/knowledge-engine scripts were modified. Validator-generated report drift in docs/architecture/ was reverted (see change-scope report)." }
+  ],
+  "tooling": {
+    "validate_knowledge_engine": { "ran": true, "status": "pass", "note": "Report file regeneration reverted after run to avoid unrelated diff; underlying data untouched." },
+    "validate_projections": { "ran": true, "status": "pass", "note": "Report file regeneration reverted after run to avoid unrelated diff; underlying data untouched." }
+  },
+  "governance_notes": [
+    "privacy/index.html was intentionally excluded from the footer-nav bulk update to strictly honor governance rule 7 (no Privacy Policy changes this phase). This means /privacy's footer does not yet include Reference/Standards/Data Methodology links, unlike all other English pages. This is a deliberate, documented exception, not an oversight.",
+    "The 31 Spanish (es/) pages were intentionally excluded from the footer-nav bulk update because the Data Methodology page is English-only and no Spanish equivalent exists."
+  ],
+  "overall_status": "PASS",
+  "ready_to_commit": true
+}
