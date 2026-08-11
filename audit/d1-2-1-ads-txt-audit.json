@@ -1,0 +1,85 @@
+{
+  "phase": "D1.2.1",
+  "phase_name": "ads.txt Reconciliation & Publisher Identity Audit",
+  "generated_at": "2026-08-11T21:00:00Z",
+  "status": "audit_complete_no_change",
+  "classification": "NOT_FOUND",
+  "repository_ads_txt_exists": false,
+  "repository_ads_txt_path": null,
+  "repository_ads_txt_content": null,
+  "repository_ads_txt_duplicate_count": 0,
+  "production_ads_txt_status": {
+    "boltlab.io": {
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://boltlab.io/ads.txt",
+      "is_valid_ads_txt": false,
+      "note": "Returns homepage HTML fallback (Cloudflare Pages static-file-not-found behavior), not a real ads.txt file. Contains no publisher ID."
+    },
+    "www.boltlab.io": {
+      "http_status": null,
+      "content_type": null,
+      "final_url": null,
+      "is_valid_ads_txt": false,
+      "note": "DNS resolution failed (host not configured); www hostname is not a valid production surface for this property."
+    }
+  },
+  "production_ads_txt_final_url": "https://boltlab.io/ads.txt",
+  "production_ads_txt_content": null,
+  "expected_publisher_id": "pub-3974004697476579",
+  "expected_ads_txt_line": "google.com, pub-3974004697476579, DIRECT, f08c47fec0942fa0",
+  "repository_publisher_ids": [],
+  "production_publisher_ids": [],
+  "publisher_id_string_occurrences": [
+    {
+      "file": "audit/d1-2-preflight.md",
+      "classification": "audit_evidence",
+      "active_configuration": false
+    },
+    {
+      "file": "audit/d1-2-change-scope.md",
+      "classification": "audit_evidence",
+      "active_configuration": false
+    }
+  ],
+  "adsense_script_references_found": false,
+  "cmp_references_found": false,
+  "historical_ads_txt_found": false,
+  "historical_publisher_ids": [],
+  "git_history_search": {
+    "ads_txt_path_history_commits": 0,
+    "pub_id_string_commits": ["b169de4"],
+    "pub_id_string_commit_context": "audit_documentation_only",
+    "inspected_commits": {
+      "441e052": "no ads.txt or publisher ID reference found",
+      "1ff1493": "no ads.txt or publisher ID reference found",
+      "b169de4": "introduced audit docs (d1-2-preflight.md, d1-2-change-scope.md) discussing the unconfirmed discrepancy; did not add ads.txt or active configuration"
+    }
+  },
+  "changes_made": [],
+  "files_created": [
+    "audit/d1-2-1-ads-txt-audit.md",
+    "audit/d1-2-1-ads-txt-audit.json",
+    "audit/d1-2-1-publisher-reconciliation.md",
+    "audit/d1-2-1-change-scope.md"
+  ],
+  "files_modified": [],
+  "files_deleted": [],
+  "validation_passed": true,
+  "validation_details": {
+    "knowledge_engine_validator": "pass",
+    "projection_validator": "pass",
+    "ads_txt_syntax_validation": "not_applicable_no_file",
+    "publisher_id_consistency": "not_applicable_no_candidates",
+    "duplicate_ads_txt_files": 0,
+    "unrelated_validator_diffs_reverted": true
+  },
+  "production_deployment_required": false,
+  "adsense_activated": false,
+  "cmp_installed": false,
+  "legal_content_modified": false,
+  "unrelated_changes_made": false,
+  "commit_made": false,
+  "push_made": false,
+  "final_decision": "BLOCKED_PUBLISHER_ID_REQUIRES_CONFIRMATION"
+}
