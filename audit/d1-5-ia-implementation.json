@@ -1,0 +1,170 @@
+{
+  "phase": "D1.5",
+  "title": "Information Architecture Resolution & Implementation",
+  "status": "READY FOR REVIEW",
+  "generated_at": "2026-08-11",
+  "changes": [
+    {
+      "id": 1,
+      "name": "Create real Tools hub",
+      "description": "Created tools/index.html listing all 8 existing tools using their existing H1 titles and existing meta-description text (no invented copy). Canonical https://boltlab.io/tools/. Header and footer 'Tools' link updated site-wide from /tools/metric-to-imperial-screw-converter to /tools/.",
+      "files": ["tools/index.html", "192 pages with bulk header/footer update", "tools/screw-identifier.html (breadcrumb)"]
+    },
+    {
+      "id": 2,
+      "name": "Fix Reference hub mislabeling",
+      "description": "Split the 'Thread engineering' section of reference/index.html into two sections: 'Thread engineering' (Thread Engineering Reference only) and 'Standards & engineering data' (Engineering standards hub, Unified Thread Atlas, Engineering Data Methodology). No cards removed, no URLs changed, no card content changed.",
+      "files": ["reference/index.html"]
+    },
+    {
+      "id": 3,
+      "name": "Homepage product-family discovery",
+      "description": "Added one new section 'Engineering reference & data' after 'Fastener reference system' and before the footer, with the exact specified intro sentence and exactly 3 cards (Reference Library, Standards Library, Thread Atlas) using the exact specified descriptions. No existing homepage section removed or reordered.",
+      "files": ["index.html"]
+    },
+    {
+      "id": 4,
+      "name": "Header decision",
+      "description": "Kept the existing five-item header (Tools, Charts, Reference, Sizes, Guides) unchanged in composition and order, per explicit D1.5 direction. Only the Tools destination was corrected (see Change 1).",
+      "files": []
+    },
+    {
+      "id": 5,
+      "name": "Footer Thread Atlas discovery",
+      "description": "Added a 'Thread Atlas' link (-> /reference/thread-atlas) immediately after 'Data Methodology' in the English footer-nav-center, site-wide. Spanish footer not modified. Existing footer links not removed or reordered.",
+      "files": ["192 pages with bulk header/footer update", "tools/index.html (built with the new footer directly)"]
+    },
+    {
+      "id": 6,
+      "name": "Tools hub discovery from homepage",
+      "description": "Added one 'View all tools' link (-> /tools/) immediately after the homepage's existing 'More tools' 8-card grid. No duplication of the tool list elsewhere on the homepage.",
+      "files": ["index.html"]
+    }
+  ],
+  "files_created": [
+    "tools/index.html",
+    "audit/d1-5-ia-implementation.md",
+    "audit/d1-5-ia-implementation.json"
+  ],
+  "files_modified_count": 193,
+  "files_modified_breakdown": {
+    "bulk_header_footer_update_all_english_pages": 192,
+    "sitemap.xml": 1,
+    "note": "reference/index.html and index.html each received one additional targeted edit beyond the bulk header/footer change; tools/screw-identifier.html received one additional breadcrumb correction. All three are already counted within the 192 bulk-updated files, not additional files."
+  },
+  "urls_added": ["https://boltlab.io/tools/"],
+  "urls_changed": [],
+  "urls_removed": [],
+  "note_on_urls": "No existing URL was changed or removed. /tools/ is the only new URL. All 8 tool page URLs (tools/bolt-torque-calculator, tools/fastener-weight-calculator, tools/screw-identifier, tools/thread-identifier, tools/drill-bit-converter, tools/metric-to-imperial-screw-converter, tools/tap-drill-calculator, tools/thread-pitch-to-tpi-converter) are unchanged.",
+  "navigation_before": {
+    "header": ["Tools -> /tools/metric-to-imperial-screw-converter (single tool, no hub)", "Charts -> /charts/", "Reference -> /reference/", "Sizes -> /sizes/", "Guides -> /guides/"],
+    "footer_product": ["Tools -> /tools/metric-to-imperial-screw-converter", "Charts", "Reference", "Standards", "Data Methodology", "Sizes", "Guides"]
+  },
+  "navigation_after": {
+    "header": ["Tools -> /tools/ (real hub, all 8 tools listed)", "Charts -> /charts/", "Reference -> /reference/", "Sizes -> /sizes/", "Guides -> /guides/"],
+    "footer_product": ["Tools -> /tools/", "Charts", "Reference", "Standards", "Data Methodology", "Thread Atlas", "Sizes", "Guides"]
+  },
+  "homepage_visibility_before": {
+    "sections": ["Universal Screw & Bolt Converter (hero)", "Recent updates", "Popular sizes", "More tools", "Guides & references", "Fastener reference system"],
+    "standards_mentioned_in_body": false,
+    "data_products_mentioned_in_body": false,
+    "tools_hub_link": false
+  },
+  "homepage_visibility_after": {
+    "sections": ["Universal Screw & Bolt Converter (hero)", "Recent updates", "Popular sizes", "More tools", "View all tools link", "Guides & references", "Fastener reference system", "Engineering reference & data (NEW)"],
+    "standards_mentioned_in_body": true,
+    "data_products_mentioned_in_body": true,
+    "tools_hub_link": true
+  },
+  "reference_hierarchy_before": {
+    "sections": [
+      { "title": "Core reference", "cards": ["Screw anatomy", "Thread types", "Self-tapping vs self-drilling"] },
+      { "title": "Thread engineering", "cards": ["Thread Engineering Reference", "Engineering standards hub", "Unified Thread Atlas", "Engineering Data Methodology"], "issue": "mislabeled - 3 of 4 cards are not thread-engineering content" },
+      { "title": "Visual identification", "cards": ["Screw head types", "Screw drive types", "Head shape profiles"] }
+    ]
+  },
+  "reference_hierarchy_after": {
+    "sections": [
+      { "title": "Core reference", "cards": ["Screw anatomy", "Thread types", "Self-tapping vs self-drilling"] },
+      { "title": "Thread engineering", "cards": ["Thread Engineering Reference"] },
+      { "title": "Standards & engineering data", "cards": ["Engineering standards hub", "Unified Thread Atlas", "Engineering Data Methodology"] },
+      { "title": "Visual identification", "cards": ["Screw head types", "Screw drive types", "Head shape profiles"] }
+    ]
+  },
+  "tools_hub_verification": {
+    "url": "https://boltlab.io/tools/",
+    "reachable_from_header": true,
+    "reachable_from_footer": true,
+    "reachable_from_homepage": true,
+    "links_to_all_8_tools": true,
+    "all_8_tool_urls_unchanged": true,
+    "structured_data": ["BreadcrumbList", "WebPage", "Organization", "WebSite"],
+    "structured_data_note": "Initially built with Organization+WebSite only, matching the site's peer top-level hubs (Reference, Sizes, Guides, Charts). Corrected post-review, per explicit D1.5 acceptance requirement, to also include BreadcrumbList (BoltLab -> Tools) and WebPage (name Tools, url https://boltlab.io/tools/, publisher Albor Digital LLC). No FAQPage added (no matching visible FAQ content exists)."
+  },
+  "correction_pass": {
+    "date": "2026-08-11",
+    "reason": "tools/index.html was missing BreadcrumbList and WebPage JSON-LD, an explicit D1.5 acceptance requirement",
+    "file_changed": "tools/index.html (only)",
+    "blocks_added": ["BreadcrumbList (BoltLab -> Tools)", "WebPage (name=Tools, url=https://boltlab.io/tools/, publisher=Albor Digital LLC)"],
+    "validation": {
+      "total_jsonld_blocks_in_file": 4,
+      "all_parse": true,
+      "organization_count": 1,
+      "website_count": 1,
+      "webpage_count": 1,
+      "breadcrumblist_count": 1,
+      "breadcrumb_path": "BoltLab -> Tools",
+      "webpage_url_matches_canonical": true,
+      "faqpage_introduced": false,
+      "html_hrefs_introduced": 0,
+      "other_files_changed": 0,
+      "knowledge_engine_validator": "PASS, 0 errors, 0 warnings",
+      "projection_validator": "PASS, 0 errors, 0 warnings"
+    }
+  },
+  "footer_discovery_verification": {
+    "thread_atlas_link_present": true,
+    "position": "immediately after Data Methodology",
+    "existing_links_preserved": true,
+    "spanish_footer_unchanged": true
+  },
+  "seo_canonical_impact": {
+    "new_canonical": "https://boltlab.io/tools/",
+    "existing_canonicals_changed": 0,
+    "extensionless_convention_preserved": true,
+    "sitemap_entries_before": 223,
+    "sitemap_entries_after": 224,
+    "sitemap_entry_added": "https://boltlab.io/tools/ (priority 0.75, matching sibling hub convention)"
+  },
+  "structured_data_validation": {
+    "json_ld_parse_errors_sitewide": 0,
+    "pages_checked": 224
+  },
+  "validation_results": {
+    "total_pages": 224,
+    "duplicate_titles": 0,
+    "duplicate_meta_descriptions": 0,
+    "broken_internal_links": 0,
+    "orphan_pages": 0,
+    "pages_missing_from_sitemap": 0,
+    "header_consistency_check": "193/193 English pages byte-identical header nav block",
+    "footer_consistency_check": "193/193 English pages byte-identical footer-nav-center block",
+    "knowledge_engine_validator": "PASS, 0 errors, 0 warnings",
+    "projection_validator": "PASS, 0 errors, 0 warnings",
+    "unrelated_generated_diffs_reverted": true
+  },
+  "unexpected_changes": [],
+  "d1_3_freeze_verified": {
+    "frozen_items_checked": [
+      "P1-3: 39 FAQ schema/visible mismatch pages - content unchanged, only shared header/footer nav updated",
+      "P1-4: DIN/JIS/ANSI/British Standards thin pages - content unchanged, only shared header/footer nav updated",
+      "P2-1: 15 pages with repeated tolerance methodology sentence - unchanged",
+      "P2-2: 13 guides without AEO blocks - unchanged, no AEO blocks added",
+      "P2-3: tools/tap-drill-calculator.html - no hedge added, only shared header/footer nav updated",
+      "P2-4: Atlas metadata consistency - reference/thread-atlas.html and reference/metric-thread-atlas.html body content unchanged (thread-atlas.html only gained shared header/footer nav update)"
+    ],
+    "method": "git diff inspected directly on a sample of each frozen category; confirmed every diff is limited to the shared header nav-list line and footer-nav-center block, with zero body-content changes",
+    "verified": true
+  },
+  "commit_status": "NOT COMMITTED - all changes left in working tree for review per governance"
+}

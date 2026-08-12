@@ -1,0 +1,183 @@
+{
+  "audit_date": "2026-08-11",
+  "phase": "D1.4",
+  "title": "Information Architecture & Product Hierarchy — Audit / Design Definition Only",
+  "d1_3_status": "closed, not reopened",
+  "current_primary_navigation": {
+    "items": [
+      { "label": "Tools", "href": "/tools/metric-to-imperial-screw-converter", "destination_type": "single tool page, not a hub", "family": "Tools" },
+      { "label": "Charts", "href": "/charts/", "destination_type": "hub page", "family": "Charts (supporting content type)" },
+      { "label": "Reference", "href": "/reference/", "destination_type": "hub page", "family": "Reference Library (also contains Standards + Data Products as sub-sections)" },
+      { "label": "Sizes", "href": "/sizes/", "destination_type": "hub page", "family": "Sizes (supporting content type / programmatic cluster)" },
+      { "label": "Guides", "href": "/guides/", "destination_type": "hub page", "family": "Guides (supporting content type)" }
+    ],
+    "families_absent_from_header": ["Standards Library", "Engineering Data Products"],
+    "consistency_issue": "4 of 5 items resolve to a real index/hub page; 'Tools' resolves directly to one specific tool (metric-to-imperial-screw-converter), not a /tools/ hub — no /tools/index.html exists anywhere in the repository.",
+    "present_on_every_page": true,
+    "mobile_behavior": "flex-wrap; no hamburger/toggle exists anywhere in CSS or JS; all 5 items remain visible and simply wrap to additional lines on narrow viewports"
+  },
+  "current_footer_navigation": {
+    "footer_nav_center_label": "Product",
+    "footer_nav_center_items": ["Tools", "Charts", "Reference", "Standards", "Data Methodology", "Sizes", "Guides"],
+    "footer_nav_right_label": "Company",
+    "footer_nav_right_items": ["About", "Privacy", "Cookie Notice", "Terms", "Disclaimer", "Contact"],
+    "notes": "Standards and Data Methodology are present in the footer (added in D1.1) but not the header. Thread Atlas (the flagship Engineering Data Product) has no footer entry at all — only 'Data Methodology' is listed, not the Atlas itself.",
+    "spanish_footer_parity_gap": "es/ pages use a materially different, older footer: footer_nav_center is only ['Herramientas','Gráficos','Tamaños','Guías'] (missing Reference entirely), footer_nav_right is only ['Acerca de','Contacto','Privacidad'] (missing Cookie Notice/Terms/Disclaimer entirely). This is a known, previously-documented, intentional D1.1/D1.2 scoping decision (English-only methodology/legal pages), not a new defect, but it is a material EN/ES structural difference relevant to this audit."
+  },
+  "product_families": {
+    "declared_primary_families": ["Tools", "Reference Library", "Standards Library", "Engineering Data Products"],
+    "existing_site_families": ["Charts", "Sizes", "Guides", "Thread Engineering", "Data Methodology", "Legal/Trust"],
+    "mapping": {
+      "Tools": "8 pages, header item (deep-links to 1 tool, no hub), footer item (hub-equivalent behavior via footer link to same 1 tool)",
+      "Reference Library": "22 leaf pages + hub, header item, footer item, hub page well-organized into 3 sections",
+      "Standards Library": "7 pages, NOT a header item, footer item present, also a card inside the Reference hub's 'Thread engineering' section",
+      "Engineering Data Products": "Thread Atlas + Metric Thread Atlas + Data Methodology; NOT a header item, NOT a distinct footer item (only 'Data Methodology' text link exists in footer; Atlas itself has no footer path), reachable via a card inside the Reference hub's 'Thread engineering' section",
+      "Charts": "9 pages, header item, footer item — functions largely as an alternate presentation layer over Reference/Sizes thread and size data rather than a distinct product family",
+      "Sizes": "115 pages, header item, footer item — large, distinct-intent programmatic cluster (confirmed healthy by D1.3), reasonable claim to primary nav given its scale",
+      "Guides": "13 pages, header item, footer item — editorial/how-to content, reasonable claim to primary nav given its scale",
+      "Thread Engineering": "7 pages, sub-cluster of Reference, no separate nav presence, appears as a card inside Reference hub",
+      "Data Methodology": "1 page, footer item, also linked from About and the Reference hub",
+      "Legal/Trust": "6 pages, footer-right only, correctly excluded from primary nav (appropriate for this content type)"
+    }
+  },
+  "family_visibility": {
+    "Tools": { "header": true, "footer": true, "homepage_body": true, "hub_page_exists": false },
+    "Reference Library": { "header": true, "footer": true, "homepage_body": true, "hub_page_exists": true },
+    "Standards Library": { "header": false, "footer": true, "homepage_body": false, "hub_page_exists": true },
+    "Engineering Data Products": { "header": false, "footer": "partial (Data Methodology only, not Thread Atlas)", "homepage_body": false, "hub_page_exists": false },
+    "Charts": { "header": true, "footer": true, "homepage_body": false, "hub_page_exists": true },
+    "Sizes": { "header": true, "footer": true, "homepage_body": true, "hub_page_exists": true },
+    "Guides": { "header": true, "footer": true, "homepage_body": true, "hub_page_exists": true }
+  },
+  "homepage_hierarchy": {
+    "order": [
+      "H1 hero: 'Universal Screw & Bolt Converter' + live converter widget",
+      "H2 'Recent updates' (mixed EN/ES size-page and tool-page changelog feed)",
+      "H2 'Popular sizes' (4 size pairs, EN/ES)",
+      "H2 'More tools' (8 tool cards)",
+      "H2 'Guides & references' (12 guide cards)",
+      "H2 'Fastener reference system' (6 reference cards: hub, screw anatomy, thread types, screw head types, screw drive types, head shape profiles)"
+    ],
+    "primary_action_communicated": "Use the converter tool (hero is a live calculator widget, first thing seen)",
+    "product_positioning_communicated": "A converter/calculator utility with supporting guides and reference pages — not a platform",
+    "standards_or_data_products_mentioned_in_body": false,
+    "grep_verification": "0 occurrences of 'standards', 'atlas', 'data-methodology', or 'engineering data' anywhere in index.html body content; both occurrences of 'Standards'/'Data Methodology' strings in the file are footer links"
+  },
+  "hub_hierarchy": {
+    "reference_hub_sections": [
+      { "title": "Core reference", "cards": ["Screw anatomy", "Thread types", "Self-tapping vs self-drilling"] },
+      { "title": "Thread engineering", "cards": ["Thread Engineering Reference", "Engineering standards hub", "Unified Thread Atlas", "Engineering Data Methodology"], "issue": "This section title is a mislabel: 3 of its 4 cards (Standards, Thread Atlas, Data Methodology) are not 'thread engineering' topics — they are the Standards Library and Engineering Data Products families plus the methodology page, grouped under a section name that already refers to something narrower (the Thread Engineering reference cluster, itself the 1st card)." },
+      { "title": "Visual identification", "cards": ["Screw head types", "Screw drive types", "Head shape profiles"] }
+    ],
+    "standards_hub_structure": "reference/standards/index.html lists all 6 standards families (ISO, ASME, DIN, ANSI, JIS, British); ISO is fully developed, the other 5 are thin stubs (per D1.3 finding, ASME now partially enriched) — content-quality status unchanged from D1.3, not re-audited here",
+    "data_products_structure": "No dedicated 'Engineering Data Products' hub page exists. Thread Atlas and Metric Thread Atlas are siblings only by convention (both Dataset-schema pages under /reference/), not grouped under any common index page."
+  },
+  "cross_family_connectivity": {
+    "tools_to_reference": "confirmed present in body content on sampled tool pages (thread-identifier.html, tap-drill-calculator.html link to reference/thread-engineering/, reference/thread-types, reference/screw-anatomy, etc.)",
+    "tools_to_standards": "NOT present in body content on sampled tool pages — only reachable via the generic sitewide footer link to /reference/standards/, not a contextual recommendation",
+    "tools_to_data_products": "NOT present in body content on sampled tool pages; no tool page links to /reference/thread-atlas or /reference/metric-thread-atlas",
+    "reference_to_tools_standards_data": "confirmed strong — reference/standards/iso.html and reference/thread-engineering/index.html both have explicit 'Related tools', 'Related charts' sections",
+    "standards_to_reference_data": "confirmed strong on iso.html (full cross-link sections); the 4 remaining thin stub pages have no cross-links (D1.3 finding, unchanged)",
+    "related_content_blocks_assessment": "Per D1.3's discovery and duplication audits, 'Related on BoltLab' / 'Related tools' / 'Related charts' blocks are consistently present on well-developed pages, use reasonable link density, and do not overemphasize any one family — they mitigate but do not replace the primary-navigation gap for Standards/Data Products"
+  },
+  "user_journey_assessment": {
+    "tool_to_data_forward_journey": "Partially supported: Tool → Reference is well-linked; Reference → Standards → Data Products is well-linked (within the Reference hub); but Tool → Standards/Data Products has no direct link, forcing a detour through Reference first.",
+    "reference_reverse_journey": "Supported: Reference pages link back to Tools and forward to Standards/Data via 'Related' sections.",
+    "standards_reverse_journey": "Supported on iso.html only; the 4 thin stub pages (unchanged from D1.3) have no outbound links to Reference, Data, or Tools beyond one link back to the Standards hub."
+  },
+  "mobile_assessment": {
+    "hamburger_or_toggle_exists": false,
+    "nav_behavior": "CSS flex-wrap; all 5 header items remain visible on all viewport sizes, just wrap onto additional lines",
+    "conclusion": "Mobile does not hide or further de-prioritize any navigation item beyond what already exists on desktop — the Standards/Data Products absence from the header is identical on mobile and desktop, not a mobile-specific regression"
+  },
+  "language_parity_assessment": {
+    "header_parity": "Spanish header nav mirrors English exactly in structure (5 items, same hrefs except homepage), including a 'Referencia' link to the English-only /reference/ hub",
+    "footer_parity": "Material gap — Spanish footer_nav_center omits 'Reference' entirely (only Tools/Charts/Sizes/Guides) and footer_nav_right omits Cookie Notice/Terms/Disclaimer (only About/Contact/Privacy)",
+    "conceptual_hierarchy_communicated_identically": false,
+    "root_cause": "documented, intentional scoping decision from D1.1/D1.2 (methodology and legal pages are English-only) — not a new discovery, flagged here as a structural IA difference for planning purposes only"
+  },
+  "findings": [
+    {
+      "id": "IA-P1-1",
+      "priority": "P1",
+      "summary": "Primary header navigation contains no item representing Standards Library or Engineering Data Products — 2 of BoltLab's 4 declared primary product families are absent from the one navigation element present on every page.",
+      "evidence": "index.html header nav-list: Tools, Charts, Reference, Sizes, Guides only. Confirmed identical on all 223 pages (site-wide header convention) and on Spanish pages."
+    },
+    {
+      "id": "IA-P1-2",
+      "priority": "P1",
+      "summary": "The homepage never mentions or links Standards or Engineering Data Products anywhere in its visible body content (6 sections, 0 occurrences); its hero H1 frames BoltLab as a single converter tool, not a platform.",
+      "evidence": "grep for 'standards'/'atlas'/'data-methodology'/'engineering data' in index.html returns only the 2 footer-link occurrences; H1 is 'Universal Screw & Bolt Converter'."
+    },
+    {
+      "id": "IA-P1-3",
+      "priority": "P1",
+      "summary": "No dedicated Tools hub page exists; the header's 'Tools' item deep-links directly to one specific tool rather than an index of all 8 tools, unlike its sibling nav items which all resolve to real hub pages.",
+      "evidence": "No tools/index.html in repository; header href is /tools/metric-to-imperial-screw-converter."
+    },
+    {
+      "id": "IA-P1-4",
+      "priority": "P1",
+      "summary": "The Reference hub groups Standards Library, Engineering Data Products (Thread Atlas), and Data Methodology under a section literally titled 'Thread engineering' — a label that already refers to a narrower, different concept (the Thread Engineering reference cluster) also present in the same section.",
+      "evidence": "reference/index.html section 2 heading is 'Thread engineering' and contains cards for Thread Engineering Reference, Engineering standards hub, Unified Thread Atlas, and Engineering Data Methodology."
+    },
+    {
+      "id": "IA-P2-1",
+      "priority": "P2",
+      "summary": "The footer lists 'Data Methodology' but has no direct entry for the Thread Atlas (the actual flagship Engineering Data Product) — it is one click further away than Standards or Data Methodology.",
+      "evidence": "footer-nav-center items: Tools, Charts, Reference, Standards, Data Methodology, Sizes, Guides — no 'Thread Atlas' or 'Data Products' entry."
+    },
+    {
+      "id": "IA-P2-2",
+      "priority": "P2",
+      "summary": "Charts' claim to top-level header status is weaker than Tools/Reference/Sizes/Guides — it functions largely as an alternate presentation of data already covered by Reference and Sizes, rather than a distinct product family with unique intent.",
+      "evidence": "9 chart pages; content overlaps thread/size data already covered in reference/ and sizes/ (cross-referenced in D1.3's page inventory)."
+    },
+    {
+      "id": "IA-P2-3",
+      "priority": "P2",
+      "summary": "EN/ES footer structural parity gap — Spanish footer omits Reference, Standards, Data Methodology, and all D1.2 legal links, unlike the English footer.",
+      "evidence": "es/index.html footer-nav-center = [Herramientas, Gráficos, Tamaños, Guías]; footer-nav-right = [Acerca de, Contacto, Privacidad]. Documented, intentional D1.1/D1.2 scoping decision, not new."
+    },
+    {
+      "id": "IA-NOACTION-1",
+      "priority": "NO ACTION",
+      "summary": "Sizes (115 pages) and Guides (13 pages) top-level nav placement is appropriate given their scale and D1.3-confirmed distinct search intent per sub-cluster.",
+      "evidence": "D1.3 duplication audit found 0 duplicative pages in the sizes/ cluster; each suffix serves a genuinely different query intent."
+    },
+    {
+      "id": "IA-NOACTION-2",
+      "priority": "NO ACTION",
+      "summary": "Related-content blocks ('Related tools', 'Related charts', 'Related on BoltLab') function well: reasonable link density, no overemphasis of any one family, genuine workflow value.",
+      "evidence": "D1.3 discovery and duplication audits; re-confirmed by spot-checking tool→reference cross-links in this phase."
+    },
+    {
+      "id": "IA-NOACTION-3",
+      "priority": "NO ACTION",
+      "summary": "Mobile navigation is not a separate problem — it inherits IA-P1-1 identically from desktop, with no additional mobile-specific hiding or de-prioritization.",
+      "evidence": "No hamburger/toggle exists; nav-list uses flex-wrap, all items remain visible at all viewport widths."
+    }
+  ],
+  "recommended_information_architecture": {
+    "special_review_answer": "C + D (combined): Standards and Engineering Data Products should receive meaningfully stronger primary discovery than they currently have (buried in footer text and one sub-section of the Reference hub) — but this does not require the literal four-family model (Tools/Reference/Standards/Data Products) to replace the current five-item header wholesale. Sizes and Guides have earned their place through scale and confirmed distinct intent (D1.3); Charts has a weaker but not clearly disqualifying claim. The four-family model should remain the conceptual/editorial organizing spine (as already established via the Data Methodology page), while the *visible* navigation is treated as a separate, evidence-based decision for D1.5 to make — not dictated by this audit.",
+    "rejected_options": {
+      "A_current_five_item_nav_is_correct": "Rejected as-is — the complete absence of Standards/Data Products from the header, combined with their complete absence from the homepage body, is a real gap given they are declared primary product families.",
+      "B_demote_current_items_to_subcategories": "Not evidenced — Sizes and Guides have proven distinct value at their current scale; no finding in this audit or D1.3 supports demoting them.",
+      "E_wholesale_different_hierarchy": "Not evidenced — no finding suggests the current five-item structure is fundamentally broken, only incomplete with respect to 2 families."
+    },
+    "candidate_directions_for_d1_5_to_evaluate_not_implement": [
+      "Direction 1 — Minimal: add Standards and/or a combined 'Standards & Data' entry to the header (6th item), leaving Charts/Sizes/Guides untouched.",
+      "Direction 2 — Consolidation: relabel 'Reference' in the header to something that signals it contains Standards/Data (e.g., a label change or a mega-menu/dropdown revealing Reference/Standards/Data as siblings on hover) without adding a 6th top-level slot.",
+      "Direction 3 — Homepage-only fix: leave header untouched, but add a Standards/Data Products presence to the homepage body (a new section or card row) so first-time visitors see the platform's full scope without waiting to reach the Reference hub.",
+      "Direction 4 — Reference hub relabel: rename the 'Thread engineering' section on the Reference hub to something that doesn't collide with the Thread Engineering cluster's own name (e.g., splitting it into two clearly-labeled sections)."
+    ],
+    "note": "This audit does not select among these directions. That selection, and any navigation/label/link change, belongs to a subsequent implementation-authorized phase."
+  },
+  "implementation_deferred": true,
+  "files_created": [
+    "audit/d1-4-information-architecture.md",
+    "audit/d1-4-information-architecture.json"
+  ],
+  "files_modified": [],
+  "commit_status": "NOT COMMITTED — audit/design-definition only, no production changes made"
+}
