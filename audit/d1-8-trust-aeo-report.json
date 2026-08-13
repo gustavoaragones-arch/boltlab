@@ -1,0 +1,131 @@
+{
+  "phase": "D1.8",
+  "title": "Trust-Signal & AEO Consistency Polish",
+  "date": "2026-08-11",
+  "status": "READY FOR REVIEW — TRUST/AEO POLISH COMPLETE",
+  "scope_note": "Implemented D1.7 items 3, 4, 5 only. Items 1 (4 thin Standards pages) and 2 (15 future-revisions pages) explicitly out of scope, not touched.",
+  "part_1_atlas_metadata": {
+    "pages_inspected": ["reference/thread-atlas.html", "reference/metric-thread-atlas.html"],
+    "thread_atlas_modified": false,
+    "thread_atlas_reason": "Already had all 4 core trust-signal fields (version, verification status, last reviewed, coverage/row count). Its '20 rows' claim was independently re-verified (grep count of .thread-atlas-card elements = 20, exact match). No factual gap found; no change made.",
+    "metric_thread_atlas_modified": true,
+    "metric_thread_atlas_changes": [
+      {"field": "Dataset coverage", "action": "added", "value": "Metric (9 rows)", "verification": "Row count independently verified from downloads/metric-thread-atlas.csv (9 data rows, header excluded) AND from the page's own rendered table (9 <tr data-designation=> elements) — two independent sources in agreement, not estimated or copied from another page."},
+      {"field": "Verification status label", "action": "relabeled only, value unchanged", "before": "Verified: Yes", "after": "Verification status: Verified", "reason": "Harmonize label wording with thread-atlas.html's existing identical-concept field; no fact changed."}
+    ],
+    "fields_retained_unchanged_on_metric_atlas": ["Verification method", "Related standards", "license (JSON-LD)", "distribution (JSON-LD)"],
+    "distribution_added_to_thread_atlas": false,
+    "distribution_reason": "thread-atlas.html does not itself provide a CSV; adding a distribution field would have been a false claim."
+  },
+  "part_2_tap_drill_hedge": {
+    "file": "tools/tap-drill-calculator.html",
+    "sentence_added": "Always confirm the final tap-drill size against your tap manufacturer's chart or technical data.",
+    "occurrences": 1,
+    "location": "Calculation method section, after the existing approximation explanation",
+    "faq_content_touched": false,
+    "calculation_logic_touched": false,
+    "links_added": 0
+  },
+  "part_3_guide_aeo": {
+    "pages_modified": 12,
+    "guides_index_modified": false,
+    "convention_used": ".aeo-answer-block, no inner heading, 2 paragraphs (confirmed as the dominant sitewide pattern: 112 of 138 existing instances)",
+    "placement": "Replaces the existing <p class=\"muted\"> lede immediately after H1, matching the tool/size-page convention",
+    "pages": [
+      {"file": "guides/bolt-head-markings.html", "original_lede": "How to read strength and grade markings on bolt heads. Metric property classes and SAE grade symbols help you choose the right fastener for the load.", "aeo_text": "Bolt head markings show the metric property class or SAE grade stamped into the head. Metric property classes and SAE grade symbols help you choose the right fastener for the load.", "reason": "Sentence 1 reworded from how-to framing to direct-answer framing (same fact). Sentence 2 verbatim.", "new_facts_introduced": false},
+      {"file": "guides/bolt-strength-grades.html", "original_lede": "Metric property classes and SAE grades define bolt strength. Choosing the right grade ensures the joint can carry the load without failure or unnecessary cost.", "aeo_text": "Metric property classes and SAE grades define bolt strength. Choosing the right grade ensures the joint can carry the load without failure or unnecessary cost.", "reason": "Already direct; wrapped only, no wording change.", "new_facts_introduced": false},
+      {"file": "guides/bolt-vs-screw-difference.html", "original_lede": "In everyday language 'bolt' and 'screw' are used loosely. In engineering, the distinction affects how the joint is designed and loaded. For recognizing head shape and drive type on the bench, see the visual reference (e.g. screw head types).", "aeo_text": "Bolts typically pass through unthreaded holes and use a nut; screws often engage a pre-tapped hole or form their own thread. Load direction and head design also differ.", "reason": "Lede was discursive; replaced with the page's own existing, D1.6-verified FAQ answer to the same H1 question.", "new_facts_introduced": false},
+      {"file": "guides/fastener-materials-guide.html", "original_lede": "Choosing the right material—carbon steel, stainless, aluminum, or coated—affects strength, corrosion resistance, and weight. Compare options below.", "aeo_text": "Choosing the right fastener material—carbon steel, stainless, aluminum, or coated—affects strength, corrosion resistance, and weight. Compare the options below.", "reason": "Sentence 1 near-verbatim (added 'fastener'). Sentence 2 minimal/verbatim.", "new_facts_introduced": false},
+      {"file": "guides/how-to-measure-thread-pitch.html", "original_lede": "Accurate pitch measurement is the key to identifying unknown bolts and choosing the right tap or die. Use calipers and a pitch gauge, then verify with our tools.", "aeo_text": "Accurate pitch measurement is the key to identifying unknown bolts and choosing the right tap or die. Use calipers and a pitch gauge, then verify with our tools.", "reason": "Already direct; wrapped only.", "new_facts_introduced": false},
+      {"file": "guides/metric-thread-tolerances.html", "original_lede": "ISO metric threads use tolerance classes to control fit between bolt and nut. Common classes are 6g (external) and 6H (internal) for general use.", "aeo_text": "ISO metric threads use tolerance classes to control fit between bolt and nut. Common classes are 6g (external) and 6H (internal) for general use.", "reason": "Already direct; wrapped only.", "new_facts_introduced": false},
+      {"file": "guides/metric-vs-imperial-fasteners.html", "original_lede": "A practical guide to metric and imperial bolt and screw systems for mechanics, engineers, machinists, and DIY builders. See the complete screw size chart.", "aeo_text": "Metric fasteners use millimeters for diameter and thread pitch (e.g. M8 x 1.25); imperial fasteners use inch-based diameters and threads per inch (e.g. 5/16-18 UNC). They are not interchangeable without conversion.", "reason": "Lede was a 'guide about X' framing; replaced with the page's own existing, D1.6-verified FAQ answer.", "new_facts_introduced": false},
+      {"file": "guides/tap-drill-basics.html", "original_lede": "Choosing the right drill size before tapping ensures strong threads and avoids broken taps or stripped holes. Use our chart and calculator for quick reference.", "aeo_text": "Choosing the right drill size before tapping ensures strong threads and avoids broken taps or stripped holes. Use our chart and calculator for quick reference.", "reason": "Already direct; wrapped only.", "new_facts_introduced": false},
+      {"file": "guides/thread-pitch-explained.html", "original_lede": "Thread pitch is the distance between adjacent thread crests. Metric threads use pitch in millimeters; imperial threads are often specified in threads per inch (TPI).", "aeo_text": "Thread pitch is the distance between adjacent thread crests. Metric threads use pitch in millimeters; imperial threads are often specified in threads per inch (TPI).", "reason": "Already direct; wrapped only.", "new_facts_introduced": false},
+      {"file": "guides/thread-types-explained.html", "original_lede": "UNC, UNF, and metric coarse and fine threads: what they are and when to use each for fasteners.", "aeo_text": "Thread types include UNC, UNF, and metric coarse and fine families. Each family suits different fasteners—compare them below to choose the right type.", "reason": "Original was a topic-label sentence; minimally restructured into declarative form using only existing words/facts.", "new_facts_introduced": false},
+      {"file": "guides/what-is-tpi.html", "original_lede": "TPI is the imperial way to specify thread pitch: the number of thread crests in one inch. It is the inverse of pitch in inches.", "aeo_text": "TPI is the imperial way to specify thread pitch: the number of thread crests in one inch. It is the inverse of pitch in inches.", "reason": "Already direct; wrapped only.", "new_facts_introduced": false},
+      {"file": "guides/why-stainless-bolts-gall.html", "original_lede": "Stainless fasteners can seize or 'gall' when threads cold-weld under friction. Learn what causes it and how to prevent it.", "aeo_text": "Stainless fasteners can seize or 'gall' when threads cold-weld under friction. Galling is adhesive wear: similar metals under load transfer material and bond at the thread contact.", "reason": "Sentence 1 verbatim. Replaced weak navigational filler with the page's own existing explanatory sentence from its 'What is galling?' section.", "new_facts_introduced": false}
+    ]
+  },
+  "validation_results": {
+    "total_pages": 224,
+    "duplicate_titles": 0,
+    "duplicate_meta_descriptions": 0,
+    "pages_missing_from_sitemap": 0,
+    "orphan_pages": 0,
+    "broken_internal_links": 0,
+    "jsonld_parse_errors": 0,
+    "knowledge_engine_validator": "PASS, 0 errors, 0 warnings",
+    "projection_validator": "PASS, 0 errors, 0 warnings",
+    "aeo_checks": {
+      "guides_with_exactly_one_aeo_block": 12,
+      "guides_index_unchanged": true,
+      "duplicate_aeo_blocks": 0,
+      "empty_aeo_blocks": 0,
+      "h1_title_meta_unchanged_on_all_12": true
+    },
+    "atlas_checks": {
+      "core_signals_consistent": true,
+      "row_count_source": "downloads/metric-thread-atlas.csv (direct count) + page table (cross-check)",
+      "row_count_value": 9,
+      "thread_atlas_claims_distribution": false,
+      "unsupported_verification_method_added": false
+    },
+    "tap_drill_checks": {
+      "sentence_occurrences": 1,
+      "calculation_logic_unchanged": true
+    }
+  },
+  "d1_6_regression": {
+    "faqpage_pages": 197,
+    "mismatches": 0,
+    "duplicate_faqpage_blocks": 0,
+    "duplicate_questions_within_page": 0,
+    "hidden_faq_content": 0,
+    "jsonld_parse_errors": 0,
+    "question_matching_method": "identity-based (per docs/architecture/faq-structured-data-governance.md)",
+    "d1_6_pages_unintentionally_changed": 0,
+    "result": "PASS"
+  },
+  "d1_5_regression": {
+    "tools_hub_exists_and_lists_8_tools": true,
+    "header_tools_points_to_tools_root": true,
+    "homepage_engineering_reference_data_section_present": true,
+    "reference_hub_sections_intact": true,
+    "footer_thread_atlas_link_present": true,
+    "result": "PASS"
+  },
+  "exact_production_file_count": 14,
+  "production_files_modified": [
+    "reference/metric-thread-atlas.html",
+    "tools/tap-drill-calculator.html",
+    "guides/bolt-head-markings.html",
+    "guides/bolt-strength-grades.html",
+    "guides/bolt-vs-screw-difference.html",
+    "guides/fastener-materials-guide.html",
+    "guides/how-to-measure-thread-pitch.html",
+    "guides/metric-thread-tolerances.html",
+    "guides/metric-vs-imperial-fasteners.html",
+    "guides/tap-drill-basics.html",
+    "guides/thread-pitch-explained.html",
+    "guides/thread-types-explained.html",
+    "guides/what-is-tpi.html",
+    "guides/why-stainless-bolts-gall.html"
+  ],
+  "deviation_from_expected_breakdown": "reference/thread-atlas.html was inspected but required no change (already fully compliant); the overall 14-file total is still met because no other file needed additional edits. Documented rather than forcing a cosmetic no-op edit to hit an assumed 2-Atlas-file split.",
+  "unexpected_files_reverted": [
+    "docs/architecture/validation-report.json",
+    "docs/architecture/validation-report.md",
+    "docs/architecture/projection-validation-report.json",
+    "docs/architecture/projection-validation-report.md",
+    "audit/d1-3-page-inventory.json"
+  ],
+  "adsense_state": "NOT active",
+  "cmp_state": "NOT installed",
+  "ads_txt_state": "does not exist, not created or modified",
+  "files_created": [
+    "audit/d1-8-trust-aeo-report.md",
+    "audit/d1-8-trust-aeo-report.json",
+    "audit/d1-8-change-scope.md"
+  ],
+  "commit_status": "NOT COMMITTED — left in the working tree for review"
+}
