@@ -1,0 +1,3195 @@
+{
+  "total_affected": 83,
+  "pages": [
+    {
+      "path": "charts/metric-thread-chart.html",
+      "url": "https://boltlab.io/charts/metric-thread-chart",
+      "page_type": "chart",
+      "generator": "_generate_thread_engineering.py (legacy; also emits these 4 chart pages)",
+      "schema_faq_before": [
+        [
+          "What is the engineering purpose of metric thread chart?",
+          "Metric Thread Chart helps engineers specify, inspect, and communicate thread fit behavior across design, manufacturing, and quality teams."
+        ],
+        [
+          "Can I use this page to replace standards documents?",
+          "No. Use this page as engineering guidance and workflow context, then apply verified standards values from approved documents."
+        ],
+        [
+          "Where are the exact tolerance values?",
+          "Numerical sections requiring authoritative values are intentionally marked as placeholders until verified standards data is loaded."
+        ],
+        [
+          "How do I continue from this topic?",
+          "Use the related references, tools, and chart links to move from concept understanding to identification and practical specification steps."
+        ],
+        [
+          "Is this content suitable for manufacturing use?",
+          "Yes, as a reference framework. Final production decisions must still follow approved standards, drawings, and quality procedures."
+        ]
+      ],
+      "visible_faq_before": null,
+      "visible_faq_heading": null,
+      "mismatch_type": "D",
+      "canonical_source_decision": "schema (no visible content existed; added visible section matching schema verbatim)",
+      "action_taken": "FIXED — added visible FAQ section matching existing schema"
+    },
+    {
+      "path": "charts/metric-vs-imperial-chart.html",
+      "url": "https://boltlab.io/charts/metric-vs-imperial-chart",
+      "page_type": "chart",
+      "generator": "_generate_thread_engineering.py (legacy; also emits these 4 chart pages)",
+      "schema_faq_before": [
+        [
+          "What is the engineering purpose of metric vs imperial chart?",
+          "Metric vs Imperial Chart helps engineers specify, inspect, and communicate thread fit behavior across design, manufacturing, and quality teams."
+        ],
+        [
+          "Can I use this page to replace standards documents?",
+          "No. Use this page as engineering guidance and workflow context, then apply verified standards values from approved documents."
+        ],
+        [
+          "Where are the exact tolerance values?",
+          "Numerical sections requiring authoritative values are intentionally marked as placeholders until verified standards data is loaded."
+        ],
+        [
+          "How do I continue from this topic?",
+          "Use the related references, tools, and chart links to move from concept understanding to identification and practical specification steps."
+        ],
+        [
+          "Is this content suitable for manufacturing use?",
+          "Yes, as a reference framework. Final production decisions must still follow approved standards, drawings, and quality procedures."
+        ]
+      ],
+      "visible_faq_before": null,
+      "visible_faq_heading": null,
+      "mismatch_type": "D",
+      "canonical_source_decision": "schema (no visible content existed; added visible section matching schema verbatim)",
+      "action_taken": "FIXED — added visible FAQ section matching existing schema"
+    },
+    {
+      "path": "charts/unc-thread-chart.html",
+      "url": "https://boltlab.io/charts/unc-thread-chart",
+      "page_type": "chart",
+      "generator": "_generate_thread_engineering.py (legacy; also emits these 4 chart pages)",
+      "schema_faq_before": [
+        [
+          "What is the engineering purpose of unc thread chart?",
+          "UNC Thread Chart helps engineers specify, inspect, and communicate thread fit behavior across design, manufacturing, and quality teams."
+        ],
+        [
+          "Can I use this page to replace standards documents?",
+          "No. Use this page as engineering guidance and workflow context, then apply verified standards values from approved documents."
+        ],
+        [
+          "Where are the exact tolerance values?",
+          "Numerical sections requiring authoritative values are intentionally marked as placeholders until verified standards data is loaded."
+        ],
+        [
+          "How do I continue from this topic?",
+          "Use the related references, tools, and chart links to move from concept understanding to identification and practical specification steps."
+        ],
+        [
+          "Is this content suitable for manufacturing use?",
+          "Yes, as a reference framework. Final production decisions must still follow approved standards, drawings, and quality procedures."
+        ]
+      ],
+      "visible_faq_before": null,
+      "visible_faq_heading": null,
+      "mismatch_type": "D",
+      "canonical_source_decision": "schema (no visible content existed; added visible section matching schema verbatim)",
+      "action_taken": "FIXED — added visible FAQ section matching existing schema"
+    },
+    {
+      "path": "charts/unf-thread-chart.html",
+      "url": "https://boltlab.io/charts/unf-thread-chart",
+      "page_type": "chart",
+      "generator": "_generate_thread_engineering.py (legacy; also emits these 4 chart pages)",
+      "schema_faq_before": [
+        [
+          "What is the engineering purpose of unf thread chart?",
+          "UNF Thread Chart helps engineers specify, inspect, and communicate thread fit behavior across design, manufacturing, and quality teams."
+        ],
+        [
+          "Can I use this page to replace standards documents?",
+          "No. Use this page as engineering guidance and workflow context, then apply verified standards values from approved documents."
+        ],
+        [
+          "Where are the exact tolerance values?",
+          "Numerical sections requiring authoritative values are intentionally marked as placeholders until verified standards data is loaded."
+        ],
+        [
+          "How do I continue from this topic?",
+          "Use the related references, tools, and chart links to move from concept understanding to identification and practical specification steps."
+        ],
+        [
+          "Is this content suitable for manufacturing use?",
+          "Yes, as a reference framework. Final production decisions must still follow approved standards, drawings, and quality procedures."
+        ]
+      ],
+      "visible_faq_before": null,
+      "visible_faq_heading": null,
+      "mismatch_type": "D",
+      "canonical_source_decision": "schema (no visible content existed; added visible section matching schema verbatim)",
+      "action_taken": "FIXED — added visible FAQ section matching existing schema"
+    },
+    {
+      "path": "es/tools/calculadora-broca-roscar.html",
+      "url": "https://boltlab.io/es/tools/calculadora-broca-roscar",
+      "page_type": "spanish",
+      "generator": "hand-authored",
+      "schema_faq_before": [
+        [
+          "¿Cómo se calcula el diámetro de broca para roscar?",
+          "Una aproximación métrica habitual es diámetro mayor menos paso. Por ejemplo, M6 x 1,0 da unos 5,0 mm de broca."
+        ],
+        [
+          "¿Incluye tallas métricas habituales?",
+          "Sí. Incluye M3, M4, M5, M6, M8 y M10 con valores de referencia de paso grueso."
+        ]
+      ],
+      "visible_faq_before": null,
+      "visible_faq_heading": null,
+      "mismatch_type": "D",
+      "canonical_source_decision": "schema (no visible content existed; added visible section matching schema verbatim)",
+      "action_taken": "FIXED — added visible FAQ section matching existing schema"
+    },
+    {
+      "path": "es/tools/identificador-roscas.html",
+      "url": "https://boltlab.io/es/tools/identificador-roscas",
+      "page_type": "spanish",
+      "generator": "hand-authored",
+      "schema_faq_before": [
+        [
+          "¿Cómo elige el identificador las coincidencias?",
+          "Compara el diámetro y el paso medidos con normas métricas e imperiales habituales y devuelve opciones dentro de ±5 % en ambos valores."
+        ],
+        [
+          "¿Puedo usar diámetro en pulgadas y paso en TPI?",
+          "Sí. Puede combinar unidades. La herramienta normaliza internamente y actualiza las coincidencias al instante."
+        ]
+      ],
+      "visible_faq_before": null,
+      "visible_faq_heading": null,
+      "mismatch_type": "D",
+      "canonical_source_decision": "schema (no visible content existed; added visible section matching schema verbatim)",
+      "action_taken": "FIXED — added visible FAQ section matching existing schema"
+    },
+    {
+      "path": "es/tools/identificador-tornillos.html",
+      "url": "https://boltlab.io/es/tools/identificador-tornillos",
+      "page_type": "spanish",
+      "generator": "hand-authored",
+      "schema_faq_before": [
+        [
+          "¿Qué es un identificador de tornillos?",
+          "Ayuda a acotar qué tipo de sujetador tiene comparando lo visible—forma de cabeza, hueco de accionamiento y, si aplica, si espera rosca métrica o imperial—antes de medir diámetro y paso."
+        ],
+        [
+          "¿Cómo identifico un tornillo?",
+          "Primero la cabeza y el accionamiento a simple vista; luego mida diámetro mayor y paso o TPI. Use el identificador interactivo para el paso visual y el identificador de roscas con sus medidas."
+        ],
+        [
+          "¿En qué se diferencian Phillips y Pozidriv?",
+          "Ambos son huecos en cruz. Pozidriv tiene marcas radiales superficiales entre las aspas y requiere punta Pozidriv; suele resistir mejor el deslizamiento que Phillips cuando la pareja es correcta."
+        ],
+        [
+          "¿Puedo saber la talla de rosca solo mirando?",
+          "No de forma fiable. La identificación visual acota la familia; aún necesita calibre y medidor de paso o el identificador de roscas para la especificación."
+        ]
+      ],
+      "visible_faq_before": null,
+      "visible_faq_heading": null,
+      "mismatch_type": "D",
+      "canonical_source_decision": "schema (no visible content existed; added visible section matching schema verbatim)",
+      "action_taken": "FIXED — added visible FAQ section matching existing schema"
+    },
+    {
+      "path": "es/tools/metrico-a-pulgadas.html",
+      "url": "https://boltlab.io/es/tools/metrico-a-pulgadas",
+      "page_type": "spanish",
+      "generator": "hand-authored",
+      "schema_faq_before": [
+        [
+          "¿Qué tan exactas son las conversiones métrico–imperial?",
+          "La herramienta asigna tallas métricas habituales a los equivalentes imperiales más usados en taller."
+        ],
+        [
+          "¿Se actualiza al instante?",
+          "Sí. Los resultados cambian al modificar la dirección o la talla seleccionada."
+        ]
+      ],
+      "visible_faq_before": null,
+      "visible_faq_heading": null,
+      "mismatch_type": "D",
+      "canonical_source_decision": "schema (no visible content existed; added visible section matching schema verbatim)",
+      "action_taken": "FIXED — added visible FAQ section matching existing schema"
+    },
+    {
+      "path": "es/tools/paso-rosca-a-tpi.html",
+      "url": "https://boltlab.io/es/tools/paso-rosca-a-tpi",
+      "page_type": "spanish",
+      "generator": "hand-authored",
+      "schema_faq_before": [
+        [
+          "¿Cómo se convierte el paso de rosca a TPI?",
+          "Divida 25,4 entre el paso métrico en milímetros. Ejemplo: 25,4 / 1,25 = 20,32 TPI."
+        ],
+        [
+          "¿Puedo pasar de TPI a paso métrico?",
+          "Sí. Introduzca un valor TPI y la calculadora obtiene el paso en mm al instante con pitch = 25,4 / TPI."
+        ]
+      ],
+      "visible_faq_before": null,
+      "visible_faq_heading": null,
+      "mismatch_type": "D",
+      "canonical_source_decision": "schema (no visible content existed; added visible section matching schema verbatim)",
+      "action_taken": "FIXED — added visible FAQ section matching existing schema"
+    },
+    {
+      "path": "reference/thread-engineering/engineering-tables.html",
+      "url": "https://boltlab.io/reference/thread-engineering/engineering-tables",
+      "page_type": "thread-engineering",
+      "generator": "_generate_thread_engineering.py (legacy; also emits these 4 chart pages)",
+      "schema_faq_before": [
+        [
+          "What is the engineering purpose of engineering tables?",
+          "Engineering Tables helps engineers specify, inspect, and communicate thread fit behavior across design, manufacturing, and quality teams."
+        ],
+        [
+          "Can I use this page to replace standards documents?",
+          "No. Use this page as engineering guidance and workflow context, then apply verified standards values from approved documents."
+        ],
+        [
+          "Where are the exact tolerance values?",
+          "Numerical sections requiring authoritative values are intentionally marked as placeholders until verified standards data is loaded."
+        ],
+        [
+          "How do I continue from this topic?",
+          "Use the related references, tools, and chart links to move from concept understanding to identification and practical specification steps."
+        ],
+        [
+          "Is this content suitable for manufacturing use?",
+          "Yes, as a reference framework. Final production decisions must still follow approved standards, drawings, and quality procedures."
+        ]
+      ],
+      "visible_faq_before": null,
+      "visible_faq_heading": null,
+      "mismatch_type": "D",
+      "canonical_source_decision": "schema (no visible content existed; added visible section matching schema verbatim)",
+      "action_taken": "FIXED — added visible FAQ section matching existing schema"
+    },
+    {
+      "path": "reference/thread-engineering/fit-classes.html",
+      "url": "https://boltlab.io/reference/thread-engineering/fit-classes",
+      "page_type": "thread-engineering",
+      "generator": "_generate_thread_engineering.py (legacy; also emits these 4 chart pages)",
+      "schema_faq_before": [
+        [
+          "What is the engineering purpose of fit classes?",
+          "Fit Classes helps engineers specify, inspect, and communicate thread fit behavior across design, manufacturing, and quality teams."
+        ],
+        [
+          "Can I use this page to replace standards documents?",
+          "No. Use this page as engineering guidance and workflow context, then apply verified standards values from approved documents."
+        ],
+        [
+          "Where are the exact tolerance values?",
+          "Numerical sections requiring authoritative values are intentionally marked as placeholders until verified standards data is loaded."
+        ],
+        [
+          "How do I continue from this topic?",
+          "Use the related references, tools, and chart links to move from concept understanding to identification and practical specification steps."
+        ],
+        [
+          "Is this content suitable for manufacturing use?",
+          "Yes, as a reference framework. Final production decisions must still follow approved standards, drawings, and quality procedures."
+        ]
+      ],
+      "visible_faq_before": null,
+      "visible_faq_heading": null,
+      "mismatch_type": "D",
+      "canonical_source_decision": "schema (no visible content existed; added visible section matching schema verbatim)",
+      "action_taken": "FIXED — added visible FAQ section matching existing schema"
+    },
+    {
+      "path": "reference/thread-engineering/inspection.html",
+      "url": "https://boltlab.io/reference/thread-engineering/inspection",
+      "page_type": "thread-engineering",
+      "generator": "_generate_thread_engineering.py (legacy; also emits these 4 chart pages)",
+      "schema_faq_before": [
+        [
+          "What is the engineering purpose of inspection?",
+          "Inspection helps engineers specify, inspect, and communicate thread fit behavior across design, manufacturing, and quality teams."
+        ],
+        [
+          "Can I use this page to replace standards documents?",
+          "No. Use this page as engineering guidance and workflow context, then apply verified standards values from approved documents."
+        ],
+        [
+          "Where are the exact tolerance values?",
+          "Numerical sections requiring authoritative values are intentionally marked as placeholders until verified standards data is loaded."
+        ],
+        [
+          "How do I continue from this topic?",
+          "Use the related references, tools, and chart links to move from concept understanding to identification and practical specification steps."
+        ],
+        [
+          "Is this content suitable for manufacturing use?",
+          "Yes, as a reference framework. Final production decisions must still follow approved standards, drawings, and quality procedures."
+        ]
+      ],
+      "visible_faq_before": null,
+      "visible_faq_heading": null,
+      "mismatch_type": "D",
+      "canonical_source_decision": "schema (no visible content existed; added visible section matching schema verbatim)",
+      "action_taken": "FIXED — added visible FAQ section matching existing schema"
+    },
+    {
+      "path": "reference/thread-engineering/thread-geometry.html",
+      "url": "https://boltlab.io/reference/thread-engineering/thread-geometry",
+      "page_type": "thread-engineering",
+      "generator": "_generate_thread_engineering.py (legacy; also emits these 4 chart pages)",
+      "schema_faq_before": [
+        [
+          "What is the engineering purpose of thread geometry?",
+          "Thread Geometry helps engineers specify, inspect, and communicate thread fit behavior across design, manufacturing, and quality teams."
+        ],
+        [
+          "Can I use this page to replace standards documents?",
+          "No. Use this page as engineering guidance and workflow context, then apply verified standards values from approved documents."
+        ],
+        [
+          "Where are the exact tolerance values?",
+          "Numerical sections requiring authoritative values are intentionally marked as placeholders until verified standards data is loaded."
+        ],
+        [
+          "How do I continue from this topic?",
+          "Use the related references, tools, and chart links to move from concept understanding to identification and practical specification steps."
+        ],
+        [
+          "Is this content suitable for manufacturing use?",
+          "Yes, as a reference framework. Final production decisions must still follow approved standards, drawings, and quality procedures."
+        ]
+      ],
+      "visible_faq_before": null,
+      "visible_faq_heading": null,
+      "mismatch_type": "D",
+      "canonical_source_decision": "schema (no visible content existed; added visible section matching schema verbatim)",
+      "action_taken": "FIXED — added visible FAQ section matching existing schema"
+    },
+    {
+      "path": "reference/thread-engineering/thread-standards.html",
+      "url": "https://boltlab.io/reference/thread-engineering/thread-standards",
+      "page_type": "thread-engineering",
+      "generator": "_generate_thread_engineering.py (legacy; also emits these 4 chart pages)",
+      "schema_faq_before": [
+        [
+          "What is the engineering purpose of thread standards?",
+          "Thread Standards helps engineers specify, inspect, and communicate thread fit behavior across design, manufacturing, and quality teams."
+        ],
+        [
+          "Can I use this page to replace standards documents?",
+          "No. Use this page as engineering guidance and workflow context, then apply verified standards values from approved documents."
+        ],
+        [
+          "Where are the exact tolerance values?",
+          "Numerical sections requiring authoritative values are intentionally marked as placeholders until verified standards data is loaded."
+        ],
+        [
+          "How do I continue from this topic?",
+          "Use the related references, tools, and chart links to move from concept understanding to identification and practical specification steps."
+        ],
+        [
+          "Is this content suitable for manufacturing use?",
+          "Yes, as a reference framework. Final production decisions must still follow approved standards, drawings, and quality procedures."
+        ]
+      ],
+      "visible_faq_before": null,
+      "visible_faq_heading": null,
+      "mismatch_type": "D",
+      "canonical_source_decision": "schema (no visible content existed; added visible section matching schema verbatim)",
+      "action_taken": "FIXED — added visible FAQ section matching existing schema"
+    },
+    {
+      "path": "reference/thread-engineering/thread-tolerances.html",
+      "url": "https://boltlab.io/reference/thread-engineering/thread-tolerances",
+      "page_type": "thread-engineering",
+      "generator": "_generate_thread_engineering.py (legacy; also emits these 4 chart pages)",
+      "schema_faq_before": [
+        [
+          "What is the engineering purpose of thread tolerances?",
+          "Thread Tolerances helps engineers specify, inspect, and communicate thread fit behavior across design, manufacturing, and quality teams."
+        ],
+        [
+          "Can I use this page to replace standards documents?",
+          "No. Use this page as engineering guidance and workflow context, then apply verified standards values from approved documents."
+        ],
+        [
+          "Where are the exact tolerance values?",
+          "Numerical sections requiring authoritative values are intentionally marked as placeholders until verified standards data is loaded."
+        ],
+        [
+          "How do I continue from this topic?",
+          "Use the related references, tools, and chart links to move from concept understanding to identification and practical specification steps."
+        ],
+        [
+          "Is this content suitable for manufacturing use?",
+          "Yes, as a reference framework. Final production decisions must still follow approved standards, drawings, and quality procedures."
+        ]
+      ],
+      "visible_faq_before": null,
+      "visible_faq_heading": null,
+      "mismatch_type": "D",
+      "canonical_source_decision": "schema (no visible content existed; added visible section matching schema verbatim)",
+      "action_taken": "FIXED — added visible FAQ section matching existing schema"
+    },
+    {
+      "path": "tools/metric-to-imperial-screw-converter.html",
+      "url": "https://boltlab.io/tools/metric-to-imperial-screw-converter",
+      "page_type": "tool",
+      "generator": "hand-authored",
+      "schema_faq_before": [
+        [
+          "How accurate are metric to imperial screw conversions?",
+          "This tool maps common metric screw sizes to their closest commonly used imperial thread equivalents for practical workshop use."
+        ],
+        [
+          "Does this converter support live updates?",
+          "Yes. Results update instantly when you change direction or select a different screw size."
+        ]
+      ],
+      "visible_faq_before": null,
+      "visible_faq_heading": null,
+      "mismatch_type": "D",
+      "canonical_source_decision": "schema (no visible content existed; added visible section matching schema verbatim)",
+      "action_taken": "FIXED — added visible FAQ section matching existing schema"
+    },
+    {
+      "path": "tools/screw-identifier.html",
+      "url": "https://boltlab.io/tools/screw-identifier",
+      "page_type": "tool",
+      "generator": "hand-authored",
+      "schema_faq_before": [
+        [
+          "What is a screw identifier?",
+          "A screw identifier helps you narrow down what kind of fastener you have by matching visible features—head shape, drive recess, and optionally whether you expect metric or imperial threads—before you measure diameter and pitch."
+        ],
+        [
+          "How do I identify a screw?",
+          "First identify the head style and drive pattern visually, then measure major thread diameter and pitch or TPI. Use BoltLab’s Interactive Screw Identifier for the visual step, then the Thread Identifier tool with your measurements."
+        ],
+        [
+          "What is the difference between Phillips and Pozidriv?",
+          "Both are cross-shaped recesses. Pozidriv has extra shallow radial ticks between the main blades and requires a Pozidriv bit; it usually resists cam-out better than Phillips when paired correctly."
+        ],
+        [
+          "Can I identify thread size visually?",
+          "You cannot reliably tell thread diameter or pitch from appearance alone. Visual ID narrows the fastener family; you still need calipers and a pitch gauge or thread identifier for the thread specification."
+        ]
+      ],
+      "visible_faq_before": null,
+      "visible_faq_heading": null,
+      "mismatch_type": "D",
+      "canonical_source_decision": "schema (no visible content existed; added visible section matching schema verbatim)",
+      "action_taken": "FIXED — added visible FAQ section matching existing schema"
+    },
+    {
+      "path": "tools/tap-drill-calculator.html",
+      "url": "https://boltlab.io/tools/tap-drill-calculator",
+      "page_type": "tool",
+      "generator": "hand-authored",
+      "schema_faq_before": [
+        [
+          "How do you calculate tap drill size?",
+          "A common metric approximation is major diameter minus thread pitch. For example, M6 x 1.0 gives about 5.0 mm tap drill."
+        ],
+        [
+          "Does this tool include common metric thread sizes?",
+          "Yes. It includes M3, M4, M5, M6, M8, and M10 with coarse reference values."
+        ]
+      ],
+      "visible_faq_before": null,
+      "visible_faq_heading": null,
+      "mismatch_type": "D",
+      "canonical_source_decision": "schema (no visible content existed; added visible section matching schema verbatim)",
+      "action_taken": "FIXED — added visible FAQ section matching existing schema"
+    },
+    {
+      "path": "tools/thread-identifier.html",
+      "url": "https://boltlab.io/tools/thread-identifier",
+      "page_type": "tool",
+      "generator": "hand-authored",
+      "schema_faq_before": [
+        [
+          "How does the thread identifier choose matches?",
+          "The tool compares your measured diameter and pitch to known metric and imperial thread standards and returns options that fall within plus or minus 5 percent tolerance for both values."
+        ],
+        [
+          "Can I enter diameter in inches and pitch in TPI?",
+          "Yes. You can mix units. The tool normalizes values internally and updates likely matches instantly while you type."
+        ]
+      ],
+      "visible_faq_before": null,
+      "visible_faq_heading": null,
+      "mismatch_type": "D",
+      "canonical_source_decision": "schema (no visible content existed; added visible section matching schema verbatim)",
+      "action_taken": "FIXED — added visible FAQ section matching existing schema"
+    },
+    {
+      "path": "tools/thread-pitch-to-tpi-converter.html",
+      "url": "https://boltlab.io/tools/thread-pitch-to-tpi-converter",
+      "page_type": "tool",
+      "generator": "hand-authored",
+      "schema_faq_before": [
+        [
+          "How do you convert thread pitch to TPI?",
+          "Divide 25.4 by the metric pitch value in millimeters. Example: 25.4 / 1.25 = 20.32 TPI."
+        ],
+        [
+          "Can I convert TPI back to metric pitch?",
+          "Yes. Enter a TPI value and the calculator computes pitch in millimeters instantly using pitch = 25.4 / TPI."
+        ]
+      ],
+      "visible_faq_before": null,
+      "visible_faq_heading": null,
+      "mismatch_type": "D",
+      "canonical_source_decision": "schema (no visible content existed; added visible section matching schema verbatim)",
+      "action_taken": "FIXED — added visible FAQ section matching existing schema"
+    },
+    {
+      "path": "es/guides/broca-para-roscar.html",
+      "url": "https://boltlab.io/es/guides/broca-para-roscar",
+      "page_type": "spanish",
+      "generator": "hand-authored",
+      "schema_faq_before": [
+        [
+          "¿Qué es el diámetro de broca para roscar?",
+          "Es el diámetro del agujero que se taladra antes de pasar el macho. Es menor que el diámetro mayor del tornillo para que el macho forme la rosca; suele buscarse unos 75 % de profundidad de rosca."
+        ],
+        [
+          "¿Cómo se calcula la broca para roscar en métrico?",
+          "Regla habitual: diámetro de broca = diámetro mayor − paso. Para M6 x 1,0: 6 − 1 = 5 mm. Use nuestra calculadora de broca para roscar para valores concretos."
+        ],
+        [
+          "¿Qué pasa si el agujero queda demasiado grande?",
+          "Los agujeros sobredimensionados dejan roscas poco profundas y poco agarre. Use el diámetro recomendado en la tabla o en la calculadora para roscas fiables."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "¿Qué es el diámetro de broca para roscar?",
+          "Es el diámetro del agujero antes de machuelear. Es menor que el diámetro mayor del tornillo para que el macho forme la rosca; suele buscarse unos 75 % de profundidad de rosca."
+        ],
+        [
+          "¿Cómo se calcula en métrico?",
+          "Regla habitual: diámetro de broca = diámetro mayor − paso. Para M6 x 1,0: 6 − 1 = 5 mm. Use nuestra calculadora de broca para roscar para valores concretos."
+        ],
+        [
+          "¿Y si el agujero queda demasiado grande?",
+          "Los agujeros sobredimensionados dejan roscas superficiales y poco agarre. Use el diámetro recomendado en la tabla o en la calculadora."
+        ]
+      ],
+      "visible_faq_heading": "Preguntas frecuentes",
+      "mismatch_type": "C",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "es/guides/metrico-vs-imperial.html",
+      "url": "https://boltlab.io/es/guides/metrico-vs-imperial",
+      "page_type": "spanish",
+      "generator": "hand-authored",
+      "schema_faq_before": [
+        [
+          "¿En qué se diferencian los sujetadores métricos de los imperiales?",
+          "Los métricos usan milímetros para diámetro y paso de rosca (p. ej. M8 x 1.25). Los imperiales usan diámetros en pulgadas y roscas por pulgada TPI (p. ej. 5/16-18 UNC). No son intercambiables sin conversión."
+        ],
+        [
+          "¿Cuándo conviene métrico y cuándo imperial?",
+          "Métrico en vehículos modernos y maquinaria ISO. Imperial en equipos norteamericanos antiguos y cuando el plano indica UNC/UNF."
+        ],
+        [
+          "¿Puedo sustituir un perno métrico por uno imperial?",
+          "No sin comprobar diámetro y paso. Las tallas casi iguales pueden destrozar roscas o fallar. Use una tabla o herramienta de conversión para hallar equivalentes correctos."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "¿En qué se diferencian los sujetadores métricos de los imperiales?",
+          "Los métricos usan milímetros para diámetro y paso (p. ej. M8 x 1.25). Los imperiales usan pulgadas y TPI (p. ej. 5/16-18 UNC). No son intercambiables sin conversión."
+        ],
+        [
+          "¿Cuándo debo usar pernos métricos frente a imperiales?",
+          "Métrico en vehículos recientes y maquinaria ISO. Imperial en equipos norteamericanos antiguos y cuando el plano indica UNC/UNF."
+        ],
+        [
+          "¿Puedo sustituir un perno métrico por uno imperial?",
+          "No sin verificar diámetro y paso. Las tallas parecidas pueden destrozar roscas o fallar. Use una tabla o nuestro convertidor métrico a pulgadas para hallar equivalentes correctos."
+        ]
+      ],
+      "visible_faq_heading": "Preguntas frecuentes",
+      "mismatch_type": "C",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "es/guides/paso-de-rosca.html",
+      "url": "https://boltlab.io/es/guides/paso-de-rosca",
+      "page_type": "spanish",
+      "generator": "hand-authored",
+      "schema_faq_before": [
+        [
+          "¿Qué es el paso de rosca?",
+          "Es la distancia entre dos crestas de rosca consecutivas, medida según el eje. En métrico se da en mm; en imperial suele usarse TPI (roscas por pulgada)."
+        ],
+        [
+          "¿En qué se diferencian rosca gruesa y fina?",
+          "La gruesa tiene mayor paso (menos hilos por longitud), adecuada para materiales blandos y montaje rápido. La fina tiene menor paso, mejor para paredes finas y ajuste fino."
+        ],
+        [
+          "¿Cómo convierto paso de rosca a TPI?",
+          "TPI = 25,4 dividido por el paso en mm. Use nuestro convertidor de paso a TPI para el cálculo al instante."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "¿Qué es el paso de rosca?",
+          "Es la distancia entre crestas consecutivas según el eje. En métrico se usa mm; en imperial suele usarse TPI."
+        ],
+        [
+          "¿En qué se diferencian rosca gruesa y fina?",
+          "La gruesa tiene mayor paso (menos hilos por longitud), adecuada para materiales blandos y montaje rápido. La fina tiene menor paso, mejor para paredes finas y ajuste preciso."
+        ],
+        [
+          "¿Cómo convierto paso de rosca a TPI?",
+          "TPI = 25,4 dividido por el paso en mm. Use nuestro convertidor de paso a TPI para el resultado al instante."
+        ]
+      ],
+      "visible_faq_heading": "Preguntas frecuentes",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "es/sizes/perno-1-4-20.html",
+      "url": "https://boltlab.io/es/sizes/perno-1-4-20",
+      "page_type": "spanish",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "¿Qué significa 1/4-20?",
+          "1/4 es el diámetro nominal en pulgadas (0,25 in). 20 es el número de roscas por pulgada (TPI). Es una rosca UNC gruesa muy habitual."
+        ],
+        [
+          "¿Qué broca usar para roscar 1/4-20?",
+          "Consulte la tabla de este artículo o la calculadora de broca para roscar para el diámetro exacto de broca."
+        ],
+        [
+          "¿Qué perno métrico equivale a 1/4-20?",
+          "Vea la fila de equivalente métrico en la tabla; siempre compare con la pieza original."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "¿Qué significa 1/4-20?",
+          "1/4 es el diámetro nominal en pulgadas (0,25 in). 20 es el número de roscas por pulgada (TPI). Es una rosca UNC gruesa muy habitual."
+        ],
+        [
+          "¿Qué broca usar para roscar 1/4-20?",
+          "Vea la tabla de especificaciones arriba o use la calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué perno métrico equivale a 1/4-20?",
+          "Consulte la tabla; para más detalle vea también la página del equivalente métrico."
+        ]
+      ],
+      "visible_faq_heading": "Preguntas frecuentes",
+      "mismatch_type": "B",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "es/sizes/perno-3-8-16.html",
+      "url": "https://boltlab.io/es/sizes/perno-3-8-16",
+      "page_type": "spanish",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "¿Qué significa 3/8-16?",
+          "3/8 in de diámetro nominal y 16 TPI en UNC gruesa."
+        ],
+        [
+          "¿Qué broca usar para roscar 3/8-16?",
+          "Consulte la tabla de este artículo o la calculadora de broca para roscar para el diámetro exacto de broca."
+        ],
+        [
+          "¿Qué perno métrico equivale a 3/8-16?",
+          "Vea la fila de equivalente métrico en la tabla; siempre compare con la pieza original."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "¿Qué significa 3/8-16?",
+          "3/8 in de diámetro nominal y 16 TPI en UNC gruesa."
+        ],
+        [
+          "¿Qué broca usar para roscar 3/8-16?",
+          "Vea la tabla de especificaciones arriba o use la calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué perno métrico equivale a 3/8-16?",
+          "Consulte la tabla; para más detalle vea también la página del equivalente métrico."
+        ]
+      ],
+      "visible_faq_heading": "Preguntas frecuentes",
+      "mismatch_type": "B",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "es/sizes/perno-5-16-18.html",
+      "url": "https://boltlab.io/es/sizes/perno-5-16-18",
+      "page_type": "spanish",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "¿Qué significa 5/16-18?",
+          "5/16 in de diámetro nominal (0,3125 in) y 18 TPI en serie UNC gruesa."
+        ],
+        [
+          "¿Qué broca usar para roscar 5/16-18?",
+          "Consulte la tabla de este artículo o la calculadora de broca para roscar para el diámetro exacto de broca."
+        ],
+        [
+          "¿Qué perno métrico equivale a 5/16-18?",
+          "Vea la fila de equivalente métrico en la tabla; siempre compare con la pieza original."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "¿Qué significa 5/16-18?",
+          "5/16 in de diámetro nominal (0,3125 in) y 18 TPI en serie UNC gruesa."
+        ],
+        [
+          "¿Qué broca usar para roscar 5/16-18?",
+          "Vea la tabla de especificaciones arriba o use la calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué perno métrico equivale a 5/16-18?",
+          "Consulte la tabla; para más detalle vea también la página del equivalente métrico."
+        ]
+      ],
+      "visible_faq_heading": "Preguntas frecuentes",
+      "mismatch_type": "B",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "es/sizes/perno-m10.html",
+      "url": "https://boltlab.io/es/sizes/perno-m10",
+      "page_type": "spanish",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M10?",
+          "El paso grueso ISO habitual de M10 es 1,5 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M10?",
+          "Para rosca M10 × 1,5 gruesa, use broca de 8,5 mm aproximadamente. Para otros pasos use la calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M10?",
+          "Referencia orientativa: 3/8-16. Compare siempre con la pieza original."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M10?",
+          "El paso grueso ISO habitual de M10 es 1,5 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M10?",
+          "Para rosca M10 × 1,5 gruesa use broca de 8,5 mm. Para otros pasos use nuestra calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M10?",
+          "Referencia orientativa: 3/8-16. Compare siempre diámetro y TPI con la pieza original."
+        ]
+      ],
+      "visible_faq_heading": "Preguntas frecuentes",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "es/sizes/perno-m11.html",
+      "url": "https://boltlab.io/es/sizes/perno-m11",
+      "page_type": "spanish",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M11?",
+          "El paso grueso ISO habitual de M11 es 1,5 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M11?",
+          "Para rosca M11 × 1,5 gruesa, use broca de 9,5 mm aproximadamente. Para otros pasos use la calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M11?",
+          "Referencia orientativa: 7/16-14 (aprox.). Compare siempre con la pieza original."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M11?",
+          "El paso grueso ISO habitual de M11 es 1,5 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M11?",
+          "Para rosca M11 × 1,5 gruesa use broca de 9,5 mm. Para otros pasos use nuestra calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M11?",
+          "Referencia orientativa: 7/16-14 (aprox.). Compare siempre diámetro y TPI con la pieza original."
+        ]
+      ],
+      "visible_faq_heading": "Preguntas frecuentes",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "es/sizes/perno-m12.html",
+      "url": "https://boltlab.io/es/sizes/perno-m12",
+      "page_type": "spanish",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M12?",
+          "El paso grueso ISO habitual de M12 es 1,75 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M12?",
+          "Para rosca M12 × 1,75 gruesa, use broca de 10,2 mm aproximadamente. Para otros pasos use la calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M12?",
+          "Referencia orientativa: 1/2-13. Compare siempre con la pieza original."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M12?",
+          "El paso grueso ISO habitual de M12 es 1,75 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M12?",
+          "Para rosca M12 × 1,75 gruesa use broca de 10,2 mm. Para otros pasos use nuestra calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M12?",
+          "Referencia orientativa: 1/2-13. Compare siempre diámetro y TPI con la pieza original."
+        ]
+      ],
+      "visible_faq_heading": "Preguntas frecuentes",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "es/sizes/perno-m13.html",
+      "url": "https://boltlab.io/es/sizes/perno-m13",
+      "page_type": "spanish",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M13?",
+          "El paso grueso ISO habitual de M13 es 1,75 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M13?",
+          "Para rosca M13 × 1,75 gruesa, use broca de 11,2 mm aproximadamente. Para otros pasos use la calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M13?",
+          "Referencia orientativa: 1/2-13 (aprox.). Compare siempre con la pieza original."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M13?",
+          "El paso grueso ISO habitual de M13 es 1,75 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M13?",
+          "Para rosca M13 × 1,75 gruesa use broca de 11,2 mm. Para otros pasos use nuestra calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M13?",
+          "Referencia orientativa: 1/2-13 (aprox.). Compare siempre diámetro y TPI con la pieza original."
+        ]
+      ],
+      "visible_faq_heading": "Preguntas frecuentes",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "es/sizes/perno-m14.html",
+      "url": "https://boltlab.io/es/sizes/perno-m14",
+      "page_type": "spanish",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M14?",
+          "El paso grueso ISO habitual de M14 es 2,0 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M14?",
+          "Para rosca M14 × 2,0 gruesa, use broca de 12,0 mm aproximadamente. Para otros pasos use la calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M14?",
+          "Referencia orientativa: 9/16-12. Compare siempre con la pieza original."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M14?",
+          "El paso grueso ISO habitual de M14 es 2,0 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M14?",
+          "Para rosca M14 × 2,0 gruesa use broca de 12,0 mm. Para otros pasos use nuestra calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M14?",
+          "Referencia orientativa: 9/16-12. Compare siempre diámetro y TPI con la pieza original."
+        ]
+      ],
+      "visible_faq_heading": "Preguntas frecuentes",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "es/sizes/perno-m15.html",
+      "url": "https://boltlab.io/es/sizes/perno-m15",
+      "page_type": "spanish",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M15?",
+          "El paso grueso ISO habitual de M15 es 1,5 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M15?",
+          "Para rosca M15 × 1,5 gruesa, use broca de 13,5 mm aproximadamente. Para otros pasos use la calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M15?",
+          "Referencia orientativa: 5/8-11 (aprox.). Compare siempre con la pieza original."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M15?",
+          "El paso grueso ISO habitual de M15 es 1,5 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M15?",
+          "Para rosca M15 × 1,5 gruesa use broca de 13,5 mm. Para otros pasos use nuestra calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M15?",
+          "Referencia orientativa: 5/8-11 (aprox.). Compare siempre diámetro y TPI con la pieza original."
+        ]
+      ],
+      "visible_faq_heading": "Preguntas frecuentes",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "es/sizes/perno-m16.html",
+      "url": "https://boltlab.io/es/sizes/perno-m16",
+      "page_type": "spanish",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M16?",
+          "El paso grueso ISO habitual de M16 es 2,0 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M16?",
+          "Para rosca M16 × 2,0 gruesa, use broca de 14,0 mm aproximadamente. Para otros pasos use la calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M16?",
+          "Referencia orientativa: 5/8-11. Compare siempre con la pieza original."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M16?",
+          "El paso grueso ISO habitual de M16 es 2,0 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M16?",
+          "Para rosca M16 × 2,0 gruesa use broca de 14,0 mm. Para otros pasos use nuestra calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M16?",
+          "Referencia orientativa: 5/8-11. Compare siempre diámetro y TPI con la pieza original."
+        ]
+      ],
+      "visible_faq_heading": "Preguntas frecuentes",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "es/sizes/perno-m17.html",
+      "url": "https://boltlab.io/es/sizes/perno-m17",
+      "page_type": "spanish",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M17?",
+          "El paso grueso ISO habitual de M17 es 1,5 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M17?",
+          "Para rosca M17 × 1,5 gruesa, use broca de 15,5 mm aproximadamente. Para otros pasos use la calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M17?",
+          "Referencia orientativa: 5/8-11 (aprox.). Compare siempre con la pieza original."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M17?",
+          "El paso grueso ISO habitual de M17 es 1,5 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M17?",
+          "Para rosca M17 × 1,5 gruesa use broca de 15,5 mm. Para otros pasos use nuestra calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M17?",
+          "Referencia orientativa: 5/8-11 (aprox.). Compare siempre diámetro y TPI con la pieza original."
+        ]
+      ],
+      "visible_faq_heading": "Preguntas frecuentes",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "es/sizes/perno-m18.html",
+      "url": "https://boltlab.io/es/sizes/perno-m18",
+      "page_type": "spanish",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M18?",
+          "El paso grueso ISO habitual de M18 es 2,5 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M18?",
+          "Para rosca M18 × 2,5 gruesa, use broca de 15,5 mm aproximadamente. Para otros pasos use la calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M18?",
+          "Referencia orientativa: 3/4-10. Compare siempre con la pieza original."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M18?",
+          "El paso grueso ISO habitual de M18 es 2,5 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M18?",
+          "Para rosca M18 × 2,5 gruesa use broca de 15,5 mm. Para otros pasos use nuestra calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M18?",
+          "Referencia orientativa: 3/4-10. Compare siempre diámetro y TPI con la pieza original."
+        ]
+      ],
+      "visible_faq_heading": "Preguntas frecuentes",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "es/sizes/perno-m19.html",
+      "url": "https://boltlab.io/es/sizes/perno-m19",
+      "page_type": "spanish",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M19?",
+          "El paso grueso ISO habitual de M19 es 2,5 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M19?",
+          "Para rosca M19 × 2,5 gruesa, use broca de 16,5 mm aproximadamente. Para otros pasos use la calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M19?",
+          "Referencia orientativa: 3/4-10 (aprox.). Compare siempre con la pieza original."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M19?",
+          "El paso grueso ISO habitual de M19 es 2,5 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M19?",
+          "Para rosca M19 × 2,5 gruesa use broca de 16,5 mm. Para otros pasos use nuestra calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M19?",
+          "Referencia orientativa: 3/4-10 (aprox.). Compare siempre diámetro y TPI con la pieza original."
+        ]
+      ],
+      "visible_faq_heading": "Preguntas frecuentes",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "es/sizes/perno-m20.html",
+      "url": "https://boltlab.io/es/sizes/perno-m20",
+      "page_type": "spanish",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M20?",
+          "El paso grueso ISO habitual de M20 es 2,5 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M20?",
+          "Para rosca M20 × 2,5 gruesa, use broca de 17,5 mm aproximadamente. Para otros pasos use la calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M20?",
+          "Referencia orientativa: 3/4-10. Compare siempre con la pieza original."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M20?",
+          "El paso grueso ISO habitual de M20 es 2,5 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M20?",
+          "Para rosca M20 × 2,5 gruesa use broca de 17,5 mm. Para otros pasos use nuestra calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M20?",
+          "Referencia orientativa: 3/4-10. Compare siempre diámetro y TPI con la pieza original."
+        ]
+      ],
+      "visible_faq_heading": "Preguntas frecuentes",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "es/sizes/perno-m3.html",
+      "url": "https://boltlab.io/es/sizes/perno-m3",
+      "page_type": "spanish",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M3?",
+          "El paso grueso ISO habitual de M3 es 0,5 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M3?",
+          "Para rosca M3 × 0,5 gruesa, use broca de 2,5 mm aproximadamente. Para otros pasos use la calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M3?",
+          "Referencia orientativa: #4-40. Compare siempre con la pieza original."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M3?",
+          "El paso grueso ISO habitual de M3 es 0,5 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M3?",
+          "Para rosca M3 × 0,5 gruesa use broca de 2,5 mm. Para otros pasos use nuestra calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M3?",
+          "Referencia orientativa: #4-40. Compare siempre diámetro y TPI con la pieza original."
+        ]
+      ],
+      "visible_faq_heading": "Preguntas frecuentes",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "es/sizes/perno-m4.html",
+      "url": "https://boltlab.io/es/sizes/perno-m4",
+      "page_type": "spanish",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M4?",
+          "El paso grueso ISO habitual de M4 es 0,7 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M4?",
+          "Para rosca M4 × 0,7 gruesa, use broca de 3,3 mm aproximadamente. Para otros pasos use la calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M4?",
+          "Referencia orientativa: #8-32. Compare siempre con la pieza original."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M4?",
+          "El paso grueso ISO habitual de M4 es 0,7 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M4?",
+          "Para rosca M4 × 0,7 gruesa use broca de 3,3 mm. Para otros pasos use nuestra calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M4?",
+          "Referencia orientativa: #8-32. Compare siempre diámetro y TPI con la pieza original."
+        ]
+      ],
+      "visible_faq_heading": "Preguntas frecuentes",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "es/sizes/perno-m5.html",
+      "url": "https://boltlab.io/es/sizes/perno-m5",
+      "page_type": "spanish",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M5?",
+          "El paso grueso ISO habitual de M5 es 0,8 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M5?",
+          "Para rosca M5 × 0,8 gruesa, use broca de 4,2 mm aproximadamente. Para otros pasos use la calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M5?",
+          "Referencia orientativa: #10-24. Compare siempre con la pieza original."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M5?",
+          "El paso grueso ISO habitual de M5 es 0,8 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M5?",
+          "Para rosca M5 × 0,8 gruesa use broca de 4,2 mm. Para otros pasos use nuestra calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M5?",
+          "Referencia orientativa: #10-24. Compare siempre diámetro y TPI con la pieza original."
+        ]
+      ],
+      "visible_faq_heading": "Preguntas frecuentes",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "es/sizes/perno-m6.html",
+      "url": "https://boltlab.io/es/sizes/perno-m6",
+      "page_type": "spanish",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M6?",
+          "El paso grueso ISO habitual de M6 es 1,0 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M6?",
+          "Para rosca M6 × 1,0 gruesa, use broca de 5,0 mm aproximadamente. Para otros pasos use la calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M6?",
+          "Referencia orientativa: 1/4-20. Compare siempre con la pieza original."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M6?",
+          "El paso grueso ISO habitual de M6 es 1,0 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M6?",
+          "Para rosca M6 × 1,0 gruesa use broca de 5,0 mm. Para otros pasos use nuestra calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M6?",
+          "Referencia orientativa: 1/4-20. Compare siempre diámetro y TPI con la pieza original."
+        ]
+      ],
+      "visible_faq_heading": "Preguntas frecuentes",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "es/sizes/perno-m7.html",
+      "url": "https://boltlab.io/es/sizes/perno-m7",
+      "page_type": "spanish",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M7?",
+          "El paso grueso ISO habitual de M7 es 1,0 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M7?",
+          "Para rosca M7 × 1,0 gruesa, use broca de 6,0 mm aproximadamente. Para otros pasos use la calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M7?",
+          "Referencia orientativa: entre M6 y 1/4\". Compare siempre con la pieza original."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M7?",
+          "El paso grueso ISO habitual de M7 es 1,0 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M7?",
+          "Para rosca M7 × 1,0 gruesa use broca de 6,0 mm. Para otros pasos use nuestra calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M7?",
+          "Referencia orientativa: entre M6 y 1/4\". Compare siempre diámetro y TPI con la pieza original."
+        ]
+      ],
+      "visible_faq_heading": "Preguntas frecuentes",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "es/sizes/perno-m8.html",
+      "url": "https://boltlab.io/es/sizes/perno-m8",
+      "page_type": "spanish",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M8?",
+          "El paso grueso ISO habitual de M8 es 1,25 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M8?",
+          "Para rosca M8 × 1,25 gruesa, use broca de 6,8 mm aproximadamente. Para otros pasos use la calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M8?",
+          "Referencia orientativa: 5/16-18. Compare siempre con la pieza original."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M8?",
+          "El paso grueso ISO habitual de M8 es 1,25 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M8?",
+          "Para rosca M8 × 1,25 gruesa use broca de 6,8 mm. Para otros pasos use nuestra calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M8?",
+          "Referencia orientativa: 5/16-18. Compare siempre diámetro y TPI con la pieza original."
+        ]
+      ],
+      "visible_faq_heading": "Preguntas frecuentes",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "es/sizes/perno-m9.html",
+      "url": "https://boltlab.io/es/sizes/perno-m9",
+      "page_type": "spanish",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M9?",
+          "El paso grueso ISO habitual de M9 es 1,25 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M9?",
+          "Para rosca M9 × 1,25 gruesa, use broca de 7,8 mm aproximadamente. Para otros pasos use la calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M9?",
+          "Referencia orientativa: entre M8 y M10. Compare siempre con la pieza original."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "¿Cuál es el paso estándar de un perno M9?",
+          "El paso grueso ISO habitual de M9 es 1,25 mm."
+        ],
+        [
+          "¿Qué broca usar para roscar M9?",
+          "Para rosca M9 × 1,25 gruesa use broca de 7,8 mm. Para otros pasos use nuestra calculadora de broca para roscar."
+        ],
+        [
+          "¿Qué tornillo imperial se acerca más a M9?",
+          "Referencia orientativa: entre M8 y M10. Compare siempre diámetro y TPI con la pieza original."
+        ]
+      ],
+      "visible_faq_heading": "Preguntas frecuentes",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "guides/bolt-vs-screw-difference.html",
+      "url": "https://boltlab.io/guides/bolt-vs-screw-difference",
+      "page_type": "guide",
+      "generator": "hand-authored",
+      "schema_faq_before": [
+        [
+          "What is the difference between a bolt and a screw?",
+          "Bolts typically pass through unthreaded holes and use a nut; screws often engage a pre-tapped hole or form their own thread. Load direction and head design also differ."
+        ],
+        [
+          "Can I use a bolt without a nut?",
+          "Only if the hole is threaded (then it acts like a screw). In unthreaded holes, the nut (or threaded counterpart) is required for the joint."
+        ],
+        [
+          "Do bolts and screws use the same thread sizes?",
+          "Yes. Metric and imperial thread sizes (e.g. M6, 1/4-20) apply to both bolts and screws. Use our size chart or converters to match sizes."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What is the difference between a bolt and a screw?",
+          "Bolts typically pass through unthreaded holes and use a nut; screws often engage a pre-tapped hole or form their own thread. Load direction and head design also differ."
+        ],
+        [
+          "Can I use a bolt without a nut?",
+          "Only if the hole is threaded (then it acts like a screw). In unthreaded holes, the nut (or threaded counterpart) is required for the joint."
+        ],
+        [
+          "Do bolts and screws use the same thread sizes?",
+          "Yes. Metric and imperial thread sizes (e.g. M6, 1/4-20) apply to both. Use our screw size chart or converters to match sizes."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "guides/metric-vs-imperial-fasteners.html",
+      "url": "https://boltlab.io/guides/metric-vs-imperial-fasteners",
+      "page_type": "guide",
+      "generator": "hand-authored",
+      "schema_faq_before": [
+        [
+          "What is the difference between metric and imperial fasteners?",
+          "Metric fasteners use millimeters for diameter and thread pitch (e.g. M8 x 1.25). Imperial fasteners use inch-based diameters and threads per inch (e.g. 5/16-18 UNC). They are not interchangeable without conversion."
+        ],
+        [
+          "When should I use metric vs imperial bolts?",
+          "Use metric for most modern vehicles and ISO-standard machinery. Use imperial for legacy North American equipment and when drawings specify UNC/UNF."
+        ],
+        [
+          "Can I substitute a metric bolt for an imperial one?",
+          "Do not substitute without checking diameter and pitch. Near-match sizes can strip threads or fail. Use a conversion chart or tool to find correct equivalents."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What is the difference between metric and imperial fasteners?",
+          "Metric fasteners use millimeters for diameter and thread pitch (e.g. M8 x 1.25). Imperial fasteners use inch-based diameters and threads per inch (e.g. 5/16-18 UNC). They are not interchangeable without conversion."
+        ],
+        [
+          "When should I use metric vs imperial bolts?",
+          "Use metric for most modern vehicles and ISO-standard machinery. Use imperial for legacy North American equipment and when drawings specify UNC/UNF."
+        ],
+        [
+          "Can I substitute a metric bolt for an imperial one?",
+          "Do not substitute without checking diameter and pitch. Near-match sizes can strip threads or fail. Use a conversion chart or our Metric to Imperial Converter to find correct equivalents."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "guides/tap-drill-basics.html",
+      "url": "https://boltlab.io/guides/tap-drill-basics",
+      "page_type": "guide",
+      "generator": "hand-authored",
+      "schema_faq_before": [
+        [
+          "What is tap drill size?",
+          "Tap drill size is the diameter of the hole you drill before tapping. It is smaller than the bolt major diameter so that the tap can form threads; typically chosen for about 75% thread depth."
+        ],
+        [
+          "How do you calculate tap drill size for metric?",
+          "A common rule is: tap drill diameter = major diameter minus pitch. For M6 x 1.0, drill = 6 - 1 = 5 mm. Use our Tap Drill Calculator for exact values."
+        ],
+        [
+          "What if I drill the hole too large?",
+          "Oversized holes give shallow threads and weak engagement. Use the recommended tap drill size from a chart or our calculator for reliable threads."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What is tap drill size?",
+          "Tap drill size is the diameter of the hole you drill before tapping. It is smaller than the bolt major diameter so that the tap can form threads; typically chosen for about 75% thread depth."
+        ],
+        [
+          "How do you calculate tap drill size for metric?",
+          "A common rule is: tap drill diameter = major diameter minus pitch. For M6 x 1.0, drill = 6 − 1 = 5 mm. Use our Tap Drill Calculator for exact values."
+        ],
+        [
+          "What if I drill the hole too large?",
+          "Oversized holes give shallow threads and weak engagement. Use the recommended tap drill size from a chart or our calculator for reliable threads."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "reference/6g-vs-6h.html",
+      "url": "https://boltlab.io/reference/6g-vs-6h",
+      "page_type": "reference",
+      "generator": "hand-authored / legacy mixed",
+      "schema_faq_before": [
+        [
+          "What is the engineering purpose of 6g vs 6h?",
+          "6g vs 6h helps engineers specify, inspect, and communicate thread fit behavior across design, manufacturing, and quality teams."
+        ],
+        [
+          "Can I use this page to replace standards documents?",
+          "No. Use this page as engineering guidance and workflow context, then apply verified standards values from approved documents."
+        ],
+        [
+          "Where are the exact tolerance values?",
+          "Numerical sections requiring authoritative values are intentionally marked as placeholders until verified standards data is loaded."
+        ],
+        [
+          "How do I continue from this topic?",
+          "Use the related references, tools, and chart links to move from concept understanding to identification and practical specification steps."
+        ],
+        [
+          "Is this content suitable for manufacturing use?",
+          "Yes, as a reference framework. Final production decisions must still follow approved standards, drawings, and quality procedures."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What does this page help me decide?",
+          "It supports thread specification, fit interpretation, and inspection planning for engineering workflows."
+        ],
+        [
+          "Can I publish production limits from this page directly?",
+          "No. Use approved standards and internal quality documents for release values."
+        ],
+        [
+          "How is this different from a basic thread guide?",
+          "This reference focuses on fit behavior, tolerance interpretation, and manufacturing control decisions."
+        ],
+        [
+          "Which linked concept should I read next?",
+          "Start with pitch diameter, then continue to fundamental deviation and tolerance zones."
+        ],
+        [
+          "How do I move from concept to practical verification?",
+          "Use Thread Identifier, compare charts, and apply a documented inspection plan before production release."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "C",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "reference/6h-vs-6g.html",
+      "url": "https://boltlab.io/reference/6h-vs-6g",
+      "page_type": "reference",
+      "generator": "hand-authored / legacy mixed",
+      "schema_faq_before": [
+        [
+          "What is the engineering purpose of 6h vs 6g?",
+          "6H vs 6G helps engineers specify, inspect, and communicate thread fit behavior across design, manufacturing, and quality teams."
+        ],
+        [
+          "Can I use this page to replace standards documents?",
+          "No. Use this page as engineering guidance and workflow context, then apply verified standards values from approved documents."
+        ],
+        [
+          "Where are the exact tolerance values?",
+          "Numerical sections requiring authoritative values are intentionally marked as placeholders until verified standards data is loaded."
+        ],
+        [
+          "How do I continue from this topic?",
+          "Use the related references, tools, and chart links to move from concept understanding to identification and practical specification steps."
+        ],
+        [
+          "Is this content suitable for manufacturing use?",
+          "Yes, as a reference framework. Final production decisions must still follow approved standards, drawings, and quality procedures."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What does this page help me decide?",
+          "It supports thread specification, fit interpretation, and inspection planning for engineering workflows."
+        ],
+        [
+          "Can I publish production limits from this page directly?",
+          "No. Use approved standards and internal quality documents for release values."
+        ],
+        [
+          "How is this different from a basic thread guide?",
+          "This reference focuses on fit behavior, tolerance interpretation, and manufacturing control decisions."
+        ],
+        [
+          "Which linked concept should I read next?",
+          "Start with pitch diameter, then continue to fundamental deviation and tolerance zones."
+        ],
+        [
+          "How do I move from concept to practical verification?",
+          "Use Thread Identifier, compare charts, and apply a documented inspection plan before production release."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "C",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "reference/allowance-vs-tolerance.html",
+      "url": "https://boltlab.io/reference/allowance-vs-tolerance",
+      "page_type": "reference",
+      "generator": "hand-authored / legacy mixed",
+      "schema_faq_before": [
+        [
+          "What is the engineering purpose of allowance vs tolerance?",
+          "Allowance vs Tolerance helps engineers specify, inspect, and communicate thread fit behavior across design, manufacturing, and quality teams."
+        ],
+        [
+          "Can I use this page to replace standards documents?",
+          "No. Use this page as engineering guidance and workflow context, then apply verified standards values from approved documents."
+        ],
+        [
+          "Where are the exact tolerance values?",
+          "Numerical sections requiring authoritative values are intentionally marked as placeholders until verified standards data is loaded."
+        ],
+        [
+          "How do I continue from this topic?",
+          "Use the related references, tools, and chart links to move from concept understanding to identification and practical specification steps."
+        ],
+        [
+          "Is this content suitable for manufacturing use?",
+          "Yes, as a reference framework. Final production decisions must still follow approved standards, drawings, and quality procedures."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What does this page help me decide?",
+          "It supports thread specification, fit interpretation, and inspection planning for engineering workflows."
+        ],
+        [
+          "Can I publish production limits from this page directly?",
+          "No. Use approved standards and internal quality documents for release values."
+        ],
+        [
+          "How is this different from a basic thread guide?",
+          "This reference focuses on fit behavior, tolerance interpretation, and manufacturing control decisions."
+        ],
+        [
+          "Which linked concept should I read next?",
+          "Start with pitch diameter, then continue to fundamental deviation and tolerance zones."
+        ],
+        [
+          "How do I move from concept to practical verification?",
+          "Use Thread Identifier, compare charts, and apply a documented inspection plan before production release."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "C",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "reference/external-thread-tolerances.html",
+      "url": "https://boltlab.io/reference/external-thread-tolerances",
+      "page_type": "reference",
+      "generator": "hand-authored / legacy mixed",
+      "schema_faq_before": [
+        [
+          "What is the engineering purpose of external thread tolerances?",
+          "External Thread Tolerances helps engineers specify, inspect, and communicate thread fit behavior across design, manufacturing, and quality teams."
+        ],
+        [
+          "Can I use this page to replace standards documents?",
+          "No. Use this page as engineering guidance and workflow context, then apply verified standards values from approved documents."
+        ],
+        [
+          "Where are the exact tolerance values?",
+          "Numerical sections requiring authoritative values are intentionally marked as placeholders until verified standards data is loaded."
+        ],
+        [
+          "How do I continue from this topic?",
+          "Use the related references, tools, and chart links to move from concept understanding to identification and practical specification steps."
+        ],
+        [
+          "Is this content suitable for manufacturing use?",
+          "Yes, as a reference framework. Final production decisions must still follow approved standards, drawings, and quality procedures."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What does this page help me decide?",
+          "It supports thread specification, fit interpretation, and inspection planning for engineering workflows."
+        ],
+        [
+          "Can I publish production limits from this page directly?",
+          "No. Use approved standards and internal quality documents for release values."
+        ],
+        [
+          "How is this different from a basic thread guide?",
+          "This reference focuses on fit behavior, tolerance interpretation, and manufacturing control decisions."
+        ],
+        [
+          "Which linked concept should I read next?",
+          "Start with pitch diameter, then continue to fundamental deviation and tolerance zones."
+        ],
+        [
+          "How do I move from concept to practical verification?",
+          "Use Thread Identifier, compare charts, and apply a documented inspection plan before production release."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "C",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "reference/fundamental-deviation.html",
+      "url": "https://boltlab.io/reference/fundamental-deviation",
+      "page_type": "reference",
+      "generator": "hand-authored / legacy mixed",
+      "schema_faq_before": [
+        [
+          "What is the engineering purpose of fundamental deviation?",
+          "Fundamental Deviation helps engineers specify, inspect, and communicate thread fit behavior across design, manufacturing, and quality teams."
+        ],
+        [
+          "Can I use this page to replace standards documents?",
+          "No. Use this page as engineering guidance and workflow context, then apply verified standards values from approved documents."
+        ],
+        [
+          "Where are the exact tolerance values?",
+          "Numerical sections requiring authoritative values are intentionally marked as placeholders until verified standards data is loaded."
+        ],
+        [
+          "How do I continue from this topic?",
+          "Use the related references, tools, and chart links to move from concept understanding to identification and practical specification steps."
+        ],
+        [
+          "Is this content suitable for manufacturing use?",
+          "Yes, as a reference framework. Final production decisions must still follow approved standards, drawings, and quality procedures."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What does this page help me decide?",
+          "It supports thread specification, fit interpretation, and inspection planning for engineering workflows."
+        ],
+        [
+          "Can I publish production limits from this page directly?",
+          "No. Use approved standards and internal quality documents for release values."
+        ],
+        [
+          "How is this different from a basic thread guide?",
+          "This reference focuses on fit behavior, tolerance interpretation, and manufacturing control decisions."
+        ],
+        [
+          "Which linked concept should I read next?",
+          "Start with pitch diameter, then continue to fundamental deviation and tolerance zones."
+        ],
+        [
+          "How do I move from concept to practical verification?",
+          "Use Thread Identifier, compare charts, and apply a documented inspection plan before production release."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "C",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "reference/internal-thread-tolerances.html",
+      "url": "https://boltlab.io/reference/internal-thread-tolerances",
+      "page_type": "reference",
+      "generator": "hand-authored / legacy mixed",
+      "schema_faq_before": [
+        [
+          "What is the engineering purpose of internal thread tolerances?",
+          "Internal Thread Tolerances helps engineers specify, inspect, and communicate thread fit behavior across design, manufacturing, and quality teams."
+        ],
+        [
+          "Can I use this page to replace standards documents?",
+          "No. Use this page as engineering guidance and workflow context, then apply verified standards values from approved documents."
+        ],
+        [
+          "Where are the exact tolerance values?",
+          "Numerical sections requiring authoritative values are intentionally marked as placeholders until verified standards data is loaded."
+        ],
+        [
+          "How do I continue from this topic?",
+          "Use the related references, tools, and chart links to move from concept understanding to identification and practical specification steps."
+        ],
+        [
+          "Is this content suitable for manufacturing use?",
+          "Yes, as a reference framework. Final production decisions must still follow approved standards, drawings, and quality procedures."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What does this page help me decide?",
+          "It supports thread specification, fit interpretation, and inspection planning for engineering workflows."
+        ],
+        [
+          "Can I publish production limits from this page directly?",
+          "No. Use approved standards and internal quality documents for release values."
+        ],
+        [
+          "How is this different from a basic thread guide?",
+          "This reference focuses on fit behavior, tolerance interpretation, and manufacturing control decisions."
+        ],
+        [
+          "Which linked concept should I read next?",
+          "Start with pitch diameter, then continue to fundamental deviation and tolerance zones."
+        ],
+        [
+          "How do I move from concept to practical verification?",
+          "Use Thread Identifier, compare charts, and apply a documented inspection plan before production release."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "C",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "reference/metric-thread-tolerance-chart.html",
+      "url": "https://boltlab.io/reference/metric-thread-tolerance-chart",
+      "page_type": "reference",
+      "generator": "hand-authored / legacy mixed",
+      "schema_faq_before": [
+        [
+          "What is the engineering purpose of metric thread tolerance chart?",
+          "Metric Thread Tolerance Chart helps engineers specify, inspect, and communicate thread fit behavior across design, manufacturing, and quality teams."
+        ],
+        [
+          "Can I use this page to replace standards documents?",
+          "No. Use this page as engineering guidance and workflow context, then apply verified standards values from approved documents."
+        ],
+        [
+          "Where are the exact tolerance values?",
+          "Numerical sections requiring authoritative values are intentionally marked as placeholders until verified standards data is loaded."
+        ],
+        [
+          "How do I continue from this topic?",
+          "Use the related references, tools, and chart links to move from concept understanding to identification and practical specification steps."
+        ],
+        [
+          "Is this content suitable for manufacturing use?",
+          "Yes, as a reference framework. Final production decisions must still follow approved standards, drawings, and quality procedures."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What does this page help me decide?",
+          "It supports thread specification, fit interpretation, and inspection planning for engineering workflows."
+        ],
+        [
+          "Can I publish production limits from this page directly?",
+          "No. Use approved standards and internal quality documents for release values."
+        ],
+        [
+          "How is this different from a basic thread guide?",
+          "This reference focuses on fit behavior, tolerance interpretation, and manufacturing control decisions."
+        ],
+        [
+          "Which linked concept should I read next?",
+          "Start with pitch diameter, then continue to fundamental deviation and tolerance zones."
+        ],
+        [
+          "How do I move from concept to practical verification?",
+          "Use Thread Identifier, compare charts, and apply a documented inspection plan before production release."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "C",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "reference/screw-anatomy.html",
+      "url": "https://boltlab.io/reference/screw-anatomy",
+      "page_type": "reference",
+      "generator": "hand-authored / legacy mixed",
+      "schema_faq_before": [
+        [
+          "What are the main parts of a screw?",
+          "Most machine-style screws include a head (bearing and drive), an unthreaded shank (if present), a threaded section that engages the nut or tapped hole, and often a point. Head style and drive are separate from thread specification."
+        ],
+        [
+          "What is the difference between the shank and the thread?",
+          "The shank is the smooth cylindrical section under the head. The thread is the helical ridge that provides axial load and engagement. Fully threaded fasteners may have little or no unthreaded shank."
+        ],
+        [
+          "How do I measure screw size?",
+          "Measure major diameter across the thread crests and measure pitch (metric) or threads per inch (imperial). Use BoltLab’s Thread Identifier once you have those measurements."
+        ],
+        [
+          "Is the head the same as the drive?",
+          "No. The head is the load-bearing region and may be hex, pan, countersunk, etc. The drive is the recess or external wrenching feature used to apply torque—Phillips, Torx, hex socket, and so on."
+        ],
+        [
+          "When does the point style matter?",
+          "Point style affects starting, centering, and whether the fastener drills or cuts its own hole—important for self-tapping and self-drilling types versus standard machine screws."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What are the main parts of a screw?",
+          "Most machine-style screws include a head (bearing and drive), an optional unthreaded shank, a threaded section, and often a point."
+        ],
+        [
+          "What is the difference between the shank and the thread?",
+          "The shank is the smooth section under the head. The thread is the helical ridge that engages the mating feature."
+        ],
+        [
+          "How do I measure screw size?",
+          "Measure major diameter and pitch (or TPI), then use the Thread Identifier."
+        ],
+        [
+          "Is the head the same as the drive?",
+          "No—the head is the bearing region and envelope; the drive is the torque interface (recess or external hex)."
+        ],
+        [
+          "When does the point style matter?",
+          "For starting behavior and whether the screw drills or cuts its own hole—see self-tapping vs self-drilling."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "B",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "reference/screw-drive-types.html",
+      "url": "https://boltlab.io/reference/screw-drive-types",
+      "page_type": "reference",
+      "generator": "hand-authored / legacy mixed",
+      "schema_faq_before": [
+        [
+          "What is the difference between Phillips and Pozidriv?",
+          "Pozidriv has extra shallow radial ticks between the main cross blades, reducing cam-out versus Phillips when used with the correct bit."
+        ],
+        [
+          "Torx vs hex socket: which handles more torque?",
+          "Both are high-torque internal drives. Torx (hexalobular) spreads load over six lobes; hex sockets rely on six flat walls—both beat Phillips for torque if bits fit well."
+        ],
+        [
+          "What is a Robertson drive?",
+          "Robertson is a square recess common in Canada and woodworking. It resists cam-out and centers the bit well."
+        ],
+        [
+          "How do I identify my screw thread after the drive?",
+          "Measure major diameter and pitch (or TPI), then use BoltLab’s Thread Identifier tool."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What is the difference between Phillips and Pozidriv?",
+          "Pozidriv has extra shallow radial ticks between the main cross blades, reducing cam-out versus Phillips when used with the correct bit."
+        ],
+        [
+          "Torx vs hex socket: which handles more torque?",
+          "Both are high-torque internal drives. Torx spreads load over six lobes; hex relies on six flats—both outperform Phillips when the bit fits properly."
+        ],
+        [
+          "What is a Robertson drive?",
+          "Robertson is a square recess common in Canada and woodworking. It resists cam-out and centers the bit well."
+        ],
+        [
+          "How do I identify my screw thread after the drive?",
+          "Measure major diameter and pitch (or TPI), then use BoltLab’s Thread Identifier."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "reference/screw-head-shapes.html",
+      "url": "https://boltlab.io/reference/screw-head-shapes",
+      "page_type": "reference",
+      "generator": "hand-authored / legacy mixed",
+      "schema_faq_before": [
+        [
+          "What is the difference between head type and head profile?",
+          "Head type names the style (e.g. pan, hex). Head profile is the overall silhouette—how tall, wide, and flush vs. proud the head looks relative to the workpiece."
+        ],
+        [
+          "What does a countersunk head look like in profile?",
+          "A straight cone from the bearing surface to the shank, often 82° or 100°, so the head can sit flush with a matching countersink."
+        ],
+        [
+          "Why choose truss vs pan profile?",
+          "Truss spreads load over a wider, lower dome; pan is smaller in diameter and often taller relative to width—pick based on bearing area and clearance."
+        ],
+        [
+          "Where do I find thread sizes after choosing a head shape?",
+          "Use the Universal Screw and Bolt Size Chart or Thread Identifier with measured diameter and pitch."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What is the difference between head type and head profile?",
+          "Head type names the style (e.g. pan, hex). Head profile is the overall silhouette—how the head looks in height, width, and whether it sits flush or above the surface."
+        ],
+        [
+          "What does a countersunk head look like in profile?",
+          "A straight cone from the bearing surface to the shank, often 82° or 100°, so the head can sit flush with a matching countersink."
+        ],
+        [
+          "Why choose truss vs pan profile?",
+          "Truss spreads load over a wider, lower dome; pan is smaller in diameter and often taller relative to width—pick based on bearing area and clearance."
+        ],
+        [
+          "Where do I find thread sizes after choosing a head shape?",
+          "Use the Universal Screw &amp; Bolt Size Chart or Thread Identifier with measured diameter and pitch."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "reference/self-tapping-vs-self-drilling.html",
+      "url": "https://boltlab.io/reference/self-tapping-vs-self-drilling",
+      "page_type": "reference",
+      "generator": "hand-authored / legacy mixed",
+      "schema_faq_before": [
+        [
+          "What is the difference between self-tapping and self-drilling screws?",
+          "Self-tapping screws need a pilot hole (or thin sheet start) and cut or roll threads in the material. Self-drilling screws add a drill point to bore through metal and then thread—often in one operation on sheet steel."
+        ],
+        [
+          "When should I use self-tapping screws?",
+          "Use them when you will drill a correctly sized pilot and want thread-forming or thread-cutting behavior in sheet, plastic, or wood—not when you need the screw to bore thick steel without a pilot."
+        ],
+        [
+          "When should I use self-drilling screws?",
+          "Use self-drilling (tek-type) screws for metal decking and steel framing where the point must drill through thin-gauge steel before tapping—subject to manufacturer max thickness."
+        ],
+        [
+          "How do I identify self-drilling screws?",
+          "Look for a drill point with wings or flutes ahead of the threads and product literature listing drill capacity. Head and drive still vary—confirm thread size separately."
+        ],
+        [
+          "Do self-drilling screws need a pilot hole?",
+          "They are designed to drill their own hole in specified sheet thickness; very thick stacks or hard materials may still need pre-drilling per manufacturer data."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What is the difference between self-tapping and self-drilling screws?",
+          "Self-tapping needs a suitable pilot (or sheet engagement); self-drilling bores its own hole in rated sheet steel with a drill point."
+        ],
+        [
+          "When should I use self-tapping screws?",
+          "When you will size the pilot per the screw class and material."
+        ],
+        [
+          "When should I use self-drilling screws?",
+          "When manufacturer data supports the metal thickness and application (e.g. roofing, framing connectors)."
+        ],
+        [
+          "How do I identify self-drilling screws?",
+          "Visible drill point ahead of the first full thread; confirm catalog drill capacity."
+        ],
+        [
+          "Do self-drilling screws need a pilot hole?",
+          "They drill a pilot in specified conditions; outside those, pre-drill per engineering guidance."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "B",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "reference/thread-engineering/index.html",
+      "url": "https://boltlab.io/reference/thread-engineering/",
+      "page_type": "thread-engineering",
+      "generator": "_generate_thread_engineering.py (legacy; also emits these 4 chart pages)",
+      "schema_faq_before": [
+        [
+          "What is the engineering purpose of thread engineering reference?",
+          "Thread Engineering Reference helps engineers specify, inspect, and communicate thread fit behavior across design, manufacturing, and quality teams."
+        ],
+        [
+          "Can I use this page to replace standards documents?",
+          "No. Use this page as engineering guidance and workflow context, then apply verified standards values from approved documents."
+        ],
+        [
+          "Where are the exact tolerance values?",
+          "Numerical sections requiring authoritative values are intentionally marked as placeholders until verified standards data is loaded."
+        ],
+        [
+          "How do I continue from this topic?",
+          "Use the related references, tools, and chart links to move from concept understanding to identification and practical specification steps."
+        ],
+        [
+          "Is this content suitable for manufacturing use?",
+          "Yes, as a reference framework. Final production decisions must still follow approved standards, drawings, and quality procedures."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What does this hub cover?",
+          "It covers thread tolerances, fit classes, standards interpretation, geometry, inspection, and engineering tables."
+        ],
+        [
+          "Is this a marketing content section?",
+          "No. This cluster is structured as an engineering reference library."
+        ],
+        [
+          "Can I rely on placeholder sections for production values?",
+          "No. Placeholder sections mark where verified standards data will be inserted after controlled validation."
+        ],
+        [
+          "How should engineers use this cluster?",
+          "Use it for concept framing, cross-reference links, and workflow consistency before selecting approved values."
+        ],
+        [
+          "How does this support future calculators?",
+          "The linked concepts and page graph establish reusable definitions and relationships for future engineering tools."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "C",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "reference/thread-fit-classes-explained.html",
+      "url": "https://boltlab.io/reference/thread-fit-classes-explained",
+      "page_type": "reference",
+      "generator": "hand-authored / legacy mixed",
+      "schema_faq_before": [
+        [
+          "What is the engineering purpose of thread fit classes explained?",
+          "Thread Fit Classes Explained helps engineers specify, inspect, and communicate thread fit behavior across design, manufacturing, and quality teams."
+        ],
+        [
+          "Can I use this page to replace standards documents?",
+          "No. Use this page as engineering guidance and workflow context, then apply verified standards values from approved documents."
+        ],
+        [
+          "Where are the exact tolerance values?",
+          "Numerical sections requiring authoritative values are intentionally marked as placeholders until verified standards data is loaded."
+        ],
+        [
+          "How do I continue from this topic?",
+          "Use the related references, tools, and chart links to move from concept understanding to identification and practical specification steps."
+        ],
+        [
+          "Is this content suitable for manufacturing use?",
+          "Yes, as a reference framework. Final production decisions must still follow approved standards, drawings, and quality procedures."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What does this page help me decide?",
+          "It supports thread specification, fit interpretation, and inspection planning for engineering workflows."
+        ],
+        [
+          "Can I publish production limits from this page directly?",
+          "No. Use approved standards and internal quality documents for release values."
+        ],
+        [
+          "How is this different from a basic thread guide?",
+          "This reference focuses on fit behavior, tolerance interpretation, and manufacturing control decisions."
+        ],
+        [
+          "Which linked concept should I read next?",
+          "Start with pitch diameter, then continue to fundamental deviation and tolerance zones."
+        ],
+        [
+          "How do I move from concept to practical verification?",
+          "Use Thread Identifier, compare charts, and apply a documented inspection plan before production release."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "C",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "reference/thread-tolerances.html",
+      "url": "https://boltlab.io/reference/thread-tolerances",
+      "page_type": "reference",
+      "generator": "hand-authored / legacy mixed",
+      "schema_faq_before": [
+        [
+          "What is the engineering purpose of what are thread tolerances??",
+          "What are Thread Tolerances? helps engineers specify, inspect, and communicate thread fit behavior across design, manufacturing, and quality teams."
+        ],
+        [
+          "Can I use this page to replace standards documents?",
+          "No. Use this page as engineering guidance and workflow context, then apply verified standards values from approved documents."
+        ],
+        [
+          "Where are the exact tolerance values?",
+          "Numerical sections requiring authoritative values are intentionally marked as placeholders until verified standards data is loaded."
+        ],
+        [
+          "How do I continue from this topic?",
+          "Use the related references, tools, and chart links to move from concept understanding to identification and practical specification steps."
+        ],
+        [
+          "Is this content suitable for manufacturing use?",
+          "Yes, as a reference framework. Final production decisions must still follow approved standards, drawings, and quality procedures."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What does this page help me decide?",
+          "It supports thread specification, fit interpretation, and inspection planning for engineering workflows."
+        ],
+        [
+          "Can I publish production limits from this page directly?",
+          "No. Use approved standards and internal quality documents for release values."
+        ],
+        [
+          "How is this different from a basic thread guide?",
+          "This reference focuses on fit behavior, tolerance interpretation, and manufacturing control decisions."
+        ],
+        [
+          "Which linked concept should I read next?",
+          "Start with pitch diameter, then continue to fundamental deviation and tolerance zones."
+        ],
+        [
+          "How do I move from concept to practical verification?",
+          "Use Thread Identifier, compare charts, and apply a documented inspection plan before production release."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "C",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "reference/tolerance-zones-explained.html",
+      "url": "https://boltlab.io/reference/tolerance-zones-explained",
+      "page_type": "reference",
+      "generator": "hand-authored / legacy mixed",
+      "schema_faq_before": [
+        [
+          "What is the engineering purpose of tolerance zones explained?",
+          "Tolerance Zones Explained helps engineers specify, inspect, and communicate thread fit behavior across design, manufacturing, and quality teams."
+        ],
+        [
+          "Can I use this page to replace standards documents?",
+          "No. Use this page as engineering guidance and workflow context, then apply verified standards values from approved documents."
+        ],
+        [
+          "Where are the exact tolerance values?",
+          "Numerical sections requiring authoritative values are intentionally marked as placeholders until verified standards data is loaded."
+        ],
+        [
+          "How do I continue from this topic?",
+          "Use the related references, tools, and chart links to move from concept understanding to identification and practical specification steps."
+        ],
+        [
+          "Is this content suitable for manufacturing use?",
+          "Yes, as a reference framework. Final production decisions must still follow approved standards, drawings, and quality procedures."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What does this page help me decide?",
+          "It supports thread specification, fit interpretation, and inspection planning for engineering workflows."
+        ],
+        [
+          "Can I publish production limits from this page directly?",
+          "No. Use approved standards and internal quality documents for release values."
+        ],
+        [
+          "How is this different from a basic thread guide?",
+          "This reference focuses on fit behavior, tolerance interpretation, and manufacturing control decisions."
+        ],
+        [
+          "Which linked concept should I read next?",
+          "Start with pitch diameter, then continue to fundamental deviation and tolerance zones."
+        ],
+        [
+          "How do I move from concept to practical verification?",
+          "Use Thread Identifier, compare charts, and apply a documented inspection plan before production release."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "C",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "sizes/1-4-20-bolt-size.html",
+      "url": "https://boltlab.io/sizes/1-4-20-bolt-size",
+      "page_type": "size",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "What does 1/4-20 mean?",
+          "1/4 is the nominal diameter in inches (0.25 in). 20 is the number of threads per inch (TPI). It is a common UNC coarse thread."
+        ],
+        [
+          "What drill size for 1/4-20 tap?",
+          "Use a #7 drill (0.201 in) for a standard 1/4-20 tap. Use our Tap Drill Calculator for metric equivalents."
+        ],
+        [
+          "What metric bolt is closest to 1/4-20?",
+          "M6 is the closest metric equivalent to 1/4-20 in diameter and typical use."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What does 1/4-20 mean?",
+          "1/4 is the nominal diameter in inches (0.25 in). 20 is the number of threads per inch (TPI). It is a common UNC coarse thread."
+        ],
+        [
+          "What drill size for 1/4-20 tap?",
+          "Use a #7 drill (0.201 in) for a standard 1/4-20 tap. Use our Tap Drill Calculator for metric equivalents."
+        ],
+        [
+          "What metric bolt is closest to 1/4-20?",
+          "M6 is the closest metric equivalent to 1/4-20 in diameter and typical use. See M6 bolt size for full specs."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "sizes/10-screw-size.html",
+      "url": "https://boltlab.io/sizes/10-screw-size",
+      "page_type": "size",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "What is #10 screw size?",
+          "#10 is a numbered (wire gauge) screw size. #10-24 means a #10 diameter with 24 threads per inch. Diameter is approximately 0.190 in (4.8 mm)."
+        ],
+        [
+          "What drill size for #10-24 tap?",
+          "Use a #25 drill for #10-24 tapping."
+        ],
+        [
+          "What metric screw is closest to #10?",
+          "M5 is the closest metric equivalent to #10 in diameter."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What is #10 screw size?",
+          "#10 is a numbered (wire gauge) screw size. #10-24 means a #10 diameter with 24 threads per inch. Diameter is approximately 0.190 in (4.8 mm)."
+        ],
+        [
+          "What drill size for #10-24 tap?",
+          "Use a #25 drill for #10-24 tapping."
+        ],
+        [
+          "What metric screw is closest to #10?",
+          "M5 is the closest metric equivalent to #10. See M5 bolt size for full specs."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "sizes/3-8-16-bolt-size.html",
+      "url": "https://boltlab.io/sizes/3-8-16-bolt-size",
+      "page_type": "size",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "What does 3/8-16 mean?",
+          "3/8 is the nominal diameter in inches (0.375 in). 16 is the number of threads per inch (TPI). It is a common UNC coarse thread."
+        ],
+        [
+          "What drill size for 3/8-16 tap?",
+          "Use a 5/16 in drill for a standard 3/8-16 tap."
+        ],
+        [
+          "What metric bolt is closest to 3/8-16?",
+          "M10 is the closest metric equivalent to 3/8-16."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What does 3/8-16 mean?",
+          "3/8 is the nominal diameter in inches (0.375 in). 16 is the number of threads per inch (TPI). It is a common UNC coarse thread."
+        ],
+        [
+          "What drill size for 3/8-16 tap?",
+          "Use a 5/16 in drill for a standard 3/8-16 tap."
+        ],
+        [
+          "What metric bolt is closest to 3/8-16?",
+          "M10 is the closest metric equivalent to 3/8-16. See M10 bolt size for full specs."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "sizes/5-16-18-bolt-size.html",
+      "url": "https://boltlab.io/sizes/5-16-18-bolt-size",
+      "page_type": "size",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "What does 5/16-18 mean?",
+          "5/16 is the nominal diameter in inches (0.3125 in). 18 is the number of threads per inch (TPI). It is a common UNC coarse thread."
+        ],
+        [
+          "What drill size for 5/16-18 tap?",
+          "Use an F drill (0.257 in) for a standard 5/16-18 tap."
+        ],
+        [
+          "What metric bolt is closest to 5/16-18?",
+          "M8 is the closest metric equivalent to 5/16-18."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What does 5/16-18 mean?",
+          "5/16 is the nominal diameter in inches (0.3125 in). 18 is the number of threads per inch (TPI). It is a common UNC coarse thread."
+        ],
+        [
+          "What drill size for 5/16-18 tap?",
+          "Use an F drill (0.257 in) for a standard 5/16-18 tap."
+        ],
+        [
+          "What metric bolt is closest to 5/16-18?",
+          "M8 is the closest metric equivalent to 5/16-18. See M8 bolt size for full specs."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "sizes/6-screw-size.html",
+      "url": "https://boltlab.io/sizes/6-screw-size",
+      "page_type": "size",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "What is #6 screw size?",
+          "#6 is a numbered (wire gauge) screw size. #6-32 means a #6 diameter with 32 threads per inch. Diameter is approximately 0.138 in (3.5 mm)."
+        ],
+        [
+          "What drill size for #6-32 tap?",
+          "Use a #36 drill for #6-32 tapping."
+        ],
+        [
+          "What metric screw is closest to #6?",
+          "M3.5 or M4 is the closest metric equivalent to #6 in diameter."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What is #6 screw size?",
+          "#6 is a numbered (wire gauge) screw size. #6-32 means a #6 diameter with 32 threads per inch. Diameter is approximately 0.138 in (3.5 mm)."
+        ],
+        [
+          "What drill size for #6-32 tap?",
+          "Use a #36 drill for #6-32 tapping."
+        ],
+        [
+          "What metric screw is closest to #6?",
+          "M3.5 or M4 is the closest metric equivalent to #6 in diameter. See M4 bolt size for metric specs."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "sizes/8-screw-size.html",
+      "url": "https://boltlab.io/sizes/8-screw-size",
+      "page_type": "size",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "What is #8 screw size?",
+          "#8 is a numbered (wire gauge) screw size. #8-32 means a #8 diameter with 32 threads per inch. Diameter is approximately 0.164 in (4.2 mm)."
+        ],
+        [
+          "What drill size for #8-32 tap?",
+          "Use a #29 drill for #8-32 tapping."
+        ],
+        [
+          "What metric screw is closest to #8?",
+          "M4 is the closest metric equivalent to #8 in diameter."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What is #8 screw size?",
+          "#8 is a numbered (wire gauge) screw size. #8-32 means a #8 diameter with 32 threads per inch. Diameter is approximately 0.164 in (4.2 mm)."
+        ],
+        [
+          "What drill size for #8-32 tap?",
+          "Use a #29 drill for #8-32 tapping."
+        ],
+        [
+          "What metric screw is closest to #8?",
+          "M4 is the closest metric equivalent to #8. See M4 bolt size for full specs."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "sizes/m10-bolt-size.html",
+      "url": "https://boltlab.io/sizes/m10-bolt-size",
+      "page_type": "size",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "What is the standard pitch for an M10 bolt?",
+          "The standard pitch for M10 is 1.5 mm. Fine pitch is 1.25 mm."
+        ],
+        [
+          "What drill size should be used for tapping M10 threads?",
+          "For M10 x 1.5 coarse thread, use an 8.5 mm tap drill."
+        ],
+        [
+          "What imperial bolt is closest to M10?",
+          "3/8-16 UNC is the closest imperial equivalent to M10."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What is the standard pitch for an M10 bolt?",
+          "The standard pitch for M10 is 1.5 mm. Fine pitch is 1.25 mm."
+        ],
+        [
+          "What drill size should be used for tapping M10 threads?",
+          "For M10 x 1.5 coarse thread, use an 8.5 mm tap drill. Use our Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial bolt is closest to M10?",
+          "3/8-16 UNC is the closest imperial equivalent to M10."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "sizes/m11-bolt-size.html",
+      "url": "https://boltlab.io/sizes/m11-bolt-size",
+      "page_type": "size",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "What is the standard pitch for an M11 bolt?",
+          "The standard coarse pitch for M11 is 1.5 mm. Fine pitch is often 1.25 mm where specified."
+        ],
+        [
+          "What drill size should be used for tapping M11 threads?",
+          "For M11 x 1.5 coarse thread, use approximately a 9.5 mm tap drill. Use the Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial fastener is closest to M11?",
+          "7/16-14 (approx.) is a practical imperial reference for M11; always verify against your application."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What is the standard pitch for an M11 bolt?",
+          "The common coarse pitch for M11 is 1.5 mm. Fine pitch is often 1.25 mm where specified."
+        ],
+        [
+          "What drill size should be used for tapping M11 threads?",
+          "For M11 x 1.5 coarse thread, use approximately a 9.5 mm tap drill. Use our Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial fastener is closest to M11?",
+          "7/16-14 (approx.) is a practical reference for comparing M11 to inch hardware; verify fit for your application."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "sizes/m12-bolt-size.html",
+      "url": "https://boltlab.io/sizes/m12-bolt-size",
+      "page_type": "size",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "What is the standard pitch for an M12 bolt?",
+          "The standard pitch for M12 is 1.75 mm. Fine pitch is 1.5 mm."
+        ],
+        [
+          "What drill size should be used for tapping M12 threads?",
+          "For M12 x 1.75 coarse thread, use a 10.2 mm tap drill."
+        ],
+        [
+          "What imperial bolt is closest to M12?",
+          "1/2-13 UNC is the closest imperial equivalent to M12."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What is the standard pitch for an M12 bolt?",
+          "The standard pitch for M12 is 1.75 mm. Fine pitch is 1.5 mm."
+        ],
+        [
+          "What drill size should be used for tapping M12 threads?",
+          "For M12 x 1.75 coarse thread, use a 10.2 mm tap drill. Use our Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial bolt is closest to M12?",
+          "1/2-13 UNC is the closest imperial equivalent to M12."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "sizes/m13-bolt-size.html",
+      "url": "https://boltlab.io/sizes/m13-bolt-size",
+      "page_type": "size",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "What is the standard pitch for an M13 bolt?",
+          "The standard coarse pitch for M13 is 1.75 mm. Fine pitch is often 1.5 mm where specified."
+        ],
+        [
+          "What drill size should be used for tapping M13 threads?",
+          "For M13 x 1.75 coarse thread, use approximately a 11.2 mm tap drill. Use the Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial fastener is closest to M13?",
+          "1/2-13 (approx.) is a practical imperial reference for M13; always verify against your application."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What is the standard pitch for an M13 bolt?",
+          "The common coarse pitch for M13 is 1.75 mm. Fine pitch is often 1.5 mm where specified."
+        ],
+        [
+          "What drill size should be used for tapping M13 threads?",
+          "For M13 x 1.75 coarse thread, use approximately a 11.2 mm tap drill. Use our Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial fastener is closest to M13?",
+          "1/2-13 (approx.) is a practical reference for comparing M13 to inch hardware; verify fit for your application."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "sizes/m14-bolt-size.html",
+      "url": "https://boltlab.io/sizes/m14-bolt-size",
+      "page_type": "size",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "What is the standard pitch for an M14 bolt?",
+          "The standard coarse pitch for M14 is 2.0 mm. Fine pitch is often 1.5 mm where specified."
+        ],
+        [
+          "What drill size should be used for tapping M14 threads?",
+          "For M14 x 2.0 coarse thread, use approximately a 12.0 mm tap drill. Use the Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial fastener is closest to M14?",
+          "9/16-12 is a practical imperial reference for M14; always verify against your application."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What is the standard pitch for an M14 bolt?",
+          "The common coarse pitch for M14 is 2.0 mm. Fine pitch is often 1.5 mm where specified."
+        ],
+        [
+          "What drill size should be used for tapping M14 threads?",
+          "For M14 x 2.0 coarse thread, use approximately a 12.0 mm tap drill. Use our Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial fastener is closest to M14?",
+          "9/16-12 is a practical reference for comparing M14 to inch hardware; verify fit for your application."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "sizes/m15-bolt-size.html",
+      "url": "https://boltlab.io/sizes/m15-bolt-size",
+      "page_type": "size",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "What is the standard pitch for an M15 bolt?",
+          "The common coarse pitch for M15 is 1.5 mm. Confirm fine or special pitches on the drawing when replacing fasteners."
+        ],
+        [
+          "What drill size should be used for tapping M15 threads?",
+          "For M15 x 1.5 coarse thread, use approximately a 13.5 mm tap drill. Use the Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial fastener is closest to M15?",
+          "5/8-11 (approx.) is a practical imperial reference for M15; always verify against your application."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What is the standard pitch for an M15 bolt?",
+          "The common coarse pitch for M15 is 1.5 mm. See drawings for fine or special pitches."
+        ],
+        [
+          "What drill size should be used for tapping M15 threads?",
+          "For M15 x 1.5 coarse thread, use approximately a 13.5 mm tap drill. Use our Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial fastener is closest to M15?",
+          "5/8-11 (approx.) is a practical reference for comparing M15 to inch hardware; verify fit for your application."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "sizes/m16-bolt-size.html",
+      "url": "https://boltlab.io/sizes/m16-bolt-size",
+      "page_type": "size",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "What is the standard pitch for an M16 bolt?",
+          "The standard coarse pitch for M16 is 2.0 mm. Fine pitch is often 1.5 mm where specified."
+        ],
+        [
+          "What drill size should be used for tapping M16 threads?",
+          "For M16 x 2.0 coarse thread, use approximately a 14.0 mm tap drill. Use the Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial fastener is closest to M16?",
+          "5/8-11 is a practical imperial reference for M16; always verify against your application."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What is the standard pitch for an M16 bolt?",
+          "The common coarse pitch for M16 is 2.0 mm. Fine pitch is often 1.5 mm where specified."
+        ],
+        [
+          "What drill size should be used for tapping M16 threads?",
+          "For M16 x 2.0 coarse thread, use approximately a 14.0 mm tap drill. Use our Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial fastener is closest to M16?",
+          "5/8-11 is a practical reference for comparing M16 to inch hardware; verify fit for your application."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "sizes/m17-bolt-size.html",
+      "url": "https://boltlab.io/sizes/m17-bolt-size",
+      "page_type": "size",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "What is the standard pitch for an M17 bolt?",
+          "The common coarse pitch for M17 is 1.5 mm. Confirm fine or special pitches on the drawing when replacing fasteners."
+        ],
+        [
+          "What drill size should be used for tapping M17 threads?",
+          "For M17 x 1.5 coarse thread, use approximately a 15.5 mm tap drill. Use the Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial fastener is closest to M17?",
+          "5/8-11 (approx.) is a practical imperial reference for M17; always verify against your application."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What is the standard pitch for an M17 bolt?",
+          "The common coarse pitch for M17 is 1.5 mm. See drawings for fine or special pitches."
+        ],
+        [
+          "What drill size should be used for tapping M17 threads?",
+          "For M17 x 1.5 coarse thread, use approximately a 15.5 mm tap drill. Use our Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial fastener is closest to M17?",
+          "5/8-11 (approx.) is a practical reference for comparing M17 to inch hardware; verify fit for your application."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "sizes/m18-bolt-size.html",
+      "url": "https://boltlab.io/sizes/m18-bolt-size",
+      "page_type": "size",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "What is the standard pitch for an M18 bolt?",
+          "The standard coarse pitch for M18 is 2.5 mm. Fine pitch is often 2.0 mm where specified."
+        ],
+        [
+          "What drill size should be used for tapping M18 threads?",
+          "For M18 x 2.5 coarse thread, use approximately a 15.5 mm tap drill. Use the Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial fastener is closest to M18?",
+          "3/4-10 is a practical imperial reference for M18; always verify against your application."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What is the standard pitch for an M18 bolt?",
+          "The common coarse pitch for M18 is 2.5 mm. Fine pitch is often 2.0 mm where specified."
+        ],
+        [
+          "What drill size should be used for tapping M18 threads?",
+          "For M18 x 2.5 coarse thread, use approximately a 15.5 mm tap drill. Use our Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial fastener is closest to M18?",
+          "3/4-10 is a practical reference for comparing M18 to inch hardware; verify fit for your application."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "sizes/m19-bolt-size.html",
+      "url": "https://boltlab.io/sizes/m19-bolt-size",
+      "page_type": "size",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "What is the standard pitch for an M19 bolt?",
+          "The common coarse pitch for M19 is 2.5 mm. Confirm fine or special pitches on the drawing when replacing fasteners."
+        ],
+        [
+          "What drill size should be used for tapping M19 threads?",
+          "For M19 x 2.5 coarse thread, use approximately a 16.5 mm tap drill. Use the Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial fastener is closest to M19?",
+          "3/4-10 (approx.) is a practical imperial reference for M19; always verify against your application."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What is the standard pitch for an M19 bolt?",
+          "The common coarse pitch for M19 is 2.5 mm. See drawings for fine or special pitches."
+        ],
+        [
+          "What drill size should be used for tapping M19 threads?",
+          "For M19 x 2.5 coarse thread, use approximately a 16.5 mm tap drill. Use our Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial fastener is closest to M19?",
+          "3/4-10 (approx.) is a practical reference for comparing M19 to inch hardware; verify fit for your application."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "sizes/m20-bolt-size.html",
+      "url": "https://boltlab.io/sizes/m20-bolt-size",
+      "page_type": "size",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "What is the standard pitch for an M20 bolt?",
+          "The standard coarse pitch for M20 is 2.5 mm. Fine pitch is often 1.5 mm or 2.0 mm mm where specified."
+        ],
+        [
+          "What drill size should be used for tapping M20 threads?",
+          "For M20 x 2.5 coarse thread, use approximately a 17.5 mm tap drill. Use the Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial fastener is closest to M20?",
+          "3/4-10 is a practical imperial reference for M20; always verify against your application."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What is the standard pitch for an M20 bolt?",
+          "The common coarse pitch for M20 is 2.5 mm. Fine pitch options include 1.5 mm or 2.0 mm where specified."
+        ],
+        [
+          "What drill size should be used for tapping M20 threads?",
+          "For M20 x 2.5 coarse thread, use approximately a 17.5 mm tap drill. Use our Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial fastener is closest to M20?",
+          "3/4-10 is a practical reference for comparing M20 to inch hardware; verify fit for your application."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "sizes/m6-bolt-size.html",
+      "url": "https://boltlab.io/sizes/m6-bolt-size",
+      "page_type": "size",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "What is the standard pitch for an M6 bolt?",
+          "The standard (coarse) pitch for M6 is 1.0 mm. Fine pitch M6 is 0.75 mm."
+        ],
+        [
+          "What drill size should be used for tapping M6 threads?",
+          "For M6 x 1.0 coarse thread, use a 5.0 mm tap drill. Use the Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial bolt is closest to M6?",
+          "1/4-20 UNC is the closest imperial equivalent to M6 in diameter and typical use."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What is the standard pitch for an M6 bolt?",
+          "The standard (coarse) pitch for M6 is 1.0 mm. Fine pitch M6 is 0.75 mm."
+        ],
+        [
+          "What drill size should be used for tapping M6 threads?",
+          "For M6 x 1.0 coarse thread, use a 5.0 mm tap drill. Use our Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial bolt is closest to M6?",
+          "1/4-20 UNC is the closest imperial equivalent to M6 in diameter and typical use."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "sizes/m7-bolt-size.html",
+      "url": "https://boltlab.io/sizes/m7-bolt-size",
+      "page_type": "size",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "What is the standard pitch for an M7 bolt?",
+          "The standard coarse pitch for M7 is 1.0 mm. Fine pitch is often 0.75 mm where specified."
+        ],
+        [
+          "What drill size should be used for tapping M7 threads?",
+          "For M7 x 1.0 coarse thread, use approximately a 6.0 mm tap drill. Use the Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial fastener is closest to M7?",
+          "between M6 and 1/4\" is a practical imperial reference for M7; always verify against your application."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What is the standard pitch for an M7 bolt?",
+          "The common coarse pitch for M7 is 1.0 mm. Fine pitch is often 0.75 mm where specified."
+        ],
+        [
+          "What drill size should be used for tapping M7 threads?",
+          "For M7 x 1.0 coarse thread, use approximately a 6.0 mm tap drill. Use our Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial fastener is closest to M7?",
+          "between M6 and 1/4\" is a practical reference for comparing M7 to inch hardware; verify fit for your application."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "sizes/m9-bolt-size.html",
+      "url": "https://boltlab.io/sizes/m9-bolt-size",
+      "page_type": "size",
+      "generator": "_generate_longtail_sizes.py (legacy)",
+      "schema_faq_before": [
+        [
+          "What is the standard pitch for an M9 bolt?",
+          "The standard coarse pitch for M9 is 1.25 mm. Fine pitch is often 1.0 mm where specified."
+        ],
+        [
+          "What drill size should be used for tapping M9 threads?",
+          "For M9 x 1.25 coarse thread, use approximately a 7.8 mm tap drill. Use the Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial fastener is closest to M9?",
+          "between M8 and M10 is a practical imperial reference for M9; always verify against your application."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What is the standard pitch for an M9 bolt?",
+          "The common coarse pitch for M9 is 1.25 mm. Fine pitch is often 1.0 mm where specified."
+        ],
+        [
+          "What drill size should be used for tapping M9 threads?",
+          "For M9 x 1.25 coarse thread, use approximately a 7.8 mm tap drill. Use our Tap Drill Calculator for other pitches."
+        ],
+        [
+          "What imperial fastener is closest to M9?",
+          "between M8 and M10 is a practical reference for comparing M9 to inch hardware; verify fit for your application."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "A",
+      "canonical_source_decision": "visible (default rule applied)",
+      "action_taken": "FIXED — FAQPage JSON-LD rewritten to match visible content exactly"
+    },
+    {
+      "path": "reference/thread-types.html",
+      "url": "https://boltlab.io/reference/thread-types",
+      "page_type": "reference",
+      "generator": "hand-authored / legacy mixed",
+      "schema_faq_before": [
+        [
+          "What is a thread type?",
+          "Thread type names the thread family and series—such as ISO metric coarse, metric fine, UNC, or UNF—defined by diameter, pitch or threads per inch, and flank angle. It is separate from head style or drive."
+        ],
+        [
+          "What is the difference between UNC and UNF?",
+          "Both are unified inch threads. UNC is coarse pitch (fewer threads per inch); UNF is fine pitch (more threads per inch) for the same nominal diameter, offering different strength and engagement characteristics."
+        ],
+        [
+          "When should I use metric coarse vs fine?",
+          "Coarse (e.g. M6 × 1) is the default for general assembly. Fine pitches reduce vibration loosening and allow finer adjustment where specified—always match the mating part or standard."
+        ],
+        [
+          "How do I identify my thread type?",
+          "Measure major diameter and pitch in millimeters or TPI, note 60° flank angle for common metric and unified threads, then compare to a chart or use BoltLab’s Thread Identifier."
+        ],
+        [
+          "What is the difference between thread type and screw drive?",
+          "Thread type defines helical engagement along the shank. Drive type (Phillips, Torx, etc.) only defines how torque is applied at the head."
+        ]
+      ],
+      "visible_faq_before": [
+        [
+          "What is the difference between UNC and UNF?",
+          "Same inch diameter series; UNF has more threads per inch (finer) than UNC."
+        ],
+        [
+          "When should I use metric coarse vs fine?",
+          "Use coarse unless the drawing or mating part specifies fine pitch."
+        ],
+        [
+          "How do I identify my thread type?",
+          "Measure major Ø and pitch/TPI, then use the Thread Identifier or charts."
+        ],
+        [
+          "What is the difference between thread type and screw drive?",
+          "Thread type is the helical engagement along the shank; drive type is only the head interface."
+        ],
+        [
+          "What is a thread type in one sentence?",
+          "The named standard family (metric, unified, pipe, etc.) that defines diameter, pitch/TPI, and form for the helical thread."
+        ]
+      ],
+      "visible_faq_heading": "FAQ",
+      "mismatch_type": "C+rotation",
+      "canonical_source_decision": "BLOCKED — neither confirmed authoritative without editorial decision",
+      "action_taken": "BLOCKED — EDITORIAL SOURCE REQUIRED"
+    }
+  ]
+}

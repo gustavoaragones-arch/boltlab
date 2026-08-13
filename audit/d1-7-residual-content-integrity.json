@@ -1,0 +1,149 @@
+{
+  "phase": "D1.7",
+  "title": "FAQ Governance Hardening & Residual Content Integrity",
+  "date": "2026-08-11",
+  "status": "AUDIT COMPLETE — NO REPAIR IMPLEMENTED",
+  "type": "audit_only",
+  "d1_6_d1_6r_boundary": "D1.6 and D1.6R treated as closed and authoritative; not reopened, reinterpreted, or altered.",
+  "governance_rule_applied": "docs/architecture/faq-structured-data-governance.md — FAQ correspondence evaluated by question identity/content, never array position",
+  "repository_baseline": {
+    "branch": "main",
+    "commit": "e44240d",
+    "production_files_modified_before_d1_7": 83,
+    "new_audit_doc_files_before_d1_7": 9,
+    "production_files_modified_after_d1_7": 83,
+    "new_files_after_d1_7": 12,
+    "production_files_changed_by_d1_7": 0
+  },
+  "pattern_b_faq_reassessment": {
+    "original_page_count": 39,
+    "pages_rechecked": 39,
+    "method": "question-identity matching (dict by question text), not array position",
+    "classification_counts": {
+      "A_MATCHES": 39,
+      "B_SCHEMA_DIFFERENCE_BUT_VALID": 0,
+      "C_VISIBLE_SHOULD_BE_CANONICAL": 0,
+      "D_EDITORIAL_SOURCE_REQUIRED": 0,
+      "E_OTHER_VERIFIED_DEFECT": 0
+    },
+    "result": "Fully resolved by D1.6/D1.6R; reconfirmed under stricter identity-matching method with zero exceptions."
+  },
+  "thin_standards_pages_reassessment": {
+    "pages": [
+      "reference/standards/din.html",
+      "reference/standards/jis.html",
+      "reference/standards/ansi.html",
+      "reference/standards/british-standards.html"
+    ],
+    "verified_knowledge_records_found": 0,
+    "word_counts_unchanged": true,
+    "word_counts": {"din": 33, "jis": 33, "ansi": 34, "british-standards": 33},
+    "ad_slots_each": 2,
+    "factual_defect_found": false,
+    "enrichment_possible_without_new_research": false,
+    "deferral_status": "reconfirmed, unchanged"
+  },
+  "future_revisions_sentence_reassessment": {
+    "page_count": 15,
+    "pages_unchanged_from_d1_3": true,
+    "wording_variants_found": 2,
+    "factually_accurate_confirmed": true,
+    "contextually_appropriate_confirmed": true,
+    "misleading_impression_created": false,
+    "recommendation": "keep as-is; no rewrite justified without new verified tolerance data"
+  },
+  "guides_aeo_reassessment": {
+    "guide_content_pages_checked": 12,
+    "hub_pages_excluded": ["guides/index.html"],
+    "pages_with_aeo_block": 0,
+    "pages_with_existing_direct_answer_lede": 12,
+    "nuance_added_by_d1_7": "Every guide already has a substantive direct-answer lede paragraph; the gap is primarily structural/markup-convention, not absence of answer substance, though some pages would still need light editorial tightening rather than a pure mechanical wrap.",
+    "aeo_block_created": false,
+    "deferral_status": "reconfirmed with refined effort estimate"
+  },
+  "tap_drill_hedge_reassessment": {
+    "page": "tools/tap-drill-calculator.html",
+    "hedge_present": false,
+    "soft_approximation_language_present": true,
+    "unchanged_from_d1_3": true,
+    "severity": "low, single-line gap"
+  },
+  "thread_atlas_metadata_reassessment": {
+    "pages_compared": ["reference/thread-atlas.html", "reference/metric-thread-atlas.html"],
+    "visible_metadata_field_sets_differ": true,
+    "fields_only_on_thread_atlas": ["Dataset coverage / row count", "Generator build version"],
+    "fields_only_on_metric_thread_atlas": ["Verification method", "Related standards"],
+    "jsonld_dataset_license_distribution_difference": "metric-thread-atlas.html has license+distribution (accurate, has a real CSV); thread-atlas.html has neither (accurate, has no CSV of its own)",
+    "factual_defect_found": false,
+    "user_interpretation_impact": "moderate — inconsistent trust-signal field sets between the two dataset pages",
+    "discoverability_impact": "none",
+    "severity_reassessment": "upgraded from 'cosmetic' to 'genuine low-severity editorial-consistency gap'; still not a factual-accuracy defect",
+    "fixable_without_new_research": true,
+    "fixable_reason": "downloads/metric-thread-atlas.csv already exists; its row count is directly countable, not invented",
+    "action_taken": "none — documented only, per audit-only scope"
+  },
+  "site_wide_regression": {
+    "total_pages": 224,
+    "faqpage_bearing_pages": 197,
+    "duplicate_titles": 0,
+    "duplicate_meta_descriptions": 0,
+    "pages_missing_from_sitemap": 0,
+    "orphan_pages": 0,
+    "broken_internal_links": 0,
+    "jsonld_parse_errors": 0,
+    "duplicate_faqpage_blocks_per_page": 0,
+    "duplicate_questions_within_page": 0,
+    "hidden_faq_content": 0,
+    "knowledge_engine_validator": "PASS, 0 errors, 0 warnings",
+    "projection_validator": "PASS, 0 errors, 0 warnings",
+    "d1_5_architecture_intact": true
+  },
+  "findings_by_priority": [
+    {"finding": "39 Pattern-B FAQ pages", "prior": "P1-3 deferred", "current": "RESOLVED (closed by D1.6/D1.6R)"},
+    {"finding": "4 thin Standards pages", "prior": "P1-4 deferred", "current": "P1-4 deferred, reconfirmed unchanged"},
+    {"finding": "15 future-revisions pages", "prior": "P2-1 deferred", "current": "P2-1 deferred, reconfirmed unchanged"},
+    {"finding": "12 Guides missing AEO blocks", "prior": "P2-2 deferred", "current": "P2-2 deferred, effort re-scoped (lower than assumed)"},
+    {"finding": "Tap-drill calculator hedge", "prior": "P2-3 deferred", "current": "P2-3 deferred, unchanged"},
+    {"finding": "Atlas metadata inconsistency", "prior": "P2-4 cosmetic", "current": "Upgraded to genuine low-severity editorial-consistency gap, still non-fabrication-risk"}
+  ],
+  "former_p1_now_blocker": false,
+  "new_p0_discovered": false,
+  "repair_phase_justified": false,
+  "repair_phase_justification_note": "No finding rises to blocker severity; all are low-risk, well-documented, optional follow-ups. A future phase MAY be authorized for the itemized recommendations in section 12 of the markdown report, but none is urgent for AdSense readiness.",
+  "recommended_subsequent_phases": [
+    "Thread Atlas metadata harmonization (lowest risk — uses existing CSV data only)",
+    "Guides AEO-block wrapping/light rewrite (editorial judgment required)",
+    "tap-drill-calculator.html hedge addition (trivial, single line)",
+    "DIN/JIS/ANSI/British Standards data acquisition (requires new research — separate scope from content-integrity work)"
+  ],
+  "explicit_non_changes": {
+    "html_changes": 0,
+    "jsonld_changes": 0,
+    "css_changes": 0,
+    "js_changes": 0,
+    "data_changes": 0,
+    "sitemap_changes": 0,
+    "navigation_changes": 0,
+    "legal_page_changes": 0,
+    "adsense_changes": 0,
+    "cmp_changes": 0,
+    "ads_txt_changes": 0
+  },
+  "unexpected_files_reverted": [
+    "docs/architecture/validation-report.json",
+    "docs/architecture/validation-report.md",
+    "docs/architecture/projection-validation-report.json",
+    "docs/architecture/projection-validation-report.md",
+    "audit/d1-3-page-inventory.json"
+  ],
+  "adsense_state": "NOT active",
+  "cmp_state": "NOT installed",
+  "ads_txt_state": "does not exist, not created or modified",
+  "files_created": [
+    "audit/d1-7-residual-content-integrity.md",
+    "audit/d1-7-residual-content-integrity.json",
+    "audit/d1-7-change-scope.md"
+  ],
+  "production_files_modified": 0,
+  "commit_status": "NOT COMMITTED — left in the working tree for review"
+}
