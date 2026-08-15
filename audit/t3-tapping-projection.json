@@ -1,0 +1,100 @@
+{
+  "phase": "T3",
+  "title": "Tapping Projection Layer",
+  "date": "2026-08-15",
+  "status": "PASS",
+  "baseline": {
+    "t2_1_t2_1a_commit": "6c71573",
+    "t2_2_commit": "25a78ed"
+  },
+  "projection_files_created": [
+    "data/projections/tapping-profile.schema.json",
+    "data/projections/tapping-tap-type.schema.json",
+    "data/projections/tapping/tapping-profiles.json",
+    "data/projections/tapping/tap-types.json"
+  ],
+  "projection_schema": {
+    "tapping_profile_projection": "One row per tapping_profile record: thread identity, tap_drill (primary), alternative_drill (ISO 2306, UNC/UNF only), engagement model (radial capability + axial not_calculable), tap_types (relationship-resolved), standards (resolved), data_quality.",
+    "tapping_tap_type_projection": "One row per tap_type entity: taxonomy_axis, definition, application_notes split into 3 classified arrays, evidence_status counts."
+  },
+  "projected_record_counts": {
+    "total_tapping_profiles": 29,
+    "metric": 14,
+    "unc": 8,
+    "unf": 7,
+    "tap_types": 7
+  },
+  "tap_drill_fields": {
+    "verified_field_level": 9,
+    "note": "9 metric tap_drill.status=verified (cross-checked against ISO 2306 Table 1 in T2.1). 20 tap_drill.status=source_bound (5 remaining metric fine-pitch + 8 UNC + 7 UNF = 20). Overall data_quality.record_status remains source_bound on all 29 rows because thread_engagement/tapping_parameters remain unavailable knowledge-layer-wide -- this is a correct, unchanged T1 convention, not a T3 regression."
+  },
+  "iso_2306_alternative_fields": {
+    "rows_with_alternative_drill": 15,
+    "rows_without": 14,
+    "rule": "Present on every UNC/UNF row (15), null on every metric row (14) -- mechanically enforced by validate-tapping-projections.js's 'ISO 2306 Alternative Structural Correctness' check.",
+    "status_of_alternative": "verified (direct primary-source table transcription, T2.1)"
+  },
+  "engagement_representation": {
+    "radial": { "calculation_status": "calculable", "target_percent": "always null" },
+    "axial": { "calculation_status": "always not_calculable" },
+    "75_percent_or_target_found_in_output": false
+  },
+  "tap_type_representation": {
+    "rows": 7,
+    "verified_facts": 1,
+    "source_bound_facts": 15,
+    "facts_flattened_into_generic_description": false
+  },
+  "standards_representation": {
+    "unique_standards_resolved": 6,
+    "ids": ["asme_b1_1", "iso_2306", "iso_261", "iso_262", "iso_724", "iso_965_1"],
+    "resolution_method": "Read directly from each tapping dataset's source_standards array, resolved against actual standard records -- not inferred from naming similarity"
+  },
+  "provenance_coverage_percent": 100,
+  "verification_state_counts": {
+    "tap_drill_status": { "verified": 9, "source_bound": 20 },
+    "record_status": { "verified": 0, "source_bound": 29, "pending_verification": 0, "unavailable": 0 }
+  },
+  "validator_results": {
+    "validate_knowledge_engine": { "status": "pass", "errors": 0, "warnings": 0 },
+    "validate_tapping_domain": { "status": "pass", "errors": 0, "warnings": 5 },
+    "validate_projections_generic": { "status": "pass", "errors": 0, "warnings": 0, "projections_checked": 12 },
+    "validate_tapping_projections_dedicated": { "status": "pass", "errors": 0, "warnings": 0 }
+  },
+  "determinism": {
+    "runs": 3,
+    "checksums_identical": true,
+    "sha256_tapping_profiles_json": "5397c97ca4c02bf8c5e1aefa5cdd098ee6cabaf8ddfaba19569fd154101f0bf9",
+    "sha256_tap_types_json": "4a93bb5f33049013a40a0f9aa6e1ab32fc5b793c8997691b6c2a8992a73e9187"
+  },
+  "architecture_documentation": "docs/architecture/tapping-projection-engine.md",
+  "files_created": [
+    "data/projections/tapping-profile.schema.json",
+    "data/projections/tapping-tap-type.schema.json",
+    "data/projections/tapping/tapping-profiles.json",
+    "data/projections/tapping/tap-types.json",
+    "scripts/generators/generate-tapping-projections.js",
+    "scripts/validators/validate-tapping-projections.js",
+    "docs/architecture/tapping-projection-engine.md",
+    "docs/architecture/tapping-projection-validation-report.json",
+    "docs/architecture/tapping-projection-validation-report.md",
+    "audit/t3-tapping-projection.md",
+    "audit/t3-tapping-projection.json",
+    "audit/t3-change-scope.md"
+  ],
+  "files_modified": [
+    "scripts/validators/validate-projections.js",
+    "docs/architecture/validation-report.json",
+    "docs/architecture/validation-report.md",
+    "docs/architecture/tapping-validation-report.json",
+    "docs/architecture/tapping-validation-report.md",
+    "docs/architecture/projection-validation-report.json",
+    "docs/architecture/projection-validation-report.md"
+  ],
+  "production_files_modified": 0,
+  "unexpected_files": [],
+  "existing_knowledge_values_altered": 0,
+  "no_data_invented": true,
+  "committed": false,
+  "pushed": false
+}

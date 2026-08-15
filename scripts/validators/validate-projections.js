@@ -25,7 +25,9 @@ function loadProjectionSchemas(root) {
     chart: readJson(path.join(base, "chart.schema.json")),
     tool: readJson(path.join(base, "tool.schema.json")),
     api: readJson(path.join(base, "api.schema.json")),
-    atlas_page: readJson(path.join(base, "atlas.schema.json"))
+    atlas_page: readJson(path.join(base, "atlas.schema.json")),
+    tapping_profile_projection: readJson(path.join(base, "tapping-profile.schema.json")),
+    tapping_tap_type_projection: readJson(path.join(base, "tapping-tap-type.schema.json"))
   };
 }
 

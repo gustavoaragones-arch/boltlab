@@ -1,0 +1,200 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://boltlab.io/schemas/projections/tapping-profile.schema.json",
+  "title": "BoltLab Tapping Profile Projection",
+  "description": "A read-model projection of the unified tapping domain (metric, UNC, UNF) built from data/entities, data/standards, data/datasets, and data/relationships. Source of truth remains the knowledge layer; this projection denormalizes for consumption but every value stays traceable via its provenance block.",
+  "type": "object",
+  "required": [
+    "id",
+    "projection_type",
+    "route_hint",
+    "generator_version",
+    "source_dataset_versions",
+    "related_entities",
+    "related_standards",
+    "related_datasets",
+    "data_quality_summary",
+    "rows",
+    "version",
+    "created",
+    "updated"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+    "projection_type": { "type": "string", "const": "tapping_profile_projection" },
+    "route_hint": { "type": "string", "pattern": "^/" },
+    "generator_version": { "type": "string" },
+    "source_dataset_versions": {
+      "type": "object",
+      "description": "dataset_id -> version, for every knowledge dataset this projection consumed. Used for determinism/traceability, not embedded clock time.",
+      "additionalProperties": { "type": "string" }
+    },
+    "related_entities": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+      "description": "Aggregated, deduplicated union of every entity_id referenced across rows (thread.source_entity_id, tap_types). For graph-health/orphan checking consistency with other projection types."
+    },
+    "related_standards": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+    },
+    "related_datasets": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+    },
+    "data_quality_summary": {
+      "type": "object",
+      "required": ["record_count", "verified_count", "source_bound_count", "pending_count", "unavailable_count", "provenance_coverage_percent"],
+      "additionalProperties": false,
+      "properties": {
+        "record_count": { "type": "integer" },
+        "verified_count": { "type": "integer" },
+        "source_bound_count": { "type": "integer" },
+        "pending_count": { "type": "integer" },
+        "unavailable_count": { "type": "integer" },
+        "provenance_coverage_percent": { "type": "number" }
+      }
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["tapping_profile_id", "thread", "tap_drill", "engagement", "tap_types", "standards", "data_quality"],
+        "additionalProperties": false,
+        "properties": {
+          "tapping_profile_id": { "type": "string" },
+          "thread": {
+            "type": "object",
+            "required": ["designation", "thread_system", "source_entity_id", "source_dataset", "source_record"],
+            "additionalProperties": false,
+            "properties": {
+              "designation": { "type": "string" },
+              "thread_system": { "type": "string", "enum": ["metric", "UNC", "UNF"] },
+              "nominal_diameter": { "type": ["number", "null"] },
+              "nominal_diameter_unit": { "type": ["string", "null"], "enum": ["mm", "in", null] },
+              "pitch": { "type": ["number", "null"] },
+              "pitch_unit": { "type": ["string", "null"], "enum": ["mm", null] },
+              "threads_per_inch": { "type": ["number", "null"] },
+              "coarse_fine": { "type": ["string", "null"] },
+              "standard_family": { "type": ["string", "null"] },
+              "source_entity_id": { "type": ["string", "null"] },
+              "source_dataset": { "type": "string" },
+              "source_record": { "type": "string" }
+            }
+          },
+          "tap_drill": {
+            "type": "object",
+            "required": ["value", "unit", "convention", "status", "provenance"],
+            "additionalProperties": false,
+            "properties": {
+              "value": { "type": ["number", "null"] },
+              "unit": { "type": ["string", "null"] },
+              "convention": { "type": "string" },
+              "status": { "type": "string", "enum": ["verified", "source_bound", "pending_verification", "unavailable"] },
+              "provenance": {
+                "type": "object",
+                "required": ["source_dataset", "source_record", "source_field"],
+                "additionalProperties": false,
+                "properties": {
+                  "source_dataset": { "type": "string" },
+                  "source_record": { "type": "string" },
+                  "source_field": { "type": "string" },
+                  "source": { "type": ["string", "null"] },
+                  "cross_check": { "type": ["string", "null"] }
+                }
+              }
+            }
+          },
+          "alternative_drill": {
+            "type": ["object", "null"],
+            "additionalProperties": false,
+            "properties": {
+              "value": { "type": "number" },
+              "unit": { "type": "string" },
+              "standard_id": { "type": "string" },
+              "standard_edition": { "type": ["string", "null"] },
+              "convention": { "type": "string" },
+              "status": { "type": "string", "enum": ["verified", "source_bound", "pending_verification", "unavailable"] },
+              "applicability": { "type": "string" },
+              "meaning": { "type": "string" },
+              "provenance": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "source": { "type": "string" },
+                  "table": { "type": "string" },
+                  "verified_date": { "type": ["string", "null"] }
+                }
+              }
+            }
+          },
+          "engagement": {
+            "type": "object",
+            "required": ["radial", "axial"],
+            "additionalProperties": false,
+            "properties": {
+              "radial": {
+                "type": "object",
+                "required": ["calculation_status", "formula", "inputs", "target_percent"],
+                "additionalProperties": false,
+                "properties": {
+                  "calculation_status": { "type": "string", "enum": ["calculable", "not_calculable"] },
+                  "formula": { "type": "string" },
+                  "inputs": { "type": "array", "items": { "type": "string" } },
+                  "target_percent": { "type": "null", "description": "Must always be null -- BoltLab does not assert a verified target engagement percentage." },
+                  "model_reference": { "type": "string" }
+                }
+              },
+              "axial": {
+                "type": "object",
+                "required": ["calculation_status", "principle", "model_reference"],
+                "additionalProperties": false,
+                "properties": {
+                  "calculation_status": { "type": "string", "const": "not_calculable" },
+                  "principle": { "type": "string" },
+                  "blocking_dependency": { "type": "string" },
+                  "model_reference": { "type": "string" }
+                }
+              }
+            }
+          },
+          "tap_types": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+          },
+          "standards": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["standard_id", "organization", "designation", "relevance"],
+              "additionalProperties": false,
+              "properties": {
+                "standard_id": { "type": "string" },
+                "organization": { "type": "string" },
+                "designation": { "type": "string" },
+                "edition": { "type": ["string", "null"] },
+                "title": { "type": ["string", "null"] },
+                "relevance": { "type": "string" },
+                "verification_state": { "type": ["string", "null"] }
+              }
+            }
+          },
+          "data_quality": {
+            "type": "object",
+            "required": ["record_status", "provenance_complete"],
+            "additionalProperties": false,
+            "properties": {
+              "record_status": { "type": "string", "enum": ["verified", "source_bound", "pending_verification", "unavailable"] },
+              "provenance_complete": { "type": "boolean" },
+              "last_reviewed": { "type": ["string", "null"] }
+            }
+          }
+        }
+      }
+    },
+    "version": { "type": "string", "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "created": { "type": "string", "format": "date" },
+    "updated": { "type": "string", "format": "date" }
+  }
+}

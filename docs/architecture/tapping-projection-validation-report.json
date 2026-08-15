@@ -1,0 +1,60 @@
+{
+  "generated_at": "2026-08-15T00:00:00.000Z",
+  "status": "pass",
+  "errors": 0,
+  "warnings": 0,
+  "counts": {
+    "tapping_profile_rows": 29,
+    "tap_type_rows": 7
+  },
+  "checks": [
+    {
+      "name": "Unique Projection IDs and Canonical Thread References",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Valid Entity, Dataset, and Standard References",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Provenance Completeness",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Verification-State Correctness",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "ISO 2306 Alternative Structural Correctness",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "No Unsupported Engagement Recommendations",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "No Orphan Projected Tap Types or Tapping Profiles",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Hole-Preparation Taxonomy Not Flattened",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}

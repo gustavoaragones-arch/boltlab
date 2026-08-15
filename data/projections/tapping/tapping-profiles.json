@@ -1,0 +1,3014 @@
+{
+  "id": "tapping_profiles_unified",
+  "projection_type": "tapping_profile_projection",
+  "route_hint": "/reference/tapping/explorer",
+  "generator_version": "v1.0.0",
+  "source_dataset_versions": {
+    "metric_threads": "v0.1.0",
+    "metric_tapping": "v0.1.0",
+    "unc_threads": "v0.1.0",
+    "unc_tapping": "v0.1.0",
+    "unf_threads": "v0.1.0",
+    "unf_tapping": "v0.1.0"
+  },
+  "related_entities": [
+    "bottoming_tap",
+    "plug_tap",
+    "spiral_flute_tap",
+    "spiral_point_tap",
+    "taper_tap",
+    "thread_system_unc"
+  ],
+  "related_standards": [
+    "asme_b1_1",
+    "iso_2306",
+    "iso_261",
+    "iso_262",
+    "iso_724",
+    "iso_965_1"
+  ],
+  "related_datasets": [
+    "metric_threads",
+    "unc_threads",
+    "unf_threads"
+  ],
+  "data_quality_summary": {
+    "record_count": 29,
+    "verified_count": 0,
+    "source_bound_count": 29,
+    "pending_count": 0,
+    "unavailable_count": 0,
+    "provenance_coverage_percent": 100
+  },
+  "rows": [
+    {
+      "tapping_profile_id": "tap_m10x1_25_cut",
+      "thread": {
+        "designation": "M10x1.25",
+        "thread_system": "metric",
+        "nominal_diameter": 10,
+        "nominal_diameter_unit": "mm",
+        "pitch": 1.25,
+        "pitch_unit": "mm",
+        "threads_per_inch": null,
+        "coarse_fine": "fine",
+        "standard_family": "ISO 262",
+        "source_entity_id": null,
+        "source_dataset": "metric_threads",
+        "source_record": "M10x1.25"
+      },
+      "tap_drill": {
+        "value": 8.8,
+        "unit": "mm",
+        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "metric_threads",
+          "source_record": "M10x1.25",
+          "source_field": "tap_drill_mm",
+          "source": null,
+          "cross_check": null
+        }
+      },
+      "alternative_drill": null,
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_261",
+          "organization": "ISO",
+          "designation": "ISO 261",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — General plan",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_262",
+          "organization": "ISO",
+          "designation": "ISO 262",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Selected sizes for screws, bolts, and nuts",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_724",
+          "organization": "ISO",
+          "designation": "ISO 724",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Basic dimensions",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_965_1",
+          "organization": "ISO",
+          "designation": "ISO 965-1",
+          "edition": "2026 (5th edition)",
+          "title": "ISO metric screw threads — Tolerances — Principles and basic data",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_m10x1_5_cut",
+      "thread": {
+        "designation": "M10x1.5",
+        "thread_system": "metric",
+        "nominal_diameter": 10,
+        "nominal_diameter_unit": "mm",
+        "pitch": 1.5,
+        "pitch_unit": "mm",
+        "threads_per_inch": null,
+        "coarse_fine": "coarse",
+        "standard_family": "ISO 261",
+        "source_entity_id": null,
+        "source_dataset": "metric_threads",
+        "source_record": "M10x1.5"
+      },
+      "tap_drill": {
+        "value": 8.5,
+        "unit": "mm",
+        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "metric_threads",
+          "source_record": "M10x1.5",
+          "source_field": "tap_drill_mm",
+          "source": "iso_2306",
+          "cross_check": "Matches Table 1 (coarse pitch series) exactly (verified 2026-08-15)"
+        }
+      },
+      "alternative_drill": null,
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_261",
+          "organization": "ISO",
+          "designation": "ISO 261",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — General plan",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_262",
+          "organization": "ISO",
+          "designation": "ISO 262",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Selected sizes for screws, bolts, and nuts",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_724",
+          "organization": "ISO",
+          "designation": "ISO 724",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Basic dimensions",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_965_1",
+          "organization": "ISO",
+          "designation": "ISO 965-1",
+          "edition": "2026 (5th edition)",
+          "title": "ISO metric screw threads — Tolerances — Principles and basic data",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_m12x1_25_cut",
+      "thread": {
+        "designation": "M12x1.25",
+        "thread_system": "metric",
+        "nominal_diameter": 12,
+        "nominal_diameter_unit": "mm",
+        "pitch": 1.25,
+        "pitch_unit": "mm",
+        "threads_per_inch": null,
+        "coarse_fine": "fine",
+        "standard_family": "ISO 262",
+        "source_entity_id": null,
+        "source_dataset": "metric_threads",
+        "source_record": "M12x1.25"
+      },
+      "tap_drill": {
+        "value": 10.8,
+        "unit": "mm",
+        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "metric_threads",
+          "source_record": "M12x1.25",
+          "source_field": "tap_drill_mm",
+          "source": null,
+          "cross_check": null
+        }
+      },
+      "alternative_drill": null,
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_261",
+          "organization": "ISO",
+          "designation": "ISO 261",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — General plan",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_262",
+          "organization": "ISO",
+          "designation": "ISO 262",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Selected sizes for screws, bolts, and nuts",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_724",
+          "organization": "ISO",
+          "designation": "ISO 724",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Basic dimensions",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_965_1",
+          "organization": "ISO",
+          "designation": "ISO 965-1",
+          "edition": "2026 (5th edition)",
+          "title": "ISO metric screw threads — Tolerances — Principles and basic data",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_m12x1_75_cut",
+      "thread": {
+        "designation": "M12x1.75",
+        "thread_system": "metric",
+        "nominal_diameter": 12,
+        "nominal_diameter_unit": "mm",
+        "pitch": 1.75,
+        "pitch_unit": "mm",
+        "threads_per_inch": null,
+        "coarse_fine": "coarse",
+        "standard_family": "ISO 261",
+        "source_entity_id": null,
+        "source_dataset": "metric_threads",
+        "source_record": "M12x1.75"
+      },
+      "tap_drill": {
+        "value": 10.2,
+        "unit": "mm",
+        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "metric_threads",
+          "source_record": "M12x1.75",
+          "source_field": "tap_drill_mm",
+          "source": "iso_2306",
+          "cross_check": "Matches Table 1 (coarse pitch series) exactly (verified 2026-08-15)"
+        }
+      },
+      "alternative_drill": null,
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_261",
+          "organization": "ISO",
+          "designation": "ISO 261",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — General plan",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_262",
+          "organization": "ISO",
+          "designation": "ISO 262",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Selected sizes for screws, bolts, and nuts",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_724",
+          "organization": "ISO",
+          "designation": "ISO 724",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Basic dimensions",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_965_1",
+          "organization": "ISO",
+          "designation": "ISO 965-1",
+          "edition": "2026 (5th edition)",
+          "title": "ISO metric screw threads — Tolerances — Principles and basic data",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_m16x1_5_cut",
+      "thread": {
+        "designation": "M16x1.5",
+        "thread_system": "metric",
+        "nominal_diameter": 16,
+        "nominal_diameter_unit": "mm",
+        "pitch": 1.5,
+        "pitch_unit": "mm",
+        "threads_per_inch": null,
+        "coarse_fine": "fine",
+        "standard_family": "ISO 262",
+        "source_entity_id": null,
+        "source_dataset": "metric_threads",
+        "source_record": "M16x1.5"
+      },
+      "tap_drill": {
+        "value": 14.5,
+        "unit": "mm",
+        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "metric_threads",
+          "source_record": "M16x1.5",
+          "source_field": "tap_drill_mm",
+          "source": null,
+          "cross_check": null
+        }
+      },
+      "alternative_drill": null,
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_261",
+          "organization": "ISO",
+          "designation": "ISO 261",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — General plan",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_262",
+          "organization": "ISO",
+          "designation": "ISO 262",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Selected sizes for screws, bolts, and nuts",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_724",
+          "organization": "ISO",
+          "designation": "ISO 724",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Basic dimensions",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_965_1",
+          "organization": "ISO",
+          "designation": "ISO 965-1",
+          "edition": "2026 (5th edition)",
+          "title": "ISO metric screw threads — Tolerances — Principles and basic data",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_m16x2_0_cut",
+      "thread": {
+        "designation": "M16x2.0",
+        "thread_system": "metric",
+        "nominal_diameter": 16,
+        "nominal_diameter_unit": "mm",
+        "pitch": 2,
+        "pitch_unit": "mm",
+        "threads_per_inch": null,
+        "coarse_fine": "coarse",
+        "standard_family": "ISO 261",
+        "source_entity_id": null,
+        "source_dataset": "metric_threads",
+        "source_record": "M16x2.0"
+      },
+      "tap_drill": {
+        "value": 14,
+        "unit": "mm",
+        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "metric_threads",
+          "source_record": "M16x2.0",
+          "source_field": "tap_drill_mm",
+          "source": "iso_2306",
+          "cross_check": "Matches Table 1 (coarse pitch series) exactly (verified 2026-08-15)"
+        }
+      },
+      "alternative_drill": null,
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_261",
+          "organization": "ISO",
+          "designation": "ISO 261",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — General plan",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_262",
+          "organization": "ISO",
+          "designation": "ISO 262",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Selected sizes for screws, bolts, and nuts",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_724",
+          "organization": "ISO",
+          "designation": "ISO 724",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Basic dimensions",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_965_1",
+          "organization": "ISO",
+          "designation": "ISO 965-1",
+          "edition": "2026 (5th edition)",
+          "title": "ISO metric screw threads — Tolerances — Principles and basic data",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_m20x2_0_cut",
+      "thread": {
+        "designation": "M20x2.0",
+        "thread_system": "metric",
+        "nominal_diameter": 20,
+        "nominal_diameter_unit": "mm",
+        "pitch": 2,
+        "pitch_unit": "mm",
+        "threads_per_inch": null,
+        "coarse_fine": "fine",
+        "standard_family": "ISO 262",
+        "source_entity_id": null,
+        "source_dataset": "metric_threads",
+        "source_record": "M20x2.0"
+      },
+      "tap_drill": {
+        "value": 18,
+        "unit": "mm",
+        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "metric_threads",
+          "source_record": "M20x2.0",
+          "source_field": "tap_drill_mm",
+          "source": null,
+          "cross_check": null
+        }
+      },
+      "alternative_drill": null,
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_261",
+          "organization": "ISO",
+          "designation": "ISO 261",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — General plan",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_262",
+          "organization": "ISO",
+          "designation": "ISO 262",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Selected sizes for screws, bolts, and nuts",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_724",
+          "organization": "ISO",
+          "designation": "ISO 724",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Basic dimensions",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_965_1",
+          "organization": "ISO",
+          "designation": "ISO 965-1",
+          "edition": "2026 (5th edition)",
+          "title": "ISO metric screw threads — Tolerances — Principles and basic data",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_m20x2_5_cut",
+      "thread": {
+        "designation": "M20x2.5",
+        "thread_system": "metric",
+        "nominal_diameter": 20,
+        "nominal_diameter_unit": "mm",
+        "pitch": 2.5,
+        "pitch_unit": "mm",
+        "threads_per_inch": null,
+        "coarse_fine": "coarse",
+        "standard_family": "ISO 261",
+        "source_entity_id": null,
+        "source_dataset": "metric_threads",
+        "source_record": "M20x2.5"
+      },
+      "tap_drill": {
+        "value": 17.5,
+        "unit": "mm",
+        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "metric_threads",
+          "source_record": "M20x2.5",
+          "source_field": "tap_drill_mm",
+          "source": "iso_2306",
+          "cross_check": "Matches Table 1 (coarse pitch series) exactly (verified 2026-08-15)"
+        }
+      },
+      "alternative_drill": null,
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_261",
+          "organization": "ISO",
+          "designation": "ISO 261",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — General plan",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_262",
+          "organization": "ISO",
+          "designation": "ISO 262",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Selected sizes for screws, bolts, and nuts",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_724",
+          "organization": "ISO",
+          "designation": "ISO 724",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Basic dimensions",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_965_1",
+          "organization": "ISO",
+          "designation": "ISO 965-1",
+          "edition": "2026 (5th edition)",
+          "title": "ISO metric screw threads — Tolerances — Principles and basic data",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_m3x0_5_cut",
+      "thread": {
+        "designation": "M3x0.5",
+        "thread_system": "metric",
+        "nominal_diameter": 3,
+        "nominal_diameter_unit": "mm",
+        "pitch": 0.5,
+        "pitch_unit": "mm",
+        "threads_per_inch": null,
+        "coarse_fine": "coarse",
+        "standard_family": "ISO 261",
+        "source_entity_id": null,
+        "source_dataset": "metric_threads",
+        "source_record": "M3x0.5"
+      },
+      "tap_drill": {
+        "value": 2.5,
+        "unit": "mm",
+        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "metric_threads",
+          "source_record": "M3x0.5",
+          "source_field": "tap_drill_mm",
+          "source": "iso_2306",
+          "cross_check": "Matches Table 1 (coarse pitch series) exactly (verified 2026-08-15)"
+        }
+      },
+      "alternative_drill": null,
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_261",
+          "organization": "ISO",
+          "designation": "ISO 261",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — General plan",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_262",
+          "organization": "ISO",
+          "designation": "ISO 262",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Selected sizes for screws, bolts, and nuts",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_724",
+          "organization": "ISO",
+          "designation": "ISO 724",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Basic dimensions",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_965_1",
+          "organization": "ISO",
+          "designation": "ISO 965-1",
+          "edition": "2026 (5th edition)",
+          "title": "ISO metric screw threads — Tolerances — Principles and basic data",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_m4x0_7_cut",
+      "thread": {
+        "designation": "M4x0.7",
+        "thread_system": "metric",
+        "nominal_diameter": 4,
+        "nominal_diameter_unit": "mm",
+        "pitch": 0.7,
+        "pitch_unit": "mm",
+        "threads_per_inch": null,
+        "coarse_fine": "coarse",
+        "standard_family": "ISO 261",
+        "source_entity_id": null,
+        "source_dataset": "metric_threads",
+        "source_record": "M4x0.7"
+      },
+      "tap_drill": {
+        "value": 3.3,
+        "unit": "mm",
+        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "metric_threads",
+          "source_record": "M4x0.7",
+          "source_field": "tap_drill_mm",
+          "source": "iso_2306",
+          "cross_check": "Matches Table 1 (coarse pitch series) exactly (verified 2026-08-15)"
+        }
+      },
+      "alternative_drill": null,
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_261",
+          "organization": "ISO",
+          "designation": "ISO 261",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — General plan",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_262",
+          "organization": "ISO",
+          "designation": "ISO 262",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Selected sizes for screws, bolts, and nuts",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_724",
+          "organization": "ISO",
+          "designation": "ISO 724",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Basic dimensions",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_965_1",
+          "organization": "ISO",
+          "designation": "ISO 965-1",
+          "edition": "2026 (5th edition)",
+          "title": "ISO metric screw threads — Tolerances — Principles and basic data",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_m5x0_8_cut",
+      "thread": {
+        "designation": "M5x0.8",
+        "thread_system": "metric",
+        "nominal_diameter": 5,
+        "nominal_diameter_unit": "mm",
+        "pitch": 0.8,
+        "pitch_unit": "mm",
+        "threads_per_inch": null,
+        "coarse_fine": "coarse",
+        "standard_family": "ISO 261",
+        "source_entity_id": null,
+        "source_dataset": "metric_threads",
+        "source_record": "M5x0.8"
+      },
+      "tap_drill": {
+        "value": 4.2,
+        "unit": "mm",
+        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "metric_threads",
+          "source_record": "M5x0.8",
+          "source_field": "tap_drill_mm",
+          "source": "iso_2306",
+          "cross_check": "Matches Table 1 (coarse pitch series) exactly (verified 2026-08-15)"
+        }
+      },
+      "alternative_drill": null,
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_261",
+          "organization": "ISO",
+          "designation": "ISO 261",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — General plan",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_262",
+          "organization": "ISO",
+          "designation": "ISO 262",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Selected sizes for screws, bolts, and nuts",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_724",
+          "organization": "ISO",
+          "designation": "ISO 724",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Basic dimensions",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_965_1",
+          "organization": "ISO",
+          "designation": "ISO 965-1",
+          "edition": "2026 (5th edition)",
+          "title": "ISO metric screw threads — Tolerances — Principles and basic data",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_m6x1_cut",
+      "thread": {
+        "designation": "M6x1",
+        "thread_system": "metric",
+        "nominal_diameter": 6,
+        "nominal_diameter_unit": "mm",
+        "pitch": 1,
+        "pitch_unit": "mm",
+        "threads_per_inch": null,
+        "coarse_fine": "coarse",
+        "standard_family": "ISO 261",
+        "source_entity_id": null,
+        "source_dataset": "metric_threads",
+        "source_record": "M6x1"
+      },
+      "tap_drill": {
+        "value": 5,
+        "unit": "mm",
+        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "metric_threads",
+          "source_record": "M6x1",
+          "source_field": "tap_drill_mm",
+          "source": "iso_2306",
+          "cross_check": "Matches Table 1 (coarse pitch series) exactly (verified 2026-08-15)"
+        }
+      },
+      "alternative_drill": null,
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_261",
+          "organization": "ISO",
+          "designation": "ISO 261",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — General plan",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_262",
+          "organization": "ISO",
+          "designation": "ISO 262",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Selected sizes for screws, bolts, and nuts",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_724",
+          "organization": "ISO",
+          "designation": "ISO 724",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Basic dimensions",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_965_1",
+          "organization": "ISO",
+          "designation": "ISO 965-1",
+          "edition": "2026 (5th edition)",
+          "title": "ISO metric screw threads — Tolerances — Principles and basic data",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_m8x1_0_cut",
+      "thread": {
+        "designation": "M8x1.0",
+        "thread_system": "metric",
+        "nominal_diameter": 8,
+        "nominal_diameter_unit": "mm",
+        "pitch": 1,
+        "pitch_unit": "mm",
+        "threads_per_inch": null,
+        "coarse_fine": "fine",
+        "standard_family": "ISO 262",
+        "source_entity_id": null,
+        "source_dataset": "metric_threads",
+        "source_record": "M8x1.0"
+      },
+      "tap_drill": {
+        "value": 7,
+        "unit": "mm",
+        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "metric_threads",
+          "source_record": "M8x1.0",
+          "source_field": "tap_drill_mm",
+          "source": null,
+          "cross_check": null
+        }
+      },
+      "alternative_drill": null,
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_261",
+          "organization": "ISO",
+          "designation": "ISO 261",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — General plan",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_262",
+          "organization": "ISO",
+          "designation": "ISO 262",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Selected sizes for screws, bolts, and nuts",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_724",
+          "organization": "ISO",
+          "designation": "ISO 724",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Basic dimensions",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_965_1",
+          "organization": "ISO",
+          "designation": "ISO 965-1",
+          "edition": "2026 (5th edition)",
+          "title": "ISO metric screw threads — Tolerances — Principles and basic data",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_m8x1_25_cut",
+      "thread": {
+        "designation": "M8x1.25",
+        "thread_system": "metric",
+        "nominal_diameter": 8,
+        "nominal_diameter_unit": "mm",
+        "pitch": 1.25,
+        "pitch_unit": "mm",
+        "threads_per_inch": null,
+        "coarse_fine": "coarse",
+        "standard_family": "ISO 261",
+        "source_entity_id": null,
+        "source_dataset": "metric_threads",
+        "source_record": "M8x1.25"
+      },
+      "tap_drill": {
+        "value": 6.8,
+        "unit": "mm",
+        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "metric_threads",
+          "source_record": "M8x1.25",
+          "source_field": "tap_drill_mm",
+          "source": "iso_2306",
+          "cross_check": "Matches Table 1 (coarse pitch series) exactly (verified 2026-08-15)"
+        }
+      },
+      "alternative_drill": null,
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_261",
+          "organization": "ISO",
+          "designation": "ISO 261",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — General plan",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_262",
+          "organization": "ISO",
+          "designation": "ISO 262",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Selected sizes for screws, bolts, and nuts",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_724",
+          "organization": "ISO",
+          "designation": "ISO 724",
+          "edition": null,
+          "title": "ISO general purpose metric screw threads — Basic dimensions",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": null
+        },
+        {
+          "standard_id": "iso_965_1",
+          "organization": "ISO",
+          "designation": "ISO 965-1",
+          "edition": "2026 (5th edition)",
+          "title": "ISO metric screw threads — Tolerances — Principles and basic data",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_10_24_unc_cut",
+      "thread": {
+        "designation": "#10-24 UNC",
+        "thread_system": "UNC",
+        "nominal_diameter": 0.19,
+        "nominal_diameter_unit": "in",
+        "pitch": null,
+        "pitch_unit": null,
+        "threads_per_inch": 24,
+        "coarse_fine": "UNC",
+        "standard_family": "ASME B1.1",
+        "source_entity_id": "thread_system_unc",
+        "source_dataset": "unc_threads",
+        "source_record": "#10-24 UNC"
+      },
+      "tap_drill": {
+        "value": 0.1495,
+        "unit": "in",
+        "convention": "US customary drill-series",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "unc_threads",
+          "source_record": "#10-24 UNC",
+          "source_field": "tap_drill_in",
+          "source": null,
+          "cross_check": null
+        }
+      },
+      "alternative_drill": {
+        "value": 3.9,
+        "unit": "mm",
+        "standard_id": "iso_2306",
+        "standard_edition": "1972",
+        "convention": "ISO 2306 continuous-metric recommendation for inch threads",
+        "status": "verified",
+        "applicability": "Alternative recommendation for tapping this inch thread using a metric drill selected per ISO 2306's own inch-thread tables (Table 3 UNC / Table 4 UNF). Does not replace or average with the US-customary tap_drill value.",
+        "meaning": "ISO 2306:1972's own metric drill-diameter recommendation for tapping this inch (unified) thread — an additional, legitimate recommendation under a different sizing convention. This is NOT a correction to hole_preparation above and must not be merged, averaged, or treated as more/less authoritative than it.",
+        "provenance": {
+          "source": "ISO 2306:1972 primary-source table (verified in T2.1 via authorized standards-reseller preview)",
+          "table": "Table 3",
+          "verified_date": "2026-08-15"
+        }
+      },
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "asme_b1_1",
+          "organization": "ASME",
+          "designation": "ASME B1.1",
+          "edition": "2024",
+          "title": "Unified Inch Screw Threads (UN, UNR, and UNJ Thread Forms)",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_1_2_13_unc_cut",
+      "thread": {
+        "designation": "1/2-13 UNC",
+        "thread_system": "UNC",
+        "nominal_diameter": 0.5,
+        "nominal_diameter_unit": "in",
+        "pitch": null,
+        "pitch_unit": null,
+        "threads_per_inch": 13,
+        "coarse_fine": "UNC",
+        "standard_family": "ASME B1.1",
+        "source_entity_id": "thread_system_unc",
+        "source_dataset": "unc_threads",
+        "source_record": "1/2-13 UNC"
+      },
+      "tap_drill": {
+        "value": 0.4219,
+        "unit": "in",
+        "convention": "US customary drill-series",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "unc_threads",
+          "source_record": "1/2-13 UNC",
+          "source_field": "tap_drill_in",
+          "source": null,
+          "cross_check": null
+        }
+      },
+      "alternative_drill": {
+        "value": 10.8,
+        "unit": "mm",
+        "standard_id": "iso_2306",
+        "standard_edition": "1972",
+        "convention": "ISO 2306 continuous-metric recommendation for inch threads",
+        "status": "verified",
+        "applicability": "Alternative recommendation for tapping this inch thread using a metric drill selected per ISO 2306's own inch-thread tables (Table 3 UNC / Table 4 UNF). Does not replace or average with the US-customary tap_drill value.",
+        "meaning": "ISO 2306:1972's own metric drill-diameter recommendation for tapping this inch (unified) thread — an additional, legitimate recommendation under a different sizing convention. This is NOT a correction to hole_preparation above and must not be merged, averaged, or treated as more/less authoritative than it.",
+        "provenance": {
+          "source": "ISO 2306:1972 primary-source table (verified in T2.1 via authorized standards-reseller preview)",
+          "table": "Table 3",
+          "verified_date": "2026-08-15"
+        }
+      },
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "asme_b1_1",
+          "organization": "ASME",
+          "designation": "ASME B1.1",
+          "edition": "2024",
+          "title": "Unified Inch Screw Threads (UN, UNR, and UNJ Thread Forms)",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_1_4_20_unc_cut",
+      "thread": {
+        "designation": "1/4-20 UNC",
+        "thread_system": "UNC",
+        "nominal_diameter": 0.25,
+        "nominal_diameter_unit": "in",
+        "pitch": null,
+        "pitch_unit": null,
+        "threads_per_inch": 20,
+        "coarse_fine": "UNC",
+        "standard_family": "ASME B1.1",
+        "source_entity_id": "thread_system_unc",
+        "source_dataset": "unc_threads",
+        "source_record": "1/4-20 UNC"
+      },
+      "tap_drill": {
+        "value": 0.201,
+        "unit": "in",
+        "convention": "US customary drill-series",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "unc_threads",
+          "source_record": "1/4-20 UNC",
+          "source_field": "tap_drill_in",
+          "source": null,
+          "cross_check": null
+        }
+      },
+      "alternative_drill": {
+        "value": 5.1,
+        "unit": "mm",
+        "standard_id": "iso_2306",
+        "standard_edition": "1972",
+        "convention": "ISO 2306 continuous-metric recommendation for inch threads",
+        "status": "verified",
+        "applicability": "Alternative recommendation for tapping this inch thread using a metric drill selected per ISO 2306's own inch-thread tables (Table 3 UNC / Table 4 UNF). Does not replace or average with the US-customary tap_drill value.",
+        "meaning": "ISO 2306:1972's own metric drill-diameter recommendation for tapping this inch (unified) thread — an additional, legitimate recommendation under a different sizing convention. This is NOT a correction to hole_preparation above and must not be merged, averaged, or treated as more/less authoritative than it.",
+        "provenance": {
+          "source": "ISO 2306:1972 primary-source table (verified in T2.1 via authorized standards-reseller preview)",
+          "table": "Table 3",
+          "verified_date": "2026-08-15"
+        }
+      },
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "asme_b1_1",
+          "organization": "ASME",
+          "designation": "ASME B1.1",
+          "edition": "2024",
+          "title": "Unified Inch Screw Threads (UN, UNR, and UNJ Thread Forms)",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_3_8_16_unc_cut",
+      "thread": {
+        "designation": "3/8-16 UNC",
+        "thread_system": "UNC",
+        "nominal_diameter": 0.375,
+        "nominal_diameter_unit": "in",
+        "pitch": null,
+        "pitch_unit": null,
+        "threads_per_inch": 16,
+        "coarse_fine": "UNC",
+        "standard_family": "ASME B1.1",
+        "source_entity_id": "thread_system_unc",
+        "source_dataset": "unc_threads",
+        "source_record": "3/8-16 UNC"
+      },
+      "tap_drill": {
+        "value": 0.3125,
+        "unit": "in",
+        "convention": "US customary drill-series",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "unc_threads",
+          "source_record": "3/8-16 UNC",
+          "source_field": "tap_drill_in",
+          "source": null,
+          "cross_check": null
+        }
+      },
+      "alternative_drill": {
+        "value": 8,
+        "unit": "mm",
+        "standard_id": "iso_2306",
+        "standard_edition": "1972",
+        "convention": "ISO 2306 continuous-metric recommendation for inch threads",
+        "status": "verified",
+        "applicability": "Alternative recommendation for tapping this inch thread using a metric drill selected per ISO 2306's own inch-thread tables (Table 3 UNC / Table 4 UNF). Does not replace or average with the US-customary tap_drill value.",
+        "meaning": "ISO 2306:1972's own metric drill-diameter recommendation for tapping this inch (unified) thread — an additional, legitimate recommendation under a different sizing convention. This is NOT a correction to hole_preparation above and must not be merged, averaged, or treated as more/less authoritative than it.",
+        "provenance": {
+          "source": "ISO 2306:1972 primary-source table (verified in T2.1 via authorized standards-reseller preview)",
+          "table": "Table 3",
+          "verified_date": "2026-08-15"
+        }
+      },
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "asme_b1_1",
+          "organization": "ASME",
+          "designation": "ASME B1.1",
+          "edition": "2024",
+          "title": "Unified Inch Screw Threads (UN, UNR, and UNJ Thread Forms)",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_4_40_unc_cut",
+      "thread": {
+        "designation": "#4-40 UNC",
+        "thread_system": "UNC",
+        "nominal_diameter": 0.112,
+        "nominal_diameter_unit": "in",
+        "pitch": null,
+        "pitch_unit": null,
+        "threads_per_inch": 40,
+        "coarse_fine": "UNC",
+        "standard_family": "ASME B1.1",
+        "source_entity_id": "thread_system_unc",
+        "source_dataset": "unc_threads",
+        "source_record": "#4-40 UNC"
+      },
+      "tap_drill": {
+        "value": 0.089,
+        "unit": "in",
+        "convention": "US customary drill-series",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "unc_threads",
+          "source_record": "#4-40 UNC",
+          "source_field": "tap_drill_in",
+          "source": null,
+          "cross_check": null
+        }
+      },
+      "alternative_drill": {
+        "value": 2.35,
+        "unit": "mm",
+        "standard_id": "iso_2306",
+        "standard_edition": "1972",
+        "convention": "ISO 2306 continuous-metric recommendation for inch threads",
+        "status": "verified",
+        "applicability": "Alternative recommendation for tapping this inch thread using a metric drill selected per ISO 2306's own inch-thread tables (Table 3 UNC / Table 4 UNF). Does not replace or average with the US-customary tap_drill value.",
+        "meaning": "ISO 2306:1972's own metric drill-diameter recommendation for tapping this inch (unified) thread — an additional, legitimate recommendation under a different sizing convention. This is NOT a correction to hole_preparation above and must not be merged, averaged, or treated as more/less authoritative than it.",
+        "provenance": {
+          "source": "ISO 2306:1972 primary-source table (verified in T2.1 via authorized standards-reseller preview)",
+          "table": "Table 3",
+          "verified_date": "2026-08-15"
+        }
+      },
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "asme_b1_1",
+          "organization": "ASME",
+          "designation": "ASME B1.1",
+          "edition": "2024",
+          "title": "Unified Inch Screw Threads (UN, UNR, and UNJ Thread Forms)",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_5_16_18_unc_cut",
+      "thread": {
+        "designation": "5/16-18 UNC",
+        "thread_system": "UNC",
+        "nominal_diameter": 0.313,
+        "nominal_diameter_unit": "in",
+        "pitch": null,
+        "pitch_unit": null,
+        "threads_per_inch": 18,
+        "coarse_fine": "UNC",
+        "standard_family": "ASME B1.1",
+        "source_entity_id": "thread_system_unc",
+        "source_dataset": "unc_threads",
+        "source_record": "5/16-18 UNC"
+      },
+      "tap_drill": {
+        "value": 0.257,
+        "unit": "in",
+        "convention": "US customary drill-series",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "unc_threads",
+          "source_record": "5/16-18 UNC",
+          "source_field": "tap_drill_in",
+          "source": null,
+          "cross_check": null
+        }
+      },
+      "alternative_drill": {
+        "value": 6.6,
+        "unit": "mm",
+        "standard_id": "iso_2306",
+        "standard_edition": "1972",
+        "convention": "ISO 2306 continuous-metric recommendation for inch threads",
+        "status": "verified",
+        "applicability": "Alternative recommendation for tapping this inch thread using a metric drill selected per ISO 2306's own inch-thread tables (Table 3 UNC / Table 4 UNF). Does not replace or average with the US-customary tap_drill value.",
+        "meaning": "ISO 2306:1972's own metric drill-diameter recommendation for tapping this inch (unified) thread — an additional, legitimate recommendation under a different sizing convention. This is NOT a correction to hole_preparation above and must not be merged, averaged, or treated as more/less authoritative than it.",
+        "provenance": {
+          "source": "ISO 2306:1972 primary-source table (verified in T2.1 via authorized standards-reseller preview)",
+          "table": "Table 3",
+          "verified_date": "2026-08-15"
+        }
+      },
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "asme_b1_1",
+          "organization": "ASME",
+          "designation": "ASME B1.1",
+          "edition": "2024",
+          "title": "Unified Inch Screw Threads (UN, UNR, and UNJ Thread Forms)",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_6_32_unc_cut",
+      "thread": {
+        "designation": "#6-32 UNC",
+        "thread_system": "UNC",
+        "nominal_diameter": 0.138,
+        "nominal_diameter_unit": "in",
+        "pitch": null,
+        "pitch_unit": null,
+        "threads_per_inch": 32,
+        "coarse_fine": "UNC",
+        "standard_family": "ASME B1.1",
+        "source_entity_id": "thread_system_unc",
+        "source_dataset": "unc_threads",
+        "source_record": "#6-32 UNC"
+      },
+      "tap_drill": {
+        "value": 0.1065,
+        "unit": "in",
+        "convention": "US customary drill-series",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "unc_threads",
+          "source_record": "#6-32 UNC",
+          "source_field": "tap_drill_in",
+          "source": null,
+          "cross_check": null
+        }
+      },
+      "alternative_drill": {
+        "value": 2.85,
+        "unit": "mm",
+        "standard_id": "iso_2306",
+        "standard_edition": "1972",
+        "convention": "ISO 2306 continuous-metric recommendation for inch threads",
+        "status": "verified",
+        "applicability": "Alternative recommendation for tapping this inch thread using a metric drill selected per ISO 2306's own inch-thread tables (Table 3 UNC / Table 4 UNF). Does not replace or average with the US-customary tap_drill value.",
+        "meaning": "ISO 2306:1972's own metric drill-diameter recommendation for tapping this inch (unified) thread — an additional, legitimate recommendation under a different sizing convention. This is NOT a correction to hole_preparation above and must not be merged, averaged, or treated as more/less authoritative than it.",
+        "provenance": {
+          "source": "ISO 2306:1972 primary-source table (verified in T2.1 via authorized standards-reseller preview)",
+          "table": "Table 3",
+          "verified_date": "2026-08-15"
+        }
+      },
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "asme_b1_1",
+          "organization": "ASME",
+          "designation": "ASME B1.1",
+          "edition": "2024",
+          "title": "Unified Inch Screw Threads (UN, UNR, and UNJ Thread Forms)",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_8_32_unc_cut",
+      "thread": {
+        "designation": "#8-32 UNC",
+        "thread_system": "UNC",
+        "nominal_diameter": 0.164,
+        "nominal_diameter_unit": "in",
+        "pitch": null,
+        "pitch_unit": null,
+        "threads_per_inch": 32,
+        "coarse_fine": "UNC",
+        "standard_family": "ASME B1.1",
+        "source_entity_id": "thread_system_unc",
+        "source_dataset": "unc_threads",
+        "source_record": "#8-32 UNC"
+      },
+      "tap_drill": {
+        "value": 0.136,
+        "unit": "in",
+        "convention": "US customary drill-series",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "unc_threads",
+          "source_record": "#8-32 UNC",
+          "source_field": "tap_drill_in",
+          "source": null,
+          "cross_check": null
+        }
+      },
+      "alternative_drill": {
+        "value": 3.5,
+        "unit": "mm",
+        "standard_id": "iso_2306",
+        "standard_edition": "1972",
+        "convention": "ISO 2306 continuous-metric recommendation for inch threads",
+        "status": "verified",
+        "applicability": "Alternative recommendation for tapping this inch thread using a metric drill selected per ISO 2306's own inch-thread tables (Table 3 UNC / Table 4 UNF). Does not replace or average with the US-customary tap_drill value.",
+        "meaning": "ISO 2306:1972's own metric drill-diameter recommendation for tapping this inch (unified) thread — an additional, legitimate recommendation under a different sizing convention. This is NOT a correction to hole_preparation above and must not be merged, averaged, or treated as more/less authoritative than it.",
+        "provenance": {
+          "source": "ISO 2306:1972 primary-source table (verified in T2.1 via authorized standards-reseller preview)",
+          "table": "Table 3",
+          "verified_date": "2026-08-15"
+        }
+      },
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "asme_b1_1",
+          "organization": "ASME",
+          "designation": "ASME B1.1",
+          "edition": "2024",
+          "title": "Unified Inch Screw Threads (UN, UNR, and UNJ Thread Forms)",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_10_32_unf_cut",
+      "thread": {
+        "designation": "#10-32 UNF",
+        "thread_system": "UNF",
+        "nominal_diameter": 0.19,
+        "nominal_diameter_unit": "in",
+        "pitch": null,
+        "pitch_unit": null,
+        "threads_per_inch": 32,
+        "coarse_fine": "UNF",
+        "standard_family": "ASME B1.1",
+        "source_entity_id": "thread_system_unc",
+        "source_dataset": "unf_threads",
+        "source_record": "#10-32 UNF"
+      },
+      "tap_drill": {
+        "value": 0.159,
+        "unit": "in",
+        "convention": "US customary drill-series",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "unf_threads",
+          "source_record": "#10-32 UNF",
+          "source_field": "tap_drill_in",
+          "source": null,
+          "cross_check": null
+        }
+      },
+      "alternative_drill": {
+        "value": 4.1,
+        "unit": "mm",
+        "standard_id": "iso_2306",
+        "standard_edition": "1972",
+        "convention": "ISO 2306 continuous-metric recommendation for inch threads",
+        "status": "verified",
+        "applicability": "Alternative recommendation for tapping this inch thread using a metric drill selected per ISO 2306's own inch-thread tables (Table 3 UNC / Table 4 UNF). Does not replace or average with the US-customary tap_drill value.",
+        "meaning": "ISO 2306:1972's own metric drill-diameter recommendation for tapping this inch (unified) thread — an additional, legitimate recommendation under a different sizing convention. This is NOT a correction to hole_preparation above and must not be merged, averaged, or treated as more/less authoritative than it.",
+        "provenance": {
+          "source": "ISO 2306:1972 primary-source table (verified in T2.1 via authorized standards-reseller preview)",
+          "table": "Table 4",
+          "verified_date": "2026-08-15"
+        }
+      },
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "asme_b1_1",
+          "organization": "ASME",
+          "designation": "ASME B1.1",
+          "edition": "2024",
+          "title": "Unified Inch Screw Threads (UN, UNR, and UNJ Thread Forms)",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_1_2_20_unf_cut",
+      "thread": {
+        "designation": "1/2-20 UNF",
+        "thread_system": "UNF",
+        "nominal_diameter": 0.5,
+        "nominal_diameter_unit": "in",
+        "pitch": null,
+        "pitch_unit": null,
+        "threads_per_inch": 20,
+        "coarse_fine": "UNF",
+        "standard_family": "ASME B1.1",
+        "source_entity_id": "thread_system_unc",
+        "source_dataset": "unf_threads",
+        "source_record": "1/2-20 UNF"
+      },
+      "tap_drill": {
+        "value": 0.4531,
+        "unit": "in",
+        "convention": "US customary drill-series",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "unf_threads",
+          "source_record": "1/2-20 UNF",
+          "source_field": "tap_drill_in",
+          "source": null,
+          "cross_check": null
+        }
+      },
+      "alternative_drill": {
+        "value": 11.5,
+        "unit": "mm",
+        "standard_id": "iso_2306",
+        "standard_edition": "1972",
+        "convention": "ISO 2306 continuous-metric recommendation for inch threads",
+        "status": "verified",
+        "applicability": "Alternative recommendation for tapping this inch thread using a metric drill selected per ISO 2306's own inch-thread tables (Table 3 UNC / Table 4 UNF). Does not replace or average with the US-customary tap_drill value.",
+        "meaning": "ISO 2306:1972's own metric drill-diameter recommendation for tapping this inch (unified) thread — an additional, legitimate recommendation under a different sizing convention. This is NOT a correction to hole_preparation above and must not be merged, averaged, or treated as more/less authoritative than it.",
+        "provenance": {
+          "source": "ISO 2306:1972 primary-source table (verified in T2.1 via authorized standards-reseller preview)",
+          "table": "Table 4",
+          "verified_date": "2026-08-15"
+        }
+      },
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "asme_b1_1",
+          "organization": "ASME",
+          "designation": "ASME B1.1",
+          "edition": "2024",
+          "title": "Unified Inch Screw Threads (UN, UNR, and UNJ Thread Forms)",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_1_4_28_unf_cut",
+      "thread": {
+        "designation": "1/4-28 UNF",
+        "thread_system": "UNF",
+        "nominal_diameter": 0.25,
+        "nominal_diameter_unit": "in",
+        "pitch": null,
+        "pitch_unit": null,
+        "threads_per_inch": 28,
+        "coarse_fine": "UNF",
+        "standard_family": "ASME B1.1",
+        "source_entity_id": "thread_system_unc",
+        "source_dataset": "unf_threads",
+        "source_record": "1/4-28 UNF"
+      },
+      "tap_drill": {
+        "value": 0.213,
+        "unit": "in",
+        "convention": "US customary drill-series",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "unf_threads",
+          "source_record": "1/4-28 UNF",
+          "source_field": "tap_drill_in",
+          "source": null,
+          "cross_check": null
+        }
+      },
+      "alternative_drill": {
+        "value": 5.5,
+        "unit": "mm",
+        "standard_id": "iso_2306",
+        "standard_edition": "1972",
+        "convention": "ISO 2306 continuous-metric recommendation for inch threads",
+        "status": "verified",
+        "applicability": "Alternative recommendation for tapping this inch thread using a metric drill selected per ISO 2306's own inch-thread tables (Table 3 UNC / Table 4 UNF). Does not replace or average with the US-customary tap_drill value.",
+        "meaning": "ISO 2306:1972's own metric drill-diameter recommendation for tapping this inch (unified) thread — an additional, legitimate recommendation under a different sizing convention. This is NOT a correction to hole_preparation above and must not be merged, averaged, or treated as more/less authoritative than it.",
+        "provenance": {
+          "source": "ISO 2306:1972 primary-source table (verified in T2.1 via authorized standards-reseller preview)",
+          "table": "Table 4",
+          "verified_date": "2026-08-15"
+        }
+      },
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "asme_b1_1",
+          "organization": "ASME",
+          "designation": "ASME B1.1",
+          "edition": "2024",
+          "title": "Unified Inch Screw Threads (UN, UNR, and UNJ Thread Forms)",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_3_8_24_unf_cut",
+      "thread": {
+        "designation": "3/8-24 UNF",
+        "thread_system": "UNF",
+        "nominal_diameter": 0.375,
+        "nominal_diameter_unit": "in",
+        "pitch": null,
+        "pitch_unit": null,
+        "threads_per_inch": 24,
+        "coarse_fine": "UNF",
+        "standard_family": "ASME B1.1",
+        "source_entity_id": "thread_system_unc",
+        "source_dataset": "unf_threads",
+        "source_record": "3/8-24 UNF"
+      },
+      "tap_drill": {
+        "value": 0.332,
+        "unit": "in",
+        "convention": "US customary drill-series",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "unf_threads",
+          "source_record": "3/8-24 UNF",
+          "source_field": "tap_drill_in",
+          "source": null,
+          "cross_check": null
+        }
+      },
+      "alternative_drill": {
+        "value": 8.5,
+        "unit": "mm",
+        "standard_id": "iso_2306",
+        "standard_edition": "1972",
+        "convention": "ISO 2306 continuous-metric recommendation for inch threads",
+        "status": "verified",
+        "applicability": "Alternative recommendation for tapping this inch thread using a metric drill selected per ISO 2306's own inch-thread tables (Table 3 UNC / Table 4 UNF). Does not replace or average with the US-customary tap_drill value.",
+        "meaning": "ISO 2306:1972's own metric drill-diameter recommendation for tapping this inch (unified) thread — an additional, legitimate recommendation under a different sizing convention. This is NOT a correction to hole_preparation above and must not be merged, averaged, or treated as more/less authoritative than it.",
+        "provenance": {
+          "source": "ISO 2306:1972 primary-source table (verified in T2.1 via authorized standards-reseller preview)",
+          "table": "Table 4",
+          "verified_date": "2026-08-15"
+        }
+      },
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "asme_b1_1",
+          "organization": "ASME",
+          "designation": "ASME B1.1",
+          "edition": "2024",
+          "title": "Unified Inch Screw Threads (UN, UNR, and UNJ Thread Forms)",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_5_16_24_unf_cut",
+      "thread": {
+        "designation": "5/16-24 UNF",
+        "thread_system": "UNF",
+        "nominal_diameter": 0.313,
+        "nominal_diameter_unit": "in",
+        "pitch": null,
+        "pitch_unit": null,
+        "threads_per_inch": 24,
+        "coarse_fine": "UNF",
+        "standard_family": "ASME B1.1",
+        "source_entity_id": "thread_system_unc",
+        "source_dataset": "unf_threads",
+        "source_record": "5/16-24 UNF"
+      },
+      "tap_drill": {
+        "value": 0.272,
+        "unit": "in",
+        "convention": "US customary drill-series",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "unf_threads",
+          "source_record": "5/16-24 UNF",
+          "source_field": "tap_drill_in",
+          "source": null,
+          "cross_check": null
+        }
+      },
+      "alternative_drill": {
+        "value": 6.9,
+        "unit": "mm",
+        "standard_id": "iso_2306",
+        "standard_edition": "1972",
+        "convention": "ISO 2306 continuous-metric recommendation for inch threads",
+        "status": "verified",
+        "applicability": "Alternative recommendation for tapping this inch thread using a metric drill selected per ISO 2306's own inch-thread tables (Table 3 UNC / Table 4 UNF). Does not replace or average with the US-customary tap_drill value.",
+        "meaning": "ISO 2306:1972's own metric drill-diameter recommendation for tapping this inch (unified) thread — an additional, legitimate recommendation under a different sizing convention. This is NOT a correction to hole_preparation above and must not be merged, averaged, or treated as more/less authoritative than it.",
+        "provenance": {
+          "source": "ISO 2306:1972 primary-source table (verified in T2.1 via authorized standards-reseller preview)",
+          "table": "Table 4",
+          "verified_date": "2026-08-15"
+        }
+      },
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "asme_b1_1",
+          "organization": "ASME",
+          "designation": "ASME B1.1",
+          "edition": "2024",
+          "title": "Unified Inch Screw Threads (UN, UNR, and UNJ Thread Forms)",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_6_40_unf_cut",
+      "thread": {
+        "designation": "#6-40 UNF",
+        "thread_system": "UNF",
+        "nominal_diameter": 0.138,
+        "nominal_diameter_unit": "in",
+        "pitch": null,
+        "pitch_unit": null,
+        "threads_per_inch": 40,
+        "coarse_fine": "UNF",
+        "standard_family": "ASME B1.1",
+        "source_entity_id": "thread_system_unc",
+        "source_dataset": "unf_threads",
+        "source_record": "#6-40 UNF"
+      },
+      "tap_drill": {
+        "value": 0.113,
+        "unit": "in",
+        "convention": "US customary drill-series",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "unf_threads",
+          "source_record": "#6-40 UNF",
+          "source_field": "tap_drill_in",
+          "source": null,
+          "cross_check": null
+        }
+      },
+      "alternative_drill": {
+        "value": 2.95,
+        "unit": "mm",
+        "standard_id": "iso_2306",
+        "standard_edition": "1972",
+        "convention": "ISO 2306 continuous-metric recommendation for inch threads",
+        "status": "verified",
+        "applicability": "Alternative recommendation for tapping this inch thread using a metric drill selected per ISO 2306's own inch-thread tables (Table 3 UNC / Table 4 UNF). Does not replace or average with the US-customary tap_drill value.",
+        "meaning": "ISO 2306:1972's own metric drill-diameter recommendation for tapping this inch (unified) thread — an additional, legitimate recommendation under a different sizing convention. This is NOT a correction to hole_preparation above and must not be merged, averaged, or treated as more/less authoritative than it.",
+        "provenance": {
+          "source": "ISO 2306:1972 primary-source table (verified in T2.1 via authorized standards-reseller preview)",
+          "table": "Table 4",
+          "verified_date": "2026-08-15"
+        }
+      },
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "asme_b1_1",
+          "organization": "ASME",
+          "designation": "ASME B1.1",
+          "edition": "2024",
+          "title": "Unified Inch Screw Threads (UN, UNR, and UNJ Thread Forms)",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_8_36_unf_cut",
+      "thread": {
+        "designation": "#8-36 UNF",
+        "thread_system": "UNF",
+        "nominal_diameter": 0.164,
+        "nominal_diameter_unit": "in",
+        "pitch": null,
+        "pitch_unit": null,
+        "threads_per_inch": 36,
+        "coarse_fine": "UNF",
+        "standard_family": "ASME B1.1",
+        "source_entity_id": "thread_system_unc",
+        "source_dataset": "unf_threads",
+        "source_record": "#8-36 UNF"
+      },
+      "tap_drill": {
+        "value": 0.136,
+        "unit": "in",
+        "convention": "US customary drill-series",
+        "status": "verified",
+        "provenance": {
+          "source_dataset": "unf_threads",
+          "source_record": "#8-36 UNF",
+          "source_field": "tap_drill_in",
+          "source": null,
+          "cross_check": null
+        }
+      },
+      "alternative_drill": {
+        "value": 3.5,
+        "unit": "mm",
+        "standard_id": "iso_2306",
+        "standard_edition": "1972",
+        "convention": "ISO 2306 continuous-metric recommendation for inch threads",
+        "status": "verified",
+        "applicability": "Alternative recommendation for tapping this inch thread using a metric drill selected per ISO 2306's own inch-thread tables (Table 3 UNC / Table 4 UNF). Does not replace or average with the US-customary tap_drill value.",
+        "meaning": "ISO 2306:1972's own metric drill-diameter recommendation for tapping this inch (unified) thread — an additional, legitimate recommendation under a different sizing convention. This is NOT a correction to hole_preparation above and must not be merged, averaged, or treated as more/less authoritative than it.",
+        "provenance": {
+          "source": "ISO 2306:1972 primary-source table (verified in T2.1 via authorized standards-reseller preview)",
+          "table": "Table 4",
+          "verified_date": "2026-08-15"
+        }
+      },
+      "engagement": {
+        "radial": {
+          "calculation_status": "calculable",
+          "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+          "inputs": [
+            "major_diameter",
+            "drill_diameter",
+            "pitch_or_tpi"
+          ],
+          "target_percent": null,
+          "model_reference": "docs/architecture/thread-engagement-model.md#2-radial-engagement-percentage--the-mathematical-model"
+        },
+        "axial": {
+          "calculation_status": "not_calculable",
+          "principle": "Strength-based: engagement length should ensure the fastener fails in tension before internal threads strip (NASA-STD-5020A section 4.7.4).",
+          "blocking_dependency": "Requires material shear-strength data for the tapped-hole material, which does not yet exist in the BoltLab knowledge layer.",
+          "model_reference": "docs/architecture/thread-engagement-model.md#3-axial-engagement-length--nasa-std-5020a-findings"
+        }
+      },
+      "tap_types": [
+        "bottoming_tap",
+        "plug_tap",
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "taper_tap"
+      ],
+      "standards": [
+        {
+          "standard_id": "asme_b1_1",
+          "organization": "ASME",
+          "designation": "ASME B1.1",
+          "edition": "2024",
+          "title": "Unified Inch Screw Threads (UN, UNR, and UNJ Thread Forms)",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        },
+        {
+          "standard_id": "iso_2306",
+          "organization": "ISO",
+          "designation": "ISO 2306",
+          "edition": "1972",
+          "title": "Drills for use prior to tapping screw threads",
+          "relevance": "Listed in source_standards of the tapping dataset this profile belongs to.",
+          "verification_state": "current"
+        }
+      ],
+      "data_quality": {
+        "record_status": "source_bound",
+        "provenance_complete": true,
+        "last_reviewed": "2026-08-15"
+      }
+    }
+  ],
+  "version": "v0.1.0",
+  "created": "2026-08-15",
+  "updated": "2026-08-15"
+}

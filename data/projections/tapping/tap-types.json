@@ -1,0 +1,235 @@
+{
+  "id": "tapping_tap_types",
+  "projection_type": "tapping_tap_type_projection",
+  "route_hint": "/reference/tapping/tap-types",
+  "generator_version": "v1.0.0",
+  "source_dataset_versions": {
+    "entities": "v0.1.0"
+  },
+  "related_entities": [
+    "bottoming_tap",
+    "forming_tap",
+    "hand_tap",
+    "plug_tap",
+    "spiral_flute_tap",
+    "spiral_point_tap",
+    "taper_tap"
+  ],
+  "related_standards": [],
+  "related_datasets": [],
+  "rows": [
+    {
+      "entity_id": "bottoming_tap",
+      "title": "Bottoming Tap",
+      "taxonomy_axis": null,
+      "definition": "A tap with a short chamfer, typically engaging one to one and a half threads before reaching full thread form, designed to cut threads as close as practical to the bottom of a blind hole.",
+      "manufacturing_characteristics": [
+        {
+          "fact": "Chamfer length is approximately 1-2 threads/pitches, the shortest of the three chamfer-length tap styles.",
+          "classification": "manufacturing_characteristic",
+          "source": "Cross-corroborated across multiple machining reference sources",
+          "source_tier": 3,
+          "status": "source_bound"
+        }
+      ],
+      "typical_applications": [
+        {
+          "fact": "Cannot start in an unthreaded hole; used to extend threads to the base of a blind hole after a taper and/or plug tap has already established the thread.",
+          "classification": "typical_application",
+          "source": "Cross-corroborated across multiple machining reference sources",
+          "source_tier": 3,
+          "status": "source_bound"
+        }
+      ],
+      "manufacturer_specific_recommendations": [],
+      "evidence_status": {
+        "verified_fact_count": 1,
+        "source_bound_fact_count": 2
+      }
+    },
+    {
+      "entity_id": "forming_tap",
+      "title": "Forming Tap",
+      "taxonomy_axis": null,
+      "definition": "A tap that forms threads by radially displacing material rather than cutting it, producing no chips; also referred to as a roll tap or fluteless tap.",
+      "manufacturing_characteristics": [
+        {
+          "fact": "Requires a larger pre-tap hole diameter than an equivalent cutting tap, since material is displaced outward rather than removed.",
+          "classification": "manufacturing_characteristic",
+          "source": "Cross-corroborated across multiple manufacturer technical guides",
+          "source_tier": 3,
+          "status": "source_bound"
+        }
+      ],
+      "typical_applications": [
+        {
+          "fact": "Unsuitable for brittle materials such as cast iron, which can crack rather than flow under the forming pressure.",
+          "classification": "typical_application",
+          "source": "Cross-corroborated across multiple manufacturer technical guides",
+          "source_tier": 3,
+          "status": "source_bound"
+        },
+        {
+          "fact": "Produces no chips, which removes chip-evacuation as a constraint on blind-hole use -- unlike cutting taps, hole geometry (blind vs. through) is not the limiting factor for this tap type; material ductility is.",
+          "classification": "typical_application",
+          "source": "Cross-corroborated across multiple manufacturer technical guides",
+          "source_tier": 3,
+          "status": "source_bound"
+        }
+      ],
+      "manufacturer_specific_recommendations": [
+        {
+          "fact": "Requires a ductile workpiece material -- commonly cited minimum elongation of roughly 8% and maximum hardness of roughly Rc 30 -- because threads are formed by plastic displacement, not cutting.",
+          "classification": "manufacturer_specific_recommendation",
+          "source": "Commonly cited across manufacturer/tooling technical guides (e.g. Harvey Performance, Jarvis Cutting Tools); not independently verified against a primary standard in this phase",
+          "source_tier": 3,
+          "status": "source_bound"
+        }
+      ],
+      "evidence_status": {
+        "verified_fact_count": 0,
+        "source_bound_fact_count": 4
+      }
+    },
+    {
+      "entity_id": "hand_tap",
+      "title": "Hand Tap",
+      "taxonomy_axis": null,
+      "definition": "A tap designed for manual operation with a tap wrench, typically supplied as part of a set spanning taper, plug, and bottoming chamfer styles for a given thread size.",
+      "manufacturing_characteristics": [],
+      "typical_applications": [
+        {
+          "fact": "Designed for manual operation with a tap wrench; commonly supplied as a taper/plug/bottoming set for progressive blind-hole tapping by hand.",
+          "classification": "typical_application",
+          "source": "Cross-corroborated across multiple machining reference sources",
+          "source_tier": 3,
+          "status": "source_bound"
+        }
+      ],
+      "manufacturer_specific_recommendations": [],
+      "evidence_status": {
+        "verified_fact_count": 0,
+        "source_bound_fact_count": 1
+      }
+    },
+    {
+      "entity_id": "plug_tap",
+      "title": "Plug Tap",
+      "taxonomy_axis": null,
+      "definition": "A tap with a moderate chamfer length, shorter than a taper tap but longer than a bottoming tap, engaging approximately three to five threads before reaching full thread form.",
+      "manufacturing_characteristics": [
+        {
+          "fact": "Chamfer length is approximately 3-5 threads/pitches, shorter than a taper tap and longer than a bottoming tap.",
+          "classification": "manufacturing_characteristic",
+          "source": "Cross-corroborated across multiple machining reference sources",
+          "source_tier": 3,
+          "status": "source_bound"
+        }
+      ],
+      "typical_applications": [
+        {
+          "fact": "General-purpose tap; commonly the sole tap used for through-hole tapping, and can start in an unthreaded hole (unlike a bottoming tap).",
+          "classification": "typical_application",
+          "source": "Cross-corroborated across multiple machining reference sources",
+          "source_tier": 3,
+          "status": "source_bound"
+        }
+      ],
+      "manufacturer_specific_recommendations": [],
+      "evidence_status": {
+        "verified_fact_count": 0,
+        "source_bound_fact_count": 2
+      }
+    },
+    {
+      "entity_id": "spiral_flute_tap",
+      "title": "Spiral Flute Tap",
+      "taxonomy_axis": null,
+      "definition": "A tap with helical (spiral) flutes that lift chips backward out of the hole entrance during cutting, commonly associated with blind-hole applications.",
+      "manufacturing_characteristics": [
+        {
+          "fact": "Helical (spiral) flutes lift chips backward, up and out of the hole entrance, opposite in direction to a spiral-point tap.",
+          "classification": "manufacturing_characteristic",
+          "source": "Cross-corroborated across multiple machining reference sources",
+          "source_tier": 3,
+          "status": "source_bound"
+        }
+      ],
+      "typical_applications": [
+        {
+          "fact": "Suited to blind-hole tapping, where chips cannot be pushed forward out of a closed bottom.",
+          "classification": "typical_application",
+          "source": "Cross-corroborated across multiple machining reference sources",
+          "source_tier": 3,
+          "status": "source_bound"
+        }
+      ],
+      "manufacturer_specific_recommendations": [],
+      "evidence_status": {
+        "verified_fact_count": 0,
+        "source_bound_fact_count": 2
+      }
+    },
+    {
+      "entity_id": "spiral_point_tap",
+      "title": "Spiral Point Tap",
+      "taxonomy_axis": null,
+      "definition": "A tap with an angled point ground onto the flutes that pushes chips forward, ahead of the tap and out through the far side of the hole, commonly associated with through-hole applications.",
+      "manufacturing_characteristics": [
+        {
+          "fact": "Also called a gun tap or gun-nose tap; a forward-angled point ground onto the cutting chamfer drives chips forward, ahead of the tap.",
+          "classification": "manufacturing_characteristic",
+          "source": "Cross-corroborated across multiple machining reference sources (Cutwel, MisolTap, Slugger Tools)",
+          "source_tier": 3,
+          "status": "source_bound"
+        }
+      ],
+      "typical_applications": [
+        {
+          "fact": "Suited to through-hole tapping only. In a blind hole the forward-pushed chips have nowhere to go, pack at the bottom, and can bind and break the tap.",
+          "classification": "typical_application",
+          "source": "Cross-corroborated across multiple machining reference sources; consistent with NASA-STD-5020A's confirmation that blind-hole tapped threads terminate at a closed bottom with no chip escape path",
+          "source_tier": 3,
+          "status": "source_bound"
+        }
+      ],
+      "manufacturer_specific_recommendations": [],
+      "evidence_status": {
+        "verified_fact_count": 0,
+        "source_bound_fact_count": 2
+      }
+    },
+    {
+      "entity_id": "taper_tap",
+      "title": "Taper Tap",
+      "taxonomy_axis": null,
+      "definition": "A tap with a gradually tapered chamfer at the point, typically engaging six to eight threads before reaching full thread form, used to start threads gradually and reduce cutting force per pass.",
+      "manufacturing_characteristics": [
+        {
+          "fact": "Chamfer length is approximately 7-10 threads/pitches, the longest of the three chamfer-length tap styles.",
+          "classification": "manufacturing_characteristic",
+          "source": "Cross-corroborated across multiple machining reference sources (Travers Tool, MisolTap, Rapmaf, AIMS Industrial)",
+          "source_tier": 3,
+          "status": "source_bound"
+        }
+      ],
+      "typical_applications": [
+        {
+          "fact": "Long chamfer distributes cutting load gradually and makes the tap easier to start straight/square, but it cannot cut full-depth threads within roughly 7-10 pitches of the bottom of a blind hole.",
+          "classification": "typical_application",
+          "source": "Cross-corroborated across multiple machining reference sources",
+          "source_tier": 3,
+          "status": "source_bound"
+        }
+      ],
+      "manufacturer_specific_recommendations": [],
+      "evidence_status": {
+        "verified_fact_count": 0,
+        "source_bound_fact_count": 2
+      }
+    }
+  ],
+  "version": "v0.1.0",
+  "created": "2026-08-15",
+  "updated": "2026-08-15"
+}

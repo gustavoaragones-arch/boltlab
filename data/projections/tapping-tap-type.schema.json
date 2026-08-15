@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://boltlab.io/schemas/projections/tapping-tap-type.schema.json",
+  "title": "BoltLab Tapping Tap-Type Projection",
+  "description": "A read-model projection of the 7 tap_type entities and their classified, sourced application_notes. Source of truth remains data/entities/entities.seed.json.",
+  "type": "object",
+  "required": ["id", "projection_type", "route_hint", "generator_version", "source_dataset_versions", "related_entities", "related_standards", "related_datasets", "rows", "version", "created", "updated"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+    "projection_type": { "type": "string", "const": "tapping_tap_type_projection" },
+    "route_hint": { "type": "string", "pattern": "^/" },
+    "generator_version": { "type": "string" },
+    "source_dataset_versions": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "related_entities": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+    },
+    "related_standards": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+    },
+    "related_datasets": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["entity_id", "title", "taxonomy_axis", "definition", "manufacturing_characteristics", "typical_applications", "manufacturer_specific_recommendations", "evidence_status"],
+        "additionalProperties": false,
+        "properties": {
+          "entity_id": { "type": "string" },
+          "title": { "type": "string" },
+          "taxonomy_axis": { "type": ["string", "null"] },
+          "definition": { "type": "string" },
+          "manufacturing_characteristics": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/note" }
+          },
+          "typical_applications": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/note" }
+          },
+          "manufacturer_specific_recommendations": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/note" }
+          },
+          "evidence_status": {
+            "type": "object",
+            "required": ["verified_fact_count", "source_bound_fact_count"],
+            "additionalProperties": false,
+            "properties": {
+              "verified_fact_count": { "type": "integer" },
+              "source_bound_fact_count": { "type": "integer" }
+            }
+          }
+        }
+      }
+    },
+    "version": { "type": "string", "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "created": { "type": "string", "format": "date" },
+    "updated": { "type": "string", "format": "date" }
+  },
+  "$defs": {
+    "note": {
+      "type": "object",
+      "required": ["fact", "classification", "source", "status"],
+      "additionalProperties": false,
+      "properties": {
+        "fact": { "type": "string" },
+        "classification": { "type": "string", "enum": ["general_taxonomy", "manufacturing_characteristic", "typical_application", "manufacturer_specific_recommendation"] },
+        "source": { "type": "string" },
+        "source_tier": { "type": ["integer", "null"] },
+        "status": { "type": "string", "enum": ["verified", "source_bound", "pending_verification"] }
+      }
+    }
+  }
+}
