@@ -1,0 +1,124 @@
+{
+  "phase": "T1",
+  "title": "Tapping & Threading Data Foundation",
+  "date": "2026-08-14",
+  "status": "KNOWLEDGE FOUNDATION ESTABLISHED",
+  "pipeline_stage_reached": "KNOWLEDGE + RELATIONSHIPS (stops before PROJECTIONS)",
+  "architecture_changes": {
+    "extended_existing_architecture": true,
+    "created_parallel_architecture": false,
+    "pipeline_discipline_preserved": true
+  },
+  "schema_changes": {
+    "entity_schema": {
+      "file": "data/schemas/entity.schema.json",
+      "change": "additive enum extension",
+      "new_entity_types": ["tap_type", "hole_preparation", "tapping_operation"],
+      "backward_compatible": true
+    },
+    "dataset_schema": {
+      "file": "data/schemas/dataset.schema.json",
+      "change": "nullable verification_method/last_reviewed/license_notes; added optional status enum",
+      "new_optional_field": "status",
+      "status_enum": ["verified", "source_bound", "pending_verification", "unavailable"],
+      "backward_compatible": true,
+      "existing_datasets_modified": false
+    },
+    "relationship_schema_modified": false,
+    "standard_schema_modified": false,
+    "relationship_schema_reason": "all needed tapping relationships expressible with existing 8-predicate enum"
+  },
+  "entity_changes": {
+    "file_modified": "data/entities/entities.seed.json",
+    "new_file_created": false,
+    "existing_records_modified": 0,
+    "new_records_added": 14,
+    "by_type": {
+      "tap_type": ["taper_tap", "plug_tap", "bottoming_tap", "spiral_point_tap", "spiral_flute_tap", "forming_tap", "hand_tap"],
+      "hole_preparation": ["pilot_hole", "through_hole", "blind_hole", "tapped_hole", "clearance_hole"],
+      "tapping_operation": ["cut_tapping", "form_tapping"]
+    },
+    "tapping_profile_added_as_entity_type": false,
+    "tapping_profile_reason": "per-thread application record, not a stable concept; represented as dataset records instead"
+  },
+  "dataset_changes": {
+    "new_files": [
+      "data/datasets/metric_tapping.seed.json",
+      "data/datasets/unc_tapping.seed.json",
+      "data/datasets/unf_tapping.seed.json"
+    ],
+    "existing_dataset_files_modified": 0,
+    "records_per_file": {
+      "metric_tapping": 14,
+      "unc_tapping": 3,
+      "unf_tapping": 3
+    },
+    "total_tapping_profile_records": 20,
+    "top_level_verified_flag": false,
+    "top_level_status": "source_bound",
+    "value_provenance": "hole_preparation.value derived by direct reference from existing verified metric_threads/unc_threads/unf_threads datasets; no new numeric value invented"
+  },
+  "relationship_changes": {
+    "file_modified": "data/relationships/relationships.seed.json",
+    "new_file_created": false,
+    "existing_records_modified": 0,
+    "new_records_added": 15,
+    "new_predicate_types_introduced": 0,
+    "predicates_used": ["RELATES_TO"],
+    "orphan_new_entities": 0
+  },
+  "standards_integration": {
+    "existing_standards_reused": ["iso_261", "iso_262", "iso_724", "iso_965_1", "asme_b1_1"],
+    "new_standards_created": 0,
+    "standards_identified_but_not_created": ["ISO 2306 (tap and reamed hole tolerances)", "ISO 2857 (tapping screw threads)"],
+    "reason_not_created": "no verified public_summary/scope source material exists in repository; governance prohibits creating a standard record merely because it appears relevant",
+    "defined_by_relationships_to_standards_added": 0
+  },
+  "provenance_model": {
+    "chain": "SOURCE -> CLAIM/VALUE -> DATASET RECORD -> (future) PROJECTION -> (future) PRODUCT",
+    "every_populated_value_traceable": true,
+    "anonymous_values_found": 0,
+    "banned_source_phrases_found": 0
+  },
+  "data_quality_states": {
+    "vocabulary": ["verified", "source_bound", "pending_verification", "unavailable"],
+    "applied_at": ["dataset top-level", "record top-level", "field-block level (hole_preparation, thread_engagement, tapping_parameters)"],
+    "null_means_zero_policy": "explicitly rejected in documentation"
+  },
+  "verified_record_count": 20,
+  "verified_record_count_note": "20 of 20 records carry exactly one verified field-block (hole_preparation); 0 records are fully verified as a complete tapping product",
+  "pending_record_count": 0,
+  "unavailable_field_block_count": 40,
+  "unavailable_field_block_note": "thread_engagement x20 + tapping_parameters x20, all null",
+  "fabricated_engineering_values": 0,
+  "validator_results": {
+    "validate_knowledge_engine": {
+      "status": "pass",
+      "errors": 0,
+      "warnings": 0,
+      "counts_before": {"entities": 10, "standards": 6, "datasets": 3, "relationships": 26},
+      "counts_after": {"entities": 24, "standards": 6, "datasets": 6, "relationships": 41}
+    },
+    "validate_tapping_domain": {
+      "file_created": "scripts/validators/validate-tapping-domain.js",
+      "modeled_after": "scripts/validators/validate-projections.js (specialized validator alongside the core one, not merged into it)",
+      "status": "pass",
+      "errors": 0,
+      "warnings": 5,
+      "warnings_are_informational": true,
+      "checks_implemented": 15
+    },
+    "empty_state_test": {
+      "performed": true,
+      "method": "synthetic empty dataset created, validated, then deleted",
+      "result": "pass, 0 errors",
+      "conclusion": "empty-dataset tolerance independently proven, not merely asserted"
+    }
+  },
+  "production_files_modified": 0,
+  "production_files_modified_list": [],
+  "unexpected_files": [],
+  "git_status_summary": "6 modified (4 knowledge-layer files + 2 validation-report regenerations), 7 new files (3 datasets, 1 architecture doc, 2 tapping-validation-report files, 1 validator script) + 3 pre-existing D2.0 audit files untouched",
+  "committed": false,
+  "pushed": false
+}

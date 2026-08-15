@@ -1,7 +1,7 @@
 {
   "version": "v0.1.0",
   "created": "2026-07-12",
-  "updated": "2026-07-12",
+  "updated": "2026-08-14",
   "records": [
     {
       "id": "pitch_diameter",
@@ -469,6 +469,408 @@
       "status": "active",
       "created": "2026-07-12",
       "updated": "2026-07-12",
+      "version": "v0.1.0"
+    },
+    {
+      "id": "taper_tap",
+      "title": "Taper Tap",
+      "aliases": [
+        "taper tap"
+      ],
+      "entity_type": "tap_type",
+      "engineering_summary": "Tap style with a long chamfer that engages several threads gradually before reaching full diameter.",
+      "definition": "A tap with a gradually tapered chamfer at the point, typically engaging six to eight threads before reaching full thread form, used to start threads gradually and reduce cutting force per pass.",
+      "related_entities": [],
+      "related_standards": [],
+      "related_datasets": [],
+      "related_pages": [],
+      "related_tools": [],
+      "related_charts": [],
+      "related_guides": [],
+      "keywords": [
+        "taper tap",
+        "tap chamfer"
+      ],
+      "search_aliases": [
+        "starting tap"
+      ],
+      "svg_asset": null,
+      "status": "draft",
+      "created": "2026-08-14",
+      "updated": "2026-08-14",
+      "version": "v0.1.0"
+    },
+    {
+      "id": "plug_tap",
+      "title": "Plug Tap",
+      "aliases": [
+        "plug tap"
+      ],
+      "entity_type": "tap_type",
+      "engineering_summary": "Tap style with a moderate chamfer length between taper and bottoming taps.",
+      "definition": "A tap with a moderate chamfer length, shorter than a taper tap but longer than a bottoming tap, engaging approximately three to five threads before reaching full thread form.",
+      "related_entities": [],
+      "related_standards": [],
+      "related_datasets": [],
+      "related_pages": [],
+      "related_tools": [],
+      "related_charts": [],
+      "related_guides": [],
+      "keywords": [
+        "plug tap",
+        "tap chamfer"
+      ],
+      "search_aliases": [
+        "general purpose tap"
+      ],
+      "svg_asset": null,
+      "status": "draft",
+      "created": "2026-08-14",
+      "updated": "2026-08-14",
+      "version": "v0.1.0"
+    },
+    {
+      "id": "bottoming_tap",
+      "title": "Bottoming Tap",
+      "aliases": [
+        "bottoming tap"
+      ],
+      "entity_type": "tap_type",
+      "engineering_summary": "Tap style with a very short chamfer for threading close to the bottom of a blind hole.",
+      "definition": "A tap with a short chamfer, typically engaging one to one and a half threads before reaching full thread form, designed to cut threads as close as practical to the bottom of a blind hole.",
+      "related_entities": [],
+      "related_standards": [],
+      "related_datasets": [],
+      "related_pages": [],
+      "related_tools": [],
+      "related_charts": [],
+      "related_guides": [],
+      "keywords": [
+        "bottoming tap",
+        "blind hole tap"
+      ],
+      "search_aliases": [
+        "bottom tap"
+      ],
+      "svg_asset": null,
+      "status": "draft",
+      "created": "2026-08-14",
+      "updated": "2026-08-14",
+      "version": "v0.1.0"
+    },
+    {
+      "id": "spiral_point_tap",
+      "title": "Spiral Point Tap",
+      "aliases": [
+        "spiral point tap",
+        "gun tap"
+      ],
+      "entity_type": "tap_type",
+      "engineering_summary": "Tap style with an angled point geometry that directs chips ahead of the tap.",
+      "definition": "A tap with an angled point ground onto the flutes that pushes chips forward, ahead of the tap and out through the far side of the hole, commonly associated with through-hole applications.",
+      "related_entities": [],
+      "related_standards": [],
+      "related_datasets": [],
+      "related_pages": [],
+      "related_tools": [],
+      "related_charts": [],
+      "related_guides": [],
+      "keywords": [
+        "spiral point tap",
+        "gun tap"
+      ],
+      "search_aliases": [
+        "gun nose tap"
+      ],
+      "svg_asset": null,
+      "status": "draft",
+      "created": "2026-08-14",
+      "updated": "2026-08-14",
+      "version": "v0.1.0"
+    },
+    {
+      "id": "spiral_flute_tap",
+      "title": "Spiral Flute Tap",
+      "aliases": [
+        "spiral flute tap"
+      ],
+      "entity_type": "tap_type",
+      "engineering_summary": "Tap style with helical flutes that direct chips back out of the hole entrance.",
+      "definition": "A tap with helical (spiral) flutes that lift chips backward out of the hole entrance during cutting, commonly associated with blind-hole applications.",
+      "related_entities": [],
+      "related_standards": [],
+      "related_datasets": [],
+      "related_pages": [],
+      "related_tools": [],
+      "related_charts": [],
+      "related_guides": [],
+      "keywords": [
+        "spiral flute tap",
+        "helical flute tap"
+      ],
+      "search_aliases": [],
+      "svg_asset": null,
+      "status": "draft",
+      "created": "2026-08-14",
+      "updated": "2026-08-14",
+      "version": "v0.1.0"
+    },
+    {
+      "id": "forming_tap",
+      "title": "Forming Tap",
+      "aliases": [
+        "forming tap",
+        "roll tap"
+      ],
+      "entity_type": "tap_type",
+      "engineering_summary": "Tap style that displaces material to form threads rather than cutting them.",
+      "definition": "A tap that forms threads by radially displacing material rather than cutting it, producing no chips; also referred to as a roll tap or fluteless tap.",
+      "related_entities": [],
+      "related_standards": [],
+      "related_datasets": [],
+      "related_pages": [],
+      "related_tools": [],
+      "related_charts": [],
+      "related_guides": [],
+      "keywords": [
+        "forming tap",
+        "roll tap",
+        "cold forming"
+      ],
+      "search_aliases": [
+        "fluteless tap"
+      ],
+      "svg_asset": null,
+      "status": "draft",
+      "created": "2026-08-14",
+      "updated": "2026-08-14",
+      "version": "v0.1.0"
+    },
+    {
+      "id": "hand_tap",
+      "title": "Hand Tap",
+      "aliases": [
+        "hand tap"
+      ],
+      "entity_type": "tap_type",
+      "engineering_summary": "General term for a tap intended for manual operation, often supplied as a set.",
+      "definition": "A tap designed for manual operation with a tap wrench, typically supplied as part of a set spanning taper, plug, and bottoming chamfer styles for a given thread size.",
+      "related_entities": [],
+      "related_standards": [],
+      "related_datasets": [],
+      "related_pages": [],
+      "related_tools": [],
+      "related_charts": [],
+      "related_guides": [],
+      "keywords": [
+        "hand tap",
+        "tap set"
+      ],
+      "search_aliases": [
+        "tap wrench tap"
+      ],
+      "svg_asset": null,
+      "status": "draft",
+      "created": "2026-08-14",
+      "updated": "2026-08-14",
+      "version": "v0.1.0"
+    },
+    {
+      "id": "pilot_hole",
+      "title": "Pilot Hole",
+      "aliases": [
+        "pilot hole"
+      ],
+      "entity_type": "hole_preparation",
+      "engineering_summary": "A hole drilled before a thread-forming or thread-cutting operation.",
+      "definition": "A hole drilled prior to tapping, sized to leave the appropriate amount of material for a tap to engage and form or cut internal threads.",
+      "related_entities": [],
+      "related_standards": [],
+      "related_datasets": [],
+      "related_pages": [],
+      "related_tools": [],
+      "related_charts": [],
+      "related_guides": [],
+      "keywords": [
+        "pilot hole",
+        "tap drill hole"
+      ],
+      "search_aliases": [
+        "pre-tap hole"
+      ],
+      "svg_asset": null,
+      "status": "draft",
+      "created": "2026-08-14",
+      "updated": "2026-08-14",
+      "version": "v0.1.0"
+    },
+    {
+      "id": "through_hole",
+      "title": "Through Hole",
+      "aliases": [
+        "through hole"
+      ],
+      "entity_type": "hole_preparation",
+      "engineering_summary": "A hole that passes completely through a workpiece.",
+      "definition": "A hole that passes completely through a workpiece, open at both ends, as distinct from a blind hole.",
+      "related_entities": [],
+      "related_standards": [],
+      "related_datasets": [],
+      "related_pages": [],
+      "related_tools": [],
+      "related_charts": [],
+      "related_guides": [],
+      "keywords": [
+        "through hole",
+        "open hole"
+      ],
+      "search_aliases": [],
+      "svg_asset": null,
+      "status": "draft",
+      "created": "2026-08-14",
+      "updated": "2026-08-14",
+      "version": "v0.1.0"
+    },
+    {
+      "id": "blind_hole",
+      "title": "Blind Hole",
+      "aliases": [
+        "blind hole"
+      ],
+      "entity_type": "hole_preparation",
+      "engineering_summary": "A hole that does not pass completely through a workpiece.",
+      "definition": "A hole that terminates within a workpiece rather than passing all the way through, closed at one end.",
+      "related_entities": [],
+      "related_standards": [],
+      "related_datasets": [],
+      "related_pages": [],
+      "related_tools": [],
+      "related_charts": [],
+      "related_guides": [],
+      "keywords": [
+        "blind hole",
+        "closed hole"
+      ],
+      "search_aliases": [],
+      "svg_asset": null,
+      "status": "draft",
+      "created": "2026-08-14",
+      "updated": "2026-08-14",
+      "version": "v0.1.0"
+    },
+    {
+      "id": "tapped_hole",
+      "title": "Tapped Hole",
+      "aliases": [
+        "tapped hole"
+      ],
+      "entity_type": "hole_preparation",
+      "engineering_summary": "A hole in which internal threads have been cut or formed.",
+      "definition": "A hole in which internal threads have been cut or formed, ready to accept a mating externally threaded fastener.",
+      "related_entities": [],
+      "related_standards": [],
+      "related_datasets": [],
+      "related_pages": [],
+      "related_tools": [],
+      "related_charts": [],
+      "related_guides": [],
+      "keywords": [
+        "tapped hole",
+        "internally threaded hole"
+      ],
+      "search_aliases": [],
+      "svg_asset": null,
+      "status": "draft",
+      "created": "2026-08-14",
+      "updated": "2026-08-14",
+      "version": "v0.1.0"
+    },
+    {
+      "id": "clearance_hole",
+      "title": "Clearance Hole",
+      "aliases": [
+        "clearance hole"
+      ],
+      "entity_type": "hole_preparation",
+      "engineering_summary": "A hole sized larger than a fastener's threads so the fastener passes through without engaging.",
+      "definition": "A hole sized larger than a fastener's major diameter so the fastener body passes through freely without thread engagement, typically paired with a nut or a tapped hole in a mating part.",
+      "related_entities": [],
+      "related_standards": [],
+      "related_datasets": [],
+      "related_pages": [],
+      "related_tools": [],
+      "related_charts": [],
+      "related_guides": [],
+      "keywords": [
+        "clearance hole",
+        "through-bolt hole"
+      ],
+      "search_aliases": [
+        "free-fit hole"
+      ],
+      "svg_asset": null,
+      "status": "draft",
+      "created": "2026-08-14",
+      "updated": "2026-08-14",
+      "version": "v0.1.0"
+    },
+    {
+      "id": "cut_tapping",
+      "title": "Cut Tapping",
+      "aliases": [
+        "cutting tap operation"
+      ],
+      "entity_type": "tapping_operation",
+      "engineering_summary": "A tapping operation in which material is removed to form threads.",
+      "definition": "A tapping operation in which a cutting-style tap removes material to form internal threads, producing chips.",
+      "related_entities": [],
+      "related_standards": [],
+      "related_datasets": [],
+      "related_pages": [],
+      "related_tools": [],
+      "related_charts": [],
+      "related_guides": [],
+      "keywords": [
+        "cut tapping",
+        "cutting tap"
+      ],
+      "search_aliases": [
+        "conventional tapping"
+      ],
+      "svg_asset": null,
+      "status": "draft",
+      "created": "2026-08-14",
+      "updated": "2026-08-14",
+      "version": "v0.1.0"
+    },
+    {
+      "id": "form_tapping",
+      "title": "Form Tapping",
+      "aliases": [
+        "roll tapping"
+      ],
+      "entity_type": "tapping_operation",
+      "engineering_summary": "A tapping operation in which material is displaced rather than removed to form threads.",
+      "definition": "A tapping operation in which a forming (roll) tap displaces material radially to create internal threads without removing material or producing chips.",
+      "related_entities": [],
+      "related_standards": [],
+      "related_datasets": [],
+      "related_pages": [],
+      "related_tools": [],
+      "related_charts": [],
+      "related_guides": [],
+      "keywords": [
+        "form tapping",
+        "roll tapping",
+        "cold form tapping"
+      ],
+      "search_aliases": [
+        "fluteless tapping"
+      ],
+      "svg_asset": null,
+      "status": "draft",
+      "created": "2026-08-14",
+      "updated": "2026-08-14",
       "version": "v0.1.0"
     }
   ]

@@ -1,0 +1,106 @@
+{
+  "generated_at": "2026-08-15T04:54:06.853Z",
+  "domain": "tapping",
+  "summary": {
+    "status": "pass",
+    "errors": 0,
+    "warnings": 5,
+    "counts": {
+      "tapping_datasets": 3,
+      "tapping_records": 20,
+      "tap_type_entities": 7,
+      "hole_preparation_entities": 5,
+      "tapping_operation_entities": 2,
+      "tapping_relationships": 15,
+      "fabricated_engineering_values": 0
+    }
+  },
+  "checks": [
+    {
+      "name": "Unique tapping_profile_id",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Valid Thread References",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Valid Tap Type References",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Valid Hole Preparation References",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Valid Dataset References",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Valid Relationship Types (tapping-domain edges)",
+      "status": "pass",
+      "errors": [],
+      "warnings": [
+        "15 tapping-domain relationship edges checked"
+      ]
+    },
+    {
+      "name": "Valid Provenance Status States",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Verified Values Require Provenance",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Units Required for Numeric Values",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "No Anonymous Numeric Values",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "No Duplicate Tapping Dataset IDs",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Empty Datasets Are Valid",
+      "status": "pass",
+      "errors": [],
+      "warnings": [
+        "metric_tapping: 14 record(s)",
+        "unc_tapping: 3 record(s)",
+        "unf_tapping: 3 record(s)"
+      ]
+    },
+    {
+      "name": "Existing Knowledge Records Remain Valid (delegated)",
+      "status": "pass",
+      "errors": [],
+      "warnings": [
+        "See docs/architecture/validation-report.json for the authoritative result of validate-knowledge-engine.js"
+      ]
+    }
+  ]
+}

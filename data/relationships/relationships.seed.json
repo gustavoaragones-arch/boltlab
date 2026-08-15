@@ -1,7 +1,7 @@
 {
   "version": "v0.1.0",
   "created": "2026-07-12",
-  "updated": "2026-07-12",
+  "updated": "2026-08-14",
   "records": [
     {
       "id": "rel_pitch_uses_tolerance_zone",
@@ -288,6 +288,171 @@
       "version": "v0.1.0",
       "created": "2026-07-12",
       "updated": "2026-07-12"
+    },
+    {
+      "id": "rel_cut_tapping_relates_taper_tap",
+      "source": "cut_tapping",
+      "predicate": "RELATES_TO",
+      "target": "taper_tap",
+      "strength": 0.7,
+      "notes": "Taper taps are a common cutting-style tap used in cut tapping operations.",
+      "version": "v0.1.0",
+      "created": "2026-08-14",
+      "updated": "2026-08-14"
+    },
+    {
+      "id": "rel_cut_tapping_relates_plug_tap",
+      "source": "cut_tapping",
+      "predicate": "RELATES_TO",
+      "target": "plug_tap",
+      "strength": 0.7,
+      "notes": "Plug taps are a common cutting-style tap used in cut tapping operations.",
+      "version": "v0.1.0",
+      "created": "2026-08-14",
+      "updated": "2026-08-14"
+    },
+    {
+      "id": "rel_cut_tapping_relates_bottoming_tap",
+      "source": "cut_tapping",
+      "predicate": "RELATES_TO",
+      "target": "bottoming_tap",
+      "strength": 0.7,
+      "notes": "Bottoming taps are a common cutting-style tap used in cut tapping operations.",
+      "version": "v0.1.0",
+      "created": "2026-08-14",
+      "updated": "2026-08-14"
+    },
+    {
+      "id": "rel_cut_tapping_relates_spiral_point_tap",
+      "source": "cut_tapping",
+      "predicate": "RELATES_TO",
+      "target": "spiral_point_tap",
+      "strength": 0.7,
+      "notes": "Spiral point taps are a common cutting-style tap used in cut tapping operations.",
+      "version": "v0.1.0",
+      "created": "2026-08-14",
+      "updated": "2026-08-14"
+    },
+    {
+      "id": "rel_cut_tapping_relates_spiral_flute_tap",
+      "source": "cut_tapping",
+      "predicate": "RELATES_TO",
+      "target": "spiral_flute_tap",
+      "strength": 0.7,
+      "notes": "Spiral flute taps are a common cutting-style tap used in cut tapping operations.",
+      "version": "v0.1.0",
+      "created": "2026-08-14",
+      "updated": "2026-08-14"
+    },
+    {
+      "id": "rel_form_tapping_relates_forming_tap",
+      "source": "form_tapping",
+      "predicate": "RELATES_TO",
+      "target": "forming_tap",
+      "strength": 0.9,
+      "notes": "Forming (roll) taps are the tap style used to perform form tapping by definition.",
+      "version": "v0.1.0",
+      "created": "2026-08-14",
+      "updated": "2026-08-14"
+    },
+    {
+      "id": "rel_hand_tap_relates_taper_tap",
+      "source": "hand_tap",
+      "predicate": "RELATES_TO",
+      "target": "taper_tap",
+      "strength": 0.6,
+      "notes": "Hand tap sets commonly include a taper-chamfer tap.",
+      "version": "v0.1.0",
+      "created": "2026-08-14",
+      "updated": "2026-08-14"
+    },
+    {
+      "id": "rel_hand_tap_relates_plug_tap",
+      "source": "hand_tap",
+      "predicate": "RELATES_TO",
+      "target": "plug_tap",
+      "strength": 0.6,
+      "notes": "Hand tap sets commonly include a plug-chamfer tap.",
+      "version": "v0.1.0",
+      "created": "2026-08-14",
+      "updated": "2026-08-14"
+    },
+    {
+      "id": "rel_hand_tap_relates_bottoming_tap",
+      "source": "hand_tap",
+      "predicate": "RELATES_TO",
+      "target": "bottoming_tap",
+      "strength": 0.6,
+      "notes": "Hand tap sets commonly include a bottoming-chamfer tap.",
+      "version": "v0.1.0",
+      "created": "2026-08-14",
+      "updated": "2026-08-14"
+    },
+    {
+      "id": "rel_pilot_hole_relates_tapped_hole",
+      "source": "pilot_hole",
+      "predicate": "RELATES_TO",
+      "target": "tapped_hole",
+      "strength": 0.85,
+      "notes": "A pilot hole becomes a tapped hole once the tapping operation is complete.",
+      "version": "v0.1.0",
+      "created": "2026-08-14",
+      "updated": "2026-08-14"
+    },
+    {
+      "id": "rel_clearance_hole_relates_tapped_hole",
+      "source": "clearance_hole",
+      "predicate": "RELATES_TO",
+      "target": "tapped_hole",
+      "strength": 0.6,
+      "notes": "Clearance holes and tapped holes are contrasting hole-preparation approaches for a fastened joint.",
+      "version": "v0.1.0",
+      "created": "2026-08-14",
+      "updated": "2026-08-14"
+    },
+    {
+      "id": "rel_pilot_hole_relates_through_hole",
+      "source": "pilot_hole",
+      "predicate": "RELATES_TO",
+      "target": "through_hole",
+      "strength": 0.5,
+      "notes": "A pilot hole may be prepared in a through-hole context.",
+      "version": "v0.1.0",
+      "created": "2026-08-14",
+      "updated": "2026-08-14"
+    },
+    {
+      "id": "rel_pilot_hole_relates_blind_hole",
+      "source": "pilot_hole",
+      "predicate": "RELATES_TO",
+      "target": "blind_hole",
+      "strength": 0.5,
+      "notes": "A pilot hole may be prepared in a blind-hole context.",
+      "version": "v0.1.0",
+      "created": "2026-08-14",
+      "updated": "2026-08-14"
+    },
+    {
+      "id": "rel_spiral_point_tap_relates_through_hole",
+      "source": "spiral_point_tap",
+      "predicate": "RELATES_TO",
+      "target": "through_hole",
+      "strength": 0.6,
+      "notes": "Spiral point taps push chips forward through the hole, commonly associated with through-hole applications.",
+      "version": "v0.1.0",
+      "created": "2026-08-14",
+      "updated": "2026-08-14"
+    },
+    {
+      "id": "rel_spiral_flute_tap_relates_blind_hole",
+      "source": "spiral_flute_tap",
+      "predicate": "RELATES_TO",
+      "target": "blind_hole",
+      "strength": 0.6,
+      "notes": "Spiral flute taps pull chips back out of the hole entrance, commonly associated with blind-hole applications.",
+      "version": "v0.1.0",
+      "created": "2026-08-14",
+      "updated": "2026-08-14"
     }
   ]
 }

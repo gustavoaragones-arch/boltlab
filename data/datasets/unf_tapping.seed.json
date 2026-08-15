@@ -1,0 +1,127 @@
+{
+  "dataset_id": "unf_tapping",
+  "id": "unf_tapping",
+  "title": "UNF Tapping Profile Dataset",
+  "schema_version": "v1",
+  "verified": false,
+  "status": "source_bound",
+  "verification_method": "Hole-preparation (tap drill) values are derived by direct reference from the existing verified unf_threads dataset. Thread engagement and tapping process parameters have not been independently verified and currently carry no verification method.",
+  "primary_sources": [
+    "BoltLab unf_threads dataset (data/datasets/unf.seed.json), verified=true"
+  ],
+  "last_reviewed": "2026-08-14",
+  "license_notes": "Hole-preparation values are re-derived from BoltLab's own already-reviewed unf_threads dataset; no copyrighted standards tables are reproduced. No new external source material was introduced in this phase.",
+  "units": {
+    "hole_preparation": "in"
+  },
+  "precision": {
+    "hole_preparation": 0.001
+  },
+  "source_standards": [
+    "asme_b1_1"
+  ],
+  "version": "v0.1.0",
+  "created": "2026-08-14",
+  "updated": "2026-08-14",
+  "records": [
+    {
+      "tapping_profile_id": "tap_1_4_28_unf_cut",
+      "thread_id": "1/4-28 UNF",
+      "thread_source_dataset": "unf_threads",
+      "operation": "cut_tapping",
+      "tap_type_id": null,
+      "hole_preparation": {
+        "type": "pilot_hole",
+        "value": 0.213,
+        "unit": "in",
+        "status": "verified",
+        "source_dataset": "unf_threads",
+        "source_record": "1/4-28 UNF",
+        "source_field": "tap_drill_in"
+      },
+      "thread_engagement": {
+        "target_engagement_percent": null,
+        "engagement_length": null,
+        "engagement_basis": null,
+        "calculation_method": null,
+        "source": null,
+        "status": "unavailable"
+      },
+      "tapping_parameters": {
+        "speed": null,
+        "feed": null,
+        "torque": null,
+        "material_context": null,
+        "status": "unavailable"
+      },
+      "status": "source_bound",
+      "notes": "Hole-preparation (tap drill) value reused by reference from the existing verified unf_threads dataset (1/4-28 UNF, field tap_drill_in); no new value was introduced. Thread engagement and tapping process parameters (speed, feed, torque, material-specific recommendations) are not yet established in the BoltLab knowledge layer and must not be treated as authoritative until independently verified."
+    },
+    {
+      "tapping_profile_id": "tap_5_16_24_unf_cut",
+      "thread_id": "5/16-24 UNF",
+      "thread_source_dataset": "unf_threads",
+      "operation": "cut_tapping",
+      "tap_type_id": null,
+      "hole_preparation": {
+        "type": "pilot_hole",
+        "value": 0.272,
+        "unit": "in",
+        "status": "verified",
+        "source_dataset": "unf_threads",
+        "source_record": "5/16-24 UNF",
+        "source_field": "tap_drill_in"
+      },
+      "thread_engagement": {
+        "target_engagement_percent": null,
+        "engagement_length": null,
+        "engagement_basis": null,
+        "calculation_method": null,
+        "source": null,
+        "status": "unavailable"
+      },
+      "tapping_parameters": {
+        "speed": null,
+        "feed": null,
+        "torque": null,
+        "material_context": null,
+        "status": "unavailable"
+      },
+      "status": "source_bound",
+      "notes": "Hole-preparation (tap drill) value reused by reference from the existing verified unf_threads dataset (5/16-24 UNF, field tap_drill_in); no new value was introduced. Thread engagement and tapping process parameters (speed, feed, torque, material-specific recommendations) are not yet established in the BoltLab knowledge layer and must not be treated as authoritative until independently verified."
+    },
+    {
+      "tapping_profile_id": "tap_3_8_24_unf_cut",
+      "thread_id": "3/8-24 UNF",
+      "thread_source_dataset": "unf_threads",
+      "operation": "cut_tapping",
+      "tap_type_id": null,
+      "hole_preparation": {
+        "type": "pilot_hole",
+        "value": 0.332,
+        "unit": "in",
+        "status": "verified",
+        "source_dataset": "unf_threads",
+        "source_record": "3/8-24 UNF",
+        "source_field": "tap_drill_in"
+      },
+      "thread_engagement": {
+        "target_engagement_percent": null,
+        "engagement_length": null,
+        "engagement_basis": null,
+        "calculation_method": null,
+        "source": null,
+        "status": "unavailable"
+      },
+      "tapping_parameters": {
+        "speed": null,
+        "feed": null,
+        "torque": null,
+        "material_context": null,
+        "status": "unavailable"
+      },
+      "status": "source_bound",
+      "notes": "Hole-preparation (tap drill) value reused by reference from the existing verified unf_threads dataset (3/8-24 UNF, field tap_drill_in); no new value was introduced. Thread engagement and tapping process parameters (speed, feed, torque, material-specific recommendations) are not yet established in the BoltLab knowledge layer and must not be treated as authoritative until independently verified."
+    }
+  ]
+}

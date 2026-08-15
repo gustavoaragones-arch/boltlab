@@ -1,0 +1,493 @@
+{
+  "dataset_id": "metric_tapping",
+  "id": "metric_tapping",
+  "title": "Metric Tapping Profile Dataset",
+  "schema_version": "v1",
+  "verified": false,
+  "status": "source_bound",
+  "verification_method": "Hole-preparation (tap drill) values are derived by direct reference from the existing verified metric_threads dataset. Thread engagement and tapping process parameters have not been independently verified and currently carry no verification method.",
+  "primary_sources": [
+    "BoltLab metric_threads dataset (data/datasets/metric_threads.seed.json), verified=true"
+  ],
+  "last_reviewed": "2026-08-14",
+  "license_notes": "Hole-preparation values are re-derived from BoltLab's own already-reviewed metric_threads dataset; no copyrighted standards tables are reproduced. No new external source material was introduced in this phase.",
+  "units": {
+    "hole_preparation": "mm"
+  },
+  "precision": {
+    "hole_preparation": 0.01
+  },
+  "source_standards": [
+    "iso_261",
+    "iso_262",
+    "iso_724",
+    "iso_965_1"
+  ],
+  "version": "v0.1.0",
+  "created": "2026-08-14",
+  "updated": "2026-08-14",
+  "records": [
+    {
+      "tapping_profile_id": "tap_m3x0_5_cut",
+      "thread_id": "M3x0.5",
+      "thread_source_dataset": "metric_threads",
+      "operation": "cut_tapping",
+      "tap_type_id": null,
+      "hole_preparation": {
+        "type": "pilot_hole",
+        "value": 2.5,
+        "unit": "mm",
+        "status": "verified",
+        "source_dataset": "metric_threads",
+        "source_record": "M3x0.5",
+        "source_field": "tap_drill_mm"
+      },
+      "thread_engagement": {
+        "target_engagement_percent": null,
+        "engagement_length": null,
+        "engagement_basis": null,
+        "calculation_method": null,
+        "source": null,
+        "status": "unavailable"
+      },
+      "tapping_parameters": {
+        "speed": null,
+        "feed": null,
+        "torque": null,
+        "material_context": null,
+        "status": "unavailable"
+      },
+      "status": "source_bound",
+      "notes": "Hole-preparation (tap drill) value reused by reference from the existing verified metric_threads dataset (M3x0.5, field tap_drill_mm); no new value was introduced. Thread engagement and tapping process parameters (speed, feed, torque, material-specific recommendations) are not yet established in the BoltLab knowledge layer and must not be treated as authoritative until independently verified."
+    },
+    {
+      "tapping_profile_id": "tap_m4x0_7_cut",
+      "thread_id": "M4x0.7",
+      "thread_source_dataset": "metric_threads",
+      "operation": "cut_tapping",
+      "tap_type_id": null,
+      "hole_preparation": {
+        "type": "pilot_hole",
+        "value": 3.3,
+        "unit": "mm",
+        "status": "verified",
+        "source_dataset": "metric_threads",
+        "source_record": "M4x0.7",
+        "source_field": "tap_drill_mm"
+      },
+      "thread_engagement": {
+        "target_engagement_percent": null,
+        "engagement_length": null,
+        "engagement_basis": null,
+        "calculation_method": null,
+        "source": null,
+        "status": "unavailable"
+      },
+      "tapping_parameters": {
+        "speed": null,
+        "feed": null,
+        "torque": null,
+        "material_context": null,
+        "status": "unavailable"
+      },
+      "status": "source_bound",
+      "notes": "Hole-preparation (tap drill) value reused by reference from the existing verified metric_threads dataset (M4x0.7, field tap_drill_mm); no new value was introduced. Thread engagement and tapping process parameters (speed, feed, torque, material-specific recommendations) are not yet established in the BoltLab knowledge layer and must not be treated as authoritative until independently verified."
+    },
+    {
+      "tapping_profile_id": "tap_m5x0_8_cut",
+      "thread_id": "M5x0.8",
+      "thread_source_dataset": "metric_threads",
+      "operation": "cut_tapping",
+      "tap_type_id": null,
+      "hole_preparation": {
+        "type": "pilot_hole",
+        "value": 4.2,
+        "unit": "mm",
+        "status": "verified",
+        "source_dataset": "metric_threads",
+        "source_record": "M5x0.8",
+        "source_field": "tap_drill_mm"
+      },
+      "thread_engagement": {
+        "target_engagement_percent": null,
+        "engagement_length": null,
+        "engagement_basis": null,
+        "calculation_method": null,
+        "source": null,
+        "status": "unavailable"
+      },
+      "tapping_parameters": {
+        "speed": null,
+        "feed": null,
+        "torque": null,
+        "material_context": null,
+        "status": "unavailable"
+      },
+      "status": "source_bound",
+      "notes": "Hole-preparation (tap drill) value reused by reference from the existing verified metric_threads dataset (M5x0.8, field tap_drill_mm); no new value was introduced. Thread engagement and tapping process parameters (speed, feed, torque, material-specific recommendations) are not yet established in the BoltLab knowledge layer and must not be treated as authoritative until independently verified."
+    },
+    {
+      "tapping_profile_id": "tap_m6x1_cut",
+      "thread_id": "M6x1",
+      "thread_source_dataset": "metric_threads",
+      "operation": "cut_tapping",
+      "tap_type_id": null,
+      "hole_preparation": {
+        "type": "pilot_hole",
+        "value": 5.0,
+        "unit": "mm",
+        "status": "verified",
+        "source_dataset": "metric_threads",
+        "source_record": "M6x1",
+        "source_field": "tap_drill_mm"
+      },
+      "thread_engagement": {
+        "target_engagement_percent": null,
+        "engagement_length": null,
+        "engagement_basis": null,
+        "calculation_method": null,
+        "source": null,
+        "status": "unavailable"
+      },
+      "tapping_parameters": {
+        "speed": null,
+        "feed": null,
+        "torque": null,
+        "material_context": null,
+        "status": "unavailable"
+      },
+      "status": "source_bound",
+      "notes": "Hole-preparation (tap drill) value reused by reference from the existing verified metric_threads dataset (M6x1, field tap_drill_mm); no new value was introduced. Thread engagement and tapping process parameters (speed, feed, torque, material-specific recommendations) are not yet established in the BoltLab knowledge layer and must not be treated as authoritative until independently verified."
+    },
+    {
+      "tapping_profile_id": "tap_m8x1_25_cut",
+      "thread_id": "M8x1.25",
+      "thread_source_dataset": "metric_threads",
+      "operation": "cut_tapping",
+      "tap_type_id": null,
+      "hole_preparation": {
+        "type": "pilot_hole",
+        "value": 6.8,
+        "unit": "mm",
+        "status": "verified",
+        "source_dataset": "metric_threads",
+        "source_record": "M8x1.25",
+        "source_field": "tap_drill_mm"
+      },
+      "thread_engagement": {
+        "target_engagement_percent": null,
+        "engagement_length": null,
+        "engagement_basis": null,
+        "calculation_method": null,
+        "source": null,
+        "status": "unavailable"
+      },
+      "tapping_parameters": {
+        "speed": null,
+        "feed": null,
+        "torque": null,
+        "material_context": null,
+        "status": "unavailable"
+      },
+      "status": "source_bound",
+      "notes": "Hole-preparation (tap drill) value reused by reference from the existing verified metric_threads dataset (M8x1.25, field tap_drill_mm); no new value was introduced. Thread engagement and tapping process parameters (speed, feed, torque, material-specific recommendations) are not yet established in the BoltLab knowledge layer and must not be treated as authoritative until independently verified."
+    },
+    {
+      "tapping_profile_id": "tap_m10x1_5_cut",
+      "thread_id": "M10x1.5",
+      "thread_source_dataset": "metric_threads",
+      "operation": "cut_tapping",
+      "tap_type_id": null,
+      "hole_preparation": {
+        "type": "pilot_hole",
+        "value": 8.5,
+        "unit": "mm",
+        "status": "verified",
+        "source_dataset": "metric_threads",
+        "source_record": "M10x1.5",
+        "source_field": "tap_drill_mm"
+      },
+      "thread_engagement": {
+        "target_engagement_percent": null,
+        "engagement_length": null,
+        "engagement_basis": null,
+        "calculation_method": null,
+        "source": null,
+        "status": "unavailable"
+      },
+      "tapping_parameters": {
+        "speed": null,
+        "feed": null,
+        "torque": null,
+        "material_context": null,
+        "status": "unavailable"
+      },
+      "status": "source_bound",
+      "notes": "Hole-preparation (tap drill) value reused by reference from the existing verified metric_threads dataset (M10x1.5, field tap_drill_mm); no new value was introduced. Thread engagement and tapping process parameters (speed, feed, torque, material-specific recommendations) are not yet established in the BoltLab knowledge layer and must not be treated as authoritative until independently verified."
+    },
+    {
+      "tapping_profile_id": "tap_m12x1_75_cut",
+      "thread_id": "M12x1.75",
+      "thread_source_dataset": "metric_threads",
+      "operation": "cut_tapping",
+      "tap_type_id": null,
+      "hole_preparation": {
+        "type": "pilot_hole",
+        "value": 10.2,
+        "unit": "mm",
+        "status": "verified",
+        "source_dataset": "metric_threads",
+        "source_record": "M12x1.75",
+        "source_field": "tap_drill_mm"
+      },
+      "thread_engagement": {
+        "target_engagement_percent": null,
+        "engagement_length": null,
+        "engagement_basis": null,
+        "calculation_method": null,
+        "source": null,
+        "status": "unavailable"
+      },
+      "tapping_parameters": {
+        "speed": null,
+        "feed": null,
+        "torque": null,
+        "material_context": null,
+        "status": "unavailable"
+      },
+      "status": "source_bound",
+      "notes": "Hole-preparation (tap drill) value reused by reference from the existing verified metric_threads dataset (M12x1.75, field tap_drill_mm); no new value was introduced. Thread engagement and tapping process parameters (speed, feed, torque, material-specific recommendations) are not yet established in the BoltLab knowledge layer and must not be treated as authoritative until independently verified."
+    },
+    {
+      "tapping_profile_id": "tap_m16x2_0_cut",
+      "thread_id": "M16x2.0",
+      "thread_source_dataset": "metric_threads",
+      "operation": "cut_tapping",
+      "tap_type_id": null,
+      "hole_preparation": {
+        "type": "pilot_hole",
+        "value": 14.0,
+        "unit": "mm",
+        "status": "verified",
+        "source_dataset": "metric_threads",
+        "source_record": "M16x2.0",
+        "source_field": "tap_drill_mm"
+      },
+      "thread_engagement": {
+        "target_engagement_percent": null,
+        "engagement_length": null,
+        "engagement_basis": null,
+        "calculation_method": null,
+        "source": null,
+        "status": "unavailable"
+      },
+      "tapping_parameters": {
+        "speed": null,
+        "feed": null,
+        "torque": null,
+        "material_context": null,
+        "status": "unavailable"
+      },
+      "status": "source_bound",
+      "notes": "Hole-preparation (tap drill) value reused by reference from the existing verified metric_threads dataset (M16x2.0, field tap_drill_mm); no new value was introduced. Thread engagement and tapping process parameters (speed, feed, torque, material-specific recommendations) are not yet established in the BoltLab knowledge layer and must not be treated as authoritative until independently verified."
+    },
+    {
+      "tapping_profile_id": "tap_m20x2_5_cut",
+      "thread_id": "M20x2.5",
+      "thread_source_dataset": "metric_threads",
+      "operation": "cut_tapping",
+      "tap_type_id": null,
+      "hole_preparation": {
+        "type": "pilot_hole",
+        "value": 17.5,
+        "unit": "mm",
+        "status": "verified",
+        "source_dataset": "metric_threads",
+        "source_record": "M20x2.5",
+        "source_field": "tap_drill_mm"
+      },
+      "thread_engagement": {
+        "target_engagement_percent": null,
+        "engagement_length": null,
+        "engagement_basis": null,
+        "calculation_method": null,
+        "source": null,
+        "status": "unavailable"
+      },
+      "tapping_parameters": {
+        "speed": null,
+        "feed": null,
+        "torque": null,
+        "material_context": null,
+        "status": "unavailable"
+      },
+      "status": "source_bound",
+      "notes": "Hole-preparation (tap drill) value reused by reference from the existing verified metric_threads dataset (M20x2.5, field tap_drill_mm); no new value was introduced. Thread engagement and tapping process parameters (speed, feed, torque, material-specific recommendations) are not yet established in the BoltLab knowledge layer and must not be treated as authoritative until independently verified."
+    },
+    {
+      "tapping_profile_id": "tap_m10x1_25_cut",
+      "thread_id": "M10x1.25",
+      "thread_source_dataset": "metric_threads",
+      "operation": "cut_tapping",
+      "tap_type_id": null,
+      "hole_preparation": {
+        "type": "pilot_hole",
+        "value": 8.8,
+        "unit": "mm",
+        "status": "verified",
+        "source_dataset": "metric_threads",
+        "source_record": "M10x1.25",
+        "source_field": "tap_drill_mm"
+      },
+      "thread_engagement": {
+        "target_engagement_percent": null,
+        "engagement_length": null,
+        "engagement_basis": null,
+        "calculation_method": null,
+        "source": null,
+        "status": "unavailable"
+      },
+      "tapping_parameters": {
+        "speed": null,
+        "feed": null,
+        "torque": null,
+        "material_context": null,
+        "status": "unavailable"
+      },
+      "status": "source_bound",
+      "notes": "Hole-preparation (tap drill) value reused by reference from the existing verified metric_threads dataset (M10x1.25, field tap_drill_mm); no new value was introduced. Thread engagement and tapping process parameters (speed, feed, torque, material-specific recommendations) are not yet established in the BoltLab knowledge layer and must not be treated as authoritative until independently verified."
+    },
+    {
+      "tapping_profile_id": "tap_m12x1_25_cut",
+      "thread_id": "M12x1.25",
+      "thread_source_dataset": "metric_threads",
+      "operation": "cut_tapping",
+      "tap_type_id": null,
+      "hole_preparation": {
+        "type": "pilot_hole",
+        "value": 10.8,
+        "unit": "mm",
+        "status": "verified",
+        "source_dataset": "metric_threads",
+        "source_record": "M12x1.25",
+        "source_field": "tap_drill_mm"
+      },
+      "thread_engagement": {
+        "target_engagement_percent": null,
+        "engagement_length": null,
+        "engagement_basis": null,
+        "calculation_method": null,
+        "source": null,
+        "status": "unavailable"
+      },
+      "tapping_parameters": {
+        "speed": null,
+        "feed": null,
+        "torque": null,
+        "material_context": null,
+        "status": "unavailable"
+      },
+      "status": "source_bound",
+      "notes": "Hole-preparation (tap drill) value reused by reference from the existing verified metric_threads dataset (M12x1.25, field tap_drill_mm); no new value was introduced. Thread engagement and tapping process parameters (speed, feed, torque, material-specific recommendations) are not yet established in the BoltLab knowledge layer and must not be treated as authoritative until independently verified."
+    },
+    {
+      "tapping_profile_id": "tap_m8x1_0_cut",
+      "thread_id": "M8x1.0",
+      "thread_source_dataset": "metric_threads",
+      "operation": "cut_tapping",
+      "tap_type_id": null,
+      "hole_preparation": {
+        "type": "pilot_hole",
+        "value": 7.0,
+        "unit": "mm",
+        "status": "verified",
+        "source_dataset": "metric_threads",
+        "source_record": "M8x1.0",
+        "source_field": "tap_drill_mm"
+      },
+      "thread_engagement": {
+        "target_engagement_percent": null,
+        "engagement_length": null,
+        "engagement_basis": null,
+        "calculation_method": null,
+        "source": null,
+        "status": "unavailable"
+      },
+      "tapping_parameters": {
+        "speed": null,
+        "feed": null,
+        "torque": null,
+        "material_context": null,
+        "status": "unavailable"
+      },
+      "status": "source_bound",
+      "notes": "Hole-preparation (tap drill) value reused by reference from the existing verified metric_threads dataset (M8x1.0, field tap_drill_mm); no new value was introduced. Thread engagement and tapping process parameters (speed, feed, torque, material-specific recommendations) are not yet established in the BoltLab knowledge layer and must not be treated as authoritative until independently verified."
+    },
+    {
+      "tapping_profile_id": "tap_m16x1_5_cut",
+      "thread_id": "M16x1.5",
+      "thread_source_dataset": "metric_threads",
+      "operation": "cut_tapping",
+      "tap_type_id": null,
+      "hole_preparation": {
+        "type": "pilot_hole",
+        "value": 14.5,
+        "unit": "mm",
+        "status": "verified",
+        "source_dataset": "metric_threads",
+        "source_record": "M16x1.5",
+        "source_field": "tap_drill_mm"
+      },
+      "thread_engagement": {
+        "target_engagement_percent": null,
+        "engagement_length": null,
+        "engagement_basis": null,
+        "calculation_method": null,
+        "source": null,
+        "status": "unavailable"
+      },
+      "tapping_parameters": {
+        "speed": null,
+        "feed": null,
+        "torque": null,
+        "material_context": null,
+        "status": "unavailable"
+      },
+      "status": "source_bound",
+      "notes": "Hole-preparation (tap drill) value reused by reference from the existing verified metric_threads dataset (M16x1.5, field tap_drill_mm); no new value was introduced. Thread engagement and tapping process parameters (speed, feed, torque, material-specific recommendations) are not yet established in the BoltLab knowledge layer and must not be treated as authoritative until independently verified."
+    },
+    {
+      "tapping_profile_id": "tap_m20x2_0_cut",
+      "thread_id": "M20x2.0",
+      "thread_source_dataset": "metric_threads",
+      "operation": "cut_tapping",
+      "tap_type_id": null,
+      "hole_preparation": {
+        "type": "pilot_hole",
+        "value": 18.0,
+        "unit": "mm",
+        "status": "verified",
+        "source_dataset": "metric_threads",
+        "source_record": "M20x2.0",
+        "source_field": "tap_drill_mm"
+      },
+      "thread_engagement": {
+        "target_engagement_percent": null,
+        "engagement_length": null,
+        "engagement_basis": null,
+        "calculation_method": null,
+        "source": null,
+        "status": "unavailable"
+      },
+      "tapping_parameters": {
+        "speed": null,
+        "feed": null,
+        "torque": null,
+        "material_context": null,
+        "status": "unavailable"
+      },
+      "status": "source_bound",
+      "notes": "Hole-preparation (tap drill) value reused by reference from the existing verified metric_threads dataset (M20x2.0, field tap_drill_mm); no new value was introduced. Thread engagement and tapping process parameters (speed, feed, torque, material-specific recommendations) are not yet established in the BoltLab knowledge layer and must not be treated as authoritative until independently verified."
+    }
+  ]
+}

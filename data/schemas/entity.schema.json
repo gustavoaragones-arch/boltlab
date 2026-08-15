@@ -46,7 +46,10 @@
         "fit_class",
         "thread_system",
         "tolerance_concept",
-        "standard_concept"
+        "standard_concept",
+        "tap_type",
+        "hole_preparation",
+        "tapping_operation"
       ]
     },
     "engineering_summary": { "type": "string", "minLength": 10 },

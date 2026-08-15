@@ -28,13 +28,18 @@
     "title": { "type": "string" },
     "schema_version": { "type": "string" },
     "verified": { "type": "boolean" },
-    "verification_method": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["verified", "source_bound", "pending_verification", "unavailable"],
+      "description": "Optional, additive field (v0.2.0+). Distinguishes dataset-level data-quality state beyond the boolean `verified` flag: VERIFIED (authoritative source identified and value verified, safe for user-facing engineering data products), SOURCE_BOUND (source identified and data exists but normalization/verification is not yet complete), PENDING_VERIFICATION (field/value exists conceptually but no authoritative source has been established), UNAVAILABLE (no value currently available; must not be inferred). Absent on datasets predating this field; such datasets are implicitly VERIFIED when `verified: true`."
+    },
+    "verification_method": { "type": ["string", "null"] },
     "primary_sources": {
       "type": "array",
       "items": { "type": "string" }
     },
-    "last_reviewed": { "type": "string", "format": "date" },
-    "license_notes": { "type": "string" },
+    "last_reviewed": { "type": ["string", "null"], "format": "date" },
+    "license_notes": { "type": ["string", "null"] },
     "units": {
       "type": "object",
       "additionalProperties": { "type": "string" }
