@@ -102,6 +102,25 @@
       "enum": ["hole_geometry", "hole_function", "preparation_stage"],
       "description": "Optional, additive field (v0.2.0+). Used only for entity_type: hole_preparation, where the five existing entities (pilot_hole, through_hole, blind_hole, tapped_hole, clearance_hole) are not mutually exclusive values of one taxonomy but points along distinct, orthogonal axes: hole_geometry (through vs. blind), hole_function (tapped vs. clearance), and preparation_stage (pilot vs. prepared vs. tapped). This field records which axis a given entity primarily classifies along; it does not replace or restrict the entity's own definition, and an entity may legitimately relate to more than one axis in prose even though this field records only the primary one. Absent on entities that predate this field or that are not hole_preparation types."
     },
+    "application_notes": {
+      "type": "array",
+      "description": "Optional, additive field (v0.3.0+). Structured, individually-sourced facts about an entity beyond its core definition, each classified by evidentiary kind so a reader can distinguish settled taxonomy from a mere characteristic from a typical application from a vendor-specific recommendation. Introduced in T2.2 for tap_type entities but not restricted to them.",
+      "items": {
+        "type": "object",
+        "required": ["fact", "classification", "status"],
+        "properties": {
+          "fact": { "type": "string" },
+          "classification": {
+            "type": "string",
+            "enum": ["general_taxonomy", "manufacturing_characteristic", "typical_application", "manufacturer_specific_recommendation"],
+            "description": "A: general_taxonomy (settled, definitional). B: manufacturing_characteristic (a physical/structural trait). C: typical_application (a widely-corroborated 'used for' or 'suited to' claim; NOT the same evidentiary weight as A/B). D: manufacturer_specific_recommendation (a vendor's own guidance, not a general industry fact)."
+          },
+          "source": { "type": "string" },
+          "source_tier": { "type": ["integer", "null"] },
+          "status": { "type": "string", "enum": ["verified", "source_bound", "pending_verification"] }
+        }
+      }
+    },
     "status": {
       "type": "string",
       "enum": [

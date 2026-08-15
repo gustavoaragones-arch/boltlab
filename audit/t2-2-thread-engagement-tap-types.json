@@ -1,0 +1,66 @@
+{
+  "phase": "T2.2",
+  "title": "Thread Engagement & Tap-Type Verification",
+  "date": "2026-08-15",
+  "status": "PASS WITH GAPS",
+  "thread_engagement": {
+    "concepts_distinguished": ["radial (cross-sectional) engagement percentage", "axial engagement length"],
+    "radial_percentage": {
+      "formula_metric": "% = (D_major - D_drill) / (1.29904 * P) * 100",
+      "formula_inch": "% = ((D_major - D_drill) * TPI / 0.013) * 100",
+      "formula_status": "VERIFIED (T2) as internally consistent and widely reproduced; not itself a target value",
+      "theoretical_100_percent": "5H/8 of thread height (H = 0.8660*P metric per ISO 68-1 basis; H = 0.6495/TPI inch per engagement-calculator sources), physically unachievable due to crest/root truncation",
+      "target_75_percent_finding": "NOT VERIFIED as a standard or requirement. No Tier 1 source (ASME B94.9 table content) was obtainable -- ANSI preview returned HTTP 403. Commonly cited (70-77%) across Tier 3 sources with inconsistent stated justifications between sources.",
+      "false_positive_avoided": "A '75 percent' figure found in NASA-STD-5020A (p.62 of the PDF) refers to bolt preload as a percentage of ultimate tensile strength -- an unrelated concept to thread-engagement percentage. Explicitly checked and excluded from corroborating the tap-drill 75% convention."
+    },
+    "axial_length": {
+      "primary_source_obtained": "NASA-STD-5020A, full text (114 pages), fetched directly from nasa.gov and read via direct PDF text extraction (not a secondary characterization)",
+      "source_tier": 1,
+      "key_finding": "NASA-STD-5020A section 4.7.4 [TFSR 23] specifies a strength-based principle for engagement length ('minimum number of engaged complete threads such that the fastener would fail in tension before threads would strip'), not a fixed percentage or fixed diameter-multiplier.",
+      "shear_equations_found": "Eq. 12-13: allowable ultimate shear load = Fsu x Am (threads in shear plane) -- confirms strength-based design approach",
+      "blind_hole_confirmation": "Section 4.7.5 [TFSR 25] confirms directly: 'Where blind holes are tapped, incomplete internal threads are present at the bottom of the hole.' -- direct primary-source support for why bottoming taps exist as a category.",
+      "three_thread_rule_status": "Cited by secondary sources as appearing in NASA-STD-5020/MIL-STD-1312-9/BAC5009, but the exact phrase was not found verbatim on the pages read in this phase -- recorded as externally-corroborated, not internally-confirmed."
+    },
+    "what_boltlab_can_safely_calculate": [
+      "Radial engagement % for a given drill diameter (pure geometry, safe)",
+      "Theoretical maximum / truncated ceiling (geometric fact, safe)",
+      "NOT a recommended target percentage (no Tier 1 source, unsafe to assert as verified)",
+      "NOT a minimum axial engagement length (formula known, but BoltLab lacks shear-strength material data to apply it)"
+    ],
+    "records_populated": 0,
+    "target_engagement_percent_written_anywhere": false
+  },
+  "tap_type_application_notes": {
+    "entities_updated": 7,
+    "schema_change": "Added optional application_notes array field (entity.schema.json), each entry classified general_taxonomy / manufacturing_characteristic / typical_application / manufacturer_specific_recommendation with source, source_tier, status",
+    "facts_added_by_entity": {
+      "taper_tap": 2, "plug_tap": 2, "bottoming_tap": 3, "spiral_point_tap": 2,
+      "spiral_flute_tap": 2, "forming_tap": 4, "hand_tap": 1
+    },
+    "total_facts_added": 16,
+    "facts_by_classification": {
+      "general_taxonomy": 1,
+      "manufacturing_characteristic": 5,
+      "typical_application": 9,
+      "manufacturer_specific_recommendation": 1
+    },
+    "facts_by_status": {"verified": 1, "source_bound": 15, "pending_verification": 0},
+    "verified_fact": "bottoming_tap: 'incomplete internal threads are inherently present at the bottom of a tapped blind hole' -- sourced directly to NASA-STD-5020A section 4.7.5, a Tier 1 primary source.",
+    "no_definitions_altered": true
+  },
+  "no_value_promoted_on_chart_agreement_alone": true,
+  "files_created": [
+    "docs/architecture/thread-engagement-model.md",
+    "audit/t2-2-thread-engagement-tap-types.json",
+    "audit/t2-2-thread-engagement-tap-types.md",
+    "audit/t2-2-change-scope.md"
+  ],
+  "validator_results": {
+    "validate_knowledge_engine": {"status": "pass", "errors": 0, "warnings": 0, "counts": {"entities": 24, "standards": 9, "datasets": 6, "relationships": 41}},
+    "validate_tapping_domain": {"status": "pass", "errors": 0, "warnings": 5}
+  },
+  "production_files_modified": 0,
+  "existing_values_altered": 0,
+  "committed": false,
+  "pushed": false
+}
