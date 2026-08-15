@@ -60,8 +60,8 @@
       "tap_drill": {
         "value": 8.8,
         "unit": "mm",
-        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
-        "status": "verified",
+        "convention": "ISO 2306 nominal-minus-pitch (not independently cross-checked against the primary table)",
+        "status": "source_bound",
         "provenance": {
           "source_dataset": "metric_threads",
           "source_record": "M10x1.25",
@@ -169,7 +169,7 @@
       "tap_drill": {
         "value": 8.5,
         "unit": "mm",
-        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
+        "convention": "ISO 2306 nominal-minus-pitch (BoltLab primary-source table match)",
         "status": "verified",
         "provenance": {
           "source_dataset": "metric_threads",
@@ -278,8 +278,8 @@
       "tap_drill": {
         "value": 10.8,
         "unit": "mm",
-        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
-        "status": "verified",
+        "convention": "ISO 2306 nominal-minus-pitch (not independently cross-checked against the primary table)",
+        "status": "source_bound",
         "provenance": {
           "source_dataset": "metric_threads",
           "source_record": "M12x1.25",
@@ -387,7 +387,7 @@
       "tap_drill": {
         "value": 10.2,
         "unit": "mm",
-        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
+        "convention": "ISO 2306 nominal-minus-pitch (BoltLab primary-source table match)",
         "status": "verified",
         "provenance": {
           "source_dataset": "metric_threads",
@@ -496,8 +496,8 @@
       "tap_drill": {
         "value": 14.5,
         "unit": "mm",
-        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
-        "status": "verified",
+        "convention": "ISO 2306 nominal-minus-pitch (not independently cross-checked against the primary table)",
+        "status": "source_bound",
         "provenance": {
           "source_dataset": "metric_threads",
           "source_record": "M16x1.5",
@@ -605,7 +605,7 @@
       "tap_drill": {
         "value": 14,
         "unit": "mm",
-        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
+        "convention": "ISO 2306 nominal-minus-pitch (BoltLab primary-source table match)",
         "status": "verified",
         "provenance": {
           "source_dataset": "metric_threads",
@@ -714,8 +714,8 @@
       "tap_drill": {
         "value": 18,
         "unit": "mm",
-        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
-        "status": "verified",
+        "convention": "ISO 2306 nominal-minus-pitch (not independently cross-checked against the primary table)",
+        "status": "source_bound",
         "provenance": {
           "source_dataset": "metric_threads",
           "source_record": "M20x2.0",
@@ -823,7 +823,7 @@
       "tap_drill": {
         "value": 17.5,
         "unit": "mm",
-        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
+        "convention": "ISO 2306 nominal-minus-pitch (BoltLab primary-source table match)",
         "status": "verified",
         "provenance": {
           "source_dataset": "metric_threads",
@@ -932,7 +932,7 @@
       "tap_drill": {
         "value": 2.5,
         "unit": "mm",
-        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
+        "convention": "ISO 2306 nominal-minus-pitch (BoltLab primary-source table match)",
         "status": "verified",
         "provenance": {
           "source_dataset": "metric_threads",
@@ -1041,7 +1041,7 @@
       "tap_drill": {
         "value": 3.3,
         "unit": "mm",
-        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
+        "convention": "ISO 2306 nominal-minus-pitch (BoltLab primary-source table match)",
         "status": "verified",
         "provenance": {
           "source_dataset": "metric_threads",
@@ -1150,7 +1150,7 @@
       "tap_drill": {
         "value": 4.2,
         "unit": "mm",
-        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
+        "convention": "ISO 2306 nominal-minus-pitch (BoltLab primary-source table match)",
         "status": "verified",
         "provenance": {
           "source_dataset": "metric_threads",
@@ -1259,7 +1259,7 @@
       "tap_drill": {
         "value": 5,
         "unit": "mm",
-        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
+        "convention": "ISO 2306 nominal-minus-pitch (BoltLab primary-source table match)",
         "status": "verified",
         "provenance": {
           "source_dataset": "metric_threads",
@@ -1368,8 +1368,8 @@
       "tap_drill": {
         "value": 7,
         "unit": "mm",
-        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
-        "status": "verified",
+        "convention": "ISO 2306 nominal-minus-pitch (not independently cross-checked against the primary table)",
+        "status": "source_bound",
         "provenance": {
           "source_dataset": "metric_threads",
           "source_record": "M8x1.0",
@@ -1477,7 +1477,7 @@
       "tap_drill": {
         "value": 6.8,
         "unit": "mm",
-        "convention": "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)",
+        "convention": "ISO 2306 nominal-minus-pitch (BoltLab primary-source table match)",
         "status": "verified",
         "provenance": {
           "source_dataset": "metric_threads",
@@ -1587,7 +1587,7 @@
         "value": 0.1495,
         "unit": "in",
         "convention": "US customary drill-series",
-        "status": "verified",
+        "status": "source_bound",
         "provenance": {
           "source_dataset": "unc_threads",
           "source_record": "#10-24 UNC",
@@ -1683,7 +1683,7 @@
         "value": 0.4219,
         "unit": "in",
         "convention": "US customary drill-series",
-        "status": "verified",
+        "status": "source_bound",
         "provenance": {
           "source_dataset": "unc_threads",
           "source_record": "1/2-13 UNC",
@@ -1779,7 +1779,7 @@
         "value": 0.201,
         "unit": "in",
         "convention": "US customary drill-series",
-        "status": "verified",
+        "status": "source_bound",
         "provenance": {
           "source_dataset": "unc_threads",
           "source_record": "1/4-20 UNC",
@@ -1875,7 +1875,7 @@
         "value": 0.3125,
         "unit": "in",
         "convention": "US customary drill-series",
-        "status": "verified",
+        "status": "source_bound",
         "provenance": {
           "source_dataset": "unc_threads",
           "source_record": "3/8-16 UNC",
@@ -1971,7 +1971,7 @@
         "value": 0.089,
         "unit": "in",
         "convention": "US customary drill-series",
-        "status": "verified",
+        "status": "source_bound",
         "provenance": {
           "source_dataset": "unc_threads",
           "source_record": "#4-40 UNC",
@@ -2067,7 +2067,7 @@
         "value": 0.257,
         "unit": "in",
         "convention": "US customary drill-series",
-        "status": "verified",
+        "status": "source_bound",
         "provenance": {
           "source_dataset": "unc_threads",
           "source_record": "5/16-18 UNC",
@@ -2163,7 +2163,7 @@
         "value": 0.1065,
         "unit": "in",
         "convention": "US customary drill-series",
-        "status": "verified",
+        "status": "source_bound",
         "provenance": {
           "source_dataset": "unc_threads",
           "source_record": "#6-32 UNC",
@@ -2259,7 +2259,7 @@
         "value": 0.136,
         "unit": "in",
         "convention": "US customary drill-series",
-        "status": "verified",
+        "status": "source_bound",
         "provenance": {
           "source_dataset": "unc_threads",
           "source_record": "#8-32 UNC",
@@ -2355,7 +2355,7 @@
         "value": 0.159,
         "unit": "in",
         "convention": "US customary drill-series",
-        "status": "verified",
+        "status": "source_bound",
         "provenance": {
           "source_dataset": "unf_threads",
           "source_record": "#10-32 UNF",
@@ -2451,7 +2451,7 @@
         "value": 0.4531,
         "unit": "in",
         "convention": "US customary drill-series",
-        "status": "verified",
+        "status": "source_bound",
         "provenance": {
           "source_dataset": "unf_threads",
           "source_record": "1/2-20 UNF",
@@ -2547,7 +2547,7 @@
         "value": 0.213,
         "unit": "in",
         "convention": "US customary drill-series",
-        "status": "verified",
+        "status": "source_bound",
         "provenance": {
           "source_dataset": "unf_threads",
           "source_record": "1/4-28 UNF",
@@ -2643,7 +2643,7 @@
         "value": 0.332,
         "unit": "in",
         "convention": "US customary drill-series",
-        "status": "verified",
+        "status": "source_bound",
         "provenance": {
           "source_dataset": "unf_threads",
           "source_record": "3/8-24 UNF",
@@ -2739,7 +2739,7 @@
         "value": 0.272,
         "unit": "in",
         "convention": "US customary drill-series",
-        "status": "verified",
+        "status": "source_bound",
         "provenance": {
           "source_dataset": "unf_threads",
           "source_record": "5/16-24 UNF",
@@ -2835,7 +2835,7 @@
         "value": 0.113,
         "unit": "in",
         "convention": "US customary drill-series",
-        "status": "verified",
+        "status": "source_bound",
         "provenance": {
           "source_dataset": "unf_threads",
           "source_record": "#6-40 UNF",
@@ -2931,7 +2931,7 @@
         "value": 0.136,
         "unit": "in",
         "convention": "US customary drill-series",
-        "status": "verified",
+        "status": "source_bound",
         "provenance": {
           "source_dataset": "unf_threads",
           "source_record": "#8-36 UNF",

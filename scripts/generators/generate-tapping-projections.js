@@ -66,18 +66,29 @@ function buildThreadBlock(profile, threadDataset, threadSystem, threadSystemEnti
 
 function buildTapDrillBlock(profile, threadSystem) {
   const hp = profile.hole_preparation;
+  const crossVerified = Boolean(hp.cross_verified);
+  const conventionLabel = threadSystem === "metric"
+    ? (crossVerified
+        ? "ISO 2306 nominal-minus-pitch (BoltLab primary-source table match)"
+        : "ISO 2306 nominal-minus-pitch (not independently cross-checked against the primary table)")
+    : "US customary drill-series";
   return {
     value: hp.value,
     unit: hp.unit,
-    convention: threadSystem === "metric" ? "ISO 2306 nominal-minus-pitch (BoltLab-verified table match)" : "US customary drill-series",
-    status: hp.status,
+    convention: conventionLabel,
+    // Status reflects whether this specific value was independently cross-checked against a
+    // primary standard table (hp.cross_verified), NOT hp.status -- hp.status is "verified" on
+    // every hole_preparation record knowledge-layer-wide because it means "verified by reference
+    // to the source thread dataset" (T1's convention), which is true for all 29 records equally
+    // and therefore cannot distinguish the 9 primary-source-cross-checked records from the other 20.
+    status: crossVerified ? "verified" : "source_bound",
     provenance: {
       source_dataset: hp.source_dataset,
       source_record: hp.source_record,
       source_field: hp.source_field,
-      source: profile.hole_preparation.cross_verified ? profile.hole_preparation.cross_verified.source : null,
-      cross_check: profile.hole_preparation.cross_verified
-        ? `Matches ${profile.hole_preparation.cross_verified.table} exactly (verified ${profile.hole_preparation.cross_verified.verified_date})`
+      source: crossVerified ? hp.cross_verified.source : null,
+      cross_check: crossVerified
+        ? `Matches ${hp.cross_verified.table} exactly (verified ${hp.cross_verified.verified_date})`
         : null
     }
   };
