@@ -1,0 +1,111 @@
+{
+  "status": "pass",
+  "errors": 0,
+  "warnings": 0,
+  "expected_from_projection": {
+    "total": 29,
+    "metric": 14,
+    "unc": 8,
+    "unf": 7,
+    "tapDrillVerified": 9,
+    "tapDrillSourceBound": 20,
+    "recordStatusVerified": 0,
+    "recordStatusSourceBound": 29,
+    "isoAltCount": 15,
+    "isoAltOnlyUncUnf": true,
+    "tapTypeCount": 7,
+    "designations": [
+      "#10-24 UNC",
+      "#10-32 UNF",
+      "#4-40 UNC",
+      "#6-32 UNC",
+      "#6-40 UNF",
+      "#8-32 UNC",
+      "#8-36 UNF",
+      "1/2-13 UNC",
+      "1/2-20 UNF",
+      "1/4-20 UNC",
+      "1/4-28 UNF",
+      "3/8-16 UNC",
+      "3/8-24 UNF",
+      "5/16-18 UNC",
+      "5/16-24 UNF",
+      "M10x1.25",
+      "M10x1.5",
+      "M12x1.25",
+      "M12x1.75",
+      "M16x1.5",
+      "M16x2.0",
+      "M20x2.0",
+      "M20x2.5",
+      "M3x0.5",
+      "M4x0.7",
+      "M5x0.8",
+      "M6x1",
+      "M8x1.0",
+      "M8x1.25"
+    ]
+  },
+  "checks": [
+    {
+      "name": "Data Quality Panel Matches Projection",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Card-Level Verification States Match Projection",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Field-Level vs Record-Level Status Distinction Present",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "No Unsupported Engagement Recommendation",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "CSV Matches Projection",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "HTML Cards Match Projection",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "FAQ Identity Match (JSON-LD vs Visible)",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "JSON-LD Parses and Required Types Present",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "No .html Internal Hrefs",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Internal Links Resolve",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}

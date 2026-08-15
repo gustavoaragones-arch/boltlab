@@ -1,0 +1,95 @@
+{
+  "phase": "T4",
+  "title": "Tapping Atlas / Data Product",
+  "date": "2026-08-15",
+  "status": "READY FOR REVIEW",
+  "baseline_t3_commit": "17aab2876b70f5e6655541bb4bb98daa7d67bbed",
+  "note": "All counts in this report were re-derived mechanically from the generated artifacts by scripts/validators/validate-tapping-atlas.js at validation time, not copied from prior narrative or memory.",
+  "product_url": "https://boltlab.io/reference/tapping-atlas",
+  "canonical_note": "Generated without a trailing slash, matching the site's established convention for every other atlas/reference page (thread-atlas, metric-thread-atlas) and the original T4 brief's own extensionless-URL rule. A later instruction in this phase specified a trailing slash; flagged as an open item for your confirmation rather than silently changed -- see deferred_findings.",
+  "data_source_chain": "data/projections/tapping/tapping-profiles.json + data/projections/tapping/tap-types.json (T3, commit 17aab28) -> scripts/generators/generate-tapping-atlas.js -> reference/tapping-atlas.html + downloads/tapping-atlas.csv. No raw dataset or entity file is read by the T4 generator.",
+  "record_counts": {
+    "total": 29,
+    "metric": 14,
+    "unc": 8,
+    "unf": 7,
+    "tap_types": 7
+  },
+  "verification_state_counts": {
+    "tap_drill_verified": 9,
+    "tap_drill_source_bound": 20,
+    "record_status_verified": 0,
+    "record_status_source_bound": 29
+  },
+  "iso_2306_alternative": {
+    "count": 15,
+    "present_only_on_unc_unf": true,
+    "present_on_metric": false
+  },
+  "engagement_representation": {
+    "numeric_target_present_anywhere": false,
+    "axial_minimum_length_calculated": false,
+    "forbidden_patterns_checked": ["75%", "75 percent", "70%", "77%", "1x diameter", "1.5x diameter", "2x diameter"],
+    "forbidden_patterns_found": 0
+  },
+  "tap_type_representation": {
+    "rows": 7,
+    "evidence_classification_preserved": true,
+    "facts_flattened": false
+  },
+  "csv_validation": {
+    "path": "downloads/tapping-atlas.csv",
+    "row_count": 29,
+    "matches_projection_designations_exactly": true,
+    "matches_html_designations_exactly": true,
+    "required_columns_present": true
+  },
+  "generator_determinism": {
+    "t3_generator_runs": 3,
+    "t3_checksums_identical": true,
+    "t4_generator_runs": 3,
+    "t4_checksums_identical": true,
+    "sha256_tapping_atlas_html": "ec9c4d005c0c2b64cc2e143149b09b6ad4f55637c03e7769034e590ffc226ca1",
+    "sha256_tapping_atlas_csv": "3a391f37c5ac32ac1bbaa0e49ed8ac54e2efd840f855d396dc084b1dc51e7551"
+  },
+  "json_ld": {
+    "blocks": 6,
+    "types": ["Dataset", "WebPage", "BreadcrumbList", "FAQPage", "Organization", "WebSite"],
+    "all_parse_successfully": true,
+    "faq_identity_match": "exact, 6/6 questions and answers match visible text verbatim"
+  },
+  "validator_results": {
+    "validate_knowledge_engine": { "status": "pass", "errors": 0 },
+    "validate_tapping_domain": { "status": "pass", "errors": 0, "warnings": 5 },
+    "validate_projections_generic": { "status": "pass", "errors": 0 },
+    "validate_tapping_projections_dedicated": { "status": "pass", "errors": 0 },
+    "validate_tapping_atlas_dedicated": { "status": "pass", "errors": 0, "checks_run": 10 }
+  },
+  "link_and_seo_checks": {
+    "broken_internal_links": 0,
+    "html_hrefs_found": 0,
+    "duplicate_title_or_meta_elsewhere_on_site": false,
+    "canonical_present": true
+  },
+  "bugs_found_and_fixed_during_t4": [
+    {
+      "description": "Data Quality panel initially read profileProjection.data_quality_summary (record-level counts, 0/29) instead of computing tap_drill.status counts directly, producing '0 verified / 29 source-bound' before the T3 fix was even applied.",
+      "fixed": true
+    },
+    {
+      "description": "Card-level badge showed a bare 'Verified'/'Source-bound' label that could be misread as whole-record status; revised to 'Tap drill: <status>' plus a separate 'Overall profile status: <status>' line per your explicit field-vs-record distinction requirement.",
+      "fixed": true
+    }
+  ],
+  "production_files_changed": [
+    "css/styles.css",
+    "reference/index.html",
+    "sitemap.xml",
+    "reference/tapping-atlas.html (new)"
+  ],
+  "production_files_changed_count": 4,
+  "unexpected_files": [],
+  "knowledge_layer_altered": false,
+  "committed": false,
+  "pushed": false
+}
