@@ -1,0 +1,136 @@
+{
+  "phase": "T2.1a",
+  "title": "UNC/UNF Thread Coverage Expansion",
+  "date": "2026-08-15",
+  "status": "PASS WITH GAPS",
+  "record_counts": {
+    "unc_threads": {"before": 3, "after": 8, "added": 5},
+    "unf_threads": {"before": 3, "after": 7, "added": 4},
+    "unc_tapping": {"before": 3, "after": 8, "added": 5},
+    "unf_tapping": {"before": 3, "after": 7, "added": 4}
+  },
+  "new_base_thread_records": [
+    {
+      "designation": "#4-40 UNC", "nominal_diameter_in": 0.112, "threads_per_inch": 40, "tap_drill_in": 0.089,
+      "identity_status": "verified", "tap_drill_status": "source_bound", "hex_head_status": "unavailable", "clearance_hole_status": "unavailable"
+    },
+    {
+      "designation": "#6-32 UNC", "nominal_diameter_in": 0.138, "threads_per_inch": 32, "tap_drill_in": 0.1065,
+      "identity_status": "verified", "tap_drill_status": "source_bound", "hex_head_status": "unavailable", "clearance_hole_status": "unavailable"
+    },
+    {
+      "designation": "#8-32 UNC", "nominal_diameter_in": 0.164, "threads_per_inch": 32, "tap_drill_in": 0.136,
+      "identity_status": "verified", "tap_drill_status": "source_bound", "hex_head_status": "unavailable", "clearance_hole_status": "unavailable"
+    },
+    {
+      "designation": "#10-24 UNC", "nominal_diameter_in": 0.190, "threads_per_inch": 24, "tap_drill_in": 0.1495,
+      "identity_status": "verified", "tap_drill_status": "source_bound", "hex_head_status": "unavailable", "clearance_hole_status": "unavailable"
+    },
+    {
+      "designation": "1/2-13 UNC", "nominal_diameter_in": 0.5, "threads_per_inch": 13, "tap_drill_in": 0.4219,
+      "identity_status": "verified", "tap_drill_status": "source_bound", "hex_head_status": "unavailable", "clearance_hole_status": "unavailable"
+    },
+    {
+      "designation": "#6-40 UNF", "nominal_diameter_in": 0.138, "threads_per_inch": 40, "tap_drill_in": 0.113,
+      "identity_status": "verified", "tap_drill_status": "source_bound", "hex_head_status": "unavailable", "clearance_hole_status": "unavailable"
+    },
+    {
+      "designation": "#8-36 UNF", "nominal_diameter_in": 0.164, "threads_per_inch": 36, "tap_drill_in": 0.136,
+      "identity_status": "verified", "tap_drill_status": "source_bound", "hex_head_status": "unavailable", "clearance_hole_status": "unavailable"
+    },
+    {
+      "designation": "#10-32 UNF", "nominal_diameter_in": 0.19, "threads_per_inch": 32, "tap_drill_in": 0.159,
+      "identity_status": "verified", "tap_drill_status": "source_bound", "hex_head_status": "unavailable", "clearance_hole_status": "unavailable"
+    },
+    {
+      "designation": "1/2-20 UNF", "nominal_diameter_in": 0.5, "threads_per_inch": 20, "tap_drill_in": 0.4531,
+      "identity_status": "verified", "tap_drill_status": "source_bound", "hex_head_status": "unavailable", "clearance_hole_status": "unavailable"
+    }
+  ],
+  "provenance_sources": [
+    {
+      "field_group": "identity (nominal_diameter_in, threads_per_inch, thread_series)",
+      "source": "Definitional: Unified numbered screw gauge formula (major_diameter = 0.060in + gauge_number x 0.013in) for numbered sizes; fractional designation = nominal diameter for fractional sizes; TPI is literally part of every ASME B1.1 thread designation.",
+      "corroborating_source": "Yamawa Co. (tap/threading tool manufacturer) technical reference No.078, explicitly deriving and confirming the numbered-gauge formula; AmesWeb's UNC thread chart, which cites ASME B1.1-2003 directly for its major-diameter/TPI table.",
+      "tier": 2,
+      "classification": "VERIFIED",
+      "reasoning": "Not a variable engineering recommendation — the diameter/TPI relationship is fixed by the designation system itself and confirmed by an unambiguous, internally-consistent formula from an industry manufacturer's technical reference, not from chart agreement alone."
+    },
+    {
+      "field_group": "tap_drill_in (all 9 new records)",
+      "source": "faculty.etsu.edu tap-drill reference chart (university-hosted, single coherent table covering all 9 target sizes)",
+      "cross_validation": "Every value was cross-checked against the T2-verified Machinery's Handbook thread-engagement formula (% = (Dmajor-Ddrill)/(1.29904*P)*100, ~75% engagement basis) before acceptance. All 9 values are formula-consistent (drill diameter matches the nearest stocked drill size to the formula's calculated ~75%-engagement diameter).",
+      "tier": 3,
+      "classification": "SOURCE_BOUND",
+      "reasoning": "No Tier 1 primary standard table (ASME B94.9's own tables) was obtainable in this phase — the ANSI/ASME preview page returned HTTP 403 unlike the ISO 2306 preview in T2.1. Formula cross-validation provides meaningful corroboration beyond simple chart agreement, but does not constitute primary-source verification."
+    },
+    {
+      "field_group": "hex_head_in, clearance_hole_close_in, clearance_hole_normal_in, clearance_hole_loose_in (all 9 new records)",
+      "source": "None obtained in this phase",
+      "tier": null,
+      "classification": "UNAVAILABLE",
+      "reasoning": "These fields are not tapping-domain-relevant (general fastener/hardware geometry) and no verified source was independently obtained. Hex-head format is also atypical for numbered machine-screw sizes (#4 through #10) in common fastener practice. Left null rather than populated from unverified commercial charts."
+    }
+  ],
+  "rejected_value_notes": [
+    {
+      "field": "#6-40 UNF tap_drill_in",
+      "rejected_value": 0.1457,
+      "rejected_source": "WebSearch-aggregated summary (unspecified originating chart)",
+      "reason": "Fails cross-check against the Machinery's Handbook engagement formula by a wide margin (formula predicts ~0.114in, not 0.1457in). Likely an aggregation/transcription error in the search summary, not a legitimate alternate convention. Demonstrates why formula cross-validation, not source-count agreement, is the governing check."
+    },
+    {
+      "field": "#8-36 UNF tap_drill_in",
+      "rejected_value": 0.1732,
+      "rejected_source": "Same WebSearch-aggregated summary",
+      "reason": "Same as above (formula predicts ~0.137in)."
+    },
+    {
+      "field": "#10-32 UNF tap_drill_in",
+      "rejected_value": 0.2008,
+      "rejected_source": "Same WebSearch-aggregated summary",
+      "reason": "Same as above (formula predicts ~0.160in)."
+    },
+    {
+      "field": "1/2-20 UNF tap_drill_in",
+      "rejected_value": 0.4844,
+      "rejected_source": "Same WebSearch-aggregated summary",
+      "reason": "Same as above (formula predicts ~0.451in; the value used, 0.4531in from a coherent single-source chart, matches)."
+    }
+  ],
+  "iso_2306_alternative_drill_structural_addition": {
+    "description": "All 15 UNC/UNF tapping_profile records (6 pre-existing from T1 + 9 new from T2.1a) now carry a structured `iso_2306_alternative_drill` field alongside `hole_preparation`, recording ISO 2306:1972's own metric drill-diameter recommendation for the same thread as a distinct, separately-labeled, independently-verified (against the primary ISO 2306 table obtained in T2.1) value. Neither field overrides, averages with, or is treated as superseding the other.",
+    "records_updated": 15,
+    "example": {
+      "thread_id": "1/4-20 UNC",
+      "hole_preparation": {"value": 0.201, "unit": "in", "convention": "US customary drill-series"},
+      "iso_2306_alternative_drill": {"value": 5.10, "unit": "mm", "convention": "ISO 2306 continuous-metric recommendation for inch threads"}
+    }
+  },
+  "unresolved_fields": [
+    "hex_head_in and 3 clearance_hole_*_in fields remain unavailable (null) on all 9 new base-thread records.",
+    "tap_drill_in on all 9 new records remains source_bound, not verified — no Tier 1 primary table (ASME B94.9) was obtainable."
+  ],
+  "source_conflicts": {
+    "found": 4,
+    "description": "4 WebSearch-aggregated tap-drill values for UNF sizes were found to conflict with the formula-consistent, single-source chart values and were rejected (see rejected_value_notes). This is a same-claim conflict (not a different-standard conflict like T2.1's UNC/UNF-vs-ISO2306 finding) — one candidate value was simply wrong.",
+    "resolved": 4,
+    "resolution_method": "Cross-validation against the independently T2-verified thread-engagement formula, not vote-counting or source-count agreement."
+  },
+  "before_after_counts": {
+    "unc_threads_records": {"before": 3, "after": 8},
+    "unf_threads_records": {"before": 3, "after": 7},
+    "unc_tapping_records": {"before": 3, "after": 8},
+    "unf_tapping_records": {"before": 3, "after": 7},
+    "total_tapping_domain_records": {"before": 20, "after": 29}
+  },
+  "validator_results": {
+    "validate_knowledge_engine": {"status": "pass", "errors": 0, "warnings": 0, "counts": {"entities": 24, "standards": 9, "datasets": 6, "relationships": 41}},
+    "validate_tapping_domain": {"status": "pass", "errors": 0, "warnings": 5, "counts": {"tapping_datasets": 3, "tapping_records": 29, "fabricated_engineering_values": 0}}
+  },
+  "production_files_modified": 0,
+  "existing_values_altered": 0,
+  "metric_records_modified": 0,
+  "committed": false,
+  "pushed": false
+}

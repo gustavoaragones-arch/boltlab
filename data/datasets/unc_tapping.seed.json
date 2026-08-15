@@ -5,11 +5,11 @@
   "schema_version": "v1",
   "verified": false,
   "status": "source_bound",
-  "verification_method": "Hole-preparation (tap drill) values are derived by direct reference from the existing verified unc_threads dataset. Thread engagement and tapping process parameters have not been independently verified and currently carry no verification method.",
+  "verification_method": "Hole-preparation (tap drill) values are derived by direct reference from the existing verified unc_threads dataset. Thread engagement and tapping process parameters have not been independently verified and currently carry no verification method. T2.1 obtained ISO 2306:1972's own inch-thread drill tables (Tables 3/4, metric drill diameters recommended for tapping UNC/UNF threads) and compared them against this dataset's existing inch-decimal values for the 3 sizes present here. The two sources diverge by up to ~0.09mm (different standard/convention: this dataset's values follow the US customary number/letter/fraction drill-series convention, while ISO 2306 recommends continuous metric drill diameters via its own nominal-minus-pitch approximation). This is a classified different_standard conflict, not an error \u2014 see audit/t2-1-tap-drill-numeric-verification.json. No existing value in this dataset was changed or promoted based on ISO 2306; the two are recorded as distinct, non-equivalent recommendations. T2.1a expanded this dataset to 8 total UNC / 7 total UNF records (previously 3 each), closing the coverage gap identified by T2.1's target seed set. The 5 (UNC) / 4 (UNF) newly added records were built from newly-verified base-thread identity data in unc.seed.json/unf.seed.json (see those datasets' new records' `provenance` blocks) rather than by copying ISO 2306 values into this dataset's existing US-customary convention. Every record in this dataset (old and new) now also carries a structured `iso_2306_alternative_drill` field \u2014 ISO 2306's own metric drill-diameter recommendation for the same thread, recorded as a distinct, separately-labeled, independently-verified value, never merged into or replacing `hole_preparation`.",
   "primary_sources": [
     "BoltLab unc_threads dataset (data/datasets/unc.seed.json), verified=true"
   ],
-  "last_reviewed": "2026-08-14",
+  "last_reviewed": "2026-08-15",
   "license_notes": "Hole-preparation values are re-derived from BoltLab's own already-reviewed unc_threads dataset; no copyrighted standards tables are reproduced. No new external source material was introduced in this phase.",
   "units": {
     "hole_preparation": "in"
@@ -18,7 +18,8 @@
     "hole_preparation": 0.001
   },
   "source_standards": [
-    "asme_b1_1"
+    "asme_b1_1",
+    "iso_2306"
   ],
   "version": "v0.1.0",
   "created": "2026-08-14",
@@ -55,7 +56,16 @@
         "status": "unavailable"
       },
       "status": "source_bound",
-      "notes": "Hole-preparation (tap drill) value reused by reference from the existing verified unc_threads dataset (1/4-20 UNC, field tap_drill_in); no new value was introduced. Thread engagement and tapping process parameters (speed, feed, torque, material-specific recommendations) are not yet established in the BoltLab knowledge layer and must not be treated as authoritative until independently verified."
+      "notes": "Hole-preparation (tap drill) value reused by reference from the existing verified unc_threads dataset (1/4-20 UNC, field tap_drill_in); no new value was introduced. Thread engagement and tapping process parameters (speed, feed, torque, material-specific recommendations) are not yet established in the BoltLab knowledge layer and must not be treated as authoritative until independently verified.",
+      "iso_2306_alternative_drill": {
+        "value": 5.1,
+        "unit": "mm",
+        "status": "verified",
+        "source": "iso_2306",
+        "table": "Table 3",
+        "meaning": "ISO 2306:1972's own metric drill-diameter recommendation for tapping this inch (unified) thread \u2014 an additional, legitimate recommendation under a different sizing convention. This is NOT a correction to hole_preparation above and must not be merged, averaged, or treated as more/less authoritative than it.",
+        "verified_date": "2026-08-15"
+      }
     },
     {
       "tapping_profile_id": "tap_5_16_18_unc_cut",
@@ -88,7 +98,16 @@
         "status": "unavailable"
       },
       "status": "source_bound",
-      "notes": "Hole-preparation (tap drill) value reused by reference from the existing verified unc_threads dataset (5/16-18 UNC, field tap_drill_in); no new value was introduced. Thread engagement and tapping process parameters (speed, feed, torque, material-specific recommendations) are not yet established in the BoltLab knowledge layer and must not be treated as authoritative until independently verified."
+      "notes": "Hole-preparation (tap drill) value reused by reference from the existing verified unc_threads dataset (5/16-18 UNC, field tap_drill_in); no new value was introduced. Thread engagement and tapping process parameters (speed, feed, torque, material-specific recommendations) are not yet established in the BoltLab knowledge layer and must not be treated as authoritative until independently verified.",
+      "iso_2306_alternative_drill": {
+        "value": 6.6,
+        "unit": "mm",
+        "status": "verified",
+        "source": "iso_2306",
+        "table": "Table 3",
+        "meaning": "ISO 2306:1972's own metric drill-diameter recommendation for tapping this inch (unified) thread \u2014 an additional, legitimate recommendation under a different sizing convention. This is NOT a correction to hole_preparation above and must not be merged, averaged, or treated as more/less authoritative than it.",
+        "verified_date": "2026-08-15"
+      }
     },
     {
       "tapping_profile_id": "tap_3_8_16_unc_cut",
@@ -121,7 +140,226 @@
         "status": "unavailable"
       },
       "status": "source_bound",
-      "notes": "Hole-preparation (tap drill) value reused by reference from the existing verified unc_threads dataset (3/8-16 UNC, field tap_drill_in); no new value was introduced. Thread engagement and tapping process parameters (speed, feed, torque, material-specific recommendations) are not yet established in the BoltLab knowledge layer and must not be treated as authoritative until independently verified."
+      "notes": "Hole-preparation (tap drill) value reused by reference from the existing verified unc_threads dataset (3/8-16 UNC, field tap_drill_in); no new value was introduced. Thread engagement and tapping process parameters (speed, feed, torque, material-specific recommendations) are not yet established in the BoltLab knowledge layer and must not be treated as authoritative until independently verified.",
+      "iso_2306_alternative_drill": {
+        "value": 8.0,
+        "unit": "mm",
+        "status": "verified",
+        "source": "iso_2306",
+        "table": "Table 3",
+        "meaning": "ISO 2306:1972's own metric drill-diameter recommendation for tapping this inch (unified) thread \u2014 an additional, legitimate recommendation under a different sizing convention. This is NOT a correction to hole_preparation above and must not be merged, averaged, or treated as more/less authoritative than it.",
+        "verified_date": "2026-08-15"
+      }
+    },
+    {
+      "tapping_profile_id": "tap_4_40_unc_cut",
+      "thread_id": "#4-40 UNC",
+      "thread_source_dataset": "unc_threads",
+      "operation": "cut_tapping",
+      "tap_type_id": null,
+      "hole_preparation": {
+        "type": "pilot_hole",
+        "value": 0.089,
+        "unit": "in",
+        "status": "verified",
+        "source_dataset": "unc_threads",
+        "source_record": "#4-40 UNC",
+        "source_field": "tap_drill_in"
+      },
+      "iso_2306_alternative_drill": {
+        "value": 2.35,
+        "unit": "mm",
+        "status": "verified",
+        "source": "iso_2306",
+        "table": "Table 3",
+        "meaning": "ISO 2306:1972's own metric drill-diameter recommendation for tapping this inch (unified) thread \u2014 an additional, legitimate recommendation under a different sizing convention. This is NOT a correction to hole_preparation above and must not be merged, averaged, or treated as more/less authoritative than it.",
+        "verified_date": "2026-08-15"
+      },
+      "thread_engagement": {
+        "target_engagement_percent": null,
+        "engagement_length": null,
+        "engagement_basis": null,
+        "calculation_method": null,
+        "source": null,
+        "status": "unavailable"
+      },
+      "tapping_parameters": {
+        "speed": null,
+        "feed": null,
+        "torque": null,
+        "material_context": null,
+        "status": "unavailable"
+      },
+      "status": "source_bound",
+      "notes": "Hole-preparation (tap drill) value reused by reference from the existing unc_threads/unf_threads dataset (#4-40 UNC, field tap_drill_in), itself source_bound (see that record's provenance block, added in T2.1a). Thread engagement and tapping process parameters remain unavailable."
+    },
+    {
+      "tapping_profile_id": "tap_6_32_unc_cut",
+      "thread_id": "#6-32 UNC",
+      "thread_source_dataset": "unc_threads",
+      "operation": "cut_tapping",
+      "tap_type_id": null,
+      "hole_preparation": {
+        "type": "pilot_hole",
+        "value": 0.1065,
+        "unit": "in",
+        "status": "verified",
+        "source_dataset": "unc_threads",
+        "source_record": "#6-32 UNC",
+        "source_field": "tap_drill_in"
+      },
+      "iso_2306_alternative_drill": {
+        "value": 2.85,
+        "unit": "mm",
+        "status": "verified",
+        "source": "iso_2306",
+        "table": "Table 3",
+        "meaning": "ISO 2306:1972's own metric drill-diameter recommendation for tapping this inch (unified) thread \u2014 an additional, legitimate recommendation under a different sizing convention. This is NOT a correction to hole_preparation above and must not be merged, averaged, or treated as more/less authoritative than it.",
+        "verified_date": "2026-08-15"
+      },
+      "thread_engagement": {
+        "target_engagement_percent": null,
+        "engagement_length": null,
+        "engagement_basis": null,
+        "calculation_method": null,
+        "source": null,
+        "status": "unavailable"
+      },
+      "tapping_parameters": {
+        "speed": null,
+        "feed": null,
+        "torque": null,
+        "material_context": null,
+        "status": "unavailable"
+      },
+      "status": "source_bound",
+      "notes": "Hole-preparation (tap drill) value reused by reference from the existing unc_threads/unf_threads dataset (#6-32 UNC, field tap_drill_in), itself source_bound (see that record's provenance block, added in T2.1a). Thread engagement and tapping process parameters remain unavailable."
+    },
+    {
+      "tapping_profile_id": "tap_8_32_unc_cut",
+      "thread_id": "#8-32 UNC",
+      "thread_source_dataset": "unc_threads",
+      "operation": "cut_tapping",
+      "tap_type_id": null,
+      "hole_preparation": {
+        "type": "pilot_hole",
+        "value": 0.136,
+        "unit": "in",
+        "status": "verified",
+        "source_dataset": "unc_threads",
+        "source_record": "#8-32 UNC",
+        "source_field": "tap_drill_in"
+      },
+      "iso_2306_alternative_drill": {
+        "value": 3.5,
+        "unit": "mm",
+        "status": "verified",
+        "source": "iso_2306",
+        "table": "Table 3",
+        "meaning": "ISO 2306:1972's own metric drill-diameter recommendation for tapping this inch (unified) thread \u2014 an additional, legitimate recommendation under a different sizing convention. This is NOT a correction to hole_preparation above and must not be merged, averaged, or treated as more/less authoritative than it.",
+        "verified_date": "2026-08-15"
+      },
+      "thread_engagement": {
+        "target_engagement_percent": null,
+        "engagement_length": null,
+        "engagement_basis": null,
+        "calculation_method": null,
+        "source": null,
+        "status": "unavailable"
+      },
+      "tapping_parameters": {
+        "speed": null,
+        "feed": null,
+        "torque": null,
+        "material_context": null,
+        "status": "unavailable"
+      },
+      "status": "source_bound",
+      "notes": "Hole-preparation (tap drill) value reused by reference from the existing unc_threads/unf_threads dataset (#8-32 UNC, field tap_drill_in), itself source_bound (see that record's provenance block, added in T2.1a). Thread engagement and tapping process parameters remain unavailable."
+    },
+    {
+      "tapping_profile_id": "tap_10_24_unc_cut",
+      "thread_id": "#10-24 UNC",
+      "thread_source_dataset": "unc_threads",
+      "operation": "cut_tapping",
+      "tap_type_id": null,
+      "hole_preparation": {
+        "type": "pilot_hole",
+        "value": 0.1495,
+        "unit": "in",
+        "status": "verified",
+        "source_dataset": "unc_threads",
+        "source_record": "#10-24 UNC",
+        "source_field": "tap_drill_in"
+      },
+      "iso_2306_alternative_drill": {
+        "value": 3.9,
+        "unit": "mm",
+        "status": "verified",
+        "source": "iso_2306",
+        "table": "Table 3",
+        "meaning": "ISO 2306:1972's own metric drill-diameter recommendation for tapping this inch (unified) thread \u2014 an additional, legitimate recommendation under a different sizing convention. This is NOT a correction to hole_preparation above and must not be merged, averaged, or treated as more/less authoritative than it.",
+        "verified_date": "2026-08-15"
+      },
+      "thread_engagement": {
+        "target_engagement_percent": null,
+        "engagement_length": null,
+        "engagement_basis": null,
+        "calculation_method": null,
+        "source": null,
+        "status": "unavailable"
+      },
+      "tapping_parameters": {
+        "speed": null,
+        "feed": null,
+        "torque": null,
+        "material_context": null,
+        "status": "unavailable"
+      },
+      "status": "source_bound",
+      "notes": "Hole-preparation (tap drill) value reused by reference from the existing unc_threads/unf_threads dataset (#10-24 UNC, field tap_drill_in), itself source_bound (see that record's provenance block, added in T2.1a). Thread engagement and tapping process parameters remain unavailable."
+    },
+    {
+      "tapping_profile_id": "tap_1_2_13_unc_cut",
+      "thread_id": "1/2-13 UNC",
+      "thread_source_dataset": "unc_threads",
+      "operation": "cut_tapping",
+      "tap_type_id": null,
+      "hole_preparation": {
+        "type": "pilot_hole",
+        "value": 0.4219,
+        "unit": "in",
+        "status": "verified",
+        "source_dataset": "unc_threads",
+        "source_record": "1/2-13 UNC",
+        "source_field": "tap_drill_in"
+      },
+      "iso_2306_alternative_drill": {
+        "value": 10.8,
+        "unit": "mm",
+        "status": "verified",
+        "source": "iso_2306",
+        "table": "Table 3",
+        "meaning": "ISO 2306:1972's own metric drill-diameter recommendation for tapping this inch (unified) thread \u2014 an additional, legitimate recommendation under a different sizing convention. This is NOT a correction to hole_preparation above and must not be merged, averaged, or treated as more/less authoritative than it.",
+        "verified_date": "2026-08-15"
+      },
+      "thread_engagement": {
+        "target_engagement_percent": null,
+        "engagement_length": null,
+        "engagement_basis": null,
+        "calculation_method": null,
+        "source": null,
+        "status": "unavailable"
+      },
+      "tapping_parameters": {
+        "speed": null,
+        "feed": null,
+        "torque": null,
+        "material_context": null,
+        "status": "unavailable"
+      },
+      "status": "source_bound",
+      "notes": "Hole-preparation (tap drill) value reused by reference from the existing unc_threads/unf_threads dataset (1/2-13 UNC, field tap_drill_in), itself source_bound (see that record's provenance block, added in T2.1a). Thread engagement and tapping process parameters remain unavailable."
     }
   ],
   "derived_candidates": [

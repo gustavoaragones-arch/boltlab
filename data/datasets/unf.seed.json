@@ -24,7 +24,7 @@
   ],
   "version": "v0.1.0",
   "created": "2026-07-12",
-  "updated": "2026-07-12",
+  "updated": "2026-08-15",
   "records": [
     {
       "designation": "1/4-28 UNF",
@@ -67,6 +67,149 @@
       "standards_family": "ASME B1.1",
       "data_status": "verified-summary-only",
       "notes": "Representative atlas row for unified thread explorer."
+    },
+    {
+      "designation": "#6-40 UNF",
+      "nominal_diameter_in": 0.138,
+      "threads_per_inch": 40,
+      "thread_series": "UNF",
+      "hex_head_in": null,
+      "tap_drill_in": 0.113,
+      "clearance_hole_close_in": null,
+      "clearance_hole_normal_in": null,
+      "clearance_hole_loose_in": null,
+      "standards_family": "ASME B1.1",
+      "data_status": "source_bound",
+      "notes": "Added in T2.1a to close a UNF coverage gap identified in T2.1's tap-drill target seed set. Tap drill cross-validated against the T2-verified engagement formula (0.138 - 0.974/40 = 0.1137in, rounded to nearest stocked drill No.33 = 0.1130in). hex_head_in/clearance_hole fields left unavailable.",
+      "provenance": {
+        "identity": {
+          "status": "verified",
+          "source": "Definitional: Unified numbered screw gauge formula (major_diameter = 0.060in + gauge_number x 0.013in); TPI part of ASME B1.1 designation.",
+          "corroborating_source": "Yamawa Co. technical reference No.078; AmesWeb chart citing ASME B1.1-2003",
+          "verified_date": "2026-08-15"
+        },
+        "tap_drill_in": {
+          "status": "source_bound",
+          "source": "faculty.etsu.edu tap drill reference chart",
+          "cross_check": "Formula-consistent with Machinery's Handbook engagement formula. Note: an earlier WebSearch-aggregated result (0.1457in) was rejected in this phase for failing this formula cross-check \u2014 see audit/t2-1a-unc-unf-coverage.md.",
+          "verified_date": "2026-08-15"
+        },
+        "hex_head_in": {
+          "status": "unavailable",
+          "note": "No verified source obtained in this phase."
+        },
+        "clearance_holes": {
+          "status": "unavailable",
+          "note": "No verified source obtained in this phase."
+        }
+      }
+    },
+    {
+      "designation": "#8-36 UNF",
+      "nominal_diameter_in": 0.164,
+      "threads_per_inch": 36,
+      "thread_series": "UNF",
+      "hex_head_in": null,
+      "tap_drill_in": 0.136,
+      "clearance_hole_close_in": null,
+      "clearance_hole_normal_in": null,
+      "clearance_hole_loose_in": null,
+      "standards_family": "ASME B1.1",
+      "data_status": "source_bound",
+      "notes": "Added in T2.1a. Tap drill cross-validated against the T2-verified engagement formula (0.164 - 0.974/36 = 0.1369in, rounded to nearest stocked drill No.29 = 0.1360in). hex_head_in/clearance_hole fields left unavailable.",
+      "provenance": {
+        "identity": {
+          "status": "verified",
+          "source": "Definitional: Unified numbered screw gauge formula; TPI part of ASME B1.1 designation.",
+          "corroborating_source": "Yamawa Co. technical reference No.078; AmesWeb chart citing ASME B1.1-2003",
+          "verified_date": "2026-08-15"
+        },
+        "tap_drill_in": {
+          "status": "source_bound",
+          "source": "faculty.etsu.edu tap drill reference chart",
+          "cross_check": "Formula-consistent with Machinery's Handbook engagement formula. Note: an earlier WebSearch-aggregated result (0.1732in) was rejected for failing this formula cross-check.",
+          "verified_date": "2026-08-15"
+        },
+        "hex_head_in": {
+          "status": "unavailable",
+          "note": "No verified source obtained in this phase."
+        },
+        "clearance_holes": {
+          "status": "unavailable",
+          "note": "No verified source obtained in this phase."
+        }
+      }
+    },
+    {
+      "designation": "#10-32 UNF",
+      "nominal_diameter_in": 0.19,
+      "threads_per_inch": 32,
+      "thread_series": "UNF",
+      "hex_head_in": null,
+      "tap_drill_in": 0.159,
+      "clearance_hole_close_in": null,
+      "clearance_hole_normal_in": null,
+      "clearance_hole_loose_in": null,
+      "standards_family": "ASME B1.1",
+      "data_status": "source_bound",
+      "notes": "Added in T2.1a. Tap drill cross-validated against the T2-verified engagement formula (0.190 - 0.974/32 = 0.1596in, rounded to nearest stocked drill No.21 = 0.1590in). hex_head_in/clearance_hole fields left unavailable.",
+      "provenance": {
+        "identity": {
+          "status": "verified",
+          "source": "Definitional: Unified numbered screw gauge formula; TPI part of ASME B1.1 designation.",
+          "corroborating_source": "Yamawa Co. technical reference No.078; AmesWeb chart citing ASME B1.1-2003",
+          "verified_date": "2026-08-15"
+        },
+        "tap_drill_in": {
+          "status": "source_bound",
+          "source": "faculty.etsu.edu tap drill reference chart",
+          "cross_check": "Formula-consistent with Machinery's Handbook engagement formula. Note: an earlier WebSearch-aggregated result (0.2008in) was rejected for failing this formula cross-check.",
+          "verified_date": "2026-08-15"
+        },
+        "hex_head_in": {
+          "status": "unavailable",
+          "note": "No verified source obtained in this phase."
+        },
+        "clearance_holes": {
+          "status": "unavailable",
+          "note": "No verified source obtained in this phase."
+        }
+      }
+    },
+    {
+      "designation": "1/2-20 UNF",
+      "nominal_diameter_in": 0.5,
+      "threads_per_inch": 20,
+      "thread_series": "UNF",
+      "hex_head_in": null,
+      "tap_drill_in": 0.4531,
+      "clearance_hole_close_in": null,
+      "clearance_hole_normal_in": null,
+      "clearance_hole_loose_in": null,
+      "standards_family": "ASME B1.1",
+      "data_status": "source_bound",
+      "notes": "Added in T2.1a. Tap drill cross-validated against the T2-verified engagement formula (0.500 - 0.974/20 = 0.4513in, rounded to nearest stocked fractional drill 29/64in = 0.4531in). hex_head_in/clearance_hole fields left unavailable.",
+      "provenance": {
+        "identity": {
+          "status": "verified",
+          "source": "Definitional: fractional designation IS the nominal diameter (1/2in = 0.500in); TPI part of ASME B1.1 designation.",
+          "verified_date": "2026-08-15"
+        },
+        "tap_drill_in": {
+          "status": "source_bound",
+          "source": "faculty.etsu.edu tap drill reference chart",
+          "cross_check": "Formula-consistent with Machinery's Handbook engagement formula. Note: an earlier WebSearch-aggregated result (0.4844in) was rejected for failing this formula cross-check.",
+          "verified_date": "2026-08-15"
+        },
+        "hex_head_in": {
+          "status": "unavailable",
+          "note": "No verified source obtained in this phase."
+        },
+        "clearance_holes": {
+          "status": "unavailable",
+          "note": "No verified source obtained in this phase."
+        }
+      }
     }
   ]
 }

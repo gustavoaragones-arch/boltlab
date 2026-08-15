@@ -1,0 +1,69 @@
+{
+  "phase": "T2.1",
+  "title": "Tap-Drill Numeric Verification",
+  "date": "2026-08-15",
+  "status": "PASS WITH GAPS",
+  "primary_source_obtained": {
+    "standard": "ISO 2306:1972",
+    "access_method": "Authorized standards-reseller preview page (standards.iteh.ai sample PDF, linked from their public catalogue listing for ISO 2306:1972), not a paywall bypass — this is the same kind of pre-purchase preview a reseller routinely publishes.",
+    "content_obtained": "Full 8-page standard: scope, Table 1 (ISO metric coarse pitch), Table 2 (ISO metric fine pitch), Table 3 (UNC), Table 4 (UNF), Table 5/6 (pipe threads), Table 7 (metric summary annex).",
+    "copyright_note": "Table values (bare numbers) were read and used to cross-check BoltLab's existing data. No standard text, table formatting, or substantial content was reproduced into BoltLab's repository — only the resulting comparison/verification outcome and the specific numeric drill diameters already present in BoltLab's own datasets."
+  },
+  "classification_scheme": ["VERIFIED", "SOURCE_BOUND", "CONTEXTUAL", "PENDING", "UNAVAILABLE"],
+  "metric_results": [
+    {"thread_id": "M3x0.5", "boltlab_value_mm": 2.5, "iso_2306_table1_value_mm": 2.5, "classification": "VERIFIED", "note": "Exact match"},
+    {"thread_id": "M4x0.7", "boltlab_value_mm": 3.3, "iso_2306_table1_value_mm": 3.3, "classification": "VERIFIED", "note": "Exact match"},
+    {"thread_id": "M5x0.8", "boltlab_value_mm": 4.2, "iso_2306_table1_value_mm": 4.2, "classification": "VERIFIED", "note": "Exact match"},
+    {"thread_id": "M6x1", "boltlab_value_mm": 5.0, "iso_2306_table1_value_mm": 5.0, "classification": "VERIFIED", "note": "Exact match"},
+    {"thread_id": "M8x1.25", "boltlab_value_mm": 6.8, "iso_2306_table1_value_mm": 6.8, "classification": "VERIFIED", "note": "Exact match"},
+    {"thread_id": "M10x1.5", "boltlab_value_mm": 8.5, "iso_2306_table1_value_mm": 8.5, "classification": "VERIFIED", "note": "Exact match"},
+    {"thread_id": "M12x1.75", "boltlab_value_mm": 10.2, "iso_2306_table1_value_mm": 10.2, "classification": "VERIFIED", "note": "Exact match"},
+    {"thread_id": "M16x2.0", "boltlab_value_mm": 14.0, "iso_2306_table1_value_mm": 14.0, "classification": "VERIFIED", "note": "Exact match"},
+    {"thread_id": "M20x2.5", "boltlab_value_mm": 17.5, "iso_2306_table1_value_mm": 17.5, "classification": "VERIFIED", "note": "Exact match"}
+  ],
+  "unc_results": [
+    {"thread_id": "#4-40 UNC", "boltlab_record_exists": false, "iso_2306_table3_value_mm": 2.35, "classification": "UNAVAILABLE", "note": "No BoltLab base-thread or tapping_profile record exists for this size. ISO 2306 value acquired and logged here for a future phase; not integrated into any dataset in T2.1."},
+    {"thread_id": "#6-32 UNC", "boltlab_record_exists": false, "iso_2306_table3_value_mm": 2.85, "classification": "UNAVAILABLE", "note": "Same as above."},
+    {"thread_id": "#8-32 UNC", "boltlab_record_exists": false, "iso_2306_table3_value_mm": 3.50, "classification": "UNAVAILABLE", "note": "Same as above."},
+    {"thread_id": "#10-24 UNC", "boltlab_record_exists": false, "iso_2306_table3_value_mm": 3.90, "classification": "UNAVAILABLE", "note": "Same as above."},
+    {"thread_id": "1/4-20 UNC", "boltlab_value_in": 0.201, "boltlab_value_mm_equiv": 5.1054, "iso_2306_table3_value_mm": 5.10, "diff_mm": -0.0054, "classification": "SOURCE_BOUND", "conflict": "different_standard", "note": "Near-identical (rounding-level); still not promoted to VERIFIED because BoltLab's value is a US customary drill-series selection, not itself sourced from ISO 2306 — the close agreement is corroborative, not a table-identity match."},
+    {"thread_id": "5/16-18 UNC", "boltlab_value_in": 0.257, "boltlab_value_mm_equiv": 6.5278, "iso_2306_table3_value_mm": 6.60, "diff_mm": 0.0722, "classification": "SOURCE_BOUND", "conflict": "different_standard", "note": "0.072mm divergence — genuine different-convention conflict, not resolved by averaging or picking one."},
+    {"thread_id": "3/8-16 UNC", "boltlab_value_in": 0.3125, "boltlab_value_mm_equiv": 7.9375, "iso_2306_table3_value_mm": 8.00, "diff_mm": 0.0625, "classification": "SOURCE_BOUND", "conflict": "different_standard", "note": "0.063mm divergence — same conflict type."},
+    {"thread_id": "1/2-13 UNC", "boltlab_record_exists": false, "iso_2306_table3_value_mm": 10.80, "classification": "UNAVAILABLE", "note": "No BoltLab base-thread or tapping_profile record exists for this size."}
+  ],
+  "unf_results": [
+    {"thread_id": "#6-40 UNF", "boltlab_record_exists": false, "iso_2306_table4_value_mm": 2.95, "classification": "UNAVAILABLE", "note": "No BoltLab base-thread or tapping_profile record exists for this size."},
+    {"thread_id": "#8-36 UNF", "boltlab_record_exists": false, "iso_2306_table4_value_mm": 3.50, "classification": "UNAVAILABLE", "note": "Same as above."},
+    {"thread_id": "#10-32 UNF", "boltlab_record_exists": false, "iso_2306_table4_value_mm": 4.10, "classification": "UNAVAILABLE", "note": "Same as above."},
+    {"thread_id": "1/4-28 UNF", "boltlab_value_in": 0.213, "boltlab_value_mm_equiv": 5.4102, "iso_2306_table4_value_mm": 5.50, "diff_mm": 0.0898, "classification": "SOURCE_BOUND", "conflict": "different_standard", "note": "Largest divergence found (0.09mm) — genuine different-convention conflict."},
+    {"thread_id": "5/16-24 UNF", "boltlab_value_in": 0.272, "boltlab_value_mm_equiv": 6.9088, "iso_2306_table4_value_mm": 6.90, "diff_mm": -0.0088, "classification": "SOURCE_BOUND", "conflict": "different_standard", "note": "Near-identical (rounding-level); still not promoted per the same reasoning as 1/4-20 UNC."},
+    {"thread_id": "3/8-24 UNF", "boltlab_value_in": 0.332, "boltlab_value_mm_equiv": 8.4328, "iso_2306_table4_value_mm": 8.50, "diff_mm": 0.0672, "classification": "SOURCE_BOUND", "conflict": "different_standard", "note": "0.067mm divergence."},
+    {"thread_id": "1/2-20 UNF", "boltlab_record_exists": false, "iso_2306_table4_value_mm": 11.50, "classification": "UNAVAILABLE", "note": "No BoltLab base-thread or tapping_profile record exists for this size."}
+  ],
+  "summary_counts": {
+    "target_sizes": 24,
+    "verified": 9,
+    "source_bound": 6,
+    "contextual": 0,
+    "pending": 0,
+    "unavailable": 9
+  },
+  "conflicts_found": 6,
+  "conflicts_classified": 6,
+  "conflicts_resolved_by_promotion": 0,
+  "conflict_type": "different_standard — US customary inch drill-series convention (BoltLab's existing unc/unf datasets) vs. ISO 2306:1972's continuous-metric-drill-diameter convention for the same inch thread sizes",
+  "value_meaning_distinctions_captured": {
+    "metric": "BoltLab's tap_drill_mm values are now confirmed to be ISO 2306 Table 1's own basic/theoretical recommended drill diameter (nominal minus pitch, mapped to the ISO/R 235 stocked drill series) — not a percentage-of-thread-engagement value, not a manufacturer recommendation, not a finished-hole measurement.",
+    "unc_unf_existing": "BoltLab's tap_drill_in values remain of unconfirmed origin (T1 described them only as 'Public engineering reference synthesis'); they were NOT shown in this phase to derive from ISO 2306, and do not exactly match it. Their actual source convention (likely a customary-drill-series, percentage-engagement-target chart) was not independently re-derived in T2.1.",
+    "unc_unf_iso_2306": "ISO 2306's inch-thread values are metric drill diameters recommended for tapping the same inch thread, derived by ISO's own approximation rule — a legitimate but distinct engineering recommendation from BoltLab's existing values, not a correction to them."
+  },
+  "no_value_promoted_on_chart_agreement_alone": true,
+  "scope_boundary_note": "Expanding unc.seed.json/unf.seed.json to cover the 9 UNC/UNF sizes with no existing BoltLab base-thread record (#4-40, #6-32, #8-32, #10-24, 1/2-13, #6-40, #8-36, #10-32, 1/2-20) was NOT performed in this phase. This would mean adding new records to a pre-existing, previously-verified, non-tapping-domain dataset — a larger scope decision flagged for explicit approval rather than executed unilaterally. The ISO 2306 values for these 9 sizes are captured above so this research is not lost.",
+  "validator_results": {
+    "validate_knowledge_engine": {"status": "pass", "errors": 0, "warnings": 0},
+    "validate_tapping_domain": {"status": "pass", "errors": 0, "warnings": 5}
+  },
+  "production_files_modified": 0,
+  "committed": false,
+  "pushed": false
+}

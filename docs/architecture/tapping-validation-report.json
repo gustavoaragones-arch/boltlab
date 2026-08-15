@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T13:18:48.985Z",
+  "generated_at": "2026-08-15T14:03:11.480Z",
   "domain": "tapping",
   "summary": {
     "status": "pass",
@@ -7,7 +7,7 @@
     "warnings": 5,
     "counts": {
       "tapping_datasets": 3,
-      "tapping_records": 20,
+      "tapping_records": 29,
       "tap_type_entities": 7,
       "hole_preparation_entities": 5,
       "tapping_operation_entities": 2,
@@ -90,8 +90,8 @@
       "errors": [],
       "warnings": [
         "metric_tapping: 14 record(s)",
-        "unc_tapping: 3 record(s)",
-        "unf_tapping: 3 record(s)"
+        "unc_tapping: 8 record(s)",
+        "unf_tapping: 7 record(s)"
       ]
     },
     {

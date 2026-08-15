@@ -1,6 +1,6 @@
 # Tapping Domain Validation Report
 
-- Generated: 2026-08-15T13:18:48.985Z
+- Generated: 2026-08-15T14:03:11.480Z
 - Status: pass
 - Errors: 0
 - Warnings: 5
@@ -71,8 +71,8 @@
 - Warnings: 3
 - Warning details:
   - metric_tapping: 14 record(s)
-  - unc_tapping: 3 record(s)
-  - unf_tapping: 3 record(s)
+  - unc_tapping: 8 record(s)
+  - unf_tapping: 7 record(s)
 
 ### Existing Knowledge Records Remain Valid (delegated)
 - Status: pass
