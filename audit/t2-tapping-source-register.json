@@ -1,0 +1,124 @@
+{
+  "phase": "T2",
+  "title": "Tapping Data Acquisition & Verification — Source Register",
+  "date": "2026-08-15",
+  "sources": [
+    {
+      "source_id": "src_iso_2306",
+      "organization": "ISO",
+      "title": "Drills for use prior to tapping screw threads",
+      "document_number": "ISO 2306",
+      "edition": "1972 (1st edition)",
+      "url": "https://www.iso.org/standard/7135.html",
+      "source_tier": 1,
+      "subject": "Tap-drill (pilot hole) sizing standard",
+      "claims_supported": [
+        "ISO 2306 exists and is a real, published ISO standard",
+        "Status: current, not withdrawn, last reviewed/confirmed by ISO in 2022",
+        "Scope covers drill sizes for ISO metric threads, ISO inch threads, and pipe threads, for screw threads of normal length of engagement"
+      ],
+      "verification_result": "confirmed",
+      "notes": "Direct WebFetch of iso.org returned HTTP 403 (blocks scraping); confirmed via WebSearch aggregation of ISO's own catalogue metadata (iso.org/standard/7135.html title/status) plus corroborating secondary listings (standards.iteh.ai, committee.iso.org). Used only to create the BoltLab standard record's title/scope/status metadata — no copyrighted standard text was read or reproduced."
+    },
+    {
+      "source_id": "src_iso_2306_formula",
+      "organization": "American Machinist (trade publication)",
+      "title": "Formula taps into drill sizes",
+      "document_number": "n/a",
+      "edition": "n/a",
+      "url": "https://www.americanmachinist.com/archive/practical-ideas/article/21896484/formula-taps-into-drill-sizes",
+      "source_tier": 2,
+      "subject": "ISO 2306 approximation formula (drill diameter ≈ nominal diameter − pitch) and its resulting ~77% engagement characterization",
+      "claims_supported": [
+        "The 'nominal diameter minus pitch' approximation is attributed to ISO 2306",
+        "This approximation yields approximately 77% thread engagement"
+      ],
+      "verification_result": "corroborated, not primary",
+      "notes": "Secondary trade-press source, not ISO's own published table. Used only to populate a clearly-labeled `derived_candidate` entry (status: derived_candidate, verified: false), not to establish or override any verified hole_preparation value."
+    },
+    {
+      "source_id": "src_iso_2857",
+      "organization": "ISO",
+      "title": "Ground thread taps for ISO metric threads of tolerances 4H to 8H and 4G to 6G, coarse and fine pitches — Manufacturing tolerances on the threaded portion",
+      "document_number": "ISO 2857",
+      "edition": "1973, with Amendment 1:1984 and Amendment 2:1986",
+      "url": "https://www.iso.org/standard/7858.html",
+      "source_tier": 1,
+      "subject": "Ground thread tap manufacturing tolerance standard",
+      "claims_supported": [
+        "ISO 2857 exists and is a real, published ISO standard",
+        "Status: current, not withdrawn, last reviewed/confirmed by ISO in 2022, 2 amendments",
+        "Scope concerns the tap tool's own manufacturing tolerances, applicable to short taps per ISO 529 and other ground thread taps of the same diameters/pitches"
+      ],
+      "verification_result": "confirmed",
+      "notes": "Same access-method caveat as src_iso_2306 (iso.org direct fetch blocked; confirmed via WebSearch aggregation). No copyrighted text reproduced."
+    },
+    {
+      "source_id": "src_iso_965_1_edition",
+      "organization": "en-standard.eu (ISO standards reseller/distributor)",
+      "title": "ISO 965-1:2026 catalogue listing",
+      "document_number": "ISO 965-1",
+      "edition": "2026 (5th edition)",
+      "url": "https://en-standard.eu (specific ISO 965-1:2026 product page)",
+      "source_tier": 2,
+      "subject": "ISO 965-1 edition/publication status",
+      "claims_supported": [
+        "ISO 965-1:2026 (5th edition) was released 2026-04-14",
+        "ISO 965-1:2013 (4th edition) is withdrawn"
+      ],
+      "verification_result": "confirmed",
+      "notes": "Direct WebFetch succeeded on this third-party reseller page (unlike iso.org itself, which returned 403). Cross-corroborated by WebSearch results referencing ISO's own withdrawal/replacement status for the 2013 edition. Used to justify updating the pre-existing `iso_965_1` BoltLab record's `edition`/`standard_status` fields per governance ('correct it only if the primary source confirms the newer edition')."
+    },
+    {
+      "source_id": "src_asme_b1_1",
+      "organization": "ASME",
+      "title": "Unified Inch Screw Threads (UN, UNR, and UNJ Thread Forms)",
+      "document_number": "ASME B1.1",
+      "edition": "2024",
+      "url": "https://www.asme.org (ASME B1.1 standard listing)",
+      "source_tier": 1,
+      "subject": "Current edition and official title/scope of ASME B1.1",
+      "claims_supported": [
+        "ASME B1.1-2024 is the current edition",
+        "Official title explicitly covers UN, UNR, and UNJ thread forms",
+        "UNJ (formerly ASME B1.15) was incorporated into B1.1 as of the 2019 edition"
+      ],
+      "verification_result": "confirmed",
+      "notes": "Confirmed via WebSearch aggregation of ASME's own published standard record. Used to correct BoltLab's pre-existing `asme_b1_1` record, whose title previously named only 'UN and UNR' — an evidenced, real gap, not a cosmetic change."
+    },
+    {
+      "source_id": "src_asme_b94_9",
+      "organization": "ASME / ANSI webstore",
+      "title": "Taps: Ground Thread with Cut Thread Appendix (Inch and Metric Sizes)",
+      "document_number": "ASME B94.9",
+      "edition": "2008, reaffirmed 2023 (R2023)",
+      "url": "https://www.asme.org/codes-standards/find-codes-standards/b94-9-taps-ground-thread-cut-thread-appendix-errata ; https://webstore.ansi.org/standards/asme/asmeb942008r2018",
+      "source_tier": 1,
+      "subject": "Tap tool nomenclature, styles, dimensions, and tolerances",
+      "claims_supported": [
+        "ASME B94.9-2008 (R2023) is the current edition",
+        "Scope covers tap designs/nomenclature/definitions/marking and dimension-tolerance tables",
+        "Named styles include straight fluted, spiral fluted, spiral point (with straight flutes / no straight flutes), and thread-forming taps"
+      ],
+      "verification_result": "confirmed",
+      "notes": "New standard record created; not previously present in BoltLab's knowledge layer. Directly supports T1's spiral_flute_tap, spiral_point_tap, and forming_tap entity definitions. taper_tap/plug_tap/bottoming_tap/hand_tap were NOT related to this standard, since chamfer-length styles were not explicitly named in the source material reviewed."
+    },
+    {
+      "source_id": "src_thread_engagement_formula",
+      "organization": "Multiple secondary/tertiary machining references (Engineer's Edge, Practical Machinist forum, ToolGrit, 6GTools), citing Machinery's Handbook",
+      "title": "Thread engagement percentage calculation",
+      "document_number": "n/a",
+      "edition": "n/a",
+      "url": "https://www.engineersedge.com/calculators/tap_drill_size_as_percentage_16207.htm (representative)",
+      "source_tier": 3,
+      "subject": "General mathematical relationship between drill diameter and thread engagement percentage",
+      "claims_supported": [
+        "% Engagement = (Dmajor − Ddrill) / (1.29904 × P) × 100 (metric form); inch form: ((Dmajor − Ddrill) × TPI ÷ 0.013) × 100",
+        "70–77% engagement is commonly cited as a general-purpose practical range",
+        "75% is commonly cited as the target basis for standard UNC/UNF tap-drill charts (attributed by several of these sources to ASME B94.9, but this specific attribution was NOT independently confirmed against B94.9's own table content in this phase)"
+      ],
+      "verification_result": "formula corroborated across multiple independent secondary sources; specific '75% is the B94.9 basis' claim NOT independently confirmed against a Tier 1 source",
+      "notes": "No Tier 1 source's actual table content was read. Recorded only as a `derived_candidate` (status: derived_candidate, verified: false) on unc_tapping/unf_tapping — the formula is documented for reference; no target_engagement_percent value was written into any record, and 75% was not asserted as a BoltLab-verified figure."
+    }
+  ]
+}

@@ -1,13 +1,13 @@
 {
   "version": "v0.1.0",
   "created": "2026-07-12",
-  "updated": "2026-07-12",
+  "updated": "2026-08-15",
   "records": [
     {
       "id": "iso_68_1",
       "organization": "ISO",
       "designation": "ISO 68-1",
-      "title": "ISO general purpose screw threads — Basic profile",
+      "title": "ISO general purpose screw threads \u2014 Basic profile",
       "scope": "Defines the basic profile for ISO metric screw threads.",
       "public_summary": "Used as profile geometry context for metric thread concepts and calculations.",
       "related_entities": [
@@ -28,7 +28,7 @@
       "id": "iso_261",
       "organization": "ISO",
       "designation": "ISO 261",
-      "title": "ISO general purpose metric screw threads — General plan",
+      "title": "ISO general purpose metric screw threads \u2014 General plan",
       "scope": "Specifies preferred combinations of diameter and pitch for metric threads.",
       "public_summary": "Referenced for metric designation and pitch-plan context in engineering explanations.",
       "related_entities": [
@@ -49,7 +49,7 @@
       "id": "iso_262",
       "organization": "ISO",
       "designation": "ISO 262",
-      "title": "ISO general purpose metric screw threads — Selected sizes for screws, bolts, and nuts",
+      "title": "ISO general purpose metric screw threads \u2014 Selected sizes for screws, bolts, and nuts",
       "scope": "Lists selected preferred metric fine thread diameter and pitch combinations.",
       "public_summary": "Referenced for fine-pitch metric thread selection and designation consistency in engineering workflows.",
       "related_entities": [
@@ -71,7 +71,7 @@
       "id": "iso_724",
       "organization": "ISO",
       "designation": "ISO 724",
-      "title": "ISO general purpose metric screw threads — Basic dimensions",
+      "title": "ISO general purpose metric screw threads \u2014 Basic dimensions",
       "scope": "Provides basic dimension framework for metric thread geometry.",
       "public_summary": "Referenced where pitch diameter and related geometry fields are discussed.",
       "related_entities": [
@@ -93,9 +93,9 @@
       "id": "iso_965_1",
       "organization": "ISO",
       "designation": "ISO 965-1",
-      "title": "ISO metric screw threads — Tolerances — Principles and basic data",
+      "title": "ISO metric screw threads \u2014 Tolerances \u2014 Principles and basic data",
       "scope": "Defines tolerance principles, class notation, and fit interpretation context.",
-      "public_summary": "Primary tolerance-class reference for 6H, 6g, zone interpretation, and allowance explanations.",
+      "public_summary": "Primary tolerance-class reference for 6H, 6g, zone interpretation, and allowance explanations. ISO 965-1:2013 (4th edition) was withdrawn; ISO 965-1:2026 (5th edition) is the current edition, published 2026-04-14. This record describes the standard's ongoing subject matter and is not tied to either edition's specific text.",
       "related_entities": [
         "iso_965",
         "fit_class_6h",
@@ -107,11 +107,53 @@
         "metric_threads"
       ],
       "revision": "latest-reviewed-public-summary",
+      "edition": "2026 (5th edition)",
+      "standard_status": "current",
       "copyright_note": "No copyrighted standards text is reproduced; only public summary and reference metadata.",
-      "last_reviewed": "2026-07-12",
-      "version": "v0.1.0",
+      "last_reviewed": "2026-08-14",
+      "version": "v0.2.0",
       "created": "2026-07-12",
-      "updated": "2026-07-12"
+      "updated": "2026-08-14"
+    },
+    {
+      "id": "iso_2306",
+      "organization": "ISO",
+      "designation": "ISO 2306",
+      "title": "Drills for use prior to tapping screw threads",
+      "scope": "Specifies recommended drill sizes for use before tapping ISO metric threads, ISO inch threads, and pipe threads, for screw threads of normal length of engagement.",
+      "public_summary": "Reference standard for tap-drill (pilot-hole) sizing prior to tapping; drill diameter is approximately equal to nominal thread diameter minus pitch. Confirmed current, last reviewed by ISO in 2022.",
+      "related_entities": [
+        "pilot_hole"
+      ],
+      "related_datasets": [],
+      "revision": "1st edition, 1972",
+      "edition": "1972",
+      "standard_status": "current",
+      "copyright_note": "No copyrighted standards text is reproduced; only public summary and reference metadata.",
+      "last_reviewed": "2026-08-14",
+      "version": "v0.1.0",
+      "created": "2026-08-14",
+      "updated": "2026-08-14"
+    },
+    {
+      "id": "iso_2857",
+      "organization": "ISO",
+      "designation": "ISO 2857",
+      "title": "Ground thread taps for ISO metric threads of tolerances 4H to 8H and 4G to 6G, coarse and fine pitches \u2014 Manufacturing tolerances on the threaded portion",
+      "scope": "Specifies manufacturing tolerances on the threaded portion of ground thread taps for ISO metric threads, applicable to short taps per ISO 529 and other ground thread taps of the same diameters and pitches.",
+      "public_summary": "Reference standard for ground-tap manufacturing tolerance context; concerns the tap tool's own manufacturing tolerances, not tap-drill hole sizing. Confirmed current with 2 amendments (1984, 1986), last reviewed by ISO in 2022.",
+      "related_entities": [
+        "cut_tapping"
+      ],
+      "related_datasets": [],
+      "revision": "1973, with Amendment 1:1984 and Amendment 2:1986",
+      "edition": "1973",
+      "standard_status": "current",
+      "copyright_note": "No copyrighted standards text is reproduced; only public summary and reference metadata.",
+      "last_reviewed": "2026-08-14",
+      "version": "v0.1.0",
+      "created": "2026-08-14",
+      "updated": "2026-08-14"
     }
   ]
 }

@@ -97,6 +97,11 @@
       ],
       "pattern": "^/images/.+\\.svg$"
     },
+    "taxonomy_axis": {
+      "type": "string",
+      "enum": ["hole_geometry", "hole_function", "preparation_stage"],
+      "description": "Optional, additive field (v0.2.0+). Used only for entity_type: hole_preparation, where the five existing entities (pilot_hole, through_hole, blind_hole, tapped_hole, clearance_hole) are not mutually exclusive values of one taxonomy but points along distinct, orthogonal axes: hole_geometry (through vs. blind), hole_function (tapped vs. clearance), and preparation_stage (pilot vs. prepared vs. tapped). This field records which axis a given entity primarily classifies along; it does not replace or restrict the entity's own definition, and an entity may legitimately relate to more than one axis in prose even though this field records only the primary one. Absent on entities that predate this field or that are not hole_preparation types."
+    },
     "status": {
       "type": "string",
       "enum": [

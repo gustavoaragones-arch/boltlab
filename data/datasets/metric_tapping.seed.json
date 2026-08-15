@@ -25,7 +25,7 @@
   ],
   "version": "v0.1.0",
   "created": "2026-08-14",
-  "updated": "2026-08-14",
+  "updated": "2026-08-15",
   "records": [
     {
       "tapping_profile_id": "tap_m3x0_5_cut",
@@ -488,6 +488,24 @@
       },
       "status": "source_bound",
       "notes": "Hole-preparation (tap drill) value reused by reference from the existing verified metric_threads dataset (M20x2.0, field tap_drill_mm); no new value was introduced. Thread engagement and tapping process parameters (speed, feed, torque, material-specific recommendations) are not yet established in the BoltLab knowledge layer and must not be treated as authoritative until independently verified."
+    }
+  ],
+  "derived_candidates": [
+    {
+      "id": "iso_2306_metric_drill_approximation",
+      "applies_to": "metric",
+      "formula": "drill_diameter_mm \u2248 nominal_diameter_mm - pitch_mm",
+      "description": "General approximation rule for tap-drill (pilot-hole) diameter prior to tapping ISO metric threads, attributed to ISO 2306:1972 (Drills for use prior to tapping screw threads). Secondary-source characterization places the resulting engagement at approximately 77% of full thread height. This is a general mathematical approximation, not a per-size lookup table value, and has NOT been cross-checked in this phase against the specific tap_drill_mm values already present in the metric_threads dataset on a record-by-record basis.",
+      "inputs": [
+        "nominal_diameter_mm",
+        "pitch_mm"
+      ],
+      "source": "iso_2306",
+      "source_tier": 2,
+      "calculation_method": "nominal_diameter_mm - pitch_mm",
+      "status": "derived_candidate",
+      "verified": false,
+      "note": "Recorded for reference only. Existing hole_preparation.value fields in this dataset's records remain sourced by direct reference to the pre-existing verified metric_threads dataset, not by this formula. Do not use this entry to alter, override, or promote the verified status of any existing record."
     }
   ]
 }

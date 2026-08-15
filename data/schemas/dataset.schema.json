@@ -63,6 +63,27 @@
     "records": {
       "type": "array",
       "items": { "type": "object" }
+    },
+    "derived_candidates": {
+      "type": "array",
+      "description": "Optional, additive field (v0.2.0+). Mathematical derivations or approximation formulas attributed to an identified source, kept structurally separate from `records` so a derivation can never be mistaken for a verified value. A derived_candidate must never be promoted into `records` or treated as verified without independent confirmation of the specific resulting value.",
+      "items": {
+        "type": "object",
+        "required": ["id", "formula", "description", "source", "status", "verified"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+          "applies_to": { "type": ["string", "null"] },
+          "formula": { "type": "string" },
+          "description": { "type": "string" },
+          "inputs": { "type": "array", "items": { "type": "string" } },
+          "source": { "type": "string" },
+          "source_tier": { "type": ["integer", "null"] },
+          "calculation_method": { "type": ["string", "null"] },
+          "status": { "type": "string", "enum": ["derived_candidate"] },
+          "verified": { "type": "boolean", "enum": [false] },
+          "note": { "type": ["string", "null"] }
+        }
+      }
     }
   }
 }

@@ -36,6 +36,15 @@
       "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
     },
     "revision": { "type": "string" },
+    "edition": {
+      "type": ["string", "null"],
+      "description": "Optional, additive field (v0.2.0+). The specific edition/year of the standard this record describes (e.g. \"2024\", \"5th edition (2026)\"), when independently confirmed against a primary or near-primary source. Absent or null on records where no specific edition has been confirmed; absence does not imply any particular edition."
+    },
+    "standard_status": {
+      "type": "string",
+      "enum": ["current", "withdrawn", "superseded"],
+      "description": "Optional, additive field (v0.2.0+). Publication status of the specific edition recorded in `edition`, as confirmed against a primary or near-primary source at `last_reviewed`. Omit if not independently confirmed."
+    },
     "copyright_note": { "type": "string" },
     "last_reviewed": { "type": "string", "format": "date" },
     "version": { "type": "string", "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$" },

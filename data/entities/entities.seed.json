@@ -702,7 +702,8 @@
       "status": "draft",
       "created": "2026-08-14",
       "updated": "2026-08-14",
-      "version": "v0.1.0"
+      "version": "v0.2.0",
+      "taxonomy_axis": "preparation_stage"
     },
     {
       "id": "through_hole",
@@ -729,7 +730,8 @@
       "status": "draft",
       "created": "2026-08-14",
       "updated": "2026-08-14",
-      "version": "v0.1.0"
+      "version": "v0.2.0",
+      "taxonomy_axis": "hole_geometry"
     },
     {
       "id": "blind_hole",
@@ -756,7 +758,8 @@
       "status": "draft",
       "created": "2026-08-14",
       "updated": "2026-08-14",
-      "version": "v0.1.0"
+      "version": "v0.2.0",
+      "taxonomy_axis": "hole_geometry"
     },
     {
       "id": "tapped_hole",
@@ -783,7 +786,8 @@
       "status": "draft",
       "created": "2026-08-14",
       "updated": "2026-08-14",
-      "version": "v0.1.0"
+      "version": "v0.2.0",
+      "taxonomy_axis": "hole_function"
     },
     {
       "id": "clearance_hole",
@@ -812,7 +816,8 @@
       "status": "draft",
       "created": "2026-08-14",
       "updated": "2026-08-14",
-      "version": "v0.1.0"
+      "version": "v0.2.0",
+      "taxonomy_axis": "hole_function"
     },
     {
       "id": "cut_tapping",

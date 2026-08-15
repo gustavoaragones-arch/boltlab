@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-08-15T04:54:06.771Z",
+  "generated_at": "2026-08-15T13:18:48.905Z",
   "summary": {
     "status": "pass",
     "errors": 0,
     "warnings": 0,
     "counts": {
       "entities": 24,
-      "standards": 6,
+      "standards": 9,
       "datasets": 6,
       "relationships": 41
     }

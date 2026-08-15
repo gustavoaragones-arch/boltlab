@@ -22,7 +22,7 @@
   ],
   "version": "v0.1.0",
   "created": "2026-08-14",
-  "updated": "2026-08-14",
+  "updated": "2026-08-15",
   "records": [
     {
       "tapping_profile_id": "tap_1_4_28_unf_cut",
@@ -122,6 +122,25 @@
       },
       "status": "source_bound",
       "notes": "Hole-preparation (tap drill) value reused by reference from the existing verified unf_threads dataset (3/8-24 UNF, field tap_drill_in); no new value was introduced. Thread engagement and tapping process parameters (speed, feed, torque, material-specific recommendations) are not yet established in the BoltLab knowledge layer and must not be treated as authoritative until independently verified."
+    }
+  ],
+  "derived_candidates": [
+    {
+      "id": "thread_engagement_formula_general",
+      "applies_to": "inch",
+      "formula": "percent_engagement = (major_diameter - drill_diameter) / (1.29904 * pitch) * 100",
+      "description": "General mathematical relationship between pilot-hole (tap drill) diameter and resulting thread engagement percentage for 60-degree unified/ISO thread forms, commonly documented in general machining references (e.g. Machinery's Handbook) and widely reproduced in manufacturer tap-drill charts. This is the mathematical relationship only; it does NOT establish or endorse any specific target engagement percentage (e.g. 75%) as a BoltLab-verified recommendation, and 75% engagement is commonly cited by third-party tap-drill charts as the general-purpose target for standard UNC/UNF tap drill tables, but this specific figure has not been independently confirmed in this phase against a Tier 1 primary source and is not asserted as verified.",
+      "inputs": [
+        "major_diameter",
+        "drill_diameter",
+        "threads_per_inch"
+      ],
+      "source": "general engineering reference (Machinery's Handbook); not attributed to a specific BoltLab-verified standard record",
+      "source_tier": 3,
+      "calculation_method": "percent_engagement = ((major_diameter - drill_diameter) * threads_per_inch / 0.013) * 100",
+      "status": "derived_candidate",
+      "verified": false,
+      "note": "Recorded for reference only, as general methodology context per Section 8 of the T2 phase brief. No target_engagement_percent field on any tapping_profile record has been populated using this formula."
     }
   ]
 }

@@ -1,0 +1,96 @@
+{
+  "phase": "T2",
+  "title": "Tapping Data Acquisition & Verification",
+  "date": "2026-08-15",
+  "status": "PASS WITH GAPS",
+  "status_reason": "All standards-layer claims given in the phase brief were independently verified and correctly reflected in the knowledge layer. Two design cautions from T1 (hole-preparation axis, RELATES_TO sufficiency) were resolved. However, no Tier-1 per-size numeric cross-verification of tap-drill values or thread-engagement targets against a primary standard's own table was completed in this pass — that acquisition work remains open, honestly reported as unavailable/derived_candidate rather than fabricated.",
+  "standards_verified": [
+    {"id": "iso_2306", "action": "created", "status": "current", "edition": "1972"},
+    {"id": "iso_2857", "action": "created", "status": "current", "edition": "1973 (+2 amendments)"},
+    {"id": "asme_b94_9", "action": "created", "status": "current", "edition": "2008 (R2023)"},
+    {"id": "iso_965_1", "action": "updated", "status": "current", "edition": "2026 (5th edition)", "change": "added edition/standard_status fields, noted 2013 withdrawal in public_summary"},
+    {"id": "asme_b1_1", "action": "updated", "status": "current", "edition": "2024", "change": "title corrected to include UNJ; scope expanded to UN/UNR/UNJ; added edition/standard_status fields"}
+  ],
+  "standards_still_unavailable": [
+    "No standard's own published table content (drill-size tables, tolerance tables, dimension tables) was obtained in this phase — existence/status/scope only."
+  ],
+  "value_counts": {
+    "tap_drill_records_verified": 0,
+    "tap_drill_records_source_bound": 20,
+    "tap_drill_records_pending_verification": 0,
+    "tap_drill_records_unavailable": 0,
+    "note": "Unchanged from T1: all 20 existing tapping_profile records' hole_preparation values remain sourced by direct reference to pre-existing verified BoltLab thread datasets. No record was newly cross-verified against an external standard's table in T2; none were altered."
+  },
+  "thread_engagement_findings": {
+    "records_populated": 0,
+    "derived_candidates_added": 2,
+    "conclusion": "General engagement formula confirmed and documented as a derived_candidate on unc_tapping and unf_tapping (metric shares the same underlying relationship but the metric-specific derived_candidate added targets the ISO 2306 drill-sizing rule instead). No target_engagement_percent value was written into any record. The commonly-cited 75% UNC/UNF target was explicitly NOT promoted to verified or written into any record — it appears only as descriptive, clearly-labeled unconfirmed (Tier 3) context inside the derived_candidate."
+  },
+  "tap_type_findings": {
+    "entities_checked": 7,
+    "entities_corroborated_by_new_standard": ["spiral_flute_tap", "spiral_point_tap", "forming_tap"],
+    "entities_not_independently_re-sourced": ["taper_tap", "plug_tap", "bottoming_tap", "hand_tap"],
+    "definitions_changed": 0,
+    "conclusion": "T1's existing definitions were checked against ASME B94.9's style list and found consistent; no definition text required correction."
+  },
+  "hole_preparation_findings": {
+    "entities_modified": 0,
+    "schema_change": "added optional taxonomy_axis field (entity.schema.json, v0.2.0+)",
+    "entities_tagged": {
+      "pilot_hole": "preparation_stage",
+      "through_hole": "hole_geometry",
+      "blind_hole": "hole_geometry",
+      "tapped_hole": "hole_function",
+      "clearance_hole": "hole_function"
+    },
+    "conclusion": "T1's caution resolved: the 5 entities are now explicitly documented as points along 3 distinct axes rather than one flat mutually-exclusive taxonomy. No entity definition or relationship was altered."
+  },
+  "relationship_predicate_findings": {
+    "new_predicates_introduced": 0,
+    "new_relationship_records_added": 0,
+    "conclusion": "T2's standard-to-entity connections use each standard record's own pre-existing related_entities array (the same mechanism iso_965_1/asme_b1_1 already used), not relationships.seed.json. RELATES_TO's sufficiency for the existing 41 edges remains an open question, not required to be resolved by this phase's actual data."
+  },
+  "source_conflicts": {
+    "found": 0,
+    "resolved": 0,
+    "unresolved": 0,
+    "note": "No two sources gave conflicting values for the same claim in this phase; the ASME-B94.9-attribution-of-75%-engagement claim was treated as unconfirmed (not a conflict, an unverified attribution) rather than accepted or rejected outright."
+  },
+  "provenance_coverage": {
+    "new_standard_records_with_full_source_register_entry": 3,
+    "updated_standard_records_with_full_source_register_entry": 2,
+    "derived_candidates_with_source_and_status": 3,
+    "percent_of_new_or_changed_claims_with_traceable_source": 100
+  },
+  "validator_results": {
+    "validate_knowledge_engine": {"status": "pass", "errors": 0, "warnings": 0, "counts": {"entities": 24, "standards": 9, "datasets": 6, "relationships": 41}},
+    "validate_tapping_domain": {"status": "pass", "errors": 0, "warnings": 5}
+  },
+  "files_created": [
+    "audit/t2-tapping-source-register.json",
+    "audit/t2-tapping-source-register.md",
+    "audit/t2-tapping-data-verification.json",
+    "audit/t2-tapping-data-verification.md",
+    "audit/t2-tapping-change-scope.md"
+  ],
+  "files_modified": [
+    "data/datasets/metric_tapping.seed.json",
+    "data/datasets/unc_tapping.seed.json",
+    "data/datasets/unf_tapping.seed.json",
+    "data/entities/entities.seed.json",
+    "data/schemas/dataset.schema.json",
+    "data/schemas/entity.schema.json",
+    "data/schemas/standard.schema.json",
+    "data/standards/asme/standards.seed.json",
+    "data/standards/iso/standards.seed.json",
+    "docs/architecture/tapping-data-foundation.md",
+    "docs/architecture/tapping-validation-report.json",
+    "docs/architecture/tapping-validation-report.md",
+    "docs/architecture/validation-report.json",
+    "docs/architecture/validation-report.md"
+  ],
+  "production_files_modified": 0,
+  "unexpected_files": [],
+  "committed": false,
+  "pushed": false
+}

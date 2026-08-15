@@ -1,15 +1,15 @@
 {
   "version": "v0.1.0",
   "created": "2026-07-12",
-  "updated": "2026-07-12",
+  "updated": "2026-08-15",
   "records": [
     {
       "id": "asme_b1_1",
       "organization": "ASME",
       "designation": "ASME B1.1",
-      "title": "Unified Inch Screw Threads (UN and UNR)",
-      "scope": "Defines unified inch thread form and class framework for UN series.",
-      "public_summary": "Referenced for UNC system interpretation and inch-thread engineering context.",
+      "title": "Unified Inch Screw Threads (UN, UNR, and UNJ Thread Forms)",
+      "scope": "Defines unified inch thread form, series, class, allowance, tolerance, and designation for UN, UNR, and UNJ thread forms. UNJ (formerly covered by the separate ASME B1.15) has been incorporated into B1.1 since the 2019 edition.",
+      "public_summary": "Referenced for UNC/UNF system interpretation and inch-thread engineering context. Current edition confirmed as ASME B1.1-2024.",
       "related_entities": [
         "thread_system_unc",
         "thread_pitch",
@@ -20,11 +20,35 @@
         "unf_threads"
       ],
       "revision": "latest-reviewed-public-summary",
+      "edition": "2024",
+      "standard_status": "current",
       "copyright_note": "No copyrighted standards text is reproduced; only public summary and reference metadata.",
-      "last_reviewed": "2026-07-12",
-      "version": "v0.1.0",
+      "last_reviewed": "2026-08-15",
+      "version": "v0.2.0",
       "created": "2026-07-12",
-      "updated": "2026-07-12"
+      "updated": "2026-08-15"
+    },
+    {
+      "id": "asme_b94_9",
+      "organization": "ASME",
+      "designation": "ASME B94.9",
+      "title": "Taps: Ground Thread with Cut Thread Appendix (Inch and Metric Sizes)",
+      "scope": "Covers tap designs, nomenclature, definitions, marking system, and dimension/tolerance tables for standard tap types and styles, including straight-fluted, spiral-fluted, spiral-point, and thread-forming taps, in inch and metric sizes.",
+      "public_summary": "Reference standard for tap tool nomenclature, styles, and manufacturing dimensions/tolerances. Current edition ASME B94.9-2008, reaffirmed 2023.",
+      "related_entities": [
+        "spiral_flute_tap",
+        "spiral_point_tap",
+        "forming_tap"
+      ],
+      "related_datasets": [],
+      "revision": "2008, reaffirmed 2023 (R2023)",
+      "edition": "2008 (R2023)",
+      "standard_status": "current",
+      "copyright_note": "No copyrighted standards text is reproduced; only public summary and reference metadata.",
+      "last_reviewed": "2026-08-15",
+      "version": "v0.1.0",
+      "created": "2026-08-15",
+      "updated": "2026-08-15"
     }
   ]
 }
