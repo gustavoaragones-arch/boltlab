@@ -72,6 +72,22 @@
       <section class="card" id="wf-result" hidden aria-live="polite">
         <h2>Result</h2>
         <div id="wf-result-body"></div>
+        <button type="button" id="wf-add-compare" class="button" aria-describedby="wf-compare-status">Add to comparison</button>
+      </section>
+
+      <section class="card" id="wf-compare">
+        <h2>Compare tapping records</h2>
+        <p>Compare existing BoltLab tapping records side by side. The comparison shows the available data and verification status; it does not replace engineering judgment.</p>
+        <p id="wf-compare-status" role="status" aria-live="polite">Select up to 4 thread sizes to compare.</p>
+        <ul id="wf-compare-selection" class="meta-list" aria-label="Selected for comparison"></ul>
+        <div class="wf-compare-actions">
+          <button type="button" id="wf-compare-run" class="button" disabled>Compare selected</button>
+          <button type="button" id="wf-compare-clear" class="button button-secondary" disabled>Clear comparison</button>
+        </div>
+        <p class="muted">Comparison uses the same BoltLab tapping dataset shown in this workflow.</p>
+        <div id="wf-compare-table-wrap" class="chart-table-wrapper" hidden>
+          <table id="wf-compare-table"></table>
+        </div>
       </section>
 
       <section class="card" id="wf-hole-prep">
@@ -253,7 +269,7 @@
           '<p class="muted">' + esc(p.thread.thread_system === "metric" ? "Metric" : p.thread.thread_system) + " · " + esc(diameterDisplay(p)) + " · " + esc(pitchDisplay(p)) + "</p>" +
           '<p><span class="data-status data-status--' + esc(p.tap_drill.status) + '">Tap drill: ' + esc(verificationLabel(p.tap_drill.status)) + "</span></p>" +
           '<p class="muted">Overall profile status: ' + esc(verificationLabel(p.data_quality.record_status)) + " (engagement and process-parameter data are not yet available for any profile)</p>" +
-          "<p><strong>Primary tap drill:</strong> " + p.tap_drill.value + " " + esc(p.tap_drill.unit) + "<br><span class="muted">" + esc(conventionLabel(p)) + "</span></p>" +
+          "<p><strong>Primary tap drill:</strong> " + p.tap_drill.value + " " + esc(p.tap_drill.unit) + '<br><span class="muted">' + esc(conventionLabel(p)) + "</span></p>" +
           altBlock +
           "<p><strong>Relevant tap types:</strong> " + esc(tapTypeTitles || "None resolved.") + "</p>" +
           "<p><strong>Standards:</strong> " + standardsHtml + "</p>";
@@ -266,6 +282,126 @@
 
         resultSection.hidden = false;
       }
+
+      // -- Comparison (T9) --
+      var MAX_COMPARE = 4;
+      var compareIds = [];
+      var addCompareBtn = document.getElementById("wf-add-compare");
+      var compareStatus = document.getElementById("wf-compare-status");
+      var compareSelectionEl = document.getElementById("wf-compare-selection");
+      var compareRunBtn = document.getElementById("wf-compare-run");
+      var compareClearBtn = document.getElementById("wf-compare-clear");
+      var compareTableWrap = document.getElementById("wf-compare-table-wrap");
+      var compareTable = document.getElementById("wf-compare-table");
+
+      function profileById(id) {
+        for (var i = 0; i < data.profiles.length; i++) {
+          if (data.profiles[i].id === id) return data.profiles[i];
+        }
+        return null;
+      }
+
+      function isoAlternativeCell(p) {
+        if (p.thread.thread_system === "metric") {
+          return "Not applicable — ISO 2306 is already the metric convention for this record.";
+        }
+        if (!p.alternative_drill) {
+          return "Unavailable";
+        }
+        return (
+          p.alternative_drill.value + " " + esc(p.alternative_drill.unit) +
+          " (" + esc(verificationLabel(p.alternative_drill.status)) + ") — separate from the primary value, does not replace it"
+        );
+      }
+
+      function renderCompareSelection() {
+        compareSelectionEl.innerHTML = "";
+        compareIds.forEach(function (id) {
+          var p = profileById(id);
+          if (!p) return;
+          var li = document.createElement("li");
+          var removeBtn = document.createElement("button");
+          removeBtn.type = "button";
+          removeBtn.className = "wf-compare-remove";
+          removeBtn.setAttribute("aria-label", "Remove " + p.thread.designation + " from comparison");
+          removeBtn.textContent = "✕";
+          removeBtn.addEventListener("click", function () {
+            compareIds = compareIds.filter(function (existing) { return existing !== id; });
+            updateCompareControls();
+          });
+          li.appendChild(document.createTextNode(p.thread.designation + " "));
+          li.appendChild(removeBtn);
+          compareSelectionEl.appendChild(li);
+        });
+      }
+
+      function updateCompareControls() {
+        renderCompareSelection();
+        if (compareIds.length === 0) {
+          compareStatus.textContent = "Select up to " + MAX_COMPARE + " thread sizes to compare.";
+        } else if (compareIds.length >= MAX_COMPARE) {
+          compareStatus.textContent = "Comparison limit reached.";
+        } else {
+          compareStatus.textContent = compareIds.length + " of " + MAX_COMPARE + " selected.";
+        }
+        compareRunBtn.disabled = compareIds.length < 2;
+        compareClearBtn.disabled = compareIds.length === 0;
+        addCompareBtn.disabled = compareIds.length >= MAX_COMPARE;
+        if (compareIds.length < 2) {
+          compareTableWrap.hidden = true;
+        }
+      }
+
+      function renderCompareTable() {
+        var profiles = compareIds.map(profileById).filter(Boolean);
+        var rows = [
+          ["Designation", function (p) { return esc(p.thread.designation); }],
+          ["Thread system", function (p) { return esc(p.thread.thread_system === "metric" ? "Metric" : p.thread.thread_system); }],
+          ["Pitch / TPI", function (p) { return esc(pitchDisplay(p)); }],
+          ["Primary tap drill", function (p) { return p.tap_drill.value + " " + esc(p.tap_drill.unit) + " (" + esc(conventionLabel(p)) + ")"; }],
+          ["Tap-drill verification", function (p) { return esc(verificationLabel(p.tap_drill.status)); }],
+          ["ISO 2306 alternative drill", isoAlternativeCell],
+          ["Overall record status", function (p) { return esc(verificationLabel(p.data_quality.record_status)); }],
+          ["Relevant standards", function (p) { return p.standards.length ? p.standards.map(function (s) { return esc(s.designation); }).join(", ") : "Unavailable"; }],
+          ["Relevant tap types", function (p) {
+            var titles = p.tap_types.map(function (id) { var tt = tapTypeById(id); return tt ? tt.title : id; });
+            return titles.length ? esc(titles.join(", ")) : "Unavailable";
+          }],
+          ["Hole preparation", function () { return "Primary value represents pilot-hole diameter; through/blind/tapped/clearance are separate, non-per-thread concepts in this dataset."; }],
+          ["Thread engagement", function () { return "Thread engagement calculation is not currently available in BoltLab's verified dataset."; }]
+        ];
+
+        var thead = "<thead><tr><th>Field</th>" + profiles.map(function (p) { return "<th>" + esc(p.thread.designation) + "</th>"; }).join("") + "</tr></thead>";
+        var tbody = "<tbody>" + rows.map(function (row) {
+          var label = row[0];
+          var fn = row[1];
+          return "<tr><td><strong>" + esc(label) + "</strong></td>" + profiles.map(function (p) { return "<td>" + fn(p) + "</td>"; }).join("") + "</tr>";
+        }).join("") + "</tbody>";
+
+        compareTable.innerHTML = thead + tbody;
+        compareTableWrap.hidden = false;
+      }
+
+      addCompareBtn.addEventListener("click", function () {
+        if (!designationEl.value) return;
+        if (compareIds.indexOf(designationEl.value) !== -1) return;
+        if (compareIds.length >= MAX_COMPARE) return;
+        compareIds.push(designationEl.value);
+        updateCompareControls();
+      });
+
+      compareRunBtn.addEventListener("click", function () {
+        if (compareIds.length < 2) return;
+        renderCompareTable();
+      });
+
+      compareClearBtn.addEventListener("click", function () {
+        compareIds = [];
+        compareTableWrap.hidden = true;
+        updateCompareControls();
+      });
+
+      updateCompareControls();
 
       systemEl.addEventListener("change", function () {
         designationEl.innerHTML = '<option value="">Choose a designation…</option>';

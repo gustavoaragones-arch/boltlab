@@ -33,3 +33,15 @@
 ### Canonical, No .html Hrefs, Links Resolve
 - Status: pass
 
+### Inline Script Is Valid JavaScript (node --check)
+- Status: pass
+
+### Comparison UI Structure Present
+- Status: pass
+
+### Comparison Logic: Max 4, No Duplicates, No Value Transformation
+- Status: pass
+
+### All Projection Records Remain Individually Selectable for Comparison
+- Status: pass
+

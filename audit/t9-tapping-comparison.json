@@ -1,0 +1,139 @@
+{
+  "phase": "T9",
+  "title": "Tapping Comparison & Selection Mode",
+  "date": "2026-08-16",
+  "status": "READY FOR REVIEW",
+  "baseline_commit": "c13e541b30254e1cb634bd1d473122641f650f51",
+  "baseline_checksums": {
+    "tapping_profiles_json": "f9739e1d1f8d214b9eb06e4396c9bd1c44c1765c72e644bd0f40bfb1eddf3060",
+    "tap_types_json": "63867da5f7f4a9eb5935b418bfc306ec143bf686f0269bb0689c6325ef480305",
+    "tapping_workflow_html_before": "9f2f1022d9a26aa8cbf989263f45029ad85c6138397c0c7ace921dece7c51a86",
+    "tapping_workflow_data_js_before": "d0907160b00b868e08b0da95347e1d736809697243849327a9b8dcda91ba3421",
+    "tapping_atlas_html": "17200beaad0c8ebb7482d89e90e4c2fed2520deabe986571bb46654a793bb583",
+    "tap_type_guide_html": "10da2fc26dfef18703bf443c175f18831242e68c739aa96379b372c7310aff3b",
+    "tapping_atlas_csv": "3a391f37c5ac32ac1bbaa0e49ed8ac54e2efd840f855d396dc084b1dc51e7551"
+  },
+  "critical_finding_fixed": {
+    "description": "T8's already-committed inline script (commit c13e541) contained a JS syntax error (\\\" inside an outer template literal resolves to an unescaped \" in emitted HTML), which prevented the ENTIRE inline <script> block from executing in any browser -- confirmed by extracting and node --check-ing the script directly from the committed file, not the working tree.",
+    "impact": "T8's interactivity (system/designation selection, result rendering) has never worked in production. Execution failure, not a data-correctness issue -- no wrong value was ever shown, because the tool never ran at all.",
+    "fix": "One-line change: switched the offending string from double-quoted-with-escapes to single-quoted, matching the pattern already used correctly elsewhere in the same file.",
+    "why_missed_in_t8": "T8's validator checked required strings/structure via regex but never parsed the script as JavaScript.",
+    "gap_closed": "Added a new_Function()-based real syntax-validity check to validate-tapping-workflow.js (now check #1), plus an actual DOM-mock execution test exercising the full interaction path (selection, rendering, comparison add/remove/compare/clear, 4-item cap, duplicate prevention, ISO alternative rendering for both metric and UNC records) to verify runtime behavior, not just syntax.",
+    "verified_working": true
+  },
+  "comparison_capability": {
+    "location": "Interactive state within the existing /tools/tapping-workflow page -- no new URL",
+    "max_selection": 4,
+    "min_to_compare": 2,
+    "duplicate_prevention": true,
+    "individual_removal": true,
+    "clear_all": true
+  },
+  "projection_coverage": {
+    "all_29_records_individually_selectable": true,
+    "no_duplicate_designation_system_combination": true
+  },
+  "verification_preservation": {
+    "tap_drill_verified": 9,
+    "tap_drill_source_bound": 20,
+    "overall_verified": 0,
+    "overall_source_bound": 29,
+    "field_vs_record_distinction_shown_per_comparison_column": true
+  },
+  "iso_alternative_handling": {
+    "shown_as_dedicated_row": true,
+    "metric_columns_show": "Not applicable — ISO 2306 is already the metric convention for this record.",
+    "unc_unf_columns_show": "value + unit + verification status + non-replacement note",
+    "never_merged_or_averaged": true,
+    "verified_via_runtime_test_with_mixed_unc_metric_comparison": true
+  },
+  "tap_type_preservation": "Relevant tap types row lists the same projection-resolved tap_types array as the single-result view; no inference, no 'best/recommended tap' language",
+  "engagement_handling": "Fixed exact limitation sentence repeated per column; zero numeric values anywhere",
+  "standards_handling": "Comparison rows read directly from each record's own resolved standards array; no new standards relationship inferred",
+  "accessibility": {
+    "aria_describedby_on_add_button": true,
+    "live_region_status_text": true,
+    "explicit_aria_label_per_remove_chip": true,
+    "verification_conveyed_in_text_not_color_alone": true,
+    "native_keyboard_operable_buttons": true,
+    "disabled_state_visual_style_added": true
+  },
+  "validator_results": {
+    "validate_knowledge_engine": { "status": "pass", "errors": 0 },
+    "validate_tapping_domain": { "status": "pass", "errors": 0, "warnings": 5 },
+    "validate_projections_generic": { "status": "pass", "errors": 0 },
+    "validate_tapping_projections": { "status": "pass", "errors": 0 },
+    "validate_tapping_atlas": { "status": "pass", "errors": 0 },
+    "validate_tap_type_guide": { "status": "pass", "errors": 0 },
+    "validate_tapping_workflow": { "status": "pass", "errors": 0, "checks_run": 16 }
+  },
+  "site_wide_qa": {
+    "broken_internal_links": 0,
+    "html_hrefs": 0,
+    "json_ld_parse_errors": 0,
+    "sitemap_unchanged_and_correct": true,
+    "canonical_unchanged": "https://boltlab.io/tools/tapping-workflow"
+  },
+  "determinism": {
+    "runs": 3,
+    "checksums_identical": true,
+    "sha256_tapping_workflow_html": "6d32d3a54719030cb4e2ead5e89be41bb07a4ce4d3c3922bfbd07335597fdf4a",
+    "sha256_tapping_workflow_data_js": "d0907160b00b868e08b0da95347e1d736809697243849327a9b8dcda91ba3421"
+  },
+  "regression_checksums": {
+    "tapping_profiles_json_unchanged": true,
+    "tap_types_json_unchanged": true,
+    "tapping_atlas_html_unchanged": true,
+    "tap_type_guide_html_unchanged": true,
+    "tapping_atlas_csv_unchanged": true,
+    "tapping_workflow_data_js_unchanged": true,
+    "tapping_workflow_html_changed": true,
+    "tapping_workflow_html_change_reason": "comparison feature UI/logic added, plus the syntax-error fix"
+  },
+  "runtime_dom_test": {
+    "performed": true,
+    "method": "Minimal hand-built DOM mock (createElement/getElementById/event dispatch, textContent-to-innerHTML escaping matching real browser behavior) executing the extracted inline script directly",
+    "scenarios_exercised": [
+      "system selection populates designation options",
+      "designation selection renders full result",
+      "add to comparison (1st, 2nd)",
+      "compare selected renders table with correct field values",
+      "clear comparison resets state",
+      "4-item cap enforced, 5th add rejected",
+      "duplicate add rejected",
+      "individual chip removal",
+      "ISO 2306 alternative correct for UNC record and 'Not applicable' for metric record in the same comparison"
+    ],
+    "result": "ALL RUNTIME CHECKS PASSED"
+  },
+  "files_created": [
+    "docs/architecture/t9-tapping-comparison.md",
+    "audit/t9-tapping-comparison.md",
+    "audit/t9-tapping-comparison.json",
+    "audit/t9-change-scope.md"
+  ],
+  "files_modified": [
+    "scripts/generators/generate-tapping-workflow.js",
+    "scripts/validators/validate-tapping-workflow.js",
+    "tools/tapping-workflow.html",
+    "css/styles.css",
+    "docs/architecture/validation-report.json",
+    "docs/architecture/validation-report.md",
+    "docs/architecture/tapping-validation-report.json",
+    "docs/architecture/tapping-validation-report.md",
+    "docs/architecture/projection-validation-report.json",
+    "docs/architecture/projection-validation-report.md",
+    "docs/architecture/tapping-workflow-validation-report.json",
+    "docs/architecture/tapping-workflow-validation-report.md"
+  ],
+  "unexpected_files": [],
+  "deferred_findings": [
+    "Comparison selection does not persist across page reload (no URL/query-string encoding) -- new-URL creation was explicitly prohibited, and this wasn't requested",
+    "No automatic difference-highlighting -- avoided to prevent implying an engineering judgment the data doesn't support"
+  ],
+  "knowledge_layer_changes": 0,
+  "new_engineering_values_introduced": false,
+  "adsense_or_monetization_touched": false,
+  "committed": false,
+  "pushed": false
+}

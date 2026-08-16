@@ -60,6 +60,30 @@
       "status": "pass",
       "errors": [],
       "warnings": []
+    },
+    {
+      "name": "Inline Script Is Valid JavaScript (node --check)",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Comparison UI Structure Present",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Comparison Logic: Max 4, No Duplicates, No Value Transformation",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "All Projection Records Remain Individually Selectable for Comparison",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
     }
   ]
 }

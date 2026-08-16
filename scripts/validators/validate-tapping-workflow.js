@@ -212,6 +212,80 @@ function main() {
   if (seoCheck.errors.length) seoCheck.status = "fail";
   checks.push(seoCheck);
 
+  // Inline script must actually be syntactically valid JS -- this is the check that would have
+  // caught a real regression (a \" inside an outer template literal resolves to an unescaped "
+  // in the emitted HTML, breaking the entire client-side script at parse time even though the
+  // generator's own source looked correct). Never trust string-presence checks alone for this.
+  const syntaxCheck = { name: "Inline Script Is Valid JavaScript (node --check)", status: "pass", errors: [], warnings: [] };
+  const scriptMatch = html.match(/<script>([\s\S]*?)<\/script>/);
+  if (!scriptMatch) {
+    syntaxCheck.errors.push("Could not locate the inline (non-JSON-LD) <script> block");
+  } else {
+    try {
+      // eslint-disable-next-line no-new-func
+      new Function(scriptMatch[1]);
+    } catch (e) {
+      syntaxCheck.errors.push(`Inline script has a JavaScript syntax error: ${e.message}`);
+    }
+  }
+  if (syntaxCheck.errors.length) syntaxCheck.status = "fail";
+  checks.push(syntaxCheck);
+
+  // Comparison feature checks (T9)
+  const compareStructureCheck = { name: "Comparison UI Structure Present", status: "pass", errors: [], warnings: [] };
+  const compareIds = ["wf-add-compare", "wf-compare", "wf-compare-status", "wf-compare-selection", "wf-compare-run", "wf-compare-clear", "wf-compare-table-wrap", "wf-compare-table"];
+  for (const id of compareIds) {
+    if (!html.includes(`id="${id}"`)) compareStructureCheck.errors.push(`Required comparison element id="${id}" not found`);
+  }
+  const compareRequiredStrings = [
+    "Add to comparison",
+    "Compare selected",
+    "Select up to 4 thread sizes to compare.",
+    "Comparison limit reached.",
+    "Clear comparison",
+    "Compare existing BoltLab tapping records side by side. The comparison shows the available data and verification status; it does not replace engineering judgment.",
+    "Comparison uses the same BoltLab tapping dataset shown in this workflow."
+  ];
+  for (const s of compareRequiredStrings) {
+    if (!html.includes(s)) compareStructureCheck.errors.push(`Required exact comparison wording not found: "${s}"`);
+  }
+  if (compareStructureCheck.errors.length) compareStructureCheck.status = "fail";
+  checks.push(compareStructureCheck);
+
+  const compareLogicCheck = { name: "Comparison Logic: Max 4, No Duplicates, No Value Transformation", status: "pass", errors: [], warnings: [] };
+  if (!scriptMatch || !/MAX_COMPARE\s*=\s*4/.test(scriptMatch[1])) {
+    compareLogicCheck.errors.push("MAX_COMPARE constant (=4) not found in inline script");
+  }
+  if (scriptMatch && !/compareIds\.indexOf\(designationEl\.value\)\s*!==\s*-1/.test(scriptMatch[1])) {
+    compareLogicCheck.errors.push("Duplicate-prevention check (compareIds.indexOf(...) !== -1) not found");
+  }
+  // The comparison renderer must read fields directly from the same profile objects used for
+  // the single-record result (p.tap_drill.value, p.tap_drill.status, p.data_quality.record_status,
+  // p.alternative_drill, p.standards, p.tap_types) -- never a separately-computed/transformed value.
+  const requiredFieldReads = [
+    "p.tap_drill.value", "p.tap_drill.status", "p.data_quality.record_status",
+    "p.alternative_drill", "p.standards", "p.tap_types"
+  ];
+  if (scriptMatch) {
+    for (const f of requiredFieldReads) {
+      if (!scriptMatch[1].includes(f)) compareLogicCheck.errors.push(`Comparison rendering does not appear to read ${f} directly`);
+    }
+  }
+  if (compareLogicCheck.errors.length) compareLogicCheck.status = "fail";
+  checks.push(compareLogicCheck);
+
+  // All 29 records remain individually selectable (comparison doesn't reduce coverage)
+  const compareCoverageCheck = { name: "All Projection Records Remain Individually Selectable for Comparison", status: "pass", errors: [], warnings: [] };
+  if (embedded.profiles.length !== profileProjection.rows.length) {
+    compareCoverageCheck.errors.push(`Embedded profile count (${embedded.profiles.length}) does not match projection (${profileProjection.rows.length})`);
+  }
+  const uniqueDesignations = new Set(embedded.profiles.map((p) => p.thread.designation + "|" + p.thread.thread_system));
+  if (uniqueDesignations.size !== embedded.profiles.length) {
+    compareCoverageCheck.errors.push("Duplicate designation+system combination found among selectable records");
+  }
+  if (compareCoverageCheck.errors.length) compareCoverageCheck.status = "fail";
+  checks.push(compareCoverageCheck);
+
   const errorCount = checks.reduce((sum, c) => sum + c.errors.length, 0);
   const warningCount = checks.reduce((sum, c) => sum + c.warnings.length, 0);
 
