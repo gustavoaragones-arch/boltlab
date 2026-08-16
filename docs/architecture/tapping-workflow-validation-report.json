@@ -1,0 +1,65 @@
+{
+  "status": "pass",
+  "errors": 0,
+  "warnings": 0,
+  "counts": {
+    "profiles": 29,
+    "tap_types": 7
+  },
+  "checks": [
+    {
+      "name": "Every Projection Record Represented (No Silent Drop)",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Designation, Tap-Drill, and Standards Fidelity",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "ISO 2306 Alternative Correctness (Present Only Where Sourced, Never Merged)",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Tap-Type Classifications Separate, No general_taxonomy Loss",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Verification Label Logic Present and Correctly Mapped",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Engagement Fields Remain Unavailable, No Unsupported Target",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Required Workflow UI Elements Present",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Exact Required Wording Present",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Canonical, No .html Hrefs, Links Resolve",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}

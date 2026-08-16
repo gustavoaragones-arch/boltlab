@@ -1,0 +1,119 @@
+{
+  "phase": "T8",
+  "title": "Tapping Workflow Decision Aid",
+  "date": "2026-08-16",
+  "status": "READY FOR REVIEW",
+  "baseline_commit": "351df5b8ec0b699ec9d4df350dcf97611291146c",
+  "baseline_checksums": {
+    "tapping_profiles_json": "f9739e1d1f8d214b9eb06e4396c9bd1c44c1765c72e644bd0f40bfb1eddf3060",
+    "tap_types_json": "63867da5f7f4a9eb5935b418bfc306ec143bf686f0269bb0689c6325ef480305",
+    "tapping_atlas_html_before": "76c6ca0843ce85ee08843536277161c3c11813b9783fbe5a0a6a9b1e9d1c03ce",
+    "tap_type_guide_html_before": "3a37677fc99c65e85e74961154ef23e30935ea4da6fcde4297f7b6434ae2638e",
+    "tapping_atlas_csv": "3a391f37c5ac32ac1bbaa0e49ed8ac54e2efd840f855d396dc084b1dc51e7551"
+  },
+  "product_url": "https://boltlab.io/tools/tapping-workflow",
+  "data_source_chain": "data/projections/tapping/tapping-profiles.json + tap-types.json (T3, unchanged) -> scripts/generators/generate-tapping-workflow.js -> js/tapping-workflow-data.js (generated data artifact) + tools/tapping-workflow.html. No raw entity/dataset/relationship file read.",
+  "record_coverage": {
+    "profiles": 29,
+    "tap_types": 7,
+    "all_records_represented": true,
+    "no_silent_drops": true
+  },
+  "verification_state_preservation": {
+    "tap_drill_verified": 9,
+    "tap_drill_source_bound": 20,
+    "overall_record_verified": 0,
+    "overall_record_source_bound": 29,
+    "field_vs_record_distinction_preserved": true
+  },
+  "iso_alternative_handling": {
+    "present_on_unc_unf": 15,
+    "present_on_metric": 0,
+    "never_merged_with_primary": true,
+    "exact_label_used": "ISO 2306 alternative drill"
+  },
+  "tap_type_classification_preservation": {
+    "classifications": ["general_taxonomy", "manufacturing_characteristics", "typical_applications", "manufacturer_specific_recommendations"],
+    "flattened": false,
+    "general_taxonomy_fact_present": true
+  },
+  "engagement_limitation_handling": {
+    "target_percent_null_for_all_profiles": true,
+    "axial_not_calculable_for_all_profiles": true,
+    "forbidden_patterns_found": 0,
+    "exact_required_sentence_present": true
+  },
+  "standards_handling": "Displayed only when present on the selected projection record; no new standards relationships created",
+  "provenance": "tap_drill.provenance carried unmodified from projection into embedded data; validated fact-by-fact, not just for presence",
+  "validator_results": {
+    "validate_knowledge_engine": { "status": "pass", "errors": 0 },
+    "validate_tapping_domain": { "status": "pass", "errors": 0, "warnings": 5 },
+    "validate_projections_generic": { "status": "pass", "errors": 0 },
+    "validate_tapping_projections": { "status": "pass", "errors": 0 },
+    "validate_tapping_atlas": { "status": "pass", "errors": 0 },
+    "validate_tap_type_guide": { "status": "pass", "errors": 0 },
+    "validate_tapping_workflow": { "status": "pass", "errors": 0, "checks_run": 12 }
+  },
+  "site_wide_qa": {
+    "broken_internal_links": 0,
+    "orphaned_pages": 0,
+    "duplicate_titles": 0,
+    "duplicate_meta_descriptions": 0,
+    "json_ld_parse_errors": 0,
+    "faq_mismatches": 0,
+    "html_hrefs": 0,
+    "sitemap_entries": "1 each for tapping-workflow, tapping-atlas, tap-type-guide"
+  },
+  "determinism": {
+    "runs": 3,
+    "checksums_identical": true,
+    "sha256_tapping_workflow_html": "9f2f1022d9a26aa8cbf989263f45029ad85c6138397c0c7ace921dece7c51a86",
+    "sha256_tapping_workflow_data_js": "d0907160b00b868e08b0da95347e1d736809697243849327a9b8dcda91ba3421"
+  },
+  "regression_checksums": {
+    "tapping_profiles_json_unchanged": true,
+    "tap_types_json_unchanged": true,
+    "tapping_atlas_csv_unchanged": true,
+    "tapping_atlas_html_changed": true,
+    "tapping_atlas_html_change_reason": "one approved discovery link added ('Tapping Workflow' in Related tools)",
+    "tap_type_guide_html_changed": true,
+    "tap_type_guide_html_change_reason": "one approved discovery link added ('Tapping Workflow' in Related references)"
+  },
+  "files_created": [
+    "scripts/generators/generate-tapping-workflow.js",
+    "scripts/validators/validate-tapping-workflow.js",
+    "tools/tapping-workflow.html",
+    "js/tapping-workflow-data.js",
+    "docs/architecture/t8-tapping-workflow.md",
+    "docs/architecture/tapping-workflow-validation-report.json",
+    "docs/architecture/tapping-workflow-validation-report.md",
+    "audit/t8-tapping-workflow.md",
+    "audit/t8-tapping-workflow.json",
+    "audit/t8-change-scope.md"
+  ],
+  "files_modified": [
+    "scripts/generators/generate-tapping-atlas.js",
+    "scripts/generators/generate-tap-type-guide.js",
+    "reference/tapping-atlas.html",
+    "reference/tap-type-guide.html",
+    "tools/index.html",
+    "tools/tap-drill-calculator.html",
+    "sitemap.xml",
+    "docs/architecture/validation-report.json",
+    "docs/architecture/validation-report.md",
+    "docs/architecture/tapping-validation-report.json",
+    "docs/architecture/tapping-validation-report.md",
+    "docs/architecture/projection-validation-report.json",
+    "docs/architecture/projection-validation-report.md"
+  ],
+  "unexpected_files": [],
+  "deferred_findings": [
+    "Link from reference/thread-atlas.html to the workflow not added -- generator-produced by a pipeline outside the tapping domain, same reasoning as T7's deferral",
+    "Multi-designation compare mode considered but out of scope -- no data gap, a future UX expansion only"
+  ],
+  "knowledge_layer_changes": 0,
+  "new_engineering_values_introduced": false,
+  "adsense_or_monetization_touched": false,
+  "committed": false,
+  "pushed": false
+}

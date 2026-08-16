@@ -430,6 +430,7 @@ ${tapTypeCards}
       <section class="card">
         <h2>Related tools</h2>
         <ul class="meta-list">
+          <li><a href="/tools/tapping-workflow">Tapping Workflow</a> — a guided, step-by-step decision aid built on this same data</li>
           <li><a href="/tools/tap-drill-calculator">Tap Drill Calculator</a></li>
           <li><a href="/tools/thread-identifier">Thread Identifier</a></li>
           <li><a href="/tools/thread-pitch-to-tpi-converter">Thread Pitch Converter</a></li>
