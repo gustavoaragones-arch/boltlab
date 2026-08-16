@@ -239,6 +239,7 @@ ${rows.map(renderTapTypeSection).join("\n\n")}
       <section class="card">
         <h2>Related references</h2>
         <ul class="meta-list">
+          <li><a href="/reference/tapping-evidence">Tapping Evidence &amp; Provenance</a> — see the classification and source behind each fact above</li>
           <li><a href="/tools/tapping-workflow">Tapping Workflow</a> — a guided, step-by-step decision aid built on this same data</li>
           <li><a href="/reference/tapping-atlas">Tapping &amp; Threading Atlas</a></li>
           <li><a href="/tools/tap-drill-calculator">Tap Drill Calculator</a></li>

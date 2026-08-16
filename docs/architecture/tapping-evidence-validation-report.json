@@ -1,0 +1,77 @@
+{
+  "status": "pass",
+  "errors": 0,
+  "warnings": 0,
+  "counts": {
+    "profiles": 29,
+    "tap_types": 7
+  },
+  "checks": [
+    {
+      "name": "Full Profile and Tap-Type Coverage (No Silent Drop)",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Tap-Drill, Status, ISO Alternative, and Cross-Verification Fidelity",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Tap-Type Classification, general_taxonomy, and Evidence-Kind Preservation",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Provenance Fields Preserved, Not Fabricated; Standards Projection-Backed",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Engagement Remains Not Calculable, No Unsupported Target",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Displayed Verification Counts Equal Projection Counts",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "JSON-LD Parses, Required Types Present",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Canonical Correct",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "No .html Hrefs, Internal Links Resolve",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Inline Script Is Valid JavaScript",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "No Overclaiming Language",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "phase": "T10",
+  "title": "Tapping Evidence & Provenance Explorer",
+  "date": "2026-08-16",
+  "status": "READY FOR REVIEW",
+  "baseline_commit": "9dc90f0bc311e1d76a3bafa30771803d2315790e",
+  "baseline_checksums": {
+    "tapping_profiles_json": "f9739e1d1f8d214b9eb06e4396c9bd1c44c1765c72e644bd0f40bfb1eddf3060",
+    "tap_types_json": "63867da5f7f4a9eb5935b418bfc306ec143bf686f0269bb0689c6325ef480305",
+    "tapping_workflow_html_before": "6d32d3a54719030cb4e2ead5e89be41bb07a4ce4d3c3922bfbd07335597fdf4a",
+    "tapping_workflow_data_js_before": "d0907160b00b868e08b0da95347e1d736809697243849327a9b8dcda91ba3421",
+    "tapping_atlas_html_before": "17200beaad0c8ebb7482d89e90e4c2fed2520deabe986571bb46654a793bb583",
+    "tap_type_guide_html_before": "10da2fc26dfef18703bf443c175f18831242e68c739aa96379b372c7310aff3b",
+    "tapping_atlas_csv": "3a391f37c5ac32ac1bbaa0e49ed8ac54e2efd840f855d396dc084b1dc51e7551"
+  },
+  "product_url": "https://boltlab.io/reference/tapping-evidence",
+  "data_source_chain": "data/projections/tapping/tapping-profiles.json + tap-types.json (T3, unchanged) -> js/tapping-workflow-data.js (T8's generated artifact, reused as-is, not duplicated) -> reference/tapping-evidence.html",
+  "architecture_note": "No new client-side data file was created. The generator reads the projections only to validate them and compute display counts; the browser reuses the exact same js/tapping-workflow-data.js script tag T8 already produces.",
+  "regression_discipline_carried_from_t9": {
+    "found_4_instances_of_the_t8_bug_pattern": true,
+    "pattern": "\\\" escape inside outer template literal, resolves to unescaped \" in emitted HTML",
+    "were_they_actually_broken": false,
+    "action_taken": "converted to the safe single-quote convention anyway, to eliminate the fragile pattern",
+    "verification_method": "node --check on extracted script + full DOM-mock execution of every interaction path"
+  },
+  "evidence_capabilities": {
+    "modes": ["Tap-drill evidence", "Tap-type evidence"],
+    "filters": ["Evidence type (all/tap-drill/tap-type)", "Thread system (all/metric/UNC/UNF)", "Evidence status (all/verified/source-bound)"],
+    "record_view_sections": ["Thread", "Value", "Provenance", "Cross-verification (only if present)", "Alternative (only if present)", "Standards (only if present)", "Limitations (only if present)"],
+    "tap_type_view_sections": ["General taxonomy", "Manufacturing characteristics", "Typical applications", "Manufacturer-specific recommendations"]
+  },
+  "profile_coverage": { "total": 29, "all_selectable": true, "none_silently_dropped": true },
+  "tap_type_coverage": { "total": 7, "all_selectable": true, "none_silently_dropped": true },
+  "verification_state_preservation": {
+    "tap_drill_verified": 9,
+    "tap_drill_source_bound": 20,
+    "overall_verified": 0,
+    "overall_source_bound": 29,
+    "tap_type_verified_facts": 1,
+    "tap_type_source_bound_facts": 15,
+    "counts_derived_dynamically_not_hardcoded": true,
+    "counts_mechanically_verified_equal_to_projection": true
+  },
+  "provenance_preservation": {
+    "source_dataset_source_record_source_field_shown": true,
+    "unavailable_shown_as": "Provenance not available in the current projection.",
+    "no_url_or_title_fabricated": true,
+    "no_source_field_renamed": true
+  },
+  "cross_verification_handling": {
+    "shown_only_when_present": true,
+    "distinguished_from_original_source": true,
+    "no_table_number_or_match_statement_invented": true
+  },
+  "iso_alternative_handling": {
+    "present_on_unc_unf_only": true,
+    "absent_on_metric": true,
+    "never_merged_or_averaged": true,
+    "verified_via_runtime_test": true
+  },
+  "tap_type_classification_preservation": {
+    "classifications_preserved_separately": true,
+    "general_taxonomy_fact_visible_and_marked_verified": true,
+    "verified_via_runtime_test": true
+  },
+  "standards_handling": "projection-backed only, resolved per record",
+  "engagement_handling": "fixed exact limitation sentence, zero numeric values, mechanically checked",
+  "accessibility": {
+    "native_controls": true,
+    "explicit_labels": true,
+    "aria_live_regions": true,
+    "verification_conveyed_in_text_not_color_alone": true,
+    "logical_heading_hierarchy": true
+  },
+  "validator_results": {
+    "validate_knowledge_engine": { "status": "pass", "errors": 0 },
+    "validate_tapping_domain": { "status": "pass", "errors": 0, "warnings": 5 },
+    "validate_projections_generic": { "status": "pass", "errors": 0 },
+    "validate_tapping_projections": { "status": "pass", "errors": 0 },
+    "validate_tapping_atlas": { "status": "pass", "errors": 0 },
+    "validate_tap_type_guide": { "status": "pass", "errors": 0 },
+    "validate_tapping_workflow": { "status": "pass", "errors": 0 },
+    "validate_tapping_evidence": { "status": "pass", "errors": 0, "checks_run": 13 }
+  },
+  "site_wide_qa": {
+    "broken_internal_links": 0,
+    "orphaned_pages": 0,
+    "duplicate_titles": 0,
+    "duplicate_meta_descriptions": 0,
+    "json_ld_parse_errors": 0,
+    "html_hrefs": 0,
+    "sitemap_correct": true
+  },
+  "determinism": {
+    "runs": 3,
+    "checksums_identical": true,
+    "sha256_tapping_evidence_html": "e03b6d002b8a55e05d6903b50050021b49a804ba0c75f93c146f70be3d7aee1e"
+  },
+  "regression_checksums": {
+    "tapping_profiles_json_unchanged": true,
+    "tap_types_json_unchanged": true,
+    "tapping_atlas_csv_unchanged": true,
+    "tapping_workflow_data_js_unchanged": true,
+    "tapping_atlas_html_changed": true,
+    "tapping_atlas_html_change_reason": "one approved discovery link added",
+    "tap_type_guide_html_changed": true,
+    "tap_type_guide_html_change_reason": "one approved discovery link added",
+    "tapping_workflow_html_changed": true,
+    "tapping_workflow_html_change_reason": "one approved discovery link added",
+    "t9_comparison_functionality_reverified_intact": true
+  },
+  "files_created": [
+    "scripts/generators/generate-tapping-evidence.js",
+    "scripts/validators/validate-tapping-evidence.js",
+    "reference/tapping-evidence.html",
+    "docs/architecture/t10-tapping-evidence.md",
+    "docs/architecture/tapping-evidence-validation-report.json",
+    "docs/architecture/tapping-evidence-validation-report.md",
+    "audit/t10-tapping-evidence.md",
+    "audit/t10-tapping-evidence.json",
+    "audit/t10-change-scope.md"
+  ],
+  "files_modified": [
+    "scripts/generators/generate-tapping-atlas.js",
+    "scripts/generators/generate-tap-type-guide.js",
+    "scripts/generators/generate-tapping-workflow.js",
+    "reference/index.html",
+    "reference/tapping-atlas.html",
+    "reference/tap-type-guide.html",
+    "tools/tapping-workflow.html",
+    "sitemap.xml",
+    "docs/architecture/validation-report.json",
+    "docs/architecture/validation-report.md",
+    "docs/architecture/tapping-validation-report.json",
+    "docs/architecture/tapping-validation-report.md",
+    "docs/architecture/projection-validation-report.json",
+    "docs/architecture/projection-validation-report.md"
+  ],
+  "unexpected_files": [],
+  "deferred_findings": [
+    "No explicit negative-case explainer for why a metric fine-pitch size isn't in the cross-verified 9 -- implicitly answered by the absent Cross-verification section",
+    "Standards' verification_state (e.g. 'current') not surfaced on this page -- considered data-methodology's concern, not this page's"
+  ],
+  "knowledge_layer_changes": 0,
+  "new_engineering_values_introduced": false,
+  "adsense_or_monetization_touched": false,
+  "committed": false,
+  "pushed": false
+}

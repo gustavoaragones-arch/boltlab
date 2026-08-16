@@ -440,6 +440,7 @@ ${tapTypeCards}
       <section class="card">
         <h2>Related engineering references</h2>
         <ul class="meta-list">
+          <li><a href="/reference/tapping-evidence">Tapping Evidence &amp; Provenance</a> — trace any value on this page to its documented source and verification status</li>
           <li><a href="/reference/thread-atlas">Unified Thread Atlas</a></li>
           <li><a href="/reference/metric-thread-atlas">Metric Thread Atlas</a></li>
           <li><a href="/reference/data-methodology">Engineering Data Methodology</a></li>

@@ -201,6 +201,7 @@ function renderHtml() {
         <ul class="meta-list">
           <li>Browse the full tapping dataset in the <a href="/reference/tapping-atlas">Tapping &amp; Threading Atlas</a>.</li>
           <li>See the <a href="/reference/tap-type-guide">Tap-Type Guide</a> for the full evidence-backed comparison.</li>
+          <li>Wondering why a value is verified or source-bound? See <a href="/reference/tapping-evidence">Tapping Evidence &amp; Provenance</a>.</li>
           <li>Need a quick metric tap-drill calculation? Use the <a href="/tools/tap-drill-calculator">Tap Drill Calculator</a>.</li>
         </ul>
       </section>
