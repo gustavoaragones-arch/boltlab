@@ -1,0 +1,76 @@
+{
+  "status": "pass",
+  "errors": 0,
+  "warnings": 0,
+  "expected_from_projection": {
+    "tapTypeCount": 7,
+    "totalFacts": 16,
+    "verifiedFacts": 1,
+    "sourceBoundFacts": 15,
+    "entityIds": [
+      "bottoming_tap",
+      "forming_tap",
+      "hand_tap",
+      "plug_tap",
+      "spiral_flute_tap",
+      "spiral_point_tap",
+      "taper_tap"
+    ]
+  },
+  "checks": [
+    {
+      "name": "Every Tap Type Represented, Including general_taxonomy",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Verified/Source-Bound Counts Match Projection",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "No Unsupported Engagement Recommendation",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "No Overclaiming Language",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "FAQ Identity Match (JSON-LD vs Visible)",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "JSON-LD Parses and Required Types Present",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "No .html Internal Hrefs",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Internal Links Resolve",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "Canonical Extensionless",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}

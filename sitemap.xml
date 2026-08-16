@@ -1101,6 +1101,11 @@
     <priority>0.65</priority>
   </url>
   <url>
+    <loc>https://boltlab.io/reference/tap-type-guide</loc>
+    <lastmod>2026-08-15</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://boltlab.io/reference/data-methodology</loc>
     <lastmod>2026-08-10</lastmod>
     <priority>0.65</priority>
