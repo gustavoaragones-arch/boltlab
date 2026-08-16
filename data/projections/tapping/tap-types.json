@@ -23,6 +23,15 @@
       "title": "Bottoming Tap",
       "taxonomy_axis": null,
       "definition": "A tap with a short chamfer, typically engaging one to one and a half threads before reaching full thread form, designed to cut threads as close as practical to the bottom of a blind hole.",
+      "general_taxonomy": [
+        {
+          "fact": "Incomplete internal threads are inherently present at the bottom of a tapped blind hole -- the physical reason bottoming taps exist as a distinct style.",
+          "classification": "general_taxonomy",
+          "source": "NASA-STD-5020A section 4.7.5 [TFSR 25]: \"Where blind holes are tapped, incomplete internal threads are present at the bottom of the hole.\"",
+          "source_tier": 1,
+          "status": "verified"
+        }
+      ],
       "manufacturing_characteristics": [
         {
           "fact": "Chamfer length is approximately 1-2 threads/pitches, the shortest of the three chamfer-length tap styles.",
@@ -52,6 +61,7 @@
       "title": "Forming Tap",
       "taxonomy_axis": null,
       "definition": "A tap that forms threads by radially displacing material rather than cutting it, producing no chips; also referred to as a roll tap or fluteless tap.",
+      "general_taxonomy": [],
       "manufacturing_characteristics": [
         {
           "fact": "Requires a larger pre-tap hole diameter than an equivalent cutting tap, since material is displaced outward rather than removed.",
@@ -96,6 +106,7 @@
       "title": "Hand Tap",
       "taxonomy_axis": null,
       "definition": "A tap designed for manual operation with a tap wrench, typically supplied as part of a set spanning taper, plug, and bottoming chamfer styles for a given thread size.",
+      "general_taxonomy": [],
       "manufacturing_characteristics": [],
       "typical_applications": [
         {
@@ -117,6 +128,7 @@
       "title": "Plug Tap",
       "taxonomy_axis": null,
       "definition": "A tap with a moderate chamfer length, shorter than a taper tap but longer than a bottoming tap, engaging approximately three to five threads before reaching full thread form.",
+      "general_taxonomy": [],
       "manufacturing_characteristics": [
         {
           "fact": "Chamfer length is approximately 3-5 threads/pitches, shorter than a taper tap and longer than a bottoming tap.",
@@ -146,6 +158,7 @@
       "title": "Spiral Flute Tap",
       "taxonomy_axis": null,
       "definition": "A tap with helical (spiral) flutes that lift chips backward out of the hole entrance during cutting, commonly associated with blind-hole applications.",
+      "general_taxonomy": [],
       "manufacturing_characteristics": [
         {
           "fact": "Helical (spiral) flutes lift chips backward, up and out of the hole entrance, opposite in direction to a spiral-point tap.",
@@ -175,6 +188,7 @@
       "title": "Spiral Point Tap",
       "taxonomy_axis": null,
       "definition": "A tap with an angled point ground onto the flutes that pushes chips forward, ahead of the tap and out through the far side of the hole, commonly associated with through-hole applications.",
+      "general_taxonomy": [],
       "manufacturing_characteristics": [
         {
           "fact": "Also called a gun tap or gun-nose tap; a forward-angled point ground onto the cutting chamfer drives chips forward, ahead of the tap.",
@@ -204,6 +218,7 @@
       "title": "Taper Tap",
       "taxonomy_axis": null,
       "definition": "A tap with a gradually tapered chamfer at the point, typically engaging six to eight threads before reaching full thread form, used to start threads gradually and reduce cutting force per pass.",
+      "general_taxonomy": [],
       "manufacturing_characteristics": [
         {
           "fact": "Chamfer length is approximately 7-10 threads/pitches, the longest of the three chamfer-length tap styles.",

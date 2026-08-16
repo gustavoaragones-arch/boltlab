@@ -55,6 +55,12 @@
       "status": "pass",
       "errors": [],
       "warnings": []
+    },
+    {
+      "name": "Application-Note Completeness (No Silent Drop, Duplication, or Reclassification)",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
     }
   ]
 }

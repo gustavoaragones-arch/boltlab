@@ -31,13 +31,18 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["entity_id", "title", "taxonomy_axis", "definition", "manufacturing_characteristics", "typical_applications", "manufacturer_specific_recommendations", "evidence_status"],
+        "required": ["entity_id", "title", "taxonomy_axis", "definition", "general_taxonomy", "manufacturing_characteristics", "typical_applications", "manufacturer_specific_recommendations", "evidence_status"],
         "additionalProperties": false,
         "properties": {
           "entity_id": { "type": "string" },
           "title": { "type": "string" },
           "taxonomy_axis": { "type": ["string", "null"] },
           "definition": { "type": "string" },
+          "general_taxonomy": {
+            "type": "array",
+            "description": "application_notes classified general_taxonomy -- settled, definitional facts, distinct from manufacturing/application/manufacturer-specific notes. Added by the T3 tap-type correction; this classification exists in the knowledge layer (entity.schema.json's application_notes.classification enum) but was previously omitted from this projection's row shape.",
+            "items": { "$ref": "#/$defs/note" }
+          },
           "manufacturing_characteristics": {
             "type": "array",
             "items": { "$ref": "#/$defs/note" }

@@ -212,6 +212,7 @@ function buildTapTypeProjection(root, knowledge) {
       title: entity.title,
       taxonomy_axis: entity.taxonomy_axis || null,
       definition: entity.definition,
+      general_taxonomy: byClass("general_taxonomy"),
       manufacturing_characteristics: byClass("manufacturing_characteristic"),
       typical_applications: byClass("typical_application"),
       manufacturer_specific_recommendations: byClass("manufacturer_specific_recommendation"),

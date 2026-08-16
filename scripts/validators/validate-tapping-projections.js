@@ -151,7 +151,7 @@ function main() {
   }
   for (const row of tapTypeProjection.rows) {
     const noteCount =
-      row.manufacturing_characteristics.length + row.typical_applications.length + row.manufacturer_specific_recommendations.length;
+      row.general_taxonomy.length + row.manufacturing_characteristics.length + row.typical_applications.length + row.manufacturer_specific_recommendations.length;
     if (noteCount === 0) {
       orphanCheck.warnings.push(`tap-types.json: ${row.entity_id} has no application notes`);
     }
@@ -167,6 +167,56 @@ function main() {
     taxonomyCheck.errors.push("hole_preparation entities do not preserve multiple distinct taxonomy_axis values -- taxonomy may have been flattened.");
   }
   checks.push(taxonomyCheck);
+
+  // 9. Application-note completeness: every knowledge-layer application_notes classification
+  // must have a corresponding projection array, and every individual fact (matched by exact
+  // text) must appear exactly once downstream with its classification, status, and source
+  // preserved unchanged. Added after a real bug where general_taxonomy facts (including one
+  // VERIFIED, primary-sourced fact) were silently dropped because the projection's row shape
+  // had no array for that classification -- see audit/t3-tap-type-correction.md.
+  const completenessCheck = { name: "Application-Note Completeness (No Silent Drop, Duplication, or Reclassification)", status: "pass", errors: [], warnings: [] };
+  const CLASSIFICATION_TO_FIELD = {
+    general_taxonomy: "general_taxonomy",
+    manufacturing_characteristic: "manufacturing_characteristics",
+    typical_application: "typical_applications",
+    manufacturer_specific_recommendation: "manufacturer_specific_recommendations"
+  };
+  const tapTypeEntitiesById = new Map(
+    knowledge.entities.filter((e) => e.entity_type === "tap_type").map((e) => [e.id, e])
+  );
+  for (const row of tapTypeProjection.rows) {
+    const entity = tapTypeEntitiesById.get(row.entity_id);
+    if (!entity) {
+      completenessCheck.errors.push(`${row.entity_id}: no matching tap_type entity found in knowledge layer`);
+      continue;
+    }
+    const sourceNotes = entity.application_notes || [];
+    for (const note of sourceNotes) {
+      const field = CLASSIFICATION_TO_FIELD[note.classification];
+      if (!field) {
+        completenessCheck.errors.push(`${row.entity_id}: unknown application_notes classification "${note.classification}" has no projection field -- would be silently dropped`);
+        continue;
+      }
+      const projected = (row[field] || []).filter((n) => n.fact === note.fact);
+      if (projected.length === 0) {
+        completenessCheck.errors.push(`${row.entity_id}: fact dropped from projection -- "${note.fact.slice(0, 60)}..."`);
+      } else if (projected.length > 1) {
+        completenessCheck.errors.push(`${row.entity_id}: fact duplicated in projection (${projected.length}x) -- "${note.fact.slice(0, 60)}..."`);
+      } else if (projected[0].status !== note.status) {
+        completenessCheck.errors.push(`${row.entity_id}: fact status changed in projection (source=${note.status}, projected=${projected[0].status})`);
+      }
+    }
+    const projectedTotal =
+      (row.general_taxonomy || []).length +
+      (row.manufacturing_characteristics || []).length +
+      (row.typical_applications || []).length +
+      (row.manufacturer_specific_recommendations || []).length;
+    if (projectedTotal !== sourceNotes.length) {
+      completenessCheck.errors.push(`${row.entity_id}: projected fact count (${projectedTotal}) does not match source application_notes count (${sourceNotes.length})`);
+    }
+  }
+  if (completenessCheck.errors.length) completenessCheck.status = "fail";
+  checks.push(completenessCheck);
 
   const errorCount = checks.reduce((sum, c) => sum + c.errors.length, 0);
   const warningCount = checks.reduce((sum, c) => sum + c.warnings.length, 0);
