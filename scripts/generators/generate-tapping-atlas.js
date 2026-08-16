@@ -186,7 +186,7 @@ function renderTapTypeSection(tapTypeProjection) {
       };
       return `<article class="card">
   <h3>${escapeHtml(row.title)}</h3>
-  <p class="muted">${escapeHtml(row.definition)}</p>${noteGroup(row.manufacturing_characteristics, "Manufacturing characteristic")}${noteGroup(row.typical_applications, "Typical application")}${noteGroup(row.manufacturer_specific_recommendations, "Manufacturer-specific recommendation")}
+  <p class="muted">${escapeHtml(row.definition)}</p>${noteGroup(row.general_taxonomy, "General taxonomy")}${noteGroup(row.manufacturing_characteristics, "Manufacturing characteristic")}${noteGroup(row.typical_applications, "Typical application")}${noteGroup(row.manufacturer_specific_recommendations, "Manufacturer-specific recommendation")}
 </article>`;
     })
     .join("\n");

@@ -186,6 +186,79 @@ function main() {
   if (linkCheck.errors.length) linkCheck.status = "fail";
   checks.push(linkCheck);
 
+  // 11. Tap-type evidence completeness: every classification the tap-type projection actually
+  // carries (general_taxonomy, manufacturing_characteristics, typical_applications,
+  // manufacturer_specific_recommendations) must be represented in the Atlas HTML for every tap
+  // type that has facts in that classification -- fact-by-fact, not just "the word appears
+  // somewhere." Added after a real bug where general_taxonomy (including the one VERIFIED,
+  // NASA-STD-5020A-sourced fact) was silently dropped by the Atlas generator even after the T3
+  // projection itself was corrected -- see audit/t6-tapping-atlas-completeness.md.
+  const tapTypeCompletenessCheck = { name: "Tap-Type Evidence Completeness (All 4 Classifications Rendered)", status: "pass", errors: [], warnings: [] };
+  const CLASSIFICATION_FIELDS = ["general_taxonomy", "manufacturing_characteristics", "typical_applications", "manufacturer_specific_recommendations"];
+  const CLASSIFICATION_LABELS = {
+    general_taxonomy: "General taxonomy",
+    manufacturing_characteristics: "Manufacturing characteristic",
+    typical_applications: "Typical application",
+    manufacturer_specific_recommendations: "Manufacturer-specific recommendation"
+  };
+  let tapTypeFactsChecked = 0;
+  for (const row of tapTypeProjection.rows) {
+    // Locate this tap type's card by its title heading, to scope the fact search and catch reclassification/duplication.
+    const cardMatch = html.match(new RegExp(`<h3>${row.title.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\\\$&")}</h3>[\\s\\S]*?</article>`));
+    const cardHtml = cardMatch ? cardMatch[0] : "";
+    if (!cardMatch) {
+      tapTypeCompletenessCheck.errors.push(`${row.entity_id}: no card found in Atlas HTML for tap type "${row.title}"`);
+      continue;
+    }
+    for (const field of CLASSIFICATION_FIELDS) {
+      const notes = row[field] || [];
+      if (notes.length === 0) continue;
+      const label = CLASSIFICATION_LABELS[field];
+      if (!cardHtml.includes(`>${label}<`)) {
+        tapTypeCompletenessCheck.errors.push(`${row.entity_id}: has ${notes.length} "${field}" fact(s) in the projection but no "${label}" heading found in its Atlas card -- classification silently dropped`);
+        continue;
+      }
+      for (const note of notes) {
+        tapTypeFactsChecked += 1;
+        const escapedFact = note.fact.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        const occurrences = cardHtml.split(escapedFact).length - 1;
+        if (occurrences === 0) {
+          tapTypeCompletenessCheck.errors.push(`${row.entity_id}: fact dropped from Atlas HTML -- "${note.fact.slice(0, 60)}..."`);
+        } else if (occurrences > 1) {
+          tapTypeCompletenessCheck.errors.push(`${row.entity_id}: fact duplicated in Atlas HTML (${occurrences}x) -- "${note.fact.slice(0, 60)}..."`);
+        } else {
+          const expectedStatusWord = note.status === "verified" ? "Verified" : note.status === "source_bound" ? "Source-bound" : note.status;
+          if (!cardHtml.includes(`${escapedFact} <span class="muted">(${expectedStatusWord})`)) {
+            tapTypeCompletenessCheck.errors.push(`${row.entity_id}: fact status not preserved/adjacent in Atlas HTML for -- "${note.fact.slice(0, 60)}..." (expected status label "${expectedStatusWord}")`);
+          }
+        }
+      }
+    }
+  }
+  if (tapTypeFactsChecked === 0) {
+    tapTypeCompletenessCheck.errors.push("No tap-type facts were checked at all -- projection may be empty or check logic broken.");
+  }
+  if (tapTypeCompletenessCheck.errors.length) tapTypeCompletenessCheck.status = "fail";
+  checks.push(tapTypeCompletenessCheck);
+
+  // 12. The specific NASA-STD-5020A verified bottoming-tap fact must be present and marked verified
+  const nasaFactCheck = { name: "NASA-STD-5020A Verified Bottoming-Tap Fact Present", status: "pass", errors: [], warnings: [] };
+  const bottomingRow = tapTypeProjection.rows.find((r) => r.entity_id === "bottoming_tap");
+  const nasaFact = bottomingRow ? bottomingRow.general_taxonomy.find((n) => n.status === "verified") : null;
+  if (!nasaFact) {
+    nasaFactCheck.errors.push("Expected VERIFIED general_taxonomy fact on bottoming_tap not found in projection -- has the knowledge layer regressed?");
+  } else {
+    const escapedFact = nasaFact.fact.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    if (!html.includes(escapedFact)) {
+      nasaFactCheck.errors.push("NASA-STD-5020A verified bottoming-tap fact is present in the projection but absent from the Atlas HTML.");
+    }
+    if (!html.includes(`${escapedFact} <span class="muted">(Verified)`)) {
+      nasaFactCheck.errors.push("NASA-STD-5020A fact is present but not rendered with a Verified status label immediately adjacent.");
+    }
+  }
+  if (nasaFactCheck.errors.length) nasaFactCheck.status = "fail";
+  checks.push(nasaFactCheck);
+
   const errorCount = checks.reduce((sum, c) => sum + c.errors.length, 0);
   const warningCount = checks.reduce((sum, c) => sum + c.warnings.length, 0);
 

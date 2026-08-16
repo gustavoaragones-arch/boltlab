@@ -1,0 +1,101 @@
+{
+  "phase": "T6",
+  "title": "Tapping Atlas Completeness & Downstream Projection Repair",
+  "date": "2026-08-15",
+  "status": "READY FOR REVIEW",
+  "baseline_commit": "6970fe93149884ff5e23259ea2a30e7880b98421",
+  "root_cause": "generate-tapping-atlas.js's renderTapTypeSection() called noteGroup() for only 3 of the tap-type projection's 4 classification fields (manufacturing_characteristics, typical_applications, manufacturer_specific_recommendations), omitting general_taxonomy. The T4 generator predated T3's tap-type correction and was never updated when the projection gained the fourth field.",
+  "why_t3_was_already_correct": "T3's buildTapTypeProjection() is the sole knowledge-to-projection mapping point; once fixed, every projection consumer written or run after the fix (including T5) received the complete data automatically. T4's own hard-coded 3-field call list was the only place the omission persisted.",
+  "exact_projection_field_restored_downstream": "general_taxonomy",
+  "nasa_fact": {
+    "entity": "bottoming_tap",
+    "fact": "Incomplete internal threads are inherently present at the bottom of a tapped blind hole -- the physical reason bottoming taps exist as a distinct style.",
+    "source": "NASA-STD-5020A section 4.7.5 [TFSR 25]",
+    "status": "verified",
+    "now_rendered_in_atlas": true
+  },
+  "atlas_representation": {
+    "before": "3 classification headings per tap type (Manufacturing characteristic, Typical application, Manufacturer-specific recommendation)",
+    "after": "4 classification headings per tap type, General taxonomy rendered first",
+    "new_pages_created": 0,
+    "new_urls_created": 0,
+    "canonical_unchanged": true,
+    "title_unchanged": true,
+    "meta_description_unchanged": true
+  },
+  "csv_decision": {
+    "changed": false,
+    "reason": "CSV grain is per-tapping-profile (29 rows); tap_types column lists type IDs only, not tap-type-level application facts. Adding general_taxonomy text would require duplicating the same fact across many unrelated profile rows or restructuring the CSV's grain -- both out of scope for a downstream consumption repair.",
+    "csv_checksum_before": "3a391f37c5ac32ac1bbaa0e49ed8ac54e2efd840f855d396dc084b1dc51e7551",
+    "csv_checksum_after": "3a391f37c5ac32ac1bbaa0e49ed8ac54e2efd840f855d396dc084b1dc51e7551",
+    "confirmed_unchanged": true
+  },
+  "verification_state_preservation": {
+    "tap_drill_verified": 9,
+    "tap_drill_source_bound": 20,
+    "overall_record_verified": 0,
+    "overall_record_source_bound": 29,
+    "general_taxonomy_fact_being_verified_does_not_promote_tap_type_or_profile": true
+  },
+  "provenance_preservation": "Every fact's status label rendered immediately adjacent to its text, matching the projection exactly; validated fact-by-fact, not by substring presence",
+  "validator_protection_added": {
+    "file": "scripts/validators/validate-tapping-atlas.js",
+    "new_checks": [
+      "Tap-Type Evidence Completeness (All 4 Classifications Rendered)",
+      "NASA-STD-5020A Verified Bottoming-Tap Fact Present"
+    ],
+    "checks_are_fact_level_not_keyword_search": true
+  },
+  "t3_projection_checksum_preservation": {
+    "tapping_profiles_json_before": "f9739e1d1f8d214b9eb06e4396c9bd1c44c1765c72e644bd0f40bfb1eddf3060",
+    "tapping_profiles_json_after": "f9739e1d1f8d214b9eb06e4396c9bd1c44c1765c72e644bd0f40bfb1eddf3060",
+    "tap_types_json_before": "63867da5f7f4a9eb5935b418bfc306ec143bf686f0269bb0689c6325ef480305",
+    "tap_types_json_after": "63867da5f7f4a9eb5935b418bfc306ec143bf686f0269bb0689c6325ef480305",
+    "both_byte_identical": true
+  },
+  "t5_regression_result": {
+    "tap_type_guide_html_before": "4b1d1a0b396975341af53811fa36e358458ea6bf4c63a41dea9dea8d61e5f166",
+    "tap_type_guide_html_after": "4b1d1a0b396975341af53811fa36e358458ea6bf4c63a41dea9dea8d61e5f166",
+    "byte_identical": true,
+    "not_regenerated": true
+  },
+  "deterministic_generation": {
+    "runs": 3,
+    "checksums_identical": true,
+    "sha256_tapping_atlas_html_before": "ec9c4d005c0c2b64cc2e143149b09b6ad4f55637c03e7769034e590ffc226ca1",
+    "sha256_tapping_atlas_html_after": "603296867f1c6775c9b3a9c2e715b67a01635cae14de5e87b0ae1b23c71a6376",
+    "sha256_tapping_atlas_csv_unchanged": "3a391f37c5ac32ac1bbaa0e49ed8ac54e2efd840f855d396dc084b1dc51e7551"
+  },
+  "validator_results": {
+    "validate_knowledge_engine": { "status": "pass", "errors": 0 },
+    "validate_tapping_domain": { "status": "pass", "errors": 0, "warnings": 5 },
+    "validate_projections_generic": { "status": "pass", "errors": 0 },
+    "validate_tapping_projections": { "status": "pass", "errors": 0 },
+    "validate_tapping_atlas_extended": { "status": "pass", "errors": 0, "total_checks": 12 }
+  },
+  "files_created": [
+    "docs/architecture/t6-tapping-atlas-completeness.md",
+    "audit/t6-tapping-atlas-completeness.md",
+    "audit/t6-tapping-atlas-completeness.json",
+    "audit/t6-change-scope.md"
+  ],
+  "files_modified": [
+    "scripts/generators/generate-tapping-atlas.js",
+    "scripts/validators/validate-tapping-atlas.js",
+    "reference/tapping-atlas.html",
+    "docs/architecture/validation-report.json",
+    "docs/architecture/validation-report.md",
+    "docs/architecture/tapping-validation-report.json",
+    "docs/architecture/tapping-validation-report.md",
+    "docs/architecture/projection-validation-report.json",
+    "docs/architecture/projection-validation-report.md",
+    "docs/architecture/tapping-atlas-validation-report.json",
+    "docs/architecture/tapping-atlas-validation-report.md"
+  ],
+  "unexpected_files": [],
+  "deferred_items": [],
+  "new_engineering_values_introduced": false,
+  "knowledge_layer_changes": 0,
+  "committed": false,
+  "pushed": false
+}

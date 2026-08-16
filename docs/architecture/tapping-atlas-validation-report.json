@@ -106,6 +106,18 @@
       "status": "pass",
       "errors": [],
       "warnings": []
+    },
+    {
+      "name": "Tap-Type Evidence Completeness (All 4 Classifications Rendered)",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "NASA-STD-5020A Verified Bottoming-Tap Fact Present",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
     }
   ]
 }
