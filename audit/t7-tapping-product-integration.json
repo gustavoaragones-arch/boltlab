@@ -1,0 +1,134 @@
+{
+  "phase": "T7",
+  "title": "Tapping Product Integration & Discovery",
+  "date": "2026-08-16",
+  "status": "READY FOR REVIEW",
+  "baseline_commit": "527037a40ad9e34f6f220dd80cf970c559f44ac1",
+  "baseline_checksums": {
+    "tapping_profiles_json": "f9739e1d1f8d214b9eb06e4396c9bd1c44c1765c72e644bd0f40bfb1eddf3060",
+    "tap_types_json": "63867da5f7f4a9eb5935b418bfc306ec143bf686f0269bb0689c6325ef480305",
+    "tapping_atlas_html_before": "603296867f1c6775c9b3a9c2e715b67a01635cae14de5e87b0ae1b23c71a6376",
+    "tap_type_guide_html_before": "4b1d1a0b396975341af53811fa36e358458ea6bf4c63a41dea9dea8d61e5f166",
+    "tapping_atlas_csv": "3a391f37c5ac32ac1bbaa0e49ed8ac54e2efd840f855d396dc084b1dc51e7551"
+  },
+  "discovery_audit": {
+    "A_atlas_discovery_before": "reference/index.html (Standards & engineering data card) only",
+    "B_tap_type_guide_discovery_before": "reference/index.html (Standards & engineering data card) only",
+    "C1_atlas_to_guide_link_existed": false,
+    "C2_guide_to_atlas_link_existed": true,
+    "C2_detail": "Existing link was a bare list item in a generic 'Related references' section, not the required contextual 'Browse tapping data' framing",
+    "D_thread_engineering_cross_links": {
+      "tapping_atlas_already_linked_to": ["thread-atlas", "metric-thread-atlas", "tap-drill-calculator", "thread-identifier", "thread-pitch-to-tpi-converter", "standards hub", "3 ISO standard pages", "data-methodology"],
+      "tap_type_guide_already_linked_to": ["tapping-atlas", "tap-drill-calculator", "standards hub", "data-methodology"],
+      "reverse_links_from_thread_atlas_html": 0,
+      "reverse_links_from_metric_thread_atlas_html": 0,
+      "reverse_links_from_thread_engineering_index": 0,
+      "reverse_links_from_tap_drill_calculator": 0,
+      "reverse_links_from_homepage": 0
+    },
+    "E_csv_discovery_before": "Only discoverable from within tapping-atlas.html itself; not mentioned on tap-type-guide.html",
+    "F_ia_consistency": "Both products already followed the established reference/index.html hub-card convention (matching thread-atlas, metric-thread-atlas discovery pattern); the gap was contextual cross-linking BETWEEN sibling tapping products and FROM one adjacent tool, not hub-level discovery"
+  },
+  "changes_made": [
+    {
+      "change": "Added 'Explore tap types' section to Tapping Atlas, exact required wording, linking to /reference/tap-type-guide",
+      "file": "scripts/generators/generate-tapping-atlas.js",
+      "reason": "Required by phase brief Section 7; closes the C1 gap (no existing Atlas->Guide link)"
+    },
+    {
+      "change": "Added 'Browse tapping data' section to Tap Type Guide, exact required wording, linking to /reference/tapping-atlas, positioned as a dedicated contextual block rather than a bare list item",
+      "file": "scripts/generators/generate-tap-type-guide.js",
+      "reason": "Required by phase brief Section 7; upgrades the existing bare C2 link to the required framing"
+    },
+    {
+      "change": "Added 'Download the tapping dataset (CSV)' link to Tap Type Guide's new 'Browse tapping data' section",
+      "file": "scripts/generators/generate-tap-type-guide.js",
+      "reason": "Closes the E gap -- CSV was not discoverable from the Tap Type Guide; exact required wording used; CSV schema/grain untouched"
+    },
+    {
+      "change": "Added one contextual link to Tapping Atlas in the existing 'Related guides' list",
+      "file": "tools/tap-drill-calculator.html",
+      "reason": "Closes reverse-discovery gap explicitly named as an example in the brief ('tap drill -> tapping data'); file is hand-maintained, no generator drift risk"
+    }
+  ],
+  "deferred_items": [
+    {
+      "item": "Reverse links from reference/thread-atlas.html and reference/metric-thread-atlas.html to the Tapping Atlas",
+      "reason": "Both files are generator-produced by unrelated pipelines (generate-thread-atlas-page.js and generate-atlas-page.js respectively, each with their own projection). Adding a link properly would require modifying foreign generator architecture outside the tapping domain; hand-editing the HTML output directly would create silent-drift risk (the edit would be lost on next regeneration) -- both against the phase's explicit scope discipline ('do not create a second tapping architecture', 'do not touch unrelated architecture'). Existing one-way links (Atlas -> Thread Atlas, Atlas -> Metric Thread Atlas) plus the shared reference/index.html hub already provide a discovery path.",
+      "severity": "low",
+      "recommendation": "If desired, a future phase scoped specifically to those generators could add this reverse link"
+    },
+    {
+      "item": "Links from reference/thread-engineering/index.html",
+      "reason": "That hub organizes content by tolerance/fit-class/geometry/inspection categories; tapping is not a natural fit for its existing taxonomy, and reference/index.html already surfaces both tapping products as siblings",
+      "severity": "low"
+    },
+    {
+      "item": "Links from guides/thread-types-explained.html, guides/thread-pitch-explained.html, guides/metric-thread-tolerances.html",
+      "reason": "No sufficiently strong, non-redundant user-question justification found during audit; avoided to prevent 'circular SEO filler' per explicit phase guidance",
+      "severity": "low"
+    }
+  ],
+  "not_changed": {
+    "homepage": "No change -- reference/index.html hub already provides the established discovery path per D1.5 IA convention; no gap demonstrated that justifies a homepage-level change",
+    "navigation_taxonomy": "No new top-level category added -- both products remain under the existing Reference architecture",
+    "sitemap": "No change needed -- both URLs already present from T4/T5",
+    "csv_grain": "Unchanged -- 29 rows, per-tapping-profile grain preserved exactly"
+  },
+  "regression_results": {
+    "tapping_profiles_json_unchanged": true,
+    "tap_types_json_unchanged": true,
+    "tapping_atlas_csv_unchanged": true,
+    "nasa_verified_fact_still_visible_on_atlas": true,
+    "tap_drill_verification_counts_unchanged": "9 verified / 20 source-bound",
+    "overall_record_status_unchanged": "0 verified / 29 source-bound",
+    "t5_tap_type_guide_functionally_intact": true,
+    "t5_note": "T5 HTML content changed (new cross-link block added, as required by this phase's own Section 7); all T5 validator checks still pass and FAQ identity still matches -- 'must not regress' interpreted as functional integrity, not byte-identity, since Section 7 explicitly required this file to change"
+  },
+  "validator_results": {
+    "validate_knowledge_engine": { "status": "pass", "errors": 0 },
+    "validate_tapping_domain": { "status": "pass", "errors": 0, "warnings": 5 },
+    "validate_projections_generic": { "status": "pass", "errors": 0 },
+    "validate_tapping_projections": { "status": "pass", "errors": 0 },
+    "validate_tapping_atlas": { "status": "pass", "errors": 0 },
+    "validate_tap_type_guide": { "status": "pass", "errors": 0 }
+  },
+  "site_wide_checks": {
+    "broken_internal_links": 0,
+    "html_hrefs": 0,
+    "duplicate_titles": 0,
+    "duplicate_descriptions": 0,
+    "json_ld_parse_errors": 0,
+    "faq_identity_mismatches": 0,
+    "sitemap_entries_for_both_urls": 1
+  },
+  "final_link_counts": {
+    "links_into_tapping_atlas": "reference/index.html, reference/tap-type-guide.html (upgraded), tools/tap-drill-calculator.html (new)",
+    "links_into_tap_type_guide": "reference/index.html, reference/tapping-atlas.html (new)",
+    "atlas_to_guide_cross_link": true,
+    "guide_to_atlas_cross_link": true,
+    "csv_discoverable_from_guide": true
+  },
+  "files_created": [
+    "audit/t7-tapping-product-integration.md",
+    "audit/t7-tapping-product-integration.json",
+    "audit/t7-change-scope.md"
+  ],
+  "files_modified": [
+    "scripts/generators/generate-tapping-atlas.js",
+    "scripts/generators/generate-tap-type-guide.js",
+    "reference/tapping-atlas.html",
+    "reference/tap-type-guide.html",
+    "tools/tap-drill-calculator.html",
+    "docs/architecture/validation-report.json",
+    "docs/architecture/validation-report.md",
+    "docs/architecture/tapping-validation-report.json",
+    "docs/architecture/tapping-validation-report.md",
+    "docs/architecture/projection-validation-report.json",
+    "docs/architecture/projection-validation-report.md"
+  ],
+  "knowledge_layer_changes": 0,
+  "new_engineering_values_introduced": false,
+  "committed": false,
+  "pushed": false
+}

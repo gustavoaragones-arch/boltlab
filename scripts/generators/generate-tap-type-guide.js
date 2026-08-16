@@ -230,6 +230,13 @@ ${renderComparisonTable(rows)}
 ${rows.map(renderTapTypeSection).join("\n\n")}
 
       <section class="card">
+        <h2>Browse tapping data</h2>
+        <p>Compare verified and source-bound tap-drill data across metric, UNC, and UNF thread sizes in the Tapping Atlas.</p>
+        <p><a href="/reference/tapping-atlas">Tapping &amp; Threading Atlas</a></p>
+        <p><a href="/downloads/tapping-atlas.csv" download>Download the tapping dataset (CSV)</a></p>
+      </section>
+
+      <section class="card">
         <h2>Related references</h2>
         <ul class="meta-list">
           <li><a href="/reference/tapping-atlas">Tapping &amp; Threading Atlas</a></li>

@@ -387,6 +387,12 @@ ${tapTypeCards}
       </section>
 
       <section class="card">
+        <h2>Explore tap types</h2>
+        <p>Learn how taper, plug, bottoming, spiral-flute, spiral-point, forming, and other tap types differ in geometry, application, and evidence.</p>
+        <p><a href="/reference/tap-type-guide">Tap Type Guide</a></p>
+      </section>
+
+      <section class="card">
         <h2>Standards</h2>
         <p class="muted">${escapeHtml(STANDARDS_NOTE)}</p>
         <ul class="meta-list">
