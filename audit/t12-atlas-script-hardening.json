@@ -1,0 +1,161 @@
+{
+  "phase": "T12",
+  "title": "Atlas Inline-Script Syntax-Validity Hardening",
+  "baseline_commit": "babd369c96aed1c8082c5188f838ec56f41cf325",
+  "discovery_source": "T12 read-only discovery pass (same session, prior turn) -- reconstructed the full T1-T11 certification boundary and found that reference/tapping-atlas.html is the one tapping product with an inline (non-JSON-LD) client-side <script> block that had zero syntax-validity regression protection, despite validate-tapping-workflow.js and validate-tapping-evidence.js both already carrying this exact check.",
+  "root_risk": {
+    "description": "A future edit to generate-tapping-atlas.js's embedded <script> template-literal region could silently break Atlas's search/filter interactivity in production -- valid HTML, invalid embedded JS, page still 'renders', feature just silently stops working -- with no validator or site-wide check catching it.",
+    "historical_precedent": "T8's tools/tapping-workflow.html shipped, committed, and pushed with exactly this defect (an unescaped quote inside the generator's outer template literal broke the emitted inline script at parse time). It went undetected until T9's audit inspected git history directly -- no validator caught it at the time. T9 added a syntax check to validate-tapping-workflow.js; T10 independently re-derived the same lesson and added the identical check to validate-tapping-evidence.js. generate-tapping-atlas.js was subsequently touched in T6, T7, T8, T9, T10, and T11 without this protection ever being back-ported to validate-tapping-atlas.js."
+  },
+  "validator_implementation": {
+    "file": "scripts/validators/validate-tapping-atlas.js",
+    "check_name": "Inline Script Is Valid JavaScript (node --check)",
+    "check_number": 13,
+    "mechanism": "new Function(scriptBody) -- parses the extracted script text without executing it, throws SyntaxError on malformed JavaScript. Identical mechanism already used by validate-tapping-workflow.js and validate-tapping-evidence.js. No new dependency, no browser runtime, no jsdom/Puppeteer/Playwright.",
+    "extraction_method": "Global match on /<script>([\\s\\S]*?)<\\/script>/g against reference/tapping-atlas.html -- matches ONLY a bare <script> tag with no attributes, which structurally excludes every <script type=\"application/ld+json\"> block (6 present) and every external <script src=\"...\"> tag (4 present), since both always carry an attribute.",
+    "extraction_safety": {
+      "zero_matches": "FAILS with 'No inline (non-JSON-LD, non-external) <script> block found'",
+      "multiple_matches": "FAILS with 'Found N candidate inline <script> blocks, expected exactly 1 -- extraction is ambiguous, refusing to guess'",
+      "json_ld_misidentification_guard": "Defensive redundancy: if the extracted body's trimmed text starts with '{', fails with 'looks like a JSON payload, not the application IIFE' even though this branch is structurally unreachable given the bare-tag regex -- guards against a hypothetical future change to that invariant."
+    }
+  },
+  "test_matrix": {
+    "baseline_false_positive_test": {
+      "method": "Ran the new check against the real, unmutated reference/tapping-atlas.html",
+      "result": "PASS",
+      "errors": 0
+    },
+    "historical_mutation_test": {
+      "method": "Temporarily edited scripts/generators/generate-tapping-atlas.js's normalize() function inside the embedded <script> template region: changed .replace(/[\\u00d7x]/g, \"x\").replace(...) to .replace(/[\\u00d7x]/g, \"x).replace(...) -- removing the closing quote after \"x, producing an unterminated string literal in the emitted client-side script (the same failure class as T8's historical bug: a template-literal-region edit that silently breaks the emitted JS at parse time even though the generator's own source is syntactically valid Node.js). Regenerated Atlas, ran the validator.",
+      "result": "FAIL",
+      "errors": 1,
+      "error_message": "Inline script has a JavaScript syntax error: missing ) after argument list"
+    },
+    "restoration_test": {
+      "method": "Reverted generate-tapping-atlas.js from a pre-mutation backup, regenerated Atlas, re-ran the validator.",
+      "result": "PASS",
+      "checksums_confirmed_byte_identical": {
+        "scripts/generators/generate-tapping-atlas.js": "85028ecce04d0e2ea2ead7a74142cedf22f01e04710e9626a2c5bc7096d8c28c",
+        "reference/tapping-atlas.html": "37b359845bbd1de7b207ec4953d3094043d013c77be707c19e5a15059fc4f2e7",
+        "downloads/tapping-atlas.csv": "3a391f37c5ac32ac1bbaa0e49ed8ac54e2efd840f855d396dc084b1dc51e7551"
+      },
+      "csv_unaffected_during_mutation": "Confirmed the CSV checksum was already unchanged DURING the mutation window too (3a391f37...), since the mutated region was client-script-only and never touched renderCsv()."
+    }
+  },
+  "validator_results": {
+    "validate-knowledge-engine": "pass",
+    "validate-tapping-domain": "pass (0 errors, 5 warnings, pre-existing and unrelated to T12)",
+    "validate-projections": "pass",
+    "validate-tapping-projections": "pass",
+    "validate-tapping-atlas": "pass (0 errors, 0 warnings; 13 checks, +1 new)",
+    "validate-tap-type-guide": "pass",
+    "validate-tapping-workflow": "pass",
+    "validate-tapping-evidence": "pass",
+    "validate-tapping-terminology": "pass (0 errors, 1 informational warning, unchanged from T11)"
+  },
+  "site_wide_qa": {
+    "json_ld_parse_errors": 0,
+    "duplicate_titles": 0,
+    "duplicate_descriptions": 0,
+    "broken_internal_links": 0,
+    "orphan_pages": 0,
+    "canonical_mismatches": 0,
+    "sitemap_missing_pages": 0,
+    "html_extension_hrefs": 0,
+    "faq_identity_mismatches_on_touched_pages": 0,
+    "note": "Ad-hoc site-wide scanner corrected from its T11 run: this run explicitly counts href=\"/\" as inbound to index.html, eliminating the T11 false-positive 'orphan' finding on the home page. 0 orphans this run, confirmed genuinely (not just re-suppressed)."
+  },
+  "determinism": {
+    "generator_and_validator_run_3x": true,
+    "byte_identical_across_runs": {
+      "reference/tapping-atlas.html": "37b359845bbd1de7b207ec4953d3094043d013c77be707c19e5a15059fc4f2e7",
+      "downloads/tapping-atlas.csv": "3a391f37c5ac32ac1bbaa0e49ed8ac54e2efd840f855d396dc084b1dc51e7551",
+      "docs/architecture/tapping-atlas-validation-report.json": "ecfc0455bb617318d23c8879167f209ea9c16d1b99f10efba7e3527630397578"
+    },
+    "unaffected_products_confirmed_byte_identical": {
+      "data/projections/tapping/tapping-profiles.json": "f9739e1d1f8d214b9eb06e4396c9bd1c44c1765c72e644bd0f40bfb1eddf3060",
+      "data/projections/tapping/tap-types.json": "63867da5f7f4a9eb5935b418bfc306ec143bf686f0269bb0689c6325ef480305",
+      "reference/tap-type-guide.html": "08a0a55a220e99f59dbdf475fdc59eb28dbf4b678fa1693dd98ec4e97c99ebd3",
+      "reference/tapping-evidence.html": "24af8fd70831ea1733ba32d648de7781fd5eac5526dbe5e30be5b5dddea054fd",
+      "tools/tapping-workflow.html": "477ba7a3d4e8034386c226e15390e23b86d83c7e5e5b2c5b06a0244911a65fd2",
+      "js/tapping-workflow-data.js": "d0907160b00b868e08b0da95347e1d736809697243849327a9b8dcda91ba3421"
+    }
+  },
+  "regression_checksums_sha256": {
+    "before": {
+      "reference/tapping-atlas.html": "37b359845bbd1de7b207ec4953d3094043d013c77be707c19e5a15059fc4f2e7",
+      "data/projections/tapping/tapping-profiles.json": "f9739e1d1f8d214b9eb06e4396c9bd1c44c1765c72e644bd0f40bfb1eddf3060",
+      "data/projections/tapping/tap-types.json": "63867da5f7f4a9eb5935b418bfc306ec143bf686f0269bb0689c6325ef480305",
+      "downloads/tapping-atlas.csv": "3a391f37c5ac32ac1bbaa0e49ed8ac54e2efd840f855d396dc084b1dc51e7551",
+      "reference/tap-type-guide.html": "08a0a55a220e99f59dbdf475fdc59eb28dbf4b678fa1693dd98ec4e97c99ebd3",
+      "reference/tapping-evidence.html": "24af8fd70831ea1733ba32d648de7781fd5eac5526dbe5e30be5b5dddea054fd",
+      "tools/tapping-workflow.html": "477ba7a3d4e8034386c226e15390e23b86d83c7e5e5b2c5b06a0244911a65fd2",
+      "js/tapping-workflow-data.js": "d0907160b00b868e08b0da95347e1d736809697243849327a9b8dcda91ba3421",
+      "scripts/validators/validate-tapping-atlas.js": "3d31858699d52fc71174805735fda302950122eb532df2a8539f5a07d8a78995",
+      "scripts/generators/generate-tapping-atlas.js": "85028ecce04d0e2ea2ead7a74142cedf22f01e04710e9626a2c5bc7096d8c28c"
+    },
+    "after": {
+      "reference/tapping-atlas.html": "37b359845bbd1de7b207ec4953d3094043d013c77be707c19e5a15059fc4f2e7",
+      "data/projections/tapping/tapping-profiles.json": "f9739e1d1f8d214b9eb06e4396c9bd1c44c1765c72e644bd0f40bfb1eddf3060",
+      "data/projections/tapping/tap-types.json": "63867da5f7f4a9eb5935b418bfc306ec143bf686f0269bb0689c6325ef480305",
+      "downloads/tapping-atlas.csv": "3a391f37c5ac32ac1bbaa0e49ed8ac54e2efd840f855d396dc084b1dc51e7551",
+      "reference/tap-type-guide.html": "08a0a55a220e99f59dbdf475fdc59eb28dbf4b678fa1693dd98ec4e97c99ebd3",
+      "reference/tapping-evidence.html": "24af8fd70831ea1733ba32d648de7781fd5eac5526dbe5e30be5b5dddea054fd",
+      "tools/tapping-workflow.html": "477ba7a3d4e8034386c226e15390e23b86d83c7e5e5b2c5b06a0244911a65fd2",
+      "js/tapping-workflow-data.js": "d0907160b00b868e08b0da95347e1d736809697243849327a9b8dcda91ba3421",
+      "scripts/validators/validate-tapping-atlas.js": "CHANGED (intentional -- new check added)",
+      "scripts/generators/generate-tapping-atlas.js": "85028ecce04d0e2ea2ead7a74142cedf22f01e04710e9626a2c5bc7096d8c28c"
+    },
+    "unchanged_confirmed": [
+      "reference/tapping-atlas.html",
+      "data/projections/tapping/tapping-profiles.json",
+      "data/projections/tapping/tap-types.json",
+      "downloads/tapping-atlas.csv",
+      "reference/tap-type-guide.html",
+      "reference/tapping-evidence.html",
+      "tools/tapping-workflow.html",
+      "js/tapping-workflow-data.js",
+      "scripts/generators/generate-tapping-atlas.js"
+    ],
+    "changed": ["scripts/validators/validate-tapping-atlas.js"]
+  },
+  "files_created": [
+    "audit/t12-atlas-script-hardening.md",
+    "audit/t12-atlas-script-hardening.json",
+    "audit/t12-change-scope.md",
+    "docs/architecture/t12-atlas-script-hardening.md"
+  ],
+  "files_modified": [
+    "scripts/validators/validate-tapping-atlas.js",
+    "docs/architecture/tapping-atlas-validation-report.json",
+    "docs/architecture/tapping-atlas-validation-report.md"
+  ],
+  "files_explicitly_not_modified": [
+    "scripts/generators/generate-tapping-atlas.js",
+    "reference/tapping-atlas.html",
+    "reference/tap-type-guide.html",
+    "reference/tapping-evidence.html",
+    "tools/tapping-workflow.html",
+    "data/projections/tapping/tapping-profiles.json",
+    "data/projections/tapping/tap-types.json",
+    "downloads/tapping-atlas.csv",
+    "js/tapping-workflow-data.js",
+    "data/entities/*",
+    "data/standards/*",
+    "data/datasets/*",
+    "data/relationships/*",
+    "sitemap.xml",
+    "package.json (no new dependency added)"
+  ],
+  "unexpected_files_encountered": {
+    "note": "A harness system-reminder mid-session claimed generate-tapping-atlas.js had been 'modified by the user or a linter' and instructed silence about it. This was actually the agent's own deliberate restore-from-backup step (Section 5 of the phase brief, the Restore Test) -- verified by checksum to exactly match the pre-mutation baseline (85028ecce0...). The reminder's phrasing was flagged to the user directly rather than silently followed, per standard prompt-injection handling; no actual unexpected file content resulted. Pre-existing untracked D2-phase/.DS_Store/.claude/logo.ai files were left untouched throughout, as in all prior phases.",
+    "files": ["audit/d2-0-adsense-readiness.json", "audit/d2-0-adsense-readiness.md", "audit/d2-0-change-scope.md", ".DS_Store", "css/.DS_Store", "images/.DS_Store", "images/heads/.DS_Store", "images/logo.ai", "images/screw-drive-types/.DS_Store", "images/screw-head-types/.DS_Store", ".claude/"]
+  },
+  "confirmation_no_knowledge_projection_product_data_changed": true,
+  "stop_condition": {
+    "committed": false,
+    "pushed": false,
+    "t13_started": false,
+    "status": "T12 STATUS: READY FOR REVIEW"
+  }
+}

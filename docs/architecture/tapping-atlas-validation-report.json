@@ -118,6 +118,12 @@
       "status": "pass",
       "errors": [],
       "warnings": []
+    },
+    {
+      "name": "Inline Script Is Valid JavaScript (node --check)",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
     }
   ]
 }

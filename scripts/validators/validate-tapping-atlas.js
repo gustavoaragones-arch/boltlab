@@ -259,6 +259,43 @@ function main() {
   if (nasaFactCheck.errors.length) nasaFactCheck.status = "fail";
   checks.push(nasaFactCheck);
 
+  // 13. (T12) Inline application script must actually be syntactically valid JavaScript. Atlas is
+  //     the one tapping product whose generator embeds a client-side <script> IIFE (the
+  //     search/filter logic) inside an outer JS template literal in generate-tapping-atlas.js --
+  //     the exact architectural shape that caused a real, silently-shipped syntax error in T8's
+  //     Workflow page (an unescaped quote broke the whole inline script at parse time; it went
+  //     undetected until T9's audit inspected git history directly). validate-tapping-workflow.js
+  //     and validate-tapping-evidence.js already carry this exact check; Atlas never did. Uses the
+  //     same `new Function(...)` mechanism as those two -- parses without executing, no new
+  //     dependency, no browser runtime.
+  const syntaxCheck = { name: "Inline Script Is Valid JavaScript (node --check)", status: "pass", errors: [], warnings: [] };
+  // Match only a bare `<script>` tag (no attributes) -- this structurally excludes every
+  // `<script type="application/ld+json">` block and every external `<script src="...">` tag,
+  // both of which always carry an attribute and therefore can never match this pattern.
+  const inlineScriptMatches = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)];
+  if (inlineScriptMatches.length === 0) {
+    syntaxCheck.errors.push("No inline (non-JSON-LD, non-external) <script> block found -- expected exactly 1 (the Atlas search/filter IIFE)");
+  } else if (inlineScriptMatches.length > 1) {
+    syntaxCheck.errors.push(`Found ${inlineScriptMatches.length} candidate inline <script> blocks, expected exactly 1 -- extraction is ambiguous, refusing to guess which one is the application script`);
+  } else {
+    const scriptBody = inlineScriptMatches[0][1];
+    // Defensive redundancy: a JSON-LD payload should never reach here (it always carries
+    // type="application/ld+json" and therefore can't match the bare-tag regex above), but guard
+    // explicitly anyway in case that invariant is ever broken by an unrelated future change.
+    if (scriptBody.trim().startsWith("{")) {
+      syntaxCheck.errors.push("Extracted script body looks like a JSON payload (starts with '{'), not the application IIFE -- extraction may have matched the wrong block");
+    } else {
+      try {
+        // eslint-disable-next-line no-new-func
+        new Function(scriptBody);
+      } catch (e) {
+        syntaxCheck.errors.push(`Inline script has a JavaScript syntax error: ${e.message}`);
+      }
+    }
+  }
+  if (syntaxCheck.errors.length) syntaxCheck.status = "fail";
+  checks.push(syntaxCheck);
+
   const errorCount = checks.reduce((sum, c) => sum + c.errors.length, 0);
   const warningCount = checks.reduce((sum, c) => sum + c.warnings.length, 0);
 
