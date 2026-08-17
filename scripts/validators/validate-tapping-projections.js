@@ -218,6 +218,46 @@ function main() {
   if (completenessCheck.errors.length) completenessCheck.status = "fail";
   checks.push(completenessCheck);
 
+  // 10. (T13) Tap-drill status must be correctly derived from the source dataset's cross-
+  // verification signal, not merely from the PRESENCE of a cross_verified object. The schema
+  // carries a `match` boolean on every cross_verified entry -- it anticipates a genuine cross-
+  // check that could find a mismatch, not just an attempt at one. generate-tapping-projections.js's
+  // buildTapDrillBlock() derives status from Boolean(hp.cross_verified) alone and never consults
+  // .match. Check 4 above only confirms the OUTPUT value is a member of the valid-state enum,
+  // which would still pass even if the underlying derivation were wrong (e.g. a future record with
+  // cross_verified present but match: false would still be labeled "verified"). This check closes
+  // that gap by independently re-deriving the expected status directly from source and comparing.
+  const derivationCheck = { name: "Tap-Drill Status Correctly Derived From Source Cross-Verification", status: "pass", errors: [], warnings: [] };
+  const TAPPING_DATASET_IDS = ["metric_tapping", "unc_tapping", "unf_tapping"];
+  const sourceRecordById = new Map();
+  for (const dsId of TAPPING_DATASET_IDS) {
+    const ds = knowledge.datasetById.get(dsId);
+    if (!ds) {
+      derivationCheck.errors.push(`Source dataset '${dsId}' not found in knowledge layer -- cannot verify tap_drill.status derivation`);
+      continue;
+    }
+    for (const rec of ds.records || []) {
+      sourceRecordById.set(rec.tapping_profile_id, rec);
+    }
+  }
+  for (const row of profileProjection.rows) {
+    const sourceRecord = sourceRecordById.get(row.tapping_profile_id);
+    if (!sourceRecord) {
+      derivationCheck.errors.push(`${row.tapping_profile_id}: no matching source dataset record found -- cannot verify tap_drill.status derivation`);
+      continue;
+    }
+    const hp = sourceRecord.hole_preparation;
+    const crossVerified = hp ? hp.cross_verified : null;
+    const expectedStatus = crossVerified && crossVerified.match !== false ? "verified" : "source_bound";
+    if (row.tap_drill.status !== expectedStatus) {
+      derivationCheck.errors.push(
+        `${row.tapping_profile_id}: tap_drill.status is '${row.tap_drill.status}' but the source dataset's hole_preparation.cross_verified state derives to '${expectedStatus}' -- possible incorrect derivation or stale projection`
+      );
+    }
+  }
+  if (derivationCheck.errors.length) derivationCheck.status = "fail";
+  checks.push(derivationCheck);
+
   const errorCount = checks.reduce((sum, c) => sum + c.errors.length, 0);
   const warningCount = checks.reduce((sum, c) => sum + c.warnings.length, 0);
 

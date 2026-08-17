@@ -61,6 +61,12 @@
       "status": "pass",
       "errors": [],
       "warnings": []
+    },
+    {
+      "name": "Tap-Drill Status Correctly Derived From Source Cross-Verification",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
     }
   ]
 }
