@@ -231,9 +231,9 @@
           "<h3>" + esc(tt.title) + "</h3>" +
           '<p class="muted">' + esc(tt.definition) + "</p>" +
           renderNoteGroup("General taxonomy", tt.general_taxonomy) +
-          renderNoteGroup("Manufacturing characteristic", tt.manufacturing_characteristics) +
-          renderNoteGroup("Typical application", tt.typical_applications) +
-          renderNoteGroup("Manufacturer-specific recommendation", tt.manufacturer_specific_recommendations);
+          renderNoteGroup("Manufacturing characteristics", tt.manufacturing_characteristics) +
+          renderNoteGroup("Typical applications", tt.typical_applications) +
+          renderNoteGroup("Manufacturer-specific recommendations", tt.manufacturer_specific_recommendations);
         return el;
       }
 
@@ -244,7 +244,7 @@
         return p.thread.thread_system === "metric" ? p.thread.pitch + " mm" : p.thread.threads_per_inch + " TPI";
       }
       function conventionLabel(p) {
-        return p.thread.thread_system === "metric" ? "ISO 2306 metric convention" : "US customary drill convention";
+        return p.thread.thread_system === "metric" ? "Metric drill convention" : "US customary drill convention";
       }
 
       function renderResult(p) {
@@ -269,7 +269,7 @@
           "<h3>" + esc(p.thread.designation) + "</h3>" +
           '<p class="muted">' + esc(p.thread.thread_system === "metric" ? "Metric" : p.thread.thread_system) + " · " + esc(diameterDisplay(p)) + " · " + esc(pitchDisplay(p)) + "</p>" +
           '<p><span class="data-status data-status--' + esc(p.tap_drill.status) + '">Tap drill: ' + esc(verificationLabel(p.tap_drill.status)) + "</span></p>" +
-          '<p class="muted">Overall profile status: ' + esc(verificationLabel(p.data_quality.record_status)) + " (engagement and process-parameter data are not yet available for any profile)</p>" +
+          '<p class="muted">Overall record status: ' + esc(verificationLabel(p.data_quality.record_status)) + " (engagement and process-parameter data are not yet available for any profile)</p>" +
           "<p><strong>Primary tap drill:</strong> " + p.tap_drill.value + " " + esc(p.tap_drill.unit) + '<br><span class="muted">' + esc(conventionLabel(p)) + "</span></p>" +
           altBlock +
           "<p><strong>Relevant tap types:</strong> " + esc(tapTypeTitles || "None resolved.") + "</p>" +
@@ -304,7 +304,7 @@
 
       function isoAlternativeCell(p) {
         if (p.thread.thread_system === "metric") {
-          return "Not applicable — ISO 2306 is already the metric convention for this record.";
+          return "Not applicable — metric threads use a single primary tap-drill value under the metric drill convention; there is no separate ISO 2306 alternative for this record.";
         }
         if (!p.alternative_drill) {
           return "Unavailable";

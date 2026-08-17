@@ -1,0 +1,226 @@
+{
+  "phase": "T11",
+  "title": "Tapping Product Consistency & Trust Hardening",
+  "baseline_commit": "cdbdbb9d2951281300bf469edf9f59dc870365a8",
+  "objective": "Controlled terminology-consistency pass across the tapping product chain (Atlas, Tap-Type Guide, Workflow, Comparison, Evidence, Tap Drill Calculator overlap). No new pages, no new data, no knowledge-layer or T3 projection changes.",
+  "t11_correction": {
+    "title": "Fix provenance validator check #8 (validator-quality defect, found after the original T11 pass)",
+    "root_cause": "Check #8 in scripts/validators/validate-tapping-terminology.js was intended to enforce 'no fabricated provenance fallback,' but its actual condition was `!isTemplateCode && !approvedFallbacks.includes(value) && value === \"\"` -- the trailing `value === \"\"` meant only an EMPTY rendered value could ever fail the check. An arbitrary non-empty fabricated string (e.g. 'fabricated-source') satisfied `value === \"\"` as false and therefore passed silently, regardless of the other two conditions. The check did not enforce what its name and comment claimed.",
+    "correction_summary": "Check #8 was rewritten to resolve every provenance value each product actually exposes and compare it against the authoritative projection data, rather than pattern-matching for emptiness: (a) Atlas's statically-rendered Source dataset/record/field/Cross-check per card are matched to the corresponding tapping-profiles.json row by designation and compared field-by-field; (b) Tap-Type Guide's statically-rendered per-fact 'source: ...' text is matched to the corresponding tap-types.json note by fact text and compared; (c) since Workflow and Evidence render provenance client-side from js/tapping-workflow-data.js rather than resolving it into static HTML, that data file's embedded tap_drill.provenance and tap-type note fields are parsed and compared directly against tapping-profiles.json/tap-types.json, which validates the actual data those products will render without needing to execute a browser; (d) Evidence's specific fallback expressions (e.g. `prov.source_dataset || \"...\"`) are checked to confirm they are still genuine property-access expressions using one of the three approved fallback literals, not a hardcoded replacement. A value is now accepted only if it exactly matches the projection-backed value, or if the projection has no value for that field AND the rendered value is one of the three approved fallback strings.",
+    "distinguishes_three_cases": [
+      "A. A resolved provenance value that exactly matches the projection-backed source data -- accepted.",
+      "B. An explicitly approved fallback string, used only when the projection genuinely has no value for that field -- accepted.",
+      "C. Client-side/template code (JS property-access expressions) that is not itself a resolved value -- not scanned as if it were a resolved value; instead the underlying data file it will resolve against (js/tapping-workflow-data.js) is validated directly."
+    ],
+    "regression_tests": [
+      { "test": "A -- fabricated non-empty provenance", "method": "Temporarily replaced reference/tapping-atlas.html's M10x1.25 card 'Source dataset: metric_threads' with 'Source dataset: fabricated-source'.", "result": "FAIL (correctly caught): \"reference/tapping-atlas.html [M10x1.25] Source dataset: rendered \\\"fabricated-source\\\" but the projection-backed value is \\\"metric_threads\\\"\"" },
+      { "test": "A (variant) -- fabricated value in the underlying client-rendered data file", "method": "Temporarily replaced js/tapping-workflow-data.js's tap_m10x1_25_cut provenance.source_dataset with 'fabricated-source'.", "result": "FAIL (correctly caught): \"js/tapping-workflow-data.js [tap_m10x1_25_cut]: tap_drill.provenance does not match tapping-profiles.json -- Workflow/Evidence would resolve a fabricated or stale provenance value at runtime\"" },
+      { "test": "A (variant) -- fabricated fallback literal in Evidence's template expression", "method": "Temporarily replaced reference/tapping-evidence.html's `prov.source_dataset || \"Provenance not available in the current projection.\"` with `prov.source_dataset || \"fabricated-source\"`.", "result": "FAIL (correctly caught): \"reference/tapping-evidence.html: prov.source_dataset fallback expression uses a non-approved fallback string \\\"fabricated-source\\\"\"" },
+      { "test": "B -- empty provenance where a real value exists", "method": "Temporarily replaced reference/tapping-atlas.html's M10x1.25 card 'Source record: M10x1.25' with 'Source record: ' (empty).", "result": "FAIL (correctly caught): \"reference/tapping-atlas.html [M10x1.25] Source record: rendered \\\"\\\" but the projection-backed value is \\\"M10x1.25\\\"\"" },
+      { "test": "C -- approved fallback used where the projection genuinely has no value", "method": "M10x1.25's tap_drill.provenance.cross_check is null in the projection (source-bound, no cross-check). Temporarily inserted '<li>Cross-check: Provenance not available in the current projection.</li>' into its card, where no Cross-check line previously existed.", "result": "PASS (correctly accepted): 0 errors" },
+      { "test": "C (contrast) -- non-approved fallback used where the projection genuinely has no value", "method": "Same insertion point as test C, but with '<li>Cross-check: fabricated-source</li>'.", "result": "FAIL (correctly caught): \"...Cross-check: projection has no value for this field, but rendered value \\\"fabricated-source\\\" is not an approved fallback string -- possible fabricated provenance\"" },
+      { "test": "D -- valid projection-backed provenance (restored)", "method": "Reverted all reference/tapping-atlas.html mutations from tests A/B/C and re-ran.", "result": "PASS: 0 errors. File confirmed byte-identical (sha256 37b359845bbd1de7b207ec4953d3094043d013c77be707c19e5a15059fc4f2e7) to the pre-mutation, post-T11 checksum." },
+      { "test": "E -- template/client-side source expression must not falsely fail", "method": "Inserted a benign JS comment into tools/tapping-workflow.html's <script> block reading '// Source dataset: prov.source_dataset -- illustrative comment, not a resolved value' -- Workflow renders no resolved Source dataset/record/field text at all, so this text exists purely as incidental code/comment content.", "result": "PASS: 0 errors, confirming the rewritten check does not blindly pattern-match \"Source X:\" text across arbitrary product HTML/JS -- it only resolves values in the specific structures (Atlas cards, Tap-Type Guide facts) and the underlying data file (js/tapping-workflow-data.js) that Workflow and Evidence actually render from." }
+    ],
+    "all_mutations_reverted": true,
+    "product_or_projection_defects_found": false,
+    "product_or_projection_defects_note": "The corrected check ran clean against the real, unmutated products and data on first execution (0 errors, 1 pre-existing informational warning about the CSV exception) -- no genuine provenance defect was uncovered in any product or in data/projections/tapping/*.json. Per the correction brief's Section 4, no product/projection/knowledge-layer data required correction, and none was touched.",
+    "files_modified_for_correction": ["scripts/validators/validate-tapping-terminology.js"],
+    "files_touched_only_as_disposable_test_fixtures_then_reverted": ["reference/tapping-atlas.html", "reference/tapping-evidence.html", "tools/tapping-workflow.html", "js/tapping-workflow-data.js"]
+  },
+  "known_issue": {
+    "description": "T10 corrected 'ISO 2306 metric convention' to 'Metric drill convention' in its own implementation (generate-tapping-evidence.js), but the older wording remained in the T4 Atlas generator and T8 Workflow generator.",
+    "found_in": [
+      "scripts/generators/generate-tapping-atlas.js:104 (driveConventionLabel, pre-fix) -- HTML card display",
+      "scripts/generators/generate-tapping-atlas.js:215 (pre-fix) -- FAQ answer prose",
+      "scripts/generators/generate-tapping-atlas.js:416 (pre-fix) -- Data interpretation prose",
+      "scripts/generators/generate-tapping-atlas.js:589 (renderCsv, driveConventionLabel) -- CSV column 'primary_drill_convention'",
+      "scripts/generators/generate-tapping-workflow.js:334 (conventionLabel, pre-fix) -- client-side result display",
+      "scripts/generators/generate-tapping-workflow.js:394 (isoAlternativeCell, pre-fix) -- T9 comparison table, metric-record 'Not applicable' cell"
+    ],
+    "corrected": true,
+    "correction_summary": "HTML/UI-facing occurrences in the Atlas and Workflow generators now say 'Metric drill convention' (or reference 'the metric drill convention' in prose), matching T10's baseline, because only 9 of 14 metric records have projection-backed ISO 2306 cross-verification (tap_drill.provenance.cross_check present); the remaining 5 are source-bound. The CSV's 'primary_drill_convention' column is a protected, frozen artifact under the T11 regression rule and intentionally still reads 'ISO 2306 metric convention' -- this is a documented, deliberate exception, not an oversight, achieved by splitting the shared label function into a display-only function and a CSV-only function that preserves the original text exactly."
+  },
+  "additional_inconsistencies_found": [
+    {
+      "id": "record-status-label-drift",
+      "description": "Atlas and Workflow's single-record view labeled the data_quality.record_status field 'Overall profile status', while Evidence (T10 baseline) and Workflow's own T9 comparison table both used 'Overall record status' for the identical field -- an inconsistency both across products and within tools/tapping-workflow.html itself.",
+      "corrected": true,
+      "correction": "Changed 'Overall profile status' to 'Overall record status' in generate-tapping-atlas.js and generate-tapping-workflow.js (single-record view) to match T10's baseline and the comparison table's own existing label."
+    },
+    {
+      "id": "classification-heading-plurality-drift",
+      "description": "Section 8 freezes the tap-type classification labels in plural form ('Manufacturing characteristics', 'Typical applications', 'Manufacturer-specific recommendations'). The Atlas, Tap-Type Guide, and Workflow generators rendered these as SECTION HEADINGS in singular form ('Manufacturing characteristic', 'Typical application', 'Manufacturer-specific recommendation'), while Evidence (T10 baseline) already used the plural heading form specified in section 8. Evidence's separate singular usage in its per-fact 'evidence kind: X' inline annotation is grammatically correct and was left untouched.",
+      "corrected": true,
+      "correction": "Changed the three SECTION HEADING calls (not the per-fact inline mentions) in generate-tapping-atlas.js, generate-tap-type-guide.js, and generate-tapping-workflow.js to plural form, matching section 8's frozen spec and the Evidence baseline."
+    }
+  ],
+  "csv_protected_artifact_exception": {
+    "file": "downloads/tapping-atlas.csv",
+    "column": "primary_drill_convention",
+    "status": "intentionally unchanged, byte-identical before/after T11",
+    "reason": "Section 14 lists downloads/tapping-atlas.csv as a file T11 must not alter. The generator's driveConventionLabel function was split into a display-only function (used for the HTML card) and a new csvDriveConventionLabel function (used only in renderCsv) that reproduces the original 'ISO 2306 metric convention' / 'US customary drill convention' text verbatim, so the CSV output is provably byte-identical across the change."
+  },
+  "terminology_matrix": [
+    { "category": "A. Verified", "products_checked": ["Atlas", "Tap-Type Guide", "Workflow", "Comparison", "Evidence"], "drift_found": false, "note": "Identical verificationLabel() mapping (verified -> 'Verified') used everywhere." },
+    { "category": "B. Source-bound", "products_checked": ["Atlas", "Tap-Type Guide", "Workflow", "Comparison", "Evidence"], "drift_found": false, "note": "Identical mapping (source_bound -> 'Source-bound') used everywhere." },
+    { "category": "C. Overall record status", "products_checked": ["Atlas", "Workflow", "Comparison", "Evidence"], "drift_found": true, "old_wording": { "Atlas": "Overall profile status", "Workflow (single record)": "Overall profile status", "Workflow (comparison table)": "Overall record status", "Evidence": "Overall record status" }, "corrected": true, "new_wording": "Overall record status (all products)" },
+    { "category": "D. Tap-drill verification status", "products_checked": ["Atlas", "Workflow", "Evidence"], "drift_found": false, "note": "'Tap drill: Verified' / 'Tap drill: Source-bound' identical format everywhere." },
+    { "category": "E. ISO 2306 alternative drill", "products_checked": ["Atlas", "Workflow", "Comparison", "Evidence"], "drift_found": false, "note": "Label consistently scoped to Concept B ('ISO 2306 alternative' / 'ISO 2306 alternative drill') in all products; never merged with the primary value." },
+    { "category": "F. Primary tap-drill value", "products_checked": ["Atlas", "Workflow", "Comparison", "Evidence"], "drift_found": false, "note": "Label 'Primary tap drill' consistent everywhere; its convention sub-label is covered separately under G." },
+    { "category": "G. Metric drill convention", "products_checked": ["Atlas", "Workflow", "Comparison", "Evidence", "CSV"], "drift_found": true, "old_wording": { "Atlas": "ISO 2306 metric convention", "Workflow (result)": "ISO 2306 metric convention", "Workflow (comparison, metric branch)": "Not applicable — ISO 2306 is already the metric convention for this record.", "Evidence": "Metric drill convention (already correct, T10 baseline)", "CSV": "ISO 2306 metric convention" }, "corrected": true, "new_wording": { "Atlas": "Metric drill convention", "Workflow (result)": "Metric drill convention", "Workflow (comparison, metric branch)": "Not applicable — metric threads use a single primary tap-drill value under the metric drill convention; there is no separate ISO 2306 alternative for this record.", "Evidence": "unchanged", "CSV": "unchanged (intentionally frozen, protected artifact)" } },
+    { "category": "H. General taxonomy", "products_checked": ["Atlas", "Tap-Type Guide", "Workflow", "Evidence"], "drift_found": false, "note": "No plural form applies; identical label everywhere." },
+    { "category": "I. Manufacturing characteristic", "products_checked": ["Atlas", "Tap-Type Guide", "Workflow", "Evidence"], "drift_found": true, "old_wording": { "Atlas": "Manufacturing characteristic (heading, singular)", "Tap-Type Guide": "Manufacturing characteristic (heading, singular)", "Workflow": "Manufacturing characteristic (heading, singular)", "Evidence": "Manufacturing characteristics (heading, plural, T10 baseline)" }, "corrected": true, "new_wording": "Manufacturing characteristics (heading, plural, all products)" },
+    { "category": "J. Typical application", "products_checked": ["Atlas", "Tap-Type Guide", "Workflow", "Evidence"], "drift_found": true, "old_wording": { "Atlas": "Typical application (singular)", "Tap-Type Guide": "Typical application (singular)", "Workflow": "Typical application (singular)", "Evidence": "Typical applications (plural, T10 baseline)" }, "corrected": true, "new_wording": "Typical applications (plural, all products)" },
+    { "category": "K. Manufacturer-specific recommendation", "products_checked": ["Atlas", "Tap-Type Guide", "Workflow", "Evidence"], "drift_found": true, "old_wording": { "Atlas": "Manufacturer-specific recommendation (singular)", "Tap-Type Guide": "Manufacturer-specific recommendation (singular)", "Workflow": "Manufacturer-specific recommendation (singular)", "Evidence": "Manufacturer-specific recommendations (plural, T10 baseline)" }, "corrected": true, "new_wording": "Manufacturer-specific recommendations (plural, all products)" },
+    { "category": "L. Thread engagement limitation", "products_checked": ["Atlas", "Workflow", "Comparison", "Evidence"], "drift_found": false, "note": "Workflow, Comparison, and Evidence all use the frozen sentence verbatim: 'Thread engagement calculation is not currently available in BoltLab's verified dataset.' Atlas uses a longer, more detailed radial/axial explanation (accurate to the projection's engagement.radial.calculation_status='calculable' / engagement.axial.calculation_status='not_calculable' fields) established in T4/T7 and reaffirmed in its own FAQ. Reviewed and intentionally left as-is -- see Section 9 finding below." },
+    { "category": "M. Provenance", "products_checked": ["Atlas", "Evidence"], "drift_found": false, "note": "'Source dataset' / 'Source record' / 'Source field' labels identical in both products that render provenance. Workflow and Tap-Type Guide do not expose provenance blocks, which is acceptable per section 7." },
+    { "category": "N. Cross-verification", "products_checked": ["Atlas", "Evidence"], "drift_found": false, "note": "Evidence structurally separates 'Provenance' and 'Cross-verification' into two labeled blocks; Atlas includes an additional 'Cross-check' line item within its single 'Data provenance' list. Both keep original-source and cross-check evidence distinctly labeled (never collapsed into one 'source'); the structural difference is an acceptable product-context variation, not a terminology collapse. Reviewed, no change required." },
+    { "category": "O. Standards", "products_checked": ["Atlas", "Tap-Type Guide", "Workflow", "Evidence"], "drift_found": false, "note": "All standards designations shown on tapping-atlas.html records verified present in the tapping-profiles projection (validate-tapping-terminology.js check 9). No standard is displayed without projection backing." }
+  ],
+  "sections_9_10_11_findings": {
+    "engagement_language": {
+      "forbidden_terms_present": false,
+      "checked_terms": ["75%", "70%", "77%", "minimum engagement percentage", "recommended engagement percentage", "minimum engagement length"],
+      "note": "None of the forbidden engagement terms found anywhere in any of the 5 products (including tap-drill-calculator.html)."
+    },
+    "standards_language": {
+      "unsupported_standards_claims_found": false,
+      "note": "No instance of 'ISO 2306 governs all tapping' or 'ASME B1.1 verifies this tap-drill value' or similar blanket claims found."
+    },
+    "data_quality_language": {
+      "correct_distinction_maintained": true,
+      "authoritative_counts_confirmed_from_projection": {
+        "tap_drill": { "verified": 9, "source_bound": 20 },
+        "overall_records": { "verified": 0, "source_bound": 29 },
+        "tap_type_facts": { "verified": 1, "source_bound": 15 }
+      },
+      "note": "No product implies '29 verified records' or '29 verified tap-drill values'; all counts are computed from the projection at generation time, never hard-coded."
+    }
+  },
+  "intentionally_unchanged": [
+    {
+      "item": "Engagement-language phrasing difference between Atlas (radial/axial detailed explanation) and Workflow/Evidence/Comparison (short frozen sentence)",
+      "reason": "Both are individually accurate to the projection's engagement.radial/axial fields. The short sentence is the section-9 frozen authoritative sentence, quoted verbatim in Workflow/Evidence/Comparison. Atlas's longer form is an established, accurate elaboration from T4/T7, not part of the section-2 known issue. Forcing identical wording would either delete accurate nuance from Atlas or expand Workflow/Evidence beyond a terminology-only fix -- out of T11 scope per section 13's 'only make changes when there is a real semantic inconsistency' rule."
+    },
+    {
+      "item": "Atlas's flat 'Data provenance' list (including 'Cross-check' as one more line item) vs. Evidence's structurally separate 'Provenance' and 'Cross-verification' sections",
+      "reason": "Section 6 permits a product not to expose the same structural depth of cross-verification detail as another, and both products already keep the concepts distinctly labeled rather than collapsed into one 'source'. Adding a two-section split to Atlas, or a 'Cited source/standard' line reproducing Evidence's prov.source rendering, would be adding new UI structure, not a terminology correction -- out of scope per section 13 and the 'do not add new claims solely to make every product identical' rule in section 6."
+    },
+    {
+      "item": "downloads/tapping-atlas.csv 'primary_drill_convention' column retains 'ISO 2306 metric convention' text",
+      "reason": "Explicit T11 regression-rule protection (section 14): the CSV must not be altered. See csv_protected_artifact_exception above."
+    }
+  ],
+  "generators_changed": [
+    "scripts/generators/generate-tapping-atlas.js",
+    "scripts/generators/generate-tapping-workflow.js",
+    "scripts/generators/generate-tap-type-guide.js"
+  ],
+  "generator_unchanged": [
+    "scripts/generators/generate-tapping-evidence.js"
+  ],
+  "validators_changed": [
+    "scripts/validators/validate-tapping-atlas.js"
+  ],
+  "validators_created": [
+    "scripts/validators/validate-tapping-terminology.js"
+  ],
+  "validator_results": {
+    "validate-knowledge-engine": "pass",
+    "validate-tapping-domain": "pass (0 errors, 5 warnings, pre-existing and unrelated to T11)",
+    "validate-projections": "pass",
+    "validate-tapping-projections": "pass",
+    "validate-tapping-atlas": "pass (0 errors, 0 warnings; updated for 'Overall record status' and plural classification headings)",
+    "validate-tap-type-guide": "pass",
+    "validate-tapping-workflow": "pass",
+    "validate-tapping-evidence": "pass",
+    "validate-tapping-terminology (new, T11; corrected check #8)": "pass (0 errors, 1 informational warning documenting the intentional CSV exception)"
+  },
+  "site_wide_qa": {
+    "json_ld_parse_errors": 0,
+    "duplicate_titles": 0,
+    "duplicate_descriptions": 0,
+    "broken_internal_links": 0,
+    "orphan_pages": 0,
+    "canonical_mismatches": 0,
+    "sitemap_missing_pages": 0,
+    "html_extension_hrefs": 0,
+    "faq_identity_mismatches_on_touched_pages": 0,
+    "note": "A naive site-wide FAQ-identity scan (assuming every page wraps its FAQ in <section id=\"faq\">) flagged 195 pre-existing, non-tapping pages that use a different FAQ markup convention (no id=\"faq\" wrapper). These are outside T11's scope, were not touched by T11, and were already covered by the D1-phase FAQ audit (audit/d1-6-faq-integrity.md). None of the 4 T11-touched tapping pages are in that list; each was independently confirmed by its own per-product validator's exact-match FAQ Identity check.",
+    "correction_pass_note": "Re-run during the T11 correction pass: 0 JSON-LD errors, 0 duplicate titles/descriptions, 0 broken links, 0 canonical mismatches, 0 sitemap gaps, 0 .html hrefs. One ad-hoc script run flagged index.html as a false-positive 'orphan' because that particular script skipped counting href=\"/\" (empty-path) links as inbound to the home page -- the home page is in fact the most-linked page on the site via every header/footer/breadcrumb link; not a real defect."
+  },
+  "determinism": {
+    "generators_run_3x": ["generate-tapping-atlas.js", "generate-tapping-workflow.js", "generate-tap-type-guide.js"],
+    "byte_identical_across_runs": true,
+    "unaffected_generator_confirmed_byte_identical": {
+      "generate-tapping-evidence.js output (reference/tapping-evidence.html)": true
+    }
+  },
+  "regression_checksums_sha256": {
+    "before": {
+      "data/projections/tapping/tapping-profiles.json": "f9739e1d1f8d214b9eb06e4396c9bd1c44c1765c72e644bd0f40bfb1eddf3060",
+      "data/projections/tapping/tap-types.json": "63867da5f7f4a9eb5935b418bfc306ec143bf686f0269bb0689c6325ef480305",
+      "reference/tapping-atlas.html": "d2558bb40a7aa3a829e7b07caa37bfa554b46e21c0a7bda4c5ba0316c5b9fdfc",
+      "reference/tap-type-guide.html": "5cf7b05a2fd0d14e167815edc54155056cd65206e087ce7122acd965bda5440f",
+      "reference/tapping-evidence.html": "24af8fd70831ea1733ba32d648de7781fd5eac5526dbe5e30be5b5dddea054fd",
+      "tools/tapping-workflow.html": "36320075669a1d945b4922e3c2a4d16ca7550ffef90ea8e18270c6742355a3f9",
+      "js/tapping-workflow-data.js": "d0907160b00b868e08b0da95347e1d736809697243849327a9b8dcda91ba3421",
+      "downloads/tapping-atlas.csv": "3a391f37c5ac32ac1bbaa0e49ed8ac54e2efd840f855d396dc084b1dc51e7551"
+    },
+    "after": {
+      "data/projections/tapping/tapping-profiles.json": "f9739e1d1f8d214b9eb06e4396c9bd1c44c1765c72e644bd0f40bfb1eddf3060",
+      "data/projections/tapping/tap-types.json": "63867da5f7f4a9eb5935b418bfc306ec143bf686f0269bb0689c6325ef480305",
+      "reference/tapping-atlas.html": "37b359845bbd1de7b207ec4953d3094043d013c77be707c19e5a15059fc4f2e7",
+      "reference/tap-type-guide.html": "08a0a55a220e99f59dbdf475fdc59eb28dbf4b678fa1693dd98ec4e97c99ebd3",
+      "reference/tapping-evidence.html": "24af8fd70831ea1733ba32d648de7781fd5eac5526dbe5e30be5b5dddea054fd",
+      "tools/tapping-workflow.html": "477ba7a3d4e8034386c226e15390e23b86d83c7e5e5b2c5b06a0244911a65fd2",
+      "js/tapping-workflow-data.js": "d0907160b00b868e08b0da95347e1d736809697243849327a9b8dcda91ba3421",
+      "downloads/tapping-atlas.csv": "3a391f37c5ac32ac1bbaa0e49ed8ac54e2efd840f855d396dc084b1dc51e7551"
+    },
+    "unchanged_confirmed": ["data/projections/tapping/tapping-profiles.json", "data/projections/tapping/tap-types.json", "reference/tapping-evidence.html", "js/tapping-workflow-data.js", "downloads/tapping-atlas.csv"],
+    "changed": ["reference/tapping-atlas.html", "reference/tap-type-guide.html", "tools/tapping-workflow.html"]
+  },
+  "files_created": [
+    "scripts/validators/validate-tapping-terminology.js",
+    "docs/architecture/tapping-terminology-validation-report.json",
+    "docs/architecture/tapping-terminology-validation-report.md",
+    "audit/t11-tapping-consistency.md",
+    "audit/t11-tapping-consistency.json",
+    "audit/t11-change-scope.md",
+    "docs/architecture/t11-tapping-consistency.md"
+  ],
+  "files_modified": [
+    "scripts/generators/generate-tapping-atlas.js",
+    "scripts/generators/generate-tapping-workflow.js",
+    "scripts/generators/generate-tap-type-guide.js",
+    "scripts/validators/validate-tapping-atlas.js",
+    "reference/tapping-atlas.html",
+    "reference/tap-type-guide.html",
+    "tools/tapping-workflow.html"
+  ],
+  "files_explicitly_not_modified": [
+    "data/entities/*",
+    "data/standards/*",
+    "data/datasets/*",
+    "data/relationships/*",
+    "data/projections/tapping/tapping-profiles.json",
+    "data/projections/tapping/tap-types.json",
+    "downloads/tapping-atlas.csv",
+    "js/tapping-workflow-data.js",
+    "reference/tapping-evidence.html",
+    "scripts/generators/generate-tapping-evidence.js",
+    "sitemap.xml",
+    "ads.txt / AdSense configuration / CMP / privacy / cookies"
+  ],
+  "unexpected_files_encountered": {
+    "note": "Several unrelated untracked files were present in git status at session start (audit/d2-0-*, .DS_Store files, images/logo.ai, .claude/) and were left untouched -- they predate T11 and are outside this phase's scope.",
+    "files": ["audit/d2-0-adsense-readiness.json", "audit/d2-0-adsense-readiness.md", "audit/d2-0-change-scope.md", ".DS_Store", "css/.DS_Store", "images/.DS_Store", "images/heads/.DS_Store", "images/logo.ai", "images/screw-drive-types/.DS_Store", "images/screw-head-types/.DS_Store", ".claude/"]
+  },
+  "stop_condition": {
+    "committed": false,
+    "pushed": false,
+    "t12_started": false,
+    "status": "T11 CORRECTION STATUS: READY FOR REVIEW"
+  }
+}

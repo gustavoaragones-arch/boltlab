@@ -69,9 +69,9 @@ function main() {
   // 3. Field-level vs record-level status kept visually distinct (both phrases present on every card)
   const distinctionCheck = { name: "Field-Level vs Record-Level Status Distinction Present", status: "pass", errors: [], warnings: [] };
   const tapDrillLabelCount = (html.match(/Tap drill: (Verified|Source-bound)/g) || []).length;
-  const overallStatusCount = (html.match(/Overall profile status: (Verified|Source-bound)/g) || []).length;
+  const overallStatusCount = (html.match(/Overall record status: (Verified|Source-bound)/g) || []).length;
   if (tapDrillLabelCount !== expected.total) distinctionCheck.errors.push(`"Tap drill: ..." label appears ${tapDrillLabelCount} times, expected ${expected.total}`);
-  if (overallStatusCount !== expected.total) distinctionCheck.errors.push(`"Overall profile status: ..." label appears ${overallStatusCount} times, expected ${expected.total}`);
+  if (overallStatusCount !== expected.total) distinctionCheck.errors.push(`"Overall record status: ..." label appears ${overallStatusCount} times, expected ${expected.total}`);
   if (distinctionCheck.errors.length) distinctionCheck.status = "fail";
   checks.push(distinctionCheck);
 
@@ -197,9 +197,9 @@ function main() {
   const CLASSIFICATION_FIELDS = ["general_taxonomy", "manufacturing_characteristics", "typical_applications", "manufacturer_specific_recommendations"];
   const CLASSIFICATION_LABELS = {
     general_taxonomy: "General taxonomy",
-    manufacturing_characteristics: "Manufacturing characteristic",
-    typical_applications: "Typical application",
-    manufacturer_specific_recommendations: "Manufacturer-specific recommendation"
+    manufacturing_characteristics: "Manufacturing characteristics",
+    typical_applications: "Typical applications",
+    manufacturer_specific_recommendations: "Manufacturer-specific recommendations"
   };
   let tapTypeFactsChecked = 0;
   for (const row of tapTypeProjection.rows) {

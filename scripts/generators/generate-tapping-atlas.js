@@ -100,7 +100,18 @@ function verificationLabel(status) {
   return "Unavailable";
 }
 
+// -- Display label (T11): the HTML page must not describe every metric primary tap-drill value
+// as "ISO 2306 metric convention" -- only 9 of 14 metric records have projection-backed ISO 2306
+// cross-verification (tap_drill.provenance.cross_check); the rest are source-bound. "Metric drill
+// convention" is the safer, uniformly-accurate wording, matching the T10 Evidence baseline. --
 function driveConventionLabel(row) {
+  return row.thread.thread_system === "metric" ? "Metric drill convention" : "US customary drill convention";
+}
+
+// -- CSV-only label (frozen): downloads/tapping-atlas.csv is a protected artifact under the T11
+// regression rule and must not change. This preserves the CSV's original "primary_drill_convention"
+// column text exactly; it is intentionally NOT updated to match the HTML display label above. --
+function csvDriveConventionLabel(row) {
   return row.thread.thread_system === "metric" ? "ISO 2306 metric convention" : "US customary drill convention";
 }
 
@@ -155,7 +166,7 @@ function renderCard(row, tapTypeById) {
   <h3>${escapeHtml(designation)}</h3>
   <p class="muted">${escapeHtml(system)} · ${escapeHtml(diameterDisplay(row))} · ${escapeHtml(pitchTpiDisplay(row))} · ${escapeHtml(cf)}</p>
   <p><span class="data-status data-status--${escapeHtml(verification)}">Tap drill: ${escapeHtml(verificationLabel(verification))}</span></p>
-  <p class="muted">Overall profile status: ${escapeHtml(verificationLabel(row.data_quality.record_status))} (engagement and process-parameter data are not yet available for any profile)</p>
+  <p class="muted">Overall record status: ${escapeHtml(verificationLabel(row.data_quality.record_status))} (engagement and process-parameter data are not yet available for any profile)</p>
   <p><strong>Primary tap drill:</strong> ${row.tap_drill.value} ${escapeHtml(row.tap_drill.unit)}<br><span class="muted">${escapeHtml(driveConventionLabel(row))}</span></p>${altBlock}
   <p><strong>Tap types:</strong> ${renderTapTypeTags(row.tap_types, tapTypeById) || "None resolved"}</p>
   <p><strong>Standards:</strong> ${renderStandardsTags(row.standards) || "None resolved"}</p>
@@ -186,7 +197,7 @@ function renderTapTypeSection(tapTypeProjection) {
       };
       return `<article class="card">
   <h3>${escapeHtml(row.title)}</h3>
-  <p class="muted">${escapeHtml(row.definition)}</p>${noteGroup(row.general_taxonomy, "General taxonomy")}${noteGroup(row.manufacturing_characteristics, "Manufacturing characteristic")}${noteGroup(row.typical_applications, "Typical application")}${noteGroup(row.manufacturer_specific_recommendations, "Manufacturer-specific recommendation")}
+  <p class="muted">${escapeHtml(row.definition)}</p>${noteGroup(row.general_taxonomy, "General taxonomy")}${noteGroup(row.manufacturing_characteristics, "Manufacturing characteristics")}${noteGroup(row.typical_applications, "Typical applications")}${noteGroup(row.manufacturer_specific_recommendations, "Manufacturer-specific recommendations")}
 </article>`;
     })
     .join("\n");
@@ -212,7 +223,7 @@ function renderFaq() {
     },
     {
       q: "What tap-drill information does BoltLab provide?",
-      a: "Each record shows a primary tap-drill value in its own convention (ISO 2306 for metric, US-customary drill series for UNC/UNF), a verification status, and where applicable a separately labeled ISO 2306 alternative drill value for UNC/UNF threads."
+      a: "Each record shows a primary tap-drill value in its own convention (the metric drill convention for metric, US-customary drill series for UNC/UNF), a verification status, and where applicable a separately labeled ISO 2306 alternative drill value for UNC/UNF threads."
     },
     {
       q: "Why are some tap-drill values source-bound?",
@@ -413,7 +424,7 @@ ${tapTypeCards}
       <section class="card">
         <h2>Data interpretation</h2>
         <ul class="meta-list">
-          <li><strong>Primary tap drill</strong> — the profile's main value, in its own labeled convention (ISO 2306 for metric, US customary for UNC/UNF).</li>
+          <li><strong>Primary tap drill</strong> — the profile's main value, in its own labeled convention (metric drill convention for metric, US customary for UNC/UNF).</li>
           <li><strong>ISO 2306 alternative</strong> — shown only for UNC/UNF, always a separate value, never a replacement for the primary drill.</li>
           <li><strong>Verified</strong> (tap drill) — independently cross-checked against the cited primary source.</li>
           <li><strong>Source-bound</strong> (tap drill) — bound to a verified BoltLab source record, but not yet independently cross-checked against the primary standard.</li>
@@ -586,7 +597,7 @@ function renderCsv(profileProjection) {
       coarseFineLabel(row),
       row.tap_drill.value,
       row.tap_drill.unit,
-      driveConventionLabel(row),
+      csvDriveConventionLabel(row),
       row.tap_drill.status,
       row.alternative_drill ? row.alternative_drill.value : "",
       row.alternative_drill ? row.alternative_drill.unit : "",

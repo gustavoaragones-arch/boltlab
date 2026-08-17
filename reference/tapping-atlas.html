@@ -13,7 +13,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"Tapping & Threading Atlas","description":"Explore BoltLab's metric, UNC, and UNF tapping data, including tap-drill values, ISO 2306 alternatives, tap types, standards, verification status, and downloadable data.","url":"https://boltlab.io/reference/tapping-atlas","creator":{"@type":"Organization","name":"BoltLab"},"license":"https://boltlab.io/privacy","variableMeasured":["tap drill diameter","thread designation","verification status"],"distribution":{"@type":"DataDownload","contentUrl":"https://boltlab.io/downloads/tapping-atlas.csv","encodingFormat":"text/csv"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Tapping & Threading Atlas | BoltLab","url":"https://boltlab.io/reference/tapping-atlas","description":"Explore BoltLab's metric, UNC, and UNF tapping data, including tap-drill values, ISO 2306 alternatives, tap types, standards, verification status, and downloadable data."}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BoltLab","item":"https://boltlab.io/"},{"@type":"ListItem","position":2,"name":"Reference","item":"https://boltlab.io/reference/"},{"@type":"ListItem","position":3,"name":"Tapping & Threading Atlas","item":"https://boltlab.io/reference/tapping-atlas"}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the BoltLab Tapping & Threading Atlas?","acceptedAnswer":{"@type":"Answer","text":"It is BoltLab's structured engineering data product for tapping and thread-preparation information across metric, UNC, and UNF threads, built from BoltLab's verified knowledge layer and projection pipeline rather than written as a general guide."}},{"@type":"Question","name":"What tap-drill information does BoltLab provide?","acceptedAnswer":{"@type":"Answer","text":"Each record shows a primary tap-drill value in its own convention (ISO 2306 for metric, US-customary drill series for UNC/UNF), a verification status, and where applicable a separately labeled ISO 2306 alternative drill value for UNC/UNF threads."}},{"@type":"Question","name":"Why are some tap-drill values source-bound?","acceptedAnswer":{"@type":"Answer","text":"Source-bound means a credible source supports the value, but it has not been independently cross-checked against a primary standard table in this phase. BoltLab labels these explicitly rather than presenting every value as equally certain."}},{"@type":"Question","name":"What is the ISO 2306 alternative drill value?","acceptedAnswer":{"@type":"Answer","text":"For UNC and UNF threads, ISO 2306 provides its own metric drill-diameter recommendation using a different sizing convention than BoltLab's primary US-customary value. It is shown as a separate, independently verified field and does not replace or average with the primary value."}},{"@type":"Question","name":"Does BoltLab provide a universal thread-engagement percentage?","acceptedAnswer":{"@type":"Answer","text":"No. BoltLab can calculate radial thread engagement from thread geometry and a chosen drill diameter, but it does not assert a universal target engagement percentage, and axial engagement length remains not calculable because the required material-strength data is not yet part of the dataset."}},{"@type":"Question","name":"Can I download the tapping data?","acceptedAnswer":{"@type":"Answer","text":"Yes. The same projection data shown on this page is available as a CSV download, with verification status preserved at the field level."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the BoltLab Tapping & Threading Atlas?","acceptedAnswer":{"@type":"Answer","text":"It is BoltLab's structured engineering data product for tapping and thread-preparation information across metric, UNC, and UNF threads, built from BoltLab's verified knowledge layer and projection pipeline rather than written as a general guide."}},{"@type":"Question","name":"What tap-drill information does BoltLab provide?","acceptedAnswer":{"@type":"Answer","text":"Each record shows a primary tap-drill value in its own convention (the metric drill convention for metric, US-customary drill series for UNC/UNF), a verification status, and where applicable a separately labeled ISO 2306 alternative drill value for UNC/UNF threads."}},{"@type":"Question","name":"Why are some tap-drill values source-bound?","acceptedAnswer":{"@type":"Answer","text":"Source-bound means a credible source supports the value, but it has not been independently cross-checked against a primary standard table in this phase. BoltLab labels these explicitly rather than presenting every value as equally certain."}},{"@type":"Question","name":"What is the ISO 2306 alternative drill value?","acceptedAnswer":{"@type":"Answer","text":"For UNC and UNF threads, ISO 2306 provides its own metric drill-diameter recommendation using a different sizing convention than BoltLab's primary US-customary value. It is shown as a separate, independently verified field and does not replace or average with the primary value."}},{"@type":"Question","name":"Does BoltLab provide a universal thread-engagement percentage?","acceptedAnswer":{"@type":"Answer","text":"No. BoltLab can calculate radial thread engagement from thread geometry and a chosen drill diameter, but it does not assert a universal target engagement percentage, and axial engagement length remains not calculable because the required material-strength data is not yet part of the dataset."}},{"@type":"Question","name":"Can I download the tapping data?","acceptedAnswer":{"@type":"Answer","text":"Yes. The same projection data shown on this page is available as a CSV download, with verification status preserved at the field level."}}]}</script>
 </head>
 <body>
   <header class="site-header">
@@ -84,8 +84,8 @@
   <h3>M10x1.25</h3>
   <p class="muted">Metric · 10 mm · 1.25 mm · fine</p>
   <p><span class="data-status data-status--source_bound">Tap drill: Source-bound</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
-  <p><strong>Primary tap drill:</strong> 8.8 mm<br><span class="muted">ISO 2306 metric convention</span></p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p><strong>Primary tap drill:</strong> 8.8 mm<br><span class="muted">Metric drill convention</span></p>
   <p><strong>Tap types:</strong> Bottoming Tap, Plug Tap, Spiral Flute Tap, Spiral Point Tap, Taper Tap</p>
   <p><strong>Standards:</strong> ISO 2306, ISO 261, ISO 262, ISO 724, ISO 965-1</p>
   <details class="tapping-provenance">
@@ -103,8 +103,8 @@
   <h3>M10x1.5</h3>
   <p class="muted">Metric · 10 mm · 1.5 mm · coarse</p>
   <p><span class="data-status data-status--verified">Tap drill: Verified</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
-  <p><strong>Primary tap drill:</strong> 8.5 mm<br><span class="muted">ISO 2306 metric convention</span></p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p><strong>Primary tap drill:</strong> 8.5 mm<br><span class="muted">Metric drill convention</span></p>
   <p><strong>Tap types:</strong> Bottoming Tap, Plug Tap, Spiral Flute Tap, Spiral Point Tap, Taper Tap</p>
   <p><strong>Standards:</strong> ISO 2306, ISO 261, ISO 262, ISO 724, ISO 965-1</p>
   <details class="tapping-provenance">
@@ -123,8 +123,8 @@
   <h3>M12x1.25</h3>
   <p class="muted">Metric · 12 mm · 1.25 mm · fine</p>
   <p><span class="data-status data-status--source_bound">Tap drill: Source-bound</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
-  <p><strong>Primary tap drill:</strong> 10.8 mm<br><span class="muted">ISO 2306 metric convention</span></p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p><strong>Primary tap drill:</strong> 10.8 mm<br><span class="muted">Metric drill convention</span></p>
   <p><strong>Tap types:</strong> Bottoming Tap, Plug Tap, Spiral Flute Tap, Spiral Point Tap, Taper Tap</p>
   <p><strong>Standards:</strong> ISO 2306, ISO 261, ISO 262, ISO 724, ISO 965-1</p>
   <details class="tapping-provenance">
@@ -142,8 +142,8 @@
   <h3>M12x1.75</h3>
   <p class="muted">Metric · 12 mm · 1.75 mm · coarse</p>
   <p><span class="data-status data-status--verified">Tap drill: Verified</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
-  <p><strong>Primary tap drill:</strong> 10.2 mm<br><span class="muted">ISO 2306 metric convention</span></p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p><strong>Primary tap drill:</strong> 10.2 mm<br><span class="muted">Metric drill convention</span></p>
   <p><strong>Tap types:</strong> Bottoming Tap, Plug Tap, Spiral Flute Tap, Spiral Point Tap, Taper Tap</p>
   <p><strong>Standards:</strong> ISO 2306, ISO 261, ISO 262, ISO 724, ISO 965-1</p>
   <details class="tapping-provenance">
@@ -162,8 +162,8 @@
   <h3>M16x1.5</h3>
   <p class="muted">Metric · 16 mm · 1.5 mm · fine</p>
   <p><span class="data-status data-status--source_bound">Tap drill: Source-bound</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
-  <p><strong>Primary tap drill:</strong> 14.5 mm<br><span class="muted">ISO 2306 metric convention</span></p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p><strong>Primary tap drill:</strong> 14.5 mm<br><span class="muted">Metric drill convention</span></p>
   <p><strong>Tap types:</strong> Bottoming Tap, Plug Tap, Spiral Flute Tap, Spiral Point Tap, Taper Tap</p>
   <p><strong>Standards:</strong> ISO 2306, ISO 261, ISO 262, ISO 724, ISO 965-1</p>
   <details class="tapping-provenance">
@@ -181,8 +181,8 @@
   <h3>M16x2.0</h3>
   <p class="muted">Metric · 16 mm · 2 mm · coarse</p>
   <p><span class="data-status data-status--verified">Tap drill: Verified</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
-  <p><strong>Primary tap drill:</strong> 14 mm<br><span class="muted">ISO 2306 metric convention</span></p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p><strong>Primary tap drill:</strong> 14 mm<br><span class="muted">Metric drill convention</span></p>
   <p><strong>Tap types:</strong> Bottoming Tap, Plug Tap, Spiral Flute Tap, Spiral Point Tap, Taper Tap</p>
   <p><strong>Standards:</strong> ISO 2306, ISO 261, ISO 262, ISO 724, ISO 965-1</p>
   <details class="tapping-provenance">
@@ -201,8 +201,8 @@
   <h3>M20x2.0</h3>
   <p class="muted">Metric · 20 mm · 2 mm · fine</p>
   <p><span class="data-status data-status--source_bound">Tap drill: Source-bound</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
-  <p><strong>Primary tap drill:</strong> 18 mm<br><span class="muted">ISO 2306 metric convention</span></p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p><strong>Primary tap drill:</strong> 18 mm<br><span class="muted">Metric drill convention</span></p>
   <p><strong>Tap types:</strong> Bottoming Tap, Plug Tap, Spiral Flute Tap, Spiral Point Tap, Taper Tap</p>
   <p><strong>Standards:</strong> ISO 2306, ISO 261, ISO 262, ISO 724, ISO 965-1</p>
   <details class="tapping-provenance">
@@ -220,8 +220,8 @@
   <h3>M20x2.5</h3>
   <p class="muted">Metric · 20 mm · 2.5 mm · coarse</p>
   <p><span class="data-status data-status--verified">Tap drill: Verified</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
-  <p><strong>Primary tap drill:</strong> 17.5 mm<br><span class="muted">ISO 2306 metric convention</span></p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p><strong>Primary tap drill:</strong> 17.5 mm<br><span class="muted">Metric drill convention</span></p>
   <p><strong>Tap types:</strong> Bottoming Tap, Plug Tap, Spiral Flute Tap, Spiral Point Tap, Taper Tap</p>
   <p><strong>Standards:</strong> ISO 2306, ISO 261, ISO 262, ISO 724, ISO 965-1</p>
   <details class="tapping-provenance">
@@ -240,8 +240,8 @@
   <h3>M3x0.5</h3>
   <p class="muted">Metric · 3 mm · 0.5 mm · coarse</p>
   <p><span class="data-status data-status--verified">Tap drill: Verified</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
-  <p><strong>Primary tap drill:</strong> 2.5 mm<br><span class="muted">ISO 2306 metric convention</span></p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p><strong>Primary tap drill:</strong> 2.5 mm<br><span class="muted">Metric drill convention</span></p>
   <p><strong>Tap types:</strong> Bottoming Tap, Plug Tap, Spiral Flute Tap, Spiral Point Tap, Taper Tap</p>
   <p><strong>Standards:</strong> ISO 2306, ISO 261, ISO 262, ISO 724, ISO 965-1</p>
   <details class="tapping-provenance">
@@ -260,8 +260,8 @@
   <h3>M4x0.7</h3>
   <p class="muted">Metric · 4 mm · 0.7 mm · coarse</p>
   <p><span class="data-status data-status--verified">Tap drill: Verified</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
-  <p><strong>Primary tap drill:</strong> 3.3 mm<br><span class="muted">ISO 2306 metric convention</span></p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p><strong>Primary tap drill:</strong> 3.3 mm<br><span class="muted">Metric drill convention</span></p>
   <p><strong>Tap types:</strong> Bottoming Tap, Plug Tap, Spiral Flute Tap, Spiral Point Tap, Taper Tap</p>
   <p><strong>Standards:</strong> ISO 2306, ISO 261, ISO 262, ISO 724, ISO 965-1</p>
   <details class="tapping-provenance">
@@ -280,8 +280,8 @@
   <h3>M5x0.8</h3>
   <p class="muted">Metric · 5 mm · 0.8 mm · coarse</p>
   <p><span class="data-status data-status--verified">Tap drill: Verified</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
-  <p><strong>Primary tap drill:</strong> 4.2 mm<br><span class="muted">ISO 2306 metric convention</span></p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p><strong>Primary tap drill:</strong> 4.2 mm<br><span class="muted">Metric drill convention</span></p>
   <p><strong>Tap types:</strong> Bottoming Tap, Plug Tap, Spiral Flute Tap, Spiral Point Tap, Taper Tap</p>
   <p><strong>Standards:</strong> ISO 2306, ISO 261, ISO 262, ISO 724, ISO 965-1</p>
   <details class="tapping-provenance">
@@ -300,8 +300,8 @@
   <h3>M6x1</h3>
   <p class="muted">Metric · 6 mm · 1 mm · coarse</p>
   <p><span class="data-status data-status--verified">Tap drill: Verified</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
-  <p><strong>Primary tap drill:</strong> 5 mm<br><span class="muted">ISO 2306 metric convention</span></p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p><strong>Primary tap drill:</strong> 5 mm<br><span class="muted">Metric drill convention</span></p>
   <p><strong>Tap types:</strong> Bottoming Tap, Plug Tap, Spiral Flute Tap, Spiral Point Tap, Taper Tap</p>
   <p><strong>Standards:</strong> ISO 2306, ISO 261, ISO 262, ISO 724, ISO 965-1</p>
   <details class="tapping-provenance">
@@ -320,8 +320,8 @@
   <h3>M8x1.0</h3>
   <p class="muted">Metric · 8 mm · 1 mm · fine</p>
   <p><span class="data-status data-status--source_bound">Tap drill: Source-bound</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
-  <p><strong>Primary tap drill:</strong> 7 mm<br><span class="muted">ISO 2306 metric convention</span></p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p><strong>Primary tap drill:</strong> 7 mm<br><span class="muted">Metric drill convention</span></p>
   <p><strong>Tap types:</strong> Bottoming Tap, Plug Tap, Spiral Flute Tap, Spiral Point Tap, Taper Tap</p>
   <p><strong>Standards:</strong> ISO 2306, ISO 261, ISO 262, ISO 724, ISO 965-1</p>
   <details class="tapping-provenance">
@@ -339,8 +339,8 @@
   <h3>M8x1.25</h3>
   <p class="muted">Metric · 8 mm · 1.25 mm · coarse</p>
   <p><span class="data-status data-status--verified">Tap drill: Verified</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
-  <p><strong>Primary tap drill:</strong> 6.8 mm<br><span class="muted">ISO 2306 metric convention</span></p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p><strong>Primary tap drill:</strong> 6.8 mm<br><span class="muted">Metric drill convention</span></p>
   <p><strong>Tap types:</strong> Bottoming Tap, Plug Tap, Spiral Flute Tap, Spiral Point Tap, Taper Tap</p>
   <p><strong>Standards:</strong> ISO 2306, ISO 261, ISO 262, ISO 724, ISO 965-1</p>
   <details class="tapping-provenance">
@@ -359,7 +359,7 @@
   <h3>#10-24 UNC</h3>
   <p class="muted">UNC · 0.19 in · 24 TPI · coarse</p>
   <p><span class="data-status data-status--source_bound">Tap drill: Source-bound</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
   <p><strong>Primary tap drill:</strong> 0.1495 in<br><span class="muted">US customary drill convention</span></p>
       <p><strong>ISO 2306 alternative:</strong> 3.9 mm · Verified</p>
       <p class="muted tapping-iso-note">ISO 2306 provides a metric drill recommendation for these inch-thread records. It is shown separately from BoltLab&#39;s primary US-customary drill value and does not replace it.</p>
@@ -380,7 +380,7 @@
   <h3>1/2-13 UNC</h3>
   <p class="muted">UNC · 0.5 in · 13 TPI · coarse</p>
   <p><span class="data-status data-status--source_bound">Tap drill: Source-bound</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
   <p><strong>Primary tap drill:</strong> 0.4219 in<br><span class="muted">US customary drill convention</span></p>
       <p><strong>ISO 2306 alternative:</strong> 10.8 mm · Verified</p>
       <p class="muted tapping-iso-note">ISO 2306 provides a metric drill recommendation for these inch-thread records. It is shown separately from BoltLab&#39;s primary US-customary drill value and does not replace it.</p>
@@ -401,7 +401,7 @@
   <h3>1/4-20 UNC</h3>
   <p class="muted">UNC · 0.25 in · 20 TPI · coarse</p>
   <p><span class="data-status data-status--source_bound">Tap drill: Source-bound</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
   <p><strong>Primary tap drill:</strong> 0.201 in<br><span class="muted">US customary drill convention</span></p>
       <p><strong>ISO 2306 alternative:</strong> 5.1 mm · Verified</p>
       <p class="muted tapping-iso-note">ISO 2306 provides a metric drill recommendation for these inch-thread records. It is shown separately from BoltLab&#39;s primary US-customary drill value and does not replace it.</p>
@@ -422,7 +422,7 @@
   <h3>3/8-16 UNC</h3>
   <p class="muted">UNC · 0.375 in · 16 TPI · coarse</p>
   <p><span class="data-status data-status--source_bound">Tap drill: Source-bound</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
   <p><strong>Primary tap drill:</strong> 0.3125 in<br><span class="muted">US customary drill convention</span></p>
       <p><strong>ISO 2306 alternative:</strong> 8 mm · Verified</p>
       <p class="muted tapping-iso-note">ISO 2306 provides a metric drill recommendation for these inch-thread records. It is shown separately from BoltLab&#39;s primary US-customary drill value and does not replace it.</p>
@@ -443,7 +443,7 @@
   <h3>#4-40 UNC</h3>
   <p class="muted">UNC · 0.112 in · 40 TPI · coarse</p>
   <p><span class="data-status data-status--source_bound">Tap drill: Source-bound</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
   <p><strong>Primary tap drill:</strong> 0.089 in<br><span class="muted">US customary drill convention</span></p>
       <p><strong>ISO 2306 alternative:</strong> 2.35 mm · Verified</p>
       <p class="muted tapping-iso-note">ISO 2306 provides a metric drill recommendation for these inch-thread records. It is shown separately from BoltLab&#39;s primary US-customary drill value and does not replace it.</p>
@@ -464,7 +464,7 @@
   <h3>5/16-18 UNC</h3>
   <p class="muted">UNC · 0.313 in · 18 TPI · coarse</p>
   <p><span class="data-status data-status--source_bound">Tap drill: Source-bound</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
   <p><strong>Primary tap drill:</strong> 0.257 in<br><span class="muted">US customary drill convention</span></p>
       <p><strong>ISO 2306 alternative:</strong> 6.6 mm · Verified</p>
       <p class="muted tapping-iso-note">ISO 2306 provides a metric drill recommendation for these inch-thread records. It is shown separately from BoltLab&#39;s primary US-customary drill value and does not replace it.</p>
@@ -485,7 +485,7 @@
   <h3>#6-32 UNC</h3>
   <p class="muted">UNC · 0.138 in · 32 TPI · coarse</p>
   <p><span class="data-status data-status--source_bound">Tap drill: Source-bound</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
   <p><strong>Primary tap drill:</strong> 0.1065 in<br><span class="muted">US customary drill convention</span></p>
       <p><strong>ISO 2306 alternative:</strong> 2.85 mm · Verified</p>
       <p class="muted tapping-iso-note">ISO 2306 provides a metric drill recommendation for these inch-thread records. It is shown separately from BoltLab&#39;s primary US-customary drill value and does not replace it.</p>
@@ -506,7 +506,7 @@
   <h3>#8-32 UNC</h3>
   <p class="muted">UNC · 0.164 in · 32 TPI · coarse</p>
   <p><span class="data-status data-status--source_bound">Tap drill: Source-bound</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
   <p><strong>Primary tap drill:</strong> 0.136 in<br><span class="muted">US customary drill convention</span></p>
       <p><strong>ISO 2306 alternative:</strong> 3.5 mm · Verified</p>
       <p class="muted tapping-iso-note">ISO 2306 provides a metric drill recommendation for these inch-thread records. It is shown separately from BoltLab&#39;s primary US-customary drill value and does not replace it.</p>
@@ -527,7 +527,7 @@
   <h3>#10-32 UNF</h3>
   <p class="muted">UNF · 0.19 in · 32 TPI · fine</p>
   <p><span class="data-status data-status--source_bound">Tap drill: Source-bound</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
   <p><strong>Primary tap drill:</strong> 0.159 in<br><span class="muted">US customary drill convention</span></p>
       <p><strong>ISO 2306 alternative:</strong> 4.1 mm · Verified</p>
       <p class="muted tapping-iso-note">ISO 2306 provides a metric drill recommendation for these inch-thread records. It is shown separately from BoltLab&#39;s primary US-customary drill value and does not replace it.</p>
@@ -548,7 +548,7 @@
   <h3>1/2-20 UNF</h3>
   <p class="muted">UNF · 0.5 in · 20 TPI · fine</p>
   <p><span class="data-status data-status--source_bound">Tap drill: Source-bound</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
   <p><strong>Primary tap drill:</strong> 0.4531 in<br><span class="muted">US customary drill convention</span></p>
       <p><strong>ISO 2306 alternative:</strong> 11.5 mm · Verified</p>
       <p class="muted tapping-iso-note">ISO 2306 provides a metric drill recommendation for these inch-thread records. It is shown separately from BoltLab&#39;s primary US-customary drill value and does not replace it.</p>
@@ -569,7 +569,7 @@
   <h3>1/4-28 UNF</h3>
   <p class="muted">UNF · 0.25 in · 28 TPI · fine</p>
   <p><span class="data-status data-status--source_bound">Tap drill: Source-bound</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
   <p><strong>Primary tap drill:</strong> 0.213 in<br><span class="muted">US customary drill convention</span></p>
       <p><strong>ISO 2306 alternative:</strong> 5.5 mm · Verified</p>
       <p class="muted tapping-iso-note">ISO 2306 provides a metric drill recommendation for these inch-thread records. It is shown separately from BoltLab&#39;s primary US-customary drill value and does not replace it.</p>
@@ -590,7 +590,7 @@
   <h3>3/8-24 UNF</h3>
   <p class="muted">UNF · 0.375 in · 24 TPI · fine</p>
   <p><span class="data-status data-status--source_bound">Tap drill: Source-bound</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
   <p><strong>Primary tap drill:</strong> 0.332 in<br><span class="muted">US customary drill convention</span></p>
       <p><strong>ISO 2306 alternative:</strong> 8.5 mm · Verified</p>
       <p class="muted tapping-iso-note">ISO 2306 provides a metric drill recommendation for these inch-thread records. It is shown separately from BoltLab&#39;s primary US-customary drill value and does not replace it.</p>
@@ -611,7 +611,7 @@
   <h3>5/16-24 UNF</h3>
   <p class="muted">UNF · 0.313 in · 24 TPI · fine</p>
   <p><span class="data-status data-status--source_bound">Tap drill: Source-bound</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
   <p><strong>Primary tap drill:</strong> 0.272 in<br><span class="muted">US customary drill convention</span></p>
       <p><strong>ISO 2306 alternative:</strong> 6.9 mm · Verified</p>
       <p class="muted tapping-iso-note">ISO 2306 provides a metric drill recommendation for these inch-thread records. It is shown separately from BoltLab&#39;s primary US-customary drill value and does not replace it.</p>
@@ -632,7 +632,7 @@
   <h3>#6-40 UNF</h3>
   <p class="muted">UNF · 0.138 in · 40 TPI · fine</p>
   <p><span class="data-status data-status--source_bound">Tap drill: Source-bound</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
   <p><strong>Primary tap drill:</strong> 0.113 in<br><span class="muted">US customary drill convention</span></p>
       <p><strong>ISO 2306 alternative:</strong> 2.95 mm · Verified</p>
       <p class="muted tapping-iso-note">ISO 2306 provides a metric drill recommendation for these inch-thread records. It is shown separately from BoltLab&#39;s primary US-customary drill value and does not replace it.</p>
@@ -653,7 +653,7 @@
   <h3>#8-36 UNF</h3>
   <p class="muted">UNF · 0.164 in · 36 TPI · fine</p>
   <p><span class="data-status data-status--source_bound">Tap drill: Source-bound</span></p>
-  <p class="muted">Overall profile status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
+  <p class="muted">Overall record status: Source-bound (engagement and process-parameter data are not yet available for any profile)</p>
   <p><strong>Primary tap drill:</strong> 0.136 in<br><span class="muted">US customary drill convention</span></p>
       <p><strong>ISO 2306 alternative:</strong> 3.5 mm · Verified</p>
       <p class="muted tapping-iso-note">ISO 2306 provides a metric drill recommendation for these inch-thread records. It is shown separately from BoltLab&#39;s primary US-customary drill value and does not replace it.</p>
@@ -680,11 +680,11 @@
 <article class="card">
   <h3>Taper Tap</h3>
   <p class="muted">A tap with a gradually tapered chamfer at the point, typically engaging six to eight threads before reaching full thread form, used to start threads gradually and reduce cutting force per pass.</p>
-        <p class="label-caps">Manufacturing characteristic</p>
+        <p class="label-caps">Manufacturing characteristics</p>
         <ul class="meta-list">
           <li>Chamfer length is approximately 7-10 threads/pitches, the longest of the three chamfer-length tap styles. <span class="muted">(Source-bound)</span></li>
         </ul>
-        <p class="label-caps">Typical application</p>
+        <p class="label-caps">Typical applications</p>
         <ul class="meta-list">
           <li>Long chamfer distributes cutting load gradually and makes the tap easier to start straight/square, but it cannot cut full-depth threads within roughly 7-10 pitches of the bottom of a blind hole. <span class="muted">(Source-bound)</span></li>
         </ul>
@@ -692,11 +692,11 @@
 <article class="card">
   <h3>Plug Tap</h3>
   <p class="muted">A tap with a moderate chamfer length, shorter than a taper tap but longer than a bottoming tap, engaging approximately three to five threads before reaching full thread form.</p>
-        <p class="label-caps">Manufacturing characteristic</p>
+        <p class="label-caps">Manufacturing characteristics</p>
         <ul class="meta-list">
           <li>Chamfer length is approximately 3-5 threads/pitches, shorter than a taper tap and longer than a bottoming tap. <span class="muted">(Source-bound)</span></li>
         </ul>
-        <p class="label-caps">Typical application</p>
+        <p class="label-caps">Typical applications</p>
         <ul class="meta-list">
           <li>General-purpose tap; commonly the sole tap used for through-hole tapping, and can start in an unthreaded hole (unlike a bottoming tap). <span class="muted">(Source-bound)</span></li>
         </ul>
@@ -708,11 +708,11 @@
         <ul class="meta-list">
           <li>Incomplete internal threads are inherently present at the bottom of a tapped blind hole -- the physical reason bottoming taps exist as a distinct style. <span class="muted">(Verified)</span></li>
         </ul>
-        <p class="label-caps">Manufacturing characteristic</p>
+        <p class="label-caps">Manufacturing characteristics</p>
         <ul class="meta-list">
           <li>Chamfer length is approximately 1-2 threads/pitches, the shortest of the three chamfer-length tap styles. <span class="muted">(Source-bound)</span></li>
         </ul>
-        <p class="label-caps">Typical application</p>
+        <p class="label-caps">Typical applications</p>
         <ul class="meta-list">
           <li>Cannot start in an unthreaded hole; used to extend threads to the base of a blind hole after a taper and/or plug tap has already established the thread. <span class="muted">(Source-bound)</span></li>
         </ul>
@@ -720,11 +720,11 @@
 <article class="card">
   <h3>Spiral Point Tap</h3>
   <p class="muted">A tap with an angled point ground onto the flutes that pushes chips forward, ahead of the tap and out through the far side of the hole, commonly associated with through-hole applications.</p>
-        <p class="label-caps">Manufacturing characteristic</p>
+        <p class="label-caps">Manufacturing characteristics</p>
         <ul class="meta-list">
           <li>Also called a gun tap or gun-nose tap; a forward-angled point ground onto the cutting chamfer drives chips forward, ahead of the tap. <span class="muted">(Source-bound)</span></li>
         </ul>
-        <p class="label-caps">Typical application</p>
+        <p class="label-caps">Typical applications</p>
         <ul class="meta-list">
           <li>Suited to through-hole tapping only. In a blind hole the forward-pushed chips have nowhere to go, pack at the bottom, and can bind and break the tap. <span class="muted">(Source-bound)</span></li>
         </ul>
@@ -732,11 +732,11 @@
 <article class="card">
   <h3>Spiral Flute Tap</h3>
   <p class="muted">A tap with helical (spiral) flutes that lift chips backward out of the hole entrance during cutting, commonly associated with blind-hole applications.</p>
-        <p class="label-caps">Manufacturing characteristic</p>
+        <p class="label-caps">Manufacturing characteristics</p>
         <ul class="meta-list">
           <li>Helical (spiral) flutes lift chips backward, up and out of the hole entrance, opposite in direction to a spiral-point tap. <span class="muted">(Source-bound)</span></li>
         </ul>
-        <p class="label-caps">Typical application</p>
+        <p class="label-caps">Typical applications</p>
         <ul class="meta-list">
           <li>Suited to blind-hole tapping, where chips cannot be pushed forward out of a closed bottom. <span class="muted">(Source-bound)</span></li>
         </ul>
@@ -744,16 +744,16 @@
 <article class="card">
   <h3>Forming Tap</h3>
   <p class="muted">A tap that forms threads by radially displacing material rather than cutting it, producing no chips; also referred to as a roll tap or fluteless tap.</p>
-        <p class="label-caps">Manufacturing characteristic</p>
+        <p class="label-caps">Manufacturing characteristics</p>
         <ul class="meta-list">
           <li>Requires a larger pre-tap hole diameter than an equivalent cutting tap, since material is displaced outward rather than removed. <span class="muted">(Source-bound)</span></li>
         </ul>
-        <p class="label-caps">Typical application</p>
+        <p class="label-caps">Typical applications</p>
         <ul class="meta-list">
           <li>Unsuitable for brittle materials such as cast iron, which can crack rather than flow under the forming pressure. <span class="muted">(Source-bound)</span></li>
           <li>Produces no chips, which removes chip-evacuation as a constraint on blind-hole use -- unlike cutting taps, hole geometry (blind vs. through) is not the limiting factor for this tap type; material ductility is. <span class="muted">(Source-bound)</span></li>
         </ul>
-        <p class="label-caps">Manufacturer-specific recommendation</p>
+        <p class="label-caps">Manufacturer-specific recommendations</p>
         <ul class="meta-list">
           <li>Requires a ductile workpiece material -- commonly cited minimum elongation of roughly 8% and maximum hardness of roughly Rc 30 -- because threads are formed by plastic displacement, not cutting. <span class="muted">(Source-bound)</span></li>
         </ul>
@@ -761,7 +761,7 @@
 <article class="card">
   <h3>Hand Tap</h3>
   <p class="muted">A tap designed for manual operation with a tap wrench, typically supplied as part of a set spanning taper, plug, and bottoming chamfer styles for a given thread size.</p>
-        <p class="label-caps">Typical application</p>
+        <p class="label-caps">Typical applications</p>
         <ul class="meta-list">
           <li>Designed for manual operation with a tap wrench; commonly supplied as a taper/plug/bottoming set for progressive blind-hole tapping by hand. <span class="muted">(Source-bound)</span></li>
         </ul>
@@ -796,7 +796,7 @@
       <section class="card">
         <h2>Data interpretation</h2>
         <ul class="meta-list">
-          <li><strong>Primary tap drill</strong> — the profile's main value, in its own labeled convention (ISO 2306 for metric, US customary for UNC/UNF).</li>
+          <li><strong>Primary tap drill</strong> — the profile's main value, in its own labeled convention (metric drill convention for metric, US customary for UNC/UNF).</li>
           <li><strong>ISO 2306 alternative</strong> — shown only for UNC/UNF, always a separate value, never a replacement for the primary drill.</li>
           <li><strong>Verified</strong> (tap drill) — independently cross-checked against the cited primary source.</li>
           <li><strong>Source-bound</strong> (tap drill) — bound to a verified BoltLab source record, but not yet independently cross-checked against the primary standard.</li>
@@ -835,7 +835,7 @@
         <h3>What is the BoltLab Tapping &amp; Threading Atlas?</h3>
         <p>It is BoltLab&#39;s structured engineering data product for tapping and thread-preparation information across metric, UNC, and UNF threads, built from BoltLab&#39;s verified knowledge layer and projection pipeline rather than written as a general guide.</p>
         <h3>What tap-drill information does BoltLab provide?</h3>
-        <p>Each record shows a primary tap-drill value in its own convention (ISO 2306 for metric, US-customary drill series for UNC/UNF), a verification status, and where applicable a separately labeled ISO 2306 alternative drill value for UNC/UNF threads.</p>
+        <p>Each record shows a primary tap-drill value in its own convention (the metric drill convention for metric, US-customary drill series for UNC/UNF), a verification status, and where applicable a separately labeled ISO 2306 alternative drill value for UNC/UNF threads.</p>
         <h3>Why are some tap-drill values source-bound?</h3>
         <p>Source-bound means a credible source supports the value, but it has not been independently cross-checked against a primary standard table in this phase. BoltLab labels these explicitly rather than presenting every value as equally certain.</p>
         <h3>What is the ISO 2306 alternative drill value?</h3>

@@ -1,0 +1,74 @@
+{
+  "status": "pass",
+  "errors": 0,
+  "warnings": 1,
+  "expected_from_projection": {
+    "tapDrillVerified": 9,
+    "tapDrillSourceBound": 20,
+    "recordVerified": 0,
+    "recordSourceBound": 29,
+    "isoAltCount": 15,
+    "standardsInProjection": [
+      "ASME B1.1",
+      "ISO 2306",
+      "ISO 261",
+      "ISO 262",
+      "ISO 724",
+      "ISO 965-1"
+    ],
+    "tapTypeVerified": 1,
+    "tapTypeSourceBound": 15
+  },
+  "checks": [
+    {
+      "name": "No unsupported 'ISO 2306 metric convention' claim in UI",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "CSV legacy wording confined to protected artifact (informational)",
+      "status": "pass",
+      "errors": [],
+      "warnings": [
+        "downloads/tapping-atlas.csv retains \"ISO 2306 metric convention\" (14 rows) -- intentionally frozen per T11 regression rule, not a UI-facing label."
+      ]
+    },
+    {
+      "name": "Verified/source-bound counts match projection (no field upgraded or downgraded)",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "No missing tap-type classification label",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "No unsupported engagement percentage or length",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "ISO alternative not merged with primary tap-drill",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "No fabricated provenance fallback",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "No standards displayed without projection backing",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}

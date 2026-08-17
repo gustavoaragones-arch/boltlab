@@ -76,9 +76,9 @@ function renderNoteList(notes) {
 function renderTapTypeSection(row) {
   const groups = [
     ["General taxonomy", row.general_taxonomy],
-    ["Manufacturing characteristic", row.manufacturing_characteristics],
-    ["Typical application", row.typical_applications],
-    ["Manufacturer-specific recommendation", row.manufacturer_specific_recommendations]
+    ["Manufacturing characteristics", row.manufacturing_characteristics],
+    ["Typical applications", row.typical_applications],
+    ["Manufacturer-specific recommendations", row.manufacturer_specific_recommendations]
   ];
   const groupHtml = groups
     .map(([label, notes]) => {
