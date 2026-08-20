@@ -258,6 +258,65 @@ function main() {
   if (derivationCheck.errors.length) derivationCheck.status = "fail";
   checks.push(derivationCheck);
 
+  // 11. (T14) tap_drill.convention and tap_drill.provenance.{source,cross_check} are derived from
+  // the SAME crossVerified signal as tap_drill.status (check 10 above) inside buildTapDrillBlock(),
+  // but check 10 only ever re-derived and compared `status`. These three sibling fields share the
+  // identical incompleteness (presence-only, ignoring .match) and had zero independent coverage.
+  // For metric rows, `convention` text and the provenance narrative must agree with the same
+  // match-aware source derivation as status. UNC/UNF rows always use the fixed
+  // "US customary drill-series" convention regardless of cross-verification (no UNC/UNF record
+  // ever carries cross_verified -- confirmed directly against both dataset files) and never carry
+  // a cross-check narrative, so no cross-verification semantics are invented for them here.
+  const narrativeCheck = {
+    name: "Tap-Drill Convention and Cross-Check Narrative Correctly Derived From Source Cross-Verification",
+    status: "pass",
+    errors: [],
+    warnings: []
+  };
+  for (const row of profileProjection.rows) {
+    const sourceRecord = sourceRecordById.get(row.tapping_profile_id);
+    if (!sourceRecord) {
+      narrativeCheck.errors.push(`${row.tapping_profile_id}: no matching source dataset record found -- cannot verify tap_drill.convention/provenance derivation`);
+      continue;
+    }
+    const hp = sourceRecord.hole_preparation;
+    const crossVerified = hp ? hp.cross_verified : null;
+    const isMatch = Boolean(crossVerified && crossVerified.match !== false);
+
+    if (row.thread.thread_system === "metric") {
+      const expectedConvention = isMatch
+        ? "ISO 2306 nominal-minus-pitch (BoltLab primary-source table match)"
+        : "ISO 2306 nominal-minus-pitch (not independently cross-checked against the primary table)";
+      if (row.tap_drill.convention !== expectedConvention) {
+        narrativeCheck.errors.push(
+          `${row.tapping_profile_id}: tap_drill.convention is '${row.tap_drill.convention}' but the source cross-verification state derives to '${expectedConvention}'`
+        );
+      }
+    } else if (row.tap_drill.convention !== "US customary drill-series") {
+      narrativeCheck.errors.push(
+        `${row.tapping_profile_id}: non-metric tap_drill.convention is '${row.tap_drill.convention}', expected the fixed 'US customary drill-series'`
+      );
+    }
+
+    const expectedSource = isMatch ? crossVerified.source : null;
+    if ((row.tap_drill.provenance.source || null) !== (expectedSource || null)) {
+      narrativeCheck.errors.push(
+        `${row.tapping_profile_id}: tap_drill.provenance.source is '${row.tap_drill.provenance.source}' but the source cross-verification state derives to '${expectedSource}'`
+      );
+    }
+
+    const expectedCrossCheck = isMatch
+      ? `Matches ${crossVerified.table} exactly (verified ${crossVerified.verified_date})`
+      : null;
+    if ((row.tap_drill.provenance.cross_check || null) !== (expectedCrossCheck || null)) {
+      narrativeCheck.errors.push(
+        `${row.tapping_profile_id}: tap_drill.provenance.cross_check is '${row.tap_drill.provenance.cross_check}' but the source cross-verification state derives to '${expectedCrossCheck}'`
+      );
+    }
+  }
+  if (narrativeCheck.errors.length) narrativeCheck.status = "fail";
+  checks.push(narrativeCheck);
+
   const errorCount = checks.reduce((sum, c) => sum + c.errors.length, 0);
   const warningCount = checks.reduce((sum, c) => sum + c.warnings.length, 0);
 

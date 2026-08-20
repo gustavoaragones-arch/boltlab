@@ -67,6 +67,12 @@
       "status": "pass",
       "errors": [],
       "warnings": []
+    },
+    {
+      "name": "Tap-Drill Convention and Cross-Check Narrative Correctly Derived From Source Cross-Verification",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
     }
   ]
 }

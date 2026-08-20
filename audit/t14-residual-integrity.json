@@ -1,0 +1,260 @@
+{
+  "phase": "T14",
+  "title": "Tapping Domain Post-T13 Residual Integrity Audit",
+  "type": "read-only discovery",
+  "baseline_head": "091887876a483125f6246dd270ce21b432cf7c04",
+  "baseline_matches_origin_main": true,
+  "objective": "Determine whether a genuinely material tapping-domain integrity risk remains after T13's tap_drill.status derivation fix.",
+  "certification_matrix": [
+    { "family": "Thread identity", "status": "CERTIFIED", "note": "Unchanged since T13; field-by-field fidelity checked everywhere." },
+    { "family": "Tap-drill value", "status": "CERTIFIED", "note": "Value/unit fidelity checked in all consumers + CSV; unchanged since T13." },
+    { "family": "Tap-drill status", "status": "CERTIFIED (upgraded from PARTIAL by T13)", "note": "T13 added independent source-to-projection re-derivation and comparison; proven via a live mutation/restore test on the real dataset." },
+    { "family": "Cross-verification (status only)", "status": "CERTIFIED (via T13)", "note": "The status consequence of cross-verification is now derivation-tested." },
+    { "family": "Cross-verification (narrative text: convention, provenance.source, provenance.cross_check)", "status": "UNRESOLVED", "note": "Derived from the exact same Boolean(hp.cross_verified) signal T13 fixed for `status`, but never independently re-derived or compared to source by any validator. Selected T14 target." },
+    { "family": "ISO 2306 alternative", "status": "CERTIFIED", "note": "Direct copy from source, not a derivation; structural correctness checked (T3/T11)." },
+    { "family": "Overall record status", "status": "CERTIFIED", "note": "Direct pass-through of profile.status, no multi-field derivation to verify." },
+    { "family": "Tap types (relationship)", "status": "CERTIFIED", "note": "Unchanged since T13." },
+    { "family": "General taxonomy", "status": "CERTIFIED", "note": "Named NASA-fact check unchanged; fact-by-fact completeness enforced." },
+    { "family": "Manufacturing characteristics", "status": "CERTIFIED", "note": "Fact-by-fact completeness enforced (T6 pattern), unchanged." },
+    { "family": "Typical applications", "status": "CERTIFIED", "note": "Same pattern, unchanged." },
+    { "family": "Manufacturer-specific recommendations", "status": "CERTIFIED", "note": "Same pattern, unchanged." },
+    { "family": "Standards", "status": "CERTIFIED", "note": "Projection-backing enforced (T11); standards.verification_state field remains deliberately unsurfaced per T10's explicit note -- NOT_APPLICABLE for that sub-field, not a defect." },
+    { "family": "Provenance (source_dataset/source_record/source_field)", "status": "CERTIFIED", "note": "T11 hardened resolved-value-vs-projection fidelity with 8 regression tests; unaffected by this phase's finding, which concerns the OTHER provenance sub-fields (source, cross_check)." },
+    { "family": "Evidence classification (labels)", "status": "CERTIFIED", "note": "T11 fixed plural drift, unchanged since." },
+    { "family": "Engagement limitations", "status": "CERTIFIED", "note": "Forbidden-pattern grep + const enforcement everywhere, unchanged." },
+    { "family": "Designation/system mapping", "status": "CERTIFIED", "note": "Exact set-equality checks, unchanged." },
+    { "family": "CSV representation", "status": "PARTIAL / INTENTIONALLY DOCUMENTED", "note": "Profile-grain fidelity certified. The primary_drill_convention column's frozen 'ISO 2306 metric convention' wording for all 14 metric rows (including the 5 without individual cross-verification) is a known, explicitly documented T11 exception under an explicit prior regression-protection directive -- not newly discovered, not selected as the T14 target (see Trust-State Audit)." },
+    { "family": "Client-side representation", "status": "CERTIFIED", "note": "Spot-checked M8x1.0 (source-bound metric) across projection, CSV, and js/tapping-workflow-data.js -- byte-for-byte identical tap_drill block in projection and client data; CSV correctly reflects value/status. No divergence found." },
+    { "family": "Generated HTML representation", "status": "CERTIFIED", "note": "Unchanged since T11/T12; syntax-validated (Atlas/Workflow/Evidence), fact-complete (all 4 consumers)." }
+  ],
+  "hardcoded_classification_audit": {
+    "current_integrity_risk": false,
+    "could_valid_current_fact_be_silently_dropped": false,
+    "evidence": "data/projections/tapping/tap-types.json rows contain exactly the 4 known classification fields (general_taxonomy, manufacturing_characteristics, typical_applications, manufacturer_specific_recommendations) plus entity_id/title/taxonomy_axis/definition/evidence_status metadata -- confirmed via direct field-key enumeration. No 5th classification field exists in the schema today.",
+    "does_schema_permit_ignored_classifications": false,
+    "do_current_validators_detect_a_hypothetical_new_field": false,
+    "evidence_validators": "All 4 tap-type-consuming validators (validate-tapping-atlas.js, validate-tap-type-guide.js, validate-tapping-workflow.js, validate-tapping-evidence.js) still hardcode the identical fixed 4-field list -- unchanged since T13's discovery.",
+    "would_future_addition_require_simultaneous_multi_consumer_changes": true,
+    "is_this_worth_addressing_now": false,
+    "classification": "DEFERRED",
+    "reason": "Purely future-facing; zero current live impact; would require touching 4 validator files simultaneously for a schema change that has not happened and is not planned. Re-confirmed unchanged from T13's own conclusion -- no new evidence changes this."
+  },
+  "artifact_staleness_audit": {
+    "generated_artifacts": ["data/projections/tapping/tapping-profiles.json", "data/projections/tapping/tap-types.json", "reference/tapping-atlas.html", "reference/tap-type-guide.html", "tools/tapping-workflow.html", "js/tapping-workflow-data.js", "reference/tapping-evidence.html", "downloads/tapping-atlas.csv"],
+    "source_dependencies": "data/datasets/*, data/entities/entities.seed.json, data/standards/*, data/relationships/relationships.seed.json (for projections); data/projections/tapping/*.json (for products)",
+    "dependency_metadata_exists": false,
+    "validators_compare_source_and_output": "Only as of T13, and only for tap_drill.status specifically (projection vs. dataset). No validator compares HTML/CSV/client-data mtimes or checksums against their generator's source inputs to detect a stale-but-uncommitted-regeneration scenario.",
+    "checksums_recorded": "Only manually, per-phase, in audit documentation -- not mechanically enforced or stored as a build artifact.",
+    "could_stale_output_pass_current_validators": true,
+    "stale_output_scenario": "If data/projections/tapping/tapping-profiles.json were hand-edited (or the knowledge layer changed and the projection generator not re-run) such that the projection and the HTML/CSV/client-data grew inconsistent with EACH OTHER, per-product validators would catch that (they compare HTML/CSV/client-data against the projection file, not against original source). But if the projection and ALL of its consumers were regenerated together from a stale/wrong knowledge-layer state, every validator would agree with every other validator while all being consistently wrong relative to true intent -- though T13's new check would still catch a stale relationship between dataset and projection specifically for tap_drill.status.",
+    "tapping_specific_or_repo_wide": "repo-wide -- confirmed no CI config, no build manifest, no source-checksum-to-artifact linkage exists anywhere in the repository, not just in the tapping domain.",
+    "classification": "OUT OF SCOPE",
+    "reason": "Repo-wide infrastructure concern, not a bounded tapping-domain defect. Re-confirmed unchanged from T13's own conclusion -- no new evidence changes this; fixing it would mean build-system-level changes, explicitly out of scope per the phase brief's own framing."
+  },
+  "silent_drop_audit": {
+    "fresh_source_to_consumer_inventory_performed": true,
+    "properties_introduced_after_t4_reviewed": ["data_quality.provenance_complete", "data_quality_summary (profile-projection level)", "standards[].verification_state", "taxonomy_axis"],
+    "findings": [
+      {
+        "field": "profileProjection.data_quality_summary",
+        "finding": "Computed by generate-tapping-projections.js's summarizeDataQuality() and written into the projection, but confirmed via exhaustive grep to be read by ZERO consumers (no generator, product, or validator references 'data_quality_summary' anywhere). This is inert, unused computed data, not a trust-integrity risk -- since nothing reads it, a defect in its own internal correctness could never mislead a real user. Noted as a data-hygiene observation, not a T14 candidate (no user-visible failure mode exists)."
+      },
+      {
+        "field": "standards[].verification_state",
+        "finding": "Populated in the projection (standard.standard_status) but not rendered by any product. This is NOT a new finding -- T10's own audit explicitly noted this as deferred ('treated as data-methodology's concern, not this page's'). Classified NOT_APPLICABLE, matching the existing documented intent, not reopened."
+      },
+      {
+        "field": "data_quality.provenance_complete",
+        "finding": "A derived boolean (Boolean(source_dataset && source_record && source_field)). Reviewed for the same class of risk as tap_drill.status; found NOT independently re-derived by any validator, but the existing check (validate-tapping-projections.js check 3) asserts BOTH the three raw fields are present AND provenance_complete is true, as independent assertions -- since currently 100% of records have all three raw fields present, a hypothetical false derivation could only escape detection in a scenario the other assertion already forecloses. Judged not to meet the same severity bar as the selected finding; not selected."
+      }
+    ],
+    "no_new_live_drop_found": true
+  },
+  "derivation_audit": {
+    "fields_reviewed_beyond_t13": ["tap_drill.convention", "tap_drill.provenance.source", "tap_drill.provenance.cross_check", "data_quality.provenance_complete", "coarseFineLabel presentation derivation (UNC/UNF)"],
+    "primary_finding": {
+      "fields": ["tap_drill.convention", "tap_drill.provenance.source", "tap_drill.provenance.cross_check"],
+      "exact_source_signal": "The same `const crossVerified = Boolean(hp.cross_verified);` computed once at the top of generate-tapping-projections.js's buildTapDrillBlock() and reused for FOUR separate output values: tap_drill.status (now derivation-tested by T13), tap_drill.convention (untested), tap_drill.provenance.source (untested), tap_drill.provenance.cross_check (untested).",
+      "derivation_rules": {
+        "convention (metric only)": "crossVerified ? \"ISO 2306 nominal-minus-pitch (BoltLab primary-source table match)\" : \"ISO 2306 nominal-minus-pitch (not independently cross-checked against the primary table)\"",
+        "provenance.source": "crossVerified ? hp.cross_verified.source : null",
+        "provenance.cross_check": "crossVerified ? `Matches ${hp.cross_verified.table} exactly (verified ${hp.cross_verified.verified_date})` : null"
+      },
+      "semantic_correctness_as_written": "Same incompleteness as the status field T13 already fixed: `crossVerified` only checks presence of hp.cross_verified, never hp.cross_verified.match. If a future record ever had cross_verified present with match:false, these three fields would still claim 'primary-source table match' / cite a specific standard as the source / assert an exact match narrative -- all while T13's own check would correctly flag the status field as wrong, but nothing would flag these three sibling fields making the SAME false claim in prose.",
+      "validator_tests_the_derivation": false,
+      "evidence": "Grep across scripts/validators/*.js for '.convention' (zero matches) and for 'cross_verified' (only the three lines inside T13's own status-only check) confirms no validator anywhere compares tap_drill.convention or provenance.source/cross_check against the source dataset.",
+      "current_live_data_correct": true,
+      "current_live_data_note": "All 9 currently-verified metric records have cross_verified.match:true, so their convention/provenance.source/provenance.cross_check text is factually accurate today. The risk, exactly as with T13's finding, is the absence of a regression guard -- not a live defect."
+    },
+    "other_fields_reviewed_and_cleared": [
+      { "field": "data_quality.provenance_complete", "status": "reviewed, not selected -- see silent_drop_audit" },
+      { "field": "coarseFineLabel (UNC/UNF branch)", "status": "cleared -- derived from thread_system alone (UNF->fine, else coarse), which is definitionally correct since UNC/UNF series names themselves encode coarse/fine; not a genuine multi-source derivation risk, confirmed by the generator's own explanatory comment" }
+    ]
+  },
+  "trust_state_audit": {
+    "labels_reviewed": ["Verified", "Source-bound", "Cross-verified/Cross-check", "provenance labels", "standard references", "evidence classifications"],
+    "no_new_label_upgrade_or_downgrade_found": true,
+    "known_documented_item_reconfirmed_not_reopened": {
+      "item": "downloads/tapping-atlas.csv's primary_drill_convention column reads 'ISO 2306 metric convention' for all 14 metric rows, including the 5 without individual cross-verification -- the same overclaim pattern T11 corrected in every HTML surface, deliberately NOT applied to the CSV.",
+      "status_at_time_of_t14": "This is not a newly discovered risk. It was explicitly identified, reasoned through, and intentionally frozen by T11 under an explicit external regression-protection directive (the CSV was named a protected artifact that 'must not be altered' in that phase's own brief) -- documented in audit/t11-tapping-consistency.md/json under 'csv_protected_artifact_exception' and 'intentionally_unchanged'.",
+      "why_not_selected_for_t14": "Selecting this as a T14 target would mean proposing to override a previous phase's explicit, deliberate, human-authorized constraint -- a materially different and more consequential kind of decision than adding a new validator check, and not something to unilaterally reopen absent new evidence that the original tradeoff was wrong. No such new evidence exists; the tradeoff's reasoning (grain/protection) still holds. Recorded here for visibility, not selected."
+    }
+  },
+  "duplicated_data_audit": {
+    "finding": "No unsafe duplicated source of truth found. js/tapping-workflow-data.js is a generated build artifact (explicitly labeled as such in its own header comment: 'Do not hand-edit -- this is a build artifact, not an authored data source') that both tools/tapping-workflow.html and reference/tapping-evidence.html read from -- this is a LEGITIMATE static copy (one generated intermediate file feeding two consumers), not an unsafe duplication, since it is itself mechanically re-derivable from the projection and checked field-by-field against it. tools/tap-drill-calculator.html independently implements its own workshop-formula calculation (major diameter minus pitch) rather than reading the T3 projection at all -- this is a pre-existing, explicitly out-of-tapping-projection-scope design (confirmed in T11's audit: it doesn't claim verification status or reference BoltLab's verified dataset), not a duplicated-source-of-truth risk, since it never claims to be the same data.",
+    "no_new_unsafe_duplication_found": true
+  },
+  "cross_product_consistency_audit": {
+    "records_compared": ["M8x1.0 (source-bound metric, fine pitch)"],
+    "spot_check_result": "Projection tap_drill block, CSV row, and js/tapping-workflow-data.js's embedded tap_drill block for M8x1.0 are consistent: value=7mm, status=source_bound, convention narrative matches, provenance fields match (all null, correctly, since this record has no cross-verification). CSV's convention column correctly shows the frozen 'ISO 2306 metric convention' exception text as expected and documented.",
+    "no_divergence_found": true,
+    "broader_evidence": "The full 29-record, all-4-product consistency claim rests primarily on the automated validator suite (T7-T13) rather than exhaustive manual spot-checking in this session -- consistent with how T11/T12/T13 each relied on their dedicated validators for this exact guarantee rather than re-deriving it by hand every phase."
+  },
+  "risk_ranking": [
+    {
+      "rank": 1,
+      "risk": "tap_drill.convention and tap_drill.provenance.{source,cross_check} are derived from the identical unverified crossVerified boolean that T13 fixed for tap_drill.status, but were not included in that fix's scope and remain completely untested.",
+      "evidence": "Direct source inspection + exhaustive grep confirming zero validator coverage of these three fields against the source dataset.",
+      "current_impact": "None -- current data is correct.",
+      "affected_products": "Every product that displays the convention label or a cross-verification narrative (Atlas, Workflow, Evidence) for the 9 metric records.",
+      "silent_failure_potential": "total, identical in kind to what T13 just fixed for the sibling field",
+      "existing_coverage": "none",
+      "testability": "high -- identical technique already proven in T13 (mutate cross_verified.match on a real record, confirm failure, restore)",
+      "scope": "small, single-file, extends the exact check T13 already added",
+      "reason_not_already_certified": "T13's own scope was explicitly bounded to the status field alone; the sibling fields sharing the same derivation source were out of that phase's stated scope, not overlooked through negligence -- but they remain a live gap now that T13 is closed.",
+      "selected": true
+    },
+    {
+      "rank": 2,
+      "risk": "Hardcoded tap-type classification field lists across 4 validators",
+      "current_impact": "none, future-facing only",
+      "selected": false,
+      "reason": "DEFERRED, unchanged from T13's own conclusion"
+    },
+    {
+      "rank": 3,
+      "risk": "No automated build-staleness detection",
+      "current_impact": "none observed in 13 phases",
+      "selected": false,
+      "reason": "OUT OF SCOPE, repo-wide, unchanged from T13's own conclusion"
+    },
+    {
+      "rank": 4,
+      "risk": "CSV primary_drill_convention overclaim on 5 of 14 metric rows",
+      "current_impact": "live but explicitly documented and intentionally protected by a prior phase's directive",
+      "selected": false,
+      "reason": "Would require reopening a previous phase's deliberate, human-authorized constraint rather than adding new coverage; no new evidence justifies that"
+    }
+  ],
+  "selected_t14_target": {
+    "title": "Tap-Drill Convention and Cross-Check Narrative Source Derivation Verification",
+    "objective": "Extend validate-tapping-projections.js's T13 derivation check to also independently re-derive and verify tap_drill.convention (metric rows) and tap_drill.provenance.{source,cross_check} against the source dataset's hole_preparation.cross_verified (using the same match-aware rule), closing the two sibling fields left uncovered when T13 fixed tap_drill.status alone.",
+    "root_risk": "generate-tapping-projections.js's buildTapDrillBlock() computes ONE crossVerified boolean and reuses it for FOUR output fields; T13 verified only one of the four (status). The other three (convention, provenance.source, provenance.cross_check) share the identical incompleteness (presence-only, ignores .match) and have zero validator coverage.",
+    "source_of_truth": "data/datasets/metric_tapping.seed.json, unc_tapping.seed.json, unf_tapping.seed.json -- each record's hole_preparation.cross_verified object (source/table/verified_date/match)",
+    "affected_consumers": "data/projections/tapping/tapping-profiles.json (tap_drill.convention, tap_drill.provenance.source, tap_drill.provenance.cross_check); indirectly every downstream product that displays the convention label or cross-verification narrative",
+    "current_coverage": "T13's check 10 covers tap_drill.status only; no check covers convention or provenance.source/cross_check",
+    "exact_gap": "No validator compares tap_drill.convention's text, or provenance.source/cross_check's values, against a correct (match-aware) re-derivation from the source dataset",
+    "validator_behavior_required": "For each of the 29 profiles, using the same match-aware crossVerified determination as T13's check, compute expectedConvention (metric rows only; non-metric rows always 'US customary drill-series' and are not at risk), expectedSource, and expectedCrossCheck, and fail if any disagrees with the projection's actual values.",
+    "mutation_test_required": "Reuse the exact same mutation as T13 (flip an existing verified record's hole_preparation.cross_verified.match to false in a real, backed-up dataset file, without regenerating the projection); confirm the new check(s) fail with the expected mismatch identified; restore and confirm byte-identical checksum and pass.",
+    "false_positive_test_required": "Run against the real, untouched data; must pass, 0 errors, since current data already satisfies the correct rule for all 3 fields.",
+    "regression_tests_required": "All 9 existing tapping validators continue to pass; all projection/product/dataset checksums remain byte-identical (validator-only change, no generator or product edit needed).",
+    "determinism_requirements": "Validator run 3x on restored real data; identical report checksum every run.",
+    "allowed_files": ["scripts/validators/validate-tapping-projections.js", "its own regenerated report pair", "T14 audit documentation"],
+    "forbidden_files": ["scripts/generators/generate-tapping-projections.js", "data/projections/tapping/*.json", "all three tapping dataset seed files (except as a temporary, restored mutation-test fixture)", "every product HTML file", "downloads/tapping-atlas.csv", "js/tapping-workflow-data.js", "every other validator", "all data/entities|standards|relationships files"],
+    "pass_criteria": "0 errors on real data; correct failure on the reproduced mismatch (all 3 fields, or however many are affected by the specific mutated record); all other validators unaffected; every checksum outside the validator itself unchanged"
+  },
+  "repository_integrity": {
+    "head_before": "091887876a483125f6246dd270ce21b432cf7c04",
+    "head_after": "091887876a483125f6246dd270ce21b432cf7c04",
+    "origin_main": "091887876a483125f6246dd270ce21b432cf7c04",
+    "branch": "main",
+    "tracked_modifications_during_discovery": 0,
+    "untracked_files_before": ["audit/d2-0-adsense-readiness.json", "audit/d2-0-adsense-readiness.md", "audit/d2-0-change-scope.md", ".DS_Store", "css/.DS_Store", "images/.DS_Store", "images/heads/.DS_Store", "images/logo.ai", "images/screw-drive-types/.DS_Store", "images/screw-head-types/.DS_Store", ".claude/"],
+    "production_data_projection_files_byte_identical": true
+  },
+  "files_created": [
+    "audit/t14-residual-integrity.md",
+    "audit/t14-residual-integrity.json",
+    "audit/t14-change-scope.md"
+  ],
+  "architecture_document_created": false,
+  "architecture_document_reason": "The selected finding extends an existing validator behavior pattern (identical in shape to T13's own check) rather than establishing a new architectural rule.",
+  "implementation_authorized": true,
+  "implementation": {
+    "validator_modified": "scripts/validators/validate-tapping-projections.js",
+    "check_added": "Tap-Drill Convention and Cross-Check Narrative Correctly Derived From Source Cross-Verification",
+    "check_number": 11,
+    "mechanism": "For each of the 29 profiles, using the same match-aware isMatch determination as check 10: metric rows' tap_drill.convention must equal the correct match-aware text; non-metric rows' tap_drill.convention must equal the fixed 'US customary drill-series'; all rows' tap_drill.provenance.source and tap_drill.provenance.cross_check must equal crossVerified.source / the correct 'Matches {table} exactly (verified {date})' narrative when matched, else null.",
+    "test_results": {
+      "real_data_pass": { "result": "PASS", "errors": 0, "records_checked": 29 },
+      "mutation_failure": {
+        "method": "Temporarily edited the real data/datasets/metric_tapping.seed.json (backed up first), flipping tap_m3x0_5_cut's hole_preparation.cross_verified.match from true to false, WITHOUT regenerating the projection.",
+        "result": "FAIL",
+        "errors": 4,
+        "checks_that_failed": ["Tap-Drill Status Correctly Derived From Source Cross-Verification (1 error)", "Tap-Drill Convention and Cross-Check Narrative Correctly Derived From Source Cross-Verification (3 errors)"],
+        "error_messages": [
+          "tap_m3x0_5_cut: tap_drill.status is 'verified' but the source dataset's hole_preparation.cross_verified state derives to 'source_bound' -- possible incorrect derivation or stale projection",
+          "tap_m3x0_5_cut: tap_drill.convention is 'ISO 2306 nominal-minus-pitch (BoltLab primary-source table match)' but the source cross-verification state derives to 'ISO 2306 nominal-minus-pitch (not independently cross-checked against the primary table)'",
+          "tap_m3x0_5_cut: tap_drill.provenance.source is 'iso_2306' but the source cross-verification state derives to 'null'",
+          "tap_m3x0_5_cut: tap_drill.provenance.cross_check is 'Matches Table 1 (coarse pitch series) exactly (verified 2026-08-15)' but the source cross-verification state derives to 'null'"
+        ],
+        "projection_confirmed_unregenerated_during_test": "f9739e1d1f8d214b9eb06e4396c9bd1c44c1765c72e644bd0f40bfb1eddf3060 (unchanged from baseline)",
+        "demonstrates": "The validator catches the source/projection contradiction (a record that would show 'Source-bound' status right next to convention/provenance text still claiming an exact primary-source match) purely from disagreement between source and the unchanged projection artifact."
+      },
+      "restoration_pass": {
+        "method": "Restored data/datasets/metric_tapping.seed.json from the pre-mutation backup.",
+        "result": "PASS",
+        "errors": 0,
+        "checksum_confirmed_byte_identical": "d98712267bd52f49bad35cbf1436c230f2eec1921334515e72d959dc94b6a7df"
+      }
+    },
+    "full_validator_suite_results": {
+      "validate-knowledge-engine": "pass",
+      "validate-tapping-domain": "pass (0 errors, 5 pre-existing informational warnings, unchanged)",
+      "validate-projections": "pass",
+      "validate-tapping-projections": "pass (0 errors, 0 warnings; 11 checks, +1 new)",
+      "validate-tapping-atlas": "pass",
+      "validate-tap-type-guide": "pass",
+      "validate-tapping-workflow": "pass",
+      "validate-tapping-evidence": "pass",
+      "validate-tapping-terminology": "pass (0 errors, 1 pre-existing informational warning, unchanged)"
+    },
+    "determinism": {
+      "validator_run_3x": true,
+      "byte_identical_report_checksum": "77753937748cb06ec1c2cb230ff6fb77c9866820b0f7c8dc89cec3962c061d73"
+    },
+    "regression_checksums_confirmed_byte_identical": {
+      "data/projections/tapping/tapping-profiles.json": "f9739e1d1f8d214b9eb06e4396c9bd1c44c1765c72e644bd0f40bfb1eddf3060",
+      "data/projections/tapping/tap-types.json": "63867da5f7f4a9eb5935b418bfc306ec143bf686f0269bb0689c6325ef480305",
+      "data/datasets/metric_tapping.seed.json": "d98712267bd52f49bad35cbf1436c230f2eec1921334515e72d959dc94b6a7df",
+      "data/datasets/unc_tapping.seed.json": "c67ebdbbbf02466de915df73cb8eb75b881f0e58c587a189cfbddcca53e0bb7e",
+      "data/datasets/unf_tapping.seed.json": "9c45ca37a13fc484d375bdf004cde1d30d6f4f1d13edc1f06480ff734d821cf5",
+      "reference/tapping-atlas.html": "37b359845bbd1de7b207ec4953d3094043d013c77be707c19e5a15059fc4f2e7",
+      "reference/tap-type-guide.html": "08a0a55a220e99f59dbdf475fdc59eb28dbf4b678fa1693dd98ec4e97c99ebd3",
+      "reference/tapping-evidence.html": "24af8fd70831ea1733ba32d648de7781fd5eac5526dbe5e30be5b5dddea054fd",
+      "tools/tapping-workflow.html": "477ba7a3d4e8034386c226e15390e23b86d83c7e5e5b2c5b06a0244911a65fd2",
+      "downloads/tapping-atlas.csv": "3a391f37c5ac32ac1bbaa0e49ed8ac54e2efd840f855d396dc084b1dc51e7551",
+      "js/tapping-workflow-data.js": "d0907160b00b868e08b0da95347e1d736809697243849327a9b8dcda91ba3421",
+      "scripts/generators/generate-tapping-projections.js": "c9713b4aa45b36d1329676751abbd2eb31f2aaf40a7b3c65020563b4420ba77a"
+    },
+    "generator_never_run": true,
+    "generator_deliberately_not_fixed": "Confirmed per explicit governance constraint -- T13 already established current output is correct; T14 closes the remaining missing regression guard only, without rewriting working projection logic.",
+    "files_modified": [
+      "scripts/validators/validate-tapping-projections.js",
+      "docs/architecture/tapping-projection-validation-report.json",
+      "docs/architecture/tapping-projection-validation-report.md"
+    ],
+    "timestamp_only_reports_reverted": [
+      "docs/architecture/validation-report.json/.md",
+      "docs/architecture/projection-validation-report.json/.md",
+      "docs/architecture/tapping-validation-report.json/.md"
+    ]
+  },
+  "stop_condition": {
+    "implemented": true,
+    "committed": false,
+    "pushed": false,
+    "t15_started": false,
+    "status": "T14 STATUS: READY FOR REVIEW"
+  }
+}
