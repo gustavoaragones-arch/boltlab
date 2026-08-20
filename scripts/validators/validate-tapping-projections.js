@@ -204,6 +204,15 @@ function main() {
         completenessCheck.errors.push(`${row.entity_id}: fact duplicated in projection (${projected.length}x) -- "${note.fact.slice(0, 60)}..."`);
       } else if (projected[0].status !== note.status) {
         completenessCheck.errors.push(`${row.entity_id}: fact status changed in projection (source=${note.status}, projected=${projected[0].status})`);
+      } else if (projected[0].source !== note.source) {
+        // (T15) The comment above this check has always claimed "source" is verified preserved,
+        // but until now nothing actually compared it -- a knowledge-layer edit, a future generator
+        // refactor, or a hand-edited projection could substitute a fabricated or stale citation for
+        // any fact while every prior check here (and every other validator) still passed, since
+        // fact/status/count all stayed correct. This closes that gap.
+        completenessCheck.errors.push(
+          `${row.entity_id}: fact source changed in projection (source="${note.source}", projected="${projected[0].source}") -- "${note.fact.slice(0, 60)}..."`
+        );
       }
     }
     const projectedTotal =
