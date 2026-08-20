@@ -63,3 +63,8 @@
 - Errors: 0
 - Warnings: 0
 
+### Standards Denormalized Fields Match Authoritative Standard Record
+- Status: pass
+- Errors: 0
+- Warnings: 0
+

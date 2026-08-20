@@ -326,6 +326,50 @@ function main() {
   if (narrativeCheck.errors.length) narrativeCheck.status = "fail";
   checks.push(narrativeCheck);
 
+  // 12. (T16) profileProjection.rows[].standards[] denormalizes organization/designation/edition/
+  // title/verification_state from the resolved standard record at generation time
+  // (buildStandardsBlock() in generate-tapping-projections.js). Check 2 above only confirms
+  // standard_id resolves to SOME real standard -- it never compares these five denormalized
+  // fields back to that record. A stale projection (source standard record edited, projection not
+  // regenerated), a hand-edit to tapping-profiles.json, or a future generator refactor pulling the
+  // wrong field could substitute a wrong-but-plausible designation/title/edition for a
+  // still-validly-referenced standard_id, and every existing check -- including check 2 -- would
+  // still pass. This closes that gap by independently re-deriving each field from source and
+  // comparing.
+  const standardsFidelityCheck = {
+    name: "Standards Denormalized Fields Match Authoritative Standard Record",
+    status: "pass",
+    errors: [],
+    warnings: []
+  };
+  const FIELDS_TO_VERIFY = [
+    { projectedKey: "organization", sourceKey: "organization" },
+    { projectedKey: "designation", sourceKey: "designation" },
+    { projectedKey: "edition", sourceKey: "edition" },
+    { projectedKey: "title", sourceKey: "title" },
+    { projectedKey: "verification_state", sourceKey: "standard_status" }
+  ];
+  for (const row of profileProjection.rows) {
+    for (const projectedStandard of row.standards || []) {
+      const authoritative = knowledge.standardById.get(projectedStandard.standard_id);
+      if (!authoritative) {
+        // Already reported by check 2 as an unknown reference; do not duplicate the error here.
+        continue;
+      }
+      for (const { projectedKey, sourceKey } of FIELDS_TO_VERIFY) {
+        const projectedValue = projectedStandard[projectedKey] ?? null;
+        const authoritativeValue = authoritative[sourceKey] ?? null;
+        if (projectedValue !== authoritativeValue) {
+          standardsFidelityCheck.errors.push(
+            `${row.tapping_profile_id} (designation ${row.thread.designation}) standard '${projectedStandard.standard_id}': ${projectedKey} mismatch -- authoritative value is '${authoritativeValue}', projected value is '${projectedValue}'`
+          );
+        }
+      }
+    }
+  }
+  if (standardsFidelityCheck.errors.length) standardsFidelityCheck.status = "fail";
+  checks.push(standardsFidelityCheck);
+
   const errorCount = checks.reduce((sum, c) => sum + c.errors.length, 0);
   const warningCount = checks.reduce((sum, c) => sum + c.warnings.length, 0);
 

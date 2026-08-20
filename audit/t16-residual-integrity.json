@@ -1,0 +1,264 @@
+{
+  "phase": "T16",
+  "title": "Tapping Domain Residual Integrity Audit — Post-T15 Discovery",
+  "type": "read-only discovery",
+  "baseline_head": "23088142300a4d136401d49cf1d8877ee5ca1a76",
+  "baseline_origin_main": "23088142300a4d136401d49cf1d8877ee5ca1a76",
+  "baseline_matches_origin_main": true,
+  "t15_commit": "23088142300a4d136401d49cf1d8877ee5ca1a76",
+  "t15_commit_message": "T15: Verify tap-type fact sources in projection",
+  "repository_gate_passed": true,
+  "certification_matrix": [
+    { "family": "A. Thread identity", "status": "CERTIFIED", "note": "Direct copy from source thread dataset; unchanged since T3/T13." },
+    { "family": "B. Tap-drill value", "status": "CERTIFIED", "note": "Direct copy (hp.value/hp.unit); fidelity checked everywhere." },
+    { "family": "C. Tap-drill status", "status": "CERTIFIED", "note": "T13 -- match-aware source-to-projection derivation check." },
+    { "family": "D. Tap-drill convention", "status": "CERTIFIED", "note": "T14 -- match-aware source-to-projection derivation check." },
+    { "family": "E. Tap-drill provenance (source_dataset/record/field, source, cross_check)", "status": "CERTIFIED", "note": "source_dataset/record/field: direct copy, referentially checked (check 2). source/cross_check narrative: T14." },
+    { "family": "F. Cross-verification (hp.cross_verified)", "status": "CERTIFIED", "note": "T13/T14 jointly cover every downstream consequence (status, convention, provenance narrative) of this signal." },
+    { "family": "G. Overall record status", "status": "CERTIFIED", "note": "Direct pass-through of profile.status, no multi-field derivation." },
+    { "family": "H. Alternative drill (value/unit/status)", "status": "CERTIFIED", "note": "Direct copy from source record; structural correctness (UNC/UNF-only, never merged) checked by check 5." },
+    { "family": "H2. Alternative drill (standard_edition hardcoded literal)", "status": "DEFERRED", "note": "generate-tapping-projections.js hardcodes standard_edition: \"1972\" rather than resolving it from the standards registry. Currently correct (matches iso_2306's real edition), but unguarded. Related to, but narrower and lower-count than, the selected finding -- noted, not selected, to keep T16 bounded to one target." },
+    { "family": "I. Tap types (relationship)", "status": "CERTIFIED", "note": "Resolved via relationship graph, reference-checked (check 2)." },
+    { "family": "J. General taxonomy", "status": "CERTIFIED", "note": "T6 named NASA-fact check + T15 fact/status/source preservation." },
+    { "family": "K. Manufacturing characteristics", "status": "CERTIFIED", "note": "Fact/status/source/classification all covered by check 9 (T6 base + T15 extension)." },
+    { "family": "L. Typical applications", "status": "CERTIFIED", "note": "Same coverage as K." },
+    { "family": "M. Manufacturer-specific recommendations", "status": "CERTIFIED", "note": "Same coverage as K." },
+    { "family": "M2. application_notes[].source_tier", "status": "DEFERRED", "note": "A 5th field on every application note (values 1 or 3), propagated verbatim through the projection and into js/tapping-workflow-data.js, but never independently validated AND never dynamically rendered by any consumer -- the one 'Tier 1' user-facing claim (Tap-Type Guide FAQ) is hardcoded prose about a specific named fact, not driven by this field. Currently 100% correlated with `status` (tier=1 iff status=verified) but not enforced to stay that way. Classified inert/unused, same category as T14's data_quality_summary finding -- reviewed and not selected, since nothing currently reads it so it cannot mislead a user even if it drifted." },
+    { "family": "N. Standards (standard_id reference)", "status": "CERTIFIED", "note": "Existence of standard_id checked against the knowledge layer (check 2)." },
+    { "family": "N2. Standards (denormalized fields: organization/designation/edition/title/verification_state)", "status": "UNRESOLVED", "note": "SELECTED T16 TARGET. buildStandardsBlock() denormalizes 5 fields from the resolved standard record at generation time; no validator anywhere compares the projection's copies against the actual data/standards/**/*.json record. Live data currently matches with 0 mismatches across all 6 referenced standards (29 rows), but the guard is absent." },
+    { "family": "O. Source provenance (tap_drill)", "status": "CERTIFIED", "note": "T11 (resolved-value fidelity) + T14 (source-to-projection derivation)." },
+    { "family": "P. Evidence status counts (tap-type verified/source-bound tallies)", "status": "CERTIFIED", "note": "Computed dynamically from projection at validation time in every consumer's validator, never hardcoded; independently re-derivable from application_notes[].status which is itself now source-verified (T15)." },
+    { "family": "Q. Engagement limitation", "status": "CERTIFIED", "note": "Forbidden-pattern grep clean across all products/client-data/CSV in this fresh sweep; radial/axial calculation_status enforced as const." },
+    { "family": "R. Designation/system mapping", "status": "CERTIFIED", "note": "Exact set-equality checks unchanged since T7-T13." },
+    { "family": "S. CSV representation", "status": "PARTIAL / documented", "note": "Profile-grain fidelity certified. primary_drill_convention's frozen T11 exception remains unchanged and was not reopened -- no new evidence presented." },
+    { "family": "T. Client-data representation (js/tapping-workflow-data.js)", "status": "CERTIFIED", "note": "Field-by-field fidelity to the projection checked (T8/T9/T11); inherits whatever the projection itself carries, including the same N2 gap since it embeds row.standards verbatim." },
+    { "family": "U. HTML representation", "status": "CERTIFIED", "note": "Syntax-validated (T12), fact-complete (T6), terminology-consistent (T11), unchanged this session." }
+  ],
+  "knowledge_projection_audit": {
+    "method": "Enumerated every profileProjection/tapTypeProjection field and classified copied/derived/transformed/conditional/aggregated for each, per generator source inspection.",
+    "fields_reviewed": [
+      { "field": "thread.*", "kind": "direct copy from base thread record", "guarded": true },
+      { "field": "tap_drill.value/unit", "kind": "direct copy", "guarded": true },
+      { "field": "tap_drill.status/convention/provenance.source/provenance.cross_check", "kind": "derived from Boolean(hp.cross_verified) + .match", "guarded": "T13/T14" },
+      { "field": "tap_drill.provenance.source_dataset/record/field", "kind": "direct copy", "guarded": "referentially, check 2" },
+      { "field": "alternative_drill.value/unit/status", "kind": "direct copy", "guarded": "structural check 5" },
+      { "field": "alternative_drill.standard_id", "kind": "direct copy of alt.source", "guarded": "referentially, check 2" },
+      { "field": "alternative_drill.standard_edition", "kind": "HARDCODED LITERAL '1972'", "guarded": false, "note": "see H2 above, not selected" },
+      { "field": "engagement.radial/axial", "kind": "fixed constant object (RADIAL_ENGAGEMENT_MODEL/AXIAL_ENGAGEMENT_MODEL), same for all 29 rows by design", "guarded": true },
+      { "field": "tap_types[]", "kind": "derived via relationship-graph resolution + filter to tap_type entity ids", "guarded": "check 2 (reference existence)" },
+      { "field": "standards[]", "kind": "MAP-transformed denormalization of a resolved standard record (5 fields)", "guarded": "PARTIALLY -- only standard_id existence, not field values -- SELECTED TARGET" },
+      { "field": "data_quality.record_status", "kind": "direct copy of profile.status", "guarded": true },
+      { "field": "data_quality.provenance_complete", "kind": "derived boolean (AND of 3 presence checks)", "guarded": "indirectly, via redundant independent assertions (reviewed in T14, not reselected)" },
+      { "field": "data_quality.last_reviewed", "kind": "direct copy of dataset.last_reviewed", "guarded": "not independently tested, but never used to make a stronger claim than what's shown; low risk, not selected" },
+      { "field": "tap-types.json rows: general_taxonomy/manufacturing_characteristics/typical_applications/manufacturer_specific_recommendations", "kind": "filter() by classification, preserving all note fields", "guarded": "fact/status/source: T6+T15. classification: indirectly via per-array lookup. source_tier: NOT guarded, but inert (see M2)" },
+      { "field": "tap-types.json rows: evidence_status.verified_fact_count/source_bound_fact_count", "kind": "derived by counting notes.status", "guarded": "check 9 total-count assertion" },
+      { "field": "profileProjection.data_quality_summary", "kind": "derived aggregate, computed but never consumed by anything", "guarded": "not tested; inert, reviewed in T14, not reselected" }
+    ]
+  },
+  "projection_consumer_audit": {
+    "consumers_enumerated": ["reference/tapping-atlas.html", "reference/tap-type-guide.html", "tools/tapping-workflow.html", "reference/tapping-evidence.html", "downloads/tapping-atlas.csv", "js/tapping-workflow-data.js", "tools/tap-drill-calculator.html"],
+    "additional_consumer_search_performed": true,
+    "additional_consumers_found": [],
+    "search_method": "grep -rl for references to data/projections/tapping/ across scripts/generators/, plus manual inspection of reference/index.html and tools/index.html hub cards for any other tapping-domain page not already known.",
+    "finding": "No new tapping-domain consumer discovered beyond the known 7. Each consumer's field-by-field reading of the projection is unchanged since T8-T15 and remains fully certified except for inheriting the standards[] denormalization gap (N2), which is a projection-level defect the consumers merely display faithfully -- not a consumer-specific seam."
+  },
+  "tap_type_audit": {
+    "facts_traced": 16,
+    "classification_drop": "none found",
+    "duplication": "none found",
+    "reclassification": "none found (indirectly guarded: a misclassified fact would fail check 9's per-classification-array lookup)",
+    "status_mutation_risk": "guarded, T6/T15",
+    "source_mutation_risk": "guarded, T15",
+    "source_tier_risk": "unguarded but inert -- see M2",
+    "stronger_wording_downstream": "none found in this fresh sweep of all 4 products"
+  },
+  "standards_audit": {
+    "live_data_cross_check_performed": true,
+    "method": "Read data/projections/tapping/tapping-profiles.json's 6 unique referenced standards, read the corresponding real records from all 7 data/standards/**/*.json files, compared organization/designation/edition/title/verification_state field-by-field.",
+    "mismatches_found": 0,
+    "standards_checked": 6,
+    "conclusion": "Live data is currently correct. No validator anywhere performs this comparison. This is the selected T16 target.",
+    "known_standard_coverage_gaps_reopened": false,
+    "note": "ISO 2857/2306 acquisition-history gaps from T2 were not reopened -- no new contradiction found; this finding is about denormalization fidelity, not standard existence/scope."
+  },
+  "alternative_drill_audit": {
+    "unc_unf_presence": "certified, structurally correct (check 5)",
+    "metric_absence": "certified, confirmed intentional and unchanged",
+    "new_finding": "standard_edition hardcoded literal (H2 above) -- reviewed, not selected, narrower in scope/impact than the standards[] finding"
+  },
+  "engagement_audit": {
+    "forbidden_percentage_sweep": "clean, 0 matches across all products/client-data/CSV in this fresh grep",
+    "radial_axial_distinction": "preserved, unchanged",
+    "conclusion": "CERTIFIED, no new finding"
+  },
+  "provenance_audit": {
+    "seams_already_closed": ["T11 (resolved value vs projection)", "T14 (tap_drill narrative derivation)", "T15 (application_notes source derivation)"],
+    "new_seam_found": "standards[] denormalization (N2/selected target) is itself a provenance-adjacent finding -- standard identity/edition/title are a form of provenance for the standards a record is associated with",
+    "no_other_new_seam_found": true
+  },
+  "parity_audit": {
+    "comparison": "projection vs CSV vs client-data vs HTML for standards[] specifically",
+    "finding": "All 4 surfaces faithfully reflect whatever the projection says (parity certified) -- the risk is entirely upstream, at the knowledge-to-projection seam, not a parity gap between consumers."
+  },
+  "negative_case_audit": [
+    { "mutation": "hp.cross_verified.match flipped", "would_existing_validator_fail": true, "which": "T13 check 10, T14 check 11" },
+    { "mutation": "application_notes[].source changed", "would_existing_validator_fail": true, "which": "T15 extension of check 9" },
+    { "mutation": "application_notes[].status changed", "would_existing_validator_fail": true, "which": "check 9 (T6 baseline)" },
+    { "mutation": "application_notes[].fact text changed/dropped", "would_existing_validator_fail": true, "which": "check 9 (T6 baseline)" },
+    { "mutation": "application_notes[].source_tier changed", "would_existing_validator_fail": false, "material": false, "reason": "inert field, never rendered -- see M2" },
+    { "mutation": "standards[].designation/organization/title/edition/verification_state hand-edited to a wrong-but-plausible value while standard_id stays valid", "would_existing_validator_fail": false, "material": true, "reason": "SELECTED TARGET -- no validator compares these fields to source" },
+    { "mutation": "alternative_drill.standard_edition changed", "would_existing_validator_fail": false, "material": "low -- single hardcoded literal, narrower than N2, not selected" },
+    { "mutation": "a UNC/UNF record's alternative_drill removed while thread_system stays UNC/UNF", "would_existing_validator_fail": true, "which": "check 5 (ISO 2306 Alternative Structural Correctness)" },
+    { "mutation": "engagement.axial.calculation_status changed to calculable", "would_existing_validator_fail": true, "which": "check 6" },
+    { "mutation": "a tap_type reference in tap_types[] pointing to a non-existent entity", "would_existing_validator_fail": true, "which": "check 2" },
+    { "mutation": "thread.designation changed", "would_existing_validator_fail": true, "which": "check 1 (duplicate-canonical-thread detection would likely also fire, plus every product validator's exact designation-set comparison)" }
+  ],
+  "duplicate_source_audit": {
+    "generators_scanned": true,
+    "html_js_csv_scanned": true,
+    "hardcoded_engineering_facts_found": [],
+    "known_exception_reconfirmed": "tools/tap-drill-calculator.html remains an intentionally independent, non-projection-backed workshop-formula calculator -- reconfirmed, not reopened, no new evidence presented.",
+    "conclusion": "No unsafe duplicated source of truth found. The alternative_drill.standard_edition hardcoded '1972' literal (H2) is a borderline case -- a single literal, not a duplicated fact set -- reviewed and not elevated to a duplicate-source-of-truth finding."
+  },
+  "user_visible_trust_audit": {
+    "forbidden_terms_swept": ["Confirmed", "Validated", "Official", "exact match"],
+    "matches_found": 0,
+    "conclusion": "Clean, unchanged since T11."
+  },
+  "deferred_issue_recheck": [
+    { "item": "Hardcoded tap-type classification field lists across 4 validators", "status": "RECONFIRMED DEFERRED", "note": "Still exactly 4 fields in the schema; no new evidence of live impact." },
+    { "item": "Repo-wide generated-artifact staleness (no CI/build manifest)", "status": "RECONFIRMED OUT OF SCOPE", "note": "Still repo-wide, not tapping-bounded; unchanged." },
+    { "item": "Protected CSV primary_drill_convention wording", "status": "RECONFIRMED DEFERRED", "note": "No new evidence the T11 tradeoff is invalid; not reopened." },
+    { "item": "Tap Drill Calculator's independent architecture", "status": "RECONFIRMED INTENTIONALLY ABSENT (non-issue)", "note": "Confirmed again: no projection-backed claims made by this page, so nothing to guard." },
+    { "item": "Thread-atlas reverse discovery links", "status": "RECONFIRMED DEFERRED", "note": "Foreign-generator architecture, unchanged since T4/T7." }
+  ],
+  "candidate_findings": [
+    {
+      "id": "standards-denormalization-fidelity",
+      "summary": "tapping-profiles.json's standards[] array denormalizes 5 fields (organization, designation, edition, title, verification_state) from the resolved standard record, but no validator compares them against the actual data/standards/**/*.json record -- only standard_id existence is checked.",
+      "current_impact": "none -- live data verified to match with 0 mismatches across all 6 standards",
+      "selected": true
+    },
+    {
+      "id": "alternative-drill-standard-edition-hardcode",
+      "summary": "generate-tapping-projections.js hardcodes alternative_drill.standard_edition as the literal '1972' rather than resolving it dynamically.",
+      "current_impact": "none -- matches the real iso_2306 edition today",
+      "selected": false,
+      "reason": "narrower in scope (1 field, 15 rows) than the standards[] finding (5 fields, 6 standards, 29 rows); keeping T16 to one bounded target"
+    },
+    {
+      "id": "application-notes-source-tier-unused",
+      "summary": "source_tier field present on every application note, propagated through the projection, but never rendered or validated.",
+      "current_impact": "none -- inert data, cannot mislead a user since nothing reads it",
+      "selected": false,
+      "reason": "same category as T14's already-reviewed data_quality_summary finding -- not material because unused"
+    }
+  ],
+  "risk_ranking": [
+    { "rank": 1, "id": "standards-denormalization-fidelity", "correctness_impact": "high if it ever drifts -- designation is the primary user-facing standard identifier, rendered on every product", "trust_severity": "high", "silent_failure_potential": "total -- ID-existence check would still pass", "current_applicability": "current data correct, guard absent", "consumer_breadth": "all 4 HTML products + CSV + client data, 29 rows x up to 5 standards each", "mutation_testability": "high, same proven technique as T13/14/15", "boundedness": "single file, single new check", "existing_validator_coverage": "none for field values" },
+    { "rank": 2, "id": "alternative-drill-standard-edition-hardcode", "note": "real but narrower; not selected to keep T16 bounded to one target" },
+    { "rank": 3, "id": "application-notes-source-tier-unused", "note": "inert, no live user-facing failure mode possible" }
+  ],
+  "selected_t16_target": {
+    "title": "Standards Denormalized Field Fidelity Verification",
+    "objective": "Add a validator check that independently re-derives the expected organization/designation/edition/title/verification_state for every projected standard reference directly from its knowledge-layer record and compares it to the projection's actual denormalized values.",
+    "root_risk": "buildStandardsBlock() in generate-tapping-projections.js denormalizes 5 fields from the resolved standard record at generation time; nothing re-verifies this against the source after the fact. A hand-edit to tapping-profiles.json, a future generator refactor pulling the wrong field, or data corruption could substitute a wrong-but-plausible designation/title/edition for a still-validly-referenced standard_id, and every existing validator (including check 2's ID-existence check) would still pass.",
+    "source_of_truth": "data/standards/iso/standards.seed.json, data/standards/asme/standards.seed.json (and the other 5 standards subdirectories, for completeness), each standard record's organization/designation/edition/title/standard_status fields",
+    "affected_consumers": "data/projections/tapping/tapping-profiles.json's standards[] array directly; indirectly every product that renders a standard designation (Atlas, Workflow, Evidence, CSV)",
+    "current_coverage": "check 2 (standard_id existence only)",
+    "exact_gap": "No check compares the projection's standards[].organization/designation/edition/title/verification_state against the corresponding fields on the actual knowledge.standardById-resolved record.",
+    "not_already_covered_by": "T13 (tap_drill.status), T14 (tap_drill.convention/provenance narrative), T15 (application_notes.source) -- all three closed different, already-named field families; this is standards identity, untouched by any of them.",
+    "implementation_contract": {
+      "allowed_files": ["scripts/validators/validate-tapping-projections.js"],
+      "forbidden_files": ["scripts/generators/generate-tapping-projections.js", "data/projections/tapping/tapping-profiles.json", "data/projections/tapping/tap-types.json", "data/standards/**/*.json (except as a temporary, restored mutation fixture)", "every product HTML file", "downloads/tapping-atlas.csv", "js/tapping-workflow-data.js", "every other validator", "data/entities/entities.seed.json", "data/datasets/*", "data/relationships/*"],
+      "validator_behavior_required": "For every profile row's standards[] entry, look up knowledge.standardById.get(standard_id) and compare organization/designation/edition/title/verification_state (mapped to standard_status) field-by-field; fail on any mismatch.",
+      "pass_criteria": "0 errors on real data (already confirmed 0 mismatches); correct failure on a reproduced mismatch; all other validators unaffected; every checksum outside the validator itself unchanged"
+    },
+    "mutation_test_contract": {
+      "method": "Temporarily edit one real standard record in data/standards/iso/standards.seed.json (e.g. iso_2306's designation or edition), backed up first, WITHOUT regenerating the projection.",
+      "expected_result": "FAIL, identifying the specific standard_id and mismatched field",
+      "restoration": "restore from backup, confirm byte-identical checksum, confirm validator returns to PASS"
+    },
+    "determinism_requirement": "validator run 3x on restored real data, byte-identical report"
+  },
+  "repository_integrity": {
+    "head_before": "23088142300a4d136401d49cf1d8877ee5ca1a76",
+    "head_after": "23088142300a4d136401d49cf1d8877ee5ca1a76",
+    "origin_main": "23088142300a4d136401d49cf1d8877ee5ca1a76",
+    "branch": "main",
+    "tracked_modifications_during_discovery": 0,
+    "untracked_files_before": ["audit/d2-0-adsense-readiness.json", "audit/d2-0-adsense-readiness.md", "audit/d2-0-change-scope.md", ".DS_Store", "css/.DS_Store", "images/.DS_Store", "images/heads/.DS_Store", "images/logo.ai", "images/screw-drive-types/.DS_Store", "images/screw-head-types/.DS_Store", ".claude/"],
+    "production_data_projection_generator_validator_files_byte_identical": true
+  },
+  "implementation_authorized": true,
+  "implementation": {
+    "validator_modified": "scripts/validators/validate-tapping-projections.js",
+    "check_added": "Standards Denormalized Fields Match Authoritative Standard Record",
+    "check_number": 12,
+    "mechanism": "For every profile row's standards[] entry, resolves knowledge.standardById.get(standard_id) and compares organization/designation/edition/title/verification_state (mapped to source's standard_status) field-by-field against the projected values, failing on any mismatch with an error identifying the profile, designation, standard_id, field, authoritative value, and projected value.",
+    "test_results": {
+      "real_data_pass": { "result": "PASS", "errors": 0, "standards_checked": 6, "rows_checked": 29 },
+      "mutation_failure": {
+        "method": "Temporarily edited the real data/standards/iso/standards.seed.json (backed up first), changing iso_2306's designation from 'ISO 2306' to 'ISO 2306-MUTATED-T16', WITHOUT regenerating the projection.",
+        "result": "FAIL",
+        "errors": 29,
+        "note": "One error per tapping profile referencing iso_2306 -- all three tapping datasets (metric_tapping/unc_tapping/unf_tapping) share iso_2306 in their source_standards, so it appears on all 29 rows.",
+        "sample_error_message": "tap_m3x0_5_cut (designation M3x0.5) standard 'iso_2306': designation mismatch -- authoritative value is 'ISO 2306-MUTATED-T16', projected value is 'ISO 2306'",
+        "projection_confirmed_unregenerated_during_test": "f9739e1d1f8d214b9eb06e4396c9bd1c44c1765c72e644bd0f40bfb1eddf3060 (unchanged from baseline)"
+      },
+      "restoration_pass": {
+        "method": "Restored data/standards/iso/standards.seed.json from the pre-mutation backup.",
+        "result": "PASS",
+        "errors": 0,
+        "checksum_confirmed_byte_identical": "bb92058ec5bf6f99f60e759eeefbaecf55df80b359ce5101d6f712bf510c830e"
+      }
+    },
+    "full_validator_suite_results": {
+      "validate-knowledge-engine": "pass",
+      "validate-tapping-domain": "pass (0 errors, 5 pre-existing informational warnings, unchanged)",
+      "validate-projections": "pass",
+      "validate-tapping-projections": "pass (0 errors, 0 warnings; 12 checks, +1 new)",
+      "validate-tapping-atlas": "pass",
+      "validate-tap-type-guide": "pass",
+      "validate-tapping-workflow": "pass",
+      "validate-tapping-evidence": "pass",
+      "validate-tapping-terminology": "pass (0 errors, 1 pre-existing informational warning, unchanged)"
+    },
+    "determinism": {
+      "validator_run_3x": true,
+      "byte_identical_report_checksum": "1cd6e2532ce91382580bf67805412dba5edb7b9c64d8f01cdb8d4eebf2797ae9"
+    },
+    "regression_checksums_confirmed_byte_identical": {
+      "data/standards/iso/standards.seed.json": "bb92058ec5bf6f99f60e759eeefbaecf55df80b359ce5101d6f712bf510c830e",
+      "data/standards/asme/standards.seed.json": "399326750738f45d75388a33858c3321e0d1cec5b5aafe92344d6a43f8c57abe",
+      "data/projections/tapping/tapping-profiles.json": "f9739e1d1f8d214b9eb06e4396c9bd1c44c1765c72e644bd0f40bfb1eddf3060",
+      "data/projections/tapping/tap-types.json": "63867da5f7f4a9eb5935b418bfc306ec143bf686f0269bb0689c6325ef480305",
+      "reference/tapping-atlas.html": "37b359845bbd1de7b207ec4953d3094043d013c77be707c19e5a15059fc4f2e7",
+      "reference/tap-type-guide.html": "08a0a55a220e99f59dbdf475fdc59eb28dbf4b678fa1693dd98ec4e97c99ebd3",
+      "reference/tapping-evidence.html": "24af8fd70831ea1733ba32d648de7781fd5eac5526dbe5e30be5b5dddea054fd",
+      "tools/tapping-workflow.html": "477ba7a3d4e8034386c226e15390e23b86d83c7e5e5b2c5b06a0244911a65fd2",
+      "downloads/tapping-atlas.csv": "3a391f37c5ac32ac1bbaa0e49ed8ac54e2efd840f855d396dc084b1dc51e7551",
+      "js/tapping-workflow-data.js": "d0907160b00b868e08b0da95347e1d736809697243849327a9b8dcda91ba3421",
+      "scripts/generators/generate-tapping-projections.js": "c9713b4aa45b36d1329676751abbd2eb31f2aaf40a7b3c65020563b4420ba77a"
+    },
+    "generator_never_run": true,
+    "generator_deliberately_not_fixed": "Confirmed per explicit governance constraint -- the generator already produces correct output; T16 closes only the missing regression guard.",
+    "files_modified": [
+      "scripts/validators/validate-tapping-projections.js",
+      "docs/architecture/tapping-projection-validation-report.json",
+      "docs/architecture/tapping-projection-validation-report.md"
+    ],
+    "timestamp_only_reports_reverted": [
+      "docs/architecture/validation-report.json/.md",
+      "docs/architecture/projection-validation-report.json/.md",
+      "docs/architecture/tapping-validation-report.json/.md"
+    ]
+  },
+  "stop_condition": {
+    "implemented": true,
+    "committed": false,
+    "pushed": false,
+    "t17_started": false,
+    "status": "T16 STATUS: READY FOR REVIEW"
+  }
+}

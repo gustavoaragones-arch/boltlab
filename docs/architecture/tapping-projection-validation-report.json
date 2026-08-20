@@ -73,6 +73,12 @@
       "status": "pass",
       "errors": [],
       "warnings": []
+    },
+    {
+      "name": "Standards Denormalized Fields Match Authoritative Standard Record",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
     }
   ]
 }
