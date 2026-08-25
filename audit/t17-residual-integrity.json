@@ -1,0 +1,247 @@
+{
+  "phase": "T17",
+  "title": "Tapping Domain Residual Integrity Audit — Post-T16 Discovery",
+  "type": "read-only discovery",
+  "baseline_head": "45653e90b277cccdbf3979ea0e73770fbca59dd7",
+  "baseline_origin_main": "45653e90b277cccdbf3979ea0e73770fbca59dd7",
+  "baseline_matches_origin_main": true,
+  "t16_commit": "45653e90b277cccdbf3979ea0e73770fbca59dd7",
+  "t16_commit_message": "T16: Verify denormalized standard fields in tapping projections",
+  "repository_gate_passed": true,
+  "t16_check_confirmed_present_and_operational": true,
+  "t16_check_confirmed_not_modified": true,
+  "certification_matrix": [
+    { "family": "Thread identity (designation/diameter/pitch/tpi/coarse_fine)", "status": "CERTIFIED", "note": "Direct copy from base thread record, unchanged since T3." },
+    { "family": "Thread standard_family", "status": "CERTIFIED (low risk)", "note": "Direct copy of base.iso_family/standards_family; never independently re-derived, but never rendered as an authoritative claim distinct from the standards[] array itself." },
+    { "family": "Thread source_entity_id / source_dataset", "status": "PARTIAL -- known oddity, NOT SELECTED (see Section on candidates)", "note": "UNF records are assigned threadSystemEntityId='thread_system_unc' (the same as UNC records) because no thread_system_unf entity exists in the knowledge layer. Confirmed live and consistent across the projection and js/tapping-workflow-data.js. Never rendered anywhere -- no user-facing consequence found." },
+    { "family": "Tap-drill value/unit", "status": "CERTIFIED", "note": "Unchanged." },
+    { "family": "Tap-drill status", "status": "CERTIFIED", "note": "T13." },
+    { "family": "Tap-drill convention", "status": "CERTIFIED", "note": "T14." },
+    { "family": "Tap-drill provenance (source_dataset/record/field, source, cross_check)", "status": "CERTIFIED", "note": "Referential + T14 narrative derivation." },
+    { "family": "Alternative drill (value/unit/status)", "status": "CERTIFIED", "note": "Structural check unchanged." },
+    { "family": "Alternative drill standard_edition", "status": "DEFERRED, RECONFIRMED", "note": "Hardcoded '1972' literal, previously identified in T16 discovery, not reopened -- no new evidence." },
+    { "family": "Engagement (radial/axial)", "status": "CERTIFIED", "note": "Fixed constant object, unchanged, forbidden-pattern sweep clean." },
+    { "family": "**Tap types (relationship resolution)**", "status": "**UNRESOLVED**", "note": "SELECTED T17 TARGET -- existence of each tap_type ID is checked, but the correctness of the resolved SET (i.e. that it matches what relationships.seed.json's RELATES_TO edges actually establish for the profile's operation) is never independently re-derived and compared." },
+    { "family": "Overall record status", "status": "CERTIFIED", "note": "Direct pass-through." },
+    { "family": "Standards (standard_id reference + denormalized fields)", "status": "CERTIFIED", "note": "T16, confirmed present and operational this session, not reopened." },
+    { "family": "General taxonomy", "status": "CERTIFIED", "note": "T6 + T15." },
+    { "family": "Manufacturing characteristics / Typical applications / Manufacturer-specific recommendations", "status": "CERTIFIED", "note": "T6 + T15." },
+    { "family": "application_notes[].source_tier", "status": "DEFERRED, RECONFIRMED", "note": "Inert field, previously identified in T16 discovery, not reopened -- no new evidence, still never rendered by any consumer." },
+    { "family": "evidence_status counts", "status": "CERTIFIED", "note": "Re-derived independently, check 9's total-count assertion." },
+    { "family": "data_quality.record_status / provenance_complete / last_reviewed", "status": "CERTIFIED (low risk)", "note": "Direct copies / redundantly-guarded derivation, unchanged since T14 review." },
+    { "family": "data_quality_summary (top-level projection metadata)", "status": "DEFERRED, RECONFIRMED", "note": "Inert, unread by any consumer, unchanged since T14 review." },
+    { "family": "CSV representation", "status": "PARTIAL / documented", "note": "T11's frozen exception, not reopened." },
+    { "family": "Client-data representation", "status": "CERTIFIED", "note": "Inherits the projection's tap_types[] verbatim; the risk found this session is upstream, not a client-data-specific seam." },
+    { "family": "HTML representation", "status": "CERTIFIED", "note": "Unchanged." }
+  ],
+  "source_to_projection_inventory": {
+    "method": "Re-enumerated every field in tapping-profiles.json's row shape and tap-types.json's row shape, classified per the 8-category taxonomy the phase brief specifies (direct copy / derived / denormalized / transformed / conditional / aggregated / fixed constant / hardcoded literal).",
+    "fields": [
+      { "field": "tapping_profile_id", "kind": "direct copy", "guarded": true },
+      { "field": "thread.designation/nominal_diameter/pitch/threads_per_inch/coarse_fine", "kind": "direct copy, conditional on thread_system", "guarded": true },
+      { "field": "thread.thread_system", "kind": "fixed constant (caller-supplied per branch)", "guarded": "trivially correct by construction" },
+      { "field": "thread.standard_family", "kind": "direct copy", "guarded": "not independently tested, low risk -- never an independent user-facing claim" },
+      { "field": "thread.source_entity_id", "kind": "hardcoded literal, reused identically for both UNC and UNF branches", "guarded": false, "material": false, "reason_not_material": "never rendered by any consumer, confirmed via exhaustive grep" },
+      { "field": "thread.source_dataset/source_record", "kind": "direct copy / caller-supplied", "guarded": "referentially, check 2" },
+      { "field": "tap_drill.value/unit", "kind": "direct copy", "guarded": true },
+      { "field": "tap_drill.status/convention/provenance.source/provenance.cross_check", "kind": "derived from Boolean(hp.cross_verified) + .match", "guarded": "T13/T14" },
+      { "field": "tap_drill.provenance.source_dataset/record/field", "kind": "direct copy", "guarded": "referentially, check 2" },
+      { "field": "alternative_drill.value/unit/status", "kind": "direct copy", "guarded": "structural, check 5" },
+      { "field": "alternative_drill.standard_id", "kind": "direct copy of alt.source", "guarded": "referentially, check 2" },
+      { "field": "alternative_drill.standard_edition", "kind": "hardcoded literal '1972'", "guarded": false, "material": "low, deferred, reconfirmed" },
+      { "field": "alternative_drill.convention/applicability/meaning/provenance.source/table/verified_date", "kind": "direct copy / fixed constant explanatory text", "guarded": "fact/status coverage indirectly via alt.status; text itself not independently re-derived, but static explanatory prose, not a source-varying claim" },
+      { "field": "engagement.radial/axial", "kind": "fixed constant object, identical on all 29 rows by design", "guarded": true },
+      { "field": "tap_types[]", "kind": "DERIVED via relationship-graph resolution (resolveEntityContext) + filter to tap_type entity ids", "guarded": "PARTIALLY -- existence of each ID checked (check 2), membership/correctness of the SET never independently re-derived from relationships.seed.json -- SELECTED TARGET" },
+      { "field": "standards[]", "kind": "denormalized map-transform of resolved standard record", "guarded": "T16" },
+      { "field": "data_quality.record_status", "kind": "direct copy of profile.status", "guarded": true },
+      { "field": "data_quality.provenance_complete", "kind": "derived boolean", "guarded": "indirectly, reviewed T14" },
+      { "field": "data_quality.last_reviewed", "kind": "direct copy of dataset.last_reviewed", "guarded": "low risk, not independently tested" },
+      { "field": "profileProjection.related_entities/related_standards/related_datasets", "kind": "aggregated (Set + sort) from all rows", "guarded": "not independently tested, but inert -- never read by any tapping product generator" },
+      { "field": "profileProjection.data_quality_summary", "kind": "aggregated count object", "guarded": "not independently tested, but inert -- never consumed" },
+      { "field": "tap-types.json rows: general_taxonomy/manufacturing_characteristics/typical_applications/manufacturer_specific_recommendations", "kind": "filter() by classification, preserving all note fields", "guarded": "T6 + T15" },
+      { "field": "tap-types.json rows: evidence_status counts", "kind": "aggregated count", "guarded": "check 9 total-count assertion" },
+      { "field": "tap-types.json rows: taxonomy_axis", "kind": "direct copy", "guarded": "existence only (schema-required-field check); low risk, presentational metadata" }
+    ]
+  },
+  "projection_to_consumer_inventory": {
+    "consumers_enumerated": ["reference/tapping-atlas.html", "reference/tap-type-guide.html", "tools/tapping-workflow.html (incl. T9 comparison)", "reference/tapping-evidence.html", "downloads/tapping-atlas.csv", "js/tapping-workflow-data.js", "tools/tap-drill-calculator.html"],
+    "finding": "tap_types[] is the single most consistently and prominently rendered relationship-derived field across every consumer: Atlas's 'Tap types:' line on every one of 29 cards, Workflow's 'Relevant tap types' result section and T9 comparison row, Evidence's implicit tap-type cross-reference, and the CSV's 'tap_types' column. Every consumer faithfully displays whatever the projection says -- parity between consumers is certified. The risk is entirely upstream, at the relationship-resolution step in generate-tapping-projections.js, and would appear identically (and just as silently) in every product and the CSV simultaneously if it were ever wrong."
+  },
+  "silent_drop_audit": {
+    "new_drops_found": 0,
+    "reconfirmed_inert_fields": ["thread.source_entity_id (with the UNC/UNF reuse oddity)", "profileProjection.related_entities/related_standards/related_datasets", "profileProjection.data_quality_summary", "application_notes[].source_tier"],
+    "conclusion": "No newly-discovered field is silently dropped between layers. The material finding this session is not a drop but an unguarded relationship-DERIVATION (tap_types[])."
+  },
+  "derivation_audit": {
+    "new_derivations_reviewed": ["tap_types[] via resolveEntityContext", "thread.standard_family (direct copy, not a derivation)", "data_quality.last_reviewed (direct copy, not a derivation)"],
+    "primary_finding": {
+      "field": "tap_types[]",
+      "source": "data/relationships/relationships.seed.json's RELATES_TO edges where source == profile.operation (e.g. 'cut_tapping'), resolved via resolveEntityContext() in scripts/utilities/relationship-resolver.js, filtered to entity_type === 'tap_type'",
+      "exact_rule": "operationContext.relatedEntityIds.filter(id => tapTypeEntityIds.has(id)).sort()",
+      "current_live_data": "All 29 profiles use operation='cut_tapping'. cut_tapping's OWN entity.related_entities array is EMPTY -- the entire relationship comes from 5 separate RELATES_TO records in relationships.seed.json: cut_tapping->taper_tap, cut_tapping->plug_tap, cut_tapping->bottoming_tap, cut_tapping->spiral_point_tap, cut_tapping->spiral_flute_tap. All 29 profiles therefore resolve to the identical 5-element set. hand_tap and forming_tap are correctly excluded (not connected to cut_tapping).",
+      "validator_tests_the_derivation": false,
+      "evidence": "validate-tapping-projections.js check 2 only confirms `entityIds.has(tapTypeId)` for each element already present in row.tap_types -- pure existence. No check independently re-derives the expected set from relationships.seed.json + profile.operation and compares it to the projection's actual tap_types[] array.",
+      "mutation_test_feasibility": "high -- temporarily remove or add one RELATES_TO record touching cut_tapping in relationships.seed.json, leave the projection unregenerated, confirm a new check would fail; identical proven technique to T13-T16."
+    }
+  },
+  "relationship_resolution_audit": {
+    "this_is_the_primary_finding": true,
+    "existence_vs_membership_gap_confirmed": "Exactly the pattern the phase brief called out: 'relationship resolution that proves existence but not correct relationship membership.' Every element of tap_types[] independently resolves to a real tap_type entity (existence, checked), but nothing confirms the SET as a whole is what the relationship graph currently establishes for that profile's operation (membership/correctness, unchecked)."
+  },
+  "aggregation_count_audit": {
+    "counts_reviewed": ["tap_drill verified/source-bound totals", "record_status verified/source-bound totals", "tap-type evidence_status verified/source-bound totals", "profileProjection.data_quality_summary"],
+    "finding": "All rendered, user-facing counts (9/20, 0/29, 1/15) are dynamically re-derived from the projection at validation time in every consumer's own validator, never hardcoded -- reconfirmed unchanged. profileProjection.data_quality_summary is itself an aggregate but is never consumed (Section on candidates, not selected)."
+  },
+  "hardcoded_fixed_value_audit": {
+    "literals_found": [
+      { "literal": "alternative_drill.standard_edition = '1972'", "status": "DEFERRED, RECONFIRMED from T16 discovery" },
+      { "literal": "threadSystemEntityId = 'thread_system_unc' (reused for UNF)", "status": "newly explicitly named this session, reviewed, NOT SELECTED -- never rendered" },
+      { "literal": "alternative_drill.convention/applicability/meaning explanatory text", "status": "static prose describing the ISO 2306 alternative-drill concept in general, not a per-record varying claim -- low risk" }
+    ],
+    "conclusion": "No new material hardcoded-literal risk found beyond the already-deferred standard_edition case and the newly-named-but-non-material source_entity_id oddity."
+  },
+  "negative_case_matrix": [
+    { "mutation": "hp.cross_verified.match flipped", "existing_validator_would_fail": true, "which": "T13/T14" },
+    { "mutation": "application_notes[].source/status/fact changed", "existing_validator_would_fail": true, "which": "T6/T15" },
+    { "mutation": "standards[] field hand-edited to diverge from source", "existing_validator_would_fail": true, "which": "T16" },
+    { "mutation": "a RELATES_TO edge between cut_tapping and a tap type removed or added in relationships.seed.json, projection left stale", "existing_validator_would_fail": false, "material": true, "reason": "SELECTED TARGET" },
+    { "mutation": "thread.source_entity_id changed to an arbitrary valid entity id", "existing_validator_would_fail": "partially -- check 2 would still pass if the new id is a real entity; but this field is never rendered so no user-facing consequence", "material": false },
+    { "mutation": "alternative_drill.standard_edition changed", "existing_validator_would_fail": false, "material": "low, deferred" },
+    { "mutation": "engagement.axial.calculation_status flipped", "existing_validator_would_fail": true, "which": "check 6" },
+    { "mutation": "a tap_type entity's entity_type changed away from 'tap_type'", "existing_validator_would_fail": true, "which": "would break the tap_types[] filter entirely for that entity across the whole domain -- but this is a knowledge-layer schema-level change, extremely disruptive and already covered by check 2's existence requirement plus validate-tapping-domain.js's type checks" }
+  ],
+  "deferred_finding_recheck": [
+    { "item": "Hardcoded tap-type classification arrays across 4 validators", "status": "RECONFIRMED DEFERRED", "note": "No new evidence; still exactly 4 fields." },
+    { "item": "Repo-wide generated-artifact staleness", "status": "RECONFIRMED OUT OF SCOPE", "note": "Still repo-wide, not tapping-bounded." },
+    { "item": "alternative_drill.standard_edition hardcode", "status": "RECONFIRMED DEFERRED", "note": "No new evidence changes its priority relative to the selected target." },
+    { "item": "application_notes[].source_tier unused", "status": "RECONFIRMED DEFERRED", "note": "Still inert, never rendered." },
+    { "item": "Protected CSV primary_drill_convention wording", "status": "RECONFIRMED DEFERRED", "note": "No new evidence the T11 tradeoff is invalid." },
+    { "item": "Tap Drill Calculator's independent architecture", "status": "RECONFIRMED INTENTIONALLY ABSENT as a risk", "note": "Makes no projection-backed claims." },
+    { "item": "Cross-product discovery-link deferrals (T4/T7/T9)", "status": "RECONFIRMED DEFERRED", "note": "No new evidence." }
+  ],
+  "candidate_findings": [
+    {
+      "id": "tap-types-relationship-membership",
+      "summary": "tap_types[] is derived via relationship-graph resolution from relationships.seed.json; only per-element existence is validated, never whether the resolved SET correctly reflects the current relationship graph for the profile's operation.",
+      "current_impact": "none -- current live data (all 29 profiles -> the same correct 5-element set) verified correct by direct inspection",
+      "user_facing_breadth": "every product and the CSV, on every one of 29 records",
+      "selected": true
+    },
+    {
+      "id": "thread-source-entity-id-unc-unf-reuse",
+      "summary": "UNF records' thread.source_entity_id is hardcoded to 'thread_system_unc' (no thread_system_unf entity exists in the knowledge layer) -- a data-modeling oddity.",
+      "current_impact": "none -- field is never rendered by any consumer, confirmed via exhaustive grep",
+      "selected": false,
+      "reason": "fails the phase brief's explicit 'materially user-facing' bar; noted for visibility, not selected"
+    }
+  ],
+  "risk_ranking": [
+    { "rank": 1, "id": "tap-types-relationship-membership", "correctness_impact": "high if it ever drifts -- 'Relevant tap types' is one of the most prominent, engineering-consequential sections on every product", "trust_severity": "high", "silent_failure_potential": "total -- existence check would still pass for any wrong-but-valid tap_type id", "current_applicability": "current data correct, guard absent", "consumer_breadth": "all 4 HTML products + CSV + client data, all 29 rows", "mutation_testability": "high, same proven technique as T13-T16", "boundedness": "single file, single new check, reuses already-loaded knowledge.relationships" },
+    { "rank": 2, "id": "thread-source-entity-id-unc-unf-reuse", "note": "real data-modeling oddity but zero rendering path -- fails the materiality bar, not selected" }
+  ],
+  "selected_t17_target": {
+    "title": "Tap-Type Relationship-Membership Verification",
+    "objective": "Add a validator check that independently re-derives the expected tap_types[] set for every profile directly from relationships.seed.json's RELATES_TO edges for that profile's operation entity, and compares it to the projection's actual tap_types[] array.",
+    "root_risk": "buildProfileRows() resolves tap_types[] via resolveEntityContext(profile.operation), which walks the relationship graph; the existing validator only confirms each resulting ID is a real entity, never that the SET is what the current relationship graph actually establishes. A future edit to relationships.seed.json (an added or removed RELATES_TO edge) combined with a stale, unregenerated projection would show the wrong 'relevant tap types' on every affected product, and every existing validator would still pass.",
+    "source_of_truth": "data/relationships/relationships.seed.json's RELATES_TO records where source equals the profile's operation entity id, plus data/entities/entities.seed.json for entity_type filtering (both already loaded by validate-tapping-projections.js via knowledge.relationships and knowledge.entities)",
+    "affected_consumers": "data/projections/tapping/tapping-profiles.json's tap_types[] directly; indirectly every product's 'Relevant/relevant tap types' section and the CSV's tap_types column",
+    "current_coverage": "check 2 (per-element existence only)",
+    "exact_gap": "No check independently re-derives the expected tap_types set from the relationship graph and compares it to the projection.",
+    "not_already_covered_by": "T13 (tap_drill.status), T14 (tap_drill.convention/provenance narrative), T15 (application_notes.source), T16 (standards[] denormalization) -- four distinct, already-named field families; this is relationship-derived membership, untouched by any of them.",
+    "implementation_contract": {
+      "allowed_files": ["scripts/validators/validate-tapping-projections.js"],
+      "forbidden_files": ["scripts/generators/generate-tapping-projections.js", "data/projections/tapping/tapping-profiles.json", "data/projections/tapping/tap-types.json", "data/relationships/relationships.seed.json (except as a temporary, restored mutation fixture)", "data/entities/entities.seed.json", "every product HTML file", "downloads/tapping-atlas.csv", "js/tapping-workflow-data.js", "every other validator", "data/datasets/*", "data/standards/*"],
+      "validator_behavior_required": "For each profile row, need to determine the operation entity id (this requires either reading it from the source dataset record via a new tapping_profile_id-keyed lookup, similar to check 10/11's sourceRecordById pattern, since profile.operation is not itself carried into the projection row). For that operation id, collect all RELATES_TO relationship records where source equals the operation id and target is a tap_type entity; sort; compare to row.tap_types (sorted). Fail on any set difference.",
+      "pass_criteria": "0 errors on real data (already confirmed the current set is correct by direct inspection); correct failure on a reproduced relationship-graph mutation; all other validators unaffected; every checksum outside the validator itself unchanged"
+    },
+    "mutation_test_contract": {
+      "method": "Temporarily remove one RELATES_TO record (e.g. rel_cut_tapping_relates_taper_tap) from data/relationships/relationships.seed.json, backed up first, WITHOUT regenerating the projection.",
+      "expected_result": "FAIL, identifying the affected profiles (all 29, since all share operation='cut_tapping') and the specific missing/extra tap_type",
+      "restoration": "restore from backup, confirm byte-identical checksum, confirm validator returns to PASS"
+    },
+    "determinism_requirement": "validator run 3x on restored real data, byte-identical report"
+  },
+  "repository_integrity": {
+    "head_before": "45653e90b277cccdbf3979ea0e73770fbca59dd7",
+    "head_after": "45653e90b277cccdbf3979ea0e73770fbca59dd7",
+    "origin_main": "45653e90b277cccdbf3979ea0e73770fbca59dd7",
+    "branch": "main",
+    "tracked_modifications_during_discovery": 0,
+    "untracked_files_before": ["audit/d2-0-adsense-readiness.json", "audit/d2-0-adsense-readiness.md", "audit/d2-0-change-scope.md", ".DS_Store", "css/.DS_Store", "images/.DS_Store", "images/heads/.DS_Store", "images/logo.ai", "images/screw-drive-types/.DS_Store", "images/screw-head-types/.DS_Store", ".claude/"],
+    "production_data_projection_generator_validator_files_byte_identical": true
+  },
+  "implementation_authorized": true,
+  "implementation": {
+    "validator_modified": "scripts/validators/validate-tapping-projections.js",
+    "check_added": "Tap-Type Relationship Membership Matches Authoritative RELATES_TO Graph",
+    "check_number": 13,
+    "mechanism": "For each of the 29 profiles: resolves operation from the source dataset record via sourceRecordById; collects every RELATES_TO relationship whose source is that operation and whose target is a tap_type entity (via tapTypeEntitiesById); sorts the expected id set; sorts the projection's actual tap_types[]; computes the full missing/unexpected symmetric difference (not merely length or per-id existence); fails on any mismatch, naming the profile, designation, operation, and both difference lists.",
+    "test_results": {
+      "real_data_pass": { "result": "PASS", "errors": 0, "profiles_checked": 29 },
+      "mutation_failure": {
+        "method": "Temporarily edited the real data/relationships/relationships.seed.json (backed up first), removing the rel_cut_tapping_relates_taper_tap record entirely (41 records -> 40), WITHOUT regenerating either projection.",
+        "result": "FAIL",
+        "errors": 29,
+        "sample_error_message": "tap_m10x1_25_cut (designation M10x1.25, operation 'cut_tapping'): tap_types[] membership mismatch -- missing: [none], unexpected: [taper_tap]",
+        "note": "taper_tap correctly reported as 'unexpected' rather than 'missing' -- the removed edge means the graph no longer establishes it, but the stale, unregenerated projection still carries it. All 29 errors independently confirmed to name taper_tap as the sole discrepancy.",
+        "projections_confirmed_unregenerated_during_test": {
+          "tapping-profiles.json": "f9739e1d1f8d214b9eb06e4396c9bd1c44c1765c72e644bd0f40bfb1eddf3060 (unchanged)",
+          "tap-types.json": "63867da5f7f4a9eb5935b418bfc306ec143bf686f0269bb0689c6325ef480305 (unchanged)"
+        }
+      },
+      "restoration_pass": {
+        "method": "Restored data/relationships/relationships.seed.json from the pre-mutation backup.",
+        "result": "PASS",
+        "errors": 0,
+        "checksum_confirmed_byte_identical": "1fb66e4a74c8282f285b8451fd01fc0fc1070079ff667fdc211b7919ae3d15fb"
+      }
+    },
+    "full_validator_suite_results": {
+      "validate-knowledge-engine": "pass",
+      "validate-tapping-domain": "pass (0 errors, 5 pre-existing informational warnings, unchanged)",
+      "validate-projections": "pass",
+      "validate-tapping-projections": "pass (0 errors, 0 warnings; 13 checks, +1 new)",
+      "validate-tapping-atlas": "pass",
+      "validate-tap-type-guide": "pass",
+      "validate-tapping-workflow": "pass",
+      "validate-tapping-evidence": "pass",
+      "validate-tapping-terminology": "pass (0 errors, 1 pre-existing informational warning, unchanged)"
+    },
+    "determinism": {
+      "validator_run_3x": true,
+      "byte_identical_report_checksum": "050655901b89d5b48d825d282b1f3b2381d706d9780b600d99a85ba6c28459b7"
+    },
+    "regression_checksums_confirmed_byte_identical": {
+      "data/relationships/relationships.seed.json": "1fb66e4a74c8282f285b8451fd01fc0fc1070079ff667fdc211b7919ae3d15fb",
+      "data/entities/entities.seed.json": "0de67516d3e539425d7aa18a4bc4ba3499556d6259441a1f9c00b8e92fbc66b2",
+      "data/projections/tapping/tapping-profiles.json": "f9739e1d1f8d214b9eb06e4396c9bd1c44c1765c72e644bd0f40bfb1eddf3060",
+      "data/projections/tapping/tap-types.json": "63867da5f7f4a9eb5935b418bfc306ec143bf686f0269bb0689c6325ef480305",
+      "reference/tapping-atlas.html": "37b359845bbd1de7b207ec4953d3094043d013c77be707c19e5a15059fc4f2e7",
+      "reference/tap-type-guide.html": "08a0a55a220e99f59dbdf475fdc59eb28dbf4b678fa1693dd98ec4e97c99ebd3",
+      "reference/tapping-evidence.html": "24af8fd70831ea1733ba32d648de7781fd5eac5526dbe5e30be5b5dddea054fd",
+      "tools/tapping-workflow.html": "477ba7a3d4e8034386c226e15390e23b86d83c7e5e5b2c5b06a0244911a65fd2",
+      "downloads/tapping-atlas.csv": "3a391f37c5ac32ac1bbaa0e49ed8ac54e2efd840f855d396dc084b1dc51e7551",
+      "js/tapping-workflow-data.js": "d0907160b00b868e08b0da95347e1d736809697243849327a9b8dcda91ba3421",
+      "scripts/generators/generate-tapping-projections.js": "c9713b4aa45b36d1329676751abbd2eb31f2aaf40a7b3c65020563b4420ba77a"
+    },
+    "generator_never_run": true,
+    "generator_deliberately_not_fixed": "Confirmed per explicit governance constraint -- current data is already correct; T17 closes only the missing regression guard.",
+    "files_modified": [
+      "scripts/validators/validate-tapping-projections.js",
+      "docs/architecture/tapping-projection-validation-report.json",
+      "docs/architecture/tapping-projection-validation-report.md"
+    ],
+    "timestamp_only_reports_reverted": [
+      "docs/architecture/validation-report.json/.md",
+      "docs/architecture/projection-validation-report.json/.md",
+      "docs/architecture/tapping-validation-report.json/.md"
+    ]
+  },
+  "stop_condition": {
+    "implemented": true,
+    "committed": false,
+    "pushed": false,
+    "t18_started": false,
+    "status": "T17 STATUS: READY FOR REVIEW"
+  }
+}

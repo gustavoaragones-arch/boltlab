@@ -68,3 +68,8 @@
 - Errors: 0
 - Warnings: 0
 
+### Tap-Type Relationship Membership Matches Authoritative RELATES_TO Graph
+- Status: pass
+- Errors: 0
+- Warnings: 0
+

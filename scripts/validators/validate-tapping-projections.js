@@ -370,6 +370,49 @@ function main() {
   if (standardsFidelityCheck.errors.length) standardsFidelityCheck.status = "fail";
   checks.push(standardsFidelityCheck);
 
+  // 13. (T17) profileProjection.rows[].tap_types[] is derived in buildProfileRows() by resolving
+  // the relationship graph -- RELATES_TO edges from the profile's operation entity, filtered to
+  // tap_type entities. Check 2 above only confirms each element already sitting in tap_types[] is
+  // a real entity id; it never confirms the SET matches what the relationship graph currently
+  // establishes for that operation. A future edit to relationships.seed.json (an added or removed
+  // RELATES_TO edge), left unregenerated, would silently show the wrong "relevant tap types" on
+  // every affected product -- Atlas, Workflow, Evidence, and the CSV all read this same field --
+  // while every existing check, including check 2, kept passing. This closes that gap by
+  // independently re-deriving the expected membership set from source and comparing it exactly
+  // (not merely comparing array length or individual ids).
+  const tapTypeMembershipCheck = {
+    name: "Tap-Type Relationship Membership Matches Authoritative RELATES_TO Graph",
+    status: "pass",
+    errors: [],
+    warnings: []
+  };
+  for (const row of profileProjection.rows) {
+    const sourceRecord = sourceRecordById.get(row.tapping_profile_id);
+    if (!sourceRecord) {
+      tapTypeMembershipCheck.errors.push(
+        `${row.tapping_profile_id}: no matching source dataset record found -- cannot verify tap_types[] derivation`
+      );
+      continue;
+    }
+    const operation = sourceRecord.operation;
+    const expectedTapTypes = knowledge.relationships
+      .filter((r) => r.predicate === "RELATES_TO" && r.source === operation && tapTypeEntitiesById.has(r.target))
+      .map((r) => r.target)
+      .sort();
+    const actualTapTypes = [...row.tap_types].sort();
+    const expectedSet = new Set(expectedTapTypes);
+    const actualSet = new Set(actualTapTypes);
+    const missing = expectedTapTypes.filter((id) => !actualSet.has(id));
+    const unexpected = actualTapTypes.filter((id) => !expectedSet.has(id));
+    if (missing.length || unexpected.length) {
+      tapTypeMembershipCheck.errors.push(
+        `${row.tapping_profile_id} (designation ${row.thread.designation}, operation '${operation}'): tap_types[] membership mismatch -- missing: [${missing.join(", ") || "none"}], unexpected: [${unexpected.join(", ") || "none"}]`
+      );
+    }
+  }
+  if (tapTypeMembershipCheck.errors.length) tapTypeMembershipCheck.status = "fail";
+  checks.push(tapTypeMembershipCheck);
+
   const errorCount = checks.reduce((sum, c) => sum + c.errors.length, 0);
   const warningCount = checks.reduce((sum, c) => sum + c.warnings.length, 0);
 

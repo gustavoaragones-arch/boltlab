@@ -79,6 +79,12 @@
       "status": "pass",
       "errors": [],
       "warnings": []
+    },
+    {
+      "name": "Tap-Type Relationship Membership Matches Authoritative RELATES_TO Graph",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
     }
   ]
 }
