@@ -78,3 +78,8 @@
 - Errors: 0
 - Warnings: 0
 
+### Tap-Drill Value Provenance Chain Resolves To The Authoritative Source Field
+- Status: pass
+- Errors: 0
+- Warnings: 0
+

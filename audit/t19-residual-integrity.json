@@ -1,0 +1,235 @@
+{
+  "baseline_head": "3c27e422ec99d49988d618f9d95e8199bc9e2367",
+  "baseline_origin_main": "3c27e422ec99d49988d618f9d95e8199bc9e2367",
+  "t18_commit": "3c27e422ec99d49988d618f9d95e8199bc9e2367",
+  "repository_gate": {
+    "head_equals_origin_main": true,
+    "t18_commit_present": true,
+    "tracked_modifications_before_discovery": false,
+    "pre_existing_untracked_files": [
+      ".DS_Store",
+      ".claude/",
+      "audit/d2-0-adsense-readiness.json",
+      "audit/d2-0-adsense-readiness.md",
+      "audit/d2-0-change-scope.md",
+      "css/.DS_Store",
+      "images/.DS_Store",
+      "images/heads/.DS_Store",
+      "images/logo.ai",
+      "images/screw-drive-types/.DS_Store",
+      "images/screw-head-types/.DS_Store"
+    ],
+    "gate_result": "PASS"
+  },
+  "closed_seam_certification": [
+    { "phase": "T13", "check_name": "Tap-Drill Status Correctly Derived From Source Cross-Verification", "check_index": 10, "present": true, "passing": true },
+    { "phase": "T14", "check_name": "Tap-Drill Convention and Cross-Check Narrative Correctly Derived From Source Cross-Verification", "check_index": 11, "present": true, "passing": true },
+    { "phase": "T15", "check_name": "Application-Note Completeness -- source-fidelity clause", "check_index": 9, "present": true, "passing": true },
+    { "phase": "T16", "check_name": "Standards Denormalized Fields Match Authoritative Standard Record", "check_index": 12, "present": true, "passing": true },
+    { "phase": "T17", "check_name": "Tap-Type Relationship Membership Matches Authoritative RELATES_TO Graph", "check_index": 13, "present": true, "passing": true },
+    { "phase": "T18", "check_name": "Thread Block Engineering Values Match Authoritative Thread Dataset Record", "check_index": 14, "present": true, "passing": true }
+  ],
+  "projection_field_inventory": {
+    "method": "Re-read generate-tapping-projections.js and validate-tapping-projections.js (14 checks) in full; supersedes T18's table only by adding fields newly scrutinized this phase.",
+    "new_or_re_examined_fields": [
+      { "field": "tap_drill.value", "class": "direct_copy (composite/cross-dataset)", "source": "hole_preparation.value, self-declared to originate from hole_preparation.source_dataset/source_record/source_field", "validated": false, "note": "SELECTED TARGET -- provenance pointer exists and is presence-checked, but never dereferenced and compared to tap_drill.value" },
+      { "field": "tap_drill.unit", "class": "direct_copy", "source": "hole_preparation.unit", "validated": false, "note": "included in selected target's scope -- unit/source_field pairing consistency" },
+      { "field": "tap_drill.provenance.source_dataset/source_record/source_field", "class": "direct_copy", "source": "hole_preparation.source_dataset/source_record/source_field", "validated": "presence only (check 3, validate-tapping-domain.js checks 5/8/10)", "note": "never dereferenced" },
+      { "field": "data_quality.record_status", "class": "direct_copy", "source": "profile.status", "validated": "enum only (check 4)", "note": "candidate 2, not selected -- reconfirmed from T18" }
+    ]
+  },
+  "identity_join_audit": {
+    "joins_examined": [
+      { "join": "findBaseThreadRecord: profile.thread_id -> thread dataset designation", "key_unique": true, "identity_proven_by": "T18 check 14" },
+      { "join": "operation -> relationships.seed.json RELATES_TO edges", "key_unique": "n/a (relationship records)", "identity_proven_by": "T17 check 13" },
+      { "join": "standardById.get(id) for standards[]/alternative_drill.standard_id", "key_unique": true, "identity_proven_by": "existence: check 2; content: T16 check 12" },
+      { "join": "hole_preparation.source_dataset/source_record/source_field self-declared provenance pointer", "key_unique": true, "identity_proven_by": "NONE -- existence/presence only, never dereferenced", "SELECTED": true }
+    ],
+    "duplicate_designation_scan": {
+      "metric_threads.seed.json": { "records": 14, "duplicates": 0 },
+      "unc.seed.json": { "records": 8, "duplicates": 0 },
+      "unf.seed.json": { "records": 7, "duplicates": 0 }
+    }
+  },
+  "multi_source_composite_audit": {
+    "finding": "tap_drill.value's correctness depends on two source values agreeing: the hole_preparation.value literal on the tapping-dataset record, and the field it names (source_dataset/source_record/source_field) on a separate thread-dataset record.",
+    "rederivation_performed": true,
+    "rederivation_method": "Read-only node script resolved hole_preparation.source_dataset -> named thread dataset, found record by source_record === designation, read [source_field], compared to hole_preparation.value, across all 3 tapping dataset files.",
+    "records_checked": 29,
+    "mismatches_found": 0,
+    "unit_source_field_pairing_check": {
+      "distinct_pairings_found": ["{\"unit\":\"mm\",\"field\":\"tap_drill_mm\"}", "{\"unit\":\"in\",\"field\":\"tap_drill_in\"}"],
+      "consistent": true
+    },
+    "conclusion": "Current data is correct; the gap is exclusively the missing regression guard, matching the T13-T18 pattern exactly at their own discovery stage."
+  },
+  "unit_semantic_audit": {
+    "fields_examined": ["nominal_diameter_unit", "pitch_unit", "tap_drill.unit", "alternative_drill.unit"],
+    "correct_number_wrong_meaning_case_found": true,
+    "case": "tap_drill.value's provenance pointer asserts a specific field justifies the number, but that assertion is never verified -- see selected target",
+    "other_findings": "none -- check 5 already guards alternative_drill.unit === 'mm' and non-collision with tap_drill"
+  },
+  "conditional_presence_audit": {
+    "fields_examined": ["alternative_drill", "cross_verified", "standards[]"],
+    "alternative_drill": "guarded, check 5, both positive and negative paths",
+    "cross_verified": "guarded, T13/T14; reconfirmed present on 9/29 and absent on 20/29 records",
+    "standards": "never empty, check 7",
+    "new_gap_found": false
+  },
+  "status_claim_audit": {
+    "record_status": {
+      "source": "profile.status, direct copy",
+      "current_validator_coverage": "enum membership only (check 4)",
+      "current_variance": "none -- all 29 records currently 'source_bound'",
+      "classification": "real finding, candidate 2, not selected"
+    },
+    "overstated_wording_found": false,
+    "t11_csv_wording": "not reopened, no new evidence"
+  },
+  "tap_drill_semantic_audit": {
+    "primary_alternative_separation": "robustly guarded, check 5 (no value/unit collision, unit must be mm)",
+    "new_finding": "tap_drill.value's own provenance-chain self-consistency is unguarded -- see selected target",
+    "distinction_from_separation_guard": "the separation guard ensures primary and alternative are never confused with each other; the new finding concerns whether the primary value is trustworthy on its own declared terms"
+  },
+  "tap_type_semantic_audit": {
+    "fact_count": 16,
+    "entity_count": 7,
+    "new_defect_found": false,
+    "classification_source_fidelity": "T6/T15-certified, reconfirmed"
+  },
+  "standards_semantic_audit": {
+    "scoping": "standards[] resolved from tappingDataset.source_standards -- dataset-level, not profile-level, so every profile in one tapping dataset shares an identical standards set by design",
+    "wrong_standard_per_profile_possible": false,
+    "reason": "no profile-level standard-selection logic exists to get wrong -- this is intentional architectural scoping, not a candidate"
+  },
+  "relationship_semantic_audit": {
+    "relationship_derived_fields_found": ["tap_types[] (T17-certified)"],
+    "stronger_meaning_assumed_than_relationship_guarantees": false,
+    "RELATES_TO_semantic_purposes_found": 1
+  },
+  "consumer_fidelity_audit": {
+    "tap_drill_value_unit_consumers_confirmed": [
+      { "consumer": "scripts/generators/generate-tapping-atlas.js", "usage": "card 'Primary tap drill: {value} {unit}'; CSV columns primary_tap_drill/primary_tap_drill_unit" },
+      { "consumer": "scripts/generators/generate-tapping-workflow.js", "usage": "result section, comparison table, client-data JS" },
+      { "consumer": "scripts/generators/generate-tapping-evidence.js", "usage": "detail view 'Primary tap drill: {value} {unit}'" },
+      { "consumer": "scripts/generators/generate-tap-type-guide.js", "usage": "none -- does not consume tapping-profiles.json" }
+    ],
+    "transformation_type": "verbatim render, no semantic transformation",
+    "staleness_gap": "projection tap_drill.value diverges from its own cited source field -> product renders stale/wrong value -> no existing validator (projection, domain, or terminology) fails"
+  },
+  "numeric_engineering_audit": {
+    "claim_examined": "Primary tap drill value -- the headline engineering recommendation on every product",
+    "authoritative_source": "field named by hole_preparation.source_field on the record named by hole_preparation.source_record in the dataset named by hole_preparation.source_dataset",
+    "correct_number_wrong_label_case_found": true,
+    "note": "distinct from T18's source-value fidelity check, which validates the THREAD block via a different join (profile.thread_id -> designation), not the tap-drill value via its own self-declared provenance pointer"
+  },
+  "negative_case_matrix": [
+    { "mutation": "hp.cross_verified.match flipped", "source": "tapping dataset", "affected_projection": "tap_drill.status/convention/provenance", "current_validator_catches": true, "user_visible": true },
+    { "mutation": "RELATES_TO edge added/removed", "source": "relationships.seed.json", "affected_projection": "tap_types[]", "current_validator_catches": true, "user_visible": true },
+    { "mutation": "standard record field hand-edited", "source": "data/standards/**", "affected_projection": "standards[].*", "current_validator_catches": true, "user_visible": true },
+    { "mutation": "application_notes[] source/status/fact changed", "source": "entities.seed.json", "affected_projection": "application_notes[].*", "current_validator_catches": true, "user_visible": true },
+    { "mutation": "thread dataset pitch_mm/nominal_diameter_mm/threads_per_inch/thread_series/designation changed, projection left stale", "source": "thread datasets", "affected_projection": "thread.{...}", "current_validator_catches": true, "user_visible": true, "note": "T18-covered" },
+    { "mutation": "thread dataset tap_drill_mm/tap_drill_in changed at the record hole_preparation.source_field cites, tapping dataset and projection left stale", "source": "metric_threads.seed.json / unc.seed.json / unf.seed.json (field named by hole_preparation.source_field)", "affected_projection": "tap_drill.{value,unit}", "current_validator_catches": false, "user_visible": true, "engineering_consequence": "wrong primary drill-size recommendation shown under a still-complete-looking provenance citation", "bounded_fix": true, "mutation_testable": true, "SELECTED": true },
+    { "mutation": "profile.status changed in source, projection left stale", "source": "tapping dataset", "affected_projection": "data_quality.record_status", "current_validator_catches": "partial (enum only)", "user_visible": true, "note": "candidate 2, not selected" }
+  ],
+  "deferred_finding_recheck": [
+    { "finding": "Hardcoded tap-type classification arrays", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "Generated-artifact staleness (general)", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "alternative_drill.standard_edition hardcode", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "application_notes[].source_tier", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "Protected CSV wording (T11 exception)", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "Tap Drill Calculator independent architecture", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "Cross-product discovery-link deferrals", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "Inert projection aggregates (data_quality_summary, related_*)", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "UNF source_entity_id reuse", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "thread.standard_family (named T18)", "classification": "RECONFIRMED DEFERRED -- inert, already inside T18's implemented check scope" },
+    { "finding": "data_quality.record_status source-fidelity (T18 candidate 2)", "classification": "RECONFIRMED DEFERRED -- real but narrower, zero current variance, superseded in priority by this phase's selected finding" }
+  ],
+  "candidate_findings": [
+    { "rank": 1, "title": "tap_drill.value/.unit provenance-chain fidelity", "selected": true },
+    { "rank": 2, "title": "data_quality.record_status source-fidelity", "selected": false, "reason_not_selected": "single field, zero current variance (all 29 records source_bound), lower engineering consequence than a stale drill-size number" },
+    { "rank": 3, "title": "unit/source_field pairing as a standalone check", "selected": false, "reason_not_selected": "folded into candidate 1's scope -- cannot fail independently of the value dereference since both live on the same hole_preparation object" }
+  ],
+  "risk_ranking": [
+    "tap_drill.value/.unit provenance-chain fidelity -- highest engineering consequence (headline drill-size number on every product), currently active cross-dataset dependency on all 29 records (not merely hypothetical future divergence), zero coverage in the projection validator OR the domain validator OR any consumer-fidelity check, proven mutation-testable, bounded single-file fix.",
+    "data_quality.record_status fidelity -- real, deferred again, narrower and lower-consequence.",
+    "unit/source_field pairing standalone -- not independently eligible, folded into candidate 1."
+  ],
+  "selected_t19_target": {
+    "target_name": "Tap-Drill Value Provenance-Chain Fidelity",
+    "root_cause": "buildTapDrillBlock() copies hole_preparation.value/.unit directly into tap_drill.value/.unit, and separately copies hole_preparation.source_dataset/.source_record/.source_field into tap_drill.provenance.{source_dataset,source_record,source_field} -- but nothing anywhere dereferences that pointer and confirms it resolves to tap_drill.value.",
+    "authoritative_source": "the thread dataset named by each record's own hole_preparation.source_dataset (metric_threads.seed.json / unc.seed.json / unf.seed.json), field named by hole_preparation.source_field on the record named by hole_preparation.source_record",
+    "affected_projection_field": "tapping-profiles.json rows[].tap_drill.{value,unit}, cross-checked against rows[].tap_drill.provenance.{source_dataset,source_record,source_field}",
+    "affected_consumers": [
+      "reference/tapping-atlas.html",
+      "downloads/tapping-atlas.csv",
+      "tools/tapping-workflow.html",
+      "js/tapping-workflow-data.js",
+      "reference/tapping-evidence.html"
+    ],
+    "existing_coverage": "none -- confirmed by full read of validate-tapping-projections.js and validate-tapping-domain.js, plus a repo-wide grep for source_field (4 files total, none dereferencing it)",
+    "exact_missing_invariant": "row.tap_drill.value must equal knowledge.datasetById.get(row.tap_drill.provenance.source_dataset).records.find(r => r.designation === row.tap_drill.provenance.source_record)[row.tap_drill.provenance.source_field]",
+    "why_t13_t18_do_not_cover_it": "T13/T14 re-derive status/convention/provenance.{source,cross_check} from hole_preparation.cross_verified, a sibling object, never .value. T15 covers application_notes[].source. T16 covers standards[] denormalization. T17 covers tap_types[] membership. T18 covers the thread block via a structurally different join (profile.thread_id -> designation), not hole_preparation's own self-declared provenance pointer.",
+    "direct_inspection_confirmation": {
+      "records_checked": 29,
+      "mismatches_found": 0
+    }
+  },
+  "implementation_contract": {
+    "implemented": true,
+    "allowed_files": ["scripts/validators/validate-tapping-projections.js"],
+    "forbidden_files": [
+      "scripts/generators/generate-tapping-projections.js",
+      "data/projections/tapping/tapping-profiles.json",
+      "data/projections/tapping/tap-types.json",
+      "data/datasets/metric_threads.seed.json",
+      "data/datasets/unc.seed.json",
+      "data/datasets/unf.seed.json",
+      "data/datasets/metric_tapping.seed.json",
+      "data/datasets/unc_tapping.seed.json",
+      "data/datasets/unf_tapping.seed.json",
+      "data/entities/entities.seed.json",
+      "data/relationships/relationships.seed.json",
+      "data/standards/**",
+      "every product/CSV/client-data file",
+      "every other validator"
+    ],
+    "validator_behavior_required": "Add check 15: for each row, resolve knowledge.datasetById.get(row.tap_drill.provenance.source_dataset), find the record by designation === row.tap_drill.provenance.source_record, read [row.tap_drill.provenance.source_field], compare to row.tap_drill.value; fail on mismatch naming profile/chain/projected/authoritative. Also assert the (unit, source_field) pairing is one of the two known-good combinations for every row.",
+    "pass_criteria": "0 errors on real data (confirmed by direct inspection); correct failure on a reproduced thread-dataset mutation; all other checks and validators unaffected."
+  },
+  "mutation_test_contract": "Temporarily change tap_drill_mm on M3x0.5 in metric_threads.seed.json (currently 2.5, cited by tap_m3x0_5_cut's hole_preparation.source_field), backed up first, without touching the tapping dataset or regenerating the projection. Expect FAIL naming tap_m3x0_5_cut, the provenance chain, the stale projected value (2.5), and the new authoritative value. Restore from backup, confirm byte-identical checksum, confirm PASS. Run validator 3x on restored data for determinism.",
+  "allowed_files": ["scripts/validators/validate-tapping-projections.js"],
+  "forbidden_files": [
+    "scripts/generators/generate-tapping-projections.js",
+    "data/projections/tapping/tapping-profiles.json",
+    "data/projections/tapping/tap-types.json",
+    "data/datasets/**",
+    "data/entities/entities.seed.json",
+    "data/relationships/relationships.seed.json",
+    "data/standards/**",
+    "reference/tapping-atlas.html",
+    "reference/tap-type-guide.html",
+    "reference/tapping-evidence.html",
+    "tools/tapping-workflow.html",
+    "tools/tap-drill-calculator.html",
+    "downloads/tapping-atlas.csv",
+    "js/tapping-workflow-data.js",
+    "every other validator"
+  ],
+  "repository_integrity": {
+    "head_before": "3c27e422ec99d49988d618f9d95e8199bc9e2367",
+    "head_after": "3c27e422ec99d49988d618f9d95e8199bc9e2367",
+    "origin_main_matches_throughout": true,
+    "tracked_files_modified": 1,
+    "tracked_files_modified_list": ["scripts/validators/validate-tapping-projections.js"],
+    "regenerated_report_files": ["docs/architecture/tapping-projection-validation-report.json", "docs/architecture/tapping-projection-validation-report.md"],
+    "incidental_timestamp_only_reports_reverted": ["docs/architecture/validation-report.json", "docs/architecture/validation-report.md", "docs/architecture/projection-validation-report.json", "docs/architecture/projection-validation-report.md", "docs/architecture/tapping-validation-report.json", "docs/architecture/tapping-validation-report.md"],
+    "mutation_test_executed": true,
+    "mutation_test_result": "FAIL, 1 error, correctly naming tap_m3x0_5_cut / provenance chain metric_threads.M3x0.5.tap_drill_mm / projected 2.5 / authoritative 2.6",
+    "restoration_confirmed": "SHA-256 122b73e7f541fb16cd1e8d8d60dae91528a9e56ffe21863bd727dc50f4393c2c matches pre-mutation baseline; git diff --stat shows zero diff from HEAD",
+    "regression_suite": "all 9 tapping validators pass, 0 errors",
+    "determinism_check": "3 consecutive runs on restored data, identical report checksum 3a8ccfd0ed59e208eeb836dda5e2ab5a128c8ecf647679ec250ca8c8b3ac22b1"
+  },
+  "implementation_authorized": true,
+  "stop_condition": "T19 STATUS: READY FOR REVIEW. Implementation complete (check 15 added, mutation-tested, restored, regression-clean). Nothing committed or pushed. T20 not started."
+}

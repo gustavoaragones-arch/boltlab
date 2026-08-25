@@ -478,6 +478,69 @@ function main() {
   if (threadFidelityCheck.errors.length) threadFidelityCheck.status = "fail";
   checks.push(threadFidelityCheck);
 
+  // 15. (T19) buildTapDrillBlock() copies hole_preparation.value/.unit directly into
+  // tap_drill.value/.unit, and separately copies hole_preparation.source_dataset/.source_record/
+  // .source_field into tap_drill.provenance.{source_dataset,source_record,source_field} -- a
+  // self-declared pointer identifying exactly which field of which record in which dataset
+  // justifies the value. Check 3 above only confirms that pointer is non-empty; no check anywhere
+  // (this validator, validate-tapping-domain.js, or validate-tapping-terminology.js's consumer-
+  // fidelity comparison against the rendered HTML) ever DEREFERENCES it and confirms it resolves to
+  // tap_drill.value. This is a distinct join from check 14's thread-block lookup (profile.thread_id
+  // -> designation): here the pointer itself lives on the hole_preparation record and is asserted,
+  // not re-derived. A future edit to the cited thread-dataset field (e.g. a corrected tap_drill_mm),
+  // left unsynced in the tapping dataset and unregenerated in the projection, would silently show
+  // the wrong primary drill-size recommendation under a still-complete-looking provenance citation
+  // on every product -- Atlas (HTML + CSV), Workflow (HTML + client-data JS), and Evidence -- while
+  // every existing check, including check 3's presence check, kept passing. This closes that gap.
+  const tapDrillProvenanceChainCheck = {
+    name: "Tap-Drill Value Provenance Chain Resolves To The Authoritative Source Field",
+    status: "pass",
+    errors: [],
+    warnings: []
+  };
+  const VALID_UNIT_SOURCE_FIELD_PAIRINGS = {
+    mm: "tap_drill_mm",
+    in: "tap_drill_in"
+  };
+  for (const row of profileProjection.rows) {
+    const prov = row.tap_drill.provenance;
+    const chain = `${prov.source_dataset}.${prov.source_record}.${prov.source_field}`;
+    const expectedField = VALID_UNIT_SOURCE_FIELD_PAIRINGS[row.tap_drill.unit];
+    if (!expectedField || expectedField !== prov.source_field) {
+      tapDrillProvenanceChainCheck.errors.push(
+        `${row.tapping_profile_id}: tap_drill.unit '${row.tap_drill.unit}' does not match provenance.source_field '${prov.source_field}' -- expected pairing mm/tap_drill_mm or in/tap_drill_in`
+      );
+    }
+    const sourceDataset = knowledge.datasetById.get(prov.source_dataset);
+    if (!sourceDataset) {
+      tapDrillProvenanceChainCheck.errors.push(
+        `${row.tapping_profile_id}: provenance chain '${chain}' -- source dataset '${prov.source_dataset}' not found in knowledge layer`
+      );
+      continue;
+    }
+    const sourceRecord = (sourceDataset.records || []).find((r) => r.designation === prov.source_record);
+    if (!sourceRecord) {
+      tapDrillProvenanceChainCheck.errors.push(
+        `${row.tapping_profile_id}: provenance chain '${chain}' -- no record with designation '${prov.source_record}' found in ${prov.source_dataset}`
+      );
+      continue;
+    }
+    const authoritativeValue = sourceRecord[prov.source_field];
+    if (authoritativeValue === undefined) {
+      tapDrillProvenanceChainCheck.errors.push(
+        `${row.tapping_profile_id}: provenance chain '${chain}' -- field '${prov.source_field}' does not exist on the cited source record`
+      );
+      continue;
+    }
+    if (authoritativeValue !== row.tap_drill.value) {
+      tapDrillProvenanceChainCheck.errors.push(
+        `${row.tapping_profile_id}: tap_drill.value mismatch -- provenance chain '${chain}' resolves to '${authoritativeValue}', projected tap_drill.value is '${row.tap_drill.value}'`
+      );
+    }
+  }
+  if (tapDrillProvenanceChainCheck.errors.length) tapDrillProvenanceChainCheck.status = "fail";
+  checks.push(tapDrillProvenanceChainCheck);
+
   const errorCount = checks.reduce((sum, c) => sum + c.errors.length, 0);
   const warningCount = checks.reduce((sum, c) => sum + c.warnings.length, 0);
 

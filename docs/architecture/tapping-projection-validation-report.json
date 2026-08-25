@@ -91,6 +91,12 @@
       "status": "pass",
       "errors": [],
       "warnings": []
+    },
+    {
+      "name": "Tap-Drill Value Provenance Chain Resolves To The Authoritative Source Field",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
     }
   ]
 }
