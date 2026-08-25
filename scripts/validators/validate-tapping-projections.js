@@ -413,6 +413,71 @@ function main() {
   if (tapTypeMembershipCheck.errors.length) tapTypeMembershipCheck.status = "fail";
   checks.push(tapTypeMembershipCheck);
 
+  // 14. (T18) row.thread.{designation, nominal_diameter, pitch, threads_per_inch, coarse_fine,
+  // standard_family} are copied directly from the resolved thread-dataset record in
+  // buildThreadBlock() -- metric_threads.seed.json / unc.seed.json / unf.seed.json, matched by
+  // designation. No existing check re-derives these values from that source and compares them;
+  // check 2 only confirms thread.source_dataset and thread.source_entity_id resolve to something
+  // real, never that the copied engineering values themselves still match what that source
+  // currently says. A future edit to a thread-dataset record (e.g. a corrected pitch or diameter),
+  // left unregenerated, would silently show the wrong engineering values under a still-valid-looking
+  // designation on every product that renders this block -- Atlas (HTML + CSV), Workflow (HTML +
+  // client-data JS), and Evidence -- while every existing check kept passing. This closes that gap.
+  const threadFidelityCheck = {
+    name: "Thread Block Engineering Values Match Authoritative Thread Dataset Record",
+    status: "pass",
+    errors: [],
+    warnings: []
+  };
+  const THREAD_DATASET_ID_BY_SYSTEM = {
+    metric: "metric_threads",
+    UNC: "unc_threads",
+    UNF: "unf_threads"
+  };
+  for (const row of profileProjection.rows) {
+    const threadDatasetId = THREAD_DATASET_ID_BY_SYSTEM[row.thread.thread_system];
+    if (!threadDatasetId) {
+      threadFidelityCheck.errors.push(
+        `${row.tapping_profile_id}: unrecognized thread.thread_system '${row.thread.thread_system}' -- cannot verify thread block derivation`
+      );
+      continue;
+    }
+    const threadDataset = knowledge.datasetById.get(threadDatasetId);
+    if (!threadDataset) {
+      threadFidelityCheck.errors.push(
+        `${row.tapping_profile_id}: source dataset '${threadDatasetId}' not found in knowledge layer -- cannot verify thread block derivation`
+      );
+      continue;
+    }
+    const base = (threadDataset.records || []).find((r) => r.designation === row.thread.designation);
+    if (!base) {
+      threadFidelityCheck.errors.push(
+        `${row.tapping_profile_id}: no base thread record found for designation '${row.thread.designation}' in ${threadDatasetId} -- cannot verify thread block derivation`
+      );
+      continue;
+    }
+    const isMetric = row.thread.thread_system === "metric";
+    const expected = {
+      designation: base.designation,
+      nominal_diameter: isMetric ? base.nominal_diameter_mm : base.nominal_diameter_in,
+      pitch: isMetric ? base.pitch_mm : null,
+      threads_per_inch: isMetric ? null : base.threads_per_inch,
+      coarse_fine: base.thread_series,
+      standard_family: isMetric ? base.iso_family : base.standards_family
+    };
+    for (const field of Object.keys(expected)) {
+      const projectedValue = row.thread[field] ?? null;
+      const authoritativeValue = expected[field] ?? null;
+      if (projectedValue !== authoritativeValue) {
+        threadFidelityCheck.errors.push(
+          `${row.tapping_profile_id} (thread_system ${row.thread.thread_system}): thread.${field} mismatch -- authoritative value is '${authoritativeValue}', projected value is '${projectedValue}'`
+        );
+      }
+    }
+  }
+  if (threadFidelityCheck.errors.length) threadFidelityCheck.status = "fail";
+  checks.push(threadFidelityCheck);
+
   const errorCount = checks.reduce((sum, c) => sum + c.errors.length, 0);
   const warningCount = checks.reduce((sum, c) => sum + c.warnings.length, 0);
 

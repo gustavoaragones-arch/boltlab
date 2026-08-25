@@ -1,0 +1,240 @@
+{
+  "baseline_head": "859c7aec8da42d58362af60546feb8611aaf3df4",
+  "baseline_origin_main": "859c7aec8da42d58362af60546feb8611aaf3df4",
+  "t17_commit": "859c7aec8da42d58362af60546feb8611aaf3df4",
+  "repository_gate": {
+    "head_equals_origin_main": true,
+    "t17_commit_present": true,
+    "tracked_modifications_before_discovery": false,
+    "pre_existing_untracked_files": [
+      ".DS_Store",
+      ".claude/",
+      "audit/d2-0-adsense-readiness.json",
+      "audit/d2-0-adsense-readiness.md",
+      "audit/d2-0-change-scope.md",
+      "css/.DS_Store",
+      "images/.DS_Store",
+      "images/heads/.DS_Store",
+      "images/logo.ai",
+      "images/screw-drive-types/.DS_Store",
+      "images/screw-head-types/.DS_Store"
+    ],
+    "gate_result": "PASS"
+  },
+  "certification_matrix": [
+    { "phase": "T13", "check_name": "Tap-Drill Status Correctly Derived From Source Cross-Verification", "check_index": 10, "present": true, "modified_this_session": false },
+    { "phase": "T14", "check_name": "Tap-Drill Convention and Cross-Check Narrative Correctly Derived From Source Cross-Verification", "check_index": 11, "present": true, "modified_this_session": false },
+    { "phase": "T15", "check_name": "Application-Note Completeness (No Silent Drop, Duplication, or Reclassification) -- source-fidelity clause", "check_index": 9, "present": true, "modified_this_session": false },
+    { "phase": "T16", "check_name": "Standards Denormalized Fields Match Authoritative Standard Record", "check_index": 12, "present": true, "modified_this_session": false },
+    { "phase": "T17", "check_name": "Tap-Type Relationship Membership Matches Authoritative RELATES_TO Graph", "check_index": 13, "present": true, "modified_this_session": false }
+  ],
+  "projection_field_inventory": {
+    "method": "Full read of generate-tapping-projections.js (320 lines) and cross-reference against both projection files.",
+    "fields": [
+      { "field": "tapping_profile_id", "class": "direct_copy", "source": "source record .tapping_profile_id", "validated": true, "validator": "check 1" },
+      { "field": "thread.designation", "class": "direct_copy", "source": "thread dataset base.designation", "validated": false },
+      { "field": "thread.thread_system", "class": "fixed_constant", "source": "generator branch parameter, not a source value", "validated": null },
+      { "field": "thread.nominal_diameter", "class": "direct_copy", "source": "base.nominal_diameter_mm / base.nominal_diameter_in", "validated": false },
+      { "field": "thread.nominal_diameter_unit", "class": "fixed_constant", "source": "generator literal per branch", "validated": null },
+      { "field": "thread.pitch", "class": "direct_copy (metric only)", "source": "base.pitch_mm", "validated": false },
+      { "field": "thread.pitch_unit", "class": "fixed_constant", "source": "generator literal", "validated": null },
+      { "field": "thread.threads_per_inch", "class": "direct_copy (UNC/UNF only)", "source": "base.threads_per_inch", "validated": false },
+      { "field": "thread.coarse_fine", "class": "direct_copy", "source": "base.thread_series", "validated": false },
+      { "field": "thread.standard_family", "class": "direct_copy", "source": "base.iso_family / base.standards_family", "validated": false, "note": "individually inert -- unread by any consumer" },
+      { "field": "thread.source_entity_id", "class": "hardcoded_literal", "source": "generator constant thread_system_unc reused for UNF", "validated": "partial (existence only)", "note": "deferred since T17, never rendered" },
+      { "field": "thread.source_dataset", "class": "direct_copy", "source": "profile.thread_source_dataset", "validated": "existence only (check 2)" },
+      { "field": "thread.source_record", "class": "direct_copy", "source": "base.designation", "validated": "existence only (check 2)" },
+      { "field": "tap_drill.value / unit", "class": "direct_copy", "source": "hp.value / hp.unit", "validated": "existence/enum only", "note": "plain pass-through, low risk" },
+      { "field": "tap_drill.status", "class": "derived", "source": "hp.cross_verified", "validated": true, "validator": "T13 / check 10" },
+      { "field": "tap_drill.convention", "class": "derived", "source": "hp.cross_verified", "validated": true, "validator": "T14 / check 11" },
+      { "field": "tap_drill.provenance.source / cross_check", "class": "derived", "source": "hp.cross_verified", "validated": true, "validator": "T14 / check 11" },
+      { "field": "alternative_drill.value/unit/status/meaning", "class": "direct_copy", "source": "alt.*", "validated": "existence/enum only", "note": "plain pass-through, low risk" },
+      { "field": "alternative_drill.standard_edition", "class": "hardcoded_literal", "source": "none (fixed \"1972\")", "validated": false, "note": "deferred since T16, reconfirmed, no new evidence" },
+      { "field": "engagement.radial / engagement.axial", "class": "fixed_constant", "source": "none -- identical object every row", "validated": true, "validator": "check 6" },
+      { "field": "tap_types[]", "class": "relationship_derived", "source": "relationships.seed.json RELATES_TO", "validated": true, "validator": "T17 / check 13" },
+      { "field": "standards[].organization/designation/edition/title/verification_state", "class": "denormalized", "source": "knowledge.standardById", "validated": true, "validator": "T16 / check 12" },
+      { "field": "data_quality.record_status", "class": "direct_copy", "source": "profile.status", "validated": "enum only (check 4)", "note": "not compared to source; candidate 2, not selected" },
+      { "field": "data_quality.provenance_complete", "class": "derived (boolean)", "source": "hp.* presence", "validated": true, "validator": "check 3" },
+      { "field": "data_quality.last_reviewed", "class": "direct_copy (dataset-level)", "source": "tappingDataset.last_reviewed", "validated": false, "note": "low risk -- dataset metadata, not an engineering claim" },
+      { "field": "application_notes[].*", "class": "direct_copy", "source": "entity.application_notes[]", "validated": true, "validator": "T6/T15 / check 9" },
+      { "field": "evidence_status.*", "class": "aggregated", "source": "application_notes[]", "validated": true, "note": "re-derived dynamically by every consumer's own validator" },
+      { "field": "related_entities / related_standards / related_datasets", "class": "aggregated_metadata", "source": "rows", "validated": false, "note": "deferred, reconfirmed inert -- unread by any consumer" },
+      { "field": "data_quality_summary", "class": "aggregated", "source": "rows", "validated": false, "note": "deferred, reconfirmed inert" }
+    ]
+  },
+  "knowledge_projection_audit": {
+    "method": "Applied checklist A-I from the brief to every field family.",
+    "result": "Only the thread block (designation, nominal_diameter, pitch, threads_per_inch, coarse_fine, standard_family) is a direct-copy family with zero independent source-comparison anywhere in the validator suite -- confirmed by full read of all 13 checks and grep of every other tapping validator for the relevant field names (zero matches)."
+  },
+  "conditional_negative_path_audit": {
+    "alternative_drill_null_for_metric_present_for_uncunf": "guarded, check 5, both positive and negative paths tested",
+    "cross_verified_absent_on_uncunf": "reconfirmed always absent via direct grep of unc_tapping.seed.json and unf_tapping.seed.json -- zero occurrences outside metric_tapping.seed.json",
+    "new_conditional_gap_found": false
+  },
+  "status_transformation_audit": {
+    "tap_drill_status": "T13-covered",
+    "record_status_display_mapping_verificationLabel": "pure presentation, not a data claim, not a candidate",
+    "record_status_underlying_value": "direct copy of profile.status, enum-checked only, not source-compared -- named as candidate 2, not selected"
+  },
+  "numeric_engineering_audit": {
+    "fields_examined": ["thread.nominal_diameter", "thread.pitch", "thread.threads_per_inch", "thread.designation", "thread.coarse_fine", "thread.standard_family", "standards[]", "alternative_drill values"],
+    "rederivation_performed": true,
+    "rederivation_method": "Read-only node script re-derived thread.{designation,nominal_diameter,nominal_diameter_unit,pitch,pitch_unit,threads_per_inch,coarse_fine,standard_family} for all 29 rows directly from metric_threads.seed.json / unc.seed.json / unf.seed.json and compared to the real projection.",
+    "rows_checked": 29,
+    "fields_per_row": 8,
+    "total_comparisons": 232,
+    "mismatches_found": 0,
+    "conclusion": "Current data is correct; the gap is exclusively the missing regression guard, matching the T13-T17 pattern exactly at their own discovery stage."
+  },
+  "relationship_audit": {
+    "new_relationship_derived_field_found": false,
+    "related_entities_related_standards_related_datasets": "reconfirmed inert -- grepped every consumer generator, none reads these projection-level arrays",
+    "standards_and_alternative_drill_standard_id": "reference-checked (check 2) and content-checked for standards[] (T16)"
+  },
+  "tap_type_audit": {
+    "tap_type_entity_count": 7,
+    "total_application_notes_facts": 16,
+    "verified_via": "direct read of entities.seed.json, recomputed this session",
+    "source_certified": "T15",
+    "source_tier": "reconfirmed deferred, inert, unread by any consumer"
+  },
+  "standards_audit": {
+    "t16_fields_reconfirmed_passing": true,
+    "new_standard_transformation_found": false,
+    "ordering": "deterministic sort by standard_id in buildStandardsBlock, not itself a correctness claim"
+  },
+  "alternative_drill_audit": {
+    "standard_edition_hardcode": "reconfirmed present, unchanged, RECONFIRMED DEFERRED -- no new evidence of current material impact",
+    "metric_absence_behavior": "reconfirmed correct via check 5 negative-path assertion"
+  },
+  "engagement_audit": {
+    "sweep_terms": ["75%", "70%", "77%", "75 percent", "70 percent", "77 percent"],
+    "sweep_scope": "reference/tapping-atlas.html, reference/tap-type-guide.html, tools/tapping-workflow.html, reference/tapping-evidence.html, js/tapping-workflow-data.js, tools/tap-drill-calculator.html, all scripts/generators/generate-tapping-*.js",
+    "matches_found": 0,
+    "axial_calculation_status_hardcoded": "not_calculable, enforced by check 6",
+    "radial_target_percent_hardcoded": "null, enforced by check 6",
+    "radial_axial_distinction": "confirmed honest -- AXIAL_ENGAGEMENT_MODEL.principle explicitly names the missing material-strength-data dependency"
+  },
+  "provenance_evidence_audit": {
+    "claims_traced": ["tap_drill.status (T13-derived)", "data_quality.record_status (direct copy)"],
+    "overstated_claim_found": false
+  },
+  "duplicate_source_audit": {
+    "hardcoded_engineering_fact_duplication_found": false,
+    "tap_drill_calculator_exception": "RECONFIRMED OUT OF SCOPE -- loads /js/data.js, never tapping-profiles.json, confirmed by direct script-tag inspection this session"
+  },
+  "consumer_fidelity_audit": {
+    "thread_block_consumers_confirmed": [
+      { "consumer": "scripts/generators/generate-tapping-atlas.js", "usage": "cards render designation/nominal_diameter/pitch/threads_per_inch/coarse_fine; CSV header includes designation,nominal_diameter,nominal_diameter_unit,pitch,pitch_unit,tpi,coarse_fine" },
+      { "consumer": "scripts/generators/generate-tapping-workflow.js", "usage": "result section, comparison table, client-data JS all render designation/nominal_diameter/pitch/threads_per_inch" },
+      { "consumer": "scripts/generators/generate-tapping-evidence.js", "usage": "per-profile heading and dropdown render designation, pitch/threads_per_inch" },
+      { "consumer": "scripts/generators/generate-tap-type-guide.js", "usage": "none -- Guide only consumes tap-types.json, no thread block reference found" }
+    ],
+    "transformation_type": "verbatim render or pure unit-suffix template, no semantic transformation",
+    "staleness_gap": "projection changes to thread block -> product renders stale value -> no existing validator fails"
+  },
+  "aggregation_count_audit": {
+    "counts_checked": ["evidence verified/source-bound counts", "tap-drill 9/20", "tap-type facts 16"],
+    "all_dynamically_rederived_by_consumer_validators": true,
+    "new_finding": false
+  },
+  "deferred_finding_recheck": [
+    { "finding": "Hardcoded tap-type classification arrays", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "Generated-artifact staleness (general)", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "alternative_drill.standard_edition hardcode", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "application_notes[].source_tier", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "Protected CSV wording (T11 exception)", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "Tap Drill Calculator independent architecture", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "Cross-product discovery-link deferrals", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "Inert projection aggregates (data_quality_summary, related_entities/related_standards/related_datasets)", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "UNF source_entity_id reuse (thread_system_unc)", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "thread.standard_family", "classification": "REOPENED -- NEW EVIDENCE (individually inert, but included in the selected check's scope for completeness; not itself the selection basis)" }
+  ],
+  "negative_case_matrix": [
+    { "mutation": "hp.cross_verified.match flipped", "source": "tapping dataset", "affected_projection": "tap_drill.status/convention/provenance", "current_validator_catches": true, "user_visible": true, "bounded_fix": true },
+    { "mutation": "RELATES_TO edge added/removed", "source": "relationships.seed.json", "affected_projection": "tap_types[]", "current_validator_catches": true, "user_visible": true, "bounded_fix": true },
+    { "mutation": "standard record field hand-edited", "source": "data/standards/**", "affected_projection": "standards[].*", "current_validator_catches": true, "user_visible": true, "bounded_fix": true },
+    { "mutation": "application_notes[] source/status/fact changed", "source": "entities.seed.json", "affected_projection": "application_notes[].*", "current_validator_catches": true, "user_visible": true, "bounded_fix": true },
+    { "mutation": "thread dataset pitch_mm/nominal_diameter_mm/threads_per_inch/thread_series/designation changed, projection left stale", "source": "metric_threads.seed.json / unc.seed.json / unf.seed.json", "affected_projection": "thread.{designation,nominal_diameter,pitch,threads_per_inch,coarse_fine}", "current_validator_catches": false, "user_visible": true, "engineering_consequence": "wrong drill/thread guidance under a still-valid-looking designation", "bounded_fix": true, "mutation_testable": true, "SELECTED": true },
+    { "mutation": "profile.status changed in source, projection left stale", "source": "tapping dataset", "affected_projection": "data_quality.record_status", "current_validator_catches": "partial (enum only)", "user_visible": true, "bounded_fix": true, "note": "candidate 2, not selected" },
+    { "mutation": "alternative_drill.standard_edition changed", "source": "none (hardcoded)", "affected_projection": "alternative_drill.standard_edition", "current_validator_catches": false, "user_visible": "low", "note": "deferred, no new evidence of materiality" },
+    { "mutation": "thread.standard_family changed in source", "source": "thread dataset", "affected_projection": "thread.standard_family", "current_validator_catches": false, "user_visible": false, "note": "fails user-visible bar, not independently eligible" }
+  ],
+  "candidate_findings": [
+    { "rank": 1, "title": "Thread block engineering-value fidelity", "selected": true },
+    { "rank": 2, "title": "data_quality.record_status source-fidelity", "selected": false, "reason_not_selected": "narrower: one field, one display instance, lower engineering consequence than a stale physical measurement" },
+    { "rank": 3, "title": "thread.standard_family individually", "selected": false, "reason_not_selected": "fails user-visible eligibility bar on its own" },
+    { "rank": 4, "title": "alternative_drill.standard_edition", "selected": false, "reason_not_selected": "unchanged deferral from T16/T17, no new evidence" }
+  ],
+  "risk_ranking": [
+    "Thread block fidelity -- highest correctness impact, highest engineering consequence, broadest current consumer breadth (4 products including CSV and client-data JS) of any uncovered field, zero current coverage, proven mutation-testable, bounded single-file fix.",
+    "data_quality.record_status fidelity -- real, narrower, left named for a future phase.",
+    "thread.standard_family -- ineligible alone (not user-visible).",
+    "alternative_drill.standard_edition -- unchanged deferral."
+  ],
+  "selected_t18_target": {
+    "target_name": "Thread Block Engineering-Value Fidelity",
+    "root_cause": "buildThreadBlock() (generate-tapping-projections.js lines 30-65) copies designation, nominal_diameter, pitch, threads_per_inch, coarse_fine, and standard_family directly from the resolved thread-dataset record with zero transformation and zero independent verification anywhere in the 13-check validator suite.",
+    "authoritative_source": [
+      "data/datasets/metric_threads.seed.json",
+      "data/datasets/unc.seed.json",
+      "data/datasets/unf.seed.json"
+    ],
+    "affected_projection_field": "tapping-profiles.json rows[].thread.{designation,nominal_diameter,nominal_diameter_unit,pitch,pitch_unit,threads_per_inch,coarse_fine,standard_family}",
+    "affected_consumers": [
+      "reference/tapping-atlas.html",
+      "downloads/tapping-atlas.csv",
+      "tools/tapping-workflow.html",
+      "js/tapping-workflow-data.js",
+      "reference/tapping-evidence.html"
+    ],
+    "existing_coverage": "none -- confirmed by full read of all 13 checks and grep of every other tapping validator",
+    "exact_missing_invariant": "For every profile row, row.thread.{designation,nominal_diameter,pitch,threads_per_inch,coarse_fine,standard_family} must equal the corresponding field on the thread-dataset record found by matching profile.thread_id to designation in the dataset selected by that row's thread system, with the same unit-routing buildThreadBlock() already applies.",
+    "why_t13_t17_do_not_cover_it": "T13/T14 cover tap_drill.* derived from hp.cross_verified (different source object). T15 covers application_notes[].source on tap-types.json (different projection). T16 covers standards[] denormalization from knowledge.standardById (different source). T17 covers tap_types[] from the relationship graph (different source). None reads or compares the thread dataset files at all.",
+    "direct_inspection_confirmation": {
+      "rows_checked": 29,
+      "fields_per_row": 8,
+      "total_comparisons": 232,
+      "mismatches_found": 0
+    }
+  },
+  "implementation_contract": {
+    "implemented": true,
+    "allowed_files": ["scripts/validators/validate-tapping-projections.js"],
+    "forbidden_files": [
+      "scripts/generators/generate-tapping-projections.js",
+      "data/projections/tapping/tapping-profiles.json",
+      "data/projections/tapping/tap-types.json",
+      "data/datasets/metric_threads.seed.json",
+      "data/datasets/unc.seed.json",
+      "data/datasets/unf.seed.json",
+      "data/datasets/metric_tapping.seed.json",
+      "data/datasets/unc_tapping.seed.json",
+      "data/datasets/unf_tapping.seed.json",
+      "data/entities/entities.seed.json",
+      "data/relationships/relationships.seed.json",
+      "data/standards/**",
+      "every product/CSV/client-data file",
+      "every other validator"
+    ],
+    "validator_behavior_required": "Add check 14: for each profile row, resolve the thread-system-appropriate dataset, find the base record by designation === row.thread.designation, compare nominal_diameter/pitch/threads_per_inch/coarse_fine/standard_family with correct unit-routing (pitch null-checked for UNC/UNF, threads_per_inch null-checked for metric), fail on any mismatch naming profile, field, projected value, authoritative value.",
+    "pass_criteria": "0 errors on real data (confirmed by direct inspection); correct failure on a reproduced thread-dataset mutation; all other checks and validators unaffected.",
+    "mutation_test_contract": "Temporarily change one field (e.g. pitch_mm on M10x1.25) in metric_threads.seed.json, backed up first, without regenerating the projection. Expect FAIL naming the affected profile(s), field, stale value, new authoritative value. Restore from backup, confirm byte-identical checksum, confirm PASS. Run validator 3x on restored data for determinism."
+  },
+  "repository_integrity": {
+    "head_before": "859c7aec8da42d58362af60546feb8611aaf3df4",
+    "head_after": "859c7aec8da42d58362af60546feb8611aaf3df4",
+    "origin_main_matches_throughout": true,
+    "tracked_files_modified": 1,
+    "tracked_files_modified_list": ["scripts/validators/validate-tapping-projections.js"],
+    "regenerated_report_files": ["docs/architecture/tapping-projection-validation-report.json", "docs/architecture/tapping-projection-validation-report.md"],
+    "incidental_timestamp_only_reports_reverted": ["docs/architecture/validation-report.json", "docs/architecture/validation-report.md", "docs/architecture/projection-validation-report.json", "docs/architecture/projection-validation-report.md", "docs/architecture/tapping-validation-report.json", "docs/architecture/tapping-validation-report.md"],
+    "mutation_test_executed": true,
+    "mutation_test_result": "FAIL, 1 error, correctly naming tap_m10x1_25_cut / thread.pitch / projected 1.25 / authoritative 1.5",
+    "restoration_confirmed": "SHA-256 122b73e7f541fb16cd1e8d8d60dae91528a9e56ffe21863bd727dc50f4393c2c matches pre-mutation baseline; git diff --stat shows zero diff from HEAD",
+    "regression_suite": "all 9 tapping validators pass, 0 errors",
+    "determinism_check": "3 consecutive runs on restored data, identical report checksum e2ab5b98a6154006b3b3ab0952d5434562a3fd22ce6cb30b1bd120a180d487ae"
+  },
+  "implementation_authorized": true,
+  "stop_condition": "T18 STATUS: READY FOR REVIEW. Implementation complete (check 14 added, mutation-tested, restored, regression-clean). Nothing committed or pushed. T19 not started."
+}
