@@ -109,6 +109,12 @@
       "status": "pass",
       "errors": [],
       "warnings": []
+    },
+    {
+      "name": "Tap-Drill and ISO-Alternative Direct Value Fields Match Authoritative Tapping-Dataset Record",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
     }
   ]
 }

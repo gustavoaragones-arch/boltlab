@@ -616,6 +616,88 @@ function main() {
   if (provenanceCitationFidelityCheck.errors.length) provenanceCitationFidelityCheck.status = "fail";
   checks.push(provenanceCitationFidelityCheck);
 
+  // 18. (T22) buildTapDrillBlock() copies hole_preparation.value/.unit verbatim into
+  // tap_drill.value/.unit; buildAlternativeDrillBlock() copies iso_2306_alternative_drill.value/
+  // .unit/.source/.status/.meaning/.table/.verified_date verbatim into alternative_drill.value/
+  // .unit/.standard_id/.status/.meaning/.provenance.table/.provenance.verified_date. Check 15 (T19)
+  // compares tap_drill.value to a value DEREFERENCED THROUGH THE PROJECTED CITATION against the
+  // THREAD dataset -- it never reads hole_preparation.value itself. Check 17 (T21) compares only the
+  // citation POINTER fields (source_dataset/source_record/source_field) -- never .value/.unit. No
+  // check anywhere compares tap_drill.value/.unit, or any alternative_drill field, directly to the
+  // tapping dataset's own hole_preparation.value/.unit or iso_2306_alternative_drill.*. A direct
+  // edit to hp.value (leaving the citation fields and the thread dataset untouched), left
+  // unregenerated, would silently show the wrong primary drill recommendation while checks 15 and 17
+  // both keep passing (neither reads hp.value). The same gap exists, unguarded by any check, for the
+  // seven alternative_drill fields. This closes both gaps.
+  const directValueFidelityCheck = {
+    name: "Tap-Drill and ISO-Alternative Direct Value Fields Match Authoritative Tapping-Dataset Record",
+    status: "pass",
+    errors: [],
+    warnings: []
+  };
+  for (const row of profileProjection.rows) {
+    const sourceRecord = sourceRecordById.get(row.tapping_profile_id);
+    if (!sourceRecord) {
+      directValueFidelityCheck.errors.push(
+        `${row.tapping_profile_id}: no matching source dataset record found -- cannot verify tap_drill/alternative_drill direct value derivation`
+      );
+      continue;
+    }
+    const hp = sourceRecord.hole_preparation;
+    if ((hp && hp.value) !== row.tap_drill.value) {
+      directValueFidelityCheck.errors.push(
+        `${row.tapping_profile_id}: tap_drill.value is '${row.tap_drill.value}' but the authoritative tapping-dataset record's hole_preparation.value is '${hp && hp.value}'`
+      );
+    }
+    if ((hp && hp.unit) !== row.tap_drill.unit) {
+      directValueFidelityCheck.errors.push(
+        `${row.tapping_profile_id}: tap_drill.unit is '${row.tap_drill.unit}' but the authoritative tapping-dataset record's hole_preparation.unit is '${hp && hp.unit}'`
+      );
+    }
+    const alt = sourceRecord.iso_2306_alternative_drill;
+    if (alt && row.alternative_drill) {
+      const ALT_FIELD_MAP = [
+        ["value", "value"],
+        ["unit", "unit"],
+        ["source", "standard_id"],
+        ["status", "status"],
+        ["meaning", "meaning"]
+      ];
+      for (const [sourceKey, projectedKey] of ALT_FIELD_MAP) {
+        const authoritativeValue = alt[sourceKey] ?? null;
+        const projectedValue = row.alternative_drill[projectedKey] ?? null;
+        if (authoritativeValue !== projectedValue) {
+          directValueFidelityCheck.errors.push(
+            `${row.tapping_profile_id}: alternative_drill.${projectedKey} is '${projectedValue}' but the authoritative tapping-dataset record's iso_2306_alternative_drill.${sourceKey} is '${authoritativeValue}'`
+          );
+        }
+      }
+      const ALT_PROVENANCE_FIELD_MAP = [
+        ["table", "table"],
+        ["verified_date", "verified_date"]
+      ];
+      for (const [sourceKey, projectedKey] of ALT_PROVENANCE_FIELD_MAP) {
+        const authoritativeValue = alt[sourceKey] ?? null;
+        const projectedValue = row.alternative_drill.provenance[projectedKey] ?? null;
+        if (authoritativeValue !== projectedValue) {
+          directValueFidelityCheck.errors.push(
+            `${row.tapping_profile_id}: alternative_drill.provenance.${projectedKey} is '${projectedValue}' but the authoritative tapping-dataset record's iso_2306_alternative_drill.${sourceKey} is '${authoritativeValue}'`
+          );
+        }
+      }
+    } else if (alt && !row.alternative_drill) {
+      directValueFidelityCheck.errors.push(
+        `${row.tapping_profile_id}: source record has iso_2306_alternative_drill but projection has no alternative_drill`
+      );
+    } else if (!alt && row.alternative_drill) {
+      directValueFidelityCheck.errors.push(
+        `${row.tapping_profile_id}: projection has alternative_drill but source record has no iso_2306_alternative_drill`
+      );
+    }
+  }
+  if (directValueFidelityCheck.errors.length) directValueFidelityCheck.status = "fail";
+  checks.push(directValueFidelityCheck);
+
   const errorCount = checks.reduce((sum, c) => sum + c.errors.length, 0);
   const warningCount = checks.reduce((sum, c) => sum + c.warnings.length, 0);
 

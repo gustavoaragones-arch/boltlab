@@ -93,3 +93,8 @@
 - Errors: 0
 - Warnings: 0
 
+### Tap-Drill and ISO-Alternative Direct Value Fields Match Authoritative Tapping-Dataset Record
+- Status: pass
+- Errors: 0
+- Warnings: 0
+
