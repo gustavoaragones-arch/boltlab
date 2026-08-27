@@ -1,0 +1,232 @@
+{
+  "baseline_head": "0059490aa78f5044f4371decc7fada92625ea662",
+  "baseline_origin_main": "0059490aa78f5044f4371decc7fada92625ea662",
+  "t19_commit": "0059490aa78f5044f4371decc7fada92625ea662",
+  "repository_gate": {
+    "head_equals_origin_main": true,
+    "t19_commit_present": true,
+    "tracked_modifications_before_discovery": false,
+    "pre_existing_untracked_files": [
+      ".DS_Store",
+      ".claude/",
+      "audit/d2-0-adsense-readiness.json",
+      "audit/d2-0-adsense-readiness.md",
+      "audit/d2-0-change-scope.md",
+      "css/.DS_Store",
+      "images/.DS_Store",
+      "images/heads/.DS_Store",
+      "images/logo.ai",
+      "images/screw-drive-types/.DS_Store",
+      "images/screw-head-types/.DS_Store"
+    ],
+    "gate_result": "PASS"
+  },
+  "closed_seam_certification": [
+    { "phase": "T13", "check_name": "Tap-Drill Status Correctly Derived From Source Cross-Verification", "check_index": 10, "present": true, "result": "pass" },
+    { "phase": "T14", "check_name": "Tap-Drill Convention and Cross-Check Narrative Correctly Derived From Source Cross-Verification", "check_index": 11, "present": true, "result": "pass" },
+    { "phase": "T15", "check_name": "Application-Note Completeness (No Silent Drop, Duplication, or Reclassification) -- source-fidelity clause", "check_index": 9, "present": true, "result": "pass" },
+    { "phase": "T16", "check_name": "Standards Denormalized Fields Match Authoritative Standard Record", "check_index": 12, "present": true, "result": "pass" },
+    { "phase": "T17", "check_name": "Tap-Type Relationship Membership Matches Authoritative RELATES_TO Graph", "check_index": 13, "present": true, "result": "pass" },
+    { "phase": "T18", "check_name": "Thread Block Engineering Values Match Authoritative Thread Dataset Record", "check_index": 14, "present": true, "result": "pass" },
+    { "phase": "T19", "check_name": "Tap-Drill Value Provenance Chain Resolves To The Authoritative Source Field", "check_index": 15, "present": true, "result": "pass" }
+  ],
+  "projection_field_inventory": {
+    "method": "Full read of validate-tapping-projections.js (546 lines, 15 checks) and generate-tapping-projections.js; every field not already closed by T13-T19 re-classified A-F.",
+    "genuinely_uncovered_fields": [
+      { "field": "data_quality.record_status", "class": "F", "source": "profile.status (top-level, tapping dataset)", "current_coverage": "enum membership only (check 4)", "selected": true }
+    ],
+    "other_fields_considered": [
+      { "field": "thread.source_dataset / thread.source_record", "class": "E", "reason": "inert -- never rendered by any consumer, only tap_drill.provenance.* (T19-closed) is rendered" },
+      { "field": "data_quality.provenance_complete", "class": "A", "reason": "indirectly covered -- check 3 verifies both the boolean and the sibling provenance fields' non-emptiness" },
+      { "field": "tap_type_id (source dataset field)", "class": "E", "reason": "never read by the generator, null on all 29 source records" },
+      { "field": "iso_2306_alternative_drill.value/unit/status/meaning", "class": "D", "reason": "no re-derivable in-repo authoritative source -- no source_dataset/source_record/source_field triple like hole_preparation has" },
+      { "field": "alternative_drill.standard_edition", "class": "D", "reason": "hardcoded, unchanged deferral since T16" }
+    ]
+  },
+  "identity_join_audit": {
+    "designation_collision_check": {
+      "method": "Direct read of all three thread datasets (metric_threads.seed.json, unc.seed.json, unf.seed.json)",
+      "total_designations": 29,
+      "collisions_found": 0,
+      "conclusion": "No cross-system designation collision exists; a wrong-record-resolves-successfully scenario is not currently reachable through any existing join key."
+    },
+    "thread_system_to_source_dataset_consistency": {
+      "method": "Re-derived directly from the real projection",
+      "result": "metric=>metric_threads (14 rows), UNC=>unc_threads (8 rows), UNF=>unf_threads (7 rows) -- exact match with no cross-system citation"
+    }
+  },
+  "composite_consistency_audit": {
+    "hole_preparation_unit_per_dataset": {
+      "metric_tapping": ["mm"],
+      "unc_tapping": ["in"],
+      "unf_tapping": ["in"],
+      "conclusion": "Uniform per dataset; combined with T19's unit/source_field pairing check, a wrong-system unit substitution is already unreachable without also breaking check 15."
+    },
+    "tap_drill_status_vs_record_status": {
+      "finding": "Intentionally independent -- record_status stays source_bound domain-wide (thread_engagement/tapping_parameters unavailable) regardless of the 9 records with tap_drill.status=verified. Not a defect; confirmed by the explicit UI qualifier text paired with every 'Overall record status' rendering."
+    },
+    "new_composite_defect_found": false
+  },
+  "thread_system_routing_audit": {
+    "metric_cannot_resolve_through_uncunf": true,
+    "unc_cannot_resolve_through_unf": true,
+    "unf_cannot_resolve_through_unc": true,
+    "unit_semantics_correct": true,
+    "designation_collision_risk": "none -- see identity_join_audit",
+    "defect_found": false
+  },
+  "tap_drill_semantic_audit": {
+    "primary_vs_alternative_conflation_risk": "structurally foreclosed -- check 5 proves non-identity (value+unit) and correct presence/absence; every consumer renders alternative_drill under an explicit 'ISO 2306 alternative:' label plus fixed ISO_NOTE prose, never merged",
+    "defect_found": false
+  },
+  "iso_alternative_audit": {
+    "provenance_chain_exists": false,
+    "reason": "iso_2306_alternative_drill has no source_dataset/source_record/source_field triple like hole_preparation -- carries source/table/verified_date as citation metadata only, with no second in-repo dataset to re-derive alt.value from",
+    "positive_negative_presence": "both proven by check 5, reconfirmed unchanged",
+    "defect_found": false
+  },
+  "tap_type_audit": {
+    "wrong_tap_type_assignment_risk": "not reachable -- buildTapTypeProjection maps entities 1:1 by entity_id, check 9 re-fetches by the same entity_id, entity-id uniqueness guaranteed by the knowledge-engine Map construction",
+    "source_tier": "RECONFIRMED DEFERRED -- reconfirmed unrendered by any consumer, not reopened absent a concrete false-claim mechanism",
+    "defect_found": false
+  },
+  "standards_audit": {
+    "association_scope": "dataset-level (tappingDataset.source_standards), confirmed the only association mechanism -- grepped all fields on every record in all three tapping datasets, no per-record standards field exists to be silently ignored",
+    "defect_found": false
+  },
+  "record_status_audit": {
+    "authoritative_source": "profile.status, top-level field on each tapping dataset record",
+    "transformation": "none -- direct 1:1 copy",
+    "current_value_across_all_records": "source_bound (all 29)",
+    "current_value_confirmed_intentional": true,
+    "user_visible_consumers": [
+      "reference/tapping-atlas.html (per-card label + CSV record_status column)",
+      "tools/tapping-workflow.html (result section + comparison table + js/tapping-workflow-data.js, 29 embedded occurrences)",
+      "reference/tapping-evidence.html (per-profile label AND aggregate recordVerified/recordSourceBound scoreboard counts)"
+    ],
+    "current_validator_coverage": "enum membership only (check 4)",
+    "mutation_behavior": "current validators would not detect a stale profile.status left unregenerated",
+    "direct_inspection": {
+      "rows_checked": 29,
+      "mismatches_found": 0
+    },
+    "selected": true
+  },
+  "provenance_evidence_audit": {
+    "evidence_page_count_derivation": "computeCounts() in generate-tapping-evidence.js dynamically sums recordVerified/recordSourceBound from r.data_quality.record_status across all 29 rows at generation time -- internally self-consistent with the projection, but only as trustworthy as record_status itself",
+    "other_counts_traced": "tapDrillVerified/tapDrillSourceBound (T13-certified), tapTypeVerified/tapTypeSourceBound (T6/T15-certified)",
+    "overstated_claim_risk_found": "yes -- record_status, selected as T20 target"
+  },
+  "consumer_fidelity_audit": {
+    "verificationLabel_mapping": "pure, injective presentation lookup -- read in full, not itself a defect",
+    "new_semantic_transformation_found": false
+  },
+  "numeric_engineering_audit": {
+    "fields_traced": ["thread values (T18)", "tap_drill.value (T19)", "standards fields (T16)", "tap-type facts (T6/T15)"],
+    "new_distinct_failure_mode_found": false,
+    "note": "record_status is a claim-strength/verification-state field, not numeric, but is the field selected per the status-and-claim-strength audit track"
+  },
+  "aggregation_count_audit": {
+    "counts_examined": ["29 profiles", "7 tap types", "16 facts", "9/20 tap-drill verified/source-bound", "record-status scoreboard"],
+    "record_status_scoreboard_dependency_confirmed": true,
+    "other_counts_dynamically_derived_from_already_certified_fields": true
+  },
+  "artifact_staleness_audit": {
+    "reconfirmed": "repository-wide, out-of-scope; no new tapping-specific bounded solution exists beyond the per-field regression guards T13-T20 provide",
+    "broadened": false
+  },
+  "deferred_finding_recheck": [
+    { "finding": "Hardcoded tap-type classification arrays", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "Generated-artifact staleness (general)", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "alternative_drill.standard_edition hardcode", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "application_notes[].source_tier", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "Protected CSV wording (T11 exception)", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "Tap Drill Calculator independent architecture", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "Cross-product discovery-link deferrals", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "Inert projection aggregates (data_quality_summary, related_entities/related_standards/related_datasets)", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "UNF source_entity_id reuse", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "data_quality.record_status fidelity", "classification": "REOPENED -- NEW EVIDENCE", "note": "confirmed zero current mismatches; traced consumption into the Evidence page's aggregate scoreboard count; selected as T20 target" }
+  ],
+  "negative_case_matrix": [
+    { "candidate": "data_quality.record_status vs profile.status", "authoritative_source": "tapping dataset .status", "current_validator": "NO (enum only)", "user_visible": true, "material": true, "mutation_testable": true, "bounded": true, "eligible": true, "SELECTED": true },
+    { "candidate": "thread.source_dataset/source_record metadata", "authoritative_source": "tapping dataset", "current_validator": "NO", "user_visible": false, "eligible": false, "reason": "fails user-visible bar" },
+    { "candidate": "Cross-system provenance/designation mix-up", "authoritative_source": "thread datasets", "current_validator": "indirectly guarded (T18/T19 + no real collision)", "user_visible": null, "eligible": false, "reason": "not currently reachable" },
+    { "candidate": "iso_2306_alternative_drill.value vs external ISO table", "authoritative_source": "none in-repo", "current_validator": "N/A", "user_visible": true, "eligible": false, "reason": "no re-derivable authoritative source in-repo" },
+    { "candidate": "Standards dataset-level association 'wrong for profile'", "authoritative_source": "tapping dataset", "current_validator": "N/A", "eligible": false, "reason": "only one association exists, not a real defect" },
+    { "candidate": "data_quality.provenance_complete boolean re-derivation", "authoritative_source": "tap_drill.provenance.*", "current_validator": "indirect (sibling check)", "user_visible": true, "eligible": false, "reason": "weaker than record_status, substantially already covered" }
+  ],
+  "candidate_findings": [
+    { "rank": 1, "title": "data_quality.record_status source-fidelity", "selected": true },
+    { "rank": 2, "title": "data_quality.provenance_complete boolean re-derivation", "selected": false, "reason_not_selected": "low materiality, substantially already covered indirectly by check 3" }
+  ],
+  "risk_ranking": [
+    "data_quality.record_status source-fidelity -- only candidate with zero coverage, full 5-surface consumer breadth (Atlas HTML+CSV, Workflow HTML+client JS, Evidence HTML+aggregate count), and a live aggregate-count dependency. Clears every gate.",
+    "data_quality.provenance_complete boolean re-derivation -- real but low-materiality, not selected.",
+    "All other surveyed areas (identity/join, routing, composite consistency, ISO alternative, standards association, tap-type semantics) -- investigated and found already effectively guarded, structurally non-exploitable given current data, or lacking an in-repo re-derivable authoritative source."
+  ],
+  "selected_t20_target": {
+    "target_name": "Data-Quality Record-Status Source-Fidelity",
+    "root_cause": "buildDataQualityBlock() copies profile.status directly into data_quality.record_status with zero transformation and zero independent verification anywhere in the 15-check validator suite. Check 4 only confirms enum membership, never source equality.",
+    "authoritative_source": [
+      "data/datasets/metric_tapping.seed.json",
+      "data/datasets/unc_tapping.seed.json",
+      "data/datasets/unf_tapping.seed.json"
+    ],
+    "affected_projection_field": "tapping-profiles.json rows[].data_quality.record_status (all 29 rows)",
+    "affected_consumers": [
+      "reference/tapping-atlas.html",
+      "downloads/tapping-atlas.csv",
+      "tools/tapping-workflow.html",
+      "js/tapping-workflow-data.js",
+      "reference/tapping-evidence.html (per-row label and aggregate scoreboard counts)"
+    ],
+    "existing_coverage": "none beyond enum membership (check 4)",
+    "exact_missing_invariant": "For every profile row, row.data_quality.record_status must equal the corresponding source tapping-dataset record's .status field.",
+    "why_t13_t19_do_not_cover_it": "T13/T14 derive tap_drill.status/convention/provenance from hp.cross_verified (different object). T15 covers application_notes[].source. T16 covers standards[] denormalization. T17 covers tap_types[] membership. T18 covers the thread block. T19 covers tap_drill.value's provenance chain. None reads or compares the tapping dataset's top-level .status field.",
+    "direct_inspection_confirmation": {
+      "rows_checked": 29,
+      "mismatches_found": 0
+    }
+  },
+  "implementation_contract": {
+    "implemented": true,
+    "validator_behavior_required": "Add check 16: for each profile row, look up the source tapping-dataset record by tapping_profile_id (reuse the existing sourceRecordById map from checks 10/11/13), compare sourceRecord.status to row.data_quality.record_status, fail on mismatch naming profile, projected value, authoritative value.",
+    "pass_criteria": "0 errors on real data (confirmed by direct inspection); correct failure on a reproduced source-status mutation; all other 15 checks and every other validator unaffected."
+  },
+  "mutation_test_contract": "Temporarily change .status on one real tapping-dataset record (e.g. tap_m3x0_5_cut in metric_tapping.seed.json, from source_bound to verified), backed up first, without regenerating the projection. Expect FAIL naming that profile, stale value source_bound, new authoritative value verified. Restore from backup, confirm byte-identical checksum, confirm PASS. Run validator 3x on restored data for determinism.",
+  "allowed_files": ["scripts/validators/validate-tapping-projections.js"],
+  "forbidden_files": [
+    "scripts/generators/generate-tapping-projections.js",
+    "data/projections/tapping/tapping-profiles.json",
+    "data/projections/tapping/tap-types.json",
+    "data/datasets/metric_tapping.seed.json",
+    "data/datasets/unc_tapping.seed.json",
+    "data/datasets/unf_tapping.seed.json",
+    "data/datasets/metric_threads.seed.json",
+    "data/datasets/unc.seed.json",
+    "data/datasets/unf.seed.json",
+    "data/entities/entities.seed.json",
+    "data/relationships/relationships.seed.json",
+    "data/standards/**",
+    "every product/CSV/client-data file",
+    "every other validator"
+  ],
+  "repository_integrity": {
+    "head_before": "0059490aa78f5044f4371decc7fada92625ea662",
+    "head_after": "0059490aa78f5044f4371decc7fada92625ea662",
+    "origin_main_matches_throughout": true,
+    "tracked_files_modified": 1,
+    "tracked_files_modified_list": ["scripts/validators/validate-tapping-projections.js"],
+    "regenerated_report_files": ["docs/architecture/tapping-projection-validation-report.json", "docs/architecture/tapping-projection-validation-report.md"],
+    "incidental_timestamp_only_reports_reverted": ["docs/architecture/validation-report.json", "docs/architecture/validation-report.md", "docs/architecture/projection-validation-report.json", "docs/architecture/projection-validation-report.md", "docs/architecture/tapping-validation-report.json", "docs/architecture/tapping-validation-report.md"],
+    "mutation_test_executed": true,
+    "mutation_test_result": "FAIL, 1 error, correctly naming tap_m3x0_5_cut / projected source_bound / authoritative verified",
+    "restoration_confirmed": "SHA-256 d98712267bd52f49bad35cbf1436c230f2eec1921334515e72d959dc94b6a7df matches pre-mutation baseline; git diff --stat shows zero diff from HEAD",
+    "regression_suite": "all 9 tapping validators pass, 0 errors",
+    "determinism_check": "3 consecutive runs on restored data, identical report checksum b073be71c6d942d04de57daa1999da19929fb3348b85d9e0597c948bd0611171",
+    "generator_run": false,
+    "production_knowledge_projection_data_changed": false
+  },
+  "implementation_authorized": true,
+  "stop_condition": "T20 STATUS: READY FOR REVIEW. Implementation complete (check 16 added, mutation-tested, restored, regression-clean). Nothing committed or pushed. T21 not started."
+}

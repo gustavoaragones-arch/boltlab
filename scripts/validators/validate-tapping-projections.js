@@ -541,6 +541,39 @@ function main() {
   if (tapDrillProvenanceChainCheck.errors.length) tapDrillProvenanceChainCheck.status = "fail";
   checks.push(tapDrillProvenanceChainCheck);
 
+  // 16. (T20) buildDataQualityBlock() copies profile.status directly into
+  // data_quality.record_status with zero transformation. Check 4 above only confirms the copied
+  // value is a member of the valid-state enum -- it never compares it to the source tapping-dataset
+  // record's own .status field. record_status is rendered on every tapping product (Atlas card +
+  // CSV, Workflow result/comparison + client-data JS, Evidence per-row label) and additionally
+  // feeds the Evidence page's aggregate recordVerified/recordSourceBound scoreboard counts
+  // (computeCounts() in generate-tapping-evidence.js). A future edit to a tapping-dataset record's
+  // status, left unregenerated, would silently show the wrong overall record status -- and the
+  // wrong aggregate verification count -- on every product while every existing check, including
+  // check 4's enum check, kept passing. This closes that gap.
+  const recordStatusFidelityCheck = {
+    name: "Data-Quality Record-Status Matches Authoritative Tapping-Dataset Record",
+    status: "pass",
+    errors: [],
+    warnings: []
+  };
+  for (const row of profileProjection.rows) {
+    const sourceRecord = sourceRecordById.get(row.tapping_profile_id);
+    if (!sourceRecord) {
+      recordStatusFidelityCheck.errors.push(
+        `${row.tapping_profile_id}: no matching source dataset record found -- cannot verify data_quality.record_status derivation`
+      );
+      continue;
+    }
+    if (sourceRecord.status !== row.data_quality.record_status) {
+      recordStatusFidelityCheck.errors.push(
+        `${row.tapping_profile_id}: data_quality.record_status is '${row.data_quality.record_status}' but the authoritative tapping-dataset record's status is '${sourceRecord.status}'`
+      );
+    }
+  }
+  if (recordStatusFidelityCheck.errors.length) recordStatusFidelityCheck.status = "fail";
+  checks.push(recordStatusFidelityCheck);
+
   const errorCount = checks.reduce((sum, c) => sum + c.errors.length, 0);
   const warningCount = checks.reduce((sum, c) => sum + c.warnings.length, 0);
 

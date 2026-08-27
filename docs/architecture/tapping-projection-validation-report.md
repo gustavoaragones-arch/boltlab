@@ -83,3 +83,8 @@
 - Errors: 0
 - Warnings: 0
 
+### Data-Quality Record-Status Matches Authoritative Tapping-Dataset Record
+- Status: pass
+- Errors: 0
+- Warnings: 0
+

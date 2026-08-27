@@ -97,6 +97,12 @@
       "status": "pass",
       "errors": [],
       "warnings": []
+    },
+    {
+      "name": "Data-Quality Record-Status Matches Authoritative Tapping-Dataset Record",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
     }
   ]
 }
