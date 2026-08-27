@@ -574,6 +574,48 @@ function main() {
   if (recordStatusFidelityCheck.errors.length) recordStatusFidelityCheck.status = "fail";
   checks.push(recordStatusFidelityCheck);
 
+  // 17. (T21) buildTapDrillBlock() copies hole_preparation.source_dataset/.source_record/
+  // .source_field verbatim into tap_drill.provenance.{source_dataset,source_record,source_field}.
+  // Check 15 (T19) dereferences these PROJECTED fields to prove tap_drill.value resolves correctly
+  // through them -- but it never compares the fields themselves back to the current tapping-dataset
+  // record's own hole_preparation.{source_dataset,source_record,source_field}. That is a distinct
+  // invariant: check 15 proves internal projection consistency (pointer, taken at face value,
+  // resolves to the displayed value); it says nothing about whether that pointer still matches what
+  // the source currently declares. A source-side edit to any of these three citation fields, left
+  // unregenerated, leaves the projection citing a stale dataset/record/field while tap_drill.value
+  // itself is untouched -- check 15 still passes (nothing about the value or the projected pointer's
+  // internal consistency changed), and checks 2/3 only prove existence/non-emptiness. The stale
+  // citation would then render unnoticed on the Atlas provenance dropdown and the Evidence page's
+  // "Source dataset:/Source record:/Source field:" lines. This closes that gap.
+  const provenanceCitationFidelityCheck = {
+    name: "Tap-Drill Provenance Citation Matches Authoritative Tapping-Dataset Record",
+    status: "pass",
+    errors: [],
+    warnings: []
+  };
+  const CITATION_FIELDS = ["source_dataset", "source_record", "source_field"];
+  for (const row of profileProjection.rows) {
+    const sourceRecord = sourceRecordById.get(row.tapping_profile_id);
+    if (!sourceRecord) {
+      provenanceCitationFidelityCheck.errors.push(
+        `${row.tapping_profile_id}: no matching source dataset record found -- cannot verify tap_drill.provenance citation derivation`
+      );
+      continue;
+    }
+    const hp = sourceRecord.hole_preparation;
+    for (const field of CITATION_FIELDS) {
+      const projectedValue = row.tap_drill.provenance[field] ?? null;
+      const authoritativeValue = (hp && hp[field]) ?? null;
+      if (projectedValue !== authoritativeValue) {
+        provenanceCitationFidelityCheck.errors.push(
+          `${row.tapping_profile_id}: tap_drill.provenance.${field} is '${projectedValue}' but the authoritative tapping-dataset record's hole_preparation.${field} is '${authoritativeValue}'`
+        );
+      }
+    }
+  }
+  if (provenanceCitationFidelityCheck.errors.length) provenanceCitationFidelityCheck.status = "fail";
+  checks.push(provenanceCitationFidelityCheck);
+
   const errorCount = checks.reduce((sum, c) => sum + c.errors.length, 0);
   const warningCount = checks.reduce((sum, c) => sum + c.warnings.length, 0);
 

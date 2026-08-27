@@ -88,3 +88,8 @@
 - Errors: 0
 - Warnings: 0
 
+### Tap-Drill Provenance Citation Matches Authoritative Tapping-Dataset Record
+- Status: pass
+- Errors: 0
+- Warnings: 0
+
