@@ -115,6 +115,12 @@
       "status": "pass",
       "errors": [],
       "warnings": []
+    },
+    {
+      "name": "Tap-Type Evidence-Status Counts Match Authoritative Application-Note Statuses",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
     }
   ]
 }

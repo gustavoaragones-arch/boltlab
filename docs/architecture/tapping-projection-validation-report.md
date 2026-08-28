@@ -98,3 +98,8 @@
 - Errors: 0
 - Warnings: 0
 
+### Tap-Type Evidence-Status Counts Match Authoritative Application-Note Statuses
+- Status: pass
+- Errors: 0
+- Warnings: 0
+

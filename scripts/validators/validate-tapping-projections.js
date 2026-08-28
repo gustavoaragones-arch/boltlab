@@ -698,6 +698,46 @@ function main() {
   if (directValueFidelityCheck.errors.length) directValueFidelityCheck.status = "fail";
   checks.push(directValueFidelityCheck);
 
+  // 19. (T23) buildTapTypeProjection() computes evidence_status.verified_fact_count/
+  // .source_bound_fact_count as a STATUS-keyed filter over entity.application_notes -- a separate
+  // computation from the CLASSIFICATION-keyed filter (byClass()) that produces the four arrays
+  // check 9 already verifies fact-by-fact. Check 9's total-count comparison only constrains the
+  // classification arrays' combined total against sourceNotes.length; it says nothing about how
+  // evidence_status splits that total between verified and source_bound. A mutation that preserves
+  // the grand total but changes the split (e.g. a fact's status edited in entities.seed.json) would
+  // pass every existing check, including check 9, while the "N verified / M source-bound" text on
+  // the Tap-Type Guide and the Evidence page's aggregate scoreboard -- both of which treat
+  // evidence_status as ground truth -- would silently misstate how much of the tap-type knowledge is
+  // independently verified. This closes that gap by independently recounting from source.
+  const evidenceStatusFidelityCheck = {
+    name: "Tap-Type Evidence-Status Counts Match Authoritative Application-Note Statuses",
+    status: "pass",
+    errors: [],
+    warnings: []
+  };
+  for (const row of tapTypeProjection.rows) {
+    const entity = tapTypeEntitiesById.get(row.entity_id);
+    if (!entity) {
+      // Already reported by check 9 as a missing entity; do not duplicate the error here.
+      continue;
+    }
+    const sourceNotes = entity.application_notes || [];
+    const authoritativeVerified = sourceNotes.filter((n) => n.status === "verified").length;
+    const authoritativeSourceBound = sourceNotes.filter((n) => n.status === "source_bound").length;
+    if (authoritativeVerified !== row.evidence_status.verified_fact_count) {
+      evidenceStatusFidelityCheck.errors.push(
+        `${row.entity_id}: evidence_status.verified_fact_count is ${row.evidence_status.verified_fact_count} but an independent recount of application_notes with status "verified" is ${authoritativeVerified}`
+      );
+    }
+    if (authoritativeSourceBound !== row.evidence_status.source_bound_fact_count) {
+      evidenceStatusFidelityCheck.errors.push(
+        `${row.entity_id}: evidence_status.source_bound_fact_count is ${row.evidence_status.source_bound_fact_count} but an independent recount of application_notes with status "source_bound" is ${authoritativeSourceBound}`
+      );
+    }
+  }
+  if (evidenceStatusFidelityCheck.errors.length) evidenceStatusFidelityCheck.status = "fail";
+  checks.push(evidenceStatusFidelityCheck);
+
   const errorCount = checks.reduce((sum, c) => sum + c.errors.length, 0);
   const warningCount = checks.reduce((sum, c) => sum + c.warnings.length, 0);
 

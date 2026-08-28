@@ -1,0 +1,245 @@
+{
+  "baseline_head": "33136db03bed0f98982fc74c715ab0a4ab00778f",
+  "baseline_origin_main": "33136db03bed0f98982fc74c715ab0a4ab00778f",
+  "t22_commit": "33136db03bed0f98982fc74c715ab0a4ab00778f",
+  "repository_gate": {
+    "head_equals_origin_main": true,
+    "t22_commit_present": true,
+    "t20_and_t21_present_in_history": true,
+    "tracked_modifications_before_discovery": false,
+    "pre_existing_untracked_files": [
+      ".DS_Store", ".claude/", "audit/d2-0-adsense-readiness.json", "audit/d2-0-adsense-readiness.md",
+      "audit/d2-0-change-scope.md", "css/.DS_Store", "images/.DS_Store", "images/heads/.DS_Store",
+      "images/logo.ai", "images/screw-drive-types/.DS_Store", "images/screw-head-types/.DS_Store"
+    ],
+    "gate_result": "PASS"
+  },
+  "closed_seam_certification": {
+    "total_check_count": 18,
+    "seams": [
+      { "phase": "T13", "check_index": 10, "present": true, "result": "pass" },
+      { "phase": "T14", "check_index": 11, "present": true, "result": "pass" },
+      { "phase": "T15", "check_index": 9, "present": true, "result": "pass" },
+      { "phase": "T16", "check_index": 12, "present": true, "result": "pass" },
+      { "phase": "T17", "check_index": 13, "present": true, "result": "pass" },
+      { "phase": "T18", "check_index": 14, "present": true, "result": "pass" },
+      { "phase": "T19", "check_index": 15, "present": true, "result": "pass" },
+      { "phase": "T20", "check_index": 16, "present": true, "result": "pass" },
+      { "phase": "T21", "check_index": 17, "present": true, "result": "pass" },
+      { "phase": "T22", "check_index": 18, "present": true, "result": "pass" }
+    ],
+    "report_checksum_before": "6716899a66914958fe1971dd17c3c03f32c5e575a38f226deffa081cf514f0ec",
+    "report_checksum_after": "6716899a66914958fe1971dd17c3c03f32c5e575a38f226deffa081cf514f0ec",
+    "restoration_needed": false
+  },
+  "projection_field_inventory": {
+    "method": "Full re-read of generate-tapping-projections.js and validate-tapping-projections.js (702 lines, 18 checks); every field in both projection files re-classified A-F without relying on prior audit notes",
+    "genuinely_uncovered_fields": [
+      {
+        "field": "tap-types.json rows[].evidence_status.verified_fact_count",
+        "class": "F",
+        "source": "entities.seed.json tap_type entity's application_notes[].status === 'verified' count",
+        "current_coverage": "none in validate-tapping-projections.js; treated as ground truth by validate-tap-type-guide.js, validate-tapping-evidence.js, validate-tapping-terminology.js (consumer-fidelity only)",
+        "selected": true
+      },
+      {
+        "field": "tap-types.json rows[].evidence_status.source_bound_fact_count",
+        "class": "F",
+        "source": "entities.seed.json tap_type entity's application_notes[].status === 'source_bound' count",
+        "current_coverage": "same as above",
+        "selected": true
+      },
+      {
+        "field": "tap-types.json rows[].title",
+        "class": "F",
+        "source": "entities.seed.json tap_type entity.title",
+        "current_coverage": "consumer-fidelity only (validate-tapping-atlas.js checks HTML contains row.title, not that row.title matches entity.title)",
+        "selected": false
+      },
+      {
+        "field": "tap-types.json rows[].definition",
+        "class": "F",
+        "source": "entities.seed.json tap_type entity.definition",
+        "current_coverage": "none",
+        "selected": false
+      },
+      {
+        "field": "tap-types.json rows[].taxonomy_axis",
+        "class": "F",
+        "source": "entities.seed.json tap_type entity.taxonomy_axis",
+        "current_coverage": "none",
+        "selected": false
+      }
+    ],
+    "other_fields_considered": [
+      { "field": "data_quality.last_reviewed", "class": "F", "reason": "carried over from T22, still real but lower priority" },
+      { "field": "source_dataset_versions.*", "class": "E", "reason": "confirmed unread by any consumer or validator this phase, inert" }
+    ]
+  },
+  "source_to_projection_audit": {
+    "method": "Walked every assignment in buildProfileRows() and buildTapTypeProjection() per section 4's checklist, fresh (not relying on prior audit notes)",
+    "finding": "buildTapTypeProjection()'s map() callback performs two separate filters over the same entity.application_notes array: byClass() (classification-keyed, check 9 source-verified) and the verified/source-bound counts (status-keyed, never independently re-derived)."
+  },
+  "identity_join_audit": {
+    "new_join_found": false,
+    "note": "evidence_status is a re-aggregation of an already-correctly-resolved source array (via tapTypeEntitiesById, T17-era resolution), not a new join. This finding is a derivation-fidelity gap, not an identity/join defect."
+  },
+  "transformation_audit": {
+    "transformation_examined": "buildTapTypeProjection()'s dual filter (classification vs status) over entity.application_notes",
+    "new_distinct_seam_found": true
+  },
+  "composite_consistency_audit": {
+    "tested_pairing": "evidence_status total (verified_fact_count + source_bound_fact_count) vs classification-array total (already checked equal to sourceNotes.length by check 9)",
+    "finding": "check 9's total-count comparison only constrains the classification-array grand total, not how evidence_status splits that total between verified/source_bound -- a mutation that preserves the grand total but swaps the split passes every existing check including check 9",
+    "surviving_gap_confirmed": true
+  },
+  "unit_dimensional_audit": {
+    "applicable": false,
+    "note": "no numeric engineering unit involved in this finding; reconfirmed no new dimensional defect elsewhere"
+  },
+  "tap_drill_semantic_audit": {
+    "new_gap_found": false,
+    "note": "checks 10, 11, 15, 17, 18 collectively now guard every tap_drill field with an authoritative in-repo source"
+  },
+  "iso_alternative_audit": {
+    "new_gap_found": false,
+    "standard_edition_hardcode": "RECONFIRMED DEFERRED, no new evidence"
+  },
+  "tap_type_audit": {
+    "finding": "fact association, classification, source, and status are individually source-verified (check 9); the aggregate count of facts by status (evidence_status) is not -- distinct invariant from fact-level fidelity",
+    "source_tier": "RECONFIRMED DEFERRED",
+    "direct_inspection": { "tap_types_checked": 7, "fields_per_type": 2, "total_comparisons": 14, "mismatches_found": 0 }
+  },
+  "standards_audit": {
+    "new_defect_found": false,
+    "note": "no change from T16/T20/T21/T22's cumulative findings"
+  },
+  "record_status_audit": {
+    "note": "T20-closed (check 16). Re-verified present and passing, not reopened.",
+    "provenance_complete": "RECONFIRMED DEFERRED, no surviving mutation found",
+    "last_reviewed": "RECONFIRMED DEFERRED, carried over from T22, still lower priority than the selected target"
+  },
+  "provenance_audit": {
+    "new_mechanism_found": false,
+    "note": "evidence_status is not a citation/pointer mechanism -- correctly classified under tap-type/composite-consistency findings rather than provenance"
+  },
+  "evidence_claim_audit": {
+    "claim_examined": "'N verified / M source-bound' per-tap-type text (Guide) and the Evidence page's tapTypeVerified/tapTypeSourceBound scoreboard",
+    "materiality": "a source edit to application_notes[].status, left unregenerated, would leave a stale-but-plausible verification count on display -- silently overstating or understating verified coverage"
+  },
+  "consumer_fidelity_audit": {
+    "consumers_examined": [
+      "reference/tap-type-guide.html (per-row text + page summary via generate-tap-type-guide.js:59,138-139)",
+      "reference/tapping-evidence.html (aggregate scoreboard via generate-tapping-evidence.js:45-46)",
+      "validate-tapping-terminology.js (internal cross-check recomputation, not a rendered page)"
+    ],
+    "finding": "all three treat evidence_status as ground truth and only verify HTML/summary matches the projection -- none verifies the projection matches entities.seed.json. This is the systemic version of the source_to_projection_audit finding: three independent downstream validators inherit the same blind spot."
+  },
+  "numeric_engineering_audit": {
+    "new_numeric_gap_found": false,
+    "note": "this finding is a count, not a raw engineering number"
+  },
+  "aggregation_count_audit": {
+    "finding": "evidence_status.verified_fact_count/source_bound_fact_count is a count capable of becoming materially misleading while every existing validator -- including three separate consumer-fidelity validators -- remains green",
+    "other_counts": "29 profiles, 7 tap types, 9/20 tap-drill split, data_quality counts all either directly source-verified now (T13-T22) or dynamically re-derived at each consumer's own validation time from already-certified fields"
+  },
+  "artifact_staleness_audit": {
+    "reconfirmed": "RECONFIRMED OUT OF SCOPE, unchanged",
+    "broadened": false
+  },
+  "deferred_finding_recheck": [
+    { "finding": "Hardcoded tap-type classification arrays", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "Generated-artifact staleness (general)", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "alternative_drill.standard_edition hardcode", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "application_notes[].source_tier", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "Protected CSV wording (T11 exception)", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "Tap Drill Calculator independent architecture", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "Cross-product discovery-link deferrals", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "Inert projection aggregates (data_quality_summary, related_entities/related_standards/related_datasets, source_dataset_versions)", "classification": "RECONFIRMED DEFERRED", "note": "source_dataset_versions newly confirmed unread this phase" },
+    { "finding": "UNF source_entity_id reuse", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "data_quality.provenance_complete", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "data_quality.last_reviewed", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "tap-types.json rows[].title/.definition/.taxonomy_axis fidelity", "classification": "REOPENED -- NEW EVIDENCE, not selected", "note": "real, uncovered, 0/21 mismatches, but structural-identity gap rather than evidence-strength/trust-claim gap" },
+    { "finding": "evidence_status.{verified_fact_count,source_bound_fact_count} fidelity", "classification": "REOPENED -- NEW EVIDENCE", "note": "not named in any prior T13-T22 audit; confirmed 0 mismatches across 14 comparisons; confirmed check 9 never reads evidence_status; confirmed three downstream validators treat it as ground truth; selected as T23 target" }
+  ],
+  "negative_case_matrix": [
+    { "candidate": "evidence_status.{verified_fact_count,source_bound_fact_count} vs recount of application_notes by status", "authoritative_source": "entities.seed.json application_notes[].status", "current_validator": "NO", "user_visible": true, "material": true, "mutation_testable": true, "bounded": true, "eligible": true, "SELECTED": true },
+    { "candidate": "tap-types.json rows[].title/.definition/.taxonomy_axis vs entity fields", "authoritative_source": "entities.seed.json", "current_validator": "NO", "user_visible": true, "material": "real, structural-identity", "mutation_testable": true, "bounded": true, "eligible": false, "reason": "lower priority than selected target" },
+    { "candidate": "data_quality.last_reviewed vs dataset last_reviewed", "authoritative_source": "tapping dataset (dataset-level)", "current_validator": "NO", "user_visible": true, "material": "low", "eligible": false, "reason": "carried over from T22, still lower priority" },
+    { "candidate": "source_dataset_versions.*", "authoritative_source": "dataset .version fields", "current_validator": "N/A", "user_visible": false, "eligible": false, "reason": "inert" }
+  ],
+  "candidate_findings": [
+    { "rank": 1, "title": "Tap-type evidence-status aggregate fidelity", "selected": true },
+    { "rank": 2, "title": "tap-types.json title/definition/taxonomy_axis fidelity", "selected": false, "reason_not_selected": "structural-identity gap, not an evidence-strength/trust-claim gap" }
+  ],
+  "risk_ranking": [
+    "evidence_status.{verified_fact_count,source_bound_fact_count} source-fidelity -- literal evidence-strength claim rendered as visible text, feeds an aggregate scoreboard, silently inherited as ground truth by three separate downstream consumer-fidelity validators.",
+    "title/definition/taxonomy_axis fidelity -- real, uncovered, structural rather than trust-claim, not selected.",
+    "data_quality.last_reviewed -- carried over, still lower priority.",
+    "All other surveyed areas -- already closed by T13-T22 or structurally non-defective."
+  ],
+  "selected_t23_target": {
+    "target_name": "Tap-Type Evidence-Status Aggregate Fidelity",
+    "root_cause": "buildTapTypeProjection() computes evidence_status.verified_fact_count/.source_bound_fact_count as a status-keyed filter over entity.application_notes, entirely separate from the classification-keyed filter check 9 verifies. No check re-derives this aggregate from source. Three downstream validators treat it as ground truth without checking it against entities.seed.json.",
+    "authoritative_source": ["data/entities/entities.seed.json"],
+    "affected_projection_field": "tap-types.json rows[].evidence_status.{verified_fact_count, source_bound_fact_count} (all 7 tap types)",
+    "affected_consumers": [
+      "reference/tap-type-guide.html (per-row text + page-wide summary totals)",
+      "reference/tapping-evidence.html (aggregate scoreboard)"
+    ],
+    "existing_coverage": "none in validate-tapping-projections.js; consumer-fidelity only in three other validators",
+    "exact_missing_invariant": "For every tap-type row, evidence_status.verified_fact_count must equal entity.application_notes.filter(n => n.status === 'verified').length, and likewise .source_bound_fact_count for 'source_bound', where entity is the authoritative entities.seed.json record for that entity_id.",
+    "why_t13_t22_do_not_cover_it": "Check 9 (T6/T15) verifies fact-level source/status/classification fidelity and the classification-array grand total, never evidence_status. T13/T14/T19-T22 all address tapping-profiles.json's tap_drill/data_quality fields, a different projection file. No prior phase named tap-types.json's evidence_status object.",
+    "direct_inspection_confirmation": {
+      "tap_types_checked": 7,
+      "fields_per_type": 2,
+      "total_comparisons": 14,
+      "mismatches_found": 0
+    }
+  },
+  "implementation_contract": {
+    "implemented": true,
+    "validator_behavior_required": "Add check 19: for each tap-types.json row, look up the entity via tapTypeEntitiesById (already built for check 9), recompute application_notes filtered by status === 'verified'/'source_bound' lengths, compare to row.evidence_status.verified_fact_count/.source_bound_fact_count, fail on mismatch naming entity id, field, projected value, authoritative recount.",
+    "pass_criteria": "0 errors on real data (confirmed by direct inspection); correct failure on a reproduced mutation; all other 18 checks and every other validator unaffected."
+  },
+  "mutation_test_contract": {
+    "original_proposal": "Change one application_notes[].status in entities.seed.json, unregenerated, expect pre-T23 18-check validator to PASS.",
+    "original_proposal_actual_result": "FAILED as predicted -- the pre-T23 18-check validator correctly FAILED, 1 error, on this mutation, caught by pre-existing check 9's classification-array per-fact status comparison. This is NOT evidence that check 19 is uniquely necessary; it shows check 9 incidentally catches this mutation class via a different mechanism (the classification arrays), not evidence_status itself.",
+    "revised_approved_mutation": "Directly mutate data/projections/tapping/tap-types.json's evidence_status.verified_fact_count for one tap type (bottoming_tap: 1 -> 2), leaving entities.seed.json and the classification arrays untouched. This isolates the actual uncovered seam: projection aggregate vs. authoritative source recount.",
+    "revised_mutation_result_pre_fix": "PASS, 0 errors, with the pre-T23 18-check validator -- confirms no existing check reads evidence_status at all",
+    "revised_mutation_result_post_fix": "FAIL, 1 error, with check 19 present -- 'bottoming_tap: evidence_status.verified_fact_count is 2 but an independent recount of application_notes with status verified is 1'",
+    "governance_note": "The target itself remains valid: the direct projection corruption is currently capable of surviving the existing 18-check suite. Only the demonstration mutation's shape changed, not the underlying finding or the scope of the fix."
+  },
+  "allowed_files": ["scripts/validators/validate-tapping-projections.js"],
+  "forbidden_files": [
+    "scripts/generators/generate-tapping-projections.js",
+    "data/projections/tapping/tapping-profiles.json",
+    "data/projections/tapping/tap-types.json (except as a temporary, restored mutation-test fixture)",
+    "data/entities/entities.seed.json (except as a temporary, restored mutation-test fixture)",
+    "data/relationships/relationships.seed.json",
+    "data/datasets/**",
+    "data/standards/**",
+    "every product/CSV/client-data file",
+    "every other validator"
+  ],
+  "repository_integrity": {
+    "head_before": "33136db03bed0f98982fc74c715ab0a4ab00778f",
+    "head_after": "33136db03bed0f98982fc74c715ab0a4ab00778f",
+    "origin_main_matches_throughout": true,
+    "tracked_files_modified": 1,
+    "tracked_files_modified_list": ["scripts/validators/validate-tapping-projections.js"],
+    "regenerated_report_files": ["docs/architecture/tapping-projection-validation-report.json", "docs/architecture/tapping-projection-validation-report.md"],
+    "incidental_timestamp_only_reports_reverted": ["docs/architecture/validation-report.json", "docs/architecture/validation-report.md", "docs/architecture/projection-validation-report.json", "docs/architecture/projection-validation-report.md", "docs/architecture/tapping-validation-report.json", "docs/architecture/tapping-validation-report.md"],
+    "mutation_fixtures_used": [
+      { "file": "data/entities/entities.seed.json", "sha256_restored": "0de67516d3e539425d7aa18a4bc4ba3499556d6259441a1f9c00b8e92fbc66b2", "note": "superseded first-attempt mutation, restored" },
+      { "file": "data/projections/tapping/tap-types.json", "sha256_restored": "63867da5f7f4a9eb5935b418bfc306ec143bf686f0269bb0689c6325ef480305", "note": "revised approved mutation, restored" }
+    ],
+    "restoration_confirmed": "both files: SHA-256 matches pre-mutation baseline; git diff --stat shows zero diff from HEAD",
+    "regression_suite": "all 9 tapping validators pass, 0 errors, including the three evidence_status consumers",
+    "determinism_check": "3 consecutive runs on restored data, identical report checksum 92c7fc5010cce2ac3a5e4efdcb4e3d21579c334e4d333081ffbd035bc4fc59eb",
+    "generator_run": false,
+    "production_knowledge_projection_data_changed": false
+  },
+  "implementation_authorized": true,
+  "stop_condition": "T23 STATUS: READY FOR REVIEW. Implementation complete (check 19 added; mutation-test methodology corrected mid-implementation per reviewer guidance and re-run successfully; both temporary fixtures restored; regression-clean). Nothing committed or pushed. T24 not started."
+}
