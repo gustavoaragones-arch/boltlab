@@ -1,0 +1,224 @@
+{
+  "baseline_head": "d0505aad11df428cba89f175ecf9f41a4367cdce",
+  "baseline_origin_main": "d0505aad11df428cba89f175ecf9f41a4367cdce",
+  "t24_commit": "d0505aad11df428cba89f175ecf9f41a4367cdce",
+  "repository_gate": {
+    "head_equals_origin_main": true,
+    "t24_commit_present": true,
+    "t13_through_t23_present": true,
+    "tracked_modifications_before_discovery": false,
+    "pre_existing_untracked_files": [
+      ".DS_Store", ".claude/", "audit/d2-0-adsense-readiness.json", "audit/d2-0-adsense-readiness.md",
+      "audit/d2-0-change-scope.md", "css/.DS_Store", "images/.DS_Store", "images/heads/.DS_Store",
+      "images/logo.ai", "images/screw-drive-types/.DS_Store", "images/screw-head-types/.DS_Store"
+    ],
+    "gate_result": "PASS"
+  },
+  "product_inventory": [
+    { "product": "reference/tapping-atlas.html", "purpose": "browse/reference", "primary_question": "What thread is this and what tap drill/standards apply?", "source": "tapping-profiles.json + tap-types.json", "validator": "validate-tapping-atlas.js" },
+    { "product": "reference/tap-type-guide.html", "purpose": "tap-type exploration", "primary_question": "What does this tap type mean and what's the evidence?", "source": "tap-types.json", "validator": "validate-tap-type-guide.js" },
+    { "product": "reference/tapping-evidence.html", "purpose": "evidence/provenance inspection", "primary_question": "Where did this value come from and how much is verified?", "source": "both projections", "validator": "validate-tapping-evidence.js" },
+    { "product": "tools/tapping-workflow.html", "purpose": "guided decision + comparison", "primary_question": "Given a thread, what do I need to know, and how do alternatives compare?", "source": "both projections via js/tapping-workflow-data.js", "validator": "validate-tapping-workflow.js" },
+    { "product": "tools/tap-drill-calculator.html", "purpose": "independent quick-calc tool", "primary_question": "Quick tap-drill number for a size I already know", "source": "own static data, architecturally separate", "validator": "not projection-backed" },
+    { "product": "downloads/tapping-atlas.csv", "purpose": "raw data export", "primary_question": "Give me the dataset", "source": "tapping-profiles.json", "validator": "validate-tapping-atlas.js" },
+    { "product": "js/tapping-workflow-data.js", "purpose": "generated client-data artifact", "primary_question": "n/a (powers Workflow)", "source": "both projections", "validator": "validate-tapping-workflow.js" },
+    { "product": "reference/index.html", "purpose": "reference hub", "primary_question": "discovery", "source": "static", "validator": "n/a" },
+    { "product": "tools/index.html", "purpose": "tools hub", "primary_question": "discovery", "source": "static", "validator": "n/a" },
+    { "product": "sitemap.xml", "purpose": "crawl/index inclusion", "primary_question": "discovery", "source": "static", "validator": "n/a" }
+  ],
+  "user_question_coverage": [
+    { "category": "thread_identity", "status": "ANSWERED" },
+    { "category": "tap_drill", "status": "ANSWERED" },
+    { "category": "tap_type", "status": "ANSWERED" },
+    { "category": "evidence", "status": "ANSWERED" },
+    { "category": "comparison", "status": "ANSWERED" },
+    { "category": "workflow", "status": "ANSWERED" },
+    { "category": "data_access", "status": "ANSWERED" },
+    { "category": "discovery", "status": "ANSWERED" },
+    { "category": "thread_engagement_calculation", "status": "PARTIALLY ANSWERED", "note": "documented, honest limitation with stated reason (no Tier-1 source supports a required target) -- not a missing implementation" }
+  ],
+  "knowledge_layer_capability_boundary": {
+    "entity_types_inventoried": {
+      "thread_geometry": 4, "tolerance_concept": 2, "standard_concept": 1, "fit_class": 2,
+      "thread_system": 1, "tap_type": 7, "hole_preparation": 5, "tapping_operation": 2
+    },
+    "form_tapping_finding": {
+      "entity_exists": true,
+      "associated_dataset_exists": false,
+      "profiles_using_it": 0,
+      "classification": "NOT IMPLEMENTABLE FROM CURRENT KNOWLEDGE LAYER"
+    },
+    "other_unsurfaced_data_backed_content_found": false
+  },
+  "product_capability_audit": [
+    { "capability": "discovery_browsing", "coverage": "Atlas (primary)" },
+    { "capability": "thread_lookup", "coverage": "Atlas, Workflow -- intentional dual surface" },
+    { "capability": "tap_drill_lookup", "coverage": "Atlas, Workflow, Calculator (independent)" },
+    { "capability": "tap_type_exploration", "coverage": "Guide (primary), Atlas (summary)" },
+    { "capability": "evidence_inspection", "coverage": "Evidence (primary), Atlas (inline)" },
+    { "capability": "multi_record_comparison", "coverage": "Workflow comparison mode (sole surface)" },
+    { "capability": "standards_visibility", "coverage": "Atlas, Workflow, Evidence" },
+    { "capability": "iso_alternative_visibility", "coverage": "Atlas, Workflow, Evidence, CSV" },
+    { "capability": "provenance", "coverage": "Atlas, Evidence" },
+    { "capability": "verification_state", "coverage": "Atlas, Guide, Workflow, Evidence, CSV" },
+    { "capability": "data_export", "coverage": "CSV (sole surface)" },
+    { "capability": "cross_product_navigation", "coverage": "all 5 products link to each other" }
+  ],
+  "workflow_audit": [
+    { "workflow": "A_unknown_thread_system", "result": "PASS" },
+    { "workflow": "B_known_thread_designation", "result": "PASS" },
+    { "workflow": "C_comparing_threads", "result": "PASS" },
+    { "workflow": "D_understanding_tap_type", "result": "PASS" },
+    { "workflow": "E_auditing_a_claim", "result": "PASS" },
+    { "workflow": "F_data_access", "result": "PASS" }
+  ],
+  "engineering_claim_completeness": {
+    "claims_inventoried": ["tap drill", "diameter", "pitch", "TPI", "thread system", "designation", "coarse/fine", "standard family", "standard references", "ISO alternative", "tap types", "application notes", "verification status", "provenance", "cross-verification"],
+    "all_rendered_and_source_verified": true,
+    "intentional_omission": { "claim": "thread_engagement_target", "reason": "no Tier-1 source supports a required/verified target (T2.2 finding)", "disclosed_on": ["reference/tapping-atlas.html", "tools/tapping-workflow.html", "reference/tapping-evidence.html"] }
+  },
+  "validator_certification": {
+    "total_check_count": 20,
+    "check_names": [
+      "Unique Projection IDs and Canonical Thread References",
+      "Valid Entity, Dataset, and Standard References",
+      "Provenance Completeness",
+      "Verification-State Correctness",
+      "ISO 2306 Alternative Structural Correctness",
+      "No Unsupported Engagement Recommendations",
+      "No Orphan Projected Tap Types or Tapping Profiles",
+      "Hole-Preparation Taxonomy Not Flattened",
+      "Application-Note Completeness (No Silent Drop, Duplication, or Reclassification)",
+      "Tap-Drill Status Correctly Derived From Source Cross-Verification",
+      "Tap-Drill Convention and Cross-Check Narrative Correctly Derived From Source Cross-Verification",
+      "Standards Denormalized Fields Match Authoritative Standard Record",
+      "Tap-Type Relationship Membership Matches Authoritative RELATES_TO Graph",
+      "Thread Block Engineering Values Match Authoritative Thread Dataset Record",
+      "Tap-Drill Value Provenance Chain Resolves To The Authoritative Source Field",
+      "Data-Quality Record-Status Matches Authoritative Tapping-Dataset Record",
+      "Tap-Drill Provenance Citation Matches Authoritative Tapping-Dataset Record",
+      "Tap-Drill and ISO-Alternative Direct Value Fields Match Authoritative Tapping-Dataset Record",
+      "Tap-Type Evidence-Status Counts Match Authoritative Application-Note Statuses",
+      "Tap-Type Title and Definition Match Authoritative Entity Record"
+    ],
+    "result": "PASS, 0 errors, 0 warnings",
+    "full_suite_result": "all 9 tapping validators PASS, 0 errors; pre-existing warnings unchanged (5 in validate-tapping-domain.js, 1 in validate-tapping-terminology.js)"
+  },
+  "projection_integrity": {
+    "tapping_profiles_json_unchanged": true,
+    "tap_types_json_unchanged": true,
+    "method": "git diff --stat, zero output"
+  },
+  "product_integrity": {
+    "datasets_unchanged": true,
+    "entities_unchanged": true,
+    "relationships_unchanged": true,
+    "standards_unchanged": true,
+    "product_html_unchanged": true,
+    "csv_unchanged": true,
+    "client_data_unchanged": true,
+    "method": "git diff --stat against every listed artifact, zero output for all",
+    "incidental_timestamp_rewrites": {
+      "occurred": true,
+      "files": ["docs/architecture/validation-report.json/.md", "docs/architecture/projection-validation-report.json/.md", "docs/architecture/tapping-validation-report.json/.md"],
+      "cause": "these 3 report generators use wall-clock generated_at rather than the fixed constant tapping-projection-validation-report.js uses",
+      "restored": true,
+      "tapping_projection_validation_report_rewrote": false
+    }
+  },
+  "discoverability_audit": {
+    "reference_hub_links": ["tapping-atlas", "tap-type-guide", "tapping-evidence"],
+    "tools_hub_links": ["tap-drill-calculator", "tapping-workflow"],
+    "cross_link_mesh": {
+      "atlas_links_to": ["guide", "csv", "workflow", "calculator", "evidence"],
+      "guide_links_to": ["atlas", "evidence", "workflow", "calculator"],
+      "evidence_links_to": ["atlas", "guide", "workflow", "calculator"],
+      "workflow_links_to": ["atlas", "guide", "evidence", "calculator"],
+      "calculator_links_to": ["atlas", "workflow"]
+    },
+    "html_extension_hrefs_found": 0,
+    "sitemap_inclusion": "all 5 primary URLs present",
+    "canonical_urls_present": "all 5, unique",
+    "broken_links_found": false,
+    "orphan_products_found": false
+  },
+  "seo_aeo_audit": {
+    "jsonld_types_by_page": {
+      "tapping-atlas": ["WebPage", "WebSite", "Organization", "BreadcrumbList", "ListItem", "Dataset", "DataDownload", "FAQPage", "Question", "Answer"],
+      "tap-type-guide": ["WebPage", "WebSite", "Organization", "BreadcrumbList", "ListItem", "FAQPage", "Question", "Answer"],
+      "tapping-evidence": ["WebPage", "WebSite", "Organization", "BreadcrumbList", "ListItem"],
+      "tapping-workflow": ["WebPage", "WebSite", "Organization", "BreadcrumbList", "ListItem"],
+      "tap-drill-calculator": ["WebSite", "Organization", "FAQPage", "Question", "Answer"]
+    },
+    "calculator_missing_breadcrumb_webpage": "consistent with its established independent architecture, a pre-existing boundary not a T1-T24 regression",
+    "titles_descriptions_canonicals": "unique and present on all 5",
+    "site_wide_project_undertaken": false
+  },
+  "accessibility_ux_audit": {
+    "workflow_native_controls_count": 5,
+    "workflow_aria_live_regions": 2,
+    "workflow_disabled_state_management": true,
+    "calculator_native_controls_present": true,
+    "custom_keyboard_hacks_found": false,
+    "material_failure_found": false
+  },
+  "data_export_audit": {
+    "csv_row_count": 29,
+    "csv_column_count": 18,
+    "grain": "one row per profile, T6-established",
+    "tap_type_facts_excluded": true,
+    "excluded_intentionally": true,
+    "genuine_export_defect_found": false
+  },
+  "deferred_finding_recheck": [
+    { "finding": "Hardcoded tap-type classification arrays", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "Generated-artifact staleness (general)", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "alternative_drill.standard_edition hardcode", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "application_notes[].source_tier", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "Protected CSV wording (T11 exception)", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "Tap Drill Calculator independent architecture", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "Cross-product discovery-link deferrals", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "UNF source_entity_id reuse", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "data_quality.provenance_complete", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "data_quality.last_reviewed", "classification": "RECONFIRMED DEFERRED", "note": "final disposition: dataset-level audit/process metadata, not a decision-relevant engineering claim; fails gate criterion 10" },
+    { "finding": "taxonomy_axis", "classification": "RECONFIRMED INTENTIONALLY ABSENT" },
+    { "finding": "tapping_profile_id naming consistency", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "form_tapping entity with no associated dataset", "classification": "RECONFIRMED NOT IMPLEMENTABLE FROM CURRENT KNOWLEDGE LAYER", "note": "new this phase" }
+  ],
+  "residual_integrity_test": {
+    "question": "Can a materially wrong engineering claim currently reach a user while every existing tapping validator remains green?",
+    "method": "fresh, complete re-enumeration of every key in both projection files via direct JSON module dump, not reliance on prior audit memory",
+    "result": "every field except data_quality.last_reviewed is class A or D/E; last_reviewed's staleness has no decision-relevant consequence",
+    "answer": "NO",
+    "conclusion": "NO REMAINING MATERIAL INTEGRITY GAP FOUND"
+  },
+  "residual_feature_test": {
+    "question": "Does a materially useful tapping capability remain absent even though the current knowledge layer already supports it?",
+    "candidate_considered": "form_tapping profile data",
+    "candidate_disposition": "no supporting per-thread-size dataset exists -- not implementable from current knowledge layer",
+    "answer": "NO",
+    "conclusion": "NO REMAINING MATERIAL PRODUCT CAPABILITY GAP FOUND"
+  },
+  "candidate_findings": [],
+  "final_risk_ranking": [],
+  "completion_decision": "COMPLETE",
+  "selected_final_target": null,
+  "implementation_contract": null,
+  "allowed_files": ["audit/t25-completion-audit.md", "audit/t25-completion-audit.json", "audit/t25-change-scope.md"],
+  "forbidden_files": [
+    "every validator", "every generator", "both projections", "every product HTML file",
+    "downloads/tapping-atlas.csv", "js/tapping-workflow-data.js", "every dataset",
+    "data/entities/entities.seed.json", "data/relationships/relationships.seed.json", "every standards file"
+  ],
+  "repository_integrity": {
+    "head_before": "d0505aad11df428cba89f175ecf9f41a4367cdce",
+    "head_after": "d0505aad11df428cba89f175ecf9f41a4367cdce",
+    "origin_main_matches_throughout": true,
+    "tracked_files_modified": 0,
+    "incidental_timestamp_rewrites_restored": true,
+    "production_artifacts_confirmed_byte_identical": true
+  },
+  "implementation_authorized": false,
+  "next_phase_allowed": false,
+  "stop_condition": "T25 STATUS: COMPLETE -- NO FURTHER IMPLEMENTATION REQUIRED. Nothing implemented, committed, or pushed. T26 not started and not currently warranted."
+}
