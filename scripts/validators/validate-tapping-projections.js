@@ -738,6 +738,41 @@ function main() {
   if (evidenceStatusFidelityCheck.errors.length) evidenceStatusFidelityCheck.status = "fail";
   checks.push(evidenceStatusFidelityCheck);
 
+  // 20. (T24) buildTapTypeProjection() copies entity.title/entity.definition verbatim into
+  // row.title/row.definition with zero transformation. No check anywhere -- not check 9's fact-level
+  // comparison, not check 19's evidence_status recount, not any consumer validator -- ever compares
+  // these two fields to the authoritative entity record. validate-tapping-atlas.js's use of row.title
+  // only confirms the rendered HTML contains a matching card heading; it never confirms row.title
+  // itself still matches entities.seed.json. A source-side edit to a tap type's title or definition,
+  // left unregenerated, would silently show the stale name/description as the primary heading and
+  // lead paragraph on the Tap-Type Guide and Atlas pages, and as the tap-type label on the Workflow
+  // page, while every existing check kept passing. This closes that gap.
+  const tapTypeIdentityFidelityCheck = {
+    name: "Tap-Type Title and Definition Match Authoritative Entity Record",
+    status: "pass",
+    errors: [],
+    warnings: []
+  };
+  for (const row of tapTypeProjection.rows) {
+    const entity = tapTypeEntitiesById.get(row.entity_id);
+    if (!entity) {
+      // Already reported by check 9 as a missing entity; do not duplicate the error here.
+      continue;
+    }
+    if (entity.title !== row.title) {
+      tapTypeIdentityFidelityCheck.errors.push(
+        `${row.entity_id}: row.title is '${row.title}' but the authoritative entity's title is '${entity.title}'`
+      );
+    }
+    if (entity.definition !== row.definition) {
+      tapTypeIdentityFidelityCheck.errors.push(
+        `${row.entity_id}: row.definition is '${row.definition}' but the authoritative entity's definition is '${entity.definition}'`
+      );
+    }
+  }
+  if (tapTypeIdentityFidelityCheck.errors.length) tapTypeIdentityFidelityCheck.status = "fail";
+  checks.push(tapTypeIdentityFidelityCheck);
+
   const errorCount = checks.reduce((sum, c) => sum + c.errors.length, 0);
   const warningCount = checks.reduce((sum, c) => sum + c.warnings.length, 0);
 

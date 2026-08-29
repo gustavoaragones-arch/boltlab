@@ -1,0 +1,211 @@
+{
+  "baseline_head": "688d91f31d271a2041dbcf8880026cffc9a9af4b",
+  "baseline_origin_main": "688d91f31d271a2041dbcf8880026cffc9a9af4b",
+  "t23_commit": "688d91f31d271a2041dbcf8880026cffc9a9af4b",
+  "repository_gate": {
+    "head_equals_origin_main": true,
+    "t23_commit_present": true,
+    "t22_and_t21_present_in_history": true,
+    "tracked_modifications_before_discovery": false,
+    "pre_existing_untracked_files": [
+      ".DS_Store", ".claude/", "audit/d2-0-adsense-readiness.json", "audit/d2-0-adsense-readiness.md",
+      "audit/d2-0-change-scope.md", "css/.DS_Store", "images/.DS_Store", "images/heads/.DS_Store",
+      "images/logo.ai", "images/screw-drive-types/.DS_Store", "images/screw-head-types/.DS_Store"
+    ],
+    "gate_result": "PASS"
+  },
+  "closed_seam_certification": {
+    "total_check_count": 19,
+    "seams": [
+      { "phase": "T13", "check_index": 10, "present": true, "result": "pass" },
+      { "phase": "T14", "check_index": 11, "present": true, "result": "pass" },
+      { "phase": "T15", "check_index": 9, "present": true, "result": "pass" },
+      { "phase": "T16", "check_index": 12, "present": true, "result": "pass" },
+      { "phase": "T17", "check_index": 13, "present": true, "result": "pass" },
+      { "phase": "T18", "check_index": 14, "present": true, "result": "pass" },
+      { "phase": "T19", "check_index": 15, "present": true, "result": "pass" },
+      { "phase": "T20", "check_index": 16, "present": true, "result": "pass" },
+      { "phase": "T21", "check_index": 17, "present": true, "result": "pass" },
+      { "phase": "T22", "check_index": 18, "present": true, "result": "pass" },
+      { "phase": "T23", "check_index": 19, "present": true, "result": "pass" }
+    ],
+    "report_checksum_json_before": "92c7fc5010cce2ac3a5e4efdcb4e3d21579c334e4d333081ffbd035bc4fc59eb",
+    "report_checksum_json_after": "92c7fc5010cce2ac3a5e4efdcb4e3d21579c334e4d333081ffbd035bc4fc59eb",
+    "report_checksum_md_before": "6338c531f80598622cc5273bd1166e31305d8676993c5dada803eee4e954a533",
+    "report_checksum_md_after": "6338c531f80598622cc5273bd1166e31305d8676993c5dada803eee4e954a533",
+    "restoration_needed": false
+  },
+  "projection_field_inventory": {
+    "method": "Full re-read of generate-tapping-projections.js and validate-tapping-projections.js; every field in both projection files re-classified A-F from scratch, not reusing prior audit tables as ground truth",
+    "conclusion": "tapping-profiles.json rows are now entirely class A/D/E -- zero remaining F fields. tap-types.json has exactly one remaining F family.",
+    "genuinely_uncovered_fields": [
+      { "field": "tap-types.json rows[].title", "class": "F", "source": "entities.seed.json tap_type entity.title", "current_coverage": "none in validate-tapping-projections.js; consumer-fidelity only (validate-tapping-atlas.js checks HTML contains row.title, not source match)", "selected": true },
+      { "field": "tap-types.json rows[].definition", "class": "F", "source": "entities.seed.json tap_type entity.definition", "current_coverage": "none", "selected": true }
+    ],
+    "reconfirmed_inert": [
+      { "field": "tap-types.json rows[].taxonomy_axis", "class": "E", "reason": "always null across all 7 tap-type entities (fresh check this phase); never rendered by any consumer" }
+    ],
+    "other_fields_considered": [
+      { "field": "data_quality.last_reviewed", "class": "F", "reason": "carried over from T22/T23, still real but lower priority -- dataset-level shared metadata vs per-entity identity content" }
+    ]
+  },
+  "source_to_projection_audit": {
+    "method": "Walked every assignment in generate-tapping-projections.js fresh, per section 4's checklist",
+    "finding": "buildTapTypeProjection()'s title/definition copies are the last remaining direct-copy fields in either projection file with zero independent source comparison"
+  },
+  "identity_join_audit": {
+    "profile_identity_chain_traced": "tapping_profile_id (check 1 uniqueness) -> thread_id -> findBaseThreadRecord() designation match (T18-verified) -> hole_preparation.* (T19/T21/T22-verified) -> operation (T17-verified) -> status (T20-verified)",
+    "wrong_record_resolution_tested": "not currently possible -- 29 globally unique designations across all 3 thread datasets (reconfirmed), fixed correct dataset-to-system pairing in main() (unchanged since T18); a mismatch either resolves the exact correct record or throws at generation time",
+    "id_naming_consistency_finding": "tapping_profile_id strings are manually authored and not derived from/verified against thread_id -- real but classified out of scope: internal identifier, not a rendered engineering claim",
+    "new_defect_found": false
+  },
+  "dataset_routing_audit": {
+    "metric_uncunf_pairing": "reconfirmed correct, unchanged since T18",
+    "designation_collisions": "reconfirmed 0 across 29 designations",
+    "unit_routing": "reconfirmed correct (mm metric, in UNC/UNF)",
+    "new_defect_found": false,
+    "note": "this area independently reconfirmed in T18, T19, T20, T21, and this phase with identical results each time"
+  },
+  "transformation_audit": {
+    "new_distinct_transformation_found": false,
+    "note": "no generator change since T22; all transformations previously catalogued remain the same"
+  },
+  "composite_consistency_audit": {
+    "pairings_retested": "all pairings from the brief's list, cross-referenced against T20-T23 findings",
+    "new_defect_found": false
+  },
+  "engineering_semantics_audit": {
+    "statements_inventoried": ["primary tap drill", "ISO alternative", "diameter", "pitch", "TPI", "coarse/fine", "standard family", "standard references", "tap type", "application notes", "verification status", "source-bound status", "cross-verification statements", "engagement limitation"],
+    "all_source_backed_and_validated": true,
+    "remaining_gap": "tap type title/definition -- identity/description statements, not numeric/status, rendered on 3 product surfaces"
+  },
+  "status_trust_audit": {
+    "status_fields_traced": ["tap_drill.status (T13)", "data_quality.record_status (T20)", "application_notes[].status (T15)", "evidence_status counts (T23)", "alternative_drill.status (T22)", "standards[].verification_state (T16)"],
+    "new_gap_found": false
+  },
+  "provenance_evidence_audit": {
+    "mechanisms_reaudited": ["tap_drill.provenance.{source,cross_check} (T14)", "tap_drill.provenance.{source_dataset,source_record,source_field} (T21)", "dereferenced value (T19)", "alternative_drill citation fields (T22)"],
+    "new_mechanism_found": false
+  },
+  "standards_audit": {
+    "association_scope": "dataset-level, reconfirmed sole mechanism (fresh grep this phase), no per-record override exists",
+    "new_defect_found": false
+  },
+  "tap_type_audit": {
+    "entity_id_collision_risk": "reconfirmed none (Map-based keying)",
+    "source_tier": "RECONFIRMED DEFERRED",
+    "hardcoded_classification_map": "RECONFIRMED OUT OF SCOPE",
+    "remaining_gap": "title/definition fidelity -- selected as T24 target"
+  },
+  "consumer_fidelity_audit": {
+    "surfaces_traced": 8,
+    "new_semantic_transformation_found": false,
+    "title_definition_rendering": [
+      "reference/tap-type-guide.html: table cell (generate-tap-type-guide.js:55), <h2> heading (line 95), definition paragraph (line 96)",
+      "reference/tapping-atlas.html: <h3> heading (generate-tapping-atlas.js:199), definition paragraph (line 200)",
+      "tools/tapping-workflow.html: via js/tapping-workflow-data.js, tapTypeById(id).title lookups (generate-tapping-workflow.js:297,348,350) -- 114 occurrences of title/definition keys embedded in the client-data file"
+    ]
+  },
+  "numeric_engineering_audit": {
+    "new_numeric_gap_found": false,
+    "note": "title/definition are text content, not numeric claims -- correctly classified under engineering-semantics/tap-type findings"
+  },
+  "aggregation_count_audit": {
+    "aggregates_reexamined": ["evidence_status (T23-closed)", "data_quality_summary (inert)", "related_entities/related_standards/related_datasets (inert)", "source_dataset_versions (inert)"],
+    "new_aggregate_gap_found": false
+  },
+  "artifact_staleness_audit": {
+    "reconfirmed": "RECONFIRMED OUT OF SCOPE, unchanged",
+    "broadened": false
+  },
+  "deferred_finding_recheck": [
+    { "finding": "Hardcoded tap-type classification arrays", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "Generated-artifact staleness (general)", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "alternative_drill.standard_edition hardcode", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "application_notes[].source_tier", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "Protected CSV wording (T11 exception)", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "Tap Drill Calculator independent architecture", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "Cross-product discovery-link deferrals", "classification": "RECONFIRMED OUT OF SCOPE" },
+    { "finding": "Inert projection aggregates", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "UNF source_entity_id reuse", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "data_quality.provenance_complete", "classification": "RECONFIRMED DEFERRED" },
+    { "finding": "data_quality.last_reviewed", "classification": "RECONFIRMED DEFERRED", "note": "still lower priority than title/definition" },
+    { "finding": "taxonomy_axis", "classification": "RECONFIRMED INTENTIONALLY ABSENT", "note": "always null in source, never rendered" },
+    { "finding": "tapping_profile_id naming consistency with thread_id", "classification": "REOPENED -- NEW EVIDENCE, not selected", "note": "real but out of scope, internal identifier not a rendered claim" },
+    { "finding": "tap-types.json rows[].title/.definition fidelity", "classification": "REOPENED -- NEW EVIDENCE", "note": "named as secondary/not-selected candidate in T23 (ranked below evidence_status, now closed); reconfirmed as the sole remaining genuinely-uncovered field family; selected as T24 target" }
+  ],
+  "negative_case_matrix": [
+    { "candidate": "tap-types.json title/definition vs entities.seed.json title/definition", "authoritative_source": "entities.seed.json", "current_validator": "NO", "user_visible": true, "material": true, "mutation_testable": true, "bounded": true, "eligible": true, "SELECTED": true },
+    { "candidate": "data_quality.last_reviewed vs dataset last_reviewed", "authoritative_source": "tapping dataset (dataset-level)", "current_validator": "NO", "user_visible": true, "material": "low, shared metadata", "eligible": false, "reason": "still lower priority" },
+    { "candidate": "tapping_profile_id naming consistency", "authoritative_source": "none (internal id, not a claim)", "current_validator": "N/A", "user_visible": false, "eligible": false, "reason": "internal identifier, not a rendered engineering claim" },
+    { "candidate": "taxonomy_axis fidelity", "authoritative_source": "entities.seed.json", "current_validator": "N/A", "user_visible": false, "eligible": false, "reason": "always null, never rendered, inert" }
+  ],
+  "candidate_findings": [
+    { "rank": 1, "title": "Tap-type title/definition source-fidelity", "selected": true },
+    { "rank": 2, "title": "data_quality.last_reviewed fidelity", "selected": false, "reason_not_selected": "dataset-level shared metadata, lower materiality" }
+  ],
+  "risk_ranking": [
+    "tap-types.json title/definition source-fidelity -- only candidate clearing every gate criterion; broadest remaining consumer surface (Atlas, Guide, Workflow) for any uncovered field.",
+    "data_quality.last_reviewed -- real, uncovered, but lower priority.",
+    "All other surveyed areas -- closed by T13-T23 or structurally non-defective."
+  ],
+  "selected_t24_target": {
+    "target_name": "Tap-Type Title and Definition Source-Fidelity",
+    "root_cause": "buildTapTypeProjection() copies entity.title/entity.definition verbatim with zero transformation and zero independent comparison to source anywhere in the 19-check validator suite.",
+    "authoritative_source": ["data/entities/entities.seed.json"],
+    "affected_projection_field": "tap-types.json rows[].title, rows[].definition (all 7 tap types)",
+    "affected_consumers": [
+      "reference/tap-type-guide.html (table cell + section heading + definition paragraph)",
+      "reference/tapping-atlas.html (card heading + definition paragraph)",
+      "tools/tapping-workflow.html (via js/tapping-workflow-data.js tap-type label lookups)"
+    ],
+    "existing_coverage": "none -- consumer-fidelity only in validate-tapping-atlas.js",
+    "exact_missing_invariant": "For every tap-type row, row.title must equal the authoritative entity's title, and row.definition must equal its definition.",
+    "why_t13_t23_do_not_cover_it": "No prior phase named tap-types.json's title/definition fields. T6/T15/T17/T23 address application_notes/tap_types[]/evidence_status -- different field families on the same or a sibling projection, never the tap type's own identity/description text.",
+    "direct_inspection_confirmation": {
+      "tap_types_checked": 7,
+      "fields_per_type": 2,
+      "total_comparisons": 14,
+      "mismatches_found": 0
+    }
+  },
+  "implementation_contract": {
+    "implemented": true,
+    "validator_behavior_required": "Add check 20: for each tap-types.json row, look up the entity via tapTypeEntitiesById (already built for check 9), compare entity.title to row.title and entity.definition to row.definition, fail on mismatch naming entity id, field, projected value, authoritative value.",
+    "pass_criteria": "0 errors on real data (confirmed by direct inspection); correct failure on a reproduced source mutation; all other 19 checks and every other validator unaffected."
+  },
+  "mutation_test_contract": "Given T23's lesson that a source-side mutation can be caught by an unrelated existing check, this risk was pre-evaluated: title/.definition are read by zero existing checks under any circumstance (confirmed by complete absence of .title/.definition references in validate-tapping-projections.js), so a source-side mutation should cleanly isolate this seam. Contract: temporarily change one real entity.title or entity.definition in entities.seed.json, backed up first, without regenerating the projection. With the pre-T24 19-check validator (temporarily stashed), expect PASS 0 errors. Restore the new check: expect FAIL naming entity, field, stale value, authoritative value. Restore entities.seed.json, confirm byte-identical, confirm PASS. Run validator 3x for determinism. Run full 9-validator suite including validate-tapping-atlas.js and validate-tap-type-guide.js (both read title for their own HTML-matching checks).",
+  "allowed_files": ["scripts/validators/validate-tapping-projections.js"],
+  "forbidden_files": [
+    "scripts/generators/generate-tapping-projections.js",
+    "data/projections/tapping/tapping-profiles.json",
+    "data/projections/tapping/tap-types.json",
+    "data/entities/entities.seed.json (except as a temporary, restored mutation-test fixture)",
+    "data/relationships/relationships.seed.json",
+    "data/datasets/**",
+    "data/standards/**",
+    "every product/CSV/client-data file",
+    "every other validator"
+  ],
+  "repository_integrity": {
+    "head_before": "688d91f31d271a2041dbcf8880026cffc9a9af4b",
+    "head_after": "688d91f31d271a2041dbcf8880026cffc9a9af4b",
+    "origin_main_matches_throughout": true,
+    "tracked_files_modified": 1,
+    "tracked_files_modified_list": ["scripts/validators/validate-tapping-projections.js"],
+    "regenerated_report_files": ["docs/architecture/tapping-projection-validation-report.json", "docs/architecture/tapping-projection-validation-report.md"],
+    "incidental_timestamp_only_reports_reverted": ["docs/architecture/validation-report.json", "docs/architecture/validation-report.md", "docs/architecture/projection-validation-report.json", "docs/architecture/projection-validation-report.md", "docs/architecture/tapping-validation-report.json", "docs/architecture/tapping-validation-report.md"],
+    "mutation_prediction_held": true,
+    "mutation_test_results": [
+      "Pre-fix (check 20 stashed, pre-T24 19-check validator) against mutated entities.seed.json: PASS, 0 errors -- exactly as predicted",
+      "Post-fix (check 20 restored) against same mutation: FAIL, 1 error, bottoming_tap / row.definition / stale value / marker-appended authoritative value"
+    ],
+    "restoration_confirmed": "entities.seed.json: SHA-256 0de67516d3e539425d7aa18a4bc4ba3499556d6259441a1f9c00b8e92fbc66b2 matches pre-mutation baseline; git diff --stat shows zero diff",
+    "regression_suite": "all 9 tapping validators pass, 0 errors, including validate-tapping-atlas.js and validate-tap-type-guide.js which both read title",
+    "determinism_check": "3 consecutive runs on restored data, identical report checksum fa1ac020a4265c2ef39a076e03b2229a0993f2515094f94d3bb9b73e202a5c78",
+    "generator_run": false,
+    "production_knowledge_projection_data_changed": false
+  },
+  "implementation_authorized": true,
+  "stop_condition": "T24 STATUS: READY FOR REVIEW. Implementation complete (check 20 added; mutation-test prediction held on first attempt; fixture restored; regression-clean). Nothing committed or pushed. T25 not started."
+}

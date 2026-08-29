@@ -121,6 +121,12 @@
       "status": "pass",
       "errors": [],
       "warnings": []
+    },
+    {
+      "name": "Tap-Type Title and Definition Match Authoritative Entity Record",
+      "status": "pass",
+      "errors": [],
+      "warnings": []
     }
   ]
 }

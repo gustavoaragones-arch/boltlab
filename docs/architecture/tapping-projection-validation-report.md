@@ -103,3 +103,8 @@
 - Errors: 0
 - Warnings: 0
 
+### Tap-Type Title and Definition Match Authoritative Entity Record
+- Status: pass
+- Errors: 0
+- Warnings: 0
+
