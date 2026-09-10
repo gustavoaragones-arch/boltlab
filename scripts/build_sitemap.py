@@ -26,6 +26,19 @@ def lastmod_for(path: Path) -> str:
         return dt.date.today().isoformat()
 
 
+def is_noindex(path: Path) -> bool:
+    """(T27) Sitemap policy: a page carrying <meta name="robots" content="noindex..."> must not
+    appear in sitemap.xml, to avoid a noindex+sitemap contradiction. See
+    docs/T27-STANDARDS-REMEDIATION.md."""
+    try:
+        head = path.read_text(encoding="utf-8", errors="ignore")[:4096]
+    except OSError:
+        return False
+    import re as _re
+    m = _re.search(r'<meta\s+name=["\']robots["\']\s+content=["\']([^"\']*)["\']', head, _re.IGNORECASE)
+    return bool(m and "noindex" in m.group(1).lower())
+
+
 def priority_for(loc: str) -> str:
     if loc.rstrip("/") == BASE or loc == BASE + "/":
         return "1.0"
@@ -42,6 +55,8 @@ def collect_urls() -> dict[str, tuple[str, str]]:
 
     def add(path: Path, force_lm: str | None = None):
         if not path.is_file():
+            return
+        if is_noindex(path):
             return
         loc = to_loc(path)
         lm = force_lm or lastmod_for(path)

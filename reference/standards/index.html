@@ -78,11 +78,12 @@
         <ul class="meta-list">
           <li><a href="/reference/standards/iso">ISO standards</a></li>
           <li><a href="/reference/standards/asme">ASME standards</a></li>
-          <li><a href="/reference/standards/din">DIN standards</a></li>
-          <li><a href="/reference/standards/ansi">ANSI standards</a></li>
-          <li><a href="/reference/standards/jis">JIS standards</a></li>
-          <li><a href="/reference/standards/british-standards">British standards</a></li>
         </ul>
+        <!-- (T27) DIN/ANSI/JIS/British Standards are intentionally not linked here as normal
+             content pages: BoltLab has no source-backed records for those families yet
+             (data/standards/{din,ansi,jis,bs}/standards.seed.json are all empty). Stating that
+             plainly is preferred over linking to a noindexed placeholder. -->
+        <p class="muted">BoltLab also tracks DIN, ANSI, JIS, and British Standards as fastener-relevant standards families, but does not yet have source-backed records for them and does not publish dedicated reference pages until it does.</p>
       </section>
       <section class="card">
         <h2>Standard relationships matrix</h2>
@@ -90,7 +91,7 @@
           <table>
             <thead><tr><th scope="col">Standard</th><th scope="col">Primary role</th><th scope="col">Reference route</th></tr></thead>
             <tbody>
-              <tr><td>ISO 261</td><td>Preferred diameter and pitch combinations for metric threads.</td><td><a href="/reference/iso-261-metric-thread-series">/reference/iso-261-metric-thread-series</a></td></tr><tr><td>ISO 262</td><td>Selected fine-pitch metric thread combinations.</td><td><a href="/reference/iso-262-metric-thread-fine-series">/reference/iso-262-metric-thread-fine-series</a></td></tr><tr><td>ISO 68 1</td><td>Basic profile geometry for ISO metric screw threads.</td><td><a href="/reference/iso-68-thread-profile">/reference/iso-68-thread-profile</a></td></tr><tr><td>ISO 724</td><td>Basic dimensions framework for ISO metric thread geometry.</td><td><a href="/reference/iso-724-thread-dimensions">/reference/iso-724-thread-dimensions</a></td></tr><tr><td>ISO 965 1</td><td>Tolerance principles and fit-class interpretation for metric threads.</td><td><a href="/reference/iso-thread-tolerances-explained">/reference/iso-thread-tolerances-explained</a></td></tr>
+              <tr><td>ASME B1 1</td><td>ASME B1.1 unified inch thread system and ASME B94.9 tap tool nomenclature.</td><td><a href="/reference/standards/asme">/reference/standards/asme</a></td></tr><tr><td>ISO 261</td><td>Preferred diameter and pitch combinations for metric threads.</td><td><a href="/reference/iso-261-metric-thread-series">/reference/iso-261-metric-thread-series</a></td></tr><tr><td>ISO 262</td><td>Selected fine-pitch metric thread combinations.</td><td><a href="/reference/iso-262-metric-thread-fine-series">/reference/iso-262-metric-thread-fine-series</a></td></tr><tr><td>ISO 68 1</td><td>Basic profile geometry for ISO metric screw threads.</td><td><a href="/reference/iso-68-thread-profile">/reference/iso-68-thread-profile</a></td></tr><tr><td>ISO 724</td><td>Basic dimensions framework for ISO metric thread geometry.</td><td><a href="/reference/iso-724-thread-dimensions">/reference/iso-724-thread-dimensions</a></td></tr><tr><td>ISO 965 1</td><td>Tolerance principles and fit-class interpretation for metric threads.</td><td><a href="/reference/iso-thread-tolerances-explained">/reference/iso-thread-tolerances-explained</a></td></tr>
             </tbody>
           </table>
         </div>
@@ -101,7 +102,7 @@
           <table>
             <thead><tr><th scope="col">Standard code</th><th scope="col">Slug</th><th scope="col">Output type</th></tr></thead>
             <tbody>
-              <tr><td>ISO_261</td><td>iso-261-metric-thread-series</td><td>Reference</td></tr><tr><td>ISO_262</td><td>iso-262-metric-thread-fine-series</td><td>Reference</td></tr><tr><td>ISO_68_1</td><td>iso-68-thread-profile</td><td>Reference</td></tr><tr><td>ISO_724</td><td>iso-724-thread-dimensions</td><td>Reference</td></tr><tr><td>ISO_965_1</td><td>iso-thread-tolerances-explained</td><td>Reference</td></tr>
+              <tr><td>ASME_B1_1</td><td>asme</td><td>Reference</td></tr><tr><td>ISO_261</td><td>iso-261-metric-thread-series</td><td>Reference</td></tr><tr><td>ISO_262</td><td>iso-262-metric-thread-fine-series</td><td>Reference</td></tr><tr><td>ISO_68_1</td><td>iso-68-thread-profile</td><td>Reference</td></tr><tr><td>ISO_724</td><td>iso-724-thread-dimensions</td><td>Reference</td></tr><tr><td>ISO_965_1</td><td>iso-thread-tolerances-explained</td><td>Reference</td></tr>
             </tbody>
           </table>
         </div>
@@ -137,7 +138,7 @@
 <li><a href="/charts/metric-vs-imperial-chart">Metric vs Imperial Chart</a></li>
         </ul>
       </section>
-      
+
       <section class="card">
         <h2>Related References</h2>
         <ul class="meta-list">

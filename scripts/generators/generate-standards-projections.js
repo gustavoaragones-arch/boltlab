@@ -186,6 +186,127 @@ function buildFaq(title, standardId) {
   ];
 }
 
+// (T27) Builds the ASME standards page projection from the ASME family's own real seed records
+// (data/standards/asme/standards.seed.json) -- unlike the ISO TARGETS above, this does not invent
+// coverage/use-case bullets independent of source text; every coverage_points/use_cases entry below
+// is a direct restatement of that record's own `scope`/`public_summary` fields, and every
+// related_entities/related_datasets value is copied from the record, not authored. This function
+// deliberately does nothing if the ASME seed records it needs are missing, rather than falling back
+// to placeholder text -- see docs/T27-STANDARDS-REMEDIATION.md for why.
+function buildAsmeProjection(root) {
+  const asmePath = path.join(root, "data", "standards", "asme", "standards.seed.json");
+  const asmeStandards = readJson(asmePath).records || [];
+  const b11 = asmeStandards.find((r) => r.id === "asme_b1_1");
+  const b949 = asmeStandards.find((r) => r.id === "asme_b94_9");
+  if (!b11 || !b949) {
+    throw new Error("T27: expected ASME seed records asme_b1_1 and asme_b94_9 not found -- refusing to generate a substantive ASME page without them.");
+  }
+
+  const relatedEntities = [...new Set([...(b11.related_entities || []), ...(b949.related_entities || [])])];
+  const relatedDatasets = [...new Set([...(b11.related_datasets || []), ...(b949.related_datasets || [])])];
+
+  return {
+    id: "reference_asme_standards",
+    projection_type: "reference_page",
+    entity_id: "thread_system_unc",
+    standard_id: "asme_b1_1",
+    route_hint: "/reference/standards/asme",
+    canonical_url: "https://boltlab.io/reference/standards/asme",
+    title: "ASME Thread and Tap Standards",
+    hero_subtitle: "ASME B1.1 unified inch thread system and ASME B94.9 tap tool nomenclature.",
+    meta_description: clampMeta(`${b11.public_summary} ${b949.public_summary}`),
+    quick_reference: {
+      primary_entity_id: "thread_system_unc",
+      related_entity_ids: relatedEntities,
+      standard_ids: ["asme_b1_1", "asme_b94_9"],
+      dataset_ids: relatedDatasets
+    },
+    engineering_summary: {
+      source_entity_id: "thread_system_unc",
+      strategy: "entity.engineering_summary"
+    },
+    overview: `BoltLab references two ASME standards directly relevant to its own inch-thread and tapping data: ${b11.designation} (${b11.title}) and ${b949.designation} (${b949.title}).`,
+    coverage_points: [
+      `${b11.designation}: ${b11.scope}`,
+      `${b949.designation}: ${b949.scope}`
+    ],
+    use_cases: [
+      `Interpreting the UNC/UNF designation, series, allowance, and tolerance conventions that BoltLab's own unc_threads/unf_threads datasets follow, per ${b11.designation} (${b11.public_summary})`,
+      `Understanding the tap tool nomenclature behind BoltLab's spiral-flute, spiral-point, and forming tap-type classifications, per ${b949.designation} (${b949.public_summary})`
+    ],
+    table: {
+      title: "ASME standards BoltLab references",
+      columns: ["Standard", "Title", "Edition", "Status"],
+      rows: [
+        [b11.designation, b11.title, b11.edition, b11.standard_status],
+        [b949.designation, b949.title, b949.edition, b949.standard_status]
+      ]
+    },
+    related_reference_routes: ["/reference/thread-types"],
+    faq: [
+      {
+        id: "asme_faq_scope",
+        question: "What does ASME B1.1 define?",
+        answer_text: b11.scope,
+        answer_html: escapeHtmlLite(b11.scope),
+        answer_source: { type: "entity_summary", entity_id: "thread_system_unc" }
+      },
+      {
+        id: "asme_faq_b949",
+        question: "What does ASME B94.9 cover?",
+        answer_text: b949.scope,
+        answer_html: escapeHtmlLite(b949.scope),
+        answer_source: { type: "relationship_context", entity_id: "thread_system_unc" }
+      },
+      {
+        id: "asme_faq_edition",
+        question: "Which ASME editions does BoltLab reference?",
+        answer_text: `BoltLab's public-summary reference reflects ${b11.designation}-${b11.edition} and ${b949.designation}-${b949.edition}, last reviewed ${b11.last_reviewed}.`,
+        answer_html: escapeHtmlLite(`BoltLab's public-summary reference reflects ${b11.designation}-${b11.edition} and ${b949.designation}-${b949.edition}, last reviewed ${b11.last_reviewed}.`),
+        answer_source: { type: "entity_summary", entity_id: "thread_system_unc" }
+      },
+      {
+        id: "asme_faq_copyright",
+        question: "Does this page reproduce copyrighted ASME standards text?",
+        answer_text: b11.copyright_note,
+        answer_html: escapeHtmlLite(b11.copyright_note),
+        answer_source: { type: "relationship_context", entity_id: "thread_system_unc" }
+      },
+      {
+        id: "asme_faq_affiliation",
+        question: "Is BoltLab affiliated with or a publisher of ASME standards?",
+        answer_text: "No. BoltLab references ASME standard designations and public-summary scope for engineering context only; BoltLab is not ASME and does not publish or certify compliance with ASME standards.",
+        answer_html: "No. BoltLab references ASME standard designations and public-summary scope for engineering context only; BoltLab is not ASME and does not publish or certify compliance with ASME standards.",
+        answer_source: { type: "relationship_context", entity_id: "thread_system_unc" }
+      }
+    ],
+    related_entities: relatedEntities,
+    related_standards: ["asme_b1_1", "asme_b94_9"],
+    related_standard_ids: ["asme_b1_1", "asme_b94_9"],
+    related_datasets: relatedDatasets,
+    related_tools: ["/tools/metric-to-imperial-screw-converter", "/tools/thread-identifier", "/tools/tap-drill-calculator"],
+    related_charts: ["/charts/unc-thread-chart", "/charts/metric-vs-imperial-chart"],
+    related_guides: ["/guides/metric-vs-imperial-fasteners", "/guides/thread-types-explained"],
+    schema: {
+      source_entity_id: "thread_system_unc",
+      types: ["Article", "FAQPage", "BreadcrumbList", "WebPage"]
+    },
+    status: "active",
+    version: "v0.1.0",
+    created: "2026-07-12",
+    updated: "2026-09-10"
+  };
+}
+
+function escapeHtmlLite(text) {
+  return String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 function main() {
   const root = projectRoot();
   const standardsPath = path.join(root, "data", "standards", "iso", "standards.seed.json");
@@ -194,6 +315,11 @@ function main() {
   const metricDataset = readJson(metricDatasetPath);
   const standardMap = new Map(standards.map((record) => [record.id, record]));
   const today = "2026-07-12";
+
+  const asmeProjection = buildAsmeProjection(root);
+  const asmePath = path.join(root, "data", "projections", "reference", "asme_standards.reference.json");
+  writeJson(asmePath, asmeProjection);
+  console.log("Projection generated: data/projections/reference/asme_standards.reference.json");
 
   for (const [id, config] of Object.entries(TARGETS)) {
     const standard = standardMap.get(id);

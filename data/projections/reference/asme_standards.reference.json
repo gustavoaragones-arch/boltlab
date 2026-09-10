@@ -1,0 +1,167 @@
+{
+  "id": "reference_asme_standards",
+  "projection_type": "reference_page",
+  "entity_id": "thread_system_unc",
+  "standard_id": "asme_b1_1",
+  "route_hint": "/reference/standards/asme",
+  "canonical_url": "https://boltlab.io/reference/standards/asme",
+  "title": "ASME Thread and Tap Standards",
+  "hero_subtitle": "ASME B1.1 unified inch thread system and ASME B94.9 tap tool nomenclature.",
+  "meta_description": "Referenced for UNC/UNF system interpretation and inch-thread engineering context. Current edition confirmed as ASME B1.1-2024. Reference standard for ta...",
+  "quick_reference": {
+    "primary_entity_id": "thread_system_unc",
+    "related_entity_ids": [
+      "thread_system_unc",
+      "thread_pitch",
+      "allowance",
+      "spiral_flute_tap",
+      "spiral_point_tap",
+      "forming_tap"
+    ],
+    "standard_ids": [
+      "asme_b1_1",
+      "asme_b94_9"
+    ],
+    "dataset_ids": [
+      "unc_threads",
+      "unf_threads"
+    ]
+  },
+  "engineering_summary": {
+    "source_entity_id": "thread_system_unc",
+    "strategy": "entity.engineering_summary"
+  },
+  "overview": "BoltLab references two ASME standards directly relevant to its own inch-thread and tapping data: ASME B1.1 (Unified Inch Screw Threads (UN, UNR, and UNJ Thread Forms)) and ASME B94.9 (Taps: Ground Thread with Cut Thread Appendix (Inch and Metric Sizes)).",
+  "coverage_points": [
+    "ASME B1.1: Defines unified inch thread form, series, class, allowance, tolerance, and designation for UN, UNR, and UNJ thread forms. UNJ (formerly covered by the separate ASME B1.15) has been incorporated into B1.1 since the 2019 edition.",
+    "ASME B94.9: Covers tap designs, nomenclature, definitions, marking system, and dimension/tolerance tables for standard tap types and styles, including straight-fluted, spiral-fluted, spiral-point, and thread-forming taps, in inch and metric sizes."
+  ],
+  "use_cases": [
+    "Interpreting the UNC/UNF designation, series, allowance, and tolerance conventions that BoltLab's own unc_threads/unf_threads datasets follow, per ASME B1.1 (Referenced for UNC/UNF system interpretation and inch-thread engineering context. Current edition confirmed as ASME B1.1-2024.)",
+    "Understanding the tap tool nomenclature behind BoltLab's spiral-flute, spiral-point, and forming tap-type classifications, per ASME B94.9 (Reference standard for tap tool nomenclature, styles, and manufacturing dimensions/tolerances. Current edition ASME B94.9-2008, reaffirmed 2023.)"
+  ],
+  "table": {
+    "title": "ASME standards BoltLab references",
+    "columns": [
+      "Standard",
+      "Title",
+      "Edition",
+      "Status"
+    ],
+    "rows": [
+      [
+        "ASME B1.1",
+        "Unified Inch Screw Threads (UN, UNR, and UNJ Thread Forms)",
+        "2024",
+        "current"
+      ],
+      [
+        "ASME B94.9",
+        "Taps: Ground Thread with Cut Thread Appendix (Inch and Metric Sizes)",
+        "2008 (R2023)",
+        "current"
+      ]
+    ]
+  },
+  "related_reference_routes": [
+    "/reference/thread-types"
+  ],
+  "faq": [
+    {
+      "id": "asme_faq_scope",
+      "question": "What does ASME B1.1 define?",
+      "answer_text": "Defines unified inch thread form, series, class, allowance, tolerance, and designation for UN, UNR, and UNJ thread forms. UNJ (formerly covered by the separate ASME B1.15) has been incorporated into B1.1 since the 2019 edition.",
+      "answer_html": "Defines unified inch thread form, series, class, allowance, tolerance, and designation for UN, UNR, and UNJ thread forms. UNJ (formerly covered by the separate ASME B1.15) has been incorporated into B1.1 since the 2019 edition.",
+      "answer_source": {
+        "type": "entity_summary",
+        "entity_id": "thread_system_unc"
+      }
+    },
+    {
+      "id": "asme_faq_b949",
+      "question": "What does ASME B94.9 cover?",
+      "answer_text": "Covers tap designs, nomenclature, definitions, marking system, and dimension/tolerance tables for standard tap types and styles, including straight-fluted, spiral-fluted, spiral-point, and thread-forming taps, in inch and metric sizes.",
+      "answer_html": "Covers tap designs, nomenclature, definitions, marking system, and dimension/tolerance tables for standard tap types and styles, including straight-fluted, spiral-fluted, spiral-point, and thread-forming taps, in inch and metric sizes.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "thread_system_unc"
+      }
+    },
+    {
+      "id": "asme_faq_edition",
+      "question": "Which ASME editions does BoltLab reference?",
+      "answer_text": "BoltLab's public-summary reference reflects ASME B1.1-2024 and ASME B94.9-2008 (R2023), last reviewed 2026-08-15.",
+      "answer_html": "BoltLab&#39;s public-summary reference reflects ASME B1.1-2024 and ASME B94.9-2008 (R2023), last reviewed 2026-08-15.",
+      "answer_source": {
+        "type": "entity_summary",
+        "entity_id": "thread_system_unc"
+      }
+    },
+    {
+      "id": "asme_faq_copyright",
+      "question": "Does this page reproduce copyrighted ASME standards text?",
+      "answer_text": "No copyrighted standards text is reproduced; only public summary and reference metadata.",
+      "answer_html": "No copyrighted standards text is reproduced; only public summary and reference metadata.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "thread_system_unc"
+      }
+    },
+    {
+      "id": "asme_faq_affiliation",
+      "question": "Is BoltLab affiliated with or a publisher of ASME standards?",
+      "answer_text": "No. BoltLab references ASME standard designations and public-summary scope for engineering context only; BoltLab is not ASME and does not publish or certify compliance with ASME standards.",
+      "answer_html": "No. BoltLab references ASME standard designations and public-summary scope for engineering context only; BoltLab is not ASME and does not publish or certify compliance with ASME standards.",
+      "answer_source": {
+        "type": "relationship_context",
+        "entity_id": "thread_system_unc"
+      }
+    }
+  ],
+  "related_entities": [
+    "thread_system_unc",
+    "thread_pitch",
+    "allowance",
+    "spiral_flute_tap",
+    "spiral_point_tap",
+    "forming_tap"
+  ],
+  "related_standards": [
+    "asme_b1_1",
+    "asme_b94_9"
+  ],
+  "related_standard_ids": [
+    "asme_b1_1",
+    "asme_b94_9"
+  ],
+  "related_datasets": [
+    "unc_threads",
+    "unf_threads"
+  ],
+  "related_tools": [
+    "/tools/metric-to-imperial-screw-converter",
+    "/tools/thread-identifier",
+    "/tools/tap-drill-calculator"
+  ],
+  "related_charts": [
+    "/charts/unc-thread-chart",
+    "/charts/metric-vs-imperial-chart"
+  ],
+  "related_guides": [
+    "/guides/metric-vs-imperial-fasteners",
+    "/guides/thread-types-explained"
+  ],
+  "schema": {
+    "source_entity_id": "thread_system_unc",
+    "types": [
+      "Article",
+      "FAQPage",
+      "BreadcrumbList",
+      "WebPage"
+    ]
+  },
+  "status": "active",
+  "version": "v0.1.0",
+  "created": "2026-07-12",
+  "updated": "2026-09-10"
+}

@@ -21,7 +21,10 @@ const ENTITY_LINKS = {
   fit_class_6g: { label: "Fit Class 6g", href: "/reference/6g-vs-6h" },
   allowance: { label: "Allowance", href: "/reference/allowance-vs-tolerance" },
   thread_system_unc: { label: "UNC Thread System", href: "/reference/thread-types" },
-  iso_965: { label: "ISO 965 Concept", href: "/reference/iso-thread-tolerances-explained" }
+  iso_965: { label: "ISO 965 Concept", href: "/reference/iso-thread-tolerances-explained" },
+  spiral_flute_tap: { label: "Spiral Flute Tap", href: "/reference/tap-type-guide#spiral-flute-tap" },
+  spiral_point_tap: { label: "Spiral Point Tap", href: "/reference/tap-type-guide#spiral-point-tap" },
+  forming_tap: { label: "Forming Tap", href: "/reference/tap-type-guide#forming-tap" }
 };
 
 const ROUTE_LABELS = {
@@ -164,7 +167,7 @@ function renderProjectionPage(projection, extras = "") {
       <a class="brand" href="/"><img class="brand-logo" src="/images/boltlab-logo.svg" alt="">BoltLab</a>
       <nav aria-label="Primary">
         <ul class="nav-list">
-          <li><a href="/tools/metric-to-imperial-screw-converter">Tools</a></li>
+          <li><a href="/tools/">Tools</a></li>
           <li><a href="/charts/">Charts</a></li>
           <li><a href="/reference/">Reference</a></li>
           <li><a href="/sizes/">Sizes</a></li>
@@ -224,15 +227,22 @@ ${faqSection}
         <p class="footer-tagline">Precision fastener tools for real-world use.</p>
       </div>
       <nav class="footer-nav footer-nav-center" aria-label="Product">
-        <a href="/tools/metric-to-imperial-screw-converter">Tools</a>
+        <a href="/tools/">Tools</a>
         <a href="/charts/">Charts</a>
+        <a href="/reference/">Reference</a>
+        <a href="/reference/standards/">Standards</a>
+        <a href="/reference/data-methodology">Data Methodology</a>
+        <a href="/reference/thread-atlas">Thread Atlas</a>
         <a href="/sizes/">Sizes</a>
         <a href="/guides/">Guides</a>
       </nav>
       <nav class="footer-nav footer-nav-right" aria-label="Company">
         <a href="/about">About</a>
-        <a href="/contact">Contact</a>
         <a href="/privacy">Privacy</a>
+        <a href="/cookies">Cookie Notice</a>
+        <a href="/terms">Terms</a>
+        <a href="/disclaimer">Disclaimer</a>
+        <a href="/contact">Contact</a>
       </nav>
     </div>
     <div class="footer-bottom">
@@ -278,11 +288,12 @@ function createHubExtras(isoProjections) {
         <ul class="meta-list">
           <li><a href="/reference/standards/iso">ISO standards</a></li>
           <li><a href="/reference/standards/asme">ASME standards</a></li>
-          <li><a href="/reference/standards/din">DIN standards</a></li>
-          <li><a href="/reference/standards/ansi">ANSI standards</a></li>
-          <li><a href="/reference/standards/jis">JIS standards</a></li>
-          <li><a href="/reference/standards/british-standards">British standards</a></li>
         </ul>
+        <!-- (T27) DIN/ANSI/JIS/British Standards are intentionally not linked here as normal
+             content pages: BoltLab has no source-backed records for those families yet
+             (data/standards/{din,ansi,jis,bs}/standards.seed.json are all empty). Stating that
+             plainly is preferred over linking to a noindexed placeholder. -->
+        <p class="muted">BoltLab also tracks DIN, ANSI, JIS, and British Standards as fastener-relevant standards families, but does not yet have source-backed records for them and does not publish dedicated reference pages until it does.</p>
       </section>
       <section class="card">
         <h2>Standard relationships matrix</h2>
@@ -308,13 +319,18 @@ function createHubExtras(isoProjections) {
       </section>`;
 }
 
-function renderFamilyPage(title, canonical, description, links) {
+// (T27) robotsContent defaults to noindex,follow: every current caller of this function is a
+// standards family with zero source-backed records (see data/standards/{ansi,din,jis,bs}/
+// standards.seed.json, all `records: []`). A family regains index,follow automatically the day it
+// has real records, by moving to the buildAsmeProjection()/renderProjectionPage() pipeline the way
+// ASME did in T27 -- not by flipping this default. See docs/T27-STANDARDS-REMEDIATION.md.
+function renderFamilyPage(title, canonical, description, links, robotsContent = "noindex,follow") {
   return `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="index,follow">
+  <meta name="robots" content="${escapeHtml(robotsContent)}">
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(description)}">
   <link rel="canonical" href="${escapeHtml(canonical)}">
@@ -328,7 +344,7 @@ function renderFamilyPage(title, canonical, description, links) {
       <a class="brand" href="/"><img class="brand-logo" src="/images/boltlab-logo.svg" alt="">BoltLab</a>
       <nav aria-label="Primary">
         <ul class="nav-list">
-          <li><a href="/tools/metric-to-imperial-screw-converter">Tools</a></li>
+          <li><a href="/tools/">Tools</a></li>
           <li><a href="/charts/">Charts</a></li>
           <li><a href="/reference/">Reference</a></li>
           <li><a href="/sizes/">Sizes</a></li>
@@ -349,14 +365,10 @@ function renderFamilyPage(title, canonical, description, links) {
           ${links.map((link) => `<li><a href="${link.href}">${escapeHtml(link.label)}</a></li>`).join("")}
         </ul>
       </section>
-      <div class="ad-container">
-        <div class="ad-label">Sponsored</div>
-        <aside class="ad-slot ad-slot--inline" aria-label="Advertisement" data-ad-placeholder="true"></aside>
-      </div>
+      <!-- (T27) No ad-slot markup on this page: it is noindexed and does not yet carry
+           source-backed standards content, so it must not be presented as a normal
+           monetizable content page. See docs/T27-STANDARDS-REMEDIATION.md. -->
     </article>
-    <aside class="sidebar-ad" aria-label="Advertisement">
-      <div class="ad-slot ad-slot--sidebar" data-ad-placeholder="true"></div>
-    </aside>
   </div>
   <div id="related-links" class="related-links" aria-label="Related links"></div>
   </main>
@@ -367,15 +379,22 @@ function renderFamilyPage(title, canonical, description, links) {
         <p class="footer-tagline">Precision fastener tools for real-world use.</p>
       </div>
       <nav class="footer-nav footer-nav-center" aria-label="Product">
-        <a href="/tools/metric-to-imperial-screw-converter">Tools</a>
+        <a href="/tools/">Tools</a>
         <a href="/charts/">Charts</a>
+        <a href="/reference/">Reference</a>
+        <a href="/reference/standards/">Standards</a>
+        <a href="/reference/data-methodology">Data Methodology</a>
+        <a href="/reference/thread-atlas">Thread Atlas</a>
         <a href="/sizes/">Sizes</a>
         <a href="/guides/">Guides</a>
       </nav>
       <nav class="footer-nav footer-nav-right" aria-label="Company">
         <a href="/about">About</a>
-        <a href="/contact">Contact</a>
         <a href="/privacy">Privacy</a>
+        <a href="/cookies">Cookie Notice</a>
+        <a href="/terms">Terms</a>
+        <a href="/disclaimer">Disclaimer</a>
+        <a href="/contact">Contact</a>
       </nav>
     </div>
   </footer>
@@ -393,7 +412,7 @@ function main() {
   const schema = readJson(schemaPath);
   const projectionDir = path.join(root, "data", "projections", "reference");
   const files = walkFiles(projectionDir).filter((file) =>
-    /iso_.*\.reference\.json$|standards_hub\.reference\.json$|iso_family\.reference\.json$/.test(path.basename(file))
+    /iso_.*\.reference\.json$|standards_hub\.reference\.json$|iso_family\.reference\.json$|asme_.*\.reference\.json$/.test(path.basename(file))
   );
   const projections = files.map((file) => readJson(file));
   const plannedRoutes = new Set(projections.map((projection) => projection.route_hint));
@@ -423,48 +442,55 @@ function main() {
     const extras = projection.id === "reference_standards_hub"
       ? createHubExtras(isoProjections)
       : "";
-    const html = renderProjectionPage(projection, extras);
+    let html = renderProjectionPage(projection, extras);
+    // (T27) Trailing-whitespace-only lines are a pre-existing artifact of this shared template
+    // (present in the already-committed ISO pages too, which is why they are left untouched here).
+    // Only strip it for the pages T27 is actually authorized to (re)generate, so a future run of
+    // this generator does not incidentally change the byte-identical ISO output. See
+    // docs/T27-STANDARDS-REMEDIATION.md.
+    if (projection.id === "reference_asme_standards" || projection.id === "reference_standards_hub") {
+      html = html.replace(/[ \t]+$/gm, "");
+    }
     const outPath = projectionOutputPath(root, projection.route_hint);
     fs.mkdirSync(path.dirname(outPath), { recursive: true });
     fs.writeFileSync(outPath, html);
     console.log(`Generated ${path.relative(root, outPath)} from ${projection.id}`);
   }
 
+  // (T27) ASME was removed from this list -- it now has real source-backed records
+  // (data/standards/asme/standards.seed.json) and is generated as a full projection page via
+  // buildAsmeProjection()/renderProjectionPage() above, like the ISO family. DIN/ANSI/JIS/British
+  // Standards remain here because their seed files (data/standards/{din,ansi,jis,bs}/
+  // standards.seed.json) all currently have `records: []` -- zero source-backed content exists to
+  // build a substantive page from, so per T26/T27 these render noindex,follow with no ad slots and
+  // no "coming soon" language. See docs/T27-STANDARDS-REMEDIATION.md.
   const familyPages = [
-    {
-      route: "/reference/standards/asme.html",
-      title: "ASME Thread Standards",
-      description: "ASME thread standards context for unified inch systems and fit interpretation workflows.",
-      links: [{ href: "/reference/standards/", label: "Engineering Standards Hub" }]
-    },
     {
       route: "/reference/standards/din.html",
       title: "DIN Fastener Standards",
-      description: "DIN standards family overview for future BoltLab standards expansion and cross-reference workflows.",
-      links: [{ href: "/reference/standards/", label: "Engineering Standards Hub" }]
+      description: "BoltLab does not yet maintain source-backed DIN standard records. See the Engineering Standards Hub for the standards families BoltLab currently documents."
     },
     {
       route: "/reference/standards/ansi.html",
       title: "ANSI Standards Context",
-      description: "ANSI standards family overview with crosswalk context to ASME and ISO engineering workflows.",
-      links: [{ href: "/reference/standards/", label: "Engineering Standards Hub" }]
+      description: "BoltLab does not yet maintain source-backed ANSI standard records beyond what is covered under ASME. See the Engineering Standards Hub for the standards families BoltLab currently documents."
     },
     {
       route: "/reference/standards/jis.html",
       title: "JIS Thread Standards",
-      description: "JIS standards family overview for future Japanese thread standards expansion in BoltLab.",
-      links: [{ href: "/reference/standards/", label: "Engineering Standards Hub" }]
+      description: "BoltLab does not yet maintain source-backed JIS standard records. See the Engineering Standards Hub for the standards families BoltLab currently documents."
     },
     {
       route: "/reference/standards/british-standards.html",
       title: "British Thread Standards",
-      description: "British standards family overview including BSP ecosystem context for future BoltLab references.",
-      links: [{ href: "/reference/standards/", label: "Engineering Standards Hub" }]
+      description: "BoltLab does not yet maintain source-backed British Standards records. See the Engineering Standards Hub for the standards families BoltLab currently documents."
     }
   ];
+  const familyPageLinks = [{ href: "/reference/standards/", label: "Engineering Standards Hub" }];
 
   for (const page of familyPages) {
-    const html = renderFamilyPage(page.title, `https://boltlab.io${page.route.replace(/\.html$/, "")}`, page.description, page.links);
+    const html = renderFamilyPage(page.title, `https://boltlab.io${page.route.replace(/\.html$/, "")}`, page.description, familyPageLinks)
+      .replace(/[ \t]+$/gm, "");
     const outPath = path.join(root, page.route);
     fs.writeFileSync(outPath, html);
     console.log(`Generated ${path.relative(root, outPath)}`);
