@@ -1,0 +1,1639 @@
+{
+  "q1_tap_drill_residual": {
+    "per_page": [
+      {
+        "path": "sizes/m3-tap-drill.html",
+        "url": "/sizes/m3-tap-drill",
+        "metric_size": "M3",
+        "tap_drill_diameter_mm": 2.5,
+        "diameter_in_tapping_dataset": true,
+        "in_atlas_sizes_constant": true,
+        "links_to_tapping_atlas": true,
+        "links_to_tapping_evidence": true,
+        "links_to_data_methodology": true,
+        "links_to_tapping_workflow": false,
+        "links_to_tap_drill_calculator": true,
+        "word_count_article": 328,
+        "has_atlas_note_section": true,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/sizes/m3-tap-drill",
+        "canonical_self_referencing": true,
+        "noindex": false,
+        "in_sitemap": true
+      },
+      {
+        "path": "sizes/m4-tap-drill.html",
+        "url": "/sizes/m4-tap-drill",
+        "metric_size": "M4",
+        "tap_drill_diameter_mm": 3.3,
+        "diameter_in_tapping_dataset": true,
+        "in_atlas_sizes_constant": true,
+        "links_to_tapping_atlas": true,
+        "links_to_tapping_evidence": true,
+        "links_to_data_methodology": true,
+        "links_to_tapping_workflow": false,
+        "links_to_tap_drill_calculator": true,
+        "word_count_article": 340,
+        "has_atlas_note_section": true,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/sizes/m4-tap-drill",
+        "canonical_self_referencing": true,
+        "noindex": false,
+        "in_sitemap": true
+      },
+      {
+        "path": "sizes/m5-tap-drill.html",
+        "url": "/sizes/m5-tap-drill",
+        "metric_size": "M5",
+        "tap_drill_diameter_mm": 4.2,
+        "diameter_in_tapping_dataset": true,
+        "in_atlas_sizes_constant": true,
+        "links_to_tapping_atlas": true,
+        "links_to_tapping_evidence": true,
+        "links_to_data_methodology": true,
+        "links_to_tapping_workflow": false,
+        "links_to_tap_drill_calculator": true,
+        "word_count_article": 340,
+        "has_atlas_note_section": true,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/sizes/m5-tap-drill",
+        "canonical_self_referencing": true,
+        "noindex": false,
+        "in_sitemap": true
+      },
+      {
+        "path": "sizes/m6-tap-drill.html",
+        "url": "/sizes/m6-tap-drill",
+        "metric_size": "M6",
+        "tap_drill_diameter_mm": 5.0,
+        "diameter_in_tapping_dataset": true,
+        "in_atlas_sizes_constant": true,
+        "links_to_tapping_atlas": true,
+        "links_to_tapping_evidence": true,
+        "links_to_data_methodology": true,
+        "links_to_tapping_workflow": false,
+        "links_to_tap_drill_calculator": true,
+        "word_count_article": 340,
+        "has_atlas_note_section": true,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/sizes/m6-tap-drill",
+        "canonical_self_referencing": true,
+        "noindex": false,
+        "in_sitemap": true
+      },
+      {
+        "path": "sizes/m7-tap-drill.html",
+        "url": "/sizes/m7-tap-drill",
+        "metric_size": "M7",
+        "tap_drill_diameter_mm": 6.0,
+        "diameter_in_tapping_dataset": false,
+        "in_atlas_sizes_constant": false,
+        "links_to_tapping_atlas": false,
+        "links_to_tapping_evidence": false,
+        "links_to_data_methodology": true,
+        "links_to_tapping_workflow": false,
+        "links_to_tap_drill_calculator": true,
+        "word_count_article": 283,
+        "has_atlas_note_section": false,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/sizes/m7-tap-drill",
+        "canonical_self_referencing": true,
+        "noindex": false,
+        "in_sitemap": true
+      },
+      {
+        "path": "sizes/m8-tap-drill.html",
+        "url": "/sizes/m8-tap-drill",
+        "metric_size": "M8",
+        "tap_drill_diameter_mm": 6.8,
+        "diameter_in_tapping_dataset": true,
+        "in_atlas_sizes_constant": true,
+        "links_to_tapping_atlas": true,
+        "links_to_tapping_evidence": true,
+        "links_to_data_methodology": true,
+        "links_to_tapping_workflow": false,
+        "links_to_tap_drill_calculator": true,
+        "word_count_article": 340,
+        "has_atlas_note_section": true,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/sizes/m8-tap-drill",
+        "canonical_self_referencing": true,
+        "noindex": false,
+        "in_sitemap": true
+      },
+      {
+        "path": "sizes/m9-tap-drill.html",
+        "url": "/sizes/m9-tap-drill",
+        "metric_size": "M9",
+        "tap_drill_diameter_mm": 7.8,
+        "diameter_in_tapping_dataset": false,
+        "in_atlas_sizes_constant": false,
+        "links_to_tapping_atlas": false,
+        "links_to_tapping_evidence": false,
+        "links_to_data_methodology": true,
+        "links_to_tapping_workflow": false,
+        "links_to_tap_drill_calculator": true,
+        "word_count_article": 283,
+        "has_atlas_note_section": false,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/sizes/m9-tap-drill",
+        "canonical_self_referencing": true,
+        "noindex": false,
+        "in_sitemap": true
+      },
+      {
+        "path": "sizes/m10-tap-drill.html",
+        "url": "/sizes/m10-tap-drill",
+        "metric_size": "M10",
+        "tap_drill_diameter_mm": 8.5,
+        "diameter_in_tapping_dataset": true,
+        "in_atlas_sizes_constant": true,
+        "links_to_tapping_atlas": true,
+        "links_to_tapping_evidence": true,
+        "links_to_data_methodology": true,
+        "links_to_tapping_workflow": false,
+        "links_to_tap_drill_calculator": true,
+        "word_count_article": 340,
+        "has_atlas_note_section": true,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/sizes/m10-tap-drill",
+        "canonical_self_referencing": true,
+        "noindex": false,
+        "in_sitemap": true
+      },
+      {
+        "path": "sizes/m11-tap-drill.html",
+        "url": "/sizes/m11-tap-drill",
+        "metric_size": "M11",
+        "tap_drill_diameter_mm": 9.5,
+        "diameter_in_tapping_dataset": false,
+        "in_atlas_sizes_constant": false,
+        "links_to_tapping_atlas": false,
+        "links_to_tapping_evidence": false,
+        "links_to_data_methodology": true,
+        "links_to_tapping_workflow": false,
+        "links_to_tap_drill_calculator": true,
+        "word_count_article": 283,
+        "has_atlas_note_section": false,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/sizes/m11-tap-drill",
+        "canonical_self_referencing": true,
+        "noindex": false,
+        "in_sitemap": true
+      },
+      {
+        "path": "sizes/m12-tap-drill.html",
+        "url": "/sizes/m12-tap-drill",
+        "metric_size": "M12",
+        "tap_drill_diameter_mm": 10.2,
+        "diameter_in_tapping_dataset": true,
+        "in_atlas_sizes_constant": true,
+        "links_to_tapping_atlas": true,
+        "links_to_tapping_evidence": true,
+        "links_to_data_methodology": true,
+        "links_to_tapping_workflow": false,
+        "links_to_tap_drill_calculator": true,
+        "word_count_article": 340,
+        "has_atlas_note_section": true,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/sizes/m12-tap-drill",
+        "canonical_self_referencing": true,
+        "noindex": false,
+        "in_sitemap": true
+      },
+      {
+        "path": "sizes/m13-tap-drill.html",
+        "url": "/sizes/m13-tap-drill",
+        "metric_size": "M13",
+        "tap_drill_diameter_mm": 11.2,
+        "diameter_in_tapping_dataset": false,
+        "in_atlas_sizes_constant": false,
+        "links_to_tapping_atlas": false,
+        "links_to_tapping_evidence": false,
+        "links_to_data_methodology": true,
+        "links_to_tapping_workflow": false,
+        "links_to_tap_drill_calculator": true,
+        "word_count_article": 283,
+        "has_atlas_note_section": false,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/sizes/m13-tap-drill",
+        "canonical_self_referencing": true,
+        "noindex": false,
+        "in_sitemap": true
+      },
+      {
+        "path": "sizes/m14-tap-drill.html",
+        "url": "/sizes/m14-tap-drill",
+        "metric_size": "M14",
+        "tap_drill_diameter_mm": 12.0,
+        "diameter_in_tapping_dataset": false,
+        "in_atlas_sizes_constant": false,
+        "links_to_tapping_atlas": false,
+        "links_to_tapping_evidence": false,
+        "links_to_data_methodology": true,
+        "links_to_tapping_workflow": false,
+        "links_to_tap_drill_calculator": true,
+        "word_count_article": 283,
+        "has_atlas_note_section": false,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/sizes/m14-tap-drill",
+        "canonical_self_referencing": true,
+        "noindex": false,
+        "in_sitemap": true
+      },
+      {
+        "path": "sizes/m15-tap-drill.html",
+        "url": "/sizes/m15-tap-drill",
+        "metric_size": "M15",
+        "tap_drill_diameter_mm": 13.5,
+        "diameter_in_tapping_dataset": false,
+        "in_atlas_sizes_constant": false,
+        "links_to_tapping_atlas": false,
+        "links_to_tapping_evidence": false,
+        "links_to_data_methodology": true,
+        "links_to_tapping_workflow": false,
+        "links_to_tap_drill_calculator": true,
+        "word_count_article": 283,
+        "has_atlas_note_section": false,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/sizes/m15-tap-drill",
+        "canonical_self_referencing": true,
+        "noindex": false,
+        "in_sitemap": true
+      },
+      {
+        "path": "sizes/m16-tap-drill.html",
+        "url": "/sizes/m16-tap-drill",
+        "metric_size": "M16",
+        "tap_drill_diameter_mm": 14.0,
+        "diameter_in_tapping_dataset": true,
+        "in_atlas_sizes_constant": true,
+        "links_to_tapping_atlas": true,
+        "links_to_tapping_evidence": true,
+        "links_to_data_methodology": true,
+        "links_to_tapping_workflow": false,
+        "links_to_tap_drill_calculator": true,
+        "word_count_article": 340,
+        "has_atlas_note_section": true,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/sizes/m16-tap-drill",
+        "canonical_self_referencing": true,
+        "noindex": false,
+        "in_sitemap": true
+      },
+      {
+        "path": "sizes/m17-tap-drill.html",
+        "url": "/sizes/m17-tap-drill",
+        "metric_size": "M17",
+        "tap_drill_diameter_mm": 15.5,
+        "diameter_in_tapping_dataset": false,
+        "in_atlas_sizes_constant": false,
+        "links_to_tapping_atlas": false,
+        "links_to_tapping_evidence": false,
+        "links_to_data_methodology": true,
+        "links_to_tapping_workflow": false,
+        "links_to_tap_drill_calculator": true,
+        "word_count_article": 283,
+        "has_atlas_note_section": false,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/sizes/m17-tap-drill",
+        "canonical_self_referencing": true,
+        "noindex": false,
+        "in_sitemap": true
+      },
+      {
+        "path": "sizes/m18-tap-drill.html",
+        "url": "/sizes/m18-tap-drill",
+        "metric_size": "M18",
+        "tap_drill_diameter_mm": 15.5,
+        "diameter_in_tapping_dataset": false,
+        "in_atlas_sizes_constant": false,
+        "links_to_tapping_atlas": false,
+        "links_to_tapping_evidence": false,
+        "links_to_data_methodology": true,
+        "links_to_tapping_workflow": false,
+        "links_to_tap_drill_calculator": true,
+        "word_count_article": 283,
+        "has_atlas_note_section": false,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/sizes/m18-tap-drill",
+        "canonical_self_referencing": true,
+        "noindex": false,
+        "in_sitemap": true
+      },
+      {
+        "path": "sizes/m19-tap-drill.html",
+        "url": "/sizes/m19-tap-drill",
+        "metric_size": "M19",
+        "tap_drill_diameter_mm": 16.5,
+        "diameter_in_tapping_dataset": false,
+        "in_atlas_sizes_constant": false,
+        "links_to_tapping_atlas": false,
+        "links_to_tapping_evidence": false,
+        "links_to_data_methodology": true,
+        "links_to_tapping_workflow": false,
+        "links_to_tap_drill_calculator": true,
+        "word_count_article": 283,
+        "has_atlas_note_section": false,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/sizes/m19-tap-drill",
+        "canonical_self_referencing": true,
+        "noindex": false,
+        "in_sitemap": true
+      },
+      {
+        "path": "sizes/m20-tap-drill.html",
+        "url": "/sizes/m20-tap-drill",
+        "metric_size": "M20",
+        "tap_drill_diameter_mm": 17.5,
+        "diameter_in_tapping_dataset": true,
+        "in_atlas_sizes_constant": true,
+        "links_to_tapping_atlas": true,
+        "links_to_tapping_evidence": true,
+        "links_to_data_methodology": true,
+        "links_to_tapping_workflow": false,
+        "links_to_tap_drill_calculator": true,
+        "word_count_article": 328,
+        "has_atlas_note_section": true,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/sizes/m20-tap-drill",
+        "canonical_self_referencing": true,
+        "noindex": false,
+        "in_sitemap": true
+      }
+    ],
+    "similarity": {
+      "page_count": 18,
+      "pair_count": 153,
+      "min_similarity": 0.8996,
+      "max_similarity": 1.0,
+      "mean_similarity": 0.9526,
+      "median_similarity": 0.9168,
+      "pairs_above_0_90": 135,
+      "pairs_above_0_95": 72,
+      "pairs_above_0_98": 72,
+      "pairs_above_0_99": 58,
+      "pairs_at_or_above_0_999": 57,
+      "top_15_highest_similarity_pairs": [
+        {
+          "a": "sizes/m4-tap-drill.html",
+          "b": "sizes/m5-tap-drill.html",
+          "similarity": 1.0
+        },
+        {
+          "a": "sizes/m4-tap-drill.html",
+          "b": "sizes/m6-tap-drill.html",
+          "similarity": 1.0
+        },
+        {
+          "a": "sizes/m4-tap-drill.html",
+          "b": "sizes/m8-tap-drill.html",
+          "similarity": 1.0
+        },
+        {
+          "a": "sizes/m4-tap-drill.html",
+          "b": "sizes/m10-tap-drill.html",
+          "similarity": 1.0
+        },
+        {
+          "a": "sizes/m4-tap-drill.html",
+          "b": "sizes/m12-tap-drill.html",
+          "similarity": 1.0
+        },
+        {
+          "a": "sizes/m4-tap-drill.html",
+          "b": "sizes/m16-tap-drill.html",
+          "similarity": 1.0
+        },
+        {
+          "a": "sizes/m5-tap-drill.html",
+          "b": "sizes/m6-tap-drill.html",
+          "similarity": 1.0
+        },
+        {
+          "a": "sizes/m5-tap-drill.html",
+          "b": "sizes/m8-tap-drill.html",
+          "similarity": 1.0
+        },
+        {
+          "a": "sizes/m5-tap-drill.html",
+          "b": "sizes/m10-tap-drill.html",
+          "similarity": 1.0
+        },
+        {
+          "a": "sizes/m5-tap-drill.html",
+          "b": "sizes/m12-tap-drill.html",
+          "similarity": 1.0
+        },
+        {
+          "a": "sizes/m5-tap-drill.html",
+          "b": "sizes/m16-tap-drill.html",
+          "similarity": 1.0
+        },
+        {
+          "a": "sizes/m6-tap-drill.html",
+          "b": "sizes/m8-tap-drill.html",
+          "similarity": 1.0
+        },
+        {
+          "a": "sizes/m6-tap-drill.html",
+          "b": "sizes/m10-tap-drill.html",
+          "similarity": 1.0
+        },
+        {
+          "a": "sizes/m6-tap-drill.html",
+          "b": "sizes/m12-tap-drill.html",
+          "similarity": 1.0
+        },
+        {
+          "a": "sizes/m6-tap-drill.html",
+          "b": "sizes/m16-tap-drill.html",
+          "similarity": 1.0
+        }
+      ]
+    },
+    "subgroup_similarity": {
+      "within_atlas_covered_9_pages": {
+        "pair_count": 36,
+        "min": 0.9853,
+        "max": 1.0,
+        "mean": 0.9943,
+        "median": 1.0
+      },
+      "within_non_atlas_9_pages": {
+        "pair_count": 36,
+        "min": 1.0,
+        "max": 1.0,
+        "mean": 1.0,
+        "median": 1.0
+      },
+      "cross_group_atlas_vs_non_atlas": {
+        "pair_count": 81,
+        "min": 0.8996,
+        "max": 0.9168,
+        "mean": 0.913,
+        "median": 0.9168
+      },
+      "interpretation": "The Atlas cross-link note added in T28 differentiates the atlas-covered subgroup from the non-atlas subgroup (cross-group mean ~0.91), but does NOT differentiate pages within either subgroup from each other (within-group means ~0.99-1.00). The non-atlas 9-page subgroup remains exactly as digit-normalized-uniform as the original pre-T28 90-page finding, just at 1/10th the scale."
+    },
+    "outbound_link_counts_to_first_party_assets": {
+      "/reference/tapping-atlas": 9,
+      "/reference/tapping-evidence": 9,
+      "/reference/data-methodology": 18,
+      "/tools/tap-drill-calculator": 18
+    },
+    "atlas_covered_count": 9,
+    "non_atlas_covered_count": 9
+  },
+  "q2_six_g_six_h": {
+    "url_a": "/reference/6g-vs-6h",
+    "url_b": "/reference/6h-vs-6g",
+    "both_exist": true,
+    "noindex_a": false,
+    "noindex_b": false,
+    "in_sitemap_a": true,
+    "in_sitemap_b": true,
+    "canonical_a": "https://boltlab.io/reference/6g-vs-6h",
+    "canonical_b": "https://boltlab.io/reference/6h-vs-6g",
+    "canonical_a_self_referencing": true,
+    "canonical_b_self_referencing": true,
+    "digit_and_label_normalized_similarity": 0.8626,
+    "raw_digit_normalized_similarity": 0.8626,
+    "word_count_a": 518,
+    "word_count_b": 523,
+    "linked_from_a_to_b": false,
+    "linked_from_b_to_a": false,
+    "inbound_internal_links_to_a": 3,
+    "inbound_internal_links_to_b": 8
+  },
+  "q3_guide_reference": {
+    "guide_count": 12,
+    "reference_concept_count": 24,
+    "guide_median_words": 279.5,
+    "reference_median_words": 516.0,
+    "guide_min_words": 238,
+    "guide_max_words": 318,
+    "reference_min_words": 325,
+    "reference_max_words": 1162,
+    "guides_with_last_reviewed": 0,
+    "reference_with_last_reviewed": 2,
+    "guides_linking_to_tapping_domain": 0,
+    "reference_linking_to_tapping_domain": 0,
+    "weakest_5_guides_by_words": [
+      {
+        "path": "guides/fastener-materials-guide.html",
+        "category": "guide",
+        "word_count_article": 238,
+        "outbound_internal_links": 31,
+        "inbound_internal_links": 5,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/guides/fastener-materials-guide",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "guides/what-is-tpi.html",
+        "category": "guide",
+        "word_count_article": 244,
+        "outbound_internal_links": 32,
+        "inbound_internal_links": 11,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/guides/what-is-tpi",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "guides/thread-pitch-explained.html",
+        "category": "guide",
+        "word_count_article": 254,
+        "outbound_internal_links": 33,
+        "inbound_internal_links": 9,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/guides/thread-pitch-explained",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "guides/bolt-strength-grades.html",
+        "category": "guide",
+        "word_count_article": 261,
+        "outbound_internal_links": 32,
+        "inbound_internal_links": 8,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/guides/bolt-strength-grades",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "guides/metric-thread-tolerances.html",
+        "category": "guide",
+        "word_count_article": 263,
+        "outbound_internal_links": 34,
+        "inbound_internal_links": 18,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/guides/metric-thread-tolerances",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      }
+    ],
+    "weakest_5_reference_by_words": [
+      {
+        "path": "reference/iso-724-thread-dimensions.html",
+        "category": "reference-concept",
+        "word_count_article": 325,
+        "outbound_internal_links": 33,
+        "inbound_internal_links": 5,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": true,
+        "canonical": "https://boltlab.io/reference/iso-724-thread-dimensions",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/screw-head-shapes.html",
+        "category": "reference-concept",
+        "word_count_article": 328,
+        "outbound_internal_links": 38,
+        "inbound_internal_links": 6,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/reference/screw-head-shapes",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/iso-261-metric-thread-series.html",
+        "category": "reference-concept",
+        "word_count_article": 335,
+        "outbound_internal_links": 32,
+        "inbound_internal_links": 5,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": true,
+        "canonical": "https://boltlab.io/reference/iso-261-metric-thread-series",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/iso-thread-tolerances-explained.html",
+        "category": "reference-concept",
+        "word_count_article": 335,
+        "outbound_internal_links": 35,
+        "inbound_internal_links": 20,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": true,
+        "canonical": "https://boltlab.io/reference/iso-thread-tolerances-explained",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/iso-262-metric-thread-fine-series.html",
+        "category": "reference-concept",
+        "word_count_article": 336,
+        "outbound_internal_links": 33,
+        "inbound_internal_links": 5,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": true,
+        "canonical": "https://boltlab.io/reference/iso-262-metric-thread-fine-series",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      }
+    ]
+  },
+  "q3_guide_reference_full_records": {
+    "guide_records": [
+      {
+        "path": "guides/bolt-head-markings.html",
+        "category": "guide",
+        "word_count_article": 300,
+        "outbound_internal_links": 29,
+        "inbound_internal_links": 7,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/guides/bolt-head-markings",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "guides/bolt-strength-grades.html",
+        "category": "guide",
+        "word_count_article": 261,
+        "outbound_internal_links": 32,
+        "inbound_internal_links": 8,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/guides/bolt-strength-grades",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "guides/bolt-vs-screw-difference.html",
+        "category": "guide",
+        "word_count_article": 293,
+        "outbound_internal_links": 32,
+        "inbound_internal_links": 6,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/guides/bolt-vs-screw-difference",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "guides/fastener-materials-guide.html",
+        "category": "guide",
+        "word_count_article": 238,
+        "outbound_internal_links": 31,
+        "inbound_internal_links": 5,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/guides/fastener-materials-guide",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "guides/how-to-measure-thread-pitch.html",
+        "category": "guide",
+        "word_count_article": 294,
+        "outbound_internal_links": 32,
+        "inbound_internal_links": 19,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/guides/how-to-measure-thread-pitch",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "guides/metric-thread-tolerances.html",
+        "category": "guide",
+        "word_count_article": 263,
+        "outbound_internal_links": 34,
+        "inbound_internal_links": 18,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/guides/metric-thread-tolerances",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "guides/metric-vs-imperial-fasteners.html",
+        "category": "guide",
+        "word_count_article": 293,
+        "outbound_internal_links": 34,
+        "inbound_internal_links": 23,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/guides/metric-vs-imperial-fasteners",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "guides/tap-drill-basics.html",
+        "category": "guide",
+        "word_count_article": 318,
+        "outbound_internal_links": 34,
+        "inbound_internal_links": 11,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/guides/tap-drill-basics",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "guides/thread-pitch-explained.html",
+        "category": "guide",
+        "word_count_article": 254,
+        "outbound_internal_links": 33,
+        "inbound_internal_links": 9,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/guides/thread-pitch-explained",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "guides/thread-types-explained.html",
+        "category": "guide",
+        "word_count_article": 293,
+        "outbound_internal_links": 35,
+        "inbound_internal_links": 16,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/guides/thread-types-explained",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "guides/what-is-tpi.html",
+        "category": "guide",
+        "word_count_article": 244,
+        "outbound_internal_links": 32,
+        "inbound_internal_links": 11,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/guides/what-is-tpi",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "guides/why-stainless-bolts-gall.html",
+        "category": "guide",
+        "word_count_article": 266,
+        "outbound_internal_links": 30,
+        "inbound_internal_links": 4,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/guides/why-stainless-bolts-gall",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      }
+    ],
+    "reference_records": [
+      {
+        "path": "reference/6g-vs-6h.html",
+        "category": "reference-concept",
+        "word_count_article": 518,
+        "outbound_internal_links": 62,
+        "inbound_internal_links": 3,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": true,
+        "canonical": "https://boltlab.io/reference/6g-vs-6h",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/6h-vs-6g.html",
+        "category": "reference-concept",
+        "word_count_article": 523,
+        "outbound_internal_links": 62,
+        "inbound_internal_links": 8,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": true,
+        "canonical": "https://boltlab.io/reference/6h-vs-6g",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/allowance-vs-tolerance.html",
+        "category": "reference-concept",
+        "word_count_article": 515,
+        "outbound_internal_links": 62,
+        "inbound_internal_links": 17,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": true,
+        "canonical": "https://boltlab.io/reference/allowance-vs-tolerance",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/external-thread-tolerances.html",
+        "category": "reference-concept",
+        "word_count_article": 518,
+        "outbound_internal_links": 62,
+        "inbound_internal_links": 13,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": true,
+        "canonical": "https://boltlab.io/reference/external-thread-tolerances",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/fundamental-deviation.html",
+        "category": "reference-concept",
+        "word_count_article": 507,
+        "outbound_internal_links": 62,
+        "inbound_internal_links": 15,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": true,
+        "canonical": "https://boltlab.io/reference/fundamental-deviation",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/internal-thread-tolerances.html",
+        "category": "reference-concept",
+        "word_count_article": 520,
+        "outbound_internal_links": 62,
+        "inbound_internal_links": 13,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": true,
+        "canonical": "https://boltlab.io/reference/internal-thread-tolerances",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/iso-261-metric-thread-series.html",
+        "category": "reference-concept",
+        "word_count_article": 335,
+        "outbound_internal_links": 32,
+        "inbound_internal_links": 5,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": true,
+        "canonical": "https://boltlab.io/reference/iso-261-metric-thread-series",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/iso-262-metric-thread-fine-series.html",
+        "category": "reference-concept",
+        "word_count_article": 336,
+        "outbound_internal_links": 33,
+        "inbound_internal_links": 5,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": true,
+        "canonical": "https://boltlab.io/reference/iso-262-metric-thread-fine-series",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/iso-68-thread-profile.html",
+        "category": "reference-concept",
+        "word_count_article": 343,
+        "outbound_internal_links": 32,
+        "inbound_internal_links": 3,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": true,
+        "canonical": "https://boltlab.io/reference/iso-68-thread-profile",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/iso-724-thread-dimensions.html",
+        "category": "reference-concept",
+        "word_count_article": 325,
+        "outbound_internal_links": 33,
+        "inbound_internal_links": 5,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": true,
+        "canonical": "https://boltlab.io/reference/iso-724-thread-dimensions",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/iso-thread-tolerances-explained.html",
+        "category": "reference-concept",
+        "word_count_article": 335,
+        "outbound_internal_links": 35,
+        "inbound_internal_links": 20,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": true,
+        "canonical": "https://boltlab.io/reference/iso-thread-tolerances-explained",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/metric-thread-atlas.html",
+        "category": "reference-concept",
+        "word_count_article": 362,
+        "outbound_internal_links": 33,
+        "inbound_internal_links": 2,
+        "faqpage_schema": false,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/reference/metric-thread-atlas",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": true,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/metric-thread-tolerance-chart.html",
+        "category": "reference-concept",
+        "word_count_article": 524,
+        "outbound_internal_links": 62,
+        "inbound_internal_links": 14,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": true,
+        "canonical": "https://boltlab.io/reference/metric-thread-tolerance-chart",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/pitch-diameter-explained.html",
+        "category": "reference-concept",
+        "word_count_article": 517,
+        "outbound_internal_links": 62,
+        "inbound_internal_links": 19,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": true,
+        "canonical": "https://boltlab.io/reference/pitch-diameter-explained",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/screw-anatomy.html",
+        "category": "reference-concept",
+        "word_count_article": 470,
+        "outbound_internal_links": 38,
+        "inbound_internal_links": 8,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/reference/screw-anatomy",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/screw-drive-types.html",
+        "category": "reference-concept",
+        "word_count_article": 625,
+        "outbound_internal_links": 37,
+        "inbound_internal_links": 11,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/reference/screw-drive-types",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/screw-head-shapes.html",
+        "category": "reference-concept",
+        "word_count_article": 328,
+        "outbound_internal_links": 38,
+        "inbound_internal_links": 6,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/reference/screw-head-shapes",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/screw-head-types.html",
+        "category": "reference-concept",
+        "word_count_article": 532,
+        "outbound_internal_links": 39,
+        "inbound_internal_links": 10,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/reference/screw-head-types",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/self-tapping-vs-self-drilling.html",
+        "category": "reference-concept",
+        "word_count_article": 357,
+        "outbound_internal_links": 32,
+        "inbound_internal_links": 2,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/reference/self-tapping-vs-self-drilling",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/thread-atlas.html",
+        "category": "reference-concept",
+        "word_count_article": 1162,
+        "outbound_internal_links": 105,
+        "inbound_internal_links": 139,
+        "faqpage_schema": false,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/reference/thread-atlas",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": true,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/thread-fit-classes-explained.html",
+        "category": "reference-concept",
+        "word_count_article": 522,
+        "outbound_internal_links": 62,
+        "inbound_internal_links": 17,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": true,
+        "canonical": "https://boltlab.io/reference/thread-fit-classes-explained",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/thread-tolerances.html",
+        "category": "reference-concept",
+        "word_count_article": 524,
+        "outbound_internal_links": 62,
+        "inbound_internal_links": 23,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": true,
+        "canonical": "https://boltlab.io/reference/thread-tolerances",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/thread-types.html",
+        "category": "reference-concept",
+        "word_count_article": 470,
+        "outbound_internal_links": 34,
+        "inbound_internal_links": 79,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": false,
+        "canonical": "https://boltlab.io/reference/thread-types",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      },
+      {
+        "path": "reference/tolerance-zones-explained.html",
+        "category": "reference-concept",
+        "word_count_article": 517,
+        "outbound_internal_links": 62,
+        "inbound_internal_links": 18,
+        "faqpage_schema": true,
+        "breadcrumblist_schema": true,
+        "canonical": "https://boltlab.io/reference/tolerance-zones-explained",
+        "canonical_self_referencing": true,
+        "in_sitemap": true,
+        "last_reviewed_visible": false,
+        "links_to_tapping_domain": false
+      }
+    ]
+  },
+  "q4_corpus_materiality": {
+    "total_public_pages": 173,
+    "indexable_pages": 169,
+    "noindex_pages": 4,
+    "noindex_file_list": [
+      "reference/standards/ansi.html",
+      "reference/standards/british-standards.html",
+      "reference/standards/din.html",
+      "reference/standards/jis.html"
+    ],
+    "sitemap_url_count": 169,
+    "sitemap_indexable_match": true,
+    "residual_tap_drill_pages": 18,
+    "residual_tap_drill_share_of_indexable_pct": 10.65,
+    "six_g_h_pair_share_of_indexable_pct": 1.18,
+    "guide_reference_pages": 36,
+    "guide_reference_share_of_indexable_pct": 21.3,
+    "combined_residual_share_of_indexable_pct": 33.14
+  },
+  "q5_link_mesh": {
+    "link_mesh_to_first_party_assets": {
+      "tapping_atlas": {
+        "path": "/reference/tapping-atlas",
+        "total_inbound_internal_links": 33,
+        "inbound_by_top_level_dir": {
+          "charts": 1,
+          "es": 9,
+          "reference": 3,
+          "sizes": 18,
+          "tools": 2
+        }
+      },
+      "tap_type_guide": {
+        "path": "/reference/tap-type-guide",
+        "total_inbound_internal_links": 4,
+        "inbound_by_top_level_dir": {
+          "reference": 3,
+          "tools": 1
+        }
+      },
+      "tapping_evidence": {
+        "path": "/reference/tapping-evidence",
+        "total_inbound_internal_links": 22,
+        "inbound_by_top_level_dir": {
+          "reference": 3,
+          "sizes": 18,
+          "tools": 1
+        }
+      },
+      "data_methodology": {
+        "path": "/reference/data-methodology",
+        "total_inbound_internal_links": 142,
+        "inbound_by_top_level_dir": {
+          "about": 1,
+          "charts": 9,
+          "contact": 1,
+          "cookies": 1,
+          "disclaimer": 1,
+          "guides": 13,
+          "index.html": 1,
+          "privacy": 1,
+          "reference": 43,
+          "sizes": 60,
+          "terms": 1,
+          "tools": 10
+        }
+      },
+      "tapping_workflow": {
+        "path": "/tools/tapping-workflow",
+        "total_inbound_internal_links": 5,
+        "inbound_by_top_level_dir": {
+          "reference": 3,
+          "tools": 2
+        }
+      },
+      "tap_drill_calculator": {
+        "path": "/tools/tap-drill-calculator",
+        "total_inbound_internal_links": 109,
+        "inbound_by_top_level_dir": {
+          "charts": 1,
+          "es": 1,
+          "guides": 2,
+          "index.html": 1,
+          "reference": 34,
+          "sizes": 60,
+          "tools": 10
+        }
+      }
+    },
+    "homepage_direct_links_to_assets": {
+      "tapping_atlas": false,
+      "tap_type_guide": false,
+      "tapping_evidence": false,
+      "data_methodology": true,
+      "tapping_workflow": false,
+      "tap_drill_calculator": true
+    },
+    "click_depth_from_homepage": {
+      "tapping_atlas": "1 (linked directly from /reference/ hub, which is linked from homepage nav -- 2 clicks via nav; not directly on homepage body)"
+    }
+  },
+  "q6_freshness": {
+    "indexable_pages_with_visible_last_reviewed": 9,
+    "total_pages_with_visible_last_reviewed": 9,
+    "total_indexable_pages": 169,
+    "last_reviewed_file_list": [
+      "cookies/index.html",
+      "disclaimer/index.html",
+      "privacy/index.html",
+      "reference/metric-thread-atlas.html",
+      "reference/standards/asme.html",
+      "reference/tapping-atlas.html",
+      "reference/thread-atlas.html",
+      "terms/index.html",
+      "tools/tapping-workflow.html"
+    ],
+    "sitemap_lastmod_distribution": {
+      "2026-04-09": 69,
+      "2026-03-27": 19,
+      "2026-04-04": 2,
+      "2026-08-11": 5,
+      "2026-03-28": 2,
+      "2026-08-16": 2,
+      "2026-04-15": 35,
+      "2026-07-12": 32,
+      "2026-08-15": 2,
+      "2026-08-10": 1
+    },
+    "strengthened_pages_checked": 49,
+    "strengthened_pages_with_stale_sitemap_lastmod": 49,
+    "strengthened_pages_detail": [
+      {
+        "path": "sizes/m3-bolt-size.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m4-bolt-size.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m5-bolt-size.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m6-bolt-size.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m7-bolt-size.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m8-bolt-size.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m9-bolt-size.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m10-bolt-size.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m11-bolt-size.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m12-bolt-size.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m13-bolt-size.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m14-bolt-size.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m15-bolt-size.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m16-bolt-size.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m17-bolt-size.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m18-bolt-size.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m19-bolt-size.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m20-bolt-size.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m3-tap-drill.html",
+        "sitemap_lastmod": "2026-04-15",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m4-tap-drill.html",
+        "sitemap_lastmod": "2026-04-15",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m5-tap-drill.html",
+        "sitemap_lastmod": "2026-04-15",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m6-tap-drill.html",
+        "sitemap_lastmod": "2026-04-15",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m8-tap-drill.html",
+        "sitemap_lastmod": "2026-04-15",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m10-tap-drill.html",
+        "sitemap_lastmod": "2026-04-15",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m12-tap-drill.html",
+        "sitemap_lastmod": "2026-04-15",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m16-tap-drill.html",
+        "sitemap_lastmod": "2026-04-15",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "sizes/m20-tap-drill.html",
+        "sitemap_lastmod": "2026-04-15",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "es/sizes/perno-m3.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "es/sizes/perno-m4.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "es/sizes/perno-m5.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "es/sizes/perno-m6.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "es/sizes/perno-m7.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "es/sizes/perno-m8.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "es/sizes/perno-m9.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "es/sizes/perno-m10.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "es/sizes/perno-m11.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "es/sizes/perno-m12.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "es/sizes/perno-m13.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "es/sizes/perno-m14.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "es/sizes/perno-m15.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "es/sizes/perno-m16.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "es/sizes/perno-m17.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "es/sizes/perno-m18.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "es/sizes/perno-m19.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "es/sizes/perno-m20.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "charts/tap-drill-chart.html",
+        "sitemap_lastmod": "2026-04-04",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "charts/screw-size-chart.html",
+        "sitemap_lastmod": "2026-04-04",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "tools/fastener-weight-calculator.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      },
+      {
+        "path": "tools/drill-bit-converter.html",
+        "sitemap_lastmod": "2026-04-09",
+        "git_last_commit_date": "2026-09-10",
+        "metadata_reflects_recent_edit": false
+      }
+    ]
+  },
+  "q8_advertising": {
+    "ads_txt_present": true,
+    "ads_txt_content": "google.com, pub-3974004697476579, DIRECT, f08c47fec0942fa0",
+    "robots_txt_content": "User-agent: *\nAllow: /\n\nSitemap: https://boltlab.io/sitemap.xml",
+    "adsbygoogle_script_hits": 0,
+    "googlesyndication_hits": 0,
+    "data_ad_client_hits": 0,
+    "sponsored_label_pages": 122,
+    "ad_container_pages": 152,
+    "conclusion": "no active ad-network script found"
+  },
+  "q9_regression": {
+    "dangling_links_to_retired_t28_urls": [],
+    "internal_hrefs_checked": 6043,
+    "broken_internal_links_found": 0,
+    "broken_internal_links_sample": []
+  }
+}
