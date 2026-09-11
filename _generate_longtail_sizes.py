@@ -9,6 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 SIZES = ROOT / "sizes"
+ES_SIZES = ROOT / "es" / "sizes"
 LASTMOD = "2026-04-15"
 
 # Coarse pitch (mm), fine pitch (mm or None), tap drill coarse (mm), clearance medium (mm), hex (mm str), closest UNC/imperial label
@@ -32,6 +33,30 @@ SPECS: dict[int, dict] = {
     19: {"coarse": 2.5, "fine": 2.0, "tap": 16.5, "clear": 21.0, "hex": "30", "inch": "3/4-10 (approx.)"},
     20: {"coarse": 2.5, "fine": 1.5, "tap": 17.5, "clear": 22.0, "hex": "30", "inch": "3/4-10"},
 }
+
+# (T28) Metric diameters that have a real, verified per-record entry in BoltLab's tapping
+# knowledge layer (data/datasets/metric_tapping.seed.json -- confirmed by reading that file
+# directly: designations M3x0.5, M4x0.7, M5x0.8, M6x1, M8x1.25/M8x1.0, M10x1.5/M10x1.25,
+# M12x1.75/M12x1.25, M16x2.0/M16x1.5, M20x2.5/M20x2.0). Cross-links to the Tapping Atlas are only
+# added for these diameters -- linking to the Atlas for a size it does not cover (e.g. M7, M9,
+# M11, M13-M15, M17-M19) would be an inaccurate claim. See docs/T28-SIZE-CLUSTER-REMEDIATION.md.
+ATLAS_SIZES = {3, 4, 5, 6, 8, 10, 12, 16, 20}
+
+# (T28) T26 found sizes/mN-clearance-hole.html, mN-thread-pitch.html, and mN-to-inch.html to be
+# digit-normalized identical to their siblings across all 18 sizes (similarity ratio 1.0) and to
+# carry zero information not already present in the corresponding mN-bolt-size.html hub page's own
+# spec table (thread-pitch/to-inch) or trivially foldable into it (clearance-hole's one distinct
+# datum). These three families are therefore CONSOLIDATED into the bolt-size hub rather than
+# regenerated as standalone pages -- see retire_consolidated_pages()/migrate_bolt_size_hub() below
+# and docs/T28-SIZE-CLUSTER-REMEDIATION.md.
+CONSOLIDATED_SUFFIXES = ("clearance-hole", "thread-pitch", "to-inch")
+
+# (T28) T26 found sizes/m18-vs-m20.html and sizes/m20-vs-m18.html to be a reciprocal duplicate
+# pair -- vs_partner(20) == 18 while vs_partner(18) == 20, so both directions were generated,
+# each self-canonicalizing. m18-vs-m20 is kept as the canonical page (lower diameter first, the
+# convention every other pair in this range already follows); m20-vs-m18 is retired with a
+# redirect instead of being regenerated.
+VS_DUPLICATE_REDIRECT_ONLY = {20}
 
 
 def vs_partner(n: int) -> int:
@@ -576,6 +601,22 @@ def page_shell2(
 # Re-define generators to use page_shell2 and fix internal_block extraction of n
 
 
+# (T28) DISCOVERED, NOT FIXED: page_shell2()/HEADER/FOOTER/internal_block() are stale relative to
+# the current, correct, already-committed mN-tap-drill.html / mN-vs-mB.html output (missing
+# Standards/Data Methodology/Thread Atlas nav+footer links, missing Cookie Notice/Terms/Disclaimer
+# footer links, ".html"-suffixed canonical/hreflang/lang-switch/internal-block URLs where the site
+# convention is extensionless, and no visible <h2>FAQ</h2> body section -- FAQ is head-JSON-LD only
+# in this template). Calling write_all() for real would silently regress all 18 tap-drill pages and
+# all 17 remaining vs-comparison pages back to this stale template -- confirmed by a dry run against
+# a scratch copy of the repository, not by inspection alone. This is the exact same class of defect
+# T27 found and fixed as an unavoidable dependency in generate-standards-pages.js, but here NONE of
+# T28's required changes actually depend on running this function: the Atlas cross-link is added by
+# migrate_tap_drill_atlas_notes() below via a targeted, marker-guarded patch to the already-correct
+# committed files, so write_all() is intentionally left uncalled in __main__. Not fixing the
+# template here (which would touch 35 pages, all outside T28's authorized scope) and not deleting
+# this function (per the brief's instruction not to delete a generator merely because it looks
+# stale). Recommend a dedicated future phase, mirroring T27's ISO/build_sitemap.py findings. See
+# docs/T28-SIZE-CLUSTER-REMEDIATION.md.
 def write_all() -> None:
     for n in range(3, 21):
         s = SPECS[n]
@@ -586,6 +627,17 @@ def write_all() -> None:
             f"What tap drill for M{n} coarse?",
             f"For M{n} × {c} mm coarse, a {t} mm pilot is the common ISO workshop value; verify with your tap maker for exact thread percentage.",
         )
+        # (T28) Genuine, size-specific differentiation: for the 9 diameters BoltLab's tapping
+        # knowledge layer actually covers, name the real verification apparatus (per-record
+        # verified/source-bound status, cited standard) instead of leaving every page's only
+        # sourcing language as the generic "common ISO workshop tables" phrase T26 flagged.
+        atlas_note = ""
+        if n in ATLAS_SIZES:
+            atlas_note = f"""
+      <section class="card">
+        <h2>Verified in BoltLab's Tapping Atlas</h2>
+        <p>M{n} coarse is one of the thread sizes in BoltLab's cross-verified <a href="/reference/tapping-atlas">Tapping Atlas</a>, which records this tap-drill value's verification status (verified or source-bound) and its cited standard, rather than a single unqualified number. Search "M{n}" there for the full record, or trace its source on the <a href="/reference/tapping-evidence">Tapping Evidence &amp; Provenance</a> page.</p>
+      </section>"""
         body_td = f"""      <p class="muted">Workshop practice often uses major diameter minus pitch; your tap packaging may specify a slightly different pilot for thread percentage.</p>
       <section class="card">
         <h2>M{n} tap drill reference</h2>
@@ -603,7 +655,7 @@ def write_all() -> None:
       <section class="card">
         <h2>Shop workflow</h2>
         <p>Drill the pilot, chamfer the hole, then tap with cutting fluid and aligned squareness. Re-measure pitch with a gauge if the part is safety-critical.</p>
-      </section>"""
+      </section>{atlas_note}"""
         (SIZES / f"m{n}-tap-drill.html").write_text(
             page_shell2(
                 f"M{n} Tap Drill Size (mm chart + calculator)",
@@ -623,101 +675,25 @@ def write_all() -> None:
             ),
             encoding="utf-8",
         )
-        # clearance
-        cl = s["clear"]
-        fq2 = faq_page(
-            f"What clearance hole for M{n}?",
-            f"A common medium clearance is near {cl} mm for M{n} bolts; confirm with your drawing tolerance block.",
-        )
-        body_cl = f"""      <p class="muted">These values target common machine-design slip fits; verify against ISO 273 or your assembly drawing tolerance class.</p>
-      <section class="card">
-        <h2>M{n} clearance hole</h2>
-        <div class="chart-table-wrapper">
-          <table>
-            <thead><tr><th scope="col">Fit intent</th><th scope="col">Clearance diameter</th></tr></thead>
-            <tbody>
-              <tr><td>Nominal bolt</td><td>M{n}</td></tr>
-              <tr><td>Medium slip (typical)</td><td>{cl} mm</td></tr>
-              <tr><td>Notes</td><td>Deburr; add positional tolerance for stacked plates.</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-      <section class="card">
-        <h2>When clearance changes</h2>
-        <p>Paint thickness, thermal growth, or sleeve bushings can require opening holes slightly; never shrink below tap-drill sizes on threaded bosses.</p>
-      </section>"""
-        (SIZES / f"m{n}-clearance-hole.html").write_text(
-            page_shell2(
-                f"M{n} Clearance Hole Size (standard chart)",
-                clamp_meta(
-                    f"M{n} clearance hole about {cl}mm suits medium-fit through holes for shank clearance. Compare with the hub chart before you burnish plates."
-                ),
-                f"https://boltlab.io/sizes/m{n}-clearance-hole",
-                f"/sizes/m{n}-clearance-hole.html",
-                f"M{n} clearance hole size (medium fit)",
-                f"M{n} clearance",
-                f"A practical medium clearance hole for an M{n} shank is about {cl} mm for slip fit in sheet and plate layouts.",
-                "Tight or close fits use smaller pilots; oversized holes add play and lower bearing on the bolt shoulder.",
-                "Compare the hub bolt size chart, then open screw size conversion if you must align metric holes with inch hardware bins.",
-                body_cl,
-                fq2,
-                n,
-            ),
-            encoding="utf-8",
-        )
-        # pitch
-        fv = f"{s['fine']} mm" if s["fine"] else "see supplier"
-        fq3 = faq_page(
-            f"What is M{n} coarse pitch?",
-            f"M{n} coarse pitch is {c} mm in common ISO listings; fine variants differ by class and supplier.",
-        )
-        body_pt = f"""      <p class="muted">Pitch is axial distance per thread in millimeters for metric; always match tap, gauge, and nut class to the same series.</p>
-      <section class="card">
-        <h2>M{n} pitch table</h2>
-        <div class="chart-table-wrapper">
-          <table>
-            <thead><tr><th scope="col">Series</th><th scope="col">Pitch</th></tr></thead>
-            <tbody>
-              <tr><td>ISO coarse (common)</td><td>{c} mm</td></tr>
-              <tr><td>Fine (typical when shown)</td><td>{fv}</td></tr>
-              <tr><td>Tap drill (coarse)</td><td>{t} mm</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-      <section class="card">
-        <h2>Design note</h2>
-        <p>Fine threads allow finer adjustment and more threads in a blind hole; coarse threads strip less easily in softer materials when engagement length is short.</p>
-      </section>"""
-        (SIZES / f"m{n}-thread-pitch.html").write_text(
-            page_shell2(
-                f"M{n} Thread Pitch Chart (coarse vs fine)",
-                clamp_meta(
-                    f"M{n} coarse pitch is {c}mm; fine is often {fv}. Use the pitch converter and hub chart before you retap an existing hole."
-                ),
-                f"https://boltlab.io/sizes/m{n}-thread-pitch",
-                f"/sizes/m{n}-thread-pitch.html",
-                f"M{n} thread pitch (coarse vs fine)",
-                f"M{n} pitch",
-                f"M{n} ISO coarse pitch is {c} mm; fine-series pitches are commonly near {fv} when listed on drawings.",
-                "Mixing coarse and fine on the same nominal diameter yields different tap drills and gauge results.",
-                "Use the thread pitch chart tool on BoltLab, then the thread identifier if field threads look worn or double-started.",
-                body_pt,
-                fq3,
-                n,
-            ),
-            encoding="utf-8",
-        )
+        # (T28) clearance-hole and thread-pitch satellite pages removed: T26 found both families to
+        # be digit-normalized identical to siblings (similarity 1.0) and to carry zero information not
+        # already present in mN-bolt-size.html's own spec table (thread-pitch) or trivially foldable
+        # into it (clearance-hole's one distinct datum -- now added by migrate_bolt_size_hub() below).
+        # See docs/T28-SIZE-CLUSTER-REMEDIATION.md.
         # vs
         b = vs_partner(n)
         sa, sb = SPECS[n], SPECS[b]
         fname = f"m{n}-vs-m{b}.html"
-        fq4 = faq_page(
-            f"When pick M{n} instead of M{b}?",
-            f"M{n} fits lighter gauges and smaller bosses; M{b} adds strength and larger drive tools—match to joint loads and wrench access.",
-        )
-        body_vs = f"""      <p class="muted">Choose the smaller fastener when sheet thickness and head height are tight; upsize when joint slip or fatigue margins demand more clamp area.</p>
+        # (T28) m18-vs-m20/m20-vs-m18 is a reciprocal duplicate pair (vs_partner(20) == 18 while
+        # vs_partner(18) == 20). m18-vs-m20 is kept as canonical (lower diameter first, matching every
+        # other pair); m20-vs-m18 is retired with a redirect instead of regenerated here. See
+        # VS_DUPLICATE_REDIRECT_ONLY and docs/T28-SIZE-CLUSTER-REMEDIATION.md.
+        if n not in VS_DUPLICATE_REDIRECT_ONLY:
+            fq4 = faq_page(
+                f"When pick M{n} instead of M{b}?",
+                f"M{n} fits lighter gauges and smaller bosses; M{b} adds strength and larger drive tools—match to joint loads and wrench access.",
+            )
+            body_vs = f"""      <p class="muted">Choose the smaller fastener when sheet thickness and head height are tight; upsize when joint slip or fatigue margins demand more clamp area.</p>
       <section class="card">
         <h2>Side-by-side</h2>
         <div class="chart-table-wrapper">
@@ -735,71 +711,37 @@ def write_all() -> None:
         <h2>Load and tooling</h2>
         <p>Larger diameters increase tensile area roughly with d² trend; wrench fit and head height also jump, so check tool clearance before you change series.</p>
       </section>"""
-        (SIZES / fname).write_text(
-            page_shell2(
-                f"M{n} vs M{b} Bolt Size (full comparison)",
-                clamp_meta(
-                    f"M{n} uses {n}mm major diameter; M{b} uses {b}mm with stronger shank and larger hex. Use the hub charts and conversion tool to pick stock."
+            (SIZES / fname).write_text(
+                page_shell2(
+                    f"M{n} vs M{b} Bolt Size (full comparison)",
+                    clamp_meta(
+                        f"M{n} uses {n}mm major diameter; M{b} uses {b}mm with stronger shank and larger hex. Use the hub charts and conversion tool to pick stock."
+                    ),
+                    f"https://boltlab.io/sizes/{fname}",
+                    f"/sizes/{fname}",
+                    f"M{n} vs M{b} bolt size comparison",
+                    f"M{n} vs M{b}",
+                    f"M{n} runs a {n} mm major diameter with {sa['coarse']} mm coarse pitch, while M{b} steps to {b} mm and {sb['coarse']} mm coarse pitch.",
+                    f"Hex grows from {sa['hex']} mm to {sb['hex']} mm keys, and tap drills move from {sa['tap']} mm to {sb['tap']} mm pilots for coarse threads.",
+                    "Open each bolt size chart hub, then run screw size conversion when you must match mixed metric bins to inch racks.",
+                    body_vs,
+                    fq4,
+                    n,
                 ),
-                f"https://boltlab.io/sizes/{fname}",
-                f"/sizes/{fname}",
-                f"M{n} vs M{b} bolt size comparison",
-                f"M{n} vs M{b}",
-                f"M{n} runs a {n} mm major diameter with {sa['coarse']} mm coarse pitch, while M{b} steps to {b} mm and {sb['coarse']} mm coarse pitch.",
-                f"Hex grows from {sa['hex']} mm to {sb['hex']} mm keys, and tap drills move from {sa['tap']} mm to {sb['tap']} mm pilots for coarse threads.",
-                "Open each bolt size chart hub, then run screw size conversion when you must match mixed metric bins to inch racks.",
-                body_vs,
-                fq4,
-                n,
-            ),
-            encoding="utf-8",
-        )
-        # inch
-        inch = s["inch"]
-        fq5 = faq_page(
-            f"What inch bolt is closest to M{n}?",
-            f"Many shops stock {inch} as a rough counterpart to M{n}; always verify pitch and class before interchange.",
-        )
-        body_in = f"""      <p class="muted">Use this page when you are translating BOM lines or field repairs between metric bins and imperial assortments.</p>
-      <section class="card">
-        <h2>M{n} inch reference</h2>
-        <div class="chart-table-wrapper">
-          <table>
-            <thead><tr><th scope="col">Field</th><th scope="col">Value</th></tr></thead>
-            <tbody>
-              <tr><td>Metric nominal</td><td>M{n}</td></tr>
-              <tr><td>Coarse pitch</td><td>{c} mm</td></tr>
-              <tr><td>Common inch counterpart (rough)</td><td>{inch}</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-      <section class="card">
-        <h2>Verification</h2>
-        <p>Measure major diameter and pitch, then compare against the thread pitch chart tool output when a drawing lists TPI instead of millimeters.</p>
-      </section>"""
-        (SIZES / f"m{n}-to-inch.html").write_text(
-            page_shell2(
-                f"M{n} to Inch Conversion (chart + tool)",
-                clamp_meta(
-                    f"M{n} maps closest to {inch} in many North American racks. Use screw size conversion, then verify pitch with the thread identifier."
-                ),
-                f"https://boltlab.io/sizes/m{n}-to-inch",
-                f"/sizes/m{n}-to-inch.html",
-                f"M{n} to inch bolt conversion",
-                f"M{n} to inch",
-                f"M{n} metric major diameter {n} mm often pairs in shops with closest inch stock near {inch} for rough hardware swaps.",
-                "Threads are not drop-in identical: pitch in millimeters differs from UNC TPI even when diameters look close on calipers.",
-                "Run screw size conversion on BoltLab, then read metric vs unc thread notes before you retap mixed-material joints.",
-                body_in,
-                fq5,
-                n,
-            ),
-            encoding="utf-8",
-        )
+                encoding="utf-8",
+            )
+        # (T28) to-inch satellite pages removed: T26 found this family carries zero information not
+        # already present in mN-bolt-size.html's own spec table ("Closest imperial equivalent" row).
+        # See docs/T28-SIZE-CLUSTER-REMEDIATION.md.
 
 
 HUB_NEEDLE = '      <section class="card">\n        <h2>How to choose the right bolt size</h2>'
+# (T28) Legacy marker/template retained as historical no-op guard for patch_hubs() below -- every
+# committed mN-bolt-size.html already carries this exact heading text (patch_hubs() ran once,
+# pre-T28), so this template is never actually formatted or inserted again. The real T28 hub
+# changes (clearance-hole spec row, Atlas cross-link, trimmed link list) are made by
+# migrate_bolt_size_hub() further down, which uses its own markers so it can run against
+# already-patched files. See docs/T28-SIZE-CLUSTER-REMEDIATION.md.
 HUB_BLOCK_TMPL = """      <section class="card">
         <h2>M{n} specifications and tools</h2>
         <ul class="meta-list">
@@ -828,7 +770,146 @@ def patch_hubs() -> None:
         p.write_text(html, encoding="utf-8")
 
 
+# (T28) Marker used by migrate_bolt_size_hub() to make its spec-table edit idempotent.
+CLEARANCE_ROW_MARKER = "Clearance hole (medium fit)"
+ATLAS_HUB_MARKER = "Verified in BoltLab's Tapping Atlas"
+
+
+def migrate_bolt_size_hub() -> None:
+    """(T28) Strengthen each mN-bolt-size.html hub in place: fold the one genuinely distinct
+    clearance-hole datum into the existing Specifications table, trim the "specifications and
+    tools" link list from 5 items down to the 2 that still point at real standalone pages
+    (tap-drill, vs-comparison -- clearance-hole/thread-pitch/to-inch no longer exist as separate
+    URLs), and add an honest Tapping Atlas cross-link for the 9 diameters BoltLab's tapping
+    knowledge layer actually covers. Idempotent via CLEARANCE_ROW_MARKER/ATLAS_HUB_MARKER/the
+    trimmed-list shape itself, so safe to re-run. See docs/T28-SIZE-CLUSTER-REMEDIATION.md."""
+    for n in range(3, 21):
+        p = SIZES / f"m{n}-bolt-size.html"
+        html = p.read_text(encoding="utf-8")
+        s = SPECS[n]
+        b = vs_partner(n)
+
+        if CLEARANCE_ROW_MARKER not in html:
+            old_row = "<tr><td>Closest imperial equivalent</td><td>" + s["inch"] + "</td></tr>"
+            if old_row not in html:
+                raise SystemExit(f"Missing imperial-equivalent row in {p}")
+            new_row = old_row + f'\n              <tr><td>{CLEARANCE_ROW_MARKER}</td><td>{s["clear"]} mm</td></tr>'
+            html = html.replace(old_row, new_row, 1)
+
+        old_list = (
+            f'      <section class="card">\n'
+            f'        <h2>M{n} specifications and tools</h2>\n'
+            f'        <ul class="meta-list">\n'
+            f'          <li><a href="/sizes/m{n}-tap-drill">M{n} tap drill size</a></li>\n'
+            f'          <li><a href="/sizes/m{n}-clearance-hole">M{n} clearance hole</a></li>\n'
+            f'          <li><a href="/sizes/m{n}-thread-pitch">M{n} thread pitch</a></li>\n'
+            f'          <li><a href="/sizes/m{n}-vs-m{b}">M{n} vs M{b} comparison</a></li>\n'
+            f'          <li><a href="/sizes/m{n}-to-inch">M{n} to inch conversion</a></li>\n'
+            f'        </ul>\n'
+            f'      </section>'
+        )
+        if old_list in html:
+            # (T28) m20's own vs-comparison page was retired as a reciprocal duplicate of
+            # m18-vs-m20 (see VS_DUPLICATE_REDIRECT_ONLY) -- its hub must link to the surviving
+            # canonical URL, not the deleted m20-vs-m18.
+            vs_url = f"/sizes/m{b}-vs-m{n}" if n in VS_DUPLICATE_REDIRECT_ONLY else f"/sizes/m{n}-vs-m{b}"
+            new_list = (
+                f'      <section class="card">\n'
+                f'        <h2>M{n} specifications and tools</h2>\n'
+                f'        <ul class="meta-list">\n'
+                f'          <li><a href="/sizes/m{n}-tap-drill">M{n} tap drill size</a></li>\n'
+                f'          <li><a href="{vs_url}">M{n} vs M{b} comparison</a></li>\n'
+                f'        </ul>\n'
+                f'      </section>'
+            )
+            html = html.replace(old_list, new_list, 1)
+
+        if n in ATLAS_SIZES and ATLAS_HUB_MARKER not in html:
+            atlas_block = (
+                f'\n      <section class="card">\n'
+                f"        <h2>{ATLAS_HUB_MARKER}</h2>\n"
+                f'        <p>M{n} coarse is one of the thread sizes in BoltLab\'s cross-verified <a href="/reference/tapping-atlas">Tapping Atlas</a>, which records this size\'s tap-drill verification status (verified or source-bound) and its cited standard. Search "M{n}" there for the full record, or trace its source on the <a href="/reference/tapping-evidence">Tapping Evidence &amp; Provenance</a> page.</p>\n'
+                f"      </section>"
+            )
+            if HUB_NEEDLE not in html:
+                raise SystemExit(f"Missing hub needle in {p}")
+            html = html.replace(HUB_NEEDLE, atlas_block + "\n" + HUB_NEEDLE, 1)
+
+        p.write_text(html, encoding="utf-8")
+
+
+def migrate_tap_drill_atlas_notes() -> None:
+    """(T28) Add the honest, source-grounded Tapping Atlas cross-link to the 9 already-committed
+    mN-tap-drill.html pages whose diameter BoltLab's tapping knowledge layer actually covers, via a
+    targeted marker-guarded text patch -- NOT via write_all() (see the warning comment on write_all()
+    above for why a full regeneration is unsafe here). Idempotent via ATLAS_HUB_MARKER.
+    See docs/T28-SIZE-CLUSTER-REMEDIATION.md."""
+    for n in ATLAS_SIZES:
+        p = SIZES / f"m{n}-tap-drill.html"
+        html = p.read_text(encoding="utf-8")
+        if ATLAS_HUB_MARKER in html:
+            continue
+        needle = f'      <section class="card">\n        <h2>M{n} links and tools</h2>'
+        if needle not in html:
+            raise SystemExit(f"Missing 'links and tools' needle in {p}")
+        atlas_block = (
+            f'      <section class="card">\n'
+            f"        <h2>{ATLAS_HUB_MARKER}</h2>\n"
+            f'        <p>M{n} coarse is one of the thread sizes in BoltLab\'s cross-verified <a href="/reference/tapping-atlas">Tapping Atlas</a>, which records this tap-drill value\'s verification status (verified or source-bound) and its cited standard, rather than a single unqualified number. Search "M{n}" there for the full record, or trace its source on the <a href="/reference/tapping-evidence">Tapping Evidence &amp; Provenance</a> page.</p>\n'
+            f"      </section>\n"
+        )
+        html = html.replace(needle, atlas_block + needle, 1)
+        p.write_text(html, encoding="utf-8")
+
+
+def retire_consolidated_pages() -> list[str]:
+    """(T28) Delete on-disk pages for the consolidated families (clearance-hole, thread-pitch,
+    to-inch, all 18 sizes) and the m20-vs-m18 reciprocal-duplicate page. Idempotent: skips any
+    file already gone. See docs/T28-SIZE-CLUSTER-REMEDIATION.md."""
+    removed = []
+    for n in range(3, 21):
+        for suffix in CONSOLIDATED_SUFFIXES:
+            p = SIZES / f"m{n}-{suffix}.html"
+            if p.exists():
+                p.unlink()
+                removed.append(p.name)
+    dup = SIZES / "m20-vs-m18.html"
+    if dup.exists():
+        dup.unlink()
+        removed.append(dup.name)
+    return removed
+
+
+def _retired_size_slugs() -> set[str]:
+    slugs = {f"m{n}-{suffix}" for n in range(3, 21) for suffix in CONSOLIDATED_SUFFIXES}
+    slugs.add("m20-vs-m18")
+    return slugs
+
+
+def clean_sitemap() -> None:
+    """(T28) Authoritative removal of sitemap <url> blocks for retired/consolidated/duplicate size
+    pages. Unlike patch_sitemap() (below, legacy/append-only), this only removes; it is safe to
+    run against the current committed sitemap.xml (which already uses extensionless URLs) and is
+    idempotent -- re-running it when the entries are already gone is a no-op."""
+    sm = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+    retired = _retired_size_slugs()
+    block_re = re.compile(r"  <url>\n    <loc>https://boltlab\.io/sizes/([a-z0-9\-]+)</loc>\n(?:    <[a-z]+>.*</[a-z]+>\n)*  </url>\n")
+
+    def strip(match: re.Match) -> str:
+        return "" if match.group(1) in retired else match.group(0)
+
+    sm, count = block_re.subn(strip, sm)
+    (ROOT / "sitemap.xml").write_text(sm, encoding="utf-8")
+
+
 def patch_sitemap() -> None:
+    # (T28) Legacy append-only patcher, retained as a historical no-op guard: the committed
+    # sitemap.xml already contains extensionless mN-tap-drill/mN-vs-mB URLs (added by an earlier,
+    # separate process -- see T27's documented sitemap-generator drift), so this function's own
+    # ".html"-suffixed marker check never matches and it never re-appends anything. The real T28
+    # sitemap change is clean_sitemap() above. Left unmodified/unremoved rather than deleted,
+    # consistent with the brief's instruction not to delete a generator merely because it looks
+    # stale -- this one is simply superseded for the (now removed) families it used to add.
     sm = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
     if "m3-tap-drill.html" in sm:
         return
@@ -854,6 +935,81 @@ def patch_sitemap() -> None:
     (ROOT / "sitemap.xml").write_text(sm, encoding="utf-8")
 
 
+ES_CLEARANCE_ROW_MARKER = "Diámetro de agujero de holgura"
+ES_ATLAS_MARKER = "Verificado en el Tapping Atlas de BoltLab"
+
+
+def es_num(x: float) -> str:
+    return str(x).replace(".", ",")
+
+
+def migrate_es_size_hub() -> None:
+    """(T28) Fold the one genuinely distinct clearance-hole datum into each perno-mN.html's own
+    spec table (mirroring migrate_bolt_size_hub() for the English hub) and add the same honest
+    Tapping Atlas cross-link for the 9 diameters BoltLab's tapping knowledge layer covers. This is
+    a strengthen-in-place edit to an already-existing, already-correct Spanish page -- not a new
+    Spanish content family, not a broad Spanish expansion, and not machine translation of a new
+    technical claim (the clearance value is the same verified SPECS entry already used on the
+    English hub; the Atlas cross-link is explicitly marked hreflang="en" since no Spanish Atlas
+    page exists). See docs/T28-SIZE-CLUSTER-REMEDIATION.md."""
+    row_re = re.compile(r"(<tr><td>Equivalente imperial m[aá]s cercano</td><td>[^<]*</td></tr>)")
+    for n in range(3, 21):
+        p = ES_SIZES / f"perno-m{n}.html"
+        if not p.exists():
+            continue
+        html = p.read_text(encoding="utf-8")
+        s = SPECS[n]
+
+        if ES_CLEARANCE_ROW_MARKER not in html:
+            def add_row(m: "re.Match[str]", n=n, s=s) -> str:
+                return m.group(1) + (
+                    f'\n              <tr><td>{ES_CLEARANCE_ROW_MARKER} (ajuste medio)</td>'
+                    f'<td>{es_num(s["clear"])} mm</td></tr>'
+                )
+
+            html, count = row_re.subn(add_row, html, count=1)
+            if count != 1:
+                raise SystemExit(f"Missing imperial-equivalent row in {p}")
+
+        if n in ATLAS_SIZES and ES_ATLAS_MARKER not in html:
+            needle = '      <section class="card">\n        <h2>También te puede interesar</h2>'
+            if needle not in html:
+                raise SystemExit(f"Missing 'también te puede interesar' needle in {p}")
+            atlas_block = (
+                f'      <section class="card">\n'
+                f"        <h2>{ES_ATLAS_MARKER}</h2>\n"
+                f'        <p>M{n} de paso grueso es una de las medidas incluidas en el '
+                f'<a href="/reference/tapping-atlas" hreflang="en">Tapping Atlas</a> de BoltLab '
+                f"(en inglés), que registra el estado de verificación de esta broca para roscar "
+                f'(verificado o con fuente documentada) y la norma citada. Busque "M{n}" allí '
+                f"para ver el registro completo.</p>\n"
+                f"      </section>\n\n"
+            )
+            html = html.replace(needle, atlas_block + needle, 1)
+
+        p.write_text(html, encoding="utf-8")
+
+
+def write_redirects() -> None:
+    """(T28) Append 301 redirects for retired/consolidated size pages so any inbound link or
+    bookmark lands on the page that now holds the information instead of a 404. Idempotent via a
+    marker comment -- the block is appended only once. See docs/T28-SIZE-CLUSTER-REMEDIATION.md."""
+    marker = "# T28: retired /sizes/ satellite pages -> consolidated bolt-size hub"
+    path = ROOT / "_redirects"
+    text = path.read_text(encoding="utf-8")
+    if marker in text:
+        return
+    lines = [marker]
+    for n in range(3, 21):
+        for suffix in CONSOLIDATED_SUFFIXES:
+            lines.append(f"/sizes/m{n}-{suffix} /sizes/m{n}-bolt-size 301")
+    lines.append("/sizes/m20-vs-m18 /sizes/m18-vs-m20 301")
+    if not text.endswith("\n"):
+        text += "\n"
+    text += "\n".join(lines) + "\n"
+    path.write_text(text, encoding="utf-8")
+
+
 def validate() -> None:
     titles = []
     for p in sorted(SIZES.glob("m*-*.html")):
@@ -868,10 +1024,49 @@ def validate() -> None:
     dup = [x for x in set(titles) if titles.count(x) > 1]
     assert not dup, dup
 
+    # (T28) new invariants for the consolidated/retired families.
+    for n in range(3, 21):
+        for suffix in CONSOLIDATED_SUFFIXES:
+            assert not (SIZES / f"m{n}-{suffix}.html").exists(), f"m{n}-{suffix}.html should be retired"
+    assert not (SIZES / "m20-vs-m18.html").exists(), "m20-vs-m18.html should be retired (duplicate of m18-vs-m20)"
+    for n in range(3, 21):
+        hub = (SIZES / f"m{n}-bolt-size.html").read_text(encoding="utf-8")
+        assert CLEARANCE_ROW_MARKER in hub, f"m{n}-bolt-size.html missing folded-in clearance row"
+        assert f"m{n}-clearance-hole" not in hub, f"m{n}-bolt-size.html still links to retired m{n}-clearance-hole"
+        assert f"m{n}-thread-pitch" not in hub, f"m{n}-bolt-size.html still links to retired m{n}-thread-pitch"
+        assert f"m{n}-to-inch" not in hub, f"m{n}-bolt-size.html still links to retired m{n}-to-inch"
+        assert 'href="/sizes/m20-vs-m18"' not in hub, f"m{n}-bolt-size.html still links to retired m20-vs-m18"
+        assert (ATLAS_HUB_MARKER in hub) == (n in ATLAS_SIZES), f"m{n}-bolt-size.html Atlas note presence disagrees with ATLAS_SIZES"
+        td = (SIZES / f"m{n}-tap-drill.html").read_text(encoding="utf-8")
+        assert (ATLAS_HUB_MARKER in td) == (n in ATLAS_SIZES), f"m{n}-tap-drill.html Atlas note presence disagrees with ATLAS_SIZES"
+    sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+    for slug in _retired_size_slugs():
+        assert f">https://boltlab.io/sizes/{slug}<" not in sitemap, f"sitemap.xml still lists retired {slug}"
+    redirects = (ROOT / "_redirects").read_text(encoding="utf-8")
+    for n in range(3, 21):
+        for suffix in CONSOLIDATED_SUFFIXES:
+            assert f"/sizes/m{n}-{suffix} /sizes/m{n}-bolt-size 301" in redirects, f"missing redirect for m{n}-{suffix}"
+    assert "/sizes/m20-vs-m18 /sizes/m18-vs-m20 301" in redirects, "missing m20-vs-m18 -> m18-vs-m20 redirect"
+
+    for n in range(3, 21):
+        p = ES_SIZES / f"perno-m{n}.html"
+        if not p.exists():
+            continue
+        html = p.read_text(encoding="utf-8")
+        assert ES_CLEARANCE_ROW_MARKER in html, f"{p} missing folded-in clearance row"
+        assert (ES_ATLAS_MARKER in html) == (n in ATLAS_SIZES), f"{p} Atlas note presence disagrees with ATLAS_SIZES"
+
 
 if __name__ == "__main__":
-    write_all()
-    patch_hubs()
-    patch_sitemap()
+    # (T28) write_all() and patch_hubs() are intentionally NOT called here -- see the warning
+    # comment on write_all() above. Every T28 change is applied as a targeted, idempotent,
+    # marker-guarded patch to the already-correct committed files instead, so nothing outside the
+    # size cluster's authorized change set is touched.
+    retire_consolidated_pages()
+    migrate_tap_drill_atlas_notes()
+    migrate_bolt_size_hub()
+    migrate_es_size_hub()
+    clean_sitemap()
+    write_redirects()
     validate()
-    print("OK: 90 pages, hubs, sitemap, validated")
+    print("OK: T28 size-cluster consolidation applied, hubs migrated, sitemap/redirects updated, validated")
