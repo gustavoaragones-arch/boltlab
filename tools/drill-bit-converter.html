@@ -57,6 +57,15 @@
 
         <div id="drill-result" class="result" aria-live="polite"></div>
       </section>
+
+      <section class="card">
+        <h2>How this converter works</h2>
+        <p>This tool converts a drill bit size between four notation systems: numbered bits (such as #7), lettered bits (A through Z), fractional-inch bits (such as 13/64"), and millimeter sizes. Pick the system your input is written in, enter the size, and the tool looks up that bit's matching diameter in inches and millimeters, along with its number or letter designation where one exists.</p>
+        <p>These four systems appear side by side because drill bit callouts mix number, letter, fractional-inch, and millimeter conventions depending on the chart, catalog, or region a shop is working from. A single index or drawing might specify a bit as "#7", "F", "13/64 in", or "5.1 mm" for the same practical hole size — this converter's reference table holds all four side by side so you can move between whichever system a given source uses.</p>
+        <p>For a number, letter, or fractional-inch input, the converter looks for an exact match in its reference table and reports that bit's known diameter. For a millimeter or decimal-inch value that does not land exactly on a cataloged size, it reports the nearest bit in the table rather than inventing an intermediate size — real bit indexes come in fixed, discrete diameters, so the nearest cataloged size is the practical answer to "what bit is this close to," not a rounding shortcut around a continuous scale. When a converted value is a nearest match rather than an exact one, treat the reported diameter as an approximation of your input, not a restatement of it.</p>
+        <p>A converted diameter tells you what a given callout measures, not whether that bit is the right choice for a specific hole. Pilot-hole selection for tapping and other material- or application-specific sizing depend on more than raw diameter — see <a href="/tools/tap-drill-calculator">tap drill size</a> for pilot-hole guidance and <a href="/reference/thread-types">thread types</a> for how thread pitch and form factor into hole preparation. Use this converter to translate a callout you already have between systems, then confirm the resulting bit is appropriate for the operation before you drill.</p>
+      </section>
+
       <div class="ad-container">
         <div class="ad-label">Sponsored</div>
         <aside class="ad-slot ad-slot--inline" aria-label="Advertisement" data-ad-placeholder="true"></aside>

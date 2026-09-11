@@ -70,6 +70,15 @@
         </form>
         <div id="weight-result" class="result" aria-live="polite"></div>
       </section>
+
+      <section class="card">
+        <h2>How this estimate works</h2>
+        <p>This calculator estimates total fastener weight from four inputs: bolt size, material, length, and quantity. Each supported size-and-material pairing (steel, stainless steel, or aluminum, across M4 through M12) has a reference weight-per-millimeter figure representing an approximate average for that fastener — not a live geometric calculation from measured head or thread dimensions. The tool multiplies that figure by the length you enter to estimate the weight of one fastener, multiplies by quantity for the total, and converts the result to kilograms and pounds.</p>
+        <p>Diameter and material density drive most of the difference between results. A larger shank carries proportionally more material, so weight increases from M4 up through M12 at a given length. Material matters just as much: stainless steel is slightly denser than plain steel, while aluminum is markedly lighter than either, so the same size and length in aluminum can weigh a fraction of its steel equivalent. Length scales the estimate roughly linearly, since more shank length means more material along the same cross-section, and quantity is a simple multiplier for batch totals.</p>
+        <p>The result is an estimate, not a measured mass. Because each size-and-material pairing uses one reference figure, the calculator does not separately account for head shape and volume, thread relief, drive recess, coatings or plating, or other part-specific variation — none of those are inputs to this tool. On short fasteners, large-head styles, or coated parts, the gap between this estimate and a scale reading will typically be larger than on a long, plain fastener where the shank dominates total mass.</p>
+        <p>Treat the output as a planning figure. It is well suited to estimating shipping weight for a kit or order, or comparing the relative weight of a design in steel versus aluminum before you commit to a material. When a shipment or invoice is billed by exact weight, or a design has a hard mass budget, weigh a physical sample of the actual fastener rather than relying on this estimate alone.</p>
+      </section>
+
       <div class="ad-container">
         <div class="ad-label">Sponsored</div>
         <aside class="ad-slot ad-slot--inline" aria-label="Advertisement" data-ad-placeholder="true"></aside>
