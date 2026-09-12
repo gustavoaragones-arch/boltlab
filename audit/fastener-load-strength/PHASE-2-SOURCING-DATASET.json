@@ -1,0 +1,273 @@
+{
+  "phase": "Fastener-Load-Strength-Phase-2",
+  "title": "Sourcing & Dataset Construction",
+  "date": "2026-09-12",
+  "type": "sourcing_and_dataset_construction",
+  "implementation_authorized": false,
+  "public_calculator_authorized": false,
+  "baseline_commit": "825a9522cacdcb8ff9d078f86d78550a60315d2a",
+  "phase_status": "PASS",
+  "source_classification_rules_applied": {
+    "A_primary_standard": ["ISO 898-1", "SAE J429"],
+    "B_authoritative_near_primary_secondary": ["NASA RP-1228", "Shigley's Mechanical Engineering Design"],
+    "B_equivalent_manufacturer_engineering_data": ["Fastenal Engineering Data Sheet Rev 3-6-09", "Southwest Bolt SAE J429 Technical Specifications 2020", "Boltport Fasteners LLP", "Brighton Best International PDS 2025"],
+    "C_secondary_compiler": ["RoyMech.co.uk", "EngineersEdge.com", "Nordic Fastening Group technical page"],
+    "D_tertiary_not_used_as_numeric_authority": ["general web search aggregation", "guides/bolt-strength-grades.html (internal, unsourced)", "js/torque-data.js (internal, unsourced)"]
+  },
+  "source_inventory": [
+    {"source": "ISO 898-1", "class": "A", "directly_read": false, "note": "proprietary/paywalled; free 15-page preview PDF confirmed authenticity, not used for copyrighted tables"},
+    {"source": "SAE J429", "class": "A", "directly_read": false, "note": "proprietary/paywalled"},
+    {"source": "NASA RP-1228 (Barrett 1990)", "class": "B", "directly_read": "partially, via readable secondary transcription (engineeringlibrary.org)"},
+    {"source": "Shigley's Mechanical Engineering Design Ch.8", "class": "B", "directly_read": false, "note": "located, automated text extraction corrupted, not re-attempted with PyMuPDF in Phase 2 since equivalent data was independently obtained elsewhere"},
+    {"source": "Fastenal Engineering Data Sheet Rev 3-6-09", "class": "manufacturer_engineering_data_B_equivalent", "directly_read": true, "method": "PyMuPDF position-aware block extraction after WebFetch text conversion failed"},
+    {"source": "Southwest Bolt SAE J429 Technical Specifications 2020", "class": "manufacturer_engineering_data_B_equivalent", "directly_read": true, "method": "PyMuPDF extraction after WebFetch text conversion failed"},
+    {"source": "Boltport Fasteners LLP SAE J429 page", "class": "manufacturer_engineering_data_B_equivalent", "directly_read": true, "method": "WebFetch, HTML page"},
+    {"source": "Brighton Best International PDS 2025", "class": "manufacturer_engineering_data_B_equivalent", "directly_read": true, "method": "PyMuPDF extraction"},
+    {"source": "Nordic Fastening Group EN ISO 898-1:2013 page", "class": "C", "directly_read": true, "method": "WebFetch, HTML page"},
+    {"source": "RoyMech.co.uk thread calculations page", "class": "C", "directly_read": true, "method": "WebFetch, HTML page"},
+    {"source": "EngineersEdge.com (2 pages: metric formula, inch stress-area table)", "class": "C", "directly_read": true, "method": "WebFetch, HTML page"},
+    {"source": "General web search aggregation", "class": "D", "directly_read": "n/a", "used_as_numeric_authority": false}
+  ],
+  "source_access_results": [
+    {"target": "cdn.standards.iteh.ai ISO 898-1:2013 sample PDF", "result": "fetched, confirmed authentic official preview, not used for copyrighted numeric content"},
+    {"target": "crafter.fastenal.com PDF", "result": "WebFetch text conversion failed; PyMuPDF direct parse succeeded"},
+    {"target": "nfgab.com page", "result": "fetched successfully"},
+    {"target": "southwestbolt.com PDF", "result": "WebFetch text conversion failed; PyMuPDF direct parse succeeded"},
+    {"target": "boltport.com page", "result": "fetched successfully"},
+    {"target": "brightonbest.com PDF", "result": "WebFetch text conversion failed; PyMuPDF direct parse succeeded"},
+    {"target": "engineersedge.com metric formula page", "result": "fetched successfully"},
+    {"target": "engineersedge.com inch stress area page", "result": "fetched successfully"},
+    {"target": "roymech.co.uk page", "result": "fetched successfully"},
+    {"target": "NASA RP-1228 direct PDF", "result": "fetched, automated text extraction corrupted, PyMuPDF not re-attempted (equivalent data obtained via secondary transcription)"},
+    {"target": "engineeringlibrary.org NASA transcription", "result": "fetched successfully"},
+    {"target": "portlandbolt.com, engineeringtoolbox.com x2, boltdepot.com, stsindustrial.com", "result": "HTTP 403 on every attempt, not used"},
+    {"target": "eis.hu.edu.jo Shigley Ch.8 PDF", "result": "fetched, automated text extraction corrupted, not re-attempted"},
+    {"target": "general web search for SAE grade values", "result": "returned mutually inconsistent numbers, explicitly not used"},
+    {"target": "ASME B18.3.1 vs SAE J429 scope search", "result": "sufficient evidence obtained to determine B18.3.1 is a dimensional standard for socket products, not required for v1"}
+  ],
+  "tooling_finding": "WebFetch's built-in PDF-to-text conversion failed on every PDF attempted in both Phase 1 and Phase 2. PyMuPDF (Python 'fitz' library) was found to be available in the execution environment and successfully parsed the same downloaded PDFs with full fidelity via position-aware block extraction, resolving the Phase-1-flagged poppler-utils/pdftoppm tooling gap without needing that system package.",
+  "primary_source_verification_status": {
+    "iso_898_1_directly_read": false,
+    "sae_j429_directly_read": false,
+    "reason": "both remain proprietary/paywalled documents; not bypassed per governance rule",
+    "compensating_evidence": "every value used carries at least one manufacturer/industry-association source citing the governing standard; all Phase-1-minimum-gate classes/grades plus bonus classes/grades were cross-verified against two independently-operated organizations' data sheets with full numeric agreement"
+  },
+  "exact_ready_numeric_records": [
+    {"id": "iso_4_6", "system": "iso_metric", "designation": "4.6", "range": "M5-M39", "proof_strength_mpa": 225, "tensile_strength_mpa": 400, "yield_strength_mpa": null, "status": "verified"},
+    {"id": "iso_8_8_le16", "system": "iso_metric", "designation": "8.8", "range": "M5-M16", "proof_strength_mpa": 580, "tensile_strength_mpa": 800, "yield_strength_mpa": 640, "status": "verified"},
+    {"id": "iso_8_8_gt16", "system": "iso_metric", "designation": "8.8", "range": "M18-M39", "proof_strength_mpa": 600, "tensile_strength_mpa": 830, "yield_strength_mpa": 660, "status": "verified"},
+    {"id": "iso_10_9", "system": "iso_metric", "designation": "10.9", "range": "M5-M39", "proof_strength_mpa": 830, "tensile_strength_mpa": 1040, "yield_strength_mpa": 940, "status": "verified"},
+    {"id": "iso_12_9", "system": "iso_metric", "designation": "12.9", "range": "M1.6-M39", "proof_strength_mpa": 970, "tensile_strength_mpa": 1220, "yield_strength_mpa": 1100, "status": "verified"},
+    {"id": "sae_grade_1", "system": "sae", "designation": "Grade 1", "range": "1/4in-1.5in", "proof_strength_psi": 33000, "tensile_strength_psi": 60000, "yield_strength_psi": 36000, "status": "verified"},
+    {"id": "sae_grade_2_le34", "system": "sae", "designation": "Grade 2", "range": "1/4in-3/4in", "proof_strength_psi": 55000, "tensile_strength_psi": 74000, "yield_strength_psi": 57000, "status": "verified"},
+    {"id": "sae_grade_2_gt34", "system": "sae", "designation": "Grade 2", "range": "over 3/4in-1.5in", "proof_strength_psi": 33000, "tensile_strength_psi": 60000, "yield_strength_psi": "pending_verification (source disagreement)", "status": "proof/tensile verified, yield pending"},
+    {"id": "sae_grade_5_le1", "system": "sae", "designation": "Grade 5", "range": "1/4in-1in", "proof_strength_psi": 85000, "tensile_strength_psi": 120000, "yield_strength_psi": 92000, "status": "verified"},
+    {"id": "sae_grade_5_gt1", "system": "sae", "designation": "Grade 5", "range": "over 1in-1.5in", "proof_strength_psi": 74000, "tensile_strength_psi": 105000, "yield_strength_psi": 81000, "status": "verified"},
+    {"id": "sae_grade_8", "system": "sae", "designation": "Grade 8", "range": "1/4in-1.5in", "proof_strength_psi": 120000, "tensile_strength_psi": 150000, "yield_strength_psi": 130000, "status": "verified"}
+  ],
+  "exact_blocked_records": [
+    {"id": "iso_4_8", "reason": "single-sourced only (Nordic Fastening Group), not cross-verified"},
+    {"id": "iso_5_6", "reason": "single-sourced only, not cross-verified"},
+    {"id": "iso_5_8", "reason": "single-sourced only, not cross-verified"},
+    {"id": "iso_6_8", "reason": "single-sourced only, not cross-verified"},
+    {"id": "iso_9_8_le16", "reason": "single-sourced AND diameter-incomplete (d>16mm range not obtained)"},
+    {"id": "sae_grade_2_gt34.yield_strength (field only, not the whole record)", "reason": "genuine source disagreement between two sources, not silently resolved, left pending_verification"}
+  ],
+  "diameter_range_dependencies": {
+    "iso_8_8": {"dependent": true, "ranges": ["M5-M16", "M18-M39"], "confirmed_by": "both independent sources"},
+    "iso_4_6": {"dependent": false},
+    "iso_10_9": {"dependent": false},
+    "iso_12_9": {"dependent": false},
+    "iso_9_8": {"dependent": true, "ranges_confirmed": ["d<=16mm"], "ranges_missing": ["d>16mm"]},
+    "sae_grade_2": {"dependent": true, "ranges": ["1/4in-3/4in", "over 3/4in-1.5in"], "note": "larger range equals Grade 1 values exactly, a confirmed real SAE J429 pattern"},
+    "sae_grade_5": {"dependent": true, "ranges": ["1/4in-1in", "over 1in-1.5in"]},
+    "sae_grade_1": {"dependent": false},
+    "sae_grade_8": {"dependent": false}
+  },
+  "metric_tensile_area_formula": {
+    "formula": "At = 0.7854 * (D - 0.938194 * P)^2",
+    "variables": {"D": "basic major diameter, mm", "P": "pitch, mm", "At": "tensile stress area, mm^2"},
+    "source_class": "C (EngineersEdge), corroborated by manufacturer data (Fastenal two-step equivalent form) and C (RoyMech, citing ISO 898 Part 1)",
+    "governing_standard_association": "ISO 898-1 (per corroborating sources; not independently confirmed from the standard's own text)",
+    "cross_validation": [
+      {"size": "M8x1.25", "computed_mm2": 36.60, "table_value_mm2": 36.6, "match": true},
+      {"size": "M10x1.5", "computed_mm2": 57.99, "table_value_mm2": 58, "match": true}
+    ],
+    "status": "formula_confirmed_not_implemented_in_any_calculator"
+  },
+  "inch_tensile_area_formula": {
+    "formula": "At = 0.7854 * (D - 0.9743/n)^2",
+    "variables": {"D": "basic major diameter, in", "n": "threads per inch", "At": "tensile stress area, in^2"},
+    "source_class": "C (EngineersEdge), citing ASME/ANSI B1.1",
+    "governing_standard_association": "ASME B1.1 -- already present in BoltLab's data model as entity/standard 'asme_b1_1' (added in T27); no new standard record needed",
+    "cross_validation": [
+      {"size": "1/4-20 UNC", "computed_in2": 0.031822, "table_value_in2": 0.0318, "match": true},
+      {"size": "3/8-16 UNC", "computed_in2": 0.077527, "table_value_in2": 0.0775, "match": true}
+    ],
+    "assumed_equivalent_to_metric_formula_without_verification": false,
+    "status": "formula_confirmed_not_implemented_in_any_calculator"
+  },
+  "safety_factor_decision": {
+    "decision": "No default safety factor. User must supply the factor appropriate to the application.",
+    "sources_checked": ["Shigley's institutional guidance (application-governing-code framing, not a universal number)", "Sandia SAND2008-0371 bolted joint guideline (identified, preload-ratio content found, distinct from external-load safety factor)", "MechaniCalc bolted joint analysis reference page (directly checked, confirmed no stated factor)"],
+    "implemented_in_public_ui": false
+  },
+  "sae_vs_asme_decision": {
+    "decision": "SAE J429 sufficient. ASME B18.3.1 not required for v1.",
+    "evidence": "ASME B18.3(.1) is a dimensional/geometric standard for socket head cap screws, shoulder screws, set screws, and hex keys; not a mechanical-property standard for general bolts/screws/studs. Even socket head cap screw mechanical properties are governed by ASTM A574, not B18.3.1 itself. No scope overlap with SAE J429's general-bolt mechanical-property coverage.",
+    "asme_b18_3_1_standard_record_created": false
+  },
+  "existing_content_reconciliation_decision": [
+    {
+      "file": "guides/bolt-strength-grades.html",
+      "treatment": "B",
+      "treatment_meaning": "re-source/reconcile in a later dedicated content phase",
+      "conflict_found": true,
+      "conflict_detail": "Guide states designation-implied nominal values (800/1000/1200 MPa for 8.8/10.9/12.9); newly-sourced cross-verified dataset gives actual ISO-specified minimums (800 or 830/1040/1220 MPa) and discloses 8.8's diameter-range split, which the guide omits.",
+      "modified_this_phase": false
+    },
+    {
+      "file": "js/torque-data.js",
+      "treatment": "A",
+      "treatment_meaning": "retain unchanged as legacy/reference-context content",
+      "conflict_found": false,
+      "conflict_detail": "No direct numeric conflict established -- torque values are a derived quantity via an undisclosed torque coefficient, not independently recomputed or compared in this phase.",
+      "modified_this_phase": false
+    },
+    {
+      "file": "tools/bolt-torque-calculator.html",
+      "treatment": "A",
+      "treatment_meaning": "retain unchanged, same reasoning as its data file",
+      "conflict_found": false,
+      "modified_this_phase": false
+    }
+  ],
+  "entity_graph_findings": {
+    "existing_relevant_entities_found": ["pitch_diameter", "major_diameter", "minor_diameter", "thread_pitch"],
+    "existing_entity_types_enum": ["thread_geometry", "fit_class", "thread_system", "tolerance_concept", "standard_concept", "tap_type", "hole_preparation", "tapping_operation"],
+    "new_entity_created": [{"id": "tensile_stress_area", "entity_type": "thread_geometry", "status": "draft", "schema_change_required": false}],
+    "entities_blocked_schema_incompatibility": [
+      {"id": "fastener_property_class", "reason": "no fitting entity_type enum value exists"},
+      {"id": "proof_strength", "reason": "no fitting entity_type enum value exists"},
+      {"id": "ultimate_tensile_strength", "reason": "no fitting entity_type enum value exists"}
+    ],
+    "entities_correctly_not_created_no_precedent": [
+      {"id": "bolt_load_capacity_calculator", "reason": "zero existing tool-page entities exist anywhere in the graph"},
+      {"id": "design_load", "reason": "zero generic calculation-concept entities exist (e.g. no 'torque' entity despite a live torque calculator)"},
+      {"id": "safety_factor", "reason": "same as design_load"}
+    ],
+    "new_relationships_created": [
+      "rel_tensile_stress_area_derived_from_pitch_diameter",
+      "rel_tensile_stress_area_derived_from_minor_diameter",
+      "rel_tensile_stress_area_defined_by_iso_898_1",
+      "rel_tensile_stress_area_defined_by_asme_b1_1"
+    ],
+    "schema_incompatibility_reported_not_resolved": true,
+    "recommended_future_action": "Director decision on an additive, backward-compatible entity_type enum extension (e.g. adding 'mechanical_property' and 'mechanical_property_class'), mirroring the additive-field precedent already used in dataset.schema.json/standard.schema.json ('Optional, additive field (v0.2.0+)')."
+  },
+  "dataset_files_created": [
+    "data/datasets/fastener_property_classes.seed.json"
+  ],
+  "standard_files_created_or_modified": [
+    {"file": "data/standards/iso/standards.seed.json", "action": "modified (added iso_898_1 record)"},
+    {"file": "data/standards/sae/standards.seed.json", "action": "created (new directory, first SAE standard record: sae_j429)"}
+  ],
+  "entity_relationship_files_modified": [
+    "data/entities/entities.seed.json (added tensile_stress_area)",
+    "data/relationships/relationships.seed.json (added 4 relationships)"
+  ],
+  "validators_created": [
+    "scripts/validators/validate-fastener-strength.js"
+  ],
+  "validation_results": {
+    "validate-fastener-strength.js": "18/18 checks passed",
+    "existing_9_validator_regression_suite": {
+      "validate-knowledge-engine.js": "pass, 0 errors, 0 warnings (after fixing a dangling-entity-reference regression caught by this same run -- see notes)",
+      "validate-projections.js": "pass",
+      "validate-tapping-domain.js": "pass, 0 errors, 5 warnings (baseline-identical)",
+      "validate-tapping-projections.js": "pass, 0 errors, 0 warnings",
+      "validate-tapping-atlas.js": "pass, 0 errors, 0 warnings",
+      "validate-tap-type-guide.js": "pass, 0 errors, 0 warnings",
+      "validate-tapping-workflow.js": "pass, 0 errors, 0 warnings",
+      "validate-tapping-evidence.js": "pass, 0 errors, 0 warnings",
+      "validate-tapping-terminology.js": "pass, 0 errors, 1 warning (baseline-identical)"
+    },
+    "regression_notes": "An initial draft of the new iso_898_1/sae_j429 standard records referenced three not-yet-created entities (fastener_property_class, proof_strength, ultimate_tensile_strength) in their related_entities arrays, which validate-knowledge-engine.js correctly caught as a Reference Integrity failure (6 errors). Fixed by trimming related_entities to only the entity that actually exists (tensile_stress_area) before proceeding. Re-run confirmed 0 errors. This is disclosed as a self-caught-and-fixed issue during this phase's own work, not a residual defect.",
+    "dataset_schema_validation": "PASS (jsonschema library, Python)",
+    "standard_schema_validation": "PASS for both iso_898_1 and sae_j429",
+    "entity_schema_validation": "PASS for tensile_stress_area",
+    "relationship_schema_validation": "PASS for all 4 new relationships",
+    "no_dangling_references": true,
+    "git_diff_check": "clean (exit 0)"
+  },
+  "cross_verification_results": [
+    {"group": "ISO 4.6, 8.8x2, 10.9, 12.9", "source_a": "Fastenal", "source_b": "Nordic Fastening Group", "agreement": "full", "resolution": "marked verified"},
+    {"group": "ISO 4.8, 5.6, 5.8, 6.8, 9.8", "source_a": "Nordic Fastening Group", "source_b": null, "agreement": "n/a, single source", "resolution": "marked source_bound"},
+    {"group": "SAE Grade 1, 2(le34), 5x2, 8", "source_a": "Southwest Bolt", "source_b": "Boltport", "agreement": "full", "resolution": "marked verified"},
+    {"group": "SAE Grade 2 gt34 proof/tensile", "source_a": "Southwest Bolt", "source_b": "Boltport", "agreement": "full", "resolution": "marked verified"},
+    {"group": "SAE Grade 2 gt34 yield", "source_a": "Southwest Bolt (36000, internally consistent)", "source_b": "Boltport (57000 'both ranges', internally inconsistent)", "agreement": "disagreement", "resolution": "NOT silently resolved, left pending_verification"},
+    {"group": "metric tensile area formula", "source_a": "EngineersEdge formula", "source_b": "Fastenal table + RoyMech formula", "agreement": "full, numerically cross-validated", "resolution": "confirmed"},
+    {"group": "inch tensile area formula", "source_a": "search-aggregated formula citing ASME B1.1", "source_b": "EngineersEdge table citing ASME/ANSI B1.1", "agreement": "full, numerically cross-validated", "resolution": "confirmed"}
+  ],
+  "conflicts_unresolved_questions": [
+    "SAE Grade 2 (over-3/4in) yield strength -- source disagreement, left pending_verification",
+    "guides/bolt-strength-grades.html numeric discrepancy vs new dataset -- reconciliation deferred to a future content phase",
+    "ISO 898-1 edition currency (2013 cited by secondary sources, not independently reconfirmed as still current)",
+    "entity_type enum gap blocking 3 planned entities -- reported, not resolved",
+    "js/torque-data.js relationship to new dataset -- not established either way",
+    "ISO 9.8 d>16mm range -- genuinely missing, not merely uncertain"
+  ],
+  "phase_3_prerequisites": [
+    "Director decision on entity_type enum extension",
+    "Director decision on guides/bolt-strength-grades.html reconciliation",
+    "Optional: second source for ISO 4.8/5.6/5.8/6.8/9.8 and missing ISO 9.8 d>16mm range",
+    "Optional: third-source tie-breaker for disputed SAE Grade 2 yield-strength cell",
+    "Actual calculator page/JS/content pages remain unauthorized and unbuilt; a future phase should re-confirm the eligible verified/source_bound set before building against it"
+  ],
+  "explicit_non_actions": [
+    "did not create or publish tools/bolt-load-capacity-calculator.html or any calculator JavaScript",
+    "did not create reference/fastener-property-classes.html, reference/tensile-stress-area.html, guides/bolt-load-capacity-basics.html, or any M8/M10/M12 high-intent page",
+    "did not modify guides/bolt-strength-grades.html, js/torque-data.js, or tools/bolt-torque-calculator.html",
+    "did not modify any existing tapping dataset, generator, or validator",
+    "did not modify data/schemas/*.schema.json (reported the one incompatibility found, did not patch it)",
+    "did not create an ASME B18.3.1 standard record",
+    "did not create fastener_property_class, proof_strength, ultimate_tensile_strength, bolt_load_capacity_calculator, design_load, or safety_factor entities",
+    "did not implement a default safety factor anywhere",
+    "did not add advertising, FAQPage schema, or any other new JSON-LD",
+    "did not commit, push, or deploy anything"
+  ],
+  "changed_file_list": {
+    "modified": [
+      "data/entities/entities.seed.json",
+      "data/relationships/relationships.seed.json",
+      "data/standards/iso/standards.seed.json"
+    ],
+    "created": [
+      "data/datasets/fastener_property_classes.seed.json",
+      "data/standards/sae/standards.seed.json",
+      "scripts/validators/validate-fastener-strength.js",
+      "audit/fastener-load-strength/PHASE-2-SOURCING-DATASET.md",
+      "audit/fastener-load-strength/PHASE-2-SOURCING-DATASET.json"
+    ]
+  },
+  "governance": {
+    "production_html_modified": 0,
+    "production_js_modified": 0,
+    "production_css_modified": 0,
+    "existing_tapping_datasets_modified": 0,
+    "existing_tapping_generators_modified": 0,
+    "existing_tapping_validators_modified": 0,
+    "sitemap_modified": false,
+    "robots_txt_modified": false,
+    "ads_txt_modified": false,
+    "canonical_hreflang_modified": false,
+    "navigation_modified": false,
+    "legal_pages_modified": false,
+    "advertising_activated": false,
+    "public_calculator_created": false,
+    "public_content_created": false,
+    "committed": false,
+    "pushed": false,
+    "deployed": false
+  }
+}

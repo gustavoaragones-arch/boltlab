@@ -1,0 +1,382 @@
+{
+  "dataset_id": "fastener_property_classes",
+  "id": "fastener_property_classes",
+  "title": "Fastener Mechanical Property Class Seed Dataset",
+  "schema_version": "v1",
+  "verified": false,
+  "status": "source_bound",
+  "verification_method": "Cross-checked against two independent manufacturer/industry-association engineering data sources per record where noted; ISO/SAE primary standard text itself was not directly read (paywalled/proprietary) -- see per-record provenance for exact sourcing and residual verification gaps. UI eligibility rule: a record's presence in this dataset does not by itself make it eligible for the eventual public calculator -- only fields carrying status 'verified' or 'source_bound' (never 'pending_verification' or 'unavailable') may be exposed; see audit/fastener-load-strength/PHASE-2-SOURCING-DATASET.md for the exact ready/blocked list per record.",
+  "primary_sources": [
+    "ISO 898-1 (mechanical properties of fasteners made of carbon steel and alloy steel -- Part 1: Bolts, screws and studs with specified property classes), cited by all corroborating sources below; standard text itself not directly read in this phase",
+    "SAE J429 (Mechanical and Material Requirements for Externally Threaded Fasteners), cited by all corroborating sources below; standard text itself not directly read in this phase",
+    "Fastenal Engineering Data Sheet, 'Mechanical Properties Per ISO 898-1 (Externally Threaded Fasteners)', Rev 3-6-09 -- directly read and quoted",
+    "Nordic Fastening Group technical reference page, 'Mechanical properties, screws and studs EN ISO 898-1:2013' -- directly read and quoted",
+    "Southwest Bolt, 'SAE J429 Technical Specifications' data sheet (2020) -- directly read and quoted",
+    "Boltport Fasteners LLP, SAE J429 specification page -- directly read and quoted"
+  ],
+  "last_reviewed": "2026-09-12",
+  "license_notes": "No copyrighted standards text (ISO 898-1 or SAE J429 itself) is reproduced. All numeric values are interpreted engineering reference values transcribed from freely-published manufacturer/industry-association engineering data sheets that themselves cite the governing standard, consistent with BoltLab's existing standards-citation practice (see data/standards/*/standards.seed.json).",
+  "units": {
+    "diameter": "mm or in, per system",
+    "proof_strength": "MPa or psi, per system",
+    "tensile_strength": "MPa or psi, per system",
+    "yield_strength": "MPa or psi, per system"
+  },
+  "precision": {
+    "proof_strength": 1,
+    "tensile_strength": 1,
+    "yield_strength": 1
+  },
+  "source_standards": [
+    "iso_898_1",
+    "sae_j429"
+  ],
+  "version": "v0.1.0",
+  "created": "2026-09-12",
+  "updated": "2026-09-12",
+  "records": [
+    {
+      "id": "iso_4_6",
+      "system": "iso_metric",
+      "designation": "4.6",
+      "applicable_diameter_range": "M5 - M39",
+      "material_note": "Low or medium carbon steel",
+      "proof_strength": { "value": 225, "unit": "MPa", "status": "verified" },
+      "tensile_strength": { "value": 400, "unit": "MPa", "status": "verified" },
+      "yield_strength": { "value": null, "unit": "MPa", "status": "unavailable", "note": "Not given as a distinct field by either corroborating source; ISO 898-1 property class 4.6 is typically expressed via proof stress and Rm only in the sources checked." },
+      "source_standard_id": "iso_898_1",
+      "provenance": {
+        "source_a": { "name": "Fastenal Engineering Data Sheet, Rev 3-6-09", "source_class": "manufacturer_engineering_data", "values": { "proof_strength_mpa": 225, "tensile_strength_mpa": 400 } },
+        "source_b": { "name": "Nordic Fastening Group, EN ISO 898-1:2013 technical page", "source_class": "industry_association_secondary_compiler", "values": { "proof_strength_mpa": 225, "tensile_strength_mpa": 400 } },
+        "agreement": "full agreement, both values",
+        "resolution_method": "cross-verified, no conflict",
+        "verified_date": "2026-09-12"
+      },
+      "diameter_dependent": false,
+      "confidence": "verified",
+      "notes": "Cross-verified against two independent sources with full agreement on both proof strength and minimum tensile strength."
+    },
+    {
+      "id": "iso_8_8_le16",
+      "system": "iso_metric",
+      "designation": "8.8",
+      "applicable_diameter_range": "M5 - M16",
+      "material_note": "Medium carbon steel, quenched & tempered",
+      "proof_strength": { "value": 580, "unit": "MPa", "status": "verified" },
+      "tensile_strength": { "value": 800, "unit": "MPa", "status": "verified" },
+      "yield_strength": { "value": 640, "unit": "MPa", "status": "verified" },
+      "source_standard_id": "iso_898_1",
+      "provenance": {
+        "source_a": { "name": "Fastenal Engineering Data Sheet, Rev 3-6-09", "source_class": "manufacturer_engineering_data", "values": { "proof_strength_mpa": 580, "tensile_strength_mpa": 800, "yield_strength_mpa": 640 } },
+        "source_b": { "name": "Nordic Fastening Group, EN ISO 898-1:2013 technical page", "source_class": "industry_association_secondary_compiler", "values": { "proof_strength_mpa": 580, "tensile_strength_mpa": 800, "yield_strength_mpa": 640 } },
+        "agreement": "full agreement, all three values",
+        "resolution_method": "cross-verified, no conflict",
+        "verified_date": "2026-09-12"
+      },
+      "diameter_dependent": true,
+      "diameter_dependency_note": "Class 8.8 has two diameter ranges with different minimum values -- see iso_8_8_gt16 for M18-M39.",
+      "confidence": "verified",
+      "notes": "Cross-verified against two independent sources with full agreement on all three values."
+    },
+    {
+      "id": "iso_8_8_gt16",
+      "system": "iso_metric",
+      "designation": "8.8",
+      "applicable_diameter_range": "M18 - M39",
+      "material_note": "Medium carbon steel, quenched & tempered",
+      "proof_strength": { "value": 600, "unit": "MPa", "status": "verified" },
+      "tensile_strength": { "value": 830, "unit": "MPa", "status": "verified" },
+      "yield_strength": { "value": 660, "unit": "MPa", "status": "verified" },
+      "source_standard_id": "iso_898_1",
+      "provenance": {
+        "source_a": { "name": "Fastenal Engineering Data Sheet, Rev 3-6-09", "source_class": "manufacturer_engineering_data", "values": { "proof_strength_mpa": 600, "tensile_strength_mpa": 830, "yield_strength_mpa": 660 } },
+        "source_b": { "name": "Nordic Fastening Group, EN ISO 898-1:2013 technical page", "source_class": "industry_association_secondary_compiler", "values": { "proof_strength_mpa": 600, "tensile_strength_mpa": 830, "yield_strength_mpa": 660 } },
+        "agreement": "full agreement, all three values",
+        "resolution_method": "cross-verified, no conflict",
+        "verified_date": "2026-09-12"
+      },
+      "diameter_dependent": true,
+      "diameter_dependency_note": "Class 8.8 has two diameter ranges with different minimum values -- see iso_8_8_le16 for M5-M16.",
+      "confidence": "verified",
+      "notes": "Cross-verified against two independent sources with full agreement on all three values."
+    },
+    {
+      "id": "iso_10_9",
+      "system": "iso_metric",
+      "designation": "10.9",
+      "applicable_diameter_range": "M5 - M39",
+      "material_note": "Alloy steel, quenched & tempered",
+      "proof_strength": { "value": 830, "unit": "MPa", "status": "verified" },
+      "tensile_strength": { "value": 1040, "unit": "MPa", "status": "verified" },
+      "yield_strength": { "value": 940, "unit": "MPa", "status": "verified" },
+      "source_standard_id": "iso_898_1",
+      "provenance": {
+        "source_a": { "name": "Fastenal Engineering Data Sheet, Rev 3-6-09", "source_class": "manufacturer_engineering_data", "values": { "proof_strength_mpa": 830, "tensile_strength_mpa": 1040, "yield_strength_mpa": 940 } },
+        "source_b": { "name": "Nordic Fastening Group, EN ISO 898-1:2013 technical page", "source_class": "industry_association_secondary_compiler", "values": { "proof_strength_mpa": 830, "tensile_strength_mpa": 1040, "yield_strength_mpa": 940 } },
+        "agreement": "full agreement, all three values",
+        "resolution_method": "cross-verified, no conflict",
+        "verified_date": "2026-09-12"
+      },
+      "diameter_dependent": false,
+      "confidence": "verified",
+      "notes": "Cross-verified against two independent sources with full agreement on all three values. Neither corroborating source showed a diameter split for 10.9 (unlike 8.8)."
+    },
+    {
+      "id": "iso_12_9",
+      "system": "iso_metric",
+      "designation": "12.9",
+      "applicable_diameter_range": "M1.6 - M39",
+      "material_note": "Alloy steel, quenched & tempered",
+      "proof_strength": { "value": 970, "unit": "MPa", "status": "verified" },
+      "tensile_strength": { "value": 1220, "unit": "MPa", "status": "verified" },
+      "yield_strength": { "value": 1100, "unit": "MPa", "status": "verified" },
+      "source_standard_id": "iso_898_1",
+      "provenance": {
+        "source_a": { "name": "Fastenal Engineering Data Sheet, Rev 3-6-09", "source_class": "manufacturer_engineering_data", "values": { "proof_strength_mpa": 970, "tensile_strength_mpa": 1220, "yield_strength_mpa": 1100 } },
+        "source_b": { "name": "Nordic Fastening Group, EN ISO 898-1:2013 technical page", "source_class": "industry_association_secondary_compiler", "values": { "proof_strength_mpa": 970, "tensile_strength_mpa": 1220, "yield_strength_mpa": 1100 } },
+        "agreement": "full agreement, all three values",
+        "resolution_method": "cross-verified, no conflict",
+        "verified_date": "2026-09-12"
+      },
+      "diameter_dependent": false,
+      "confidence": "verified",
+      "notes": "Cross-verified against two independent sources with full agreement on all three values."
+    },
+    {
+      "id": "iso_4_8",
+      "system": "iso_metric",
+      "designation": "4.8",
+      "applicable_diameter_range": "not confirmed",
+      "material_note": null,
+      "proof_strength": { "value": 310, "unit": "MPa", "status": "source_bound" },
+      "tensile_strength": { "value": 420, "unit": "MPa", "status": "source_bound" },
+      "yield_strength": { "value": null, "unit": "MPa", "status": "unavailable" },
+      "source_standard_id": "iso_898_1",
+      "provenance": {
+        "source_a": { "name": "Nordic Fastening Group, EN ISO 898-1:2013 technical page", "source_class": "industry_association_secondary_compiler", "values": { "proof_strength_mpa": 310, "tensile_strength_mpa": 420 } },
+        "source_b": null,
+        "agreement": "single source only, not yet cross-verified",
+        "resolution_method": "not applicable -- no second source obtained in this phase",
+        "verified_date": "2026-09-12"
+      },
+      "diameter_dependent": "unconfirmed",
+      "confidence": "source_bound",
+      "notes": "Single-sourced only. NOT recommended for v1 UI exposure without a second independent cross-check."
+    },
+    {
+      "id": "iso_5_6",
+      "system": "iso_metric",
+      "designation": "5.6",
+      "applicable_diameter_range": "not confirmed",
+      "material_note": null,
+      "proof_strength": { "value": 280, "unit": "MPa", "status": "source_bound" },
+      "tensile_strength": { "value": 500, "unit": "MPa", "status": "source_bound" },
+      "yield_strength": { "value": null, "unit": "MPa", "status": "unavailable" },
+      "source_standard_id": "iso_898_1",
+      "provenance": {
+        "source_a": { "name": "Nordic Fastening Group, EN ISO 898-1:2013 technical page", "source_class": "industry_association_secondary_compiler", "values": { "proof_strength_mpa": 280, "tensile_strength_mpa": 500 } },
+        "source_b": null,
+        "agreement": "single source only, not yet cross-verified",
+        "resolution_method": "not applicable -- no second source obtained in this phase",
+        "verified_date": "2026-09-12"
+      },
+      "diameter_dependent": "unconfirmed",
+      "confidence": "source_bound",
+      "notes": "Single-sourced only. NOT recommended for v1 UI exposure without a second independent cross-check."
+    },
+    {
+      "id": "iso_5_8",
+      "system": "iso_metric",
+      "designation": "5.8",
+      "applicable_diameter_range": "not confirmed",
+      "material_note": null,
+      "proof_strength": { "value": 380, "unit": "MPa", "status": "source_bound" },
+      "tensile_strength": { "value": 520, "unit": "MPa", "status": "source_bound" },
+      "yield_strength": { "value": null, "unit": "MPa", "status": "unavailable" },
+      "source_standard_id": "iso_898_1",
+      "provenance": {
+        "source_a": { "name": "Nordic Fastening Group, EN ISO 898-1:2013 technical page", "source_class": "industry_association_secondary_compiler", "values": { "proof_strength_mpa": 380, "tensile_strength_mpa": 520 } },
+        "source_b": null,
+        "agreement": "single source only, not yet cross-verified",
+        "resolution_method": "not applicable -- no second source obtained in this phase",
+        "verified_date": "2026-09-12"
+      },
+      "diameter_dependent": "unconfirmed",
+      "confidence": "source_bound",
+      "notes": "Single-sourced only. NOT recommended for v1 UI exposure without a second independent cross-check."
+    },
+    {
+      "id": "iso_6_8",
+      "system": "iso_metric",
+      "designation": "6.8",
+      "applicable_diameter_range": "not confirmed",
+      "material_note": null,
+      "proof_strength": { "value": 440, "unit": "MPa", "status": "source_bound" },
+      "tensile_strength": { "value": 600, "unit": "MPa", "status": "source_bound" },
+      "yield_strength": { "value": null, "unit": "MPa", "status": "unavailable" },
+      "source_standard_id": "iso_898_1",
+      "provenance": {
+        "source_a": { "name": "Nordic Fastening Group, EN ISO 898-1:2013 technical page", "source_class": "industry_association_secondary_compiler", "values": { "proof_strength_mpa": 440, "tensile_strength_mpa": 600 } },
+        "source_b": null,
+        "agreement": "single source only, not yet cross-verified",
+        "resolution_method": "not applicable -- no second source obtained in this phase",
+        "verified_date": "2026-09-12"
+      },
+      "diameter_dependent": "unconfirmed",
+      "confidence": "source_bound",
+      "notes": "Single-sourced only. NOT recommended for v1 UI exposure without a second independent cross-check."
+    },
+    {
+      "id": "iso_9_8_le16",
+      "system": "iso_metric",
+      "designation": "9.8",
+      "applicable_diameter_range": "d <= 16mm (exact size-designation breakpoint not confirmed)",
+      "material_note": null,
+      "proof_strength": { "value": 650, "unit": "MPa", "status": "source_bound" },
+      "tensile_strength": { "value": 900, "unit": "MPa", "status": "source_bound" },
+      "yield_strength": { "value": 720, "unit": "MPa", "status": "source_bound" },
+      "source_standard_id": "iso_898_1",
+      "provenance": {
+        "source_a": { "name": "Nordic Fastening Group, EN ISO 898-1:2013 technical page", "source_class": "industry_association_secondary_compiler", "values": { "proof_strength_mpa": 650, "tensile_strength_mpa": 900, "yield_strength_mpa": 720 } },
+        "source_b": null,
+        "agreement": "single source only, not yet cross-verified",
+        "resolution_method": "not applicable -- no second source obtained in this phase",
+        "verified_date": "2026-09-12"
+      },
+      "diameter_dependent": true,
+      "diameter_dependency_note": "Source snippet only showed the d<=16mm range; the d>16mm range values were NOT captured in this phase and must be obtained before this class is considered complete.",
+      "confidence": "source_bound",
+      "notes": "Single-sourced, AND incomplete (missing the d>16mm range). NOT recommended for v1 UI exposure."
+    },
+    {
+      "id": "sae_grade_1",
+      "system": "sae",
+      "designation": "Grade 1",
+      "applicable_diameter_range": "1/4 in - 1-1/2 in",
+      "material_note": "Low or medium carbon steel",
+      "proof_strength": { "value": 33000, "unit": "psi", "status": "verified" },
+      "tensile_strength": { "value": 60000, "unit": "psi", "status": "verified" },
+      "yield_strength": { "value": 36000, "unit": "psi", "status": "source_bound" },
+      "source_standard_id": "sae_j429",
+      "provenance": {
+        "source_a": { "name": "Southwest Bolt, SAE J429 Technical Specifications (2020)", "source_class": "manufacturer_engineering_data", "values": { "proof_strength_psi": 33000, "tensile_strength_psi": 60000, "yield_strength_psi": 36000 } },
+        "source_b": { "name": "Boltport Fasteners LLP, SAE J429 specification page", "source_class": "manufacturer_engineering_data", "values": { "proof_strength_psi": 33000, "tensile_strength_psi": 60000, "yield_strength_psi": 36000 } },
+        "agreement": "full agreement, all three values",
+        "resolution_method": "cross-verified, no conflict",
+        "verified_date": "2026-09-12"
+      },
+      "diameter_dependent": false,
+      "confidence": "verified",
+      "notes": "Cross-verified against two independent manufacturer sources with full agreement."
+    },
+    {
+      "id": "sae_grade_2_le34",
+      "system": "sae",
+      "designation": "Grade 2",
+      "applicable_diameter_range": "1/4 in - 3/4 in",
+      "material_note": "Low or medium carbon steel",
+      "proof_strength": { "value": 55000, "unit": "psi", "status": "verified" },
+      "tensile_strength": { "value": 74000, "unit": "psi", "status": "verified" },
+      "yield_strength": { "value": 57000, "unit": "psi", "status": "source_bound" },
+      "source_standard_id": "sae_j429",
+      "provenance": {
+        "source_a": { "name": "Southwest Bolt, SAE J429 Technical Specifications (2020)", "source_class": "manufacturer_engineering_data", "values": { "proof_strength_psi": 55000, "tensile_strength_psi": 74000, "yield_strength_psi": 57000 } },
+        "source_b": { "name": "Boltport Fasteners LLP, SAE J429 specification page", "source_class": "manufacturer_engineering_data", "values": { "proof_strength_psi": 55000, "tensile_strength_psi": 74000, "yield_strength_psi": 57000 } },
+        "agreement": "full agreement, all three values",
+        "resolution_method": "cross-verified, no conflict",
+        "verified_date": "2026-09-12"
+      },
+      "diameter_dependent": true,
+      "diameter_dependency_note": "Grade 2 has two diameter ranges -- see sae_grade_2_gt34 for over 3/4in - 1-1/2in, which drops to Grade 1 levels.",
+      "confidence": "verified",
+      "notes": "Cross-verified against two independent manufacturer sources with full agreement on all three values."
+    },
+    {
+      "id": "sae_grade_2_gt34",
+      "system": "sae",
+      "designation": "Grade 2",
+      "applicable_diameter_range": "over 3/4 in - 1-1/2 in",
+      "material_note": "Low or medium carbon steel",
+      "proof_strength": { "value": 33000, "unit": "psi", "status": "verified" },
+      "tensile_strength": { "value": 60000, "unit": "psi", "status": "verified" },
+      "yield_strength": { "value": 36000, "unit": "psi", "status": "pending_verification" },
+      "source_standard_id": "sae_j429",
+      "provenance": {
+        "source_a": { "name": "Southwest Bolt, SAE J429 Technical Specifications (2020)", "source_class": "manufacturer_engineering_data", "values": { "proof_strength_psi": 33000, "tensile_strength_psi": 60000, "yield_strength_psi": 36000 } },
+        "source_b": { "name": "Boltport Fasteners LLP, SAE J429 specification page", "source_class": "manufacturer_engineering_data", "values": { "proof_strength_psi": 33000, "tensile_strength_psi": 60000, "yield_strength_psi": "ambiguous -- source page's own summary stated 57000 psi '(both ranges)', which is inconsistent with this range's proof/tensile values dropping to Grade-1 levels; treated as an unreliable read of that source for this specific cell, not a genuine second-source value" } },
+        "agreement": "full agreement on proof_strength and tensile_strength; yield_strength NOT independently cross-verified due to an ambiguous/likely-erroneous reading on source_b for this specific cell",
+        "resolution_method": "proof_strength and tensile_strength cross-verified and consistent with this range mirroring Grade 1's values exactly (internal-consistency check passed: 33000/60000/36000 for Grade 2 over-3/4in exactly equals Grade 1's values, which is a documented, expected SAE J429 pattern). yield_strength left at pending_verification pending a clean third-source read; NOT silently resolved.",
+        "verified_date": "2026-09-12"
+      },
+      "diameter_dependent": true,
+      "diameter_dependency_note": "This range's requirements equal SAE Grade 1's requirements exactly -- an expected, documented SAE J429 pattern, not a data error.",
+      "confidence": "source_bound",
+      "notes": "proof_strength/tensile_strength verified (cross-checked, internally consistent with Grade 1 equivalence). yield_strength intentionally left pending_verification due to a source disagreement -- see provenance.agreement. Recommend v1 calculator use proof_strength/tensile_strength only (per Phase 1 architecture, yield is not a primary calculator output) so this does not block this range's use."
+    },
+    {
+      "id": "sae_grade_5_le1",
+      "system": "sae",
+      "designation": "Grade 5",
+      "applicable_diameter_range": "1/4 in - 1 in",
+      "material_note": "Medium carbon steel, quenched & tempered",
+      "proof_strength": { "value": 85000, "unit": "psi", "status": "verified" },
+      "tensile_strength": { "value": 120000, "unit": "psi", "status": "verified" },
+      "yield_strength": { "value": 92000, "unit": "psi", "status": "verified" },
+      "source_standard_id": "sae_j429",
+      "provenance": {
+        "source_a": { "name": "Southwest Bolt, SAE J429 Technical Specifications (2020)", "source_class": "manufacturer_engineering_data", "values": { "proof_strength_psi": 85000, "tensile_strength_psi": 120000, "yield_strength_psi": 92000 } },
+        "source_b": { "name": "Boltport Fasteners LLP, SAE J429 specification page", "source_class": "manufacturer_engineering_data", "values": { "proof_strength_psi": 85000, "tensile_strength_psi": 120000, "yield_strength_psi": 92000 } },
+        "agreement": "full agreement, all three values",
+        "resolution_method": "cross-verified, no conflict",
+        "verified_date": "2026-09-12"
+      },
+      "diameter_dependent": true,
+      "diameter_dependency_note": "Grade 5 has two diameter ranges -- see sae_grade_5_gt1 for over 1in - 1-1/2in.",
+      "confidence": "verified",
+      "notes": "Cross-verified against two independent manufacturer sources with full agreement on all three values."
+    },
+    {
+      "id": "sae_grade_5_gt1",
+      "system": "sae",
+      "designation": "Grade 5",
+      "applicable_diameter_range": "over 1 in - 1-1/2 in",
+      "material_note": "Medium carbon steel, quenched & tempered",
+      "proof_strength": { "value": 74000, "unit": "psi", "status": "verified" },
+      "tensile_strength": { "value": 105000, "unit": "psi", "status": "verified" },
+      "yield_strength": { "value": 81000, "unit": "psi", "status": "verified" },
+      "source_standard_id": "sae_j429",
+      "provenance": {
+        "source_a": { "name": "Southwest Bolt, SAE J429 Technical Specifications (2020)", "source_class": "manufacturer_engineering_data", "values": { "proof_strength_psi": 74000, "tensile_strength_psi": 105000, "yield_strength_psi": 81000 } },
+        "source_b": { "name": "Boltport Fasteners LLP, SAE J429 specification page", "source_class": "manufacturer_engineering_data", "values": { "proof_strength_psi": 74000, "tensile_strength_psi": 105000, "yield_strength_psi": 81000 } },
+        "agreement": "full agreement, all three values",
+        "resolution_method": "cross-verified, no conflict",
+        "verified_date": "2026-09-12"
+      },
+      "diameter_dependent": true,
+      "diameter_dependency_note": "See sae_grade_5_le1 for 1/4in - 1in range.",
+      "confidence": "verified",
+      "notes": "Cross-verified against two independent manufacturer sources with full agreement on all three values."
+    },
+    {
+      "id": "sae_grade_8",
+      "system": "sae",
+      "designation": "Grade 8",
+      "applicable_diameter_range": "1/4 in - 1-1/2 in",
+      "material_note": "Medium carbon alloy steel, quenched & tempered",
+      "proof_strength": { "value": 120000, "unit": "psi", "status": "verified" },
+      "tensile_strength": { "value": 150000, "unit": "psi", "status": "verified" },
+      "yield_strength": { "value": 130000, "unit": "psi", "status": "verified" },
+      "source_standard_id": "sae_j429",
+      "provenance": {
+        "source_a": { "name": "Southwest Bolt, SAE J429 Technical Specifications (2020)", "source_class": "manufacturer_engineering_data", "values": { "proof_strength_psi": 120000, "tensile_strength_psi": 150000, "yield_strength_psi": 130000 } },
+        "source_b": { "name": "Boltport Fasteners LLP, SAE J429 specification page", "source_class": "manufacturer_engineering_data", "values": { "proof_strength_psi": 120000, "tensile_strength_psi": 150000, "yield_strength_psi": 130000 } },
+        "agreement": "full agreement, all three values",
+        "resolution_method": "cross-verified, no conflict",
+        "verified_date": "2026-09-12"
+      },
+      "diameter_dependent": false,
+      "confidence": "verified",
+      "notes": "Cross-verified against two independent manufacturer sources with full agreement on all three values."
+    }
+  ]
+}

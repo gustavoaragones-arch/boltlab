@@ -1,7 +1,7 @@
 {
   "version": "v0.1.0",
   "created": "2026-07-12",
-  "updated": "2026-08-14",
+  "updated": "2026-09-12",
   "records": [
     {
       "id": "rel_pitch_uses_tolerance_zone",
@@ -453,6 +453,50 @@
       "version": "v0.1.0",
       "created": "2026-08-14",
       "updated": "2026-08-14"
+    },
+    {
+      "id": "rel_tensile_stress_area_derived_from_pitch_diameter",
+      "source": "tensile_stress_area",
+      "predicate": "DERIVED_FROM",
+      "target": "pitch_diameter",
+      "strength": 0.85,
+      "notes": "Tensile stress area is computed from an average of the pitch-diameter and minor-diameter circles.",
+      "version": "v0.1.0",
+      "created": "2026-09-12",
+      "updated": "2026-09-12"
+    },
+    {
+      "id": "rel_tensile_stress_area_derived_from_minor_diameter",
+      "source": "tensile_stress_area",
+      "predicate": "DERIVED_FROM",
+      "target": "minor_diameter",
+      "strength": 0.85,
+      "notes": "Tensile stress area is computed from an average of the pitch-diameter and minor-diameter circles.",
+      "version": "v0.1.0",
+      "created": "2026-09-12",
+      "updated": "2026-09-12"
+    },
+    {
+      "id": "rel_tensile_stress_area_defined_by_iso_898_1",
+      "source": "tensile_stress_area",
+      "predicate": "DEFINED_BY",
+      "target": "iso_898_1",
+      "strength": 0.7,
+      "notes": "Metric tensile stress area formula and its role in fastener property-class capacity is associated with ISO 898-1 usage per corroborating secondary sources; the formula itself is common engineering geometry, not unique standard text.",
+      "version": "v0.1.0",
+      "created": "2026-09-12",
+      "updated": "2026-09-12"
+    },
+    {
+      "id": "rel_tensile_stress_area_defined_by_asme_b1_1",
+      "source": "tensile_stress_area",
+      "predicate": "DEFINED_BY",
+      "target": "asme_b1_1",
+      "strength": 0.7,
+      "notes": "Inch (UNC/UNF) tensile stress area formula and stress-area tables are associated with ASME B1.1 per corroborating secondary sources (EngineersEdge, citing ASME/ANSI B1.1).",
+      "version": "v0.1.0",
+      "created": "2026-09-12",
+      "updated": "2026-09-12"
     }
   ]
 }

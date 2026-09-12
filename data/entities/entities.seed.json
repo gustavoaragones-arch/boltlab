@@ -1,7 +1,7 @@
 {
   "version": "v0.1.0",
   "created": "2026-07-12",
-  "updated": "2026-08-15",
+  "updated": "2026-09-12",
   "records": [
     {
       "id": "pitch_diameter",
@@ -1002,6 +1002,52 @@
       "status": "draft",
       "created": "2026-08-14",
       "updated": "2026-08-14",
+      "version": "v0.1.0"
+    },
+    {
+      "id": "tensile_stress_area",
+      "title": "Tensile Stress Area",
+      "aliases": [
+        "stress area",
+        "At",
+        "As"
+      ],
+      "entity_type": "thread_geometry",
+      "engineering_summary": "The effective cross-sectional area of an external thread used to compute tensile load capacity, smaller than the area implied by nominal diameter alone.",
+      "definition": "A derived thread-geometry area, approximately the mean of the pitch-diameter and minor-diameter circle areas, used in place of the nominal (major) diameter area when calculating a threaded fastener's tensile stress or capacity, since fracture under tension occurs through the reduced thread cross-section rather than the full major-diameter cross-section.",
+      "related_entities": [
+        "major_diameter",
+        "minor_diameter",
+        "pitch_diameter",
+        "thread_pitch"
+      ],
+      "related_standards": [
+        "iso_898_1",
+        "asme_b1_1"
+      ],
+      "related_datasets": [
+        "metric_threads",
+        "unc_threads",
+        "unf_threads",
+        "fastener_property_classes"
+      ],
+      "related_pages": [],
+      "related_tools": [],
+      "related_charts": [],
+      "related_guides": [],
+      "keywords": [
+        "tensile stress area",
+        "bolt tensile area",
+        "thread stress area"
+      ],
+      "search_aliases": [
+        "at formula",
+        "bolt cross sectional area"
+      ],
+      "svg_asset": null,
+      "status": "draft",
+      "created": "2026-09-12",
+      "updated": "2026-09-12",
       "version": "v0.1.0"
     }
   ]

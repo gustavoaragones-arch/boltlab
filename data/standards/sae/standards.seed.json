@@ -1,0 +1,29 @@
+{
+  "version": "v0.1.0",
+  "created": "2026-09-12",
+  "updated": "2026-09-12",
+  "records": [
+    {
+      "id": "sae_j429",
+      "organization": "SAE",
+      "designation": "SAE J429",
+      "title": "Mechanical and Material Requirements for Externally Threaded Fasteners",
+      "scope": "Covers mechanical and material requirements for inch-series carbon and alloy steel bolts, screws, studs, and U-bolts used in automotive and related industries, in sizes up to 1-1/2 inch inclusive, across Grades 1, 2, 5, 5.1, 5.2, 7, 8, 8.1, and 8.2.",
+      "public_summary": "Referenced for SAE inch-fastener grade mechanical requirements (proof load stress, minimum tensile strength) used by BoltLab's fastener_property_classes dataset. This phase directly read two independent manufacturer engineering data sheets (Southwest Bolt 2020; Boltport Fasteners LLP) that cite this standard and cross-verified Grades 1, 2, 5, and 8; the standard's own text was not directly read (proprietary/SAE-published). Compared against ASME B18.3.1 during this phase's sourcing work: ASME B18.3.1 is a dimensional/geometric standard for socket-head cap screws, shoulder screws, set screws, and hex keys, not a mechanical-property standard for general bolts/screws/studs, and is therefore judged NOT required for BoltLab's v1 fastener-strength scope -- see docs/fastener-load-strength Phase 2 report for the full SAE-vs-ASME scope decision and evidence.",
+      "related_entities": [
+        "tensile_stress_area"
+      ],
+      "related_datasets": [
+        "fastener_property_classes"
+      ],
+      "revision": "secondary-source-cited, not independently confirmed",
+      "edition": "2020 (per Southwest Bolt data sheet citation)",
+      "standard_status": "current",
+      "copyright_note": "No copyrighted standards text is reproduced; only public summary and reference metadata, interpreted from freely-published manufacturer engineering data sheets that themselves cite this standard.",
+      "last_reviewed": "2026-09-12",
+      "version": "v0.1.0",
+      "created": "2026-09-12",
+      "updated": "2026-09-12"
+    }
+  ]
+}
