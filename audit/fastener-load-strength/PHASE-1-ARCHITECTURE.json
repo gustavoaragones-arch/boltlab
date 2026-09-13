@@ -1,0 +1,308 @@
+{
+  "phase": "Fastener-Load-Strength-Phase-1",
+  "title": "Content & Engineering Architecture / Source Specification",
+  "date": "2026-09-11",
+  "type": "audit_design_only",
+  "implementation_authorized": false,
+  "baseline_commit": "825a9522cacdcb8ff9d078f86d78550a60315d2a",
+  "relationship_to_adsense_sequence": "Explicitly separate initiative. T26-T31 AdSense-quality sequence is CLOSED / HOLD and untouched by this phase.",
+  "executive_summary": {
+    "existing_capability": "None. No dataset, calculator, or sourced reference content for fastener strength/load capacity exists anywhere in the repository.",
+    "nearest_existing_content": [
+      {"path": "guides/bolt-strength-grades.html", "issue": "Hand-authored, uncited, round-number MPa figures only for ISO classes; no numeric values at all for SAE grades; not suitable as a data source"},
+      {"path": "js/torque-data.js", "issue": "Static per-size/per-grade torque lookup table, no cited source, no formula shown; not suitable as a data source"}
+    ],
+    "primary_finding": "The tensile-stress-area formula and general tension/shear framework are well-established and converge across every source checked. Per-grade proof-load and minimum-tensile-strength numeric values could NOT be cleanly verified from a primary source in this session (repeated HTTP 403s, corrupted PDF text extraction, paywalls, and mutually-inconsistent search-engine-summarized numbers). These values are marked UNSOURCED / NOT READY per the governing instruction not to fabricate or fill gaps with unverified figures.",
+    "architecture_reuse": "Every schema, generator pattern, validator pattern, disclaimer, data-classification framework, and internal-linking convention needed already exists and is reusable without modification.",
+    "recommended_v1_scope": "One tension-only Bolt Load Capacity Calculator, a small sourced property-class reference dataset, and 3 curated high-intent pages (M8/M10/M12) -- not a large programmatic cluster."
+  },
+  "existing_repository_audit": [
+    {"area": "data/datasets/*.seed.json", "finding": "Thread geometry (diameter, pitch) and tap-drill data only. Zero tensile/proof-load/property-class fields found repo-wide."},
+    {"area": "data/entities/entities.seed.json, data/relationships/relationships.seed.json", "finding": "No fastener-material or property-class entities exist."},
+    {"area": "data/standards/*/standards.seed.json", "finding": "No ISO 898-1, ASME B18.3.1, or SAE J429 record exists yet. Existing asme_b1_1/asme_b94_9 records cover thread form/tap nomenclature only, unrelated to mechanical strength properties."},
+    {"area": "data/schemas/{dataset,entity,standard,relationship}.schema.json", "finding": "Directly reusable, no changes needed. dataset.schema.json already defines the exact status vocabulary needed: verified | source_bound | pending_verification | unavailable."},
+    {"area": "data/projections/*.schema.json", "finding": "Established generator-output schema pattern reusable as a template for a new fastener-strength projection schema."},
+    {"area": "tools/bolt-torque-calculator.html + js/torque-data.js", "finding": "Static lookup table, no cited source, no formula. Not reusable as a data source; reusable only as a UI/UX precedent."},
+    {"area": "tools/fastener-weight-calculator.html + js/weight-data.js", "finding": "Same pattern as torque calculator (reviewed in depth during T29). UI precedent only."},
+    {"area": "guides/bolt-strength-grades.html", "finding": "Uncited round-number figures. Explicitly rejected as a data source."},
+    {"area": "reference/data-methodology.html", "finding": "Publishes the four-tier data classification framework and standing disclaimer language. Directly reusable, unmodified."},
+    {"area": "disclaimer/index.html", "finding": "Existing safety/liability disclaimer language directly reusable via link, not duplication."},
+    {"area": "scripts/generators/generate-tapping-*.js, scripts/validators/validate-tapping-*.js", "finding": "Established generator->projection->page pipeline and 20-check validator precedent (T13-T25) to be followed for the new capability, avoiding the one-shot-script anti-pattern that caused the T26/T28 size-cluster problem."},
+    {"area": "scripts/build_sitemap.py", "finding": "Pre-existing documented .html-suffix bug (found T27, never fixed). New pages must account for this known issue."},
+    {"area": "js/link-engine.js, js/context-anchor-engine.js, js/anchor-engine.js", "finding": "Sitewide internal-linking infrastructure, reusable without modification."},
+    {"area": "js/ads-layout.js, ads.txt, robots.txt", "finding": "Confirmed inactive advertising infrastructure (0 active ad scripts sitewide per T30/T31). Not to be touched."},
+    {"area": "es/ (Spanish) architecture", "finding": "Established parallel-page pattern, reusable if/when localized. Not recommended for v1."}
+  ],
+  "reusable_systems_inventory": [
+    {"system": "data/schemas/dataset.schema.json", "reuse": "New fastener_property_classes dataset conforms as-is"},
+    {"system": "data/schemas/standard.schema.json", "reuse": "New iso_898_1/sae_j429 standard records follow the exact asme_b1_1 record shape"},
+    {"system": "data/schemas/entity.schema.json", "reuse": "New fastener/calculator entities conform as-is"},
+    {"system": "scripts/generators/generate-tapping-*.js pattern", "reuse": "Template for new generate-fastener-strength-projection.js / generate-fastener-load-calculator.js"},
+    {"system": "scripts/validators/validate-tapping-projections.js pattern", "reuse": "Template for new validate-fastener-strength.js"},
+    {"system": "reference/data-methodology.html 4-tier classification", "reuse": "New dataset status field maps directly onto this existing framework"},
+    {"system": "disclaimer/index.html", "reuse": "Linked from every new page's limitations section, not duplicated"},
+    {"system": "aeo-answer-block / Quick answer pattern", "reuse": "Reused verbatim for the new calculator's pre-interaction content"},
+    {"system": "js/link-engine.js, js/context-anchor-engine.js, js/anchor-engine.js", "reuse": "Loaded as-is, no change"},
+    {"system": "js/converters.js round() helper and form/result UI pattern", "reuse": "UI pattern reused; underlying calculation must be formula-driven from sourced constants, not a flat convenience table, unlike torque/weight calculators"}
+  ],
+  "engineering_scope": {
+    "in_scope_v1": [
+      "tensile_loading", "tensile_stress_area", "nominal_vs_tensile_stress_area_diameter",
+      "proof_strength", "ultimate_tensile_strength_as_reference_only", "property_class_grade",
+      "design_load", "safety_factor_user_supplied", "allowable_design_capacity",
+      "force_unit_conversion", "equivalent_mass_presentation_clearly_labeled",
+      "fastener_vs_joint_capacity_distinction"
+    ],
+    "deferred": [
+      "shear_loading", "combined_loading", "thread_engagement_limitations",
+      "connected_material_limitations", "bearing", "tear_out", "pull_through",
+      "stripping", "prying", "eccentricity", "preload_integration",
+      "fatigue_cyclic_loading", "corrosion_environment_as_calculator_input",
+      "installation_quality_as_calculator_input", "material_condition_as_calculator_input",
+      "manufacturing_tolerances_as_calculator_input"
+    ]
+  },
+  "calculator_architecture": {
+    "name_working": "Bolt Load Capacity Calculator (tensile capacity)",
+    "inputs": [
+      {"name": "nominal_diameter_designation", "required": true, "type": "select", "units": "mm or inch", "default": null, "source_requirement": "metric_threads.seed.json / unc.seed.json / unf.seed.json (existing, verified-summary-only status)"},
+      {"name": "thread_series", "required": "if applicable", "type": "select", "units": null, "default": "coarse"},
+      {"name": "property_class_grade", "required": true, "type": "select", "units": null, "default": null, "source_requirement": "new fastener_property_classes dataset -- UNSOURCED pending Phase 2"},
+      {"name": "applied_load", "required": true, "type": "number", "units": "N or lbf", "default": null},
+      {"name": "safety_factor", "required": false, "type": "number", "units": "dimensionless", "default": "none unless a sourced default can be cited"},
+      {"name": "load_type", "required": true, "type": "select", "units": null, "default": "tension", "note": "shear disabled in v1 with explicit not-yet-available note"}
+    ],
+    "calculations": [
+      {
+        "name": "tensile_stress_area_metric",
+        "formula": "At = (pi/4) * (d - 0.9382*P)^2",
+        "variables": {"d": "nominal major diameter (mm)", "P": "pitch (mm)"},
+        "units": "mm -> mm^2",
+        "source": "ISO 898-1 (convergent secondary confirmation; primary-text direct quote still pending)",
+        "status": "formula_pending_final_primary_confirmation"
+      },
+      {
+        "name": "fastener_tensile_capacity_proof_based",
+        "formula": "F_proof = Sp * At",
+        "variables": {"Sp": "proof strength per grade", "At": "tensile stress area"},
+        "units": "MPa*mm^2 -> N (or ksi*in^2 -> lbf)",
+        "source": "Sp: UNSOURCED / NOT READY",
+        "status": "blocked_on_source"
+      },
+      {
+        "name": "allowable_design_capacity",
+        "formula": "F_allow = F_proof / SF",
+        "source": "arithmetic on sourced/user inputs, no independent citation needed",
+        "status": "ready_once_inputs_sourced"
+      },
+      {
+        "name": "force_unit_conversion",
+        "formula": "F(lbf) = F(N) * 0.224809",
+        "source": "NIST/SI exact definition",
+        "status": "ready"
+      },
+      {
+        "name": "equivalent_mass_presentation",
+        "formula": "m(kg) = F(N) / 9.80665",
+        "source": "standard gravity, SI exact definition",
+        "status": "ready",
+        "labeling_requirement": "must be labeled 'equivalent mass under standard gravity -- not a load rating', never presented as a force"
+      }
+    ],
+    "outputs": [
+      "tensile_stress_area", "fastener_tensile_capacity_proof_based",
+      "allowable_design_capacity_after_safety_factor",
+      "ultimate_strength_based_capacity_reference_only",
+      "equivalent_mass_clearly_labeled", "warnings_and_limitations_always_visible"
+    ],
+    "explicit_compliance_notes": [
+      "Mass-equivalent values never presented as a force unit.",
+      "Calculator explicitly states it computes fastener capacity only, not joint capacity."
+    ]
+  },
+  "data_architecture": {
+    "new_dataset": {
+      "working_id": "fastener_property_classes",
+      "conforms_to_schema": "data/schemas/dataset.schema.json (no schema change needed)",
+      "fields": [
+        {"field": "system", "type": "enum[iso_metric, sae]", "status": "derived"},
+        {"field": "designation", "type": "string", "status": "derived_naming_only"},
+        {"field": "applicable_diameter_range", "type": "string/range", "units": "mm or in", "status": "pending_verification"},
+        {"field": "proof_strength", "type": "number", "units": "MPa or ksi", "status": "pending_verification"},
+        {"field": "ultimate_tensile_strength", "type": "number", "units": "MPa or ksi", "status": "pending_verification"},
+        {"field": "yield_strength", "type": "number", "units": "MPa or ksi", "status": "pending_verification", "optional": true},
+        {"field": "material_note", "type": "string", "status": "reference_context"},
+        {"field": "source_standard_id", "type": "string_fk", "status": "n/a"},
+        {"field": "confidence", "type": "enum matching dataset.schema.json status vocabulary", "status": "set_per_record"}
+      ]
+    },
+    "new_standard_records_proposed": ["iso_898_1", "sae_j429", "asme_b18_3_1 (scope overlap with sae_j429 TBD)"],
+    "new_entities_proposed": [
+      "fastener_property_class", "tensile_stress_area", "proof_strength",
+      "ultimate_tensile_strength", "design_load", "safety_factor",
+      "bolt_load_capacity_calculator"
+    ],
+    "no_existing_dataset_duplicated": true,
+    "reuses_by_reference": ["data/datasets/metric_threads.seed.json", "data/datasets/unc.seed.json", "data/datasets/unf.seed.json"]
+  },
+  "source_requirements": [
+    {"source": "ISO 898-1", "type": "primary_international_standard", "applies_to": "metric property classes, proof/tensile/yield values, tensile stress area formula", "status": "identified_correct_source_not_directly_read"},
+    {"source": "SAE J429", "type": "primary_industry_standard", "applies_to": "SAE grades 2/5/8 proof/tensile values", "status": "identified_correct_source_not_directly_read"},
+    {"source": "ASME B18.3.1", "type": "primary_standard_candidate", "applies_to": "possible inch-fastener alternative/supplement to SAE J429", "status": "identified_not_yet_compared"},
+    {"source": "NASA RP-1228 Fastener Design Manual (Barrett, 1990)", "type": "authoritative_secondary_government_reference", "applies_to": "material UTS ranges (Table I), shear/tensile area formulas, torque-preload relationships", "status": "partially_retrieved_via_secondary_transcription"},
+    {"source": "Shigley's Mechanical Engineering Design, Ch. 8", "type": "recognized_secondary_textbook", "applies_to": "Tables 8-2/8-9/8-11 (exact tables needed)", "status": "located_not_readable_in_session"},
+    {"source": "RoyMech.co.uk", "type": "secondary_compiler_citing_iso_898_1", "applies_to": "tensile/shear thread area formulas", "status": "partially_retrieved_with_direct_quotation"},
+    {"source": "EngineersEdge.com", "type": "secondary_compiler", "applies_to": "thread tensile area formula", "status": "identified_not_directly_fetched"},
+    {"source": "General web search aggregation", "type": "low_reliability_tertiary", "applies_to": "numeric grade values", "status": "explicitly_rejected_as_sourcing_basis_due_to_mutual_inconsistency"},
+    {"source": "guides/bolt-strength-grades.html (internal)", "type": "internal_unsourced", "status": "explicitly_rejected_as_sourcing_basis"},
+    {"source": "js/torque-data.js (internal)", "type": "internal_unsourced", "status": "explicitly_rejected_as_sourcing_basis"}
+  ],
+  "formula_source_matrix": [
+    {"id": 1, "claim": "Tensile stress area formula, metric: At = (pi/4)(d - 0.9382P)^2", "type": "formula", "source": "ISO 898-1 (convergent secondary confirmation)", "universal_or_conditional": "universal within ISO metric thread scope", "scope_limitation": "external ISO metric threads only", "calculator_ready": "formula yes, pending final direct-primary confirmation; not yet implemented in any code"},
+    {"id": 2, "claim": "Pitch diameter formula: dp = D - 0.64952*P", "type": "formula", "source": "RoyMech.co.uk, directly quoted, citing ISO 898", "universal_or_conditional": "universal for ISO metric threads", "calculator_ready": "yes, directly quoted"},
+    {"id": 3, "claim": "External thread shear area (approximate): Ass = 0.5*pi*dp*Le", "type": "formula", "source": "RoyMech.co.uk, directly quoted", "universal_or_conditional": "conditional, labeled approximate by source itself", "calculator_ready": "usable once shear scope reopened; not needed for v1"},
+    {"id": 4, "claim": "Force conversion N <-> lbf: 1 N = 0.224809 lbf", "type": "exact_defined_conversion", "source": "NIST/SI definition", "universal_or_conditional": "universal, non-controversial", "calculator_ready": "yes, ready now"},
+    {"id": 5, "claim": "Mass equivalent: m = F / 9.80665", "type": "exact_defined_conversion", "source": "standard gravity SI definition", "universal_or_conditional": "universal", "calculator_ready": "yes, ready now, with labeling requirement"},
+    {"id": 6, "claim": "Proof strength values by ISO property class (4.6-12.9)", "type": "numeric_table", "source": "ISO 898-1", "universal_or_conditional": "conditional (possible diameter-range dependency, unconfirmed)", "calculator_ready": "UNSOURCED / NOT READY"},
+    {"id": 7, "claim": "Ultimate tensile strength by ISO property class", "type": "numeric_table", "source": "ISO 898-1", "universal_or_conditional": "conditional", "calculator_ready": "UNSOURCED / NOT READY"},
+    {"id": 8, "claim": "Proof/tensile strength by SAE J429 grade (2,5,8)", "type": "numeric_table", "source": "SAE J429", "universal_or_conditional": "conditional -- explicitly diameter-range-dependent per secondary sources", "calculator_ready": "UNSOURCED / NOT READY"},
+    {"id": 9, "claim": "Material-class UTS ranges (carbon steel, alloy steel, stainless variants, titanium)", "type": "numeric_table", "source": "NASA RP-1228 Table I, directly quoted via secondary transcription", "universal_or_conditional": "broad ranges, not grade-specific", "calculator_ready": "reference/context use only, not primary calculator source"},
+    {"id": 10, "claim": "A commonly used default safety factor for bolted-joint tension", "type": "numeric_convention", "source": "not sourced in this session", "universal_or_conditional": "highly application-dependent", "calculator_ready": "UNSOURCED / NOT READY -- recommend no default in v1"}
+  ],
+  "source_verification_log": [
+    {"step": 1, "target": "portlandbolt.com/technical/bolt-grades/", "result": "HTTP 403"},
+    {"step": 2, "target": "en.wikipedia.org/wiki/ISO_metric_screw_thread", "result": "fetched, no relevant formula/table"},
+    {"step": 3, "target": "en.wikipedia.org/wiki/ISO_898", "result": "fetched, scope described in prose only, no numeric tables"},
+    {"step": 4, "target": "engineeringtoolbox.com/metric-bolts-property-classes-d_1211.html", "result": "HTTP 403"},
+    {"step": 5, "target": "boltdepot.com Bolt-Grade-Chart.aspx", "result": "HTTP 403"},
+    {"step": 6, "target": "NASA RP-1228 direct PDF (ntrs.nasa.gov)", "result": "fetched (5.1MB), automated text extraction corrupted/unreadable; local PDF rendering unavailable (poppler-utils not installed, not installed during this audit)"},
+    {"step": 7, "target": "engineeringlibrary.org/reference/fastener-design-criteria-nasa", "result": "fetched successfully twice; yielded directly-quotable Table I and confirmed existence of unretrieved Appendix B and a separate Fastener Torque chapter"},
+    {"step": 8, "target": "Shigley's Ch. 8 PDF at eis.hu.edu.jo", "result": "fetched, automated text extraction corrupted/unreadable"},
+    {"step": 9, "target": "studocu.com Shigley's summary page", "result": "fetched, paywalled preview only"},
+    {"step": 10, "target": "general web search for SAE Grade 2/5/8 values", "result": "mutually inconsistent numbers across snippets -- explicitly not used as a data source"},
+    {"step": 11, "target": "engineeringtoolbox.com/metric-threads-d_777.html", "result": "HTTP 403"},
+    {"step": 12, "target": "targeted search for tensile-stress-area formula", "result": "consistent formula across multiple aggregator summaries citing ISO 898-1"},
+    {"step": 13, "target": "roymech.co.uk/Useful_Tables/Screws/Thread_Calcs.html", "result": "fetched successfully; direct quotations obtained citing ISO 898 Part 1"}
+  ],
+  "content_architecture": {
+    "calculator": ["tools/bolt-load-capacity-calculator.html (proposed, not created)"],
+    "core_reference": [
+      "reference/fastener-property-classes.html (proposed, not created)",
+      "reference/tensile-stress-area.html (proposed, contingent -- may fold into calculator page, decide in Phase 2)"
+    ],
+    "high_intent_pages": ["3 pages max in v1: M8, M10, M12 -- see high_intent_page_evaluation"],
+    "educational": ["guides/bolt-load-capacity-basics.html (proposed, not created)"],
+    "existing_content_not_superseded": ["guides/bolt-strength-grades.html -- left as-is pending Director decision, see risks"]
+  },
+  "high_intent_page_evaluation": {
+    "rejected_option": "Full per-size-per-grade cluster (~250+ pages: 18 metric sizes x up to 7 property classes x 2 load types)",
+    "rejection_reason": "Fails the unique-intent/unique-data/unique-interpretation test at scale; would repeat the exact T26-flagged /sizes/ doorway-page pattern for safety-adjacent content, a materially worse repeat of an already-identified mistake",
+    "approved_v1_scope": ["M8", "M10", "M12"],
+    "approval_rationale": "Clearest, highest, most defensible search intent; already the sizes with the most first-party BoltLab attention elsewhere (torque calculator defaults, tapping Atlas coverage); conditionally approved contingent on genuine per-page authorship and Section-8 sourcing, not templated generation",
+    "per_page_requirements": [
+      "genuine Quick answer block", "worked example at 2-3 property classes",
+      "size-specific tensile-stress-area explanation", "explicit fastener-vs-joint limitation statement",
+      "links to calculator, property-class reference, and corresponding sizes/mN-bolt-size.html hub"
+    ]
+  },
+  "anti_thin_content_assessment": [
+    {"family": "Full per-size-per-grade cluster (250+ pages)", "unique_intent": "weak", "unique_data": "no", "unique_interpretation": "no", "verdict": "REJECTED"},
+    {"family": "3 curated high-intent pages (M8/M10/M12)", "unique_intent": "yes if authored", "unique_data": "partial", "unique_interpretation": "yes if genuinely authored", "verdict": "CONDITIONALLY_APPROVED"},
+    {"family": "Single calculator page (all sizes/grades via inputs)", "unique_intent": "yes", "unique_data": "yes", "unique_interpretation": "yes", "verdict": "APPROVED"},
+    {"family": "Single property-class reference page", "unique_intent": "yes", "unique_data": "yes", "unique_interpretation": "yes", "verdict": "APPROVED"},
+    {"family": "Single tensile-stress-area reference/explainer", "unique_intent": "yes if distinct from calculator", "unique_data": "yes", "unique_interpretation": "yes if distinct", "verdict": "CONDITIONALLY_APPROVED"},
+    {"family": "Educational guide (Bolt Load Capacity Basics)", "unique_intent": "yes", "unique_data": "n/a", "unique_interpretation": "yes if genuinely written", "verdict": "APPROVED"}
+  ],
+  "safety_limitations_architecture": [
+    {"category": "fastener_vs_joint_capacity", "first_release": true, "prominence": "first-class, prominent"},
+    {"category": "thread_engagement", "first_release": true, "treatment": "stated as not modeled, assumed adequate, verify separately"},
+    {"category": "connected_material_strength", "first_release": true, "treatment": "stated as not modeled, bolt strength only"},
+    {"category": "preload", "first_release": true, "treatment": "brief mention, links to existing (flagged unsourced) torque calculator"},
+    {"category": "bearing_tear_out_pull_through_prying_eccentricity", "first_release": true, "treatment": "named explicitly as not covered, single limitations list"},
+    {"category": "combined_loading", "first_release": true, "treatment": "stated out of scope for v1 (tension-only)"},
+    {"category": "fatigue_cyclic_loading", "first_release": true, "treatment": "brief mention static capacity != fatigue life"},
+    {"category": "corrosion_environment", "first_release": true, "treatment": "brief qualitative mention"},
+    {"category": "installation_quality_material_condition_manufacturing_tolerances", "first_release": true, "treatment": "brief qualitative mention, links to disclaimer/index.html"}
+  ],
+  "seo_aeo_architecture": {
+    "schema_implementation_this_phase": false,
+    "faqpage_schema_this_phase": false,
+    "proposed_entities": [
+      "bolt_load_capacity_calculator", "fastener_property_class", "tensile_stress_area",
+      "proof_strength", "tension_capacity", "shear_capacity_deferred", "safety_factor", "design_load"
+    ],
+    "content_minimums_per_high_intent_page": [
+      "Quick answer block", "worked example at 2-3 property classes",
+      "size-specific tensile-stress-area explanation", "fastener-vs-joint limitation statement",
+      "links to calculator, reference, and at least one genuinely related existing page"
+    ]
+  },
+  "internal_link_architecture": [
+    "calculator <-> property-class reference page (bidirectional)",
+    "calculator <-> each high-intent page (bidirectional, size-specific)",
+    "high-intent pages -> corresponding sizes/mN-bolt-size.html hub (one-directional from new page; reverse link out of scope this phase)",
+    "calculator/reference pages -> reference/data-methodology.html and disclaimer/index.html",
+    "calculator/reference pages -> existing tools/bolt-torque-calculator.html (with sourcing caveat)",
+    "guide page -> calculator and property-class reference"
+  ],
+  "validation_qa_requirements": [
+    {"category": "formula_unit_consistency", "pass_fail": "FAIL if At formula applied with mismatched mm/in inputs without conversion"},
+    {"category": "known_value_regression", "pass_fail": "PASS only if a specific hand-verified example matches output to stated precision every run"},
+    {"category": "boundary_cases", "pass_fail": "FAIL if load<=0, safety factor<=0, or unrecognized designation/grade produces a non-error result"},
+    {"category": "invalid_input_handling", "pass_fail": "FAIL if any input combination produces NaN, Infinity, or a silently-wrong unit label"},
+    {"category": "property_class_grade_mapping", "pass_fail": "FAIL if any UI-offered grade lacks a corresponding sourced dataset record"},
+    {"category": "source_provenance_check", "pass_fail": "FAIL if any pending_verification/unavailable value is exposed in a live calculation without a visible caveat"},
+    {"category": "dimensional_consistency", "pass_fail": "FAIL if metric/inch inputs mixed without explicit correct conversion"},
+    {"category": "schema_check", "pass_fail": "FAIL if new dataset does not validate against data/schemas/dataset.schema.json"},
+    {"category": "canonical_check", "pass_fail": "FAIL if any new page lacks a self-referencing canonical"},
+    {"category": "sitemap_check", "pass_fail": "FAIL if an indexable new page is omitted from sitemap or a noindexed page is included"},
+    {"category": "internal_link_check", "pass_fail": "FAIL if any proposed internal link resolves to a non-existent page"},
+    {"category": "deterministic_build_check", "pass_fail": "FAIL if regenerating twice produces any non-timestamp difference"},
+    {"category": "regression_against_protected_surfaces", "pass_fail": "FAIL if any existing tapping/standards/size-cluster file changes as a side effect"}
+  ],
+  "publication_pass_gate": "Every numeric value in the shipped dataset must carry status verified or source_bound (not pending_verification or unavailable) for every grade actually exposed in the live calculator UI. A grade with an unresolved sourcing gap must be excluded from the UI, not shipped with a caveat.",
+  "deferred_functionality": [
+    "shear_loading_and_combined_loading", "thread_engagement_connected_material_bearing_tear_out_pull_through_prying_eccentricity_fatigue",
+    "full_joint_capacity_calculator_separate_future_initiative", "preload_torque_integration_beyond_simple_crosslink",
+    "spanish_localization", "any_size_grade_beyond_initially_sourced_set", "any_page_family_beyond_3_curated_pages",
+    "schema_jsonld_implementation"
+  ],
+  "risks_and_unresolved_questions": [
+    {"risk": "Primary numeric sourcing gap is the dominant, blocking risk", "severity": "critical_to_this_initiative"},
+    {"risk": "SAE grade values are diameter-range-dependent, not flat per-grade constants", "severity": "high", "note": "dataset schema already accounts for this structurally; exact breakpoints unconfirmed"},
+    {"risk": "Existing unsourced content (guides/bolt-strength-grades.html, js/torque-data.js) on the same subject creates a credibility inconsistency", "severity": "medium", "note": "Director-level decision required, not resolved by this audit, no production file touched"},
+    {"risk": "PDF/primary-document tooling gap (poppler-utils not installed) blocked direct OCR reading of two located primary-adjacent PDFs", "severity": "medium", "note": "not installed during this audit; flagged as Phase 2 tooling prerequisite"},
+    {"risk": "Entity-graph coverage for thread-geometry concepts unconfirmed", "severity": "low"},
+    {"risk": "Ad/monetization posture for new pages undecided", "severity": "low", "note": "explicitly out of scope this phase"},
+    {"risk": "ASME B18.3.1 vs SAE J429 scope overlap unresolved", "severity": "medium"}
+  ],
+  "phase_2_prerequisites": [
+    "At least one of ISO 898-1 or SAE J429 directly read (not search-summarized), with exact proof-strength and minimum-tensile-strength values for ISO 8.8/10.9/12.9 and SAE grades 5/8 transcribed with verifiable citation (document, edition/year, table/page)",
+    "SAE grade diameter-range dependency breakpoints confirmed",
+    "Decision documented on guides/bolt-strength-grades.html / js/torque-data.js reconciliation question",
+    "data/entities/entities.seed.json thread-geometry-entity question checked",
+    "Default-safety-factor decision made (sourced default with citation, or confirmed no-default)",
+    "New dataset file, standard records, and entity records drafted and schema-validated (not committed)",
+    "ASME B18.3.1 scope-overlap decision made"
+  ],
+  "items_not_approved_for_implementation": [
+    "Full per-size-per-grade programmatic page cluster",
+    "Any shear-loading calculation or output",
+    "Any joint-level failure-mode calculation",
+    "Any numeric property-class value not yet confirmed per source requirements",
+    "A default safety factor without a citable source",
+    "FAQPage or any other new JSON-LD schema",
+    "Any modification to guides/bolt-strength-grades.html, js/torque-data.js, tools/bolt-torque-calculator.html, or any other existing production file",
+    "Any modification to sitemap.xml, robots.txt, ads.txt, canonical/hreflang logic, or navigation",
+    "Spanish localization of any new content",
+    "Any commit, push, or deployment of this phase's work"
+  ],
+  "governance": {
+    "production_files_modified": 0,
+    "files_created": 2,
+    "files_created_location": "audit/fastener-load-strength/ only",
+    "committed": false,
+    "pushed": false,
+    "deployed": false
+  }
+}
