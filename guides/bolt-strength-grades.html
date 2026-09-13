@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="/css/styles.css">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"What is the strongest metric bolt grade?","acceptedAnswer":{"@type":"Answer","text":"12.9 is the highest common metric property class (alloy, ~1200 MPa tensile). For critical applications always verify the specification and use correct torque."}},
+    {"@type":"Question","name":"What is the strongest metric bolt grade?","acceptedAnswer":{"@type":"Answer","text":"12.9 is the highest common metric property class (alloy, minimum tensile strength 1220 MPa). For critical applications always verify the specification and use correct torque."}},
     {"@type":"Question","name":"Is Grade 8 stronger than Grade 5?","acceptedAnswer":{"@type":"Answer","text":"Yes. Grade 8 has higher tensile and yield strength than Grade 5. Use Grade 8 for high-stress applications; Grade 5 is common for general and automotive use."}},
     {"@type":"Question","name":"Does bolt grade affect torque?","acceptedAnswer":{"@type":"Answer","text":"Yes. Higher-strength bolts can be tightened to higher torque for the same size. Use our Bolt Torque Calculator and select the correct grade for safe values."}}
   ]}
@@ -42,14 +42,15 @@
 
       <section class="card">
         <h2>Metric property classes</h2>
-        <p>The two-number class (e.g. 8.8, 10.9) indicates tensile strength and yield ratio. First number × 100 ≈ minimum tensile strength in MPa; the second number relates to yield strength ratio.</p>
+        <p>The two-number class (e.g. 8.8, 10.9) is a designation built from the bolt's nominal strength: the first number × 100 gives the nominal tensile strength in MPa, and the second number relates to the yield-strength ratio. The actual specified minimum tensile strength (below) can run slightly above this nominal figure and can also vary by diameter within a class.</p>
         <div class="chart-table-wrapper">
           <table>
-            <thead><tr><th scope="col">Class</th><th scope="col">Tensile (min. approx.)</th><th scope="col">Typical use</th></tr></thead>
+            <thead><tr><th scope="col">Class</th><th scope="col">Diameter range</th><th scope="col">Min. tensile strength</th><th scope="col">Typical use</th></tr></thead>
             <tbody>
-              <tr><td>8.8</td><td>800 MPa</td><td>General purpose</td></tr>
-              <tr><td>10.9</td><td>1000 MPa</td><td>High strength</td></tr>
-              <tr><td>12.9</td><td>1200 MPa</td><td>Alloy, highest</td></tr>
+              <tr><td>8.8</td><td>M5–M16</td><td>800 MPa</td><td>General purpose</td></tr>
+              <tr><td>8.8</td><td>M18–M39</td><td>830 MPa</td><td>General purpose</td></tr>
+              <tr><td>10.9</td><td>M5–M39</td><td>1040 MPa</td><td>High strength</td></tr>
+              <tr><td>12.9</td><td>M1.6–M39</td><td>1220 MPa</td><td>Alloy, highest</td></tr>
             </tbody>
           </table>
         </div>
@@ -78,7 +79,7 @@
       <section class="card">
         <h2>FAQ</h2>
         <h3>What is the strongest metric bolt grade?</h3>
-        <p>12.9 is the highest common metric property class (alloy, ~1200 MPa tensile). For critical applications always verify the specification and use correct torque.</p>
+        <p>12.9 is the highest common metric property class (alloy, minimum tensile strength 1220 MPa). For critical applications always verify the specification and use correct torque.</p>
         <h3>Is Grade 8 stronger than Grade 5?</h3>
         <p>Yes. Grade 8 has higher tensile and yield strength than Grade 5. Use Grade 8 for high-stress applications; Grade 5 is common for general and automotive use.</p>
         <h3>Does bolt grade affect torque?</h3>

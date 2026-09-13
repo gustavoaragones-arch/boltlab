@@ -192,14 +192,40 @@ check("no production calculator page exists yet (Phase 2 must not publish)", () 
   }
 });
 
-check("no existing protected file (guides/bolt-strength-grades.html, js/torque-data.js, tools/bolt-torque-calculator.html) was modified this phase", () => {
-  // This is a structural/content check, not a git-diff check (the validator has no git
-  // dependency) -- it confirms these files still contain their known pre-existing unsourced
-  // markers, i.e. they were not silently "fixed" or reconciled as a side effect of this phase.
-  const guide = fs.readFileSync(path.join(ROOT, "guides/bolt-strength-grades.html"), "utf8");
-  assert(guide.includes("800 MPa") && guide.includes("1000 MPa") && guide.includes("1200 MPa"), "guides/bolt-strength-grades.html no longer contains its original unsourced figures -- was it modified?");
+check("js/torque-data.js and tools/bolt-torque-calculator.html remain untouched (Phase 2/3 Treatment A)", () => {
   const torque = fs.readFileSync(path.join(ROOT, "js/torque-data.js"), "utf8");
   assert(torque.includes("Predefined tightening torque values"), "js/torque-data.js header comment changed -- was it modified?");
+  assert(fs.existsSync(path.join(ROOT, "tools/bolt-torque-calculator.html")), "tools/bolt-torque-calculator.html must still exist");
+});
+
+check("guides/bolt-strength-grades.html's stated ISO property-class minimums are internally consistent with the verified dataset (Phase 3 reconciliation)", () => {
+  // Phase 2 found the guide's original round designation-derived figures (800/1000/1200 MPa)
+  // conflicted with the dataset's actual verified minimums (800 or 830/1040/1220 MPa) and
+  // omitted 8.8's diameter-range split entirely. Phase 3 reconciled the guide to state the
+  // dataset's own verified numbers. This check is regression-proof against the *current*
+  // dataset (it reads expected values from the dataset itself, not a hardcoded copy), so it
+  // will correctly re-fail if the guide and dataset ever drift apart again in the future,
+  // regardless of which specific numbers are involved at that time.
+  const guide = fs.readFileSync(path.join(ROOT, "guides/bolt-strength-grades.html"), "utf8");
+  const byDesignationRange = {};
+  for (const r of dataset.records) {
+    if (r.system !== "iso_metric") continue;
+    byDesignationRange[`${r.designation}|${r.applicable_diameter_range}`] = r.tensile_strength.value;
+  }
+  const expected = {
+    "8.8|M5 - M16": 800,
+    "8.8|M18 - M39": 830,
+    "10.9|M5 - M39": 1040,
+    "12.9|M1.6 - M39": 1220,
+  };
+  for (const [key, expectedValue] of Object.entries(expected)) {
+    assert(byDesignationRange[key] === expectedValue, `dataset record for ${key} changed to ${byDesignationRange[key]} -- guide reconciliation assumptions no longer hold, guide must be re-reconciled`);
+    assert(guide.includes(`${expectedValue} MPa`), `guides/bolt-strength-grades.html does not state ${expectedValue} MPa for ${key} -- guide and dataset have drifted out of consistency`);
+  }
+  // The guide must not still carry the old, pre-reconciliation flattened figures for classes
+  // that are actually diameter-dependent or higher than the round designation number.
+  assert(!guide.includes("1000 MPa"), "guide still states the old, superseded 1000 MPa figure for 10.9");
+  assert(!guide.includes("1200 MPa"), "guide still states the old, superseded 1200 MPa figure for 12.9 (1220 MPa is the reconciled value)");
 });
 
 check("tensile_stress_area entity conforms to entity.schema.json and has no dangling relationships", () => {

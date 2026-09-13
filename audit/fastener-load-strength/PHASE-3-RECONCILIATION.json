@@ -1,0 +1,229 @@
+{
+  "phase": "Phase 3",
+  "initiative": "Fastener Load & Strength",
+  "title": "Property-Class Source Reconciliation & Public-Implementation Readiness",
+  "date": "2026-09-13",
+  "status": "PASS",
+  "baseline_commit": "befd4ee6a720ff9bd443b3d903e2289c363c5afe",
+  "implementation_authorized": false,
+  "public_calculator_authorized": false,
+  "reconciliation": [
+    {
+      "claim_id": 1,
+      "guide_claim": "First number x 100 approx minimum tensile strength in MPa (general designation rule)",
+      "dataset_value": "N/A -- describes designation convention, not a measured value",
+      "discrepancy": "Conflates nominal (designation-basis) value with actual specified minimum, which is higher for 10.9 (+40 MPa) and 12.9 (+20 MPa) and diameter-dependent for 8.8",
+      "classification": "RESOLVED - dataset clearly controls",
+      "action": "Reworded to state designation basis accurately and flag that actual minimums can run higher and vary by diameter"
+    },
+    {
+      "claim_id": 2,
+      "guide_claim": "8.8 = 800 MPa, no diameter range shown",
+      "dataset_value": "800 MPa (M5-M16), 830 MPa (M18-M39)",
+      "discrepancy": "Correct for the smaller range only; omits the larger range's distinct, higher minimum entirely",
+      "classification": "RESOLVED - dataset clearly controls",
+      "action": "Added second table row disclosing both diameter-specific values"
+    },
+    {
+      "claim_id": 3,
+      "guide_claim": "10.9 = 1000 MPa",
+      "dataset_value": "1040 MPa (M5-M39, uniform)",
+      "discrepancy": "Understates actual minimum by 40 MPa (~4%)",
+      "classification": "RESOLVED - dataset clearly controls",
+      "action": "Table value corrected to 1040 MPa"
+    },
+    {
+      "claim_id": 4,
+      "guide_claim": "12.9 = 1200 MPa (table)",
+      "dataset_value": "1220 MPa (M1.6-M39, uniform)",
+      "discrepancy": "Understates by 20 MPa (~1.6%)",
+      "classification": "RESOLVED - dataset clearly controls",
+      "action": "Table value corrected to 1220 MPa"
+    },
+    {
+      "claim_id": 5,
+      "guide_claim": "12.9 ~1200 MPa tensile (FAQ + JSON-LD)",
+      "dataset_value": "1220 MPa",
+      "discrepancy": "Same as claim 4; would create a new internal page inconsistency (two different numbers on one page) if left unchanged after claim 4's fix",
+      "classification": "RESOLVED - dataset clearly controls",
+      "action": "FAQ body text and matching JSON-LD acceptedAnswer both updated to state 1220 MPa"
+    },
+    {
+      "claim_id": 6,
+      "guide_claim": "SAE Grade 2/5/8 rows: head-marking descriptions only, no numeric values",
+      "dataset_value": "Numeric proof/tensile/yield values exist for all three grades",
+      "discrepancy": "No numeric claim in the guide to conflict with",
+      "classification": "NOT MATERIAL",
+      "action": "No change -- adding numeric SAE values would expand scope beyond authorized reconciliation"
+    },
+    {
+      "claim_id": 7,
+      "guide_claim": "Grade 8 has higher tensile and yield strength than Grade 5 (qualitative)",
+      "dataset_value": "Grade 8 (150000/130000 psi) exceeds both Grade 5 ranges in every case",
+      "discrepancy": "None -- claim is confirmed true",
+      "classification": "NOT MATERIAL - different presentation of the same engineering fact",
+      "action": "No change"
+    },
+    {
+      "claim_id": 8,
+      "guide_claim": "Higher-strength bolts can be tightened to higher torque, use Bolt Torque Calculator",
+      "dataset_value": "N/A -- torque data lives in separate js/torque-data.js system",
+      "discrepancy": "None -- correctly defers to a separate, unmodified tool",
+      "classification": "NOT MATERIAL",
+      "action": "No change; explicitly protected from this phase's scope"
+    },
+    {
+      "claim_id": 9,
+      "guide_claim": "Title tag omits 10.9/12.9; meta description truncated",
+      "dataset_value": "N/A",
+      "discrepancy": "Pre-existing copy defects unrelated to the numeric conflict",
+      "classification": "NOT MATERIAL to this phase's mandate",
+      "action": "Not fixed -- out of authorized scope (style/scope expansion excluded); flagged in unresolved_issues"
+    },
+    {
+      "claim_id": 10,
+      "guide_claim": "4.6, 4.8, 5.6, 5.8, 6.8, 9.8 not mentioned anywhere in the guide",
+      "dataset_value": "Present in dataset (4.6 verified; rest source_bound/incomplete)",
+      "discrepancy": "No guide claim exists, so no conflict",
+      "classification": "NOT MATERIAL",
+      "action": "No change; guide never scoped to cover every ISO class"
+    }
+  ],
+  "source_authority": [
+    {
+      "principle": "ISO 898-1 and SAE J429 were not directly read in Phase 2 or Phase 3",
+      "preserved": true,
+      "note": "Guide's new wording states plain values without implying direct primary-standard access, consistent with existing sitewide citation discipline"
+    },
+    {
+      "principle": "Dataset's verified ISO records rest on two independently cross-verified manufacturer/industry-association sources with full numeric agreement",
+      "preserved": true,
+      "note": "Treated as controlling over the guide's previously unsourced, uncited figures"
+    },
+    {
+      "principle": "Guide's original figures had no traceable source at all",
+      "confirmed_by_inspection": true,
+      "note": "Determined every dataset-controls classification in the reconciliation table"
+    },
+    {
+      "principle": "Disclosed dataset uncertainty (e.g. ISO 898-1 edition not independently reconfirmed) was preserved, not strengthened or weakened",
+      "preserved": true
+    }
+  ],
+  "guide_treatment": {
+    "file": "guides/bolt-strength-grades.html",
+    "treatment": "B",
+    "treatment_meaning": "RECONCILE",
+    "rejected_treatments": {
+      "A_keep_unchanged": "rejected -- claims were not technically compatible with the dataset",
+      "C_restructure": "rejected -- existing presentation format was not fundamentally incompatible with the new data model, only needed corrected numbers and one added column"
+    },
+    "exact_changes": [
+      "explanatory sentence reworded to distinguish nominal designation basis from actual specified minimum",
+      "ISO table gained a diameter-range column and a fourth row (8.8 M18-M39)",
+      "8.8/10.9/12.9 values corrected to 800/830/1040/1220 MPa",
+      "FAQ body text and matching JSON-LD acceptedAnswer updated identically for the 12.9 claim"
+    ],
+    "sections_not_touched": ["SAE table", "Grade 8 vs Grade 5 FAQ item", "torque FAQ item", "links", "title", "meta description", "styling"]
+  },
+  "torque_compatibility": {
+    "js_torque_data_js_unchanged": true,
+    "tools_bolt_torque_calculator_html_unchanged": true,
+    "contradiction_found": false,
+    "note": "Guide's torque sentence is qualitative only and defers numeric values entirely to the separate, untouched calculator; no basis found to reopen Phase 2's Treatment A decision for these files"
+  },
+  "entity_schema_decision": {
+    "entity_type_enum_extended": false,
+    "new_entity_types_created": [],
+    "fastener_property_class_entity_created": false,
+    "proof_strength_entity_created": false,
+    "ultimate_tensile_strength_entity_created": false,
+    "tensile_stress_area_entity_modified": false,
+    "entities_seed_json_diff_vs_baseline": "empty",
+    "relationships_seed_json_diff_vs_baseline": "empty"
+  },
+  "dataset_integrity": {
+    "dataset_modified": false,
+    "fastener_property_classes_seed_json_diff_vs_baseline": "empty",
+    "pre_edit_validator_result": "18/18 passed (confirmed before any change made, establishing no genuine Phase 2 defect existed)",
+    "post_edit_validator_result": "19/19 passed",
+    "validator_change_explanation": "One check ('no existing protected file ... was modified this phase', which asserted the guide must still contain its OLD incorrect figures) was split into two: (a) an unchanged assertion that js/torque-data.js and tools/bolt-torque-calculator.html remain untouched, and (b) a new, dataset-driven, regression-proof check confirming the guide states exactly the dataset's current verified minimums. This was necessary because the old assertion was written to guard against an unauthorized Phase-2-era guide change and would have incorrectly failed against this phase's own authorized, evidence-backed reconciliation. Net effect: 18 checks became 19; none were removed or weakened."
+  },
+  "readiness_gates": [
+    {"id": 1, "gate": "Metric tensile-stress-area formula is source-supported", "status": "PASS", "basis": "Phase 2 Section 6; re-confirmed via validator formula cross-check"},
+    {"id": 2, "gate": "Inch tensile-stress-area formula is source-supported at documented evidence level", "status": "PASS", "basis": "Phase 2 Section 7, sourced to ASME B1.1"},
+    {"id": 3, "gate": "Verified ISO property-class records are internally coherent", "status": "PASS", "basis": "5 verified ISO records confirmed schema-valid, cross-sourced, and now guide-consistent"},
+    {"id": 4, "gate": "Verified SAE records are internally coherent", "status": "PASS", "basis": "5 fully-verified plus 1 proof/tensile-verified SAE record confirmed schema-valid and cross-sourced"},
+    {"id": 5, "gate": "Blocked/insufficient records remain excluded from public calculation", "status": "PASS", "basis": "No calculator exists; dataset status fields correctly continue to gate 6 blocked ISO classes and 1 disputed SAE field"},
+    {"id": 6, "gate": "No unsupported default safety factor exists", "status": "PASS", "basis": "No default safety factor exists anywhere in the repository"},
+    {"id": 7, "gate": "User-supplied safety factor remains required", "status": "NOT APPLICABLE", "basis": "No calculator exists yet to enforce this; requirement preserved as documented policy for the future implementation phase"},
+    {"id": 8, "gate": "N/lbf conversion is mathematically straightforward, no unsupported assumptions", "status": "PASS", "basis": "Phase 1 Section 5, exact SI conversion constant"},
+    {"id": 9, "gate": "Mass-equivalent output can be clearly distinguished from force", "status": "NOT APPLICABLE", "basis": "UI/output-design requirement for the future calculator; no output exists yet to inspect"},
+    {"id": 10, "gate": "The guide does not contradict the calculator dataset", "status": "PASS", "basis": "This phase's specific purpose, confirmed resolved and validator-enforced"},
+    {"id": 11, "gate": "No calculator claim depends on unsourced property-class records", "status": "NOT APPLICABLE", "basis": "No calculator claims exist yet; dataset's own status-gating will enforce this once built"},
+    {"id": 12, "gate": "Safety limitations identified in Phase 1 remain preserved", "status": "PASS", "basis": "No Phase 1 limitation removed, weakened, or reinterpreted"},
+    {"id": 13, "gate": "Shear/joint failure modes remain deferred", "status": "PASS", "basis": "Untouched"},
+    {"id": 14, "gate": "Engagement, connected-material, bearing, tear-out, pull-through, prying, eccentricity, fatigue, preload integration remain deferred", "status": "PASS", "basis": "None of these topics touched or introduced"},
+    {"id": 15, "gate": "No full per-size/per-grade programmatic cluster required for first release", "status": "PASS", "basis": "This phase created no page of any kind"}
+  ],
+  "readiness_gates_summary": {"pass": 10, "not_applicable": 3, "fail": 0, "blocked": 0},
+  "unresolved_issues": [
+    "guide title tag omits 10.9/12.9 and meta description is truncated -- pre-existing, unrelated to the numeric conflict, not fixed (out of authorized scope)",
+    "guide states no numeric SAE values -- coverage gap, not a conflict, not filled (scope discipline)",
+    "js/torque-data.js's own lack of citation remains unresolved, not reopened (no contradiction found with the reconciled guide)",
+    "dataset's 6 blocked/incomplete ISO records and 1 disputed SAE yield-strength cell remain exactly as Phase 2 left them -- no new evidence found, not resolved this phase"
+  ],
+  "required_next_phase": "Public Implementation Phase: tools/bolt-load-capacity-calculator.html + JS, reference/fastener-property-classes.html, reference/tensile-stress-area.html, guides/bolt-load-capacity-basics.html. Readiness-gate findings indicate sourcing/reconciliation prerequisites are satisfied; the 3 Not-Applicable gates are output-design/enforcement work for that phase itself, not blocking evidence gaps.",
+  "non_actions": [
+    "did not create the calculator, its JavaScript, or any public reference/guide page",
+    "did not create JSON-LD/schema for any new product",
+    "did not extend the entity_type enum or create any new entity type",
+    "did not modify tapping-domain or size-cluster architecture",
+    "did not create any programmatic page or page family",
+    "did not begin affiliate/product content",
+    "did not make any unrelated SEO change",
+    "did not modify js/torque-data.js or tools/bolt-torque-calculator.html",
+    "did not modify data/datasets/fastener_property_classes.seed.json, any data/schemas/*.schema.json file, data/entities/entities.seed.json, or data/relationships/relationships.seed.json",
+    "did not modify any tapping dataset, generator, or validator",
+    "did not modify sitemap, robots.txt, ads.txt, canonical/hreflang logic, navigation, legal pages, or advertising infrastructure",
+    "did not modify any Phase 1 or Phase 2 audit artifact",
+    "did not upgrade any dependency or perform unrelated cleanup",
+    "did not commit or push anything"
+  ],
+  "changed_files": [
+    {
+      "file": "guides/bolt-strength-grades.html",
+      "change_type": "reconciled",
+      "summary": "Explanatory sentence reworded; ISO table gained diameter-range column and a fourth row; 8.8/10.9/12.9 values corrected to dataset's verified minimums; FAQ body text and matching JSON-LD updated identically for 12.9"
+    },
+    {
+      "file": "scripts/validators/validate-fastener-strength.js",
+      "change_type": "supporting_update",
+      "summary": "One check split into two: unchanged torque-file-protection assertion, and a new dataset-driven regression-proof guide/dataset-consistency check. Net check count 18 -> 19"
+    }
+  ],
+  "validation": {
+    "dedicated_validator_pre_edit": "18/18 passed",
+    "dedicated_validator_post_edit": "19/19 passed",
+    "full_9_validator_suite": {
+      "validate-knowledge-engine.js": "pass, 0 errors, 0 warnings, counts unchanged (25 entities, 11 standards, 7 datasets, 45 relationships)",
+      "validate-projections.js": "pass, 0 errors, 0 warnings, 13 projections unchanged",
+      "validate-tapping-domain.js": "pass, 0 errors, 5 warnings (baseline-identical)",
+      "validate-tapping-projections.js": "pass, 0 errors, 0 warnings",
+      "validate-tapping-atlas.js": "pass, 0 errors, 0 warnings",
+      "validate-tap-type-guide.js": "pass, 0 errors, 0 warnings",
+      "validate-tapping-workflow.js": "pass, 0 errors, 0 warnings",
+      "validate-tapping-evidence.js": "pass, 0 errors, 0 warnings",
+      "validate-tapping-terminology.js": "pass, 0 errors, 1 warning (baseline-identical)"
+    },
+    "git_diff_check": "clean (exit 0)",
+    "git_diff_stat": "guides/bolt-strength-grades.html (15 lines changed), scripts/validators/validate-fastener-strength.js (38 lines changed), 2 files total",
+    "protected_surfaces_confirmed_untouched": ["data/", "js/torque-data.js", "tools/bolt-torque-calculator.html", "sizes/", "es/", "sitemap.xml", "robots.txt", "ads.txt", "_redirects", "index.html", "scripts/generators/"],
+    "incidental_report_regeneration": "6 docs/architecture/*-report.{json,md} files regenerated with fresh timestamps as a side effect of running validators; reverted via git checkout --, per established convention"
+  },
+  "recommendation": {
+    "decision": "PASS",
+    "rationale": "Every discrepancy identified in Phase 2 between the guide and the dataset has been traced, classified, and resolved using the already-established Phase 2 evidence hierarchy, without fabricating any new source claim or overstating documented evidence limitations. The guide and dataset now state the same engineering facts. No protected surface, dataset, schema, or entity/relationship file was modified. The dedicated validator was extended, not weakened, to make this consistency regression-proof going forward. Of 15 readiness gates, 10 PASS and 3 are correctly NOT APPLICABLE pending the calculator's own construction; 0 FAIL, 0 BLOCKED.",
+    "next_phase": "Public Implementation Phase (calculator + supporting reference/guide pages), scoped exactly as bounded in Phase 1, pending Director authorization. Phase 4 must not begin automatically."
+  }
+}
