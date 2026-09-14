@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>M12 Bolt Load Capacity (Tensile Estimate)</title>
+  <meta name="description" content="M12 bolt tensile stress area, supported property classes, and worked load-capacity examples for both M12×1.75 and M12×1.25 thread pitches.">
+  <link rel="canonical" href="https://boltlab.io/guides/m12-bolt-load-capacity">
+  <link rel="alternate" hreflang="en" href="https://boltlab.io/guides/m12-bolt-load-capacity" />
+  <link rel="alternate" hreflang="x-default" href="https://boltlab.io/" />
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"M12 Bolt Load Capacity (Tensile Estimate)","description":"M12 bolt tensile stress area, supported property classes, and worked load-capacity examples for both M12×1.75 and M12×1.25 thread pitches.","url":"https://boltlab.io/guides/m12-bolt-load-capacity","author":{"@type":"Organization","name":"BoltLab"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BoltLab","item":"https://boltlab.io/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://boltlab.io/guides/"},{"@type":"ListItem","position":3,"name":"M12 Bolt Load Capacity","item":"https://boltlab.io/guides/m12-bolt-load-capacity"}]}</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/"><img class="brand-logo" src="/images/boltlab-logo.svg" alt="">BoltLab</a>
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="/tools/">Tools</a></li>
+          <li><a href="/charts/">Charts</a></li>
+          <li><a href="/reference/">Reference</a></li>
+          <li><a href="/sizes/">Sizes</a></li>
+          <li><a href="/guides/">Guides</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="content" class="container">
+    <article>
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">BoltLab</a> → <a href="/guides/">Guides</a> → M12 Bolt Load Capacity</nav>
+      <h1>M12 Bolt Load Capacity</h1>
+      <div class="aeo-answer-block" aria-label="Direct answer">
+        <p>An M12 bolt's tensile load capacity depends on its thread pitch (coarse M12×1.75 or fine M12×1.25), its property class, and a safety factor you choose — there is no single "M12 capacity" figure that applies to every part sold as M12.</p>
+        <p>Use the <a href="/tools/bolt-load-capacity-calculator">Bolt Load Capacity Calculator</a> to enter your own size, class, and safety factor; this page walks through how those inputs combine specifically for M12.</p>
+      </div>
+
+      <section class="card">
+        <h2>M12 thread geometry</h2>
+        <p>M12 is offered in a coarse and a fine pitch, both supported by BoltLab's calculator:</p>
+        <div class="chart-table-wrapper">
+          <table>
+            <thead><tr><th scope="col">Designation</th><th scope="col">Nominal diameter</th><th scope="col">Pitch</th><th scope="col">Series</th></tr></thead>
+            <tbody>
+              <tr><td>M12 × 1.75</td><td>12 mm</td><td>1.75 mm</td><td>Coarse</td></tr>
+              <tr><td>M12 × 1.25</td><td>12 mm</td><td>1.25 mm</td><td>Fine</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted">M12 × 1.75 coarse is the more commonly stocked pitch. The fine M12 × 1.25 option removes less material at the thread root, which shows up directly as a larger computed tensile stress area below.</p>
+      </section>
+
+      <section class="card">
+        <h2>M12 tensile stress area</h2>
+        <div id="m12-stress-area" class="chart-table-wrapper"><p class="muted">Loading…</p></div>
+        <p class="muted">Computed live using <code>At = 0.7854 × (D − 0.938194 × P)²</code> — see <a href="/reference/tensile-stress-area">tensile stress area</a> for the full formula derivation and its sourcing.</p>
+      </section>
+
+      <section class="card">
+        <h2>Property classes supported for M12</h2>
+        <div id="m12-classes" class="chart-table-wrapper"><p class="muted">Loading…</p></div>
+        <p class="muted">All source-verified ISO metric classes in BoltLab's dataset cover the 12 mm diameter, including the standard (≤M16) range of class 8.8. See <a href="/reference/fastener-property-classes">fastener property classes</a> for sourcing and which classes are currently held back.</p>
+      </section>
+
+      <section class="card">
+        <h2>Example M12 capacity calculations</h2>
+        <div id="m12-examples" class="chart-table-wrapper"><p class="muted">Loading…</p></div>
+        <p class="muted">Each row uses a safety factor of 4, shown for illustration only — substitute the factor appropriate to your application in the <a href="/tools/bolt-load-capacity-calculator">calculator</a>. These figures are computed by the same formula and data code the calculator itself runs, so this table and the tool can never disagree.</p>
+      </section>
+
+      <section class="card">
+        <h2>The role of safety factor for M12</h2>
+        <p>The proof-based figure above describes the fastener before any margin is applied — dividing by an appropriate safety factor accounts for load uncertainty, manufacturing tolerance, and the consequences of failure in your specific application. BoltLab does not suggest a default safety factor for M12 or any other size; see <a href="/guides/bolt-load-capacity-basics">Bolt Load Capacity Basics</a> for why no single value applies universally across applications and design codes.</p>
+      </section>
+
+      <section class="card">
+        <h2>Practical interpretation</h2>
+        <p>M12 is a larger general-purpose and structural metric size, often specified where M8 or M10 would not provide enough margin for the application. As with every size, the property class stamped on the bolt head — not the diameter alone — drives most of the real difference in capacity: an M12 class 4.6 bolt and an M12 class 12.9 bolt share the same tensile stress area but differ in proof-based capacity by more than 4×. Always confirm the class from the actual head marking (see <a href="/guides/bolt-head-markings">Bolt Head Markings</a>) rather than assuming it from size or supplier description.</p>
+      </section>
+
+      <section class="card">
+        <h2>Limitations</h2>
+        <p>This page and the calculator behind it estimate fastener tensile capacity only — not shear, joint, thread-stripping, nut, connected-material, fatigue, or preload behavior. See the calculator's own limitations section for the complete list, and verify safety-critical work with a qualified engineer and the applicable design code.</p>
+      </section>
+
+      <section class="card guide-links">
+        <h3>Related</h3>
+        <ul class="meta-list">
+          <li><a href="/tools/bolt-load-capacity-calculator">Bolt Load Capacity Calculator</a></li>
+          <li><a href="/reference/fastener-property-classes">Fastener Property Classes</a></li>
+          <li><a href="/reference/tensile-stress-area">Tensile Stress Area</a></li>
+          <li><a href="/guides/bolt-load-capacity-basics">Bolt Load Capacity Basics</a></li>
+          <li><a href="/guides/m8-bolt-load-capacity">M8 bolt load capacity</a></li>
+          <li><a href="/guides/m10-bolt-load-capacity">M10 bolt load capacity</a></li>
+          <li><a href="/guides/bolt-strength-grades">Bolt Strength Grades</a></li>
+        </ul>
+      </section>
+    </article>
+    <div id="related-links" class="related-links" aria-label="Related links"></div>
+  </main>
+      <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <a class="footer-logo" href="/">BoltLab</a>
+        <p class="footer-tagline">Precision fastener tools for real-world use.</p>
+      </div>
+      <nav class="footer-nav footer-nav-center" aria-label="Product">
+        <a href="/tools/">Tools</a>
+        <a href="/charts/">Charts</a>
+        <a href="/reference/">Reference</a>
+        <a href="/reference/standards/">Standards</a>
+        <a href="/reference/data-methodology">Data Methodology</a>
+        <a href="/reference/thread-atlas">Thread Atlas</a>
+        <a href="/sizes/">Sizes</a>
+        <a href="/guides/">Guides</a>
+      </nav>
+      <nav class="footer-nav footer-nav-right" aria-label="Company">
+        <a href="/about">About</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/cookies">Cookie Notice</a>
+        <a href="/terms">Terms</a>
+        <a href="/disclaimer">Disclaimer</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p class="footer-copyright">© BoltLab — A product of Albor Digital LLC</p>
+        <p class="footer-domains"><span class="footer-domains-label">Supporting domains:</span> screwsizechart.com · boltgradechart.com</p>
+      </div>
+    </div>
+  </footer>
+  <script src="/js/bolt-load-capacity-formulas.js" defer></script>
+  <script src="/js/bolt-load-capacity-data.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Albor Digital LLC","url":"https://albor.digital","email":"contact@albor.digital","sameAs":["https://boltlab.io","https://screwsizechart.com","https://boltgradechart.com"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"BoltLab","url":"https://boltlab.io","publisher":{"@type":"Organization","name":"Albor Digital LLC"}}</script>
+  <script src="/js/link-engine.js" defer></script>
+  <script src="/js/context-anchor-engine.js" defer></script>
+  <script src="/js/anchor-engine.js" defer></script>
+  <script defer>
+  document.addEventListener("DOMContentLoaded", function () {
+    var F = window.BoltLabFastenerFormulas;
+    var classes = window.BoltLabFastenerPropertyClasses || [];
+    if (!F || !classes.length) return;
+    var DIAMETER = 12;
+    var pitches = [
+      { label: "M12 × 1.75 (coarse)", pitch: 1.75 },
+      { label: "M12 × 1.25 (fine)", pitch: 1.25 }
+    ];
+
+    var saEl = document.getElementById("m12-stress-area");
+    if (saEl) {
+      var saRows = pitches.map(function (p) {
+        var at = F.metricStressArea(DIAMETER, p.pitch);
+        return "<tr><td>" + p.label + "</td><td>D = " + DIAMETER + " mm, P = " + p.pitch + " mm</td><td>" + at.toFixed(2) + " mm²</td></tr>";
+      }).join("");
+      saEl.innerHTML = "<table><thead><tr><th scope=\"col\">Thread</th><th scope=\"col\">Formula inputs</th><th scope=\"col\">Tensile stress area</th></tr></thead><tbody>" + saRows + "</tbody></table>";
+    }
+
+    var isoClasses = classes.filter(function (c) {
+      return c.system === "iso_metric" && DIAMETER >= c.diameterRange.min && DIAMETER <= c.diameterRange.max;
+    });
+    var clEl = document.getElementById("m12-classes");
+    if (clEl) {
+      var clRows = isoClasses.map(function (c) {
+        return "<tr><td>" + c.designation + "</td><td>M" + c.diameterRange.min + " – M" + c.diameterRange.max + "</td><td>" + c.proofStrength + " " + c.unit + "</td><td>" + c.tensileStrength + " " + c.unit + "</td></tr>";
+      }).join("");
+      clEl.innerHTML = "<table><thead><tr><th scope=\"col\">Class</th><th scope=\"col\">Diameter range</th><th scope=\"col\">Min. proof strength</th><th scope=\"col\">Min. tensile strength</th></tr></thead><tbody>" + clRows + "</tbody></table>";
+    }
+
+    var exEl = document.getElementById("m12-examples");
+    if (exEl) {
+      var sf = 4;
+      var pairs = [
+        { pitchLabel: "M12 × 1.75", pitch: 1.75, designation: "8.8" },
+        { pitchLabel: "M12 × 1.75", pitch: 1.75, designation: "12.9" },
+        { pitchLabel: "M12 × 1.25", pitch: 1.25, designation: "10.9" }
+      ];
+      var exRows = pairs.map(function (ex) {
+        var cls = isoClasses.find(function (c) { return c.designation === ex.designation; });
+        if (!cls) return "";
+        var at = F.metricStressArea(DIAMETER, ex.pitch);
+        var proofN = cls.proofStrength * at;
+        var allowableN = proofN / sf;
+        var massKg = F.nToKg(allowableN);
+        return "<tr><td>" + ex.pitchLabel + ", class " + ex.designation + "</td><td>" + at.toFixed(2) + " mm²</td><td>" + cls.proofStrength + " " + cls.unit +
+          "</td><td>" + sf + "</td><td>" + Math.round(allowableN) + " N (" + F.nToLbf(allowableN).toFixed(0) + " lbf)</td><td>" + massKg.toFixed(1) + " kg (" + F.kgToLb(massKg).toFixed(0) + " lb)</td></tr>";
+      }).join("");
+      exEl.innerHTML = "<table><thead><tr><th scope=\"col\">Fastener</th><th scope=\"col\">Tensile stress area</th><th scope=\"col\">Proof strength</th><th scope=\"col\">Safety factor</th><th scope=\"col\">Allowable capacity</th><th scope=\"col\">Mass equivalent</th></tr></thead><tbody>" + exRows + "</tbody></table>";
+    }
+  });
+  </script>
+</body>
+</html>

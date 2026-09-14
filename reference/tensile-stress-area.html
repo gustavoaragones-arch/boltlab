@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <title>Tensile Stress Area Explained (Metric &amp; Inch Formulas)</title>
+  <meta name="description" content="Why a bolt's load-carrying cross-section is smaller than its nominal diameter suggests, and the metric and inch tensile stress area formulas BoltLab's calculator uses.">
+  <link rel="canonical" href="https://boltlab.io/reference/tensile-stress-area">
+  <link rel="alternate" hreflang="en" href="https://boltlab.io/reference/tensile-stress-area" />
+  <link rel="alternate" hreflang="x-default" href="https://boltlab.io/" />
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Tensile Stress Area Explained (Metric & Inch Formulas)","description":"Why a bolt's load-carrying cross-section is smaller than its nominal diameter suggests, and the metric and inch tensile stress area formulas BoltLab's calculator uses.","url":"https://boltlab.io/reference/tensile-stress-area","author":{"@type":"Organization","name":"BoltLab"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BoltLab","item":"https://boltlab.io/"},{"@type":"ListItem","position":2,"name":"Reference","item":"https://boltlab.io/reference/"},{"@type":"ListItem","position":3,"name":"Tensile Stress Area","item":"https://boltlab.io/reference/tensile-stress-area"}]}</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/"><img class="brand-logo" src="/images/boltlab-logo.svg" alt="">BoltLab</a>
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="/tools/">Tools</a></li>
+          <li><a href="/charts/">Charts</a></li>
+          <li><a href="/reference/">Reference</a></li>
+          <li><a href="/sizes/">Sizes</a></li>
+          <li><a href="/guides/">Guides</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="content" class="container">
+    <article>
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">BoltLab</a> → <a href="/reference/">Reference</a> → Tensile Stress Area</nav>
+      <h1>Tensile Stress Area</h1>
+      <p class="muted">Why the <a href="/tools/bolt-load-capacity-calculator">Bolt Load Capacity Calculator</a> doesn't just use nominal diameter, and the exact formulas it uses instead.</p>
+
+      <section class="card">
+        <h2>Why nominal diameter overstates a bolt's load-carrying area</h2>
+        <p>A bolt's nominal diameter describes the outside of its threads — the major diameter. But a threaded fastener does not fail across that full circle: it fails through the reduced cross-section left after the threads are cut, somewhere between the major diameter and the smaller minor (root) diameter. Using the full nominal-diameter circle to estimate strength would overstate a bolt's real capacity, because the threads themselves remove material. <strong>Tensile stress area</strong> is the effective cross-sectional area engineers use instead — an area based on the average of the pitch diameter and minor diameter, not the major diameter.</p>
+      </section>
+
+      <section class="card">
+        <h2>Metric formula</h2>
+        <p><code>At = 0.7854 × (D − 0.938194 × P)²</code></p>
+        <p>D is the nominal (major) diameter in millimeters, P is the thread pitch in millimeters, and At is the tensile stress area in mm². The constant 0.938194 approximates the geometric relationship between major, pitch, and minor diameter for the standard 60° ISO metric thread profile. This formula is well established in fastener engineering references and is cross-checked in BoltLab's own sourcing work against a directly-quoted manufacturer table (a M10 × 1.5 bolt computes to 57.99 mm², matching the quoted table value of 58 mm²) — see <a href="/reference/data-methodology">Engineering Data Methodology</a> for how BoltLab classifies this kind of cross-verification.</p>
+      </section>
+
+      <section class="card">
+        <h2>Inch (UNC/UNF) formula</h2>
+        <p><code>At = 0.7854 × (D − 0.9743 / n)²</code></p>
+        <p>D is the nominal (major) diameter in inches, n is threads per inch (TPI), and At is in in². This is the formula given in ASME B1.1 for unified inch threads — a different, independently-sourced constant (0.9743) from the metric formula's 0.938194, not simply the same formula translated between unit systems. BoltLab verified it by computing a 1/4-20 UNC bolt's area as 0.03182 in² and a 3/8-16 UNC bolt's as 0.07753 in², both matching a directly-quoted reference table exactly.</p>
+      </section>
+
+      <section class="card">
+        <h2>Worked example</h2>
+        <div id="tsa-worked-example" class="chart-table-wrapper"><p class="muted">Loading example…</p></div>
+        <p class="muted">This example is computed live by the same formula code the calculator itself runs — it is not a hand-typed number that could drift from the tool.</p>
+      </section>
+
+      <section class="card">
+        <h2>How this feeds the calculator</h2>
+        <p>The <a href="/tools/bolt-load-capacity-calculator">Bolt Load Capacity Calculator</a> computes tensile stress area first, then multiplies it by the selected <a href="/reference/fastener-property-classes">property class's</a> minimum proof strength to estimate tensile capacity. Stress area is a pure geometry calculation — it does not depend on material or property class, only on nominal diameter and pitch/TPI.</p>
+      </section>
+
+      <section class="card">
+        <h2>Limitations</h2>
+        <p>This formula describes the thread's geometric cross-section only. It does not account for thread engagement length, manufacturing tolerances on an individual part, surface defects, or the strength of whatever the fastener threads into — those are separate considerations from the geometric area calculated here. See <a href="/tools/bolt-load-capacity-calculator">the calculator's own limitations section</a> for the full list of what this tool does not cover.</p>
+      </section>
+
+      <section class="card guide-links">
+        <h3>Related</h3>
+        <ul class="meta-list">
+          <li><a href="/tools/bolt-load-capacity-calculator">Bolt Load Capacity Calculator</a></li>
+          <li><a href="/reference/fastener-property-classes">Fastener Property Classes</a></li>
+          <li><a href="/guides/bolt-load-capacity-basics">Bolt Load Capacity Basics</a></li>
+          <li><a href="/reference/thread-types">Thread Types</a></li>
+          <li><a href="/reference/pitch-diameter-explained">Pitch Diameter Explained</a></li>
+        </ul>
+      </section>
+    </article>
+    <div id="related-links" class="related-links" aria-label="Related links"></div>
+  </main>
+      <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <a class="footer-logo" href="/">BoltLab</a>
+        <p class="footer-tagline">Precision fastener tools for real-world use.</p>
+      </div>
+      <nav class="footer-nav footer-nav-center" aria-label="Product">
+        <a href="/tools/">Tools</a>
+        <a href="/charts/">Charts</a>
+        <a href="/reference/">Reference</a>
+        <a href="/reference/standards/">Standards</a>
+        <a href="/reference/data-methodology">Data Methodology</a>
+        <a href="/reference/thread-atlas">Thread Atlas</a>
+        <a href="/sizes/">Sizes</a>
+        <a href="/guides/">Guides</a>
+      </nav>
+      <nav class="footer-nav footer-nav-right" aria-label="Company">
+        <a href="/about">About</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/cookies">Cookie Notice</a>
+        <a href="/terms">Terms</a>
+        <a href="/disclaimer">Disclaimer</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p class="footer-copyright">© BoltLab — A product of Albor Digital LLC</p>
+        <p class="footer-domains"><span class="footer-domains-label">Supporting domains:</span> screwsizechart.com · boltgradechart.com</p>
+      </div>
+    </div>
+  </footer>
+  <script src="/js/bolt-load-capacity-formulas.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Albor Digital LLC","url":"https://albor.digital","email":"contact@albor.digital","sameAs":["https://boltlab.io","https://screwsizechart.com","https://boltgradechart.com"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"BoltLab","url":"https://boltlab.io","publisher":{"@type":"Organization","name":"Albor Digital LLC"}}</script>
+  <script src="/js/link-engine.js" defer></script>
+  <script src="/js/context-anchor-engine.js" defer></script>
+  <script src="/js/anchor-engine.js" defer></script>
+  <script defer>
+  document.addEventListener("DOMContentLoaded", function () {
+    var el = document.getElementById("tsa-worked-example");
+    if (!el || !window.BoltLabFastenerFormulas) return;
+    var at = window.BoltLabFastenerFormulas.metricStressArea(10, 1.5);
+    el.innerHTML =
+      "<table><thead><tr><th scope=\"col\">Size</th><th scope=\"col\">Formula inputs</th><th scope=\"col\">Tensile stress area</th></tr></thead>" +
+      "<tbody><tr><td>M10 × 1.5</td><td>D = 10 mm, P = 1.5 mm</td><td>" + at.toFixed(2) + " mm²</td></tr></tbody></table>";
+  });
+  </script>
+</body>
+</html>

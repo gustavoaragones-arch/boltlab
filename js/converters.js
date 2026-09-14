@@ -6,6 +6,8 @@
   var torqueData = window.BoltLabTorqueData || {};
   var weightData = window.BoltLabWeightData || {};
   var drillData = window.BoltLabDrillData || [];
+  var propertyClassData = window.BoltLabFastenerPropertyClasses || [];
+  var threadGeometryData = window.BoltLabThreadGeometry || { metric: [], inch: [] };
 
   function byId(id) {
     return document.getElementById(id);
@@ -587,6 +589,173 @@
     updateResult();
   }
 
+  function setupBoltLoadCapacityCalculator() {
+    var systemEl = byId("blc-system");
+    var sizeEl = byId("blc-size");
+    var gradeEl = byId("blc-grade");
+    var sfEl = byId("blc-safety-factor");
+    var resultEl = byId("blc-result");
+
+    if (!systemEl || !sizeEl || !gradeEl || !sfEl || !resultEl) return;
+    if (!window.BoltLabFastenerFormulas) return;
+
+    function geometryForSystem(system) {
+      return system === "metric" ? threadGeometryData.metric : threadGeometryData.inch;
+    }
+
+    function diameterOf(sizeRecord) {
+      return sizeRecord.diameterMm !== undefined ? sizeRecord.diameterMm : sizeRecord.diameterIn;
+    }
+
+    function currentSizeRecord() {
+      var sizes = geometryForSystem(systemEl.value);
+      var idx = parseInt(sizeEl.value, 10);
+      return sizes[idx];
+    }
+
+    function populateSizes() {
+      var system = systemEl.value;
+      var sizes = geometryForSystem(system);
+      sizeEl.innerHTML = "";
+      sizes.forEach(function (s, i) {
+        var opt = document.createElement("option");
+        opt.value = String(i);
+        opt.textContent =
+          system === "metric"
+            ? s.designation + " (" + s.series + ", " + s.pitchMm + " mm pitch)"
+            : s.designation + " (" + s.threadsPerInch + " TPI)";
+        sizeEl.appendChild(opt);
+      });
+    }
+
+    function populateGrades() {
+      var system = systemEl.value;
+      var sizeRecord = currentSizeRecord();
+      gradeEl.innerHTML = "";
+      if (!sizeRecord) return;
+      var diameter = diameterOf(sizeRecord);
+      var pcSystem = system === "metric" ? "iso_metric" : "sae";
+      var matches = propertyClassData.filter(function (pc) {
+        return pc.system === pcSystem && diameter >= pc.diameterRange.min && diameter <= pc.diameterRange.max;
+      });
+      if (matches.length === 0) {
+        var noneOpt = document.createElement("option");
+        noneOpt.value = "";
+        noneOpt.textContent = "No supported property class for this size";
+        gradeEl.appendChild(noneOpt);
+        return;
+      }
+      matches.forEach(function (pc) {
+        var opt = document.createElement("option");
+        opt.value = pc.id;
+        opt.textContent = pc.designation + " (" + pc.proofStrength + " " + pc.unit + " proof strength)";
+        gradeEl.appendChild(opt);
+      });
+    }
+
+    function updateResult() {
+      var system = systemEl.value;
+      var sizeRecord = currentSizeRecord();
+      var grade = propertyClassData.find(function (pc) {
+        return pc.id === gradeEl.value;
+      });
+      var sfRaw = sfEl.value;
+      var sf = parseFloat(sfRaw);
+
+      if (!sizeRecord) {
+        resultEl.innerHTML = "<p>Select a fastener size.</p>";
+        return;
+      }
+      if (!grade) {
+        resultEl.innerHTML =
+          "<p><strong>No supported property class for this size.</strong></p>" +
+          "<p class='muted'>Try a different size or unit system. Only property classes with a source-verified minimum strength for this diameter are offered.</p>";
+        return;
+      }
+      if (!sfRaw || Number.isNaN(sf) || sf <= 0) {
+        resultEl.innerHTML =
+          "<p><strong>Enter a safety factor to calculate.</strong></p>" +
+          "<p class='muted'>A safety factor is required and must be a positive number appropriate to your application, standard, or code. BoltLab does not supply a default safety factor.</p>";
+        return;
+      }
+
+      var formulas = window.BoltLabFastenerFormulas;
+      var isMetric = system === "metric";
+      var diameter = diameterOf(sizeRecord);
+      var at = isMetric
+        ? formulas.metricStressArea(diameter, sizeRecord.pitchMm)
+        : formulas.inchStressArea(diameter, sizeRecord.threadsPerInch);
+
+      var proofCapacityPrimary = grade.proofStrength * at;
+      var ultimateCapacityPrimary = grade.tensileStrength * at;
+
+      var proofN, proofLbf, ultN, ultLbf;
+      if (isMetric) {
+        proofN = proofCapacityPrimary;
+        proofLbf = formulas.nToLbf(proofN);
+        ultN = ultimateCapacityPrimary;
+        ultLbf = formulas.nToLbf(ultN);
+      } else {
+        proofLbf = proofCapacityPrimary;
+        proofN = formulas.lbfToN(proofLbf);
+        ultLbf = ultimateCapacityPrimary;
+        ultN = formulas.lbfToN(ultLbf);
+      }
+
+      var allowableN = proofN / sf;
+      var allowableLbf = proofLbf / sf;
+      var massKg = formulas.nToKg(allowableN);
+      var massLb = formulas.kgToLb(massKg);
+
+      resultEl.innerHTML =
+        "<div class='result-grid'>" +
+        "<p><strong>Tensile stress area:</strong> " +
+        round(at, isMetric ? 2 : 5) +
+        (isMetric ? " mm²" : " in²") +
+        "</p>" +
+        "<p><strong>Proof-strength-based tensile capacity:</strong> " +
+        round(proofN, 1) +
+        " N (" +
+        round(proofLbf, 1) +
+        " lbf)</p>" +
+        "<p><strong>Allowable capacity (proof capacity ÷ safety factor " +
+        sf +
+        "):</strong> " +
+        round(allowableN, 1) +
+        " N (" +
+        round(allowableLbf, 1) +
+        " lbf)</p>" +
+        "<p class='muted'><strong>Ultimate-strength-based capacity (reference only, not the governing design value):</strong> " +
+        round(ultN, 1) +
+        " N (" +
+        round(ultLbf, 1) +
+        " lbf)</p>" +
+        "<p class='muted'><strong>Mass equivalent of the allowable capacity</strong> (an equivalent mass under standard gravity, not a force): " +
+        round(massKg, 2) +
+        " kg (" +
+        round(massLb, 2) +
+        " lb)</p>" +
+        "<p class='muted'>This is a fastener tensile-capacity estimate only. It does not represent joint, connected-material, or complete-assembly capacity.</p>" +
+        "</div>";
+    }
+
+    systemEl.addEventListener("change", function () {
+      populateSizes();
+      populateGrades();
+      updateResult();
+    });
+    sizeEl.addEventListener("change", function () {
+      populateGrades();
+      updateResult();
+    });
+    gradeEl.addEventListener("change", updateResult);
+    sfEl.addEventListener("input", updateResult);
+
+    populateSizes();
+    populateGrades();
+    updateResult();
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     setupHeroMetricImperialConverter();
     setupMetricImperialConverter();
@@ -596,5 +765,6 @@
     setupBoltTorqueCalculator();
     setupFastenerWeightCalculator();
     setupDrillBitConverter();
+    setupBoltLoadCapacityCalculator();
   });
 })();

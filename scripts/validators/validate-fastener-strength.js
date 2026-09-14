@@ -180,15 +180,23 @@ check("verified diameter-dependent classes cover all their ranges (incomplete so
   }
 });
 
-check("no production calculator page exists yet (Phase 2 must not publish)", () => {
-  const forbidden = [
+check("production calculator/reference/guide pages are the Public Implementation phase's authorized deliverables (Phase 2's premature-publication gate no longer applies)", () => {
+  // Originally this check asserted these files did NOT exist, because Phase 2 was sourcing-only
+  // and publication was not yet authorized. The Public Implementation phase is the authorized
+  // phase that creates them, so the gate this check enforces has now been formally passed --
+  // asserting their absence today would itself be the regression. This check is kept (rather than
+  // deleted) to document that transition and to continue asserting the files are real, non-empty
+  // pages rather than silently missing or emptied by a future change.
+  const required = [
     "tools/bolt-load-capacity-calculator.html",
     "reference/fastener-property-classes.html",
     "reference/tensile-stress-area.html",
     "guides/bolt-load-capacity-basics.html",
   ];
-  for (const f of forbidden) {
-    assert(!fs.existsSync(path.join(ROOT, f)), `${f} exists but must not be created until a later implementation phase`);
+  for (const f of required) {
+    const full = path.join(ROOT, f);
+    assert(fs.existsSync(full), `${f} is missing -- it is an authorized Public Implementation phase deliverable`);
+    assert(fs.readFileSync(full, "utf8").length > 500, `${f} exists but looks empty/truncated`);
   }
 });
 

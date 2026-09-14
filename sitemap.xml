@@ -206,6 +206,11 @@
     <priority>0.75</priority>
   </url>
   <url>
+    <loc>https://boltlab.io/guides/bolt-load-capacity-basics</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
     <loc>https://boltlab.io/guides/bolt-strength-grades</loc>
     <lastmod>2026-03-27</lastmod>
     <priority>0.75</priority>
@@ -223,6 +228,21 @@
   <url>
     <loc>https://boltlab.io/guides/how-to-measure-thread-pitch</loc>
     <lastmod>2026-03-27</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://boltlab.io/guides/m8-bolt-load-capacity</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://boltlab.io/guides/m10-bolt-load-capacity</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://boltlab.io/guides/m12-bolt-load-capacity</loc>
+    <lastmod>2026-09-14</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
@@ -286,6 +306,11 @@
     <priority>0.75</priority>
   </url>
   <url>
+    <loc>https://boltlab.io/reference/fastener-property-classes</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
     <loc>https://boltlab.io/reference/screw-anatomy</loc>
     <lastmod>2026-03-27</lastmod>
     <priority>0.75</priority>
@@ -308,6 +333,11 @@
   <url>
     <loc>https://boltlab.io/reference/self-tapping-vs-self-drilling</loc>
     <lastmod>2026-03-27</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://boltlab.io/reference/tensile-stress-area</loc>
+    <lastmod>2026-09-14</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
@@ -443,6 +473,11 @@
   <url>
     <loc>https://boltlab.io/tools/</loc>
     <lastmod>2026-08-11</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://boltlab.io/tools/bolt-load-capacity-calculator</loc>
+    <lastmod>2026-09-14</lastmod>
     <priority>0.75</priority>
   </url>
   <url>
